@@ -1,0 +1,7707 @@
+[
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "calm_s11",
+  "avail": 21.88,
+  "pxMed": 271.0091959501581,
+  "jitter": 6.17421812605898,
+  "keMax": 16.28441389725417,
+  "headClear": 1.1187550483562823,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.23,
+   11.94
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 12.39,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 7,
+   "flyPxLow": 32.65,
+   "flyArt": 14.95,
+   "flyFit": 0.94,
+   "avail": 21.88,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    14.64,
+    16.74
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    1.92,
+    3.26,
+    6.76
+   ],
+   "ke": [
+    9.93,
+    12.46,
+    16.28
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 16.3,
+   "vF": 16.74,
+   "vExit": 16.5,
+   "riderV": 11.96,
+   "L": 11.34
+  },
+  "hc3": 1.119,
+  "hcNoExcl": 1.119,
+  "keByMode": {
+   "LAUNCH": 11.7,
+   "FLY": 16.3,
+   "BRAKE": 13.3,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 93.22,
+   "mode": "BRAKE",
+   "d": 1.12,
+   "riderV": 9.15,
+   "L": 11.34,
+   "T": 6.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "calm_s13",
+  "avail": 33.59,
+  "pxMed": 305.21574141049376,
+  "jitter": 6.101652847493131,
+  "keMax": 21.238405105332202,
+  "headClear": 1.089051632726114,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.82,
+   11.75
+  ],
+  "cat": {
+   "notAirborne": 6.09,
+   "launch": 12.28,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 2.8,
+   "flyPxLow": 34.51,
+   "flyArt": 5.15,
+   "flyFit": 1.24,
+   "avail": 33.59,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.22,
+    14.81,
+    19.11
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.04,
+    3.7,
+    5.82
+   ],
+   "ke": [
+    10.17,
+    12.75,
+    21.24
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 21.2,
+   "vF": 19.11,
+   "vExit": 15.36,
+   "riderV": 11.68,
+   "L": 11.59
+  },
+  "hc3": 1.089,
+  "hcNoExcl": 1.089,
+  "keByMode": {
+   "LAUNCH": 12.3,
+   "FLY": 21.2,
+   "BRAKE": 18.7,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.74,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.5,
+   "L": 11.64,
+   "T": 6,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "head3_s12",
+  "avail": 14.63,
+  "pxMed": 268.35139626257364,
+  "jitter": 7.403995510008544,
+  "keMax": 22.848007976075394,
+  "headClear": 1.0639569657773102,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   44.28
+  ],
+  "cat": {
+   "notAirborne": 19.13,
+   "launch": 5.31,
+   "brakeRetrieve": 32.7,
+   "flyNotInFrame": 3.02,
+   "flyPxLow": 22.28,
+   "flyArt": 1.99,
+   "flyFit": 0.94,
+   "avail": 14.63,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.97,
+    14.37,
+    19.83
+   ],
+   "vExit": [
+    13.14,
+    13.27,
+    16.61
+   ],
+   "vRel": [
+    1.97,
+    3.66,
+    5.51
+   ],
+   "ke": [
+    9.77,
+    12,
+    22.85
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 22.8,
+   "vF": 19.83,
+   "vExit": 16.08,
+   "riderV": 11.86,
+   "L": 11.32
+  },
+  "hc3": 0.448,
+  "hcNoExcl": 0.448,
+  "keByMode": {
+   "LAUNCH": 8.9,
+   "FLY": 22.8,
+   "BRAKE": 13.8,
+   "FLYIN": 1.2,
+   "CAPTURE": 6.2
+  },
+  "headMin": {
+   "t": 38.7,
+   "mode": "BRAKE",
+   "d": 1.06,
+   "riderV": 8.74,
+   "L": 11.57,
+   "T": 8,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "head6_s12",
+  "avail": 35.13,
+  "pxMed": 315.3411893765825,
+  "jitter": 9.52262582116579,
+  "keMax": 23.813242807762247,
+  "headClear": 1.0878158010877084,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   10.95,
+   10.93
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.81,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 8.38,
+   "flyPxLow": 31.38,
+   "flyArt": 5.36,
+   "flyFit": 0.67,
+   "avail": 35.13,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.32,
+    14.53,
+    20.24
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.21,
+    4.24,
+    8.42
+   ],
+   "ke": [
+    10.32,
+    12.27,
+    23.81
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 23.8,
+   "vF": 20.24,
+   "vExit": 16.37,
+   "riderV": 11.95,
+   "L": 9.91
+  },
+  "hc3": 1.088,
+  "hcNoExcl": 1.088,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 23.8,
+   "BRAKE": 14.5,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.64,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.96,
+   "L": 10.56,
+   "T": 11.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "head9_s11",
+  "avail": 27.18,
+  "pxMed": 295.3642906124541,
+  "jitter": 11.172940958295266,
+  "keMax": 57.079011910096014,
+  "headClear": 1.030746878583153,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.33,
+   11.99
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 8.24,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 6.44,
+   "flyPxLow": 30.04,
+   "flyArt": 12.58,
+   "flyFit": 5.33,
+   "avail": 27.18,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.51,
+    16.85,
+    31.33
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.81,
+    7.07,
+    26.09
+   ],
+   "ke": [
+    10.61,
+    16.51,
+    57.08
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 85.86,
+   "mode": "FLY",
+   "ke": 57.1,
+   "vF": 31.33,
+   "vExit": 13.13,
+   "riderV": 12.87,
+   "L": 10.04
+  },
+  "hc3": 1.031,
+  "hcNoExcl": 1.031,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 57.1,
+   "BRAKE": 17.3,
+   "RETRIEVE": 2.6,
+   "CAPTURE": 1.8
+  },
+  "headMin": {
+   "t": 92.22,
+   "mode": "FLY",
+   "d": 1.03,
+   "riderV": 12.99,
+   "L": 9.88,
+   "T": 13,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "tail3_s12",
+  "avail": 21.77,
+  "pxMed": 248.1645207999078,
+  "jitter": 8.07765277472142,
+  "keMax": 21.71587737705898,
+  "headClear": 0.5992368969532362,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   18.63,
+   20.59
+  ],
+  "cat": {
+   "notAirborne": 12.55,
+   "launch": 13.04,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 7.87,
+   "flyPxLow": 35.43,
+   "flyArt": 3.07,
+   "flyFit": 1.97,
+   "avail": 21.77,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.13,
+    16.11,
+    19.33
+   ],
+   "vExit": [
+    13.17,
+    13.33,
+    16.61
+   ],
+   "vRel": [
+    2.89,
+    5.11,
+    8.96
+   ],
+   "ke": [
+    10.02,
+    15.09,
+    21.72
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 21.76,
+   "mode": "FLY",
+   "ke": 21.7,
+   "vF": 19.33,
+   "vExit": 13.15,
+   "riderV": 13.07,
+   "L": 9.97
+  },
+  "hc3": 0.599,
+  "hcNoExcl": 0.599,
+  "keByMode": {
+   "LAUNCH": 14.3,
+   "FLY": 21.7,
+   "BRAKE": 17,
+   "CAPTURE": 0.2,
+   "RETRIEVE": 0.2
+  },
+  "headMin": {
+   "t": 40.54,
+   "mode": "BRAKE",
+   "d": 0.6,
+   "riderV": 0,
+   "L": 8.78,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "crossL3_s12",
+  "avail": 30.66,
+  "pxMed": 270.9267637687381,
+  "jitter": 7.066596826899137,
+  "keMax": 20.252031610646714,
+  "headClear": 0.9872798207822316,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   21.53,
+   21.23
+  ],
+  "cat": {
+   "notAirborne": 7.6,
+   "launch": 9.94,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 5.39,
+   "flyPxLow": 40.46,
+   "flyArt": 0.86,
+   "flyFit": 0.78,
+   "avail": 30.66,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.11,
+    14.72,
+    18.66
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.22,
+    3.9,
+    7.07
+   ],
+   "ke": [
+    9.99,
+    12.6,
+    20.25
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 20.3,
+   "vF": 18.66,
+   "vExit": 15.7,
+   "riderV": 11.78,
+   "L": 11.3
+  },
+  "hc3": 0.987,
+  "hcNoExcl": 0.987,
+  "keByMode": {
+   "LAUNCH": 10.5,
+   "FLY": 20.3,
+   "BRAKE": 14.5,
+   "RETRIEVE": 0,
+   "CAPTURE": 0.1
+  },
+  "headMin": {
+   "t": 38.78,
+   "mode": "BRAKE",
+   "d": 0.99,
+   "riderV": 8.45,
+   "L": 11.33,
+   "T": 6.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "crossL6_s13",
+  "avail": 30.15,
+  "pxMed": 280.95778664070576,
+  "jitter": 7.628860417143878,
+  "keMax": 19.569164643219377,
+  "headClear": 0.44913466433523774,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.89,
+   23.18
+  ],
+  "cat": {
+   "notAirborne": 12.5,
+   "launch": 10.99,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 2.64,
+   "flyPxLow": 37.63,
+   "flyArt": 1.27,
+   "flyFit": 0.48,
+   "avail": 30.15,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.14,
+    15.01,
+    18.35
+   ],
+   "vExit": [
+    13.17,
+    13.28,
+    16.12
+   ],
+   "vRel": [
+    2.5,
+    5.34,
+    8.89
+   ],
+   "ke": [
+    10.04,
+    13.1,
+    19.57
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 79.22,
+   "mode": "FLY",
+   "ke": 19.6,
+   "vF": 18.35,
+   "vExit": 13.13,
+   "riderV": 13.12,
+   "L": 11.24
+  },
+  "hc3": 0.449,
+  "hcNoExcl": 0.449,
+  "keByMode": {
+   "LAUNCH": 12.7,
+   "FLY": 19.6,
+   "BRAKE": 16.5,
+   "RETRIEVE": 3.6,
+   "CAPTURE": 0.3
+  },
+  "headMin": {
+   "t": 99.8,
+   "mode": "RETRIEVE",
+   "d": 0.45,
+   "riderV": 0,
+   "L": 6.59,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "crossL9_s11",
+  "avail": 12.07,
+  "pxMed": 249.49497473547171,
+  "jitter": 14.047954010592768,
+  "keMax": 36.36742319695623,
+  "headClear": 0.2503306458599778,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   26.65
+  ],
+  "cat": {
+   "notAirborne": 42.81,
+   "launch": 5.2,
+   "brakeRetrieve": 8.94,
+   "flyNotInFrame": 4.96,
+   "flyPxLow": 19.8,
+   "flyArt": 1.13,
+   "flyFit": 5.09,
+   "avail": 12.07,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.71,
+    16.36,
+    25.01
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    3.41,
+    8.5,
+    20.15
+   ],
+   "ke": [
+    10.93,
+    15.56,
+    36.37
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 34.56,
+   "mode": "FLY",
+   "ke": 36.4,
+   "vF": 25.01,
+   "vExit": 13.26,
+   "riderV": 13.15,
+   "L": 8.81
+  },
+  "hc3": 0.014,
+  "hcNoExcl": 0.014,
+  "keByMode": {
+   "LAUNCH": 11.1,
+   "FLY": 36.4,
+   "BRAKE": 4.4,
+   "RETRIEVE": 3.9,
+   "CAPTURE": 1
+  },
+  "headMin": {
+   "t": 50.18,
+   "mode": "RETRIEVE",
+   "d": 0.25,
+   "riderV": 0,
+   "L": 1.49,
+   "T": 0.4,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "crossR3_s11",
+  "avail": 14.84,
+  "pxMed": 263.9610743107414,
+  "jitter": 7.177148052709192,
+  "keMax": 48.84822960528925,
+  "headClear": 0.9329466180923717,
+  "launches": 2,
+  "launchFails": 1,
+  "dockTimes": [
+   21.07
+  ],
+  "cat": {
+   "notAirborne": 6.79,
+   "launch": 11.18,
+   "brakeRetrieve": 41.03,
+   "flyNotInFrame": 4.09,
+   "flyPxLow": 18.83,
+   "flyArt": 2.37,
+   "flyFit": 0.86,
+   "avail": 14.84,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.16,
+    14.55,
+    18.64
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.39,
+    4.53,
+    8.47
+   ],
+   "ke": [
+    10.06,
+    12.31,
+    20.19
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 68.46,
+   "mode": "RETRIEVE",
+   "ke": 48.8,
+   "vF": 28.99,
+   "vExit": 13.36,
+   "riderV": 13.05,
+   "L": 6.02
+  },
+  "hc3": 0.933,
+  "hcNoExcl": 0.933,
+  "keByMode": {
+   "LAUNCH": 15,
+   "FLY": 20.2,
+   "BRAKE": 16,
+   "CAPTURE": 0.1,
+   "RETRIEVE": 48.8,
+   "FREE": 10.2
+  },
+  "headMin": {
+   "t": 69.7,
+   "mode": "RETRIEVE",
+   "d": 0.93,
+   "riderV": 13.1,
+   "L": 4.71,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "crossR6_s12",
+  "avail": 30.9,
+  "pxMed": 277.4938150086723,
+  "jitter": 8.94560372069607,
+  "keMax": 27.48092273170864,
+  "headClear": 1.071663816527664,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   16.21,
+   13.83
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 9,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 5.87,
+   "flyPxLow": 36.53,
+   "flyArt": 2.67,
+   "flyFit": 4.77,
+   "avail": 30.9,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.22,
+    14.8,
+    21.74
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.25,
+    4.82,
+    13.27
+   ],
+   "ke": [
+    10.15,
+    12.74,
+    27.48
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 8.06,
+   "mode": "FLY",
+   "ke": 27.5,
+   "vF": 21.74,
+   "vExit": 13.12,
+   "riderV": 13.11,
+   "L": 9.37
+  },
+  "hc3": 1.072,
+  "hcNoExcl": 1.072,
+  "keByMode": {
+   "LAUNCH": 11.5,
+   "FLY": 27.5,
+   "BRAKE": 14.3,
+   "FLYIN": 3.6,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 2.76,
+   "mode": "LAUNCH",
+   "d": 1.07,
+   "riderV": 9.95,
+   "L": 0.94,
+   "T": 7,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "sub_base",
+  "over": {},
+  "id": "crossR9_s13",
+  "avail": 15.36,
+  "pxMed": 258.2771004189429,
+  "jitter": 10.518750912552568,
+  "keMax": 48.63128189848466,
+  "headClear": 0.505357167342372,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   22.29,
+   10.82
+  ],
+  "cat": {
+   "notAirborne": 11.42,
+   "launch": 10.16,
+   "brakeRetrieve": 32.14,
+   "flyNotInFrame": 2.02,
+   "flyPxLow": 23.63,
+   "flyArt": 1.29,
+   "flyFit": 3.99,
+   "avail": 15.36,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.59,
+    16.37,
+    20.85
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    15.55
+   ],
+   "vRel": [
+    3.75,
+    7.95,
+    17.59
+   ],
+   "ke": [
+    10.74,
+    15.59,
+    25.27
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 19.36,
+   "mode": "FLYIN",
+   "ke": 48.6,
+   "vF": 28.92,
+   "vExit": 13.21,
+   "riderV": 13.11,
+   "L": 14.92
+  },
+  "hc3": 0.505,
+  "hcNoExcl": 0.505,
+  "keByMode": {
+   "LAUNCH": 11.8,
+   "FLY": 25.3,
+   "BRAKE": 14.7,
+   "FLYIN": 48.6,
+   "RETRIEVE": 4.6,
+   "CAPTURE": 0.3
+  },
+  "headMin": {
+   "t": 22.26,
+   "mode": "FLYIN",
+   "d": 0.51,
+   "riderV": 13.13,
+   "L": 9.66,
+   "T": 4.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "calm_s11",
+  "avail": 20.42,
+  "pxMed": 264.67006228676627,
+  "jitter": 6.825456339627028,
+  "keMax": 22.771991572682275,
+  "headClear": 1.0875508147589654,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.24,
+   11.2
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 12.45,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 10.88,
+   "flyPxLow": 30.2,
+   "flyArt": 13.71,
+   "flyFit": 2.16,
+   "avail": 20.42,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.88,
+    14.41,
+    19.79
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.05,
+    3.47,
+    6.77
+   ],
+   "ke": [
+    9.65,
+    12.07,
+    22.77
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 22.8,
+   "vF": 19.79,
+   "vExit": 16.21,
+   "riderV": 11.88,
+   "L": 11.31
+  },
+  "hc3": 1.088,
+  "hcNoExcl": 1.088,
+  "keByMode": {
+   "LAUNCH": 11.4,
+   "FLY": 22.8,
+   "BRAKE": 16.6,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.72,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.68,
+   "L": 11.3,
+   "T": 5.5,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "calm_s13",
+  "avail": 28.13,
+  "pxMed": 303.0864413458757,
+  "jitter": 6.335882120593934,
+  "keMax": 23.595433033129584,
+  "headClear": 1.0537820596151537,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.1,
+   11.88
+  ],
+  "cat": {
+   "notAirborne": 6.09,
+   "launch": 12.28,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 7.11,
+   "flyPxLow": 28.66,
+   "flyArt": 11.53,
+   "flyFit": 1.86,
+   "avail": 28.13,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.09,
+    14.68,
+    20.15
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.19,
+    3.53,
+    6.98
+   ],
+   "ke": [
+    9.97,
+    12.53,
+    23.6
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 23.6,
+   "vF": 20.15,
+   "vExit": 15.36,
+   "riderV": 11.68,
+   "L": 11.57
+  },
+  "hc3": 1.054,
+  "hcNoExcl": 1.054,
+  "keByMode": {
+   "LAUNCH": 12.8,
+   "FLY": 23.6,
+   "BRAKE": 20.7,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.7,
+   "mode": "BRAKE",
+   "d": 1.05,
+   "riderV": 8.64,
+   "L": 11.57,
+   "T": 5.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "head3_s12",
+  "avail": 13.31,
+  "pxMed": 267.61062387271005,
+  "jitter": 7.497923832542816,
+  "keMax": 24.365663004318492,
+  "headClear": 1.0296940399336776,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   62.61
+  ],
+  "cat": {
+   "notAirborne": 3.07,
+   "launch": 5.31,
+   "brakeRetrieve": 48.76,
+   "flyNotInFrame": 4.12,
+   "flyPxLow": 20.85,
+   "flyArt": 3.69,
+   "flyFit": 0.89,
+   "avail": 13.31,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.88,
+    14.07,
+    20.47
+   ],
+   "vExit": [
+    13.14,
+    13.27,
+    16.61
+   ],
+   "vRel": [
+    2.15,
+    3.96,
+    5.97
+   ],
+   "ke": [
+    9.64,
+    11.51,
+    24.37
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 24.4,
+   "vF": 20.47,
+   "vExit": 16.08,
+   "riderV": 11.86,
+   "L": 11.32
+  },
+  "hc3": 0.541,
+  "hcNoExcl": 0.541,
+  "keByMode": {
+   "LAUNCH": 8.9,
+   "FLY": 24.4,
+   "BRAKE": 15.3,
+   "FLYIN": 0,
+   "CAPTURE": 8.7
+  },
+  "headMin": {
+   "t": 38.68,
+   "mode": "BRAKE",
+   "d": 1.03,
+   "riderV": 8.81,
+   "L": 11.5,
+   "T": 7.8,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "head6_s12",
+  "avail": 19.18,
+  "pxMed": 287.1000287236745,
+  "jitter": 12.441096523472465,
+  "keMax": 36.614151119731616,
+  "headClear": 0.9859203634032243,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   16.25,
+   27.78
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.92,
+   "brakeRetrieve": 31.68,
+   "flyNotInFrame": 3.58,
+   "flyPxLow": 20.29,
+   "flyArt": 6.68,
+   "flyFit": 3.72,
+   "avail": 19.18,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.37,
+    16.77,
+    25.1
+   ],
+   "vExit": [
+    13.15,
+    13.28,
+    16.61
+   ],
+   "vRel": [
+    2.87,
+    6.2,
+    18.44
+   ],
+   "ke": [
+    10.39,
+    16.35,
+    36.61
+   ],
+   "keFloorExitMedian": 10.05
+  },
+  "kePeak": {
+   "t": 70.76,
+   "mode": "FLY",
+   "ke": 36.6,
+   "vF": 25.1,
+   "vExit": 13.32,
+   "riderV": 13.14,
+   "L": 9.89
+  },
+  "hc3": 0.986,
+  "hcNoExcl": 0.986,
+  "keByMode": {
+   "LAUNCH": 8.1,
+   "FLY": 36.6,
+   "BRAKE": 14.3,
+   "RETRIEVE": 29.9,
+   "CAPTURE": 4.5
+  },
+  "headMin": {
+   "t": 93.78,
+   "mode": "RETRIEVE",
+   "d": 0.99,
+   "riderV": 6.88,
+   "L": 2,
+   "T": 2.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "head9_s11",
+  "avail": 24.27,
+  "pxMed": 271.289903514308,
+  "jitter": 10.055914890555655,
+  "keMax": 36.36319120106368,
+  "headClear": 1.1459767079153784,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.29,
+   13.01
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 8.46,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 7.17,
+   "flyPxLow": 27.88,
+   "flyArt": 16.95,
+   "flyFit": 5.09,
+   "avail": 24.27,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.24,
+    15.61,
+    25.01
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.62,
+    6.96,
+    18.77
+   ],
+   "ke": [
+    10.19,
+    14.17,
+    36.36
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 85.48,
+   "mode": "FLY",
+   "ke": 36.4,
+   "vF": 25.01,
+   "vExit": 13.2,
+   "riderV": 12.93,
+   "L": 9.89
+  },
+  "hc3": 1.132,
+  "hcNoExcl": 1.086,
+  "keByMode": {
+   "LAUNCH": 8,
+   "FLY": 36.4,
+   "BRAKE": 17.9,
+   "RETRIEVE": 2.6,
+   "CAPTURE": 1.8
+  },
+  "headMin": {
+   "t": 76.24,
+   "mode": "FLY",
+   "d": 1.15,
+   "riderV": 13.05,
+   "L": 9.86,
+   "T": 4.4,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "tail3_s12",
+  "avail": 19.72,
+  "pxMed": 247.29645384456177,
+  "jitter": 10.635724882502723,
+  "keMax": 25.828681534098504,
+  "headClear": 0.7192373654276639,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   18.01,
+   20.53
+  ],
+  "cat": {
+   "notAirborne": 12.55,
+   "launch": 13.01,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 6.55,
+   "flyPxLow": 33.84,
+   "flyArt": 5.33,
+   "flyFit": 4.69,
+   "avail": 19.72,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.98,
+    16.54,
+    21.08
+   ],
+   "vExit": [
+    13.17,
+    13.33,
+    16.61
+   ],
+   "vRel": [
+    3.12,
+    5.91,
+    11.56
+   ],
+   "ke": [
+    9.79,
+    15.9,
+    25.83
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 79.56,
+   "mode": "FLY",
+   "ke": 25.8,
+   "vF": 21.08,
+   "vExit": 13.31,
+   "riderV": 13.14,
+   "L": 10.4
+  },
+  "hc3": 0.719,
+  "hcNoExcl": 0.719,
+  "keByMode": {
+   "LAUNCH": 14.1,
+   "FLY": 25.8,
+   "BRAKE": 18.3,
+   "LANDED": 0,
+   "CAPTURE": 0.2,
+   "RETRIEVE": 0.2
+  },
+  "headMin": {
+   "t": 40.36,
+   "mode": "BRAKE",
+   "d": 0.72,
+   "riderV": 0,
+   "L": 8.51,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "crossL3_s12",
+  "avail": 26.78,
+  "pxMed": 271.4397527345252,
+  "jitter": 7.236138153059531,
+  "keMax": 21.609449250091714,
+  "headClear": 0.906889941697286,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   21.89,
+   20.64
+  ],
+  "cat": {
+   "notAirborne": 8.92,
+   "launch": 10.32,
+   "brakeRetrieve": 4.74,
+   "flyNotInFrame": 5.52,
+   "flyPxLow": 37.31,
+   "flyArt": 4.39,
+   "flyFit": 2.02,
+   "avail": 26.78,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.92,
+    14.88,
+    19.28
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.35,
+    4.14,
+    7.2
+   ],
+   "ke": [
+    9.71,
+    12.87,
+    21.61
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 21.6,
+   "vF": 19.28,
+   "vExit": 15.7,
+   "riderV": 11.78,
+   "L": 11.3
+  },
+  "hc3": 0.907,
+  "hcNoExcl": 0.907,
+  "keByMode": {
+   "LAUNCH": 11,
+   "FLY": 21.6,
+   "BRAKE": 15.6,
+   "CAPTURE": 0.1,
+   "LANDED": 0
+  },
+  "headMin": {
+   "t": 38.74,
+   "mode": "BRAKE",
+   "d": 0.91,
+   "riderV": 8.59,
+   "L": 11.32,
+   "T": 6.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "crossL6_s13",
+  "avail": 22.39,
+  "pxMed": 280.4063644214016,
+  "jitter": 8.19943760334406,
+  "keMax": 29.084479919715235,
+  "headClear": 0.9099434120651752,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.85
+  ],
+  "cat": {
+   "notAirborne": 12.5,
+   "launch": 11.72,
+   "brakeRetrieve": 21.15,
+   "flyNotInFrame": 2.45,
+   "flyPxLow": 26.27,
+   "flyArt": 2.4,
+   "flyFit": 1.13,
+   "avail": 22.39,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.9,
+    15.15,
+    22.37
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.5,
+    5.16,
+    12.42
+   ],
+   "ke": [
+    9.67,
+    13.34,
+    29.08
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 79.22,
+   "mode": "FLY",
+   "ke": 29.1,
+   "vF": 22.37,
+   "vExit": 13.13,
+   "riderV": 13.12,
+   "L": 10.84
+  },
+  "hc3": 0.91,
+  "hcNoExcl": 0.91,
+  "keByMode": {
+   "LAUNCH": 10.1,
+   "FLY": 29.1,
+   "BRAKE": 16.9,
+   "RETRIEVE": 12.4,
+   "CAPTURE": 0.3,
+   "FREE": 9.9
+  },
+  "headMin": {
+   "t": 38.8,
+   "mode": "BRAKE",
+   "d": 0.91,
+   "riderV": 8.28,
+   "L": 11.81,
+   "T": 7.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "crossL9_s11",
+  "avail": 12.04,
+  "pxMed": 259.72092223374636,
+  "jitter": 9.240898131172186,
+  "keMax": 27.19456159680328,
+  "headClear": 0.38537777857160005,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   43.36
+  ],
+  "cat": {
+   "notAirborne": 20.29,
+   "launch": 5.2,
+   "brakeRetrieve": 31.47,
+   "flyNotInFrame": 5.09,
+   "flyPxLow": 21.52,
+   "flyArt": 2.88,
+   "flyFit": 1.51,
+   "avail": 12.04,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.44,
+    15.72,
+    21.63
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.88,
+    5.62,
+    11.84
+   ],
+   "ke": [
+    10.5,
+    14.36,
+    27.19
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 27.2,
+   "vF": 21.63,
+   "vExit": 15.81,
+   "riderV": 11.8,
+   "L": 9.91
+  },
+  "hc3": 0.313,
+  "hcNoExcl": 0.313,
+  "keByMode": {
+   "LAUNCH": 11.1,
+   "FLY": 27.2,
+   "BRAKE": 22.5,
+   "RETRIEVE": 3.9,
+   "CAPTURE": 10
+  },
+  "headMin": {
+   "t": 55.58,
+   "mode": "RETRIEVE",
+   "d": 0.39,
+   "riderV": 0,
+   "L": 1.07,
+   "T": 0,
+   "what": "flyer"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "crossR3_s11",
+  "avail": 15.14,
+  "pxMed": 290.88797723048026,
+  "jitter": 6.46068608463219,
+  "keMax": 47.193070159550814,
+  "headClear": 0.9154034026016288,
+  "launches": 2,
+  "launchFails": 1,
+  "dockTimes": [
+   21.07
+  ],
+  "cat": {
+   "notAirborne": 6.79,
+   "launch": 10.99,
+   "brakeRetrieve": 41.22,
+   "flyNotInFrame": 3.69,
+   "flyPxLow": 15.44,
+   "flyArt": 5.58,
+   "flyFit": 1.16,
+   "avail": 15.14,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.03,
+    14.48,
+    20.84
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.18,
+    5.42,
+    8.72
+   ],
+   "ke": [
+    9.87,
+    12.19,
+    25.25
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 68.52,
+   "mode": "RETRIEVE",
+   "ke": 47.2,
+   "vF": 28.49,
+   "vExit": 13.37,
+   "riderV": 13.04,
+   "L": 5.72
+  },
+  "hc3": 0.915,
+  "hcNoExcl": 0.915,
+  "keByMode": {
+   "LAUNCH": 14.8,
+   "FLY": 25.3,
+   "BRAKE": 19.9,
+   "CAPTURE": 0.1,
+   "LANDED": 10.4,
+   "RETRIEVE": 47.2,
+   "FREE": 10
+  },
+  "headMin": {
+   "t": 11.58,
+   "mode": "FLY",
+   "d": 0.92,
+   "riderV": 13.14,
+   "L": 10.05,
+   "T": 2.4,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "crossR6_s12",
+  "avail": 16.35,
+  "pxMed": 269.14106979153706,
+  "jitter": 10.162946302168324,
+  "keMax": 35.51640369781786,
+  "headClear": 0.8271800524066488,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   33.75,
+   15.92
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.46,
+   "brakeRetrieve": 38.98,
+   "flyNotInFrame": 4.23,
+   "flyPxLow": 13.34,
+   "flyArt": 4.07,
+   "flyFit": 8.62,
+   "avail": 16.35,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    15.64,
+    24.72
+   ],
+   "vExit": [
+    13.18,
+    13.34,
+    15.95
+   ],
+   "vRel": [
+    2.96,
+    7.67,
+    17.36
+   ],
+   "ke": [
+    9.93,
+    14.22,
+    35.52
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 8.4,
+   "mode": "FLY",
+   "ke": 35.5,
+   "vF": 24.72,
+   "vExit": 13.11,
+   "riderV": 13.11,
+   "L": 9.49
+  },
+  "hc3": 0.827,
+  "hcNoExcl": 0.827,
+  "keByMode": {
+   "LAUNCH": 10.9,
+   "FLY": 35.5,
+   "BRAKE": 17.3,
+   "RETRIEVE": 19.8,
+   "CAPTURE": 4.9,
+   "FLYIN": 3.3
+  },
+  "headMin": {
+   "t": 38.82,
+   "mode": "RETRIEVE",
+   "d": 0.83,
+   "riderV": 8.3,
+   "L": 2.53,
+   "T": 0.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff1",
+  "over": {
+   "kFF": 1
+  },
+  "id": "crossR9_s13",
+  "avail": 18.59,
+  "pxMed": 281.84842277752665,
+  "jitter": 10.35782536257708,
+  "keMax": 38.71577344428508,
+  "headClear": 0.5247524687809755,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   31.55,
+   15.5
+  ],
+  "cat": {
+   "notAirborne": 9.24,
+   "launch": 8.86,
+   "brakeRetrieve": 34.81,
+   "flyNotInFrame": 1.72,
+   "flyPxLow": 21.9,
+   "flyArt": 1.99,
+   "flyFit": 2.88,
+   "avail": 18.59,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.16,
+    15.74,
+    23.28
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    15.55
+   ],
+   "vRel": [
+    3.16,
+    7.76,
+    14.81
+   ],
+   "ke": [
+    10.06,
+    14.41,
+    31.51
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 19.04,
+   "mode": "FLYIN",
+   "ke": 38.7,
+   "vF": 25.81,
+   "vExit": 13.14,
+   "riderV": 13.11,
+   "L": 14.67
+  },
+  "hc3": 0.525,
+  "hcNoExcl": 0.525,
+  "keByMode": {
+   "LAUNCH": 11.8,
+   "FLY": 31.5,
+   "BRAKE": 27.9,
+   "FLYIN": 38.7,
+   "RETRIEVE": 3.3,
+   "CAPTURE": 1.6
+  },
+  "headMin": {
+   "t": 22.08,
+   "mode": "FLYIN",
+   "d": 0.52,
+   "riderV": 13.15,
+   "L": 9.12,
+   "T": 6.5,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "calm_s11",
+  "avail": 20.96,
+  "pxMed": 266.44689918473165,
+  "jitter": 7.026266265994988,
+  "keMax": 19.52376082389049,
+  "headClear": 1.1050894705363306,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.21,
+   11.49
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 12.93,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 10.61,
+   "flyPxLow": 29.07,
+   "flyArt": 14.41,
+   "flyFit": 1.83,
+   "avail": 20.96,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.98,
+    14.53,
+    18.33
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.11,
+    3.44,
+    6.64
+   ],
+   "ke": [
+    9.8,
+    12.27,
+    19.52
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 19.5,
+   "vF": 18.33,
+   "vExit": 16.21,
+   "riderV": 11.88,
+   "L": 11.33
+  },
+  "hc3": 1.105,
+  "hcNoExcl": 1.105,
+  "keByMode": {
+   "LAUNCH": 12.5,
+   "FLY": 19.5,
+   "BRAKE": 14.9,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.74,
+   "mode": "BRAKE",
+   "d": 1.11,
+   "riderV": 8.61,
+   "L": 11.3,
+   "T": 5.8,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "calm_s13",
+  "avail": 28.91,
+  "pxMed": 300.6768300219313,
+  "jitter": 6.504587237884229,
+  "keMax": 22.751942750305876,
+  "headClear": 1.066005828001156,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.07,
+   12.01
+  ],
+  "cat": {
+   "notAirborne": 6.09,
+   "launch": 12.12,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 4.23,
+   "flyPxLow": 33.3,
+   "flyArt": 10.05,
+   "flyFit": 0.97,
+   "avail": 28.91,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.15,
+    14.79,
+    19.78
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.12,
+    3.48,
+    6.83
+   ],
+   "ke": [
+    10.06,
+    12.71,
+    22.75
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 22.8,
+   "vF": 19.78,
+   "vExit": 15.36,
+   "riderV": 11.68,
+   "L": 11.58
+  },
+  "hc3": 1.066,
+  "hcNoExcl": 1.066,
+  "keByMode": {
+   "LAUNCH": 14.6,
+   "FLY": 22.8,
+   "BRAKE": 19.9,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.72,
+   "mode": "BRAKE",
+   "d": 1.07,
+   "riderV": 8.57,
+   "L": 11.59,
+   "T": 5.5,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "head3_s12",
+  "avail": 13.82,
+  "pxMed": 268.64049237495885,
+  "jitter": 7.416520547387449,
+  "keMax": 23.713773665518044,
+  "headClear": 1.0448723701925304,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   59.35
+  ],
+  "cat": {
+   "notAirborne": 3.07,
+   "launch": 5.31,
+   "brakeRetrieve": 48.76,
+   "flyNotInFrame": 3.39,
+   "flyPxLow": 21.52,
+   "flyArt": 3.18,
+   "flyFit": 0.94,
+   "avail": 13.82,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.86,
+    14.09,
+    20.2
+   ],
+   "vExit": [
+    13.14,
+    13.27,
+    16.61
+   ],
+   "vRel": [
+    2.13,
+    3.87,
+    5.61
+   ],
+   "ke": [
+    9.61,
+    11.54,
+    23.71
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 23.7,
+   "vF": 20.2,
+   "vExit": 16.08,
+   "riderV": 11.86,
+   "L": 11.32
+  },
+  "hc3": 0.533,
+  "hcNoExcl": 0.533,
+  "keByMode": {
+   "LAUNCH": 8.9,
+   "FLY": 23.7,
+   "BRAKE": 14.5,
+   "FLYIN": 0,
+   "CAPTURE": 7.4
+  },
+  "headMin": {
+   "t": 38.7,
+   "mode": "BRAKE",
+   "d": 1.04,
+   "riderV": 8.74,
+   "L": 11.54,
+   "T": 7.8,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "head6_s12",
+  "avail": 32.6,
+  "pxMed": 299.266708544626,
+  "jitter": 9.232606632319026,
+  "keMax": 24.695437630391773,
+  "headClear": 1.075454807445303,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.04,
+   10.94
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.86,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 7.97,
+   "flyPxLow": 32.65,
+   "flyArt": 6.79,
+   "flyFit": 0.86,
+   "avail": 32.6,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.11,
+    14.47,
+    20.61
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.34,
+    4.45,
+    8.44
+   ],
+   "ke": [
+    9.99,
+    12.17,
+    24.7
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 24.7,
+   "vF": 20.61,
+   "vExit": 16.37,
+   "riderV": 11.95,
+   "L": 9.91
+  },
+  "hc3": 1.075,
+  "hcNoExcl": 1.075,
+  "keByMode": {
+   "LAUNCH": 8.2,
+   "FLY": 24.7,
+   "BRAKE": 14,
+   "RETRIEVE": 0.6,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.64,
+   "mode": "BRAKE",
+   "d": 1.08,
+   "riderV": 8.96,
+   "L": 10.52,
+   "T": 10.8,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "head9_s11",
+  "avail": 27.37,
+  "pxMed": 292.7721879179594,
+  "jitter": 9.768625282412172,
+  "keMax": 29.95995182794365,
+  "headClear": 1.1016067296890257,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.3,
+   11.93
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 8.3,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 7.06,
+   "flyPxLow": 29.58,
+   "flyArt": 16.08,
+   "flyFit": 1.43,
+   "avail": 27.37,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.1,
+    14.75,
+    22.7
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.48,
+    5.48,
+    12.44
+   ],
+   "ke": [
+    9.98,
+    12.64,
+    29.96
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 30,
+   "vF": 22.7,
+   "vExit": 16.5,
+   "riderV": 11.96,
+   "L": 9.87
+  },
+  "hc3": 1.102,
+  "hcNoExcl": 1.1,
+  "keByMode": {
+   "LAUNCH": 9.2,
+   "FLY": 30,
+   "BRAKE": 17.2,
+   "RETRIEVE": 2.5,
+   "CAPTURE": 1.8
+  },
+  "headMin": {
+   "t": 93.14,
+   "mode": "BRAKE",
+   "d": 1.1,
+   "riderV": 9.45,
+   "L": 10.26,
+   "T": 12.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "tail3_s12",
+  "avail": 18.67,
+  "pxMed": 243.7155233531633,
+  "jitter": 11.044027330683875,
+  "keMax": 28.107216775832068,
+  "headClear": 0.6306713431860529,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   18.46,
+   20.63
+  ],
+  "cat": {
+   "notAirborne": 12.55,
+   "launch": 12.47,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 6.33,
+   "flyPxLow": 37.8,
+   "flyArt": 3.04,
+   "flyFit": 4.82,
+   "avail": 18.67,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.99,
+    16.5,
+    21.99
+   ],
+   "vExit": [
+    13.17,
+    13.33,
+    16.61
+   ],
+   "vRel": [
+    3.33,
+    6.24,
+    10.94
+   ],
+   "ke": [
+    9.81,
+    15.82,
+    28.11
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 30.98,
+   "mode": "FLY",
+   "ke": 28.1,
+   "vF": 21.99,
+   "vExit": 13.33,
+   "riderV": 13.13,
+   "L": 10.19
+  },
+  "hc3": 0.631,
+  "hcNoExcl": 0.631,
+  "keByMode": {
+   "LAUNCH": 14.9,
+   "FLY": 28.1,
+   "BRAKE": 20.5,
+   "CAPTURE": 0.2,
+   "LANDED": 0,
+   "RETRIEVE": 0.2
+  },
+  "headMin": {
+   "t": 40.38,
+   "mode": "BRAKE",
+   "d": 0.63,
+   "riderV": 0,
+   "L": 8.71,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "crossL3_s12",
+  "avail": 25.86,
+  "pxMed": 260.0842859612591,
+  "jitter": 7.494274934268625,
+  "keMax": 20.344598442300047,
+  "headClear": 0.9320311229297735,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   21.53,
+   20.95
+  ],
+  "cat": {
+   "notAirborne": 9.35,
+   "launch": 10.99,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 5.63,
+   "flyPxLow": 38.47,
+   "flyArt": 3.5,
+   "flyFit": 1.89,
+   "avail": 25.86,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.94,
+    15.03,
+    18.71
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.54,
+    4.32,
+    7.12
+   ],
+   "ke": [
+    9.73,
+    13.13,
+    20.34
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 20.3,
+   "vF": 18.71,
+   "vExit": 15.7,
+   "riderV": 11.78,
+   "L": 11.31
+  },
+  "hc3": 0.932,
+  "hcNoExcl": 0.932,
+  "keByMode": {
+   "LAUNCH": 11,
+   "FLY": 20.3,
+   "BRAKE": 14.7,
+   "CAPTURE": 0.1
+  },
+  "headMin": {
+   "t": 38.76,
+   "mode": "BRAKE",
+   "d": 0.93,
+   "riderV": 8.52,
+   "L": 11.35,
+   "T": 6.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "crossL6_s13",
+  "avail": 30.85,
+  "pxMed": 282.1968070748255,
+  "jitter": 7.679507827389921,
+  "keMax": 18.348308971695303,
+  "headClear": 0.21128226995483826,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.85,
+   19.4
+  ],
+  "cat": {
+   "notAirborne": 12.5,
+   "launch": 11.18,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 3.34,
+   "flyPxLow": 35.61,
+   "flyArt": 0.86,
+   "flyFit": 1.32,
+   "avail": 30.85,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.06,
+    15.01,
+    17.77
+   ],
+   "vExit": [
+    13.17,
+    13.28,
+    16.12
+   ],
+   "vRel": [
+    2.56,
+    5.1,
+    8.7
+   ],
+   "ke": [
+    9.91,
+    13.1,
+    18.35
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 18.3,
+   "vF": 17.77,
+   "vExit": 15.71,
+   "riderV": 11.76,
+   "L": 11.55
+  },
+  "hc3": 0.211,
+  "hcNoExcl": 0.211,
+  "keByMode": {
+   "LAUNCH": 11.2,
+   "FLY": 18.3,
+   "BRAKE": 16.9,
+   "RETRIEVE": 3.7,
+   "CAPTURE": 0.8,
+   "LANDED": 0
+  },
+  "headMin": {
+   "t": 100.46,
+   "mode": "RETRIEVE",
+   "d": 0.21,
+   "riderV": 0,
+   "L": 4.54,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "crossL9_s11",
+  "avail": 12.5,
+  "pxMed": 251.4391219198111,
+  "jitter": 9.017344465966636,
+  "keMax": 28.062564533917225,
+  "headClear": 0.05846153830433305,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   60.61
+  ],
+  "cat": {
+   "notAirborne": 2.94,
+   "launch": 5.2,
+   "brakeRetrieve": 48.81,
+   "flyNotInFrame": 4.77,
+   "flyPxLow": 22.06,
+   "flyArt": 2.37,
+   "flyFit": 1.35,
+   "avail": 12.5,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.34,
+    15.64,
+    21.92
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.75,
+    5.6,
+    13.97
+   ],
+   "ke": [
+    10.34,
+    14.21,
+    27.94
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 87.7,
+   "mode": "RETRIEVE",
+   "ke": 28.1,
+   "vF": 21.97,
+   "vExit": 13.12,
+   "riderV": 13.11,
+   "L": 3.7
+  },
+  "hc3": 0.003,
+  "hcNoExcl": 0.003,
+  "keByMode": {
+   "LAUNCH": 11.1,
+   "FLY": 27.9,
+   "BRAKE": 25.8,
+   "RETRIEVE": 28.1,
+   "CAPTURE": 4.3
+  },
+  "headMin": {
+   "t": 50.06,
+   "mode": "RETRIEVE",
+   "d": 0.06,
+   "riderV": 0,
+   "L": 1.5,
+   "T": 0.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "crossR3_s11",
+  "avail": 25.81,
+  "pxMed": 285.9616514253477,
+  "jitter": 7.092595765411452,
+  "keMax": 24.422512044249896,
+  "headClear": 1.0210393075090725,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   21.09,
+   20.43
+  ],
+  "cat": {
+   "notAirborne": 6.82,
+   "launch": 14.55,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 7.57,
+   "flyPxLow": 29.55,
+   "flyArt": 10.18,
+   "flyFit": 1.19,
+   "avail": 25.81,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    14.7,
+    20.5
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.37,
+    4.12,
+    8.06
+   ],
+   "ke": [
+    9.93,
+    12.57,
+    24.42
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 24.4,
+   "vF": 20.5,
+   "vExit": 15.81,
+   "riderV": 11.8,
+   "L": 11.33
+  },
+  "hc3": 1.021,
+  "hcNoExcl": 1.021,
+  "keByMode": {
+   "LAUNCH": 13.7,
+   "FLY": 24.4,
+   "BRAKE": 19.1,
+   "CAPTURE": 0.1
+  },
+  "headMin": {
+   "t": 6.4,
+   "mode": "LAUNCH",
+   "d": 1.02,
+   "riderV": 12.89,
+   "L": 4.8,
+   "T": 0.7,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "crossR6_s12",
+  "avail": 31.65,
+  "pxMed": 288.3378912446249,
+  "jitter": 8.595869372664797,
+  "keMax": 21.853448886654952,
+  "headClear": 1.0703326023625768,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   16.5,
+   14.02
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.51,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 5.98,
+   "flyPxLow": 36.42,
+   "flyArt": 4.66,
+   "flyFit": 2.51,
+   "avail": 31.65,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.08,
+    15.11,
+    19.39
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.52,
+    4.99,
+    10.15
+   ],
+   "ke": [
+    9.94,
+    13.27,
+    21.85
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 7.92,
+   "mode": "FLY",
+   "ke": 21.9,
+   "vF": 19.39,
+   "vExit": 13.11,
+   "riderV": 13.09,
+   "L": 9.35
+  },
+  "hc3": 1.07,
+  "hcNoExcl": 1.07,
+  "keByMode": {
+   "LAUNCH": 11.1,
+   "FLY": 21.9,
+   "BRAKE": 16.2,
+   "FLYIN": 3.3,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 28.54,
+   "mode": "FLY",
+   "d": 1.07,
+   "riderV": 13.1,
+   "L": 11.32,
+   "T": 2.9,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "ff0.6_lead0.6",
+  "over": {
+   "kFF": 0.6,
+   "leadFF": 0.6
+  },
+  "id": "crossR9_s13",
+  "avail": 20.04,
+  "pxMed": 290.3623035475496,
+  "jitter": 10.290756299021584,
+  "keMax": 43.38070886119587,
+  "headClear": 0.519652300985112,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   32.65,
+   12.24
+  ],
+  "cat": {
+   "notAirborne": 9.24,
+   "launch": 8.86,
+   "brakeRetrieve": 34.64,
+   "flyNotInFrame": 2.13,
+   "flyPxLow": 20.12,
+   "flyArt": 1.4,
+   "flyFit": 3.56,
+   "avail": 20.04,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.17,
+    15.91,
+    20.73
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    15.55
+   ],
+   "vRel": [
+    2.96,
+    7.45,
+    16.94
+   ],
+   "ke": [
+    10.09,
+    14.71,
+    24.99
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 19.18,
+   "mode": "FLYIN",
+   "ke": 43.4,
+   "vF": 27.32,
+   "vExit": 13.16,
+   "riderV": 13.12,
+   "L": 14.68
+  },
+  "hc3": 0.52,
+  "hcNoExcl": 0.52,
+  "keByMode": {
+   "LAUNCH": 11.8,
+   "FLY": 25,
+   "BRAKE": 16.2,
+   "FLYIN": 43.4,
+   "RETRIEVE": 5.1,
+   "CAPTURE": 2.3
+  },
+  "headMin": {
+   "t": 22.12,
+   "mode": "FLYIN",
+   "d": 0.52,
+   "riderV": 13.15,
+   "L": 9.31,
+   "T": 6.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "calm_s11",
+  "avail": 32.22,
+  "pxMed": 290.2530297369749,
+  "jitter": 7.741446933889146,
+  "keMax": 17.703337181013424,
+  "headClear": 1.1075132087302042,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.46,
+   13.21
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 13.01,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 4.5,
+   "flyPxLow": 33.7,
+   "flyArt": 4.55,
+   "flyFit": 1.83,
+   "avail": 32.22,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.98,
+    14.78,
+    17.45
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.51,
+    4.75,
+    6.84
+   ],
+   "ke": [
+    9.79,
+    12.69,
+    17.7
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 92.52,
+   "mode": "FLY",
+   "ke": 17.7,
+   "vF": 17.45,
+   "vExit": 15.3,
+   "riderV": 11.8,
+   "L": 14.31
+  },
+  "hc3": 1.108,
+  "hcNoExcl": 1.108,
+  "keByMode": {
+   "LAUNCH": 11.9,
+   "FLY": 17.7,
+   "BRAKE": 13.8,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 93.28,
+   "mode": "BRAKE",
+   "d": 1.11,
+   "riderV": 8.93,
+   "L": 14.34,
+   "T": 6.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "calm_s13",
+  "avail": 35.64,
+  "pxMed": 295.92909418527813,
+  "jitter": 9.124149085403221,
+  "keMax": 24.30771349483031,
+  "headClear": 1.0584684127448132,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.65,
+   12.94
+  ],
+  "cat": {
+   "notAirborne": 6.09,
+   "launch": 12.42,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 1.91,
+   "flyPxLow": 32.97,
+   "flyArt": 2.59,
+   "flyFit": 4.04,
+   "avail": 35.64,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.97,
+    15.09,
+    20.45
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.48,
+    5.32,
+    13.61
+   ],
+   "ke": [
+    9.77,
+    13.23,
+    24.31
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 69.06,
+   "mode": "FLY",
+   "ke": 24.3,
+   "vF": 20.45,
+   "vExit": 13.07,
+   "riderV": 12.86,
+   "L": 12.28
+  },
+  "hc3": 1.058,
+  "hcNoExcl": 1.058,
+  "keByMode": {
+   "LAUNCH": 12.2,
+   "FLY": 24.3,
+   "BRAKE": 17.5,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 6.12,
+   "mode": "LAUNCH",
+   "d": 1.06,
+   "riderV": 12.98,
+   "L": 4.2,
+   "T": 2.4,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "head3_s12",
+  "avail": 16.46,
+  "pxMed": 258.5473383019097,
+  "jitter": 6.685177131954668,
+  "keMax": 21.718191520284886,
+  "headClear": 0.7462905973508442,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   58.42
+  ],
+  "cat": {
+   "notAirborne": 3.07,
+   "launch": 5.58,
+   "brakeRetrieve": 48.76,
+   "flyNotInFrame": 1.75,
+   "flyPxLow": 23.38,
+   "flyArt": 0.08,
+   "flyFit": 0.92,
+   "avail": 16.46,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.86,
+    14.57,
+    19.33
+   ],
+   "vExit": [
+    13.14,
+    13.27,
+    16.61
+   ],
+   "vRel": [
+    2.3,
+    4.52,
+    6.74
+   ],
+   "ke": [
+    9.61,
+    12.34,
+    21.72
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 21.7,
+   "vF": 19.33,
+   "vExit": 16.08,
+   "riderV": 11.86,
+   "L": 14.34
+  },
+  "hc3": 0.746,
+  "hcNoExcl": 0.746,
+  "keByMode": {
+   "LAUNCH": 9.1,
+   "FLY": 21.7,
+   "BRAKE": 12.5,
+   "FLYIN": 8.5,
+   "LANDED": 0.1,
+   "CAPTURE": 0.1
+  },
+  "headMin": {
+   "t": 67.98,
+   "mode": "FLYIN",
+   "d": 0.75,
+   "riderV": 13.14,
+   "L": 0.2,
+   "T": 10,
+   "what": "flyer"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "head6_s12",
+  "avail": 35.61,
+  "pxMed": 295.51077041936725,
+  "jitter": 7.407226018435915,
+  "keMax": 22.633489990891213,
+  "headClear": 1.1162092100126046,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.57,
+   12.08
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.89,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 3.69,
+   "flyPxLow": 37.74,
+   "flyArt": 2.61,
+   "flyFit": 1.19,
+   "avail": 35.61,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.09,
+    14.85,
+    19.73
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.7,
+    4.93,
+    7.45
+   ],
+   "ke": [
+    9.97,
+    12.82,
+    22.63
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 92.5,
+   "mode": "FLY",
+   "ke": 22.6,
+   "vF": 19.73,
+   "vExit": 15.51,
+   "riderV": 11.67,
+   "L": 13.07
+  },
+  "hc3": 1.116,
+  "hcNoExcl": 1.116,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 22.6,
+   "BRAKE": 16.1,
+   "RETRIEVE": 0.6,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.72,
+   "mode": "BRAKE",
+   "d": 1.12,
+   "riderV": 8.67,
+   "L": 14.68,
+   "T": 11.5,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "head9_s11",
+  "avail": 31.98,
+  "pxMed": 311.47685284902485,
+  "jitter": 7.508768941969315,
+  "keMax": 24.753868539729012,
+  "headClear": 1.1284197997250038,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   18.93,
+   13.11
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 8.35,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 5.44,
+   "flyPxLow": 31.76,
+   "flyArt": 11.29,
+   "flyFit": 1,
+   "avail": 31.98,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.11,
+    14.55,
+    20.64
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.36,
+    4.56,
+    10.08
+   ],
+   "ke": [
+    9.99,
+    12.3,
+    24.75
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.84,
+   "mode": "FLY",
+   "ke": 24.8,
+   "vF": 20.64,
+   "vExit": 16.7,
+   "riderV": 12.05,
+   "L": 12.83
+  },
+  "hc3": 0.593,
+  "hcNoExcl": 0.593,
+  "keByMode": {
+   "LAUNCH": 8.1,
+   "FLY": 24.8,
+   "BRAKE": 14.9,
+   "RETRIEVE": 1.4,
+   "CAPTURE": 1.2
+  },
+  "headMin": {
+   "t": 93.14,
+   "mode": "BRAKE",
+   "d": 1.13,
+   "riderV": 9.45,
+   "L": 13.29,
+   "T": 13.6,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "tail3_s12",
+  "avail": 9.99,
+  "pxMed": 224.5642180767616,
+  "jitter": 9.330549655445873,
+  "keMax": 17.40299946985489,
+  "headClear": 1.0026555547144893,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   26.55
+  ],
+  "cat": {
+   "notAirborne": 49.52,
+   "launch": 5.2,
+   "brakeRetrieve": 8.81,
+   "flyNotInFrame": 2.86,
+   "flyPxLow": 20.66,
+   "flyArt": 0.19,
+   "flyFit": 2.77,
+   "avail": 9.99,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.21,
+    15.89,
+    17.3
+   ],
+   "vExit": [
+    13.14,
+    13.28,
+    16.61
+   ],
+   "vRel": [
+    3.49,
+    6.2,
+    10.04
+   ],
+   "ke": [
+    10.14,
+    14.67,
+    17.4
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 22.06,
+   "mode": "FLY",
+   "ke": 17.4,
+   "vF": 17.3,
+   "vExit": 13.18,
+   "riderV": 13.12,
+   "L": 13.64
+  },
+  "hc3": 1.003,
+  "hcNoExcl": 1.003,
+  "keByMode": {
+   "LAUNCH": 13.5,
+   "FLY": 17.4,
+   "BRAKE": 9.3,
+   "CAPTURE": 0.6
+  },
+  "headMin": {
+   "t": 9.8,
+   "mode": "LAUNCH",
+   "d": 1,
+   "riderV": 12.91,
+   "L": 4.03,
+   "T": 4.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "crossL3_s12",
+  "avail": 14.25,
+  "pxMed": 230.6645824425188,
+  "jitter": 6.915561616277561,
+  "keMax": 17.336192546508094,
+  "headClear": 0.8120679052963319,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   69.55
+  ],
+  "cat": {
+   "notAirborne": 3.07,
+   "launch": 5.47,
+   "brakeRetrieve": 48.76,
+   "flyNotInFrame": 2.32,
+   "flyPxLow": 25.11,
+   "flyArt": 0.08,
+   "flyFit": 0.94,
+   "avail": 14.25,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.78,
+    14.99,
+    17.27
+   ],
+   "vExit": [
+    13.14,
+    13.27,
+    16.61
+   ],
+   "vRel": [
+    2.88,
+    5.17,
+    7.81
+   ],
+   "ke": [
+    9.49,
+    13.06,
+    17.34
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 17.3,
+   "vF": 17.27,
+   "vExit": 15.7,
+   "riderV": 11.78,
+   "L": 14.33
+  },
+  "hc3": 0.812,
+  "hcNoExcl": 0.812,
+  "keByMode": {
+   "LAUNCH": 10.3,
+   "FLY": 17.3,
+   "BRAKE": 12,
+   "FLYIN": 4.1,
+   "CAPTURE": 0.1,
+   "RETRIEVE": 0.2
+  },
+  "headMin": {
+   "t": 94.46,
+   "mode": "BRAKE",
+   "d": 0.81,
+   "riderV": 0,
+   "L": 0.56,
+   "T": 10.8,
+   "what": "flyer"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "crossL6_s13",
+  "avail": 29.61,
+  "pxMed": 276.06944899748925,
+  "jitter": 7.26726999834632,
+  "keMax": 19.800720798948436,
+  "headClear": 0.6941161450042477,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   14.34
+  ],
+  "cat": {
+   "notAirborne": 12.5,
+   "launch": 11.61,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 1.7,
+   "flyPxLow": 38.69,
+   "flyArt": 0.08,
+   "flyFit": 1.48,
+   "avail": 29.61,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.95,
+    14.9,
+    18.46
+   ],
+   "vExit": [
+    13.17,
+    13.28,
+    16.12
+   ],
+   "vRel": [
+    3.07,
+    5.82,
+    10.73
+   ],
+   "ke": [
+    9.74,
+    12.91,
+    19.8
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 19.8,
+   "vF": 18.46,
+   "vExit": 15.36,
+   "riderV": 11.68,
+   "L": 14.61
+  },
+  "hc3": 0.694,
+  "hcNoExcl": 0.694,
+  "keByMode": {
+   "LAUNCH": 11.5,
+   "FLY": 19.8,
+   "BRAKE": 18,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.3,
+   "MANUAL": 0.3
+  },
+  "headMin": {
+   "t": 102.04,
+   "mode": "RETRIEVE",
+   "d": 0.69,
+   "riderV": 0,
+   "L": 2.24,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "crossL9_s11",
+  "avail": 14.84,
+  "pxMed": 258.86525236624163,
+  "jitter": 7.1390861410773665,
+  "keMax": 26.30283006296257,
+  "headClear": 0.4610894544003621,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   46.79
+  ],
+  "cat": {
+   "notAirborne": 15.68,
+   "launch": 4.63,
+   "brakeRetrieve": 36.07,
+   "flyNotInFrame": 2.59,
+   "flyPxLow": 24.03,
+   "flyArt": 1.64,
+   "flyFit": 0.51,
+   "avail": 14.84,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.94,
+    15.14,
+    21.23
+   ],
+   "vExit": [
+    13.2,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    3.13,
+    5.88,
+    11.14
+   ],
+   "ke": [
+    9.74,
+    13.32,
+    26.2
+   ],
+   "keFloorExitMedian": 10.13
+  },
+  "kePeak": {
+   "t": 38,
+   "mode": "BRAKE",
+   "ke": 26.3,
+   "vF": 21.27,
+   "vExit": 12.78,
+   "riderV": 11.39,
+   "L": 13.51
+  },
+  "hc3": 0.291,
+  "hcNoExcl": 0.291,
+  "keByMode": {
+   "LAUNCH": 11.5,
+   "FLY": 26.2,
+   "BRAKE": 26.3,
+   "LANDED": 0,
+   "RETRIEVE": 6,
+   "CAPTURE": 7.1
+  },
+  "headMin": {
+   "t": 50.28,
+   "mode": "RETRIEVE",
+   "d": 0.46,
+   "riderV": 0,
+   "L": 9.1,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "crossR3_s11",
+  "avail": 16.3,
+  "pxMed": 284.2971040925779,
+  "jitter": 6.529153195067978,
+  "keMax": 19.41941700825574,
+  "headClear": 0.8119384243218568,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   54.64
+  ],
+  "cat": {
+   "notAirborne": 5.09,
+   "launch": 9.13,
+   "brakeRetrieve": 46.66,
+   "flyNotInFrame": 2.88,
+   "flyPxLow": 17.81,
+   "flyArt": 1.48,
+   "flyFit": 0.65,
+   "avail": 16.3,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.99,
+    14.5,
+    18.28
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.56,
+    4.26,
+    7.24
+   ],
+   "ke": [
+    9.81,
+    12.23,
+    19.42
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 19.4,
+   "vF": 18.28,
+   "vExit": 15.81,
+   "riderV": 11.8,
+   "L": 14.3
+  },
+  "hc3": 0.812,
+  "hcNoExcl": 0.812,
+  "keByMode": {
+   "LAUNCH": 10.8,
+   "FLY": 19.4,
+   "BRAKE": 15.1,
+   "FLYIN": 3.9
+  },
+  "headMin": {
+   "t": 61.66,
+   "mode": "FLYIN",
+   "d": 0.81,
+   "riderV": 8.52,
+   "L": 0.12,
+   "T": 1.2,
+   "what": "flyer"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "crossR6_s12",
+  "avail": 32.54,
+  "pxMed": 277.79439919724064,
+  "jitter": 8.367742490186977,
+  "keMax": 19.023696173645746,
+  "headClear": 1.071663816527664,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   19.34,
+   20.99
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 9.02,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 3.5,
+   "flyPxLow": 41.06,
+   "flyArt": 0.67,
+   "flyFit": 2.94,
+   "avail": 32.54,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.89,
+    14.45,
+    18.09
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.55,
+    5.01,
+    9.39
+   ],
+   "ke": [
+    9.66,
+    12.13,
+    19.02
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 8.02,
+   "mode": "FLY",
+   "ke": 19,
+   "vF": 18.09,
+   "vExit": 13.12,
+   "riderV": 13.11,
+   "L": 11.65
+  },
+  "hc3": 1.072,
+  "hcNoExcl": 1.072,
+  "keByMode": {
+   "LAUNCH": 11.6,
+   "FLY": 19,
+   "BRAKE": 12.7,
+   "FLYIN": 6.5,
+   "RETRIEVE": 0.5,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 2.76,
+   "mode": "LAUNCH",
+   "d": 1.07,
+   "riderV": 9.95,
+   "L": 0.94,
+   "T": 7,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "L13_el45",
+  "over": {
+   "LfilmFly": 13,
+   "elev": 45
+  },
+  "id": "crossR9_s13",
+  "avail": 35.1,
+  "pxMed": 281.63015962050986,
+  "jitter": 7.274858560801429,
+  "keMax": 21.702846131029336,
+  "headClear": 0.8077952670526435,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   19.51
+  ],
+  "cat": {
+   "notAirborne": 9.21,
+   "launch": 9.86,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 1.02,
+   "flyPxLow": 38.28,
+   "flyArt": 0.03,
+   "flyFit": 2.16,
+   "avail": 35.1,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.04,
+    14.61,
+    19.32
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.91,
+    5.59,
+    11.26
+   ],
+   "ke": [
+    9.89,
+    12.4,
+    21.7
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 30.7,
+   "mode": "FLY",
+   "ke": 21.7,
+   "vF": 19.32,
+   "vExit": 13.18,
+   "riderV": 13.11,
+   "L": 14.54
+  },
+  "hc3": 0.521,
+  "hcNoExcl": 0.521,
+  "keByMode": {
+   "LAUNCH": 12,
+   "FLY": 21.7,
+   "BRAKE": 16.2,
+   "RETRIEVE": 5.4,
+   "CAPTURE": 4
+  },
+  "headMin": {
+   "t": 6.7,
+   "mode": "LAUNCH",
+   "d": 0.81,
+   "riderV": 12.93,
+   "L": 3.01,
+   "T": 1.7,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "calm_s11",
+  "avail": 22.71,
+  "pxMed": 275.4206687861292,
+  "jitter": 6.580731288990777,
+  "keMax": 16.28441389725417,
+  "headClear": 1.0366088501147928,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.99,
+   18.15
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 12.82,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 7.27,
+   "flyPxLow": 30.33,
+   "flyArt": 14.87,
+   "flyFit": 1.8,
+   "avail": 22.71,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    14.56,
+    16.74
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    1.97,
+    3.43,
+    6.76
+   ],
+   "ke": [
+    9.94,
+    12.33,
+    16.28
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 16.3,
+   "vF": 16.74,
+   "vExit": 16.5,
+   "riderV": 11.96,
+   "L": 11.34
+  },
+  "hc3": 1.037,
+  "hcNoExcl": 1.037,
+  "keByMode": {
+   "LAUNCH": 11.5,
+   "FLY": 16.3,
+   "BRAKE": 13.3,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 93.3,
+   "mode": "BRAKE",
+   "d": 1.04,
+   "riderV": 8.85,
+   "L": 12.19,
+   "T": 3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "calm_s13",
+  "avail": 30.41,
+  "pxMed": 304.3350696565172,
+  "jitter": 6.230241890147338,
+  "keMax": 21.238405105332202,
+  "headClear": 1.0125637936983374,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.35,
+   13.45
+  ],
+  "cat": {
+   "notAirborne": 6.09,
+   "launch": 12.28,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 3.91,
+   "flyPxLow": 34.56,
+   "flyArt": 7.25,
+   "flyFit": 1.16,
+   "avail": 30.41,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.24,
+    14.91,
+    19.11
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.09,
+    3.72,
+    6.09
+   ],
+   "ke": [
+    10.2,
+    12.93,
+    21.24
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 21.2,
+   "vF": 19.11,
+   "vExit": 15.36,
+   "riderV": 11.68,
+   "L": 11.59
+  },
+  "hc3": 1.013,
+  "hcNoExcl": 1.013,
+  "keByMode": {
+   "LAUNCH": 13.5,
+   "FLY": 21.2,
+   "BRAKE": 18.7,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.1
+  },
+  "headMin": {
+   "t": 99.28,
+   "mode": "RETRIEVE",
+   "d": 1.01,
+   "riderV": 0,
+   "L": 7.92,
+   "T": 4.9,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "head3_s12",
+  "avail": 29.04,
+  "pxMed": 292.3039514842272,
+  "jitter": 7.207562992414679,
+  "keMax": 22.848007976075394,
+  "headClear": 0.9956389349287548,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   16.39,
+   14.13
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 10.59,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 5.44,
+   "flyPxLow": 35.96,
+   "flyArt": 7.52,
+   "flyFit": 1.19,
+   "avail": 29.04,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    14.4,
+    19.83
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    1.95,
+    3.48,
+    5.51
+   ],
+   "ke": [
+    9.94,
+    12.05,
+    22.85
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 22.8,
+   "vF": 19.83,
+   "vExit": 16.08,
+   "riderV": 11.86,
+   "L": 11.32
+  },
+  "hc3": 0.996,
+  "hcNoExcl": 0.996,
+  "keByMode": {
+   "LAUNCH": 9.7,
+   "FLY": 22.8,
+   "BRAKE": 14.1,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 39.18,
+   "mode": "BRAKE",
+   "d": 1,
+   "riderV": 7,
+   "L": 12.87,
+   "T": 3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "head6_s12",
+  "avail": 32.81,
+  "pxMed": 306.66942872772444,
+  "jitter": 9.519689202397624,
+  "keMax": 23.813242807762247,
+  "headClear": 0.9909003637742198,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   14.72,
+   14.57
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.86,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 7.7,
+   "flyPxLow": 33.51,
+   "flyArt": 6.12,
+   "flyFit": 0.73,
+   "avail": 32.81,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.28,
+    14.55,
+    20.24
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.35,
+    4.22,
+    8.07
+   ],
+   "ke": [
+    10.26,
+    12.31,
+    23.81
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 23.8,
+   "vF": 20.24,
+   "vExit": 16.37,
+   "riderV": 11.95,
+   "L": 9.91
+  },
+  "hc3": 0.991,
+  "hcNoExcl": 0.991,
+  "keByMode": {
+   "LAUNCH": 9.1,
+   "FLY": 23.8,
+   "BRAKE": 12.8,
+   "LANDED": 0,
+   "RETRIEVE": 0.6,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 39.38,
+   "mode": "BRAKE",
+   "d": 0.99,
+   "riderV": 6.28,
+   "L": 11.75,
+   "T": 3.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "head9_s11",
+  "avail": 28.66,
+  "pxMed": 298.3033480419855,
+  "jitter": 9.686277318197426,
+  "keMax": 29.686491238898295,
+  "headClear": 0.9343450745524323,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.34,
+   13.05
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 8.35,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 6.92,
+   "flyPxLow": 31.76,
+   "flyArt": 12.88,
+   "flyFit": 1.24,
+   "avail": 28.66,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.31,
+    14.63,
+    22.6
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.28,
+    5.27,
+    12.66
+   ],
+   "ke": [
+    10.29,
+    12.44,
+    29.69
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 29.7,
+   "vF": 22.6,
+   "vExit": 16.5,
+   "riderV": 11.96,
+   "L": 9.87
+  },
+  "hc3": 0.934,
+  "hcNoExcl": 0.934,
+  "keByMode": {
+   "LAUNCH": 9.1,
+   "FLY": 29.7,
+   "BRAKE": 17.7,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 94.58,
+   "mode": "BRAKE",
+   "d": 0.93,
+   "riderV": 0,
+   "L": 12.6,
+   "T": 5.9,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "tail3_s12",
+  "avail": 16.06,
+  "pxMed": 248.11763609397798,
+  "jitter": 10.883085894753318,
+  "keMax": 21.71587737705898,
+  "headClear": 0.9019975923523741,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   15.05
+  ],
+  "cat": {
+   "notAirborne": 12.55,
+   "launch": 13.34,
+   "brakeRetrieve": 21.26,
+   "flyNotInFrame": 3.66,
+   "flyPxLow": 27.59,
+   "flyArt": 2.21,
+   "flyFit": 3.34,
+   "avail": 16.06,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.21,
+    16.38,
+    19.33
+   ],
+   "vExit": [
+    13.17,
+    13.3,
+    16.61
+   ],
+   "vRel": [
+    3.06,
+    6.58,
+    8.96
+   ],
+   "ke": [
+    10.14,
+    15.6,
+    21.72
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 21.76,
+   "mode": "FLY",
+   "ke": 21.7,
+   "vF": 19.33,
+   "vExit": 13.15,
+   "riderV": 13.07,
+   "L": 9.97
+  },
+  "hc3": 0.902,
+  "hcNoExcl": 0.902,
+  "keByMode": {
+   "LAUNCH": 13.7,
+   "FLY": 21.7,
+   "BRAKE": 11.4,
+   "RETRIEVE": 13.4,
+   "CAPTURE": 0.2,
+   "FREE": 13.2
+  },
+  "headMin": {
+   "t": 9.98,
+   "mode": "LAUNCH",
+   "d": 0.9,
+   "riderV": 12.94,
+   "L": 3.74,
+   "T": 2.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "crossL3_s12",
+  "avail": 27.07,
+  "pxMed": 254.23488142667583,
+  "jitter": 15.975874911326992,
+  "keMax": 35.616210573543,
+  "headClear": 0.5245501737151632,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   19.2,
+   12.54
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 9.94,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 7.27,
+   "flyPxLow": 37.82,
+   "flyArt": 1.72,
+   "flyFit": 5.9,
+   "avail": 27.07,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.12,
+    15.54,
+    24.75
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.8,
+    6.37,
+    18.96
+   ],
+   "ke": [
+    10.01,
+    14.04,
+    35.62
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 71.72,
+   "mode": "FLY",
+   "ke": 35.6,
+   "vF": 24.75,
+   "vExit": 13.33,
+   "riderV": 13,
+   "L": 7.79
+  },
+  "hc3": 0.525,
+  "hcNoExcl": 0.525,
+  "keByMode": {
+   "LAUNCH": 10.6,
+   "FLY": 35.6,
+   "BRAKE": 14.6,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 95.16,
+   "mode": "BRAKE",
+   "d": 0.52,
+   "riderV": 0,
+   "L": 14.23,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "crossL6_s13",
+  "avail": 23.92,
+  "pxMed": 276.2508983378087,
+  "jitter": 8.124025942965797,
+  "keMax": 30.319267309027243,
+  "headClear": 0.9231217440560273,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   14.94
+  ],
+  "cat": {
+   "notAirborne": 12.5,
+   "launch": 11.29,
+   "brakeRetrieve": 21.04,
+   "flyNotInFrame": 2.56,
+   "flyPxLow": 26.1,
+   "flyArt": 1.02,
+   "flyFit": 1.56,
+   "avail": 23.92,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    14.9,
+    22.84
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.46,
+    5.41,
+    13.87
+   ],
+   "ke": [
+    9.93,
+    12.91,
+    30.32
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 79.4,
+   "mode": "FLY",
+   "ke": 30.3,
+   "vF": 22.84,
+   "vExit": 13.13,
+   "riderV": 13.08,
+   "L": 11.14
+  },
+  "hc3": 0.923,
+  "hcNoExcl": 0.923,
+  "keByMode": {
+   "LAUNCH": 12,
+   "FLY": 30.3,
+   "BRAKE": 16.5,
+   "RETRIEVE": 15.3,
+   "CAPTURE": 0.2,
+   "FREE": 8.7
+  },
+  "headMin": {
+   "t": 40.56,
+   "mode": "BRAKE",
+   "d": 0.92,
+   "riderV": 0,
+   "L": 15.27,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "crossL9_s11",
+  "avail": 12.37,
+  "pxMed": 244.97462302485553,
+  "jitter": 14.03207824054226,
+  "keMax": 36.36742319695623,
+  "headClear": 0.33322427256212567,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   18.7
+  ],
+  "cat": {
+   "notAirborne": 6.06,
+   "launch": 9.62,
+   "brakeRetrieve": 37.8,
+   "flyNotInFrame": 4.42,
+   "flyPxLow": 22.28,
+   "flyArt": 1.16,
+   "flyFit": 6.3,
+   "avail": 12.37,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.7,
+    16.31,
+    25.01
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    3.67,
+    8.42,
+    20.15
+   ],
+   "ke": [
+    10.92,
+    15.47,
+    36.37
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 34.56,
+   "mode": "FLY",
+   "ke": 36.4,
+   "vF": 25.01,
+   "vExit": 13.26,
+   "riderV": 13.15,
+   "L": 8.81
+  },
+  "hc3": 0.333,
+  "hcNoExcl": 0.333,
+  "keByMode": {
+   "LAUNCH": 11.1,
+   "FLY": 36.4,
+   "BRAKE": 5,
+   "RETRIEVE": 23.2,
+   "CAPTURE": 0.2,
+   "FREE": 6.9
+  },
+  "headMin": {
+   "t": 37.6,
+   "mode": "FLY",
+   "d": 0.33,
+   "riderV": 13.09,
+   "L": 9.66,
+   "T": 2.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "crossR3_s11",
+  "avail": 29.63,
+  "pxMed": 278.96903397690625,
+  "jitter": 7.3117964184913555,
+  "keMax": 20.191937304429775,
+  "headClear": 1.0210393075090725,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.54,
+   13.99
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 12.34,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 6.06,
+   "flyPxLow": 34.78,
+   "flyArt": 3.96,
+   "flyFit": 3.04,
+   "avail": 29.63,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.12,
+    14.61,
+    18.64
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.22,
+    4.15,
+    8.47
+   ],
+   "ke": [
+    10.01,
+    12.41,
+    20.19
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 20.2,
+   "vF": 18.64,
+   "vExit": 15.81,
+   "riderV": 11.8,
+   "L": 11.34
+  },
+  "hc3": 1.021,
+  "hcNoExcl": 1.021,
+  "keByMode": {
+   "LAUNCH": 12.9,
+   "FLY": 20.2,
+   "BRAKE": 16,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 6.4,
+   "mode": "LAUNCH",
+   "d": 1.02,
+   "riderV": 12.89,
+   "L": 4.8,
+   "T": 0.7,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "crossR6_s12",
+  "avail": 28.1,
+  "pxMed": 268.64005095430144,
+  "jitter": 9.189281813108721,
+  "keMax": 27.48092273170864,
+  "headClear": 1.0267587038902362,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   16.08,
+   16.59
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.94,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 4.93,
+   "flyPxLow": 37.88,
+   "flyArt": 4.12,
+   "flyFit": 5.77,
+   "avail": 28.1,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.19,
+    15.23,
+    21.74
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.57,
+    5.85,
+    13.27
+   ],
+   "ke": [
+    10.12,
+    13.48,
+    27.48
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 8.06,
+   "mode": "FLY",
+   "ke": 27.5,
+   "vF": 21.74,
+   "vExit": 13.12,
+   "riderV": 13.11,
+   "L": 9.37
+  },
+  "hc3": 1.027,
+  "hcNoExcl": 1.027,
+  "keByMode": {
+   "LAUNCH": 11.2,
+   "FLY": 27.5,
+   "BRAKE": 17.8,
+   "FLYIN": 2.6,
+   "RETRIEVE": 0.6,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 77.14,
+   "mode": "FLY",
+   "d": 1.03,
+   "riderV": 13.1,
+   "L": 9.95,
+   "T": 1.4,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "stopfix",
+  "over": {
+   "stopPay": 1.5,
+   "sideAll": 1,
+   "furlK": 0.1
+  },
+  "id": "crossR9_s13",
+  "avail": 15.36,
+  "pxMed": 258.2772998360338,
+  "jitter": 10.520167106152973,
+  "keMax": 48.63128189848466,
+  "headClear": 0.505357167342372,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   22.29,
+   18.02
+  ],
+  "cat": {
+   "notAirborne": 11.42,
+   "launch": 10.16,
+   "brakeRetrieve": 32.14,
+   "flyNotInFrame": 2.02,
+   "flyPxLow": 23.63,
+   "flyArt": 1.29,
+   "flyFit": 3.99,
+   "avail": 15.36,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.59,
+    16.38,
+    20.85
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    15.55
+   ],
+   "vRel": [
+    3.76,
+    7.95,
+    17.59
+   ],
+   "ke": [
+    10.74,
+    15.59,
+    25.27
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 19.36,
+   "mode": "FLYIN",
+   "ke": 48.6,
+   "vF": 28.92,
+   "vExit": 13.21,
+   "riderV": 13.11,
+   "L": 14.92
+  },
+  "hc3": 0.505,
+  "hcNoExcl": 0.505,
+  "keByMode": {
+   "LAUNCH": 11.8,
+   "FLY": 25.3,
+   "BRAKE": 14.7,
+   "FLYIN": 48.6,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 22.26,
+   "mode": "FLYIN",
+   "d": 0.51,
+   "riderV": 13.13,
+   "L": 9.66,
+   "T": 4.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "calm_s11",
+  "avail": 29.45,
+  "pxMed": 347.3556681197123,
+  "jitter": 5.838946987403836,
+  "keMax": 16.28441389725417,
+  "headClear": 1.1187550483562823,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.23,
+   11.94
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 12.39,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 2.26,
+   "flyPxLow": 22.2,
+   "flyArt": 23.49,
+   "flyFit": 0.03,
+   "avail": 29.45,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    14.64,
+    16.74
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    1.92,
+    3.26,
+    6.76
+   ],
+   "ke": [
+    9.93,
+    12.46,
+    16.28
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 16.3,
+   "vF": 16.74,
+   "vExit": 16.5,
+   "riderV": 11.96,
+   "L": 11.34
+  },
+  "hc3": 1.119,
+  "hcNoExcl": 1.119,
+  "keByMode": {
+   "LAUNCH": 11.7,
+   "FLY": 16.3,
+   "BRAKE": 13.3,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 93.22,
+   "mode": "BRAKE",
+   "d": 1.12,
+   "riderV": 9.15,
+   "L": 11.34,
+   "T": 6.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "calm_s13",
+  "avail": 30.87,
+  "pxMed": 328.43300933284195,
+  "jitter": 6.205663471583245,
+  "keMax": 21.238405105332202,
+  "headClear": 1.089051632726114,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.82,
+   11.75
+  ],
+  "cat": {
+   "notAirborne": 6.09,
+   "launch": 12.28,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 5.41,
+   "flyPxLow": 29.42,
+   "flyArt": 11.5,
+   "flyFit": 0.08,
+   "avail": 30.87,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.22,
+    14.81,
+    19.11
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.04,
+    3.7,
+    5.82
+   ],
+   "ke": [
+    10.17,
+    12.75,
+    21.24
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 21.2,
+   "vF": 19.11,
+   "vExit": 15.36,
+   "riderV": 11.68,
+   "L": 11.59
+  },
+  "hc3": 1.089,
+  "hcNoExcl": 1.089,
+  "keByMode": {
+   "LAUNCH": 12.3,
+   "FLY": 21.2,
+   "BRAKE": 18.7,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.74,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.5,
+   "L": 11.64,
+   "T": 6,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "head3_s12",
+  "avail": 18.48,
+  "pxMed": 351.9904721172032,
+  "jitter": 8.4052633634462,
+  "keMax": 22.848007976075394,
+  "headClear": 1.0639569657773102,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   44.28
+  ],
+  "cat": {
+   "notAirborne": 19.13,
+   "launch": 5.31,
+   "brakeRetrieve": 32.7,
+   "flyNotInFrame": 1.02,
+   "flyPxLow": 14.82,
+   "flyArt": 8.54,
+   "flyFit": 0,
+   "avail": 18.48,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.97,
+    14.37,
+    19.83
+   ],
+   "vExit": [
+    13.14,
+    13.27,
+    16.61
+   ],
+   "vRel": [
+    1.97,
+    3.66,
+    5.51
+   ],
+   "ke": [
+    9.77,
+    12,
+    22.85
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 22.8,
+   "vF": 19.83,
+   "vExit": 16.08,
+   "riderV": 11.86,
+   "L": 11.32
+  },
+  "hc3": 0.448,
+  "hcNoExcl": 0.448,
+  "keByMode": {
+   "LAUNCH": 8.9,
+   "FLY": 22.8,
+   "BRAKE": 13.8,
+   "FLYIN": 1.2,
+   "CAPTURE": 6.2
+  },
+  "headMin": {
+   "t": 38.7,
+   "mode": "BRAKE",
+   "d": 1.06,
+   "riderV": 8.74,
+   "L": 11.57,
+   "T": 8,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "head6_s12",
+  "avail": 35.26,
+  "pxMed": 372.9878100270652,
+  "jitter": 8.335953574902554,
+  "keMax": 23.813242807762247,
+  "headClear": 1.0878158010877084,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   10.95,
+   10.93
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.81,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 5.09,
+   "flyPxLow": 24.95,
+   "flyArt": 15.63,
+   "flyFit": 0,
+   "avail": 35.26,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.32,
+    14.53,
+    20.24
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.21,
+    4.24,
+    8.42
+   ],
+   "ke": [
+    10.32,
+    12.27,
+    23.81
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 23.8,
+   "vF": 20.24,
+   "vExit": 16.37,
+   "riderV": 11.95,
+   "L": 9.91
+  },
+  "hc3": 1.088,
+  "hcNoExcl": 1.088,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 23.8,
+   "BRAKE": 14.5,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.64,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.96,
+   "L": 10.56,
+   "T": 11.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "head9_s11",
+  "avail": 27.75,
+  "pxMed": 370.267791991598,
+  "jitter": 8.675948774988411,
+  "keMax": 57.079011910096014,
+  "headClear": 1.030746878583153,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.33,
+   11.99
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 8.24,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 4.34,
+   "flyPxLow": 18.02,
+   "flyArt": 29.36,
+   "flyFit": 2.1,
+   "avail": 27.75,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.51,
+    16.85,
+    31.33
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.81,
+    7.07,
+    26.09
+   ],
+   "ke": [
+    10.61,
+    16.51,
+    57.08
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 85.86,
+   "mode": "FLY",
+   "ke": 57.1,
+   "vF": 31.33,
+   "vExit": 13.13,
+   "riderV": 12.87,
+   "L": 10.04
+  },
+  "hc3": 1.031,
+  "hcNoExcl": 1.031,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 57.1,
+   "BRAKE": 17.3,
+   "RETRIEVE": 2.6,
+   "CAPTURE": 1.8
+  },
+  "headMin": {
+   "t": 92.22,
+   "mode": "FLY",
+   "d": 1.03,
+   "riderV": 12.99,
+   "L": 9.88,
+   "T": 13,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "tail3_s12",
+  "avail": 31.87,
+  "pxMed": 339.06113283704667,
+  "jitter": 8.044043511226514,
+  "keMax": 21.71587737705898,
+  "headClear": 0.5992368969532362,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   18.63,
+   20.59
+  ],
+  "cat": {
+   "notAirborne": 12.55,
+   "launch": 13.04,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 6.06,
+   "flyPxLow": 22.36,
+   "flyArt": 9.32,
+   "flyFit": 0.48,
+   "avail": 31.87,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.13,
+    16.11,
+    19.33
+   ],
+   "vExit": [
+    13.17,
+    13.33,
+    16.61
+   ],
+   "vRel": [
+    2.89,
+    5.11,
+    8.96
+   ],
+   "ke": [
+    10.02,
+    15.09,
+    21.72
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 21.76,
+   "mode": "FLY",
+   "ke": 21.7,
+   "vF": 19.33,
+   "vExit": 13.15,
+   "riderV": 13.07,
+   "L": 9.97
+  },
+  "hc3": 0.599,
+  "hcNoExcl": 0.599,
+  "keByMode": {
+   "LAUNCH": 14.3,
+   "FLY": 21.7,
+   "BRAKE": 17,
+   "CAPTURE": 0.2,
+   "RETRIEVE": 0.2
+  },
+  "headMin": {
+   "t": 40.54,
+   "mode": "BRAKE",
+   "d": 0.6,
+   "riderV": 0,
+   "L": 8.78,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossL3_s12",
+  "avail": 32.03,
+  "pxMed": 344.84018514442374,
+  "jitter": 7.4447284835743766,
+  "keMax": 20.252031610646714,
+  "headClear": 0.9872798207822316,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   21.53,
+   21.23
+  ],
+  "cat": {
+   "notAirborne": 7.6,
+   "launch": 9.94,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 4.34,
+   "flyPxLow": 26.97,
+   "flyArt": 14.52,
+   "flyFit": 0.3,
+   "avail": 32.03,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.11,
+    14.72,
+    18.66
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.22,
+    3.9,
+    7.07
+   ],
+   "ke": [
+    9.99,
+    12.6,
+    20.25
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 20.3,
+   "vF": 18.66,
+   "vExit": 15.7,
+   "riderV": 11.78,
+   "L": 11.3
+  },
+  "hc3": 0.987,
+  "hcNoExcl": 0.987,
+  "keByMode": {
+   "LAUNCH": 10.5,
+   "FLY": 20.3,
+   "BRAKE": 14.5,
+   "RETRIEVE": 0,
+   "CAPTURE": 0.1
+  },
+  "headMin": {
+   "t": 38.78,
+   "mode": "BRAKE",
+   "d": 0.99,
+   "riderV": 8.45,
+   "L": 11.33,
+   "T": 6.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossL6_s13",
+  "avail": 33.84,
+  "pxMed": 321.51304515423857,
+  "jitter": 6.656637215329693,
+  "keMax": 19.569164643219377,
+  "headClear": 0.44913466433523774,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.89,
+   23.18
+  ],
+  "cat": {
+   "notAirborne": 12.5,
+   "launch": 10.99,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 6.95,
+   "flyPxLow": 29.18,
+   "flyArt": 2.21,
+   "flyFit": 0,
+   "avail": 33.84,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.14,
+    15.01,
+    18.35
+   ],
+   "vExit": [
+    13.17,
+    13.28,
+    16.12
+   ],
+   "vRel": [
+    2.5,
+    5.34,
+    8.89
+   ],
+   "ke": [
+    10.04,
+    13.1,
+    19.57
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 79.22,
+   "mode": "FLY",
+   "ke": 19.6,
+   "vF": 18.35,
+   "vExit": 13.13,
+   "riderV": 13.12,
+   "L": 11.24
+  },
+  "hc3": 0.449,
+  "hcNoExcl": 0.449,
+  "keByMode": {
+   "LAUNCH": 12.7,
+   "FLY": 19.6,
+   "BRAKE": 16.5,
+   "RETRIEVE": 3.6,
+   "CAPTURE": 0.3
+  },
+  "headMin": {
+   "t": 99.8,
+   "mode": "RETRIEVE",
+   "d": 0.45,
+   "riderV": 0,
+   "L": 6.59,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossL9_s11",
+  "avail": 17.27,
+  "pxMed": 335.2538611985999,
+  "jitter": 9.683663247232591,
+  "keMax": 36.36742319695623,
+  "headClear": 0.2503306458599778,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   26.65
+  ],
+  "cat": {
+   "notAirborne": 42.81,
+   "launch": 5.2,
+   "brakeRetrieve": 8.94,
+   "flyNotInFrame": 3.93,
+   "flyPxLow": 14.87,
+   "flyArt": 4.71,
+   "flyFit": 2.26,
+   "avail": 17.27,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.71,
+    16.36,
+    25.01
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    3.41,
+    8.5,
+    20.15
+   ],
+   "ke": [
+    10.93,
+    15.56,
+    36.37
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 34.56,
+   "mode": "FLY",
+   "ke": 36.4,
+   "vF": 25.01,
+   "vExit": 13.26,
+   "riderV": 13.15,
+   "L": 8.81
+  },
+  "hc3": 0.014,
+  "hcNoExcl": 0.014,
+  "keByMode": {
+   "LAUNCH": 11.1,
+   "FLY": 36.4,
+   "BRAKE": 4.4,
+   "RETRIEVE": 3.9,
+   "CAPTURE": 1
+  },
+  "headMin": {
+   "t": 50.18,
+   "mode": "RETRIEVE",
+   "d": 0.25,
+   "riderV": 0,
+   "L": 1.49,
+   "T": 0.4,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossR3_s11",
+  "avail": 19.15,
+  "pxMed": 334.5583840439271,
+  "jitter": 6.838425010724827,
+  "keMax": 48.84822960528925,
+  "headClear": 0.9329466180923717,
+  "launches": 2,
+  "launchFails": 1,
+  "dockTimes": [
+   21.07
+  ],
+  "cat": {
+   "notAirborne": 6.79,
+   "launch": 11.18,
+   "brakeRetrieve": 41.03,
+   "flyNotInFrame": 2.32,
+   "flyPxLow": 14.66,
+   "flyArt": 4.88,
+   "flyFit": 0,
+   "avail": 19.15,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.16,
+    14.55,
+    18.64
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.39,
+    4.53,
+    8.47
+   ],
+   "ke": [
+    10.06,
+    12.31,
+    20.19
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 68.46,
+   "mode": "RETRIEVE",
+   "ke": 48.8,
+   "vF": 28.99,
+   "vExit": 13.36,
+   "riderV": 13.05,
+   "L": 6.02
+  },
+  "hc3": 0.933,
+  "hcNoExcl": 0.933,
+  "keByMode": {
+   "LAUNCH": 15,
+   "FLY": 20.2,
+   "BRAKE": 16,
+   "CAPTURE": 0.1,
+   "RETRIEVE": 48.8,
+   "FREE": 10.2
+  },
+  "headMin": {
+   "t": 69.7,
+   "mode": "RETRIEVE",
+   "d": 0.93,
+   "riderV": 13.1,
+   "L": 4.71,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossR6_s12",
+  "avail": 44.61,
+  "pxMed": 364.27545421610665,
+  "jitter": 8.903903279029503,
+  "keMax": 27.48092273170864,
+  "headClear": 1.071663816527664,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   16.21,
+   13.83
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 9,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 3.66,
+   "flyPxLow": 25.89,
+   "flyArt": 6.06,
+   "flyFit": 0.51,
+   "avail": 44.61,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.22,
+    14.8,
+    21.74
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.25,
+    4.82,
+    13.27
+   ],
+   "ke": [
+    10.15,
+    12.74,
+    27.48
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 8.06,
+   "mode": "FLY",
+   "ke": 27.5,
+   "vF": 21.74,
+   "vExit": 13.12,
+   "riderV": 13.11,
+   "L": 9.37
+  },
+  "hc3": 1.072,
+  "hcNoExcl": 1.072,
+  "keByMode": {
+   "LAUNCH": 11.5,
+   "FLY": 27.5,
+   "BRAKE": 14.3,
+   "FLYIN": 3.6,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 2.76,
+   "mode": "LAUNCH",
+   "d": 1.07,
+   "riderV": 9.95,
+   "L": 0.94,
+   "T": 7,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossR9_s13",
+  "avail": 23.22,
+  "pxMed": 349.87952329551854,
+  "jitter": 15.351777499036373,
+  "keMax": 48.63128189848466,
+  "headClear": 0.505357167342372,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   22.29,
+   10.82
+  ],
+  "cat": {
+   "notAirborne": 11.42,
+   "launch": 10.16,
+   "brakeRetrieve": 32.14,
+   "flyNotInFrame": 2.8,
+   "flyPxLow": 14.71,
+   "flyArt": 3.93,
+   "flyFit": 1.62,
+   "avail": 23.22,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.59,
+    16.37,
+    20.85
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    15.55
+   ],
+   "vRel": [
+    3.75,
+    7.95,
+    17.59
+   ],
+   "ke": [
+    10.74,
+    15.59,
+    25.27
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 19.36,
+   "mode": "FLYIN",
+   "ke": 48.6,
+   "vF": 28.92,
+   "vExit": 13.21,
+   "riderV": 13.11,
+   "L": 14.92
+  },
+  "hc3": 0.505,
+  "hcNoExcl": 0.505,
+  "keByMode": {
+   "LAUNCH": 11.8,
+   "FLY": 25.3,
+   "BRAKE": 14.7,
+   "FLYIN": 48.6,
+   "RETRIEVE": 4.6,
+   "CAPTURE": 0.3
+  },
+  "headMin": {
+   "t": 22.26,
+   "mode": "FLYIN",
+   "d": 0.51,
+   "riderV": 13.13,
+   "L": 9.66,
+   "T": 4.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "calm_s11",
+  "avail": 45.5,
+  "pxMed": 350.52750333788566,
+  "jitter": 6.016500411081422,
+  "keMax": 16.28441389725417,
+  "headClear": 1.1187550483562823,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.23,
+   11.94
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 12.39,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 2.29,
+   "flyPxLow": 29.58,
+   "flyArt": 0,
+   "flyFit": 0.05,
+   "avail": 45.5,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    14.64,
+    16.74
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    1.92,
+    3.26,
+    6.76
+   ],
+   "ke": [
+    9.93,
+    12.46,
+    16.28
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 16.3,
+   "vF": 16.74,
+   "vExit": 16.5,
+   "riderV": 11.96,
+   "L": 11.34
+  },
+  "hc3": 1.119,
+  "hcNoExcl": 1.119,
+  "keByMode": {
+   "LAUNCH": 11.7,
+   "FLY": 16.3,
+   "BRAKE": 13.3,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 93.22,
+   "mode": "BRAKE",
+   "d": 1.12,
+   "riderV": 9.15,
+   "L": 11.34,
+   "T": 6.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "calm_s13",
+  "avail": 41.68,
+  "pxMed": 331.5742238498853,
+  "jitter": 6.443080655515639,
+  "keMax": 21.238405105332202,
+  "headClear": 1.089051632726114,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.82,
+   11.75
+  ],
+  "cat": {
+   "notAirborne": 6.09,
+   "launch": 12.28,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 5.28,
+   "flyPxLow": 30.25,
+   "flyArt": 0,
+   "flyFit": 0.08,
+   "avail": 41.68,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.22,
+    14.81,
+    19.11
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.04,
+    3.7,
+    5.82
+   ],
+   "ke": [
+    10.17,
+    12.75,
+    21.24
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 21.2,
+   "vF": 19.11,
+   "vExit": 15.36,
+   "riderV": 11.68,
+   "L": 11.59
+  },
+  "hc3": 1.089,
+  "hcNoExcl": 1.089,
+  "keByMode": {
+   "LAUNCH": 12.3,
+   "FLY": 21.2,
+   "BRAKE": 18.7,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.74,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.5,
+   "L": 11.64,
+   "T": 6,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "head3_s12",
+  "avail": 25,
+  "pxMed": 354.0167751434106,
+  "jitter": 8.832867480260653,
+  "keMax": 22.848007976075394,
+  "headClear": 1.0639569657773102,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   44.28
+  ],
+  "cat": {
+   "notAirborne": 19.13,
+   "launch": 5.31,
+   "brakeRetrieve": 32.7,
+   "flyNotInFrame": 1.1,
+   "flyPxLow": 16.76,
+   "flyArt": 0,
+   "flyFit": 0,
+   "avail": 25,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.97,
+    14.37,
+    19.83
+   ],
+   "vExit": [
+    13.14,
+    13.27,
+    16.61
+   ],
+   "vRel": [
+    1.97,
+    3.66,
+    5.51
+   ],
+   "ke": [
+    9.77,
+    12,
+    22.85
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 22.8,
+   "vF": 19.83,
+   "vExit": 16.08,
+   "riderV": 11.86,
+   "L": 11.32
+  },
+  "hc3": 0.448,
+  "hcNoExcl": 0.448,
+  "keByMode": {
+   "LAUNCH": 8.9,
+   "FLY": 22.8,
+   "BRAKE": 13.8,
+   "FLYIN": 1.2,
+   "CAPTURE": 6.2
+  },
+  "headMin": {
+   "t": 38.7,
+   "mode": "BRAKE",
+   "d": 1.06,
+   "riderV": 8.74,
+   "L": 11.57,
+   "T": 8,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "head6_s12",
+  "avail": 49.19,
+  "pxMed": 374.93328645097483,
+  "jitter": 8.942315705849268,
+  "keMax": 23.813242807762247,
+  "headClear": 1.0878158010877084,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   10.95,
+   10.93
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.81,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 5.25,
+   "flyPxLow": 26.45,
+   "flyArt": 0.03,
+   "flyFit": 0,
+   "avail": 49.19,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.32,
+    14.53,
+    20.24
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.21,
+    4.24,
+    8.42
+   ],
+   "ke": [
+    10.32,
+    12.27,
+    23.81
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 23.8,
+   "vF": 20.24,
+   "vExit": 16.37,
+   "riderV": 11.95,
+   "L": 9.91
+  },
+  "hc3": 1.088,
+  "hcNoExcl": 1.088,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 23.8,
+   "BRAKE": 14.5,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.64,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.96,
+   "L": 10.56,
+   "T": 11.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "head9_s11",
+  "avail": 51.29,
+  "pxMed": 372.6367883114949,
+  "jitter": 9.517944237733788,
+  "keMax": 57.079011910096014,
+  "headClear": 1.030746878583153,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.33,
+   11.99
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 8.24,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 4.39,
+   "flyPxLow": 23.68,
+   "flyArt": 0.05,
+   "flyFit": 2.16,
+   "avail": 51.29,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.51,
+    16.85,
+    31.33
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.81,
+    7.07,
+    26.09
+   ],
+   "ke": [
+    10.61,
+    16.51,
+    57.08
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 85.86,
+   "mode": "FLY",
+   "ke": 57.1,
+   "vF": 31.33,
+   "vExit": 13.13,
+   "riderV": 12.87,
+   "L": 10.04
+  },
+  "hc3": 1.031,
+  "hcNoExcl": 1.031,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 57.1,
+   "BRAKE": 17.3,
+   "RETRIEVE": 2.6,
+   "CAPTURE": 1.8
+  },
+  "headMin": {
+   "t": 92.22,
+   "mode": "FLY",
+   "d": 1.03,
+   "riderV": 12.99,
+   "L": 9.88,
+   "T": 13,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "tail3_s12",
+  "avail": 37.77,
+  "pxMed": 337.5176383802648,
+  "jitter": 9.059459265984794,
+  "keMax": 21.71587737705898,
+  "headClear": 0.5992368969532362,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   18.63,
+   20.59
+  ],
+  "cat": {
+   "notAirborne": 12.55,
+   "launch": 13.04,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 6.25,
+   "flyPxLow": 25.57,
+   "flyArt": 0,
+   "flyFit": 0.51,
+   "avail": 37.77,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.13,
+    16.11,
+    19.33
+   ],
+   "vExit": [
+    13.17,
+    13.33,
+    16.61
+   ],
+   "vRel": [
+    2.89,
+    5.11,
+    8.96
+   ],
+   "ke": [
+    10.02,
+    15.09,
+    21.72
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 21.76,
+   "mode": "FLY",
+   "ke": 21.7,
+   "vF": 19.33,
+   "vExit": 13.15,
+   "riderV": 13.07,
+   "L": 9.97
+  },
+  "hc3": 0.599,
+  "hcNoExcl": 0.599,
+  "keByMode": {
+   "LAUNCH": 14.3,
+   "FLY": 21.7,
+   "BRAKE": 17,
+   "CAPTURE": 0.2,
+   "RETRIEVE": 0.2
+  },
+  "headMin": {
+   "t": 40.54,
+   "mode": "BRAKE",
+   "d": 0.6,
+   "riderV": 0,
+   "L": 8.78,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossL3_s12",
+  "avail": 44.15,
+  "pxMed": 346.6388844752577,
+  "jitter": 7.81654649775452,
+  "keMax": 20.252031610646714,
+  "headClear": 0.9872798207822316,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   21.53,
+   21.23
+  ],
+  "cat": {
+   "notAirborne": 7.6,
+   "launch": 9.94,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 4.53,
+   "flyPxLow": 29.18,
+   "flyArt": 0,
+   "flyFit": 0.3,
+   "avail": 44.15,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.11,
+    14.72,
+    18.66
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.22,
+    3.9,
+    7.07
+   ],
+   "ke": [
+    9.99,
+    12.6,
+    20.25
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 20.3,
+   "vF": 18.66,
+   "vExit": 15.7,
+   "riderV": 11.78,
+   "L": 11.3
+  },
+  "hc3": 0.987,
+  "hcNoExcl": 0.987,
+  "keByMode": {
+   "LAUNCH": 10.5,
+   "FLY": 20.3,
+   "BRAKE": 14.5,
+   "RETRIEVE": 0,
+   "CAPTURE": 0.1
+  },
+  "headMin": {
+   "t": 38.78,
+   "mode": "BRAKE",
+   "d": 0.99,
+   "riderV": 8.45,
+   "L": 11.33,
+   "T": 6.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossL6_s13",
+  "avail": 35.72,
+  "pxMed": 322.8070578746047,
+  "jitter": 7.0880866300146765,
+  "keMax": 19.569164643219377,
+  "headClear": 0.44913466433523774,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.89,
+   23.18
+  ],
+  "cat": {
+   "notAirborne": 12.5,
+   "launch": 10.99,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 7.25,
+   "flyPxLow": 29.2,
+   "flyArt": 0,
+   "flyFit": 0,
+   "avail": 35.72,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.14,
+    15.01,
+    18.35
+   ],
+   "vExit": [
+    13.17,
+    13.28,
+    16.12
+   ],
+   "vRel": [
+    2.5,
+    5.34,
+    8.89
+   ],
+   "ke": [
+    10.04,
+    13.1,
+    19.57
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 79.22,
+   "mode": "FLY",
+   "ke": 19.6,
+   "vF": 18.35,
+   "vExit": 13.13,
+   "riderV": 13.12,
+   "L": 11.24
+  },
+  "hc3": 0.449,
+  "hcNoExcl": 0.449,
+  "keByMode": {
+   "LAUNCH": 12.7,
+   "FLY": 19.6,
+   "BRAKE": 16.5,
+   "RETRIEVE": 3.6,
+   "CAPTURE": 0.3
+  },
+  "headMin": {
+   "t": 99.8,
+   "mode": "RETRIEVE",
+   "d": 0.45,
+   "riderV": 0,
+   "L": 6.59,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossL9_s11",
+  "avail": 21.2,
+  "pxMed": 336.50528797890354,
+  "jitter": 11.188069785151468,
+  "keMax": 36.36742319695623,
+  "headClear": 0.2503306458599778,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   26.65
+  ],
+  "cat": {
+   "notAirborne": 42.81,
+   "launch": 5.2,
+   "brakeRetrieve": 8.94,
+   "flyNotInFrame": 4.04,
+   "flyPxLow": 14.71,
+   "flyArt": 0.86,
+   "flyFit": 2.24,
+   "avail": 21.2,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.71,
+    16.36,
+    25.01
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    3.41,
+    8.5,
+    20.15
+   ],
+   "ke": [
+    10.93,
+    15.56,
+    36.37
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 34.56,
+   "mode": "FLY",
+   "ke": 36.4,
+   "vF": 25.01,
+   "vExit": 13.26,
+   "riderV": 13.15,
+   "L": 8.81
+  },
+  "hc3": 0.014,
+  "hcNoExcl": 0.014,
+  "keByMode": {
+   "LAUNCH": 11.1,
+   "FLY": 36.4,
+   "BRAKE": 4.4,
+   "RETRIEVE": 3.9,
+   "CAPTURE": 1
+  },
+  "headMin": {
+   "t": 50.18,
+   "mode": "RETRIEVE",
+   "d": 0.25,
+   "riderV": 0,
+   "L": 1.49,
+   "T": 0.4,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossR3_s11",
+  "avail": 22.44,
+  "pxMed": 334.70874544507757,
+  "jitter": 7.147797895457881,
+  "keMax": 48.84822960528925,
+  "headClear": 0.9329466180923717,
+  "launches": 2,
+  "launchFails": 1,
+  "dockTimes": [
+   21.07
+  ],
+  "cat": {
+   "notAirborne": 6.79,
+   "launch": 11.18,
+   "brakeRetrieve": 41.03,
+   "flyNotInFrame": 2.26,
+   "flyPxLow": 16.27,
+   "flyArt": 0,
+   "flyFit": 0.03,
+   "avail": 22.44,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.16,
+    14.55,
+    18.64
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.39,
+    4.53,
+    8.47
+   ],
+   "ke": [
+    10.06,
+    12.31,
+    20.19
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 68.46,
+   "mode": "RETRIEVE",
+   "ke": 48.8,
+   "vF": 28.99,
+   "vExit": 13.36,
+   "riderV": 13.05,
+   "L": 6.02
+  },
+  "hc3": 0.933,
+  "hcNoExcl": 0.933,
+  "keByMode": {
+   "LAUNCH": 15,
+   "FLY": 20.2,
+   "BRAKE": 16,
+   "CAPTURE": 0.1,
+   "RETRIEVE": 48.8,
+   "FREE": 10.2
+  },
+  "headMin": {
+   "t": 69.7,
+   "mode": "RETRIEVE",
+   "d": 0.93,
+   "riderV": 13.1,
+   "L": 4.71,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossR6_s12",
+  "avail": 48.95,
+  "pxMed": 366.6071477812572,
+  "jitter": 9.971570916153844,
+  "keMax": 27.48092273170864,
+  "headClear": 1.071663816527664,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   16.21,
+   13.83
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 9,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 3.56,
+   "flyPxLow": 27.69,
+   "flyArt": 0,
+   "flyFit": 0.54,
+   "avail": 48.95,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.22,
+    14.8,
+    21.74
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.25,
+    4.82,
+    13.27
+   ],
+   "ke": [
+    10.15,
+    12.74,
+    27.48
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 8.06,
+   "mode": "FLY",
+   "ke": 27.5,
+   "vF": 21.74,
+   "vExit": 13.12,
+   "riderV": 13.11,
+   "L": 9.37
+  },
+  "hc3": 1.072,
+  "hcNoExcl": 1.072,
+  "keByMode": {
+   "LAUNCH": 11.5,
+   "FLY": 27.5,
+   "BRAKE": 14.3,
+   "FLYIN": 3.6,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 2.76,
+   "mode": "LAUNCH",
+   "d": 1.07,
+   "riderV": 9.95,
+   "L": 0.94,
+   "T": 7,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_good_off25",
+  "over": {
+   "cropFc": 4
+  },
+  "id": "crossR9_s13",
+  "avail": 26.19,
+  "pxMed": 350.3585540115679,
+  "jitter": 16.802323465533963,
+  "keMax": 48.63128189848466,
+  "headClear": 0.505357167342372,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   22.29,
+   10.82
+  ],
+  "cat": {
+   "notAirborne": 11.42,
+   "launch": 10.16,
+   "brakeRetrieve": 32.14,
+   "flyNotInFrame": 3.02,
+   "flyPxLow": 15.49,
+   "flyArt": 0,
+   "flyFit": 1.59,
+   "avail": 26.19,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.59,
+    16.37,
+    20.85
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    15.55
+   ],
+   "vRel": [
+    3.75,
+    7.95,
+    17.59
+   ],
+   "ke": [
+    10.74,
+    15.59,
+    25.27
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 19.36,
+   "mode": "FLYIN",
+   "ke": 48.6,
+   "vF": 28.92,
+   "vExit": 13.21,
+   "riderV": 13.11,
+   "L": 14.92
+  },
+  "hc3": 0.505,
+  "hcNoExcl": 0.505,
+  "keByMode": {
+   "LAUNCH": 11.8,
+   "FLY": 25.3,
+   "BRAKE": 14.7,
+   "FLYIN": 48.6,
+   "RETRIEVE": 4.6,
+   "CAPTURE": 0.3
+  },
+  "headMin": {
+   "t": 22.26,
+   "mode": "FLYIN",
+   "d": 0.51,
+   "riderV": 13.13,
+   "L": 9.66,
+   "T": 4.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "calm_s11",
+  "avail": 51.02,
+  "pxMed": 368.8312567781547,
+  "jitter": 4.806814247641911,
+  "keMax": 16.28441389725417,
+  "headClear": 1.1187550483562823,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.23,
+   11.94
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 12.39,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 1.45,
+   "flyPxLow": 24.95,
+   "flyArt": 0,
+   "flyFit": 0,
+   "avail": 51.02,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.07,
+    14.64,
+    16.74
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    1.92,
+    3.26,
+    6.76
+   ],
+   "ke": [
+    9.93,
+    12.46,
+    16.28
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 16.3,
+   "vF": 16.74,
+   "vExit": 16.5,
+   "riderV": 11.96,
+   "L": 11.34
+  },
+  "hc3": 1.119,
+  "hcNoExcl": 1.119,
+  "keByMode": {
+   "LAUNCH": 11.7,
+   "FLY": 16.3,
+   "BRAKE": 13.3,
+   "RETRIEVE": 0.8,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 93.22,
+   "mode": "BRAKE",
+   "d": 1.12,
+   "riderV": 9.15,
+   "L": 11.34,
+   "T": 6.2,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "calm_s13",
+  "avail": 52.16,
+  "pxMed": 380.5840240020602,
+  "jitter": 3.3874119834962646,
+  "keMax": 21.238405105332202,
+  "headClear": 1.089051632726114,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   11.82,
+   11.75
+  ],
+  "cat": {
+   "notAirborne": 6.09,
+   "launch": 12.28,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 0.32,
+   "flyPxLow": 24.78,
+   "flyArt": 0,
+   "flyFit": 0.03,
+   "avail": 52.16,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.22,
+    14.81,
+    19.11
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    16.12
+   ],
+   "vRel": [
+    2.04,
+    3.7,
+    5.82
+   ],
+   "ke": [
+    10.17,
+    12.75,
+    21.24
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 21.2,
+   "vF": 19.11,
+   "vExit": 15.36,
+   "riderV": 11.68,
+   "L": 11.59
+  },
+  "hc3": 1.089,
+  "hcNoExcl": 1.089,
+  "keByMode": {
+   "LAUNCH": 12.3,
+   "FLY": 21.2,
+   "BRAKE": 18.7,
+   "RETRIEVE": 0.9,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.74,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.5,
+   "L": 11.64,
+   "T": 6,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "head3_s12",
+  "avail": 28.8,
+  "pxMed": 383.181490327883,
+  "jitter": 3.201665675250604,
+  "keMax": 22.848007976075394,
+  "headClear": 1.0639569657773102,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   44.28
+  ],
+  "cat": {
+   "notAirborne": 19.13,
+   "launch": 5.31,
+   "brakeRetrieve": 32.7,
+   "flyNotInFrame": 0.16,
+   "flyPxLow": 13.9,
+   "flyArt": 0,
+   "flyFit": 0,
+   "avail": 28.8,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    12.97,
+    14.37,
+    19.83
+   ],
+   "vExit": [
+    13.14,
+    13.27,
+    16.61
+   ],
+   "vRel": [
+    1.97,
+    3.66,
+    5.51
+   ],
+   "ke": [
+    9.77,
+    12,
+    22.85
+   ],
+   "keFloorExitMedian": 10.04
+  },
+  "kePeak": {
+   "t": 37.88,
+   "mode": "FLY",
+   "ke": 22.8,
+   "vF": 19.83,
+   "vExit": 16.08,
+   "riderV": 11.86,
+   "L": 11.32
+  },
+  "hc3": 0.448,
+  "hcNoExcl": 0.448,
+  "keByMode": {
+   "LAUNCH": 8.9,
+   "FLY": 22.8,
+   "BRAKE": 13.8,
+   "FLYIN": 1.2,
+   "CAPTURE": 6.2
+  },
+  "headMin": {
+   "t": 38.7,
+   "mode": "BRAKE",
+   "d": 1.06,
+   "riderV": 8.74,
+   "L": 11.57,
+   "T": 8,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "head6_s12",
+  "avail": 54.2,
+  "pxMed": 407.3982355332533,
+  "jitter": 4.257426710383142,
+  "keMax": 23.813242807762247,
+  "headClear": 1.0878158010877084,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   10.95,
+   10.93
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 8.81,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 2.56,
+   "flyPxLow": 24.14,
+   "flyArt": 0.03,
+   "flyFit": 0,
+   "avail": 54.2,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.32,
+    14.53,
+    20.24
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.21,
+    4.24,
+    8.42
+   ],
+   "ke": [
+    10.32,
+    12.27,
+    23.81
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.86,
+   "mode": "FLY",
+   "ke": 23.8,
+   "vF": 20.24,
+   "vExit": 16.37,
+   "riderV": 11.95,
+   "L": 9.91
+  },
+  "hc3": 1.088,
+  "hcNoExcl": 1.088,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 23.8,
+   "BRAKE": 14.5,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 38.64,
+   "mode": "BRAKE",
+   "d": 1.09,
+   "riderV": 8.96,
+   "L": 10.56,
+   "T": 11.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "head9_s11",
+  "avail": 56.41,
+  "pxMed": 396.66889862955384,
+  "jitter": 6.554959376301936,
+  "keMax": 57.079011910096014,
+  "headClear": 1.030746878583153,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   13.33,
+   11.99
+  ],
+  "cat": {
+   "notAirborne": 5.85,
+   "launch": 8.24,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 0.86,
+   "flyPxLow": 22.49,
+   "flyArt": 1.54,
+   "flyFit": 0.27,
+   "avail": 56.41,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.51,
+    16.85,
+    31.33
+   ],
+   "vExit": [
+    13.19,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.81,
+    7.07,
+    26.09
+   ],
+   "ke": [
+    10.61,
+    16.51,
+    57.08
+   ],
+   "keFloorExitMedian": 10.11
+  },
+  "kePeak": {
+   "t": 85.86,
+   "mode": "FLY",
+   "ke": 57.1,
+   "vF": 31.33,
+   "vExit": 13.13,
+   "riderV": 12.87,
+   "L": 10.04
+  },
+  "hc3": 1.031,
+  "hcNoExcl": 1.031,
+  "keByMode": {
+   "LAUNCH": 8.7,
+   "FLY": 57.1,
+   "BRAKE": 17.3,
+   "RETRIEVE": 2.6,
+   "CAPTURE": 1.8
+  },
+  "headMin": {
+   "t": 92.22,
+   "mode": "FLY",
+   "d": 1.03,
+   "riderV": 12.99,
+   "L": 9.88,
+   "T": 13,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "tail3_s12",
+  "avail": 50.46,
+  "pxMed": 402.895164769652,
+  "jitter": 5.072125347656735,
+  "keMax": 21.71587737705898,
+  "headClear": 0.5992368969532362,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   18.63,
+   20.59
+  ],
+  "cat": {
+   "notAirborne": 12.55,
+   "launch": 13.04,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 2.59,
+   "flyPxLow": 17.03,
+   "flyArt": 0,
+   "flyFit": 0.03,
+   "avail": 50.46,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.13,
+    16.11,
+    19.33
+   ],
+   "vExit": [
+    13.17,
+    13.33,
+    16.61
+   ],
+   "vRel": [
+    2.89,
+    5.11,
+    8.96
+   ],
+   "ke": [
+    10.02,
+    15.09,
+    21.72
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 21.76,
+   "mode": "FLY",
+   "ke": 21.7,
+   "vF": 19.33,
+   "vExit": 13.15,
+   "riderV": 13.07,
+   "L": 9.97
+  },
+  "hc3": 0.599,
+  "hcNoExcl": 0.599,
+  "keByMode": {
+   "LAUNCH": 14.3,
+   "FLY": 21.7,
+   "BRAKE": 17,
+   "CAPTURE": 0.2,
+   "RETRIEVE": 0.2
+  },
+  "headMin": {
+   "t": 40.54,
+   "mode": "BRAKE",
+   "d": 0.6,
+   "riderV": 0,
+   "L": 8.78,
+   "T": 0,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "crossL3_s12",
+  "avail": 51.86,
+  "pxMed": 379.68475327665493,
+  "jitter": 3.106644363919743,
+  "keMax": 20.252031610646714,
+  "headClear": 0.9872798207822316,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   21.53,
+   21.23
+  ],
+  "cat": {
+   "notAirborne": 7.6,
+   "launch": 9.94,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 1.78,
+   "flyPxLow": 24.52,
+   "flyArt": 0,
+   "flyFit": 0,
+   "avail": 51.86,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.11,
+    14.72,
+    18.66
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.22,
+    3.9,
+    7.07
+   ],
+   "ke": [
+    9.99,
+    12.6,
+    20.25
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 37.9,
+   "mode": "FLY",
+   "ke": 20.3,
+   "vF": 18.66,
+   "vExit": 15.7,
+   "riderV": 11.78,
+   "L": 11.3
+  },
+  "hc3": 0.987,
+  "hcNoExcl": 0.987,
+  "keByMode": {
+   "LAUNCH": 10.5,
+   "FLY": 20.3,
+   "BRAKE": 14.5,
+   "RETRIEVE": 0,
+   "CAPTURE": 0.1
+  },
+  "headMin": {
+   "t": 38.78,
+   "mode": "BRAKE",
+   "d": 0.99,
+   "riderV": 8.45,
+   "L": 11.33,
+   "T": 6.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "crossL6_s13",
+  "avail": 46.96,
+  "pxMed": 375.48270044393684,
+  "jitter": 3.9799056661415686,
+  "keMax": 19.569164643219377,
+  "headClear": 0.44913466433523774,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   12.89,
+   23.18
+  ],
+  "cat": {
+   "notAirborne": 12.5,
+   "launch": 10.99,
+   "brakeRetrieve": 4.34,
+   "flyNotInFrame": 2.37,
+   "flyPxLow": 22.84,
+   "flyArt": 0,
+   "flyFit": 0,
+   "avail": 46.96,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.14,
+    15.01,
+    18.35
+   ],
+   "vExit": [
+    13.17,
+    13.28,
+    16.12
+   ],
+   "vRel": [
+    2.5,
+    5.34,
+    8.89
+   ],
+   "ke": [
+    10.04,
+    13.1,
+    19.57
+   ],
+   "keFloorExitMedian": 10.08
+  },
+  "kePeak": {
+   "t": 79.22,
+   "mode": "FLY",
+   "ke": 19.6,
+   "vF": 18.35,
+   "vExit": 13.13,
+   "riderV": 13.12,
+   "L": 11.24
+  },
+  "hc3": 0.449,
+  "hcNoExcl": 0.449,
+  "keByMode": {
+   "LAUNCH": 12.7,
+   "FLY": 19.6,
+   "BRAKE": 16.5,
+   "RETRIEVE": 3.6,
+   "CAPTURE": 0.3
+  },
+  "headMin": {
+   "t": 99.8,
+   "mode": "RETRIEVE",
+   "d": 0.45,
+   "riderV": 0,
+   "L": 6.59,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "crossL9_s11",
+  "avail": 27.61,
+  "pxMed": 382.58112912515196,
+  "jitter": 7.717585582248291,
+  "keMax": 36.36742319695623,
+  "headClear": 0.2503306458599778,
+  "launches": 1,
+  "launchFails": 0,
+  "dockTimes": [
+   26.65
+  ],
+  "cat": {
+   "notAirborne": 42.81,
+   "launch": 5.2,
+   "brakeRetrieve": 8.94,
+   "flyNotInFrame": 2.18,
+   "flyPxLow": 11.29,
+   "flyArt": 0.89,
+   "flyFit": 1.08,
+   "avail": 27.61,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.71,
+    16.36,
+    25.01
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    3.41,
+    8.5,
+    20.15
+   ],
+   "ke": [
+    10.93,
+    15.56,
+    36.37
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 34.56,
+   "mode": "FLY",
+   "ke": 36.4,
+   "vF": 25.01,
+   "vExit": 13.26,
+   "riderV": 13.15,
+   "L": 8.81
+  },
+  "hc3": 0.014,
+  "hcNoExcl": 0.014,
+  "keByMode": {
+   "LAUNCH": 11.1,
+   "FLY": 36.4,
+   "BRAKE": 4.4,
+   "RETRIEVE": 3.9,
+   "CAPTURE": 1
+  },
+  "headMin": {
+   "t": 50.18,
+   "mode": "RETRIEVE",
+   "d": 0.25,
+   "riderV": 0,
+   "L": 1.49,
+   "T": 0.4,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "crossR3_s11",
+  "avail": 27.16,
+  "pxMed": 373.72269598430614,
+  "jitter": 5.54852870329634,
+  "keMax": 48.84822960528925,
+  "headClear": 0.9329466180923717,
+  "launches": 2,
+  "launchFails": 1,
+  "dockTimes": [
+   21.07
+  ],
+  "cat": {
+   "notAirborne": 6.79,
+   "launch": 11.18,
+   "brakeRetrieve": 41.03,
+   "flyNotInFrame": 0.65,
+   "flyPxLow": 13.2,
+   "flyArt": 0,
+   "flyFit": 0,
+   "avail": 27.16,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.16,
+    14.55,
+    18.64
+   ],
+   "vExit": [
+    13.21,
+    13.29,
+    16.78
+   ],
+   "vRel": [
+    2.39,
+    4.53,
+    8.47
+   ],
+   "ke": [
+    10.06,
+    12.31,
+    20.19
+   ],
+   "keFloorExitMedian": 10.14
+  },
+  "kePeak": {
+   "t": 68.46,
+   "mode": "RETRIEVE",
+   "ke": 48.8,
+   "vF": 28.99,
+   "vExit": 13.36,
+   "riderV": 13.05,
+   "L": 6.02
+  },
+  "hc3": 0.933,
+  "hcNoExcl": 0.933,
+  "keByMode": {
+   "LAUNCH": 15,
+   "FLY": 20.2,
+   "BRAKE": 16,
+   "CAPTURE": 0.1,
+   "RETRIEVE": 48.8,
+   "FREE": 10.2
+  },
+  "headMin": {
+   "t": 69.7,
+   "mode": "RETRIEVE",
+   "d": 0.93,
+   "riderV": 13.1,
+   "L": 4.71,
+   "T": 0.1,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "crossR6_s12",
+  "avail": 55.63,
+  "pxMed": 407.8720685560644,
+  "jitter": 5.827602721140719,
+  "keMax": 27.48092273170864,
+  "headClear": 1.071663816527664,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   16.21,
+   13.83
+  ],
+  "cat": {
+   "notAirborne": 5.95,
+   "launch": 9,
+   "brakeRetrieve": 4.31,
+   "flyNotInFrame": 1.35,
+   "flyPxLow": 23.36,
+   "flyArt": 0,
+   "flyFit": 0.4,
+   "avail": 55.63,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.22,
+    14.8,
+    21.74
+   ],
+   "vExit": [
+    13.16,
+    13.32,
+    16.61
+   ],
+   "vRel": [
+    2.25,
+    4.82,
+    13.27
+   ],
+   "ke": [
+    10.15,
+    12.74,
+    27.48
+   ],
+   "keFloorExitMedian": 10.07
+  },
+  "kePeak": {
+   "t": 8.06,
+   "mode": "FLY",
+   "ke": 27.5,
+   "vF": 21.74,
+   "vExit": 13.12,
+   "riderV": 13.11,
+   "L": 9.37
+  },
+  "hc3": 1.072,
+  "hcNoExcl": 1.072,
+  "keByMode": {
+   "LAUNCH": 11.5,
+   "FLY": 27.5,
+   "BRAKE": 14.3,
+   "FLYIN": 3.6,
+   "RETRIEVE": 0.7,
+   "CAPTURE": 0.2
+  },
+  "headMin": {
+   "t": 2.76,
+   "mode": "LAUNCH",
+   "d": 1.07,
+   "riderV": 9.95,
+   "L": 0.94,
+   "T": 7,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ },
+ {
+  "tag": "cam_vgood_fc8",
+  "over": {
+   "cropFc": 8
+  },
+  "id": "crossR9_s13",
+  "avail": 33.49,
+  "pxMed": 423.7482829287683,
+  "jitter": 9.693256468580874,
+  "keMax": 48.63128189848466,
+  "headClear": 0.505357167342372,
+  "launches": 2,
+  "launchFails": 0,
+  "dockTimes": [
+   22.29,
+   10.82
+  ],
+  "cat": {
+   "notAirborne": 11.42,
+   "launch": 10.16,
+   "brakeRetrieve": 32.14,
+   "flyNotInFrame": 1.54,
+   "flyPxLow": 10.67,
+   "flyArt": 0.4,
+   "flyFit": 0.19,
+   "avail": 33.49,
+   "other": 0
+  },
+  "fly": {
+   "vF": [
+    13.59,
+    16.37,
+    20.85
+   ],
+   "vExit": [
+    13.18,
+    13.29,
+    15.55
+   ],
+   "vRel": [
+    3.75,
+    7.95,
+    17.59
+   ],
+   "ke": [
+    10.74,
+    15.59,
+    25.27
+   ],
+   "keFloorExitMedian": 10.1
+  },
+  "kePeak": {
+   "t": 19.36,
+   "mode": "FLYIN",
+   "ke": 48.6,
+   "vF": 28.92,
+   "vExit": 13.21,
+   "riderV": 13.11,
+   "L": 14.92
+  },
+  "hc3": 0.505,
+  "hcNoExcl": 0.505,
+  "keByMode": {
+   "LAUNCH": 11.8,
+   "FLY": 25.3,
+   "BRAKE": 14.7,
+   "FLYIN": 48.6,
+   "RETRIEVE": 4.6,
+   "CAPTURE": 0.3
+  },
+  "headMin": {
+   "t": 22.26,
+   "mode": "FLYIN",
+   "d": 0.51,
+   "riderV": 13.13,
+   "L": 9.66,
+   "T": 4.3,
+   "what": "line"
+  },
+  "m": 0.11626499999999998
+ }
+]

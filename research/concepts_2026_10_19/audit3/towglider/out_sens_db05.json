@@ -1,0 +1,360 @@
+{
+ "generated": "2026-10-20T12:16:56.652Z",
+ "simCopy": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/copy3",
+ "modelVersion": "towglider@0.4.0",
+ "eis": 0.08,
+ "dbDeg": 0.5,
+ "rows": [
+  {
+   "id": "calm_s11",
+   "U": 0,
+   "dir": "calm",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.34,
+   "fsBackground": 3.851
+  },
+  {
+   "id": "calm_s12",
+   "U": 0,
+   "dir": "calm",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.492,
+   "fsBackground": 3.817
+  },
+  {
+   "id": "calm_s13",
+   "U": 0,
+   "dir": "calm",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.247,
+   "fsBackground": 3.68
+  },
+  {
+   "id": "head3_s11",
+   "U": 3,
+   "dir": "head",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.31,
+   "fsBackground": 3.801
+  },
+  {
+   "id": "head3_s12",
+   "U": 3,
+   "dir": "head",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.372,
+   "fsBackground": 3.687
+  },
+  {
+   "id": "head3_s13",
+   "U": 3,
+   "dir": "head",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.242,
+   "fsBackground": 3.667
+  },
+  {
+   "id": "tail3_s11",
+   "U": 3,
+   "dir": "tail",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.399,
+   "fsBackground": 3.931
+  },
+  {
+   "id": "tail3_s12",
+   "U": 3,
+   "dir": "tail",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.496,
+   "fsBackground": 3.86
+  },
+  {
+   "id": "tail3_s13",
+   "U": 3,
+   "dir": "tail",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.266,
+   "fsBackground": 3.712
+  },
+  {
+   "id": "crossL3_s11",
+   "U": 3,
+   "dir": "crossL",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.417,
+   "fsBackground": 3.911
+  },
+  {
+   "id": "crossL3_s12",
+   "U": 3,
+   "dir": "crossL",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.393,
+   "fsBackground": 3.726
+  },
+  {
+   "id": "crossL3_s13",
+   "U": 3,
+   "dir": "crossL",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.332,
+   "fsBackground": 3.74
+  },
+  {
+   "id": "crossR3_s11",
+   "U": 3,
+   "dir": "crossR",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.328,
+   "fsBackground": 3.823
+  },
+  {
+   "id": "crossR3_s12",
+   "U": 3,
+   "dir": "crossR",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.41,
+   "fsBackground": 3.737
+  },
+  {
+   "id": "crossR3_s13",
+   "U": 3,
+   "dir": "crossR",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.258,
+   "fsBackground": 3.674
+  },
+  {
+   "id": "head6_s11",
+   "U": 6,
+   "dir": "head",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.314,
+   "fsBackground": 3.734
+  },
+  {
+   "id": "head6_s12",
+   "U": 6,
+   "dir": "head",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.437,
+   "fsBackground": 3.707
+  },
+  {
+   "id": "head6_s13",
+   "U": 6,
+   "dir": "head",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.269,
+   "fsBackground": 3.591
+  },
+  {
+   "id": "tail6_s11",
+   "U": 6,
+   "dir": "tail",
+   "seed": 11,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "tail6_s12",
+   "U": 6,
+   "dir": "tail",
+   "seed": 12,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "tail6_s13",
+   "U": 6,
+   "dir": "tail",
+   "seed": 13,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "crossL6_s11",
+   "U": 6,
+   "dir": "crossL",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.422,
+   "fsBackground": 3.873
+  },
+  {
+   "id": "crossL6_s12",
+   "U": 6,
+   "dir": "crossL",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.479,
+   "fsBackground": 3.794
+  },
+  {
+   "id": "crossL6_s13",
+   "U": 6,
+   "dir": "crossL",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.326,
+   "fsBackground": 3.73
+  },
+  {
+   "id": "crossR6_s11",
+   "U": 6,
+   "dir": "crossR",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.391,
+   "fsBackground": 3.882
+  },
+  {
+   "id": "crossR6_s12",
+   "U": 6,
+   "dir": "crossR",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.506,
+   "fsBackground": 3.789
+  },
+  {
+   "id": "crossR6_s13",
+   "U": 6,
+   "dir": "crossR",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.358,
+   "fsBackground": 3.763
+  },
+  {
+   "id": "head9_s11",
+   "U": 9,
+   "dir": "head",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.353,
+   "fsBackground": 3.666
+  },
+  {
+   "id": "head9_s12",
+   "U": 9,
+   "dir": "head",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.449,
+   "fsBackground": 3.603
+  },
+  {
+   "id": "head9_s13",
+   "U": 9,
+   "dir": "head",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.303,
+   "fsBackground": 3.567
+  },
+  {
+   "id": "tail9_s11",
+   "U": 9,
+   "dir": "tail",
+   "seed": 11,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "tail9_s12",
+   "U": 9,
+   "dir": "tail",
+   "seed": 12,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "tail9_s13",
+   "U": 9,
+   "dir": "tail",
+   "seed": 13,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "crossL9_s11",
+   "U": 9,
+   "dir": "crossL",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.49,
+   "fsBackground": 3.887
+  },
+  {
+   "id": "crossL9_s12",
+   "U": 9,
+   "dir": "crossL",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.571,
+   "fsBackground": 3.858
+  },
+  {
+   "id": "crossL9_s13",
+   "U": 9,
+   "dir": "crossL",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.414,
+   "fsBackground": 3.909
+  },
+  {
+   "id": "crossR9_s11",
+   "U": 9,
+   "dir": "crossR",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.803,
+   "fsBackground": 4.203
+  },
+  {
+   "id": "crossR9_s12",
+   "U": 9,
+   "dir": "crossR",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.533,
+   "fsBackground": 3.772
+  },
+  {
+   "id": "crossR9_s13",
+   "U": 9,
+   "dir": "crossR",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 3.401,
+   "fsBackground": 3.87
+  }
+ ]
+}

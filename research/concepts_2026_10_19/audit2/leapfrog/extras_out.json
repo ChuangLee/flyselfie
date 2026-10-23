@@ -1,0 +1,142 @@
+{
+ "gateBypass": [
+  {
+   "id": "tail6_s11",
+   "avail": 7.295,
+   "keMax": 17.155,
+   "tdKE": 13.086,
+   "ops": 3,
+   "setup": 18,
+   "sepMaxFly": 141.459,
+   "events": [
+    "launch",
+    "unplanned",
+    "windhold",
+    "fallbehind",
+    "giveup",
+    "endmode",
+    "pickupmode"
+   ]
+  },
+  {
+   "id": "tail6_s12",
+   "avail": 1.361,
+   "keMax": 18.882,
+   "tdKE": 6.69,
+   "ops": 3,
+   "setup": 18,
+   "sepMaxFly": 72.091,
+   "events": [
+    "launch",
+    "unplanned",
+    "windhold",
+    "fallbehind",
+    "giveup",
+    "endmode",
+    "pickupmode"
+   ]
+  },
+  {
+   "id": "tail6_s13",
+   "avail": 5.199,
+   "keMax": 16.404,
+   "tdKE": 10.431,
+   "ops": 3,
+   "setup": 18,
+   "sepMaxFly": 113.616,
+   "events": [
+    "launch",
+    "unplanned",
+    "windhold",
+    "fallbehind",
+    "giveup",
+    "endmode",
+    "pickupmode"
+   ]
+  },
+  {
+   "id": "tail9_s12",
+   "avail": 9.499,
+   "keMax": 40.771,
+   "tdKE": 0.28,
+   "ops": 3,
+   "setup": 18,
+   "sepMaxFly": 59.111,
+   "events": [
+    "launch",
+    "fallbehind",
+    "seplimit",
+    "kestrel",
+    "windhold",
+    "endmode",
+    "pickupmode"
+   ]
+  },
+  {
+   "id": "head9_s11",
+   "avail": 7.322,
+   "keMax": 6.668,
+   "tdKE": 0.158,
+   "ops": 3,
+   "setup": 18,
+   "sepMaxFly": 47.934,
+   "events": [
+    "launch",
+    "fallbehind",
+    "giveup",
+    "kestrel",
+    "endmode",
+    "pickupmode"
+   ]
+  },
+  {
+   "id": "crossR9_s11",
+   "avail": 90.637,
+   "keMax": 13.23,
+   "tdKE": 3.497,
+   "ops": 2,
+   "setup": 14,
+   "sepMaxFly": 35.038,
+   "events": [
+    "launch",
+    "kestrel",
+    "endmode",
+    "pickupmode"
+   ]
+  }
+ ],
+ "massPlus10_capRederived": {
+  "mass": 0.1854,
+  "vCapG": 12,
+  "availMean": 84.345,
+  "availMin": 66.277,
+  "keMax": 15.541
+ },
+ "gateNoise": [
+  {
+   "id": "head6_s11",
+   "gate10s": false,
+   "gate2s": true
+  },
+  {
+   "id": "head9_s13",
+   "gate10s": true,
+   "gate2s": false
+  },
+  {
+   "id": "crossL9_s13",
+   "gate10s": false,
+   "gate2s": true
+  },
+  {
+   "id": "crossR9_s13",
+   "gate10s": false,
+   "gate2s": true
+  }
+ ],
+ "heaterOnLift": {
+  "assumption": "heater 0.6 W also runs while the bank charges the glider cell on a 6 min lift ride; 1.8 min filming per run (ASSUMED)",
+  "devEndurance": 63.564,
+  "withLiftHeater": 51.154
+ }
+}

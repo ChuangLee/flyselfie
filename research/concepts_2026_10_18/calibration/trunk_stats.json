@@ -1,0 +1,60 @@
+{
+ "note": "Proposed trunk model statistics (rad→deg). rate_gt1Hz is the >1 Hz trunk angular-rate RMS, the input a body-mounted camera mount/stabiliser must reject (cf. criteria jitterRms 3 °/s).",
+ "carve_groomed": {
+  "pitch_pp_deg": 13.2,
+  "roll_pp_deg": 22.5,
+  "yaw_pp_deg": 24.5,
+  "pitch_gt1Hz_rms_deg": 0.61,
+  "rate_gt1Hz_rms_degps": {
+   "pitch": 7.8,
+   "roll": 6.2,
+   "yaw": 3.1
+  },
+  "zAcc_rms_ms2": 2.72,
+  "zAcc_peak_ms2": 9.2
+ },
+ "carve_icy": {
+  "pitch_pp_deg": 15,
+  "roll_pp_deg": 23.3,
+  "yaw_pp_deg": 24.7,
+  "pitch_gt1Hz_rms_deg": 0.9,
+  "rate_gt1Hz_rms_degps": {
+   "pitch": 11.6,
+   "roll": 7.7,
+   "yaw": 3.9
+  },
+  "zAcc_rms_ms2": 4.28,
+  "zAcc_peak_ms2": 16
+ },
+ "short_groomed": {
+  "pitch_pp_deg": 13,
+  "roll_pp_deg": 19.3,
+  "yaw_pp_deg": 41.6,
+  "pitch_gt1Hz_rms_deg": 1.42,
+  "rate_gt1Hz_rms_degps": {
+   "pitch": 10.1,
+   "roll": 5.6,
+   "yaw": 4
+  },
+  "zAcc_rms_ms2": 2.6,
+  "zAcc_peak_ms2": 8.7
+ },
+ "moguls": {
+  "pitch_pp_deg": 25.2,
+  "roll_pp_deg": 20.1,
+  "yaw_pp_deg": 31.7,
+  "pitch_gt1Hz_rms_deg": 4.27,
+  "rate_gt1Hz_rms_degps": {
+   "pitch": 52,
+   "roll": 9.4,
+   "yaw": 6
+  },
+  "zAcc_rms_ms2": 3.73,
+  "zAcc_peak_ms2": 10.8
+ },
+ "boom360_assumption": {
+  "mogul_pitch": "±4° at bump rate v/λ = 9/5 = 1.8 Hz → peak rate 4·2π·1.8 = 45 °/s, >1 Hz rate RMS ≈ 32 °/s",
+  "rough": "1.2 m/s² (default) / 2.0 m/s² (mogul scenario) hip RMS 1–30 Hz, two axes",
+  "moguls_A": "0.5 g = 4.9 m/s² amplitude (scenario), 0.3 g in the demo"
+ }
+}

@@ -1,0 +1,153 @@
+{
+ "status": "FINAL for sledpack@0.2.0 iteration I10 (SIM-034 user decisions 2026-10-21). Numbers: 48-case FULLRUN_CASES_R4 ensemble, dev/results.json. I9 archive: promo_facts_I9.json",
+ "evidence": "numerical-uncalibrated simulation; NOT physically tested; G-MATURE closed, M-070 not_run. Label every frame as concept/simulation; never present as real footage or as proven behaviour",
+ "name": {
+  "zh": "SledPack 无杆背负软翼风筝相机",
+  "en": "SledPack pole-free back-carried soft-kite camera"
+ },
+ "coords": "body frame: f forward along ski heading, l left, u up; metres; relative to the shared bodyPoints() pelvis point",
+ "carry": {
+  "type": "the OPEN kite rides flat on the rider's back; no pole, no sleeve, no funnel; nothing above the shoulders",
+  "sail_on_back": {
+   "nose": "up, between the shoulder blades",
+   "keelNoseSeats": "two orange magnetic seats on the shoulder straps (≈0.62 m above the eyelet)",
+   "sailFacing": "backward",
+   "centre_rel_eyelet_u": 0.3,
+   "topBelowHelmet": true,
+   "envelope_m": [
+    0.588,
+    0.457,
+    0.07
+   ]
+  },
+  "eyelet": {
+   "pos_rel_pelvis": {
+    "f": -0.3,
+    "u": -0.35
+   },
+   "what": "small stiff tab with an orange ring on the hip belt behind the buttocks (≈0.5 m above the snow in a carving crouch), seat-harness style — not a pole",
+   "why": "line passes ≥1 m from the helmet at ≤55–60° elevation"
+  },
+  "lumbarModule": {
+   "size_m": [
+    0.2,
+    0.13,
+    0.055
+   ],
+   "contents": "two-drum reel (main + depower), 2S 18650 120 g heated, MCU/IMU/GNSS/baro, tension/angle eyelet sensor, 38 N weak link + cutter, charging contacts at the apex seat"
+  },
+  "led": "status LED on the left shoulder strap; one strap button = session arm / manual stow",
+  "wornMass_kg": 0.617,
+  "stowedEnvelope_L": 19.9,
+  "foldIntoPackBonus_L": 2.49,
+  "foldIntoPack": "by hand: roll the sail round its two keels with the pod (Ø55 × 0.50 m) and put it in a pack; then the whole device is ≈2.5 L"
+ },
+ "kite": {
+  "type": "single-skin sled, two longitudinal carbon keels, bridle V to the apex, drogue tail",
+  "area_m2": 0.2,
+  "span_m": 0.588,
+  "chord_m": 0.457,
+  "bridle_m": 0.327,
+  "pod": {
+   "at": "bridle apex",
+   "size_mm": [
+    45,
+    35,
+    32
+   ],
+   "camera": "48 MP gyro-EIS (30 g, 3.2 W), 66° lens, tilted 8° up from the line toward the rider's upper body; lens 0.12 m below the line",
+   "cell": "1S 160 mAh, charged on the back"
+  },
+  "tail": "drogue cone, CdA 0.05 m², 1.2 m tail line",
+  "mass_g_withMargin": 70.9
+ },
+ "lines": {
+  "main": "0.30 mm hi-vis pink, eyelet → apex",
+  "depower": "0.20 mm white → trailing edge (last 5 % of stroke flags the sail)",
+  "lengthSchedule": {
+   "rule": "L = clamp(6 + 0.75 × (estimated apparent wind − 12 m/s), 5, 12) m, 2 s smoothing",
+   "examples_m": {
+    "8 m/s": 5.0,
+    "12 m/s": 6.0,
+    "16 m/s": 9.0,
+    "20 m/s": 12.0
+   },
+   "meaning": "farther and higher when fast and windy, closer and lower in light air (same flying angle, so height ≈ L·sin55°: ≈4 m … ≈10 m)"
+  },
+  "elevation_deg_median": 55.0,
+  "tension_N_median": 13.8
+ },
+ "steering": {
+  "adopted": false,
+  "estimate": "left/right lines from the pack with differential pull: +1 drum and motor ≈25–30 g, ≈+15–20 USD BOM, four lines through one eyelet (twist risk up), and a sled steers poorly (would need a steerable kite shape); commandable span not simulated → fixed angle (user accepted)"
+ },
+ "timing_s": {
+  "launchToFilming_p50": 1.92,
+  "launchToFilming_p90": 2.64,
+  "retrieveToLockedOnBack_p50": 6.84,
+  "retrieveToLockedOnBack_p90": 10.26,
+  "tailwindLimit": "no launch / early retrieve above ≈6 m/s estimated tailwind (not enough lift to keep it behind)"
+ },
+ "phases": [
+  {
+   "key": "carried",
+   "zh": "展开背在背上：翼尖扣在肩带磁座，线从臀后腰带小环出；没有杆，没有东西高过肩",
+   "en": "Carried open on the back: keel noses in shoulder-strap seats, line from a small ring on the hip belt behind the buttocks; no pole, nothing above the shoulders"
+  },
+  {
+   "key": "detect",
+   "zh": "蹬出约 1 s 判定起滑并估算相对风；估计顺风 >6 m/s 时留在背上",
+   "en": "≈1 s after push-off the ride is confirmed and the apparent wind estimated; above ≈6 m/s tailwind it stays on the back"
+  },
+  {
+   "key": "launch",
+   "zh": "磁扣松开，风筝先落进身后尾流，放线离开尾流后吃风爬升（约 2 s 开始拍）",
+   "en": "The seats release; the kite drops into the wake behind the back, climbs once paid out into clean air (filming after ≈2 s)"
+  },
+  {
+   "key": "fly",
+   "zh": "线长随相对风 5–12 m：快和风大时更高更远，弱风时更近更低；泄力线控拉力约 14 N",
+   "en": "Line 5–12 m with the apparent wind: higher and farther when fast and windy, closer and lower in light air; the depower line holds ≈14 N"
+  },
+  {
+   "key": "stop",
+   "zh": "减速：帆像旗一样塌下，趁人还在滑立即拉低，不让它飘过头顶",
+   "en": "Slowing: the sail flags and is pulled down while the rider still slides, so it never drifts over the head"
+  },
+  {
+   "key": "back",
+   "zh": "线从身后进来时收回贴到背上；停稳后贴不上就在身后约 2.5 m 雪面待机，下次出发从雪面再起飞；收工时手动收",
+   "en": "If the line comes in from behind it is laid back onto the back; once stopped it waits on the snow ≈2.5 m behind and relaunches from there; stowed by hand at the end"
+  }
+ ],
+ "verifiedInSimulationOnly": {
+  "sharedCriteriaPassed": "8/13",
+  "avail_all48_pct": 44.8,
+  "avail_userEnvelope_pct": 46.6,
+  "avail_tailwind_pct": 25.1,
+  "pxMed": 384,
+  "jitter_p90_judged": 6.29,
+  "jitter_p90_lowpassDrift_info": 3.82,
+  "keMax_J": 14.43,
+  "bodyForcePeak_N": 35.9,
+  "setupTime_p90_s": 26.32,
+  "endurance_min": 50.4,
+  "headClear_min_m": 0.494,
+  "lineToHead_p50_m": 0.88,
+  "within1m_share_p50_pct": 2.7,
+  "within1m_share_max_pct": 21.3,
+  "within1m_episode_max_s": 3.14,
+  "casesMeetingBriefRule": "28/48",
+  "launchSuccess_pct": 100,
+  "backDockFirstTry_pct": 81.2,
+  "parksPerRun_mean": 1.54
+ },
+ "doNotClaim": [
+  "meets all 13 shared criteria (fails avail, jitter, azRange, packVol (flat envelope), headClear)",
+  "works in tailwinds (stays on the back above ≈6 m/s; tailwind avail ≈25 %)",
+  "the line is never near the head (in tail/cross winds it is within 1 m up to ≈21 % of riding)",
+  "it always lands back on the back (often it parks on the snow; final stow by hand)",
+  "you can steer it (fixed angle)",
+  "tested on snow"
+ ]
+}

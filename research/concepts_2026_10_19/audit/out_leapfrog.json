@@ -1,0 +1,3614 @@
+{
+ "concept": "leapfrog",
+ "generated": "2026-10-20",
+ "evidence": "audit re-computation on the uncalibrated model; not a physical test",
+ "scenarios": {
+  "nominal": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 95.882,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 439.554,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.339,
+     "pass": true
+    },
+    "azRange": {
+     "value": 101.504,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.243,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 116.856,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 71.731,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 2.399,
+     "pass": true
+    },
+    "perchShare": {
+     "value": 7.517,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 49.117,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 2.219,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.434,
+     "pass": true
+    },
+    "pMean": {
+     "value": 4.748,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.243,
+    "keHarmonised": 13.243,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 9.533,
+    "footageStability": {
+     "subjectRms": 1.249,
+     "backgroundRms": 0.898,
+     "samples": 2451
+    },
+    "cropVmedDeg": 6.431,
+    "jitterPctFramePerS": 20.815,
+    "fsSubjectPctFramePerS": 19.43
+   }
+  },
+  "nominal_ld70": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 95.842,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 444.009,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.32,
+     "pass": true
+    },
+    "azRange": {
+     "value": 98.392,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.125,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 96.986,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 70.052,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 2.399,
+     "pass": true
+    },
+    "perchShare": {
+     "value": 6.877,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 48.468,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 2.082,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.484,
+     "pass": true
+    },
+    "pMean": {
+     "value": 5.721,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.125,
+    "keHarmonised": 13.125,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 9.091,
+    "footageStability": {
+     "subjectRms": 1.24,
+     "backgroundRms": 0.92,
+     "samples": 2451
+    },
+    "cropVmedDeg": 6.746,
+    "jitterPctFramePerS": 19.56,
+    "fsSubjectPctFramePerS": 18.387
+   }
+  },
+  "short": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 84.229,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 404.347,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 2.723,
+     "pass": true
+    },
+    "azRange": {
+     "value": 83.694,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 3.005,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.317,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 109.794,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 74.234,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 3.998,
+     "pass": true
+    },
+    "perchShare": {
+     "value": 19.547,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 45.212,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 1.504,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.073,
+     "pass": true
+    },
+    "pMean": {
+     "value": 5.054,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.317,
+    "keHarmonised": 13.317,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 7.001,
+    "footageStability": {
+     "subjectRms": 2.23,
+     "backgroundRms": 1.779,
+     "samples": 2201
+    },
+    "cropVmedDeg": 6.003,
+    "jitterPctFramePerS": 45.354,
+    "fsSubjectPctFramePerS": 37.155
+   }
+  },
+  "fast": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 10.623,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 519.813,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.296,
+     "pass": true
+    },
+    "azRange": {
+     "value": 58.336,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.335,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 14.078,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 136.597,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 3.312,
+     "pass": false
+    },
+    "shotsPerMin": {
+     "value": 0,
+     "pass": false
+    },
+    "perchShare": {
+     "value": 0,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 18.076,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 2.458,
+     "pass": true
+    },
+    "perchSF": {
+     "value": "n/a",
+     "pass": null
+    },
+    "pMean": {
+     "value": 4.062,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "no (fell behind)",
+     "pass": false
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 14.078,
+    "keHarmonised": 14.078,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 14.396,
+    "footageStability": {
+     "subjectRms": 0.723,
+     "backgroundRms": 0.708,
+     "samples": 1701
+    },
+    "cropVmedDeg": 12.127,
+    "jitterPctFramePerS": 10.687,
+    "fsSubjectPctFramePerS": 5.958
+   }
+  },
+  "headwind": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 88.405,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 447.427,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.038,
+     "pass": true
+    },
+    "azRange": {
+     "value": 99.3,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.042,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 52.794,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 58.996,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 0,
+     "pass": false
+    },
+    "perchShare": {
+     "value": 2.177,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 48.497,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 0.371,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 26.437,
+     "pass": true
+    },
+    "pMean": {
+     "value": 10.51,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.042,
+    "keHarmonised": 13.042,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 5.681,
+    "footageStability": {
+     "subjectRms": 1.312,
+     "backgroundRms": 1.23,
+     "samples": 2201
+    },
+    "cropVmedDeg": 7.219,
+    "jitterPctFramePerS": 14.38,
+    "fsSubjectPctFramePerS": 18.168
+   }
+  },
+  "crossgust": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 76.055,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 425.973,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.861,
+     "pass": true
+    },
+    "azRange": {
+     "value": 86.192,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.515,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 110.285,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 56.952,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 1.333,
+     "pass": false
+    },
+    "perchShare": {
+     "value": 6.486,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 53.461,
+     "pass": false
+    },
+    "tdKE": {
+     "value": 5.653,
+     "pass": false
+    },
+    "perchSF": {
+     "value": 6.353,
+     "pass": true
+    },
+    "pMean": {
+     "value": 5.031,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [
+    {
+     "metric": "avail",
+     "resultsJson": 71.168,
+     "rerun": 76.055
+    },
+    {
+     "metric": "pxMed",
+     "resultsJson": 436.493,
+     "rerun": 425.973
+    },
+    {
+     "metric": "jitterRms",
+     "resultsJson": 0.894,
+     "rerun": 0.861
+    },
+    {
+     "metric": "azRange",
+     "resultsJson": 85.644,
+     "rerun": 86.192
+    },
+    {
+     "metric": "keMax",
+     "resultsJson": 13.614,
+     "rerun": 13.515
+    },
+    {
+     "metric": "endurance",
+     "resultsJson": 83.451,
+     "rerun": 110.285
+    },
+    {
+     "metric": "frontShare",
+     "resultsJson": 50.733,
+     "rerun": 56.952
+    },
+    {
+     "metric": "perchShare",
+     "resultsJson": 6.575,
+     "rerun": 6.486
+    },
+    {
+     "metric": "pMean",
+     "resultsJson": 6.649,
+     "rerun": 5.031
+    }
+   ],
+   "audit": {
+    "keGroundMax": 13.515,
+    "keHarmonised": 13.515,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 10.451,
+    "footageStability": {
+     "subjectRms": 1.153,
+     "backgroundRms": 0.886,
+     "samples": 2201
+    },
+    "cropVmedDeg": 5.802,
+    "jitterPctFramePerS": 14.831,
+    "fsSubjectPctFramePerS": 19.876
+   }
+  },
+  "perchwind": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 35.643,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 413.206,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.139,
+     "pass": true
+    },
+    "azRange": {
+     "value": 258.553,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.577,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.69,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 101.183,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 10.06,
+     "pass": false
+    },
+    "shotsPerMin": {
+     "value": 1.999,
+     "pass": false
+    },
+    "perchShare": {
+     "value": 50.966,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 96.28,
+     "pass": false
+    },
+    "tdKE": {
+     "value": "n/a",
+     "pass": null
+    },
+    "perchSF": {
+     "value": 1.32,
+     "pass": false
+    },
+    "pMean": {
+     "value": 5.484,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [
+    {
+     "metric": "pxMed",
+     "resultsJson": 187.394,
+     "rerun": 413.206
+    },
+    {
+     "metric": "keMax",
+     "resultsJson": 0,
+     "rerun": 13.69
+    },
+    {
+     "metric": "endurance",
+     "resultsJson": 201.764,
+     "rerun": 101.183
+    },
+    {
+     "metric": "perchShare",
+     "resultsJson": 100,
+     "rerun": 50.966
+    },
+    {
+     "metric": "sepMax",
+     "resultsJson": 245.913,
+     "rerun": 96.28
+    },
+    {
+     "metric": "perchSF",
+     "resultsJson": 1.121,
+     "rerun": 1.32
+    },
+    {
+     "metric": "pMean",
+     "resultsJson": 2.75,
+     "rerun": 5.484
+    }
+   ],
+   "audit": {
+    "keGroundMax": 13.69,
+    "keHarmonised": 13.69,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 14.805,
+    "footageStability": {
+     "subjectRms": 0.71,
+     "backgroundRms": 0.688,
+     "samples": 1451
+    },
+    "cropVmedDeg": 7.044,
+    "jitterPctFramePerS": 16.163,
+    "fsSubjectPctFramePerS": 10.085
+   }
+  },
+  "gentle": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 95.38,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 467.161,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.64,
+     "pass": true
+    },
+    "azRange": {
+     "value": 91.422,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.454,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.735,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 71.53,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 81.653,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 3.998,
+     "pass": true
+    },
+    "perchShare": {
+     "value": 23.767,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 46.904,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 1.931,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 28.364,
+     "pass": true
+    },
+    "pMean": {
+     "value": 7.757,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 12.735,
+    "keHarmonised": 12.735,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 8.58,
+    "footageStability": {
+     "subjectRms": 1.55,
+     "backgroundRms": 0.99,
+     "samples": 2201
+    },
+    "cropVmedDeg": 6.209,
+    "jitterPctFramePerS": 26.421,
+    "fsSubjectPctFramePerS": 24.962
+   }
+  },
+  "fall": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 92.7,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 436.515,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.505,
+     "pass": true
+    },
+    "azRange": {
+     "value": 101.059,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.161,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 131.997,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 69.5,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 3,
+     "pass": null
+    },
+    "perchShare": {
+     "value": 9.4,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 49.117,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 1.67,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.545,
+     "pass": true
+    },
+    "pMean": {
+     "value": 4.204,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.161,
+    "keHarmonised": 13.161,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 9.533,
+    "footageStability": {
+     "subjectRms": 1.434,
+     "backgroundRms": 1.031,
+     "samples": 950
+    },
+    "cropVmedDeg": 5.876,
+    "jitterPctFramePerS": 25.614,
+    "fsSubjectPctFramePerS": 24.398
+   }
+  },
+  "neighbour": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 94.853,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 426.093,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.826,
+     "pass": true
+    },
+    "azRange": {
+     "value": 77.189,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.266,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 120.503,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 74.563,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 0,
+     "pass": false
+    },
+    "perchShare": {
+     "value": 3.598,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 49.876,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 1.824,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.522,
+     "pass": true
+    },
+    "pMean": {
+     "value": 4.604,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.266,
+    "keHarmonised": 13.266,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 12.267,
+    "footageStability": {
+     "subjectRms": 0.86,
+     "backgroundRms": 0.784,
+     "samples": 1951
+    },
+    "cropVmedDeg": 5.094,
+    "jitterPctFramePerS": 16.219,
+    "fsSubjectPctFramePerS": 16.89
+   }
+  },
+  "powder": {
+   "fault": true,
+   "metricsRerun": {
+    "avail": {
+     "value": 44.678,
+     "pass": null
+    },
+    "pxMed": {
+     "value": 303.25,
+     "pass": null
+    },
+    "jitterRms": {
+     "value": 0.779,
+     "pass": null
+    },
+    "azRange": {
+     "value": 102.768,
+     "pass": null
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": null
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": null
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": null
+    },
+    "ops": {
+     "value": 3,
+     "pass": null
+    },
+    "keMax": {
+     "value": 13.161,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": null
+    },
+    "endurance": {
+     "value": 95.023,
+     "pass": null
+    },
+    "frontShare": {
+     "value": 33.733,
+     "pass": null
+    },
+    "shotsPerMin": {
+     "value": 1.499,
+     "pass": null
+    },
+    "perchShare": {
+     "value": 53.473,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 254.641,
+     "pass": null
+    },
+    "tdKE": {
+     "value": 1.67,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.478,
+     "pass": null
+    },
+    "pMean": {
+     "value": 5.839,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": null
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.161,
+    "keHarmonised": 13.161,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 7.64,
+    "footageStability": {
+     "subjectRms": 1.128,
+     "backgroundRms": 0.909,
+     "samples": 1951
+    },
+    "cropVmedDeg": 5.087,
+    "jitterPctFramePerS": 15.315,
+    "fsSubjectPctFramePerS": 22.177
+   }
+  },
+  "motorfail": {
+   "fault": true,
+   "metricsRerun": {
+    "avail": {
+     "value": 49.975,
+     "pass": null
+    },
+    "pxMed": {
+     "value": 314.504,
+     "pass": null
+    },
+    "jitterRms": {
+     "value": 0.835,
+     "pass": null
+    },
+    "azRange": {
+     "value": 119.837,
+     "pass": null
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": null
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": null
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": null
+    },
+    "ops": {
+     "value": 3,
+     "pass": null
+    },
+    "keMax": {
+     "value": 13.161,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": null
+    },
+    "endurance": {
+     "value": 194.354,
+     "pass": null
+    },
+    "frontShare": {
+     "value": 34.133,
+     "pass": null
+    },
+    "shotsPerMin": {
+     "value": 1.499,
+     "pass": null
+    },
+    "perchShare": {
+     "value": 63.468,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 269.236,
+     "pass": null
+    },
+    "tdKE": {
+     "value": 1.127,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.492,
+     "pass": null
+    },
+    "pMean": {
+     "value": 2.855,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": null
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.161,
+    "keHarmonised": 13.161,
+    "keRiderFrameWithin1_5m": 0,
+    "minDistToBody_m": 5.356,
+    "footageStability": {
+     "subjectRms": 1.711,
+     "backgroundRms": 1.516,
+     "samples": 1951
+    },
+    "cropVmedDeg": 5.696,
+    "jitterPctFramePerS": 14.654,
+    "fsSubjectPctFramePerS": 30.037
+   }
+  },
+  "collect": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 91.455,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 514.025,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.54,
+     "pass": true
+    },
+    "azRange": {
+     "value": 91.158,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 3.69,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.289,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 136.326,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 78.281,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 3.052,
+     "pass": null
+    },
+    "perchShare": {
+     "value": 30.671,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 49.117,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 2.507,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.447,
+     "pass": true
+    },
+    "pMean": {
+     "value": 4.07,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.289,
+    "keHarmonised": 13.289,
+    "keRiderFrameWithin1_5m": 1.072,
+    "minDistToBody_m": 0.734,
+    "footageStability": {
+     "subjectRms": 1.37,
+     "backgroundRms": 1.196,
+     "samples": 1916
+    },
+    "cropVmedDeg": 6.5,
+    "jitterPctFramePerS": 23.687,
+    "fsSubjectPctFramePerS": 21.083
+   }
+  },
+  "collect_miss": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 83.042,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 531.829,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.526,
+     "pass": true
+    },
+    "azRange": {
+     "value": 105.488,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 3.69,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.289,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 132.273,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 70.154,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 3.213,
+     "pass": null
+    },
+    "perchShare": {
+     "value": 36.987,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 49.117,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 2.507,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.063,
+     "pass": true
+    },
+    "pMean": {
+     "value": 4.195,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.289,
+    "keHarmonised": 13.289,
+    "keRiderFrameWithin1_5m": 1.072,
+    "minDistToBody_m": 0.698,
+    "footageStability": {
+     "subjectRms": 4.861,
+     "backgroundRms": 3.924,
+     "samples": 2751
+    },
+    "cropVmedDeg": 7.915,
+    "jitterPctFramePerS": 19.284,
+    "fsSubjectPctFramePerS": 61.415
+   }
+  },
+  "launch": {
+   "fault": false,
+   "metricsRerun": {
+    "avail": {
+     "value": 95.486,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 460.381,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.967,
+     "pass": true
+    },
+    "azRange": {
+     "value": 87.064,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.248,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.684,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0.667,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 10,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.352,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.584,
+     "pass": true
+    },
+    "endurance": {
+     "value": 90.167,
+     "pass": true
+    },
+    "frontShare": {
+     "value": 81.408,
+     "pass": true
+    },
+    "shotsPerMin": {
+     "value": 0,
+     "pass": null
+    },
+    "perchShare": {
+     "value": 6.733,
+     "pass": null
+    },
+    "sepMax": {
+     "value": 46.719,
+     "pass": true
+    },
+    "tdKE": {
+     "value": 1.997,
+     "pass": true
+    },
+    "perchSF": {
+     "value": 13.547,
+     "pass": true
+    },
+    "pMean": {
+     "value": 6.154,
+     "pass": null
+    },
+    "keepsLead": {
+     "value": "yes",
+     "pass": true
+    }
+   },
+   "staleVsResultsJson": [],
+   "audit": {
+    "keGroundMax": 13.352,
+    "keHarmonised": 13.352,
+    "keRiderFrameWithin1_5m": 1.869,
+    "minDistToBody_m": 0.555,
+    "footageStability": {
+     "subjectRms": 0.942,
+     "backgroundRms": 0.801,
+     "samples": 1257
+    },
+    "cropVmedDeg": 6.965,
+    "jitterPctFramePerS": 13.881,
+    "fsSubjectPctFramePerS": 13.531
+   }
+  }
+ },
+ "dtConvergence": {
+  "nominal": {
+   "0.01": {
+    "avail": 95.882,
+    "keGroundMax": 13.243,
+    "perches": 2,
+    "hops": 2,
+    "tdKEmax": 2.219,
+    "eUsedWh": 0.066,
+    "sfMin": 13.434
+   },
+   "0.005": {
+    "avail": 95.882,
+    "keGroundMax": 13.244,
+    "perches": 2,
+    "hops": 2,
+    "tdKEmax": 2.571,
+    "eUsedWh": 0.066,
+    "sfMin": 13.437
+   },
+   "0.0025": {
+    "avail": 95.882,
+    "keGroundMax": 13.244,
+    "perches": 2,
+    "hops": 2,
+    "tdKEmax": 2.833,
+    "eUsedWh": 0.066,
+    "sfMin": 13.437
+   }
+  },
+  "short": {
+   "0.01": {
+    "avail": 84.229,
+    "keGroundMax": 13.317,
+    "perches": 3,
+    "hops": 2,
+    "tdKEmax": 1.504,
+    "eUsedWh": 0.063,
+    "sfMin": 13.073
+   },
+   "0.005": {
+    "avail": 84.274,
+    "keGroundMax": 13.318,
+    "perches": 3,
+    "hops": 2,
+    "tdKEmax": 1.57,
+    "eUsedWh": 0.063,
+    "sfMin": 13.074
+   },
+   "0.0025": {
+    "avail": 84.14,
+    "keGroundMax": 13.319,
+    "perches": 3,
+    "hops": 2,
+    "tdKEmax": 1.599,
+    "eUsedWh": 0.063,
+    "sfMin": 13.074
+   }
+  },
+  "crossgust": {
+   "0.01": {
+    "avail": 76.055,
+    "keGroundMax": 13.515,
+    "perches": 1,
+    "hops": 1,
+    "tdKEmax": 5.653,
+    "eUsedWh": 0.063,
+    "sfMin": 6.353
+   },
+   "0.005": {
+    "avail": 75.789,
+    "keGroundMax": 13.516,
+    "perches": 1,
+    "hops": 1,
+    "tdKEmax": 5.692,
+    "eUsedWh": 0.063,
+    "sfMin": 6.276
+   },
+   "0.0025": {
+    "avail": 75.7,
+    "keGroundMax": 13.517,
+    "perches": 1,
+    "hops": 1,
+    "tdKEmax": 5.627,
+    "eUsedWh": 0.063,
+    "sfMin": 6.257
+   }
+  },
+  "gentle": {
+   "0.01": {
+    "avail": 95.38,
+    "keGroundMax": 12.735,
+    "perches": 3,
+    "hops": 3,
+    "tdKEmax": 1.931,
+    "eUsedWh": 0.097,
+    "sfMin": 28.364
+   },
+   "0.005": {
+    "avail": 95.38,
+    "keGroundMax": 12.734,
+    "perches": 3,
+    "hops": 3,
+    "tdKEmax": 2.187,
+    "eUsedWh": 0.097,
+    "sfMin": 28.365
+   },
+   "0.0025": {
+    "avail": 95.38,
+    "keGroundMax": 12.735,
+    "perches": 3,
+    "hops": 3,
+    "tdKEmax": 2.255,
+    "eUsedWh": 0.097,
+    "sfMin": 28.363
+   }
+  }
+ },
+ "seeds": {
+  "nominal": {
+   "scenarioSeed": 7,
+   "min": 94.162,
+   "median": 95.882,
+   "max": 95.962,
+   "shareFailingAnyStd": 0,
+   "failCounts": {
+    "shotsPerMin": 5,
+    "tdKE": 1
+   },
+   "rows": [
+    {
+     "windSeed": 1,
+     "avail": 94.522,
+     "frontShare": 70.852,
+     "keMax": 13.282,
+     "perchSF": 12.728,
+     "tdKE": 2.478,
+     "sepMax": 48.949,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 2,
+     "avail": 95.962,
+     "frontShare": 72.211,
+     "keMax": 13.288,
+     "perchSF": 13.039,
+     "tdKE": 2.611,
+     "sepMax": 49.646,
+     "fails": []
+    },
+    {
+     "windSeed": 3,
+     "avail": 95.722,
+     "frontShare": 77.969,
+     "keMax": 13.332,
+     "perchSF": 12.946,
+     "tdKE": 3.312,
+     "sepMax": 45.917,
+     "fails": [
+      "shotsPerMin",
+      "tdKE"
+     ]
+    },
+    {
+     "windSeed": 4,
+     "avail": 95.162,
+     "frontShare": 74.81,
+     "keMax": 13.293,
+     "perchSF": 12.994,
+     "tdKE": 1.882,
+     "sepMax": 47.105,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 5,
+     "avail": 95.962,
+     "frontShare": 73.131,
+     "keMax": 13.298,
+     "perchSF": 12.869,
+     "tdKE": 2.28,
+     "sepMax": 49.64,
+     "fails": []
+    },
+    {
+     "windSeed": 6,
+     "avail": 95.962,
+     "frontShare": 78.808,
+     "keMax": 13.251,
+     "perchSF": 13.138,
+     "tdKE": 2.421,
+     "sepMax": 49.465,
+     "fails": []
+    },
+    {
+     "windSeed": 7,
+     "avail": 95.882,
+     "frontShare": 71.731,
+     "keMax": 13.243,
+     "perchSF": 13.434,
+     "tdKE": 2.219,
+     "sepMax": 49.117,
+     "fails": []
+    },
+    {
+     "windSeed": 8,
+     "avail": 95.122,
+     "frontShare": 74.77,
+     "keMax": 13.334,
+     "perchSF": 12.697,
+     "tdKE": 2.11,
+     "sepMax": 49.11,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 9,
+     "avail": 94.162,
+     "frontShare": 73.291,
+     "keMax": 13.415,
+     "perchSF": 12.725,
+     "tdKE": 1.822,
+     "sepMax": 47.665,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 10,
+     "avail": 95.962,
+     "frontShare": 71.811,
+     "keMax": 13.249,
+     "perchSF": 13.072,
+     "tdKE": 1.975,
+     "sepMax": 49.194,
+     "fails": []
+    },
+    {
+     "windSeed": 11,
+     "avail": 95.242,
+     "frontShare": 69.972,
+     "keMax": 13.268,
+     "perchSF": 13.098,
+     "tdKE": 2.568,
+     "sepMax": 49.304,
+     "fails": []
+    },
+    {
+     "windSeed": 12,
+     "avail": 95.922,
+     "frontShare": 71.771,
+     "keMax": 13.233,
+     "perchSF": 13.099,
+     "tdKE": 2.696,
+     "sepMax": 49.658,
+     "fails": []
+    }
+   ]
+  },
+  "short": {
+   "scenarioSeed": 7,
+   "min": 81.964,
+   "median": 84.673,
+   "max": 87.606,
+   "shareFailingAnyStd": 0,
+   "failCounts": {},
+   "rows": [
+    {
+     "windSeed": 1,
+     "avail": 82.586,
+     "frontShare": 75.922,
+     "keMax": 13.326,
+     "perchSF": 12.925,
+     "tdKE": 1.548,
+     "sepMax": 45.444,
+     "fails": []
+    },
+    {
+     "windSeed": 2,
+     "avail": 87.606,
+     "frontShare": 76.322,
+     "keMax": 13.285,
+     "perchSF": 13.061,
+     "tdKE": 1.62,
+     "sepMax": 44.868,
+     "fails": []
+    },
+    {
+     "windSeed": 3,
+     "avail": 84.407,
+     "frontShare": 77.077,
+     "keMax": 13.246,
+     "perchSF": 12.788,
+     "tdKE": 1.519,
+     "sepMax": 44.926,
+     "fails": []
+    },
+    {
+     "windSeed": 4,
+     "avail": 86.628,
+     "frontShare": 76.944,
+     "keMax": 13.275,
+     "perchSF": 12.922,
+     "tdKE": 1.593,
+     "sepMax": 44.972,
+     "fails": []
+    },
+    {
+     "windSeed": 5,
+     "avail": 85.695,
+     "frontShare": 76.1,
+     "keMax": 13.292,
+     "perchSF": 12.758,
+     "tdKE": 2.252,
+     "sepMax": 44.972,
+     "fails": []
+    },
+    {
+     "windSeed": 6,
+     "avail": 85.073,
+     "frontShare": 75.655,
+     "keMax": 13.321,
+     "perchSF": 12.553,
+     "tdKE": 1.533,
+     "sepMax": 45.106,
+     "fails": []
+    },
+    {
+     "windSeed": 7,
+     "avail": 84.229,
+     "frontShare": 74.234,
+     "keMax": 13.317,
+     "perchSF": 13.073,
+     "tdKE": 1.504,
+     "sepMax": 45.212,
+     "fails": []
+    },
+    {
+     "windSeed": 8,
+     "avail": 81.964,
+     "frontShare": 75.211,
+     "keMax": 13.332,
+     "perchSF": 12.591,
+     "tdKE": 1.849,
+     "sepMax": 45.08,
+     "fails": []
+    },
+    {
+     "windSeed": 9,
+     "avail": 84.673,
+     "frontShare": 77.032,
+     "keMax": 13.394,
+     "perchSF": 12.915,
+     "tdKE": 1.606,
+     "sepMax": 45.322,
+     "fails": []
+    },
+    {
+     "windSeed": 10,
+     "avail": 83.119,
+     "frontShare": 73.745,
+     "keMax": 13.301,
+     "perchSF": 13.239,
+     "tdKE": 1.605,
+     "sepMax": 45.195,
+     "fails": []
+    },
+    {
+     "windSeed": 11,
+     "avail": 84.229,
+     "frontShare": 75.344,
+     "keMax": 13.265,
+     "perchSF": 13.066,
+     "tdKE": 1.465,
+     "sepMax": 45.232,
+     "fails": []
+    },
+    {
+     "windSeed": 12,
+     "avail": 87.161,
+     "frontShare": 77.388,
+     "keMax": 13.234,
+     "perchSF": 13.253,
+     "tdKE": 1.813,
+     "sepMax": 45.163,
+     "fails": []
+    }
+   ]
+  },
+  "headwind": {
+   "scenarioSeed": 9,
+   "min": 65.26,
+   "median": 93.736,
+   "max": 97.734,
+   "shareFailingAnyStd": 0.167,
+   "failCounts": {
+    "shotsPerMin": 12,
+    "sepMin": 2,
+    "avail": 2,
+    "frontShare": 1
+   },
+   "rows": [
+    {
+     "windSeed": 1,
+     "avail": 97.734,
+     "frontShare": 74.234,
+     "keMax": 13.052,
+     "perchSF": 16.846,
+     "tdKE": 1.341,
+     "sepMax": 47.094,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 2,
+     "avail": 95.069,
+     "frontShare": 63.749,
+     "keMax": 13.076,
+     "perchSF": 19.448,
+     "tdKE": 0.922,
+     "sepMax": 46.454,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 3,
+     "avail": 97.645,
+     "frontShare": 73.789,
+     "keMax": 13.071,
+     "perchSF": 17.67,
+     "tdKE": 1.478,
+     "sepMax": 47.594,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 4,
+     "avail": 90.227,
+     "frontShare": 50.911,
+     "keMax": 13.056,
+     "perchSF": 16.807,
+     "tdKE": 1.213,
+     "sepMax": 46.929,
+     "fails": [
+      "shotsPerMin",
+      "sepMin"
+     ]
+    },
+    {
+     "windSeed": 5,
+     "avail": 65.393,
+     "frontShare": 51.044,
+     "keMax": 13.041,
+     "perchSF": 15.544,
+     "tdKE": 0.928,
+     "sepMax": 44.812,
+     "fails": [
+      "avail",
+      "shotsPerMin",
+      "sepMin"
+     ]
+    },
+    {
+     "windSeed": 6,
+     "avail": 65.26,
+     "frontShare": 44.958,
+     "keMax": 13,
+     "perchSF": 21.498,
+     "tdKE": 0.748,
+     "sepMax": 47.95,
+     "fails": [
+      "avail",
+      "frontShare",
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 7,
+     "avail": 91.026,
+     "frontShare": 63.972,
+     "keMax": 13.071,
+     "perchSF": 2.578,
+     "tdKE": 0.177,
+     "sepMax": 46.316,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 8,
+     "avail": 91.337,
+     "frontShare": 64.727,
+     "keMax": 13.074,
+     "perchSF": 22.06,
+     "tdKE": 0.788,
+     "sepMax": 46.306,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 9,
+     "avail": 88.405,
+     "frontShare": 58.996,
+     "keMax": 13.042,
+     "perchSF": 26.437,
+     "tdKE": 0.371,
+     "sepMax": 48.497,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 10,
+     "avail": 96.002,
+     "frontShare": 73.212,
+     "keMax": 13.022,
+     "perchSF": 25.719,
+     "tdKE": 0.888,
+     "sepMax": 47.58,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 11,
+     "avail": 97.423,
+     "frontShare": 68.192,
+     "keMax": 13.058,
+     "perchSF": 16.866,
+     "tdKE": 1.617,
+     "sepMax": 47.911,
+     "fails": [
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 12,
+     "avail": 93.736,
+     "frontShare": 68.147,
+     "keMax": 13.061,
+     "perchSF": 18.976,
+     "tdKE": 0.878,
+     "sepMax": 46.509,
+     "fails": [
+      "shotsPerMin"
+     ]
+    }
+   ]
+  },
+  "crossgust": {
+   "scenarioSeed": 9,
+   "min": 36.428,
+   "median": 83.474,
+   "max": 89.827,
+   "shareFailingAnyStd": 0.417,
+   "failCounts": {
+    "shotsPerMin": 12,
+    "sepMax": 7,
+    "tdKE": 4,
+    "avail": 5,
+    "frontShare": 4
+   },
+   "rows": [
+    {
+     "windSeed": 1,
+     "avail": 80.853,
+     "frontShare": 61.528,
+     "keMax": 13.964,
+     "perchSF": 10.84,
+     "tdKE": 0.946,
+     "sepMax": 66.274,
+     "fails": [
+      "shotsPerMin",
+      "sepMax"
+     ]
+    },
+    {
+     "windSeed": 2,
+     "avail": 88.938,
+     "frontShare": 67.614,
+     "keMax": 13.51,
+     "perchSF": 3.425,
+     "tdKE": 3.506,
+     "sepMax": 47.301,
+     "fails": [
+      "shotsPerMin",
+      "tdKE"
+     ]
+    },
+    {
+     "windSeed": 3,
+     "avail": 83.474,
+     "frontShare": 65.571,
+     "keMax": 13.473,
+     "perchSF": 5.819,
+     "tdKE": 1.76,
+     "sepMax": 64.018,
+     "fails": [
+      "shotsPerMin",
+      "sepMax"
+     ]
+    },
+    {
+     "windSeed": 4,
+     "avail": 57.086,
+     "frontShare": 35.362,
+     "keMax": 13.669,
+     "perchSF": 2.594,
+     "tdKE": 2.726,
+     "sepMax": 48.272,
+     "fails": [
+      "avail",
+      "frontShare",
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 5,
+     "avail": 36.428,
+     "frontShare": 24.7,
+     "keMax": 13.809,
+     "perchSF": 7.002,
+     "tdKE": 1.433,
+     "sepMax": 59.633,
+     "fails": [
+      "avail",
+      "frontShare",
+      "shotsPerMin",
+      "sepMax"
+     ]
+    },
+    {
+     "windSeed": 6,
+     "avail": 44.602,
+     "frontShare": 27.232,
+     "keMax": 13.555,
+     "perchSF": 5.501,
+     "tdKE": 1.292,
+     "sepMax": 49.181,
+     "fails": [
+      "avail",
+      "frontShare",
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 7,
+     "avail": 88.316,
+     "frontShare": 64.416,
+     "keMax": 13.657,
+     "perchSF": 5.103,
+     "tdKE": 2.775,
+     "sepMax": 50.217,
+     "fails": [
+      "shotsPerMin",
+      "sepMax"
+     ]
+    },
+    {
+     "windSeed": 8,
+     "avail": 84.807,
+     "frontShare": 65.171,
+     "keMax": 13.636,
+     "perchSF": 4.048,
+     "tdKE": 3.104,
+     "sepMax": 58.07,
+     "fails": [
+      "shotsPerMin",
+      "sepMax",
+      "tdKE"
+     ]
+    },
+    {
+     "windSeed": 9,
+     "avail": 76.055,
+     "frontShare": 56.952,
+     "keMax": 13.515,
+     "perchSF": 6.353,
+     "tdKE": 5.653,
+     "sepMax": 53.461,
+     "fails": [
+      "avail",
+      "shotsPerMin",
+      "sepMax",
+      "tdKE"
+     ]
+    },
+    {
+     "windSeed": 10,
+     "avail": 89.827,
+     "frontShare": 66.104,
+     "keMax": 13.502,
+     "perchSF": 3.274,
+     "tdKE": 3.966,
+     "sepMax": 48.874,
+     "fails": [
+      "shotsPerMin",
+      "tdKE"
+     ]
+    },
+    {
+     "windSeed": 11,
+     "avail": 48.556,
+     "frontShare": 32.341,
+     "keMax": 13.412,
+     "perchSF": 5.651,
+     "tdKE": 0.035,
+     "sepMax": 48.008,
+     "fails": [
+      "avail",
+      "frontShare",
+      "shotsPerMin"
+     ]
+    },
+    {
+     "windSeed": 12,
+     "avail": 89.072,
+     "frontShare": 70.147,
+     "keMax": 14.162,
+     "perchSF": 9.484,
+     "tdKE": 2.818,
+     "sepMax": 54.05,
+     "fails": [
+      "shotsPerMin",
+      "sepMax"
+     ]
+    }
+   ]
+  },
+  "perchwind": {
+   "scenarioSeed": 13,
+   "min": 35.643,
+   "median": 73.484,
+   "max": 91.872,
+   "shareFailingAnyStd": 0.833,
+   "failCounts": {
+    "avail": 10,
+    "pxMed": 2,
+    "keMax": 5,
+    "frontShare": 6,
+    "shotsPerMin": 6,
+    "sepMax": 12,
+    "perchSF": 5,
+    "captureP": 12,
+    "jitterRms": 1,
+    "tdKE": 2,
+    "ops": 1
+   },
+   "rows": [
+    {
+     "windSeed": 1,
+     "avail": 35.643,
+     "frontShare": 10.06,
+     "keMax": 18.182,
+     "perchSF": 1.185,
+     "tdKE": "n/a",
+     "sepMax": 199.957,
+     "fails": [
+      "avail",
+      "pxMed",
+      "keMax",
+      "frontShare",
+      "shotsPerMin",
+      "sepMax",
+      "perchSF",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 2,
+     "avail": 73.484,
+     "frontShare": 57.428,
+     "keMax": 15.489,
+     "perchSF": 2.337,
+     "tdKE": 2.051,
+     "sepMax": 65.407,
+     "fails": [
+      "avail",
+      "jitterRms",
+      "keMax",
+      "sepMax",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 3,
+     "avail": 81.079,
+     "frontShare": 56.229,
+     "keMax": 13.931,
+     "perchSF": 2.335,
+     "tdKE": 0.352,
+     "sepMax": 63.184,
+     "fails": [
+      "sepMax",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 4,
+     "avail": 74.284,
+     "frontShare": 63.424,
+     "keMax": 15.031,
+     "perchSF": 3.174,
+     "tdKE": 0.044,
+     "sepMax": 63.476,
+     "fails": [
+      "avail",
+      "keMax",
+      "sepMax",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 5,
+     "avail": 75.017,
+     "frontShare": 51.765,
+     "keMax": 14.067,
+     "perchSF": 1.259,
+     "tdKE": 4.439,
+     "sepMax": 57.903,
+     "fails": [
+      "avail",
+      "sepMax",
+      "tdKE",
+      "perchSF",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 6,
+     "avail": 61.426,
+     "frontShare": 45.969,
+     "keMax": 14.427,
+     "perchSF": 3.485,
+     "tdKE": 0.695,
+     "sepMax": 64.818,
+     "fails": [
+      "avail",
+      "frontShare",
+      "sepMax",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 7,
+     "avail": 35.643,
+     "frontShare": 10.06,
+     "keMax": 15.363,
+     "perchSF": 1.667,
+     "tdKE": "n/a",
+     "sepMax": 116.652,
+     "fails": [
+      "avail",
+      "keMax",
+      "frontShare",
+      "shotsPerMin",
+      "sepMax",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 8,
+     "avail": 35.643,
+     "frontShare": 10.06,
+     "keMax": 0,
+     "perchSF": 0.996,
+     "tdKE": "n/a",
+     "sepMax": 245.913,
+     "fails": [
+      "avail",
+      "pxMed",
+      "ops",
+      "frontShare",
+      "shotsPerMin",
+      "sepMax",
+      "perchSF",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 9,
+     "avail": 77.082,
+     "frontShare": 51.899,
+     "keMax": 13.775,
+     "perchSF": 3.272,
+     "tdKE": 0.873,
+     "sepMax": 65.775,
+     "fails": [
+      "avail",
+      "shotsPerMin",
+      "sepMax",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 10,
+     "avail": 35.643,
+     "frontShare": 10.06,
+     "keMax": 15.285,
+     "perchSF": 1.234,
+     "tdKE": "n/a",
+     "sepMax": 113.698,
+     "fails": [
+      "avail",
+      "keMax",
+      "frontShare",
+      "shotsPerMin",
+      "sepMax",
+      "perchSF",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 11,
+     "avail": 91.872,
+     "frontShare": 66.223,
+     "keMax": 14.144,
+     "perchSF": 4.676,
+     "tdKE": 3.147,
+     "sepMax": 57.903,
+     "fails": [
+      "sepMax",
+      "tdKE",
+      "captureP"
+     ]
+    },
+    {
+     "windSeed": 12,
+     "avail": 35.643,
+     "frontShare": 10.06,
+     "keMax": 13.537,
+     "perchSF": 1.15,
+     "tdKE": "n/a",
+     "sepMax": 82.22,
+     "fails": [
+      "avail",
+      "frontShare",
+      "shotsPerMin",
+      "sepMax",
+      "perchSF",
+      "captureP"
+     ]
+    }
+   ]
+  },
+  "nominal_skierSeed": [
+   {
+    "skierSeed": 1,
+    "avail": 95.882,
+    "frontShare": 71.731,
+    "keMax": 13.243,
+    "perchSF": 13.434,
+    "tdKE": 2.219,
+    "sepMax": 49.117,
+    "fails": []
+   },
+   {
+    "skierSeed": 2,
+    "avail": 96.641,
+    "frontShare": 75.77,
+    "keMax": 13.231,
+    "perchSF": 13.475,
+    "tdKE": 2.23,
+    "sepMax": 46.644,
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   {
+    "skierSeed": 3,
+    "avail": 96.401,
+    "frontShare": 74.73,
+    "keMax": 13.245,
+    "perchSF": 13.517,
+    "tdKE": 2.241,
+    "sepMax": 47.761,
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   {
+    "skierSeed": 4,
+    "avail": 96.162,
+    "frontShare": 72.651,
+    "keMax": 13.236,
+    "perchSF": 13.514,
+    "tdKE": 2.275,
+    "sepMax": 48.499,
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   {
+    "skierSeed": 5,
+    "avail": 95.322,
+    "frontShare": 72.411,
+    "keMax": 13.244,
+    "perchSF": 13.469,
+    "tdKE": 1.875,
+    "sepMax": 47.354,
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   {
+    "skierSeed": 6,
+    "avail": 95.562,
+    "frontShare": 72.451,
+    "keMax": 13.24,
+    "perchSF": 13.504,
+    "tdKE": 2.872,
+    "sepMax": 48.099,
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   {
+    "skierSeed": 7,
+    "avail": 95.362,
+    "frontShare": 71.411,
+    "keMax": 13.242,
+    "perchSF": 13.556,
+    "tdKE": 2.161,
+    "sepMax": 48.733,
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   {
+    "skierSeed": 8,
+    "avail": 96.361,
+    "frontShare": 74.41,
+    "keMax": 13.243,
+    "perchSF": 13.494,
+    "tdKE": 2.049,
+    "sepMax": 46.878,
+    "fails": [
+     "shotsPerMin"
+    ]
+   }
+  ]
+ },
+ "stopScenario": {
+  "note": "nominal skier with a hockey stop at 22 s (no restart in the shared skier model)",
+  "avail": 94.155,
+  "frontShare": 67.974,
+  "keMax": 13.181,
+  "perchSF": 12.992,
+  "tdKE": 2.898,
+  "sepMax": 49.117,
+  "fails": [],
+  "firstPerchAfterStop": {
+   "t": 27.28,
+   "gap": 45.29,
+   "sep": 48.125
+  },
+  "events": []
+ },
+ "variants": {
+  "claimed_125g": {
+   "over": {},
+   "nominal": {
+    "avail": 95.882,
+    "pxMed": 439.554,
+    "frontShare": 71.731,
+    "keMax": 13.243,
+    "endurance": 116.856,
+    "keepsLead": "yes",
+    "fails": []
+   },
+   "short": {
+    "avail": 84.229,
+    "pxMed": 404.347,
+    "frontShare": 74.234,
+    "keMax": 13.317,
+    "endurance": 109.794,
+    "keepsLead": "yes",
+    "fails": []
+   },
+   "gentle": {
+    "avail": 95.38,
+    "pxMed": 467.161,
+    "frontShare": 81.653,
+    "keMax": 12.735,
+    "endurance": 71.53,
+    "keepsLead": "yes",
+    "fails": []
+   },
+   "headwind": {
+    "avail": 88.405,
+    "pxMed": 447.427,
+    "frontShare": 58.996,
+    "keMax": 13.042,
+    "endurance": 52.794,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "crossgust": {
+    "avail": 76.055,
+    "pxMed": 425.973,
+    "frontShare": 56.952,
+    "keMax": 13.515,
+    "endurance": 110.285,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "shotsPerMin",
+     "sepMax",
+     "tdKE"
+    ]
+   },
+   "leadEnvelope": [
+    {
+     "vTarget": 10,
+     "keepsLead": "yes",
+     "avail": 96.102,
+     "frontShare": 81.409,
+     "keMax": 13.265
+    },
+    {
+     "vTarget": 11,
+     "keepsLead": "yes",
+     "avail": 96.002,
+     "frontShare": 79.66,
+     "keMax": 13.262
+    },
+    {
+     "vTarget": 12,
+     "keepsLead": "yes",
+     "avail": 94.853,
+     "frontShare": 75.662,
+     "keMax": 13.232
+    },
+    {
+     "vTarget": 13,
+     "keepsLead": "yes",
+     "avail": 95.652,
+     "frontShare": 69.815,
+     "keMax": 14.078
+    },
+    {
+     "vTarget": 14,
+     "keepsLead": "yes",
+     "avail": 95.402,
+     "frontShare": 73.663,
+     "keMax": 14.078
+    }
+   ]
+  },
+  "mass175_cap13": {
+   "over": {
+    "mass": 0.175,
+    "vCapG": 13
+   },
+   "nominal": {
+    "avail": 95.322,
+    "pxMed": 448.082,
+    "frontShare": 77.769,
+    "keMax": 14.719,
+    "endurance": 128.869,
+    "keepsLead": "no (fell behind)",
+    "fails": [
+     "shotsPerMin",
+     "tdKE",
+     "keepsLead"
+    ]
+   },
+   "short": {
+    "avail": 87.739,
+    "pxMed": 407.879,
+    "frontShare": 75.255,
+    "keMax": 14.153,
+    "endurance": 115.288,
+    "keepsLead": "yes",
+    "fails": [
+     "tdKE"
+    ]
+   },
+   "gentle": {
+    "avail": 95.38,
+    "pxMed": 470.927,
+    "frontShare": 78.054,
+    "keMax": 13.308,
+    "endurance": 91.827,
+    "keepsLead": "yes",
+    "fails": [
+     "tdKE"
+    ]
+   },
+   "headwind": {
+    "avail": 99.156,
+    "pxMed": 469.805,
+    "frontShare": 76.277,
+    "keMax": 14.584,
+    "endurance": 96.101,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "crossgust": {
+    "avail": 99.378,
+    "pxMed": 459.178,
+    "frontShare": 77.299,
+    "keMax": 14.814,
+    "endurance": 155.276,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "leadEnvelope": [
+    {
+     "vTarget": 10,
+     "keepsLead": "yes",
+     "avail": 96.102,
+     "frontShare": 81.259,
+     "keMax": 14.139
+    },
+    {
+     "vTarget": 11,
+     "keepsLead": "yes",
+     "avail": 97.551,
+     "frontShare": 73.263,
+     "keMax": 14.719
+    },
+    {
+     "vTarget": 12,
+     "keepsLead": "yes",
+     "avail": 99,
+     "frontShare": 83.158,
+     "keMax": 14.719
+    },
+    {
+     "vTarget": 13,
+     "keepsLead": "yes",
+     "avail": 98.951,
+     "frontShare": 60.87,
+     "keMax": 14.719
+    },
+    {
+     "vTarget": 14,
+     "keepsLead": "no (fell behind)",
+     "avail": 31.734,
+     "frontShare": 14.993,
+     "keMax": 14.719
+    }
+   ]
+  },
+  "mass175_cap15": {
+   "over": {
+    "mass": 0.175,
+    "vCapG": 15
+   },
+   "nominal": {
+    "avail": 96.521,
+    "pxMed": 454.337,
+    "frontShare": 72.851,
+    "keMax": 18.718,
+    "endurance": 108.724,
+    "keepsLead": "yes",
+    "fails": [
+     "keMax",
+     "shotsPerMin",
+     "tdKE"
+    ]
+   },
+   "short": {
+    "avail": 82.763,
+    "pxMed": 402.745,
+    "frontShare": 72.812,
+    "keMax": 18.826,
+    "endurance": 103.427,
+    "keepsLead": "yes",
+    "fails": [
+     "keMax",
+     "tdKE"
+    ]
+   },
+   "gentle": {
+    "avail": 95.38,
+    "pxMed": 474.536,
+    "frontShare": 79.076,
+    "keMax": 17.782,
+    "endurance": 66.063,
+    "keepsLead": "yes",
+    "fails": [
+     "keMax",
+     "tdKE"
+    ]
+   },
+   "headwind": {
+    "avail": 87.295,
+    "pxMed": 446.625,
+    "frontShare": 59.04,
+    "keMax": 18.598,
+    "endurance": 65.663,
+    "keepsLead": "yes",
+    "fails": [
+     "keMax",
+     "shotsPerMin"
+    ]
+   },
+   "crossgust": {
+    "avail": 80.098,
+    "pxMed": 422.099,
+    "frontShare": 58.418,
+    "keMax": 19.159,
+    "endurance": 117.579,
+    "keepsLead": "yes",
+    "fails": [
+     "keMax",
+     "shotsPerMin",
+     "sepMax",
+     "tdKE"
+    ]
+   },
+   "leadEnvelope": [
+    {
+     "vTarget": 10,
+     "keepsLead": "yes",
+     "avail": 96.102,
+     "frontShare": 77.961,
+     "keMax": 18.754
+    },
+    {
+     "vTarget": 11,
+     "keepsLead": "yes",
+     "avail": 95.152,
+     "frontShare": 75.112,
+     "keMax": 18.747
+    },
+    {
+     "vTarget": 12,
+     "keepsLead": "yes",
+     "avail": 95.652,
+     "frontShare": 75.662,
+     "keMax": 18.718
+    },
+    {
+     "vTarget": 13,
+     "keepsLead": "yes",
+     "avail": 92.704,
+     "frontShare": 65.067,
+     "keMax": 19.73
+    },
+    {
+     "vTarget": 14,
+     "keepsLead": "no (fell behind)",
+     "avail": 92.004,
+     "frontShare": 71.014,
+     "keMax": 19.73
+    }
+   ]
+  },
+  "mass175_cap13_cd0_05": {
+   "over": {
+    "mass": 0.175,
+    "vCapG": 13,
+    "cd0": 0.05
+   },
+   "nominal": {
+    "avail": 96.881,
+    "pxMed": 453.952,
+    "frontShare": 80.768,
+    "keMax": 14.69,
+    "endurance": 159.392,
+    "keepsLead": "no (fell behind)",
+    "fails": [
+     "shotsPerMin",
+     "tdKE",
+     "keepsLead"
+    ]
+   },
+   "short": {
+    "avail": 87.828,
+    "pxMed": 406.636,
+    "frontShare": 73.878,
+    "keMax": 14.082,
+    "endurance": 114.407,
+    "keepsLead": "yes",
+    "fails": [
+     "tdKE"
+    ]
+   },
+   "gentle": {
+    "avail": 95.38,
+    "pxMed": 472.657,
+    "frontShare": 77.965,
+    "keMax": 13.215,
+    "endurance": 83.276,
+    "keepsLead": "yes",
+    "fails": [
+     "tdKE"
+    ]
+   },
+   "headwind": {
+    "avail": 99.156,
+    "pxMed": 467.173,
+    "frontShare": 72.59,
+    "keMax": 14.57,
+    "endurance": 63.805,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "crossgust": {
+    "avail": 99.378,
+    "pxMed": 464.225,
+    "frontShare": 75.611,
+    "keMax": 14.773,
+    "endurance": 146.399,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "leadEnvelope": [
+    {
+     "vTarget": 10,
+     "keepsLead": "yes",
+     "avail": 96.102,
+     "frontShare": 80.16,
+     "keMax": 14.045
+    },
+    {
+     "vTarget": 11,
+     "keepsLead": "yes",
+     "avail": 97.551,
+     "frontShare": 73.513,
+     "keMax": 14.69
+    },
+    {
+     "vTarget": 12,
+     "keepsLead": "yes",
+     "avail": 99,
+     "frontShare": 81.909,
+     "keMax": 14.69
+    },
+    {
+     "vTarget": 13,
+     "keepsLead": "yes",
+     "avail": 98.951,
+     "frontShare": 59.22,
+     "keMax": 14.69
+    },
+    {
+     "vTarget": 14,
+     "keepsLead": "no (fell behind)",
+     "avail": 30.285,
+     "frontShare": 14.243,
+     "keMax": 14.69
+    }
+   ]
+  },
+  "camPower3_5W": {
+   "over": {
+    "pCam": 3.5
+   },
+   "nominal": {
+    "avail": 95.882,
+    "pxMed": 439.554,
+    "frontShare": 71.731,
+    "keMax": 13.243,
+    "endurance": 84.734,
+    "keepsLead": "yes",
+    "fails": []
+   },
+   "short": {
+    "avail": 84.229,
+    "pxMed": 404.347,
+    "frontShare": 74.234,
+    "keMax": 13.317,
+    "endurance": 80.958,
+    "keepsLead": "yes",
+    "fails": []
+   },
+   "gentle": {
+    "avail": 95.38,
+    "pxMed": 467.161,
+    "frontShare": 81.653,
+    "keMax": 12.735,
+    "endurance": 58.058,
+    "keepsLead": "yes",
+    "fails": []
+   },
+   "headwind": {
+    "avail": 88.405,
+    "pxMed": 447.427,
+    "frontShare": 58.996,
+    "keMax": 13.042,
+    "endurance": 45.074,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "crossgust": {
+    "avail": 76.055,
+    "pxMed": 425.973,
+    "frontShare": 56.952,
+    "keMax": 13.515,
+    "endurance": 81.225,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "shotsPerMin",
+     "sepMax",
+     "tdKE"
+    ]
+   },
+   "leadEnvelope": [
+    {
+     "vTarget": 10,
+     "keepsLead": "yes",
+     "avail": 96.102,
+     "frontShare": 81.409,
+     "keMax": 13.265
+    },
+    {
+     "vTarget": 11,
+     "keepsLead": "yes",
+     "avail": 96.002,
+     "frontShare": 79.66,
+     "keMax": 13.262
+    },
+    {
+     "vTarget": 12,
+     "keepsLead": "yes",
+     "avail": 94.853,
+     "frontShare": 75.662,
+     "keMax": 13.232
+    },
+    {
+     "vTarget": 13,
+     "keepsLead": "yes",
+     "avail": 95.652,
+     "frontShare": 69.815,
+     "keMax": 14.078
+    },
+    {
+     "vTarget": 14,
+     "keepsLead": "yes",
+     "avail": 95.402,
+     "frontShare": 73.663,
+     "keMax": 14.078
+    }
+   ]
+  },
+  "rows3072_binned": {
+   "over": {
+    "camRows": 3072
+   },
+   "nominal": {
+    "avail": 67.373,
+    "pxMed": 346.344,
+    "frontShare": 41.224,
+    "keMax": 13.232,
+    "endurance": 99.113,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "frontShare",
+     "shotsPerMin"
+    ]
+   },
+   "short": {
+    "avail": 62.683,
+    "pxMed": 359.513,
+    "frontShare": 48.689,
+    "keMax": 13.317,
+    "endurance": 84.694,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "jitterRms",
+     "frontShare"
+    ]
+   },
+   "gentle": {
+    "avail": 65.304,
+    "pxMed": 390.114,
+    "frontShare": 51.755,
+    "keMax": 12.687,
+    "endurance": 66.052,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "azRange"
+    ]
+   },
+   "headwind": {
+    "avail": 76.677,
+    "pxMed": 365.872,
+    "frontShare": 44.602,
+    "keMax": 13.042,
+    "endurance": 51.802,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "frontShare",
+     "shotsPerMin"
+    ]
+   },
+   "crossgust": {
+    "avail": 39.982,
+    "pxMed": 302.608,
+    "frontShare": 24.967,
+    "keMax": 13.515,
+    "endurance": 96.582,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "frontShare",
+     "shotsPerMin",
+     "sepMax",
+     "tdKE"
+    ]
+   },
+   "leadEnvelope": [
+    {
+     "vTarget": 10,
+     "keepsLead": "yes",
+     "avail": 59.37,
+     "frontShare": 44.178,
+     "keMax": 13.265
+    },
+    {
+     "vTarget": 11,
+     "keepsLead": "yes",
+     "avail": 53.973,
+     "frontShare": 34.483,
+     "keMax": 13.262
+    },
+    {
+     "vTarget": 12,
+     "keepsLead": "yes",
+     "avail": 65.667,
+     "frontShare": 42.379,
+     "keMax": 13.231
+    },
+    {
+     "vTarget": 13,
+     "keepsLead": "yes",
+     "avail": 60.62,
+     "frontShare": 37.981,
+     "keMax": 14.078
+    },
+    {
+     "vTarget": 14,
+     "keepsLead": "no (fell behind)",
+     "avail": 32.934,
+     "frontShare": 18.741,
+     "keMax": 14.078
+    }
+   ]
+  },
+  "rows4300_remosaic": {
+   "over": {
+    "camRows": 4300
+   },
+   "nominal": {
+    "avail": 88.605,
+    "pxMed": 416.071,
+    "frontShare": 62.135,
+    "keMax": 13.244,
+    "endurance": 119.006,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "short": {
+    "avail": 76.41,
+    "pxMed": 375.896,
+    "frontShare": 64.194,
+    "keMax": 13.317,
+    "endurance": 91.562,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "jitterRms"
+    ]
+   },
+   "gentle": {
+    "avail": 86.673,
+    "pxMed": 420.271,
+    "frontShare": 72.945,
+    "keMax": 12.735,
+    "endurance": 71.53,
+    "keepsLead": "yes",
+    "fails": []
+   },
+   "headwind": {
+    "avail": 81.386,
+    "pxMed": 425.02,
+    "frontShare": 49.978,
+    "keMax": 13.042,
+    "endurance": 52.789,
+    "keepsLead": "yes",
+    "fails": [
+     "frontShare",
+     "shotsPerMin"
+    ]
+   },
+   "crossgust": {
+    "avail": 59.751,
+    "pxMed": 361.965,
+    "frontShare": 41.67,
+    "keMax": 13.515,
+    "endurance": 109.266,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "frontShare",
+     "shotsPerMin",
+     "sepMax",
+     "tdKE"
+    ]
+   },
+   "leadEnvelope": [
+    {
+     "vTarget": 10,
+     "keepsLead": "yes",
+     "avail": 84.558,
+     "frontShare": 69.365,
+     "keMax": 13.265
+    },
+    {
+     "vTarget": 11,
+     "keepsLead": "yes",
+     "avail": 85.707,
+     "frontShare": 66.767,
+     "keMax": 13.262
+    },
+    {
+     "vTarget": 12,
+     "keepsLead": "yes",
+     "avail": 85.757,
+     "frontShare": 63.268,
+     "keMax": 13.23
+    },
+    {
+     "vTarget": 13,
+     "keepsLead": "yes",
+     "avail": 86.407,
+     "frontShare": 58.071,
+     "keMax": 14.078
+    },
+    {
+     "vTarget": 14,
+     "keepsLead": "no (fell behind)",
+     "avail": 60.67,
+     "frontShare": 42.829,
+     "keMax": 14.078
+    }
+   ]
+  },
+  "audit_realistic": {
+   "over": {
+    "mass": 0.175,
+    "vCapG": 13,
+    "cd0": 0.05,
+    "pCam": 3.5,
+    "camRows": 4300
+   },
+   "nominal": {
+    "avail": 75.09,
+    "pxMed": 385.854,
+    "frontShare": 57.497,
+    "keMax": 14.69,
+    "endurance": 89.455,
+    "keepsLead": "no (fell behind)",
+    "fails": [
+     "avail",
+     "shotsPerMin",
+     "tdKE",
+     "keepsLead"
+    ]
+   },
+   "short": {
+    "avail": 79.254,
+    "pxMed": 378.925,
+    "frontShare": 65.749,
+    "keMax": 14.082,
+    "endurance": 83.736,
+    "keepsLead": "yes",
+    "fails": [
+     "avail",
+     "tdKE"
+    ]
+   },
+   "gentle": {
+    "avail": 87.694,
+    "pxMed": 426.787,
+    "frontShare": 70.28,
+    "keMax": 13.215,
+    "endurance": 65.564,
+    "keepsLead": "yes",
+    "fails": [
+     "tdKE"
+    ]
+   },
+   "headwind": {
+    "avail": 99.156,
+    "pxMed": 448.383,
+    "frontShare": 72.59,
+    "keMax": 14.57,
+    "endurance": 52.863,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "crossgust": {
+    "avail": 88.761,
+    "pxMed": 386.91,
+    "frontShare": 64.993,
+    "keMax": 14.773,
+    "endurance": 99.258,
+    "keepsLead": "yes",
+    "fails": [
+     "shotsPerMin"
+    ]
+   },
+   "leadEnvelope": [
+    {
+     "vTarget": 10,
+     "keepsLead": "yes",
+     "avail": 84.808,
+     "frontShare": 69.115,
+     "keMax": 14.045
+    },
+    {
+     "vTarget": 11,
+     "keepsLead": "yes",
+     "avail": 91.404,
+     "frontShare": 65.267,
+     "keMax": 14.69
+    },
+    {
+     "vTarget": 12,
+     "keepsLead": "yes",
+     "avail": 85.507,
+     "frontShare": 68.416,
+     "keMax": 14.69
+    },
+    {
+     "vTarget": 13,
+     "keepsLead": "yes",
+     "avail": 98.951,
+     "frontShare": 59.22,
+     "keMax": 14.69
+    },
+    {
+     "vTarget": 14,
+     "keepsLead": "no (fell behind)",
+     "avail": 30.285,
+     "frontShare": 14.243,
+     "keMax": 14.69
+    }
+   ]
+  }
+ },
+ "aero": {
+  "span_m": 0.7,
+  "chord_m": 0.079,
+  "wingLoading_Nm2": 22.295,
+  "Re": {
+   "7": 32951,
+   "8": 37658,
+   "10": 47073,
+   "12": 56487,
+   "14": 65902
+  },
+  "vStall": 6.678,
+  "CLat": {
+   "8": 0.697,
+   "10": 0.446,
+   "12": 0.31,
+   "14": 0.228
+  },
+  "LD": {
+   "8": 11.292,
+   "10": 9.121,
+   "12": 6.992,
+   "14": 5.377
+  },
+  "LDmax": 11.824,
+  "vAtLDmax": 6.866,
+  "clAtLDmax": 0.946,
+  "glideAngleDeg_12": 8.139,
+  "glideAngleDeg_14_ld70": 14.88,
+  "staticMotorW": 30.267,
+  "staticThrustToWeight": 1.305,
+  "batteryCurrentAtStaticA_3_5V": 9.419,
+  "cRateOn1000mAh": 9.419,
+  "mass175": {
+   "vStall": 7.901,
+   "LD12": 8.957,
+   "LD13": 8.013,
+   "vCapForKE14_9": 13.049,
+   "flightFloor1_3vs": 10.271
+  },
+  "cd0BuildUp": {
+   "airfoilProfileRe50k": "0.015–0.022 (SD7037/AG-series, UIUC LSAT vol. 1–3 at Re 40–60k)",
+   "fuselageAndPod": "0.005–0.008 (≈30×30 mm section, Cd 0.3–0.5)",
+   "turretTailCam": "≈0.003",
+   "skidsClawsHoopHinges": "0.003–0.006",
+   "foldedPropAndVtail": "0.004–0.006",
+   "total": "0.030–0.045 → model 0.040 is plausible"
+  }
+ },
+ "perching": {
+  "clawDecel_ms2": 5.989,
+  "slideFrom6ms_m": 3.005,
+  "slideFrom6ms_iceMu0_3_m": 59.268,
+  "note": "μ_eff 0.9 ASSUMED; on ice (μ≈0.3 with claws not biting) deceleration is 0.3 m/s² and the slide is ~60 m"
+ },
+ "capture": {
+  "hitRates": {
+   "3": {
+    "hoop40a": 0.999,
+    "hoop40a_wind9": 0.981,
+    "hoop40a_sigma1_5x": null
+   },
+   "4": {
+    "hoop40a": 0.989,
+    "hoop40a_wind9": 0.948,
+    "hoop40a_sigma1_5x": null
+   },
+   "5": {
+    "hoop40a": 0.971,
+    "hoop40a_wind9": 0.903,
+    "hoop40a_sigma1_5x": null
+   },
+   "6": {
+    "hoop40a": 0.945,
+    "hoop40a_wind9": 0.843,
+    "hoop40a_sigma1_5x": null
+   },
+   "8": {
+    "hoop40a": 0.866,
+    "hoop40a_wind9": 0.711,
+    "hoop40a_sigma1_5x": null
+   }
+  },
+  "clawsEngagedBreakout_N": 4.355,
+  "lanyardExtAtBreakout_m": 0.436,
+  "snatchPeak": {
+   "4": 3.69,
+   "6": 5.508,
+   "8": 9.174,
+   "10": 39.568
+  },
+  "note": "aim model σ_lat = 0.035+0.013·v is ASSUMED (no data). Hit rate with 1.5× the assumed scatter computed below.",
+  "scatterSensitivity": {
+   "4": {
+    "x1": 0.991,
+    "x1_5": 0.9,
+    "x2": 0.742,
+    "x2_noActiveShift": null
+   },
+   "5": {
+    "x1": 0.972,
+    "x1_5": 0.833,
+    "x2": 0.644,
+    "x2_noActiveShift": null
+   },
+   "6": {
+    "x1": 0.946,
+    "x1_5": 0.76,
+    "x2": 0.556,
+    "x2_noActiveShift": null
+   }
+  }
+ },
+ "endurance": {
+  "claimedFormula": "(battWh + bankWh) × 0.75 × 0.9 / pMean",
+  "nominal_pMean_W": 4.748,
+  "claimed_min": 116.86,
+  "withBankTransferEff0_85_min": 104.065,
+  "withCam3_5W_min": 75.458,
+  "gentle6deg_withCam3_5W_min": 51.7,
+  "headwind_withCam3_5W_min": 40.138,
+  "onboardOnlyPerRun": {
+   "runSkiS": 150,
+   "Wh_nominal": 0.198,
+   "Wh_nominal_cam3_5": 0.273,
+   "usableOnboardWh": 2.498
+  }
+ },
+ "opsRecount": {
+  "criteriaDef": "deploy/launch, stow/land, battery swap, recovery",
+  "claimed": {
+   "ops": 2,
+   "standstill_s": 10,
+   "list": [
+    "toss (deploy/launch)",
+    "snatch (land/recovery)"
+   ],
+   "stowCountedAs": "0 actions, 6 s standstill"
+  },
+  "audit": {
+   "ops": 3,
+   "list": [
+    "draw + toss (deploy/launch)",
+    "pole-basket snatch at the run-out (recovery, while moving)",
+    "unhook from the pole, fold wings, retract hoop/periscope, holster (stow)"
+   ],
+   "standstill_s": "4 + 10–15 (gloved unhook/fold/holster of a 0.7 m span glider with a 0.4 m hoop and a 0.35 m mast) = 14–19 s p50; + 8 s hand pick-up on a double miss; powder/soft piste edge: + walk/side-step to a glider ≥9 m off the line",
+   "pass": "ops FAIL (3 > 2) by the shared definition; standstill passes (≤30 s) unless stranded"
+  }
+ }
+}

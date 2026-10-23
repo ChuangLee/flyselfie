@@ -1,0 +1,287 @@
+{
+ "generated": "2026-10-20",
+ "round": 4,
+ "evidence": "independent audit4 of numerical, uncalibrated simulations (re-run on a copy of sim/) + code reading; NOT physical verification; M-070 not_run, G-MATURE closed",
+ "counts": {
+  "kite2": {
+   "fatal": 0,
+   "major": 4,
+   "minor": 4
+  },
+  "towglider": {
+   "fatal": 0,
+   "major": 3,
+   "minor": 6
+  },
+  "leapfrog": {
+   "fatal": 0,
+   "major": 4,
+   "minor": 4
+  },
+  "cross": {
+   "fatal": 0,
+   "major": 2,
+   "minor": 5
+  }
+ },
+ "findings": [
+  {
+   "id": "A4-K2-01",
+   "severity": "major",
+   "title": "The <2 px passive boom is not buildable as specified and is structurally inconsistent with its own launch/dock sequence",
+   "detail": "(a) A 6-section telescopic tube cannot taper only 3.0→2.5 mm: nested sections need each OD < the previous ID (≥0.4–0.5 mm per step), so a 3 mm base gives a ≈0.5–1 mm tip or the base must be ≈5–6 mm. (b) The boom is a free-pivot tension member only while the line is taut, but in EXTEND (0.8 s) and STOW (≈1 s at full length, then retracting) it cantilevers the 90 g KCU at 1.45 m: 3.0×0.25 mm tube → linear tip deflection 3341 mm, root stress 930 MPa. (c) Hauling the KCU onto the tip ring puts the boom in compression between reel and KCU: Euler (pinned) 1.26–1.95 N vs reel/drag forces of several N up to 30 N. Required OD (t 0.5 mm, E 130 GPa): 5.7–8.7 mm for 20–5 cm sag with the KCU, 4.0–6.8 mm for 5–30 N compression. Auditor sensitivity boom 6→5 mm: avail 6.0 % on 6 cases (dev 4.5 mm → 2.6 %). The artefact pass therefore rests on a boom that cannot do its job; a real boom puts avail near 0 unless docking/stowing is redesigned (e.g. no KCU on the boom).",
+   "evidence": "audit4/kite2/make_part.py (closed form), out_boom6_all.json; model.js PDEF boomDBase/boomDTip, MODE.EXTEND/STOW; index.js wornMass",
+   "concept": "kite2"
+  },
+  {
+   "id": "A4-K2-02",
+   "severity": "major",
+   "title": "avail fails: 72.25 % (claimed 72.30) — tailwind 24–69 %, calm 77.6 %",
+   "detail": "Own recompute with the shared bbox artefact rule 72.25 % (capsule variant 72.30 %, no-artefact 73.04 %); tail 18 cases 53.64 %, non-tail 30 cases 83.42 %. Boom over the subject in ≈92 % of filming frames at median 1.66 px — a +20 % diameter puts the median at the 2 px line. L/D 0.6 → 67.6 %, mass +15 % → 68.0 %.",
+   "evidence": "audit4/kite2/out_base_all.json, out_LD060_all.json, out_mass115_all.json",
+   "concept": "kite2"
+  },
+  {
+   "id": "A4-K2-03",
+   "severity": "major",
+   "title": "KE pass has 0.62 J margin and fails at the documented-low polar or +15 % mass",
+   "detail": "Reproduced 14.275 J. Own 48-case runs: L/D 0.6 → 17.263 J, mass +15 % → 16.954 J; L/D 0.6 + mass +15 % (8 cases) → 15.789 J. Dev: governor off 16.05 J, L/D 0.9 14.44 J, noise-free sensing 15.40 J. The 11 J governor threshold on an estimated speed is what holds the line; the flying mass already includes a 15 % margin, but the polar (L/D 0.75 from MC-1-1C scaled to 0.4 m²) is untested.",
+   "evidence": "audit4/kite2/out_LD060_all.json, out_mass115_all.json, out_LDmass_all.json; dev results.json sensitivity",
+   "concept": "kite2"
+  },
+  {
+   "id": "A4-K2-04",
+   "severity": "major",
+   "title": "Clothesline hazard unchanged (envelope limit, honestly declared)",
+   "detail": "Own heights of boom+line above the snow 1/2/3 m behind the pivot: min 0.842/0.805/0.744 m; below 1.8 m in a mean 76 % (median 90 %) of airborne riding samples (dev's 'lowShareMeanPct 90.17' is the median). Crossing-skier mitigation (boom 0.2 N·s ≈4 N assuming 50 ms contact; raised-pole line 9.1 N) comes from one scripted geometry each, with a 5 N breakaway and radar/contact detection all ASSUMED. Piste use needs written resort permission; low-traffic slopes only.",
+   "evidence": "audit4/kite2/out_base_all.json (lineH*); dev scenarios cross/crosspole",
+   "concept": "kite2"
+  },
+  {
+   "id": "A4-K2-05",
+   "severity": "minor",
+   "title": "headClear 1.074 m reproduces, but rests on excluding a boom that is kinematically the line",
+   "detail": "A free-pivot boom aligned with the line is the first 1.45 m of the line polyline; excluding it as a 'worn rigid member' is allowed by the round-4 rule but the line-plus-boom passes 0.332 m from the helmet centre. Boom 1.2 m → 0.84 m; L/D 0.9 → 0.98 m (fail). Exclusion windows ≤2.86 s (compliant); KCU seated at the tip 0.613 m from the helmet centre during them. The 'passive, 25 g, 3 mm' justification inherits A4-K2-01 (a real boom is thicker and heavier).",
+   "evidence": "audit4/kite2/out_base_all.json",
+   "concept": "kite2"
+  },
+  {
+   "id": "A4-K2-06",
+   "severity": "minor",
+   "title": "Residual idealised estimators in the in-flight controller",
+   "detail": "Gates (launch, park, stop, retrieve) use windEstimate() — compliant. Pitot/vane apparent wind (σ 0.4 m/s), heave estimate (40 ms, 0.3 m/s) and the governor speed estimate (σ 0.2 m/s, 50 ms) are noisy. Still noise-free: kite position and velocity relative to the boom tip in the window controller (K, A, Vk → uT/uB), true dynamic pressure in the lift-authority term (Fres/liftN), the true apparent-wind direction at the kite in the climb mode, and the launch reef preset (qL from true wind at the tip). Position is plausibly measurable (line length + boom encoders); velocity is not without noise. Dev noise ×2 → avail 73.25, KE 14.31: effect small.",
+   "evidence": "model.js runCore (~L585–700: rrA/Vr/Fres; ~L560 qL)",
+   "concept": "kite2"
+  },
+  {
+   "id": "A4-K2-07",
+   "severity": "minor",
+   "title": "Reel motor envelope respected; battery and comments not",
+   "detail": "0 envelope violations in 48 cases: current max 25 A (hits 25 A in ≥10 % of runs), reel-in shaft ≤5.855 m/s vs 6.24 no-load, ≤189.391 W electrical, motor on ≤12.02 s/run. The 12 Wh 3S pack (≈1.1 Ah at 150 Wh/kg) must deliver up to 15.783 C at −10 °C at a fixed 10.8 V (no internal-resistance sag); dev's 15 A / 9.6 V case shows small effect. PDEF comment still says '3:1 planetary … ≈10.4 m/s … ≈22 N' while the code uses 5:1 (6.24 m/s, 36.8 N).",
+   "evidence": "audit4/kite2/out_base_all.json agg.winch; model.js PDEF",
+   "concept": "kite2"
+  },
+  {
+   "id": "A4-K2-08",
+   "severity": "minor",
+   "title": "packVol is the unchanged round-3 constant",
+   "detail": "2.86 L = 260×110×100 mm kept from round 3 while the winch became a 2205 + 5:1 planetary + spinning-reel drag stack and the boom 6 sections; with a structurally adequate boom it is unverified. 0.14 L margin.",
+   "evidence": "index.js PACK_L",
+   "concept": "kite2"
+  },
+  {
+   "id": "A4-TG-01",
+   "severity": "major",
+   "title": "avail fails structurally: 48.0 % own (49.4 % claimed); 17/48 runs never launch",
+   "detail": "Launched runs 74.374 %; every tail ≥3.5 case and tail3 s11/s13 refused; tail band 3.5–5.5 = 0 %. Pre-run wind history (dev request) only recovers the 4 cross s13 first rides → 53.1 %. Upper bound if everything flew ≈74–76 %: cannot reach 80 % even then.",
+   "evidence": "out_s0/s1.json, out_preHist_s*.json",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-TG-02",
+   "severity": "major",
+   "title": "Off-grid crosswind 7.5 m/s: headClear 0.934 m with the gate on",
+   "detail": "crossL7.5_s11: deep-stall drop at the final stop passes 0.934 m from helmetAt while the rider stands (KE 13.7 J). Dev reported it in offGridOther but claims \"safe in all 48\"; the safety claim is grid-bound like round 3.",
+   "evidence": "out_crossL75.json; dev results.json offGridOther",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-TG-03",
+   "severity": "major",
+   "title": "Jitter pass depends on an ASSUMED ≥6 Hz loaded servo bandwidth",
+   "detail": "Servo model is now physical (dead band, backlash, slew, PWM, latency) — A3-TG-04 substantively addressed — but 4 Hz → p90 4.437 °/s, 3 Hz → 6.297. No datasheet bandwidth for a 2.5 g servo with a 27 g camera; mount pointing commanded from the true LOS.",
+   "evidence": "out_servo3.json, out_servo4.json",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-TG-04",
+   "severity": "minor",
+   "title": "Endurance pass rests on a 0.05 W lift sleep",
+   "detail": "Recomputed 53.09 (exact). 0.15 W → 49.59, 0.3 W → 45.14, 0.5 W → 40.31 (FAIL), idle → 38.26. The dev's own pre-history request needs the wind estimator awake ≥10 s before push-off (geofence wake at the lift top is enough; continuous on-lift sensing is not compatible with 0.05 W). Camera/boost wake latency (≈2–4 s) is not modelled but fits inside the launch sequence.",
+   "evidence": "make_part.py endurance variants",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-TG-05",
+   "severity": "minor",
+   "title": "Artefact check under-counts: leash tested at vertices only, wand omitted",
+   "detail": "Own densified projection: leash ≥2 px over the body in 1.649 % of riding samples (near-camera segment, z 0.3–0.6 m, 3–13 px, strongly defocused), wand (Ø3 mm, p50 1.45 px, max 2.57 px) 0.395 %; avail −1.4 pp; literal bounding-box reading −6.7 pp.",
+   "evidence": "out_s*.json artLeashSilPct/artWandSilPct",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-TG-06",
+   "severity": "minor",
+   "title": "Wand missing from mass budget; wand distance overstated",
+   "detail": "WORN omits the 8 g wand (0.457 → 0.465 kg, still pass). Min distance of the worn rod (hinge to eyelet) to helmetAt 1.165 m, not the 1.36 m quoted for the eyelet.",
+   "evidence": "design.js WORN; out_s*.json wandToHelmetMin",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-TG-07",
+   "severity": "minor",
+   "title": "Pre-run wind history request: small avail gain, KE margin shrinks",
+   "detail": "With a 10 s pre-run window: 4 cross s13 runs fly their first ride (avail 53.1 %); no tail refusal changes; KE max 14.198 J (crossR6_s13, 0.7 J margin).",
+   "evidence": "out_preHist_s*.json",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-TG-08",
+   "severity": "minor",
+   "title": "Tail 3–6 m/s off-grid (0.25 steps, gate on) is safe because it is refused",
+   "detail": "39 runs: 2 launched (tail3/3.25 s12: KE ≤12.47 J, headClear 1.356 m, avail 37 %), the rest refused; fixes A3-TG-01 for these seeds at the cost of avail.",
+   "evidence": "out_tailSweep_*.json",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-TG-09",
+   "severity": "minor",
+   "title": "Trip exposure higher with the wand",
+   "detail": "Line p10 ≈0.45 m at 1–2 m behind the feet; ≥5 cm of line below 0.3 m in 20.3 % of riding-with-line time (7.4 % with the round-3 holster). Resort permission gate.",
+   "evidence": "dev ensemble trip columns (reproduced)",
+   "concept": "towglider"
+  },
+  {
+   "id": "A4-LF-01",
+   "severity": "major",
+   "title": "Thin pass breaks on new seeds: KE >14.9 J in 4 and separation >50 m in 2 of the extra tail-band runs (worst 16.05 J, 54.9 m)",
+   "detail": "The 48-case grid uses only three wind-estimate bias draws (bias seeded by the case seed: s11 +0.82, s12 −0.55, s13 +0.18 m/s downslope). Seed 15 draws −0.92 m/s (tail wind under-estimated): tail5.5_s15 is launched (estimate 5.07), CL saturates at CLmax 4.98 % of the airborne time, KE 15.034 J, separation 54.9 m, ops 3, avail 49 %; tail6_s15 KE 14.09 J, ops 3. Seeds 14–16 ensemble: avail 84.371 %, jitter p90 2.447, setup p90 24.17 — the means survive, the safety maxima do not. Bias ±2 m/s on the 48 grid → KE 17.919 J. Tail 4.5–6 × seeds 17–22 (six more bias draws): KE 16.052 J max, 8/24 refused, ops 3 in 4. Over all extra tail-band flown runs (n=24) the KE/C0 lines are crossed in: tail5.5_s15 15.034 J / 54.864 m, tail6_s17 16.052 J / 38.368 m, tail5.5_s20 15.49 J / 42.153 m, tail6_s21 14.939 J / 50.538 m. Mechanism: the gate admits estimated downslope wind up to ≈6 m/s, i.e. true tail 5.5–6 m/s in turbulence (σ 0.15–0.2 U) — at the physical limit w_max ≈6.1 m/s of the extended wing — and in those runs the limiter/air brake/land-now do not hold 14.9 J. Not only under-reading: s17 under-reads 0.24 (tail6, 16.05 J), s20 OVER-reads (tail5.5, est. 5.96, 15.49 J). All four are 'left behind' runs (ops 3). On the judged grid the same band gave ≤13.75 J only because of the three bias draws.",
+   "evidence": "audit4/leapfrog/out_seeds_0_48.json, out_tailseeds_0_24.json, out_r4_bias2_0_48.json, out_stallprobe.json",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A4-LF-02",
+   "severity": "major",
+   "title": "'LisHawk-style' morph exceeds the cited data: +100 % wing area / +82 % span vs Ajanic 2020 +41 % wing (+60 % wing+tail) by sweep, and one 2.5 g servo vs LisHawk's 7.1 g servos",
+   "detail": "Ajanic et al. 2020 (Sci. Robot. 5:eabc2897, Tab. 1): wing 0.117→0.165 m² (+41 %) by wrist SWEEP (feathers fan), tail 0.014→0.044 m²; 284 g; three BMS-306 servos 7.1 g / 2.0 kg·cm (one per wing side + tail). The 4.0 m/s minimum is a trim optimisation from static wind-tunnel data INCLUDING thrust at α>20° (implied CL ≈1.6 on 0.179 m² at ρ 1.2, ≈1.4 on 0.209 m²), not a demonstrated glide; tucked 7.6 m/s is a trim limit (CL≈0.6). leapfrog: 0.05→0.10 m² (+100 %) by spanwise sliding feathers (0.55→1.0 m), a different mechanism, CLmax 1.25 ASSUMED at Re ≈34 k (extended chord 0.10 m at 5.1–5.7 m/s, ν 1.67e-5) — optimistic but not impossible for a cambered thin wing; 3-D AR-10 feathered wing with gaps unproven. One 2.5 g micro servo extends the feathers under load AND folds the wings. LisHawk-class actuation (+2×7.1 g −2.5 g, ×1.15) ≈ +13.5 g → 182 g; mass is the most sensitive parameter (KE cap). Dev sensitivities: Sx 0.085 → separation 53.7 m; CLmax 1.1 → 50.4 m.",
+   "evidence": "arXiv 2002.02421 (Ajanic et al.) Tab. 1, wind-tunnel and morphing-optimisation sections; model.js BOM_R4/PDEF; audit4 out_r4_mass8/mass10/clmax1p1",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A4-LF-03",
+   "severity": "major",
+   "title": "avail margin (2.3 pp) depends on mass and CLmax: +8–10 % mass or CLmax 1.1 fails",
+   "detail": "Full 48-case re-runs (auditor): mass +10 % (0.185 kg, cap re-derived) → avail 67.695 %, KE 13.787, sep 47.867; mass 0.182 kg → 71.91 %; extended CLmax 1.1 → 78.016 %, sep 49.913 m. Mass 0.182 kg also breaks the C0 radius (58.364 m). The KE cap (√(2·14.9/m)) ≈ the rider's straight-line speed, so every gram costs footage.",
+   "evidence": "audit4/leapfrog/out_r4_mass10_0_48.json, out_r4_mass8_0_48.json, out_r4_clmax1p1_0_48.json",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A4-LF-04",
+   "severity": "major",
+   "title": "Live tracker: latency compensation and feed-forward use the true LOS; with a 1 Hz GNSS velocity link jitter p90 3.43 °/s and avail 64.6 % fail",
+   "detail": "analysis.js: detections = true LOS rotated by 3 % box noise + 3 % pose bias (15 Hz, 80 ms) — acceptable error model; but the latency compensation adds the TRUE LOS increment (los[i]−los[j]) and the feed-forward is the true LOS rate 0.1 s old + σ0.3 m/s GM velocity error every 20 ms (no GNSS update rate, no phone/tag GNSS latency beyond 0.1 s). Auditor variants on a copy: estimated latency compensation + 5 Hz GNSS → jitter p90 2.013, avail 82.092; 1 Hz GNSS σ0.5 m/s → p90 3.43, avail 64.611. Turret pointing in model.js likewise = true rider mid + Gauss–Markov UWB/GNSS/vision error with TRUE rider velocity for prediction. The vision detection test uses the true subject position (probability 0.9).",
+   "evidence": "sim/js/concepts/leapfrog/analysis.js L100–135; model.js L905–945; audit4 out_r4_tracker*.json (patched copy copy_lfsens)",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A4-LF-05",
+   "severity": "minor",
+   "title": "Guidance and airspeed control use true rider state and true airspeed; point-mass model cannot stall",
+   "detail": "runCore guidance (gap, sepNow, lane, vsx, separation give-up/land) uses the TRUE rider position/velocity (GNSS rel. error σ1.5 m not applied to guidance); the airspeed floor/CL command uses the TRUE air vector (pitot noise only enters the gust interlock); CL is clamped at CLmax — no stall break, no lift loss, no departure. Stall probe: judged-grid min Va/v_stall 0.99–1.14 with ≤0.6 % of airborne time above 95 % CLmax; seed-15 tail cases spend 5–8 % of airborne time at the CL clamp with Va < v_stall. The in-flight air-data wind is true local wind + the shared bias, 2 s low-pass (no airspeed/sideslip error). Wind gates do use windEstimate() with ≥5 s history (verified gateHist 5.0 in every case).",
+   "evidence": "model.js L346–600, out_stallprobe.json",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A4-LF-06",
+   "severity": "minor",
+   "title": "Claimed sensitivity numbers do not match the files",
+   "detail": "Reported 'mass +10 % → 69.7 %, bias ±2 → KE 17.65 J, stow 13.5 s → 33.1 s'; results.json variants (18-case subset) say 65.6 %, 17.92 J, 33.4 s. Auditor full 48: mass +10 % 67.695 %, bias ±2 KE 17.919 J, stow 13.5 s setup p90 33.215 s. Direction and verdicts agree; the quoted figures are not traceable.",
+   "evidence": "dev/leapfrog/results.json variants; audit4 out_r4_*",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A4-LF-07",
+   "severity": "minor",
+   "title": "Reproduction exact despite the post-run index.js edit",
+   "detail": "index.js mtime 09:51 vs results 08:04; own re-run on a copy reproduces keMax/headClear/setup/ops/jitter for 48/48 cases (diffs > 0.01: 0); own avail differs from dev by the dev's extra horizon-tilt rule only (own 82.46, own+tilt 82.33, dev 82.34).",
+   "evidence": "audit4/leapfrog/out_r4_0_48.json",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A4-LF-08",
+   "severity": "minor",
+   "title": "Off-grid sweep: safe but thin at tail 6.5 / cross 7.5",
+   "detail": "tail 5–6.5 and head/cross 7.5 × seeds 11–13: KE max 14.266 J (crossR7.5_s13), headClear ≥2.002 m, separation max 48.949 m (crossR7.5_s13 48.9, tail6.5_s11 48.4 — 1–2 m inside 50 m), ops 3 in tail6_s11, crossR7.5_s13; jitter up to 18.991 in left-behind runs.",
+   "evidence": "audit4/leapfrog/out_offgrid_0_21.json",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A4-X-01",
+   "concept": "cross",
+   "severity": "major",
+   "title": "wind-estimate bias seeding / grid coverage",
+   "detail": "windEstimate() seeds its ±1 m/s bias from the case seed, so the 48-case grid samples only 3 bias draws per wind. leapfrog keMax and C0 range pass on seeds 11–13 but fail on seeds 14–22 (tail5.5_s15 15.03 J / 54.9 m; tail6_s17 16.05 J; tail5.5_s20 15.49 J; tail6_s21 50.5 m). towglider passes all 48 but crossL7.5_s11 (off-grid, gate on) gives headClear 0.934 m. kite2 KE margin 0.62 J. Grid-only safety maxima are not robust.",
+   "favours": "leapfrog and towglider (safety maxima)"
+  },
+  {
+   "id": "A4-X-02",
+   "concept": "cross",
+   "severity": "major",
+   "title": "idealised estimators still in judged runs (rule 5)",
+   "detail": "All launch/park gates use windEstimate() (compliant for all three). But: leapfrog tracker latency compensation and GNSS feed-forward use the true LOS increment/rate (+noise, 50 Hz) and guidance uses true rider state; towglider camera mount is pointed from the true rider position; kite2 window controller uses noise-free kite position/velocity and true dynamic pressure. Effects measured: leapfrog jitter 1.64 → 2.01 (est. comp, 5 Hz GNSS) → 3.43 (1 Hz GNSS, avail 64.6 %); towglider 2.45 → 2.56–2.81 with 3–5 % detection noise; kite2 doubled noise avail +1 pp, KE 14.31 J.",
+   "favours": "leapfrog (jitter/avail rest on the rider-tag link rate)"
+  },
+  {
+   "id": "A4-X-03",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "artefact rule implementation",
+   "detail": "Shared artefactCounts(≥2 px) is applied, but each concept projects its own parts. towglider tests the leash only at polyline vertices (misses the near-camera segment 3–13 px) and omits the 3 mm wand (−1.4 pp own test, −6.7 pp if the subject box includes skis). kite2 boom 1.66 px median meets the rule only because it is 3 mm (structurally infeasible, A4-K2-01). \"Bounding box\" of the subject is not defined (body vs incl. skis).",
+   "favours": "towglider (small), kite2"
+  },
+  {
+   "id": "A4-X-04",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "worn rigid members excluded from headClear",
+   "detail": "kite2 passive boom (free pivot, moves with the line) 0.33 m from the helmet centre; towglider wand 1.165 m (included would pass). Exclusion of a free-pivoting boom as \"worn rigid\" is generous; with a buildable 1.2 m boom kite2 headClear 0.84 m.",
+   "favours": "kite2"
+  },
+  {
+   "id": "A4-X-05",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "reported sensitivities vs files",
+   "detail": "leapfrog sensitivity figures relayed in the round-4 report (mass +10 % → 69.7 %, bias ±2 → 17.65 J, stow 13.5 s → 33.1 s) are not in dev/leapfrog/results.json (18-case subset: 65.6 %, 17.92 J, 33.4 s); auditor full-48: 67.7 %, 17.92 J, 33.2 s. Same direction, all fail.",
+   "favours": "none (direction unchanged)"
+  },
+  {
+   "id": "A4-X-06",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "packVol / mass bookkeeping",
+   "detail": "All three packVol values are assumed envelopes (no CAD/fold measurement); kite2 kept the round-3 2.86 L constant despite a larger winch and 6-section boom; towglider wand 8 g missing from mass; leapfrog morph mechanism budgeted at micro-servo scale (LisHawk uses 3×7.1 g servos at 284 g).",
+   "favours": "all"
+  },
+  {
+   "id": "A4-X-07",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "reproducibility",
+   "detail": "common/ unchanged since the dev runs (kite2 commonHash 5d71ed4a96c0 and towglider fileHashes match the live files). All three reproduce on a copy (kite2 within 0.05 pp, leapfrog and towglider exactly). Concept tests pass on the copy (kite2 21, leapfrog 24, towglider 18).",
+   "favours": "neutral"
+  }
+ ],
+ "descentglider": "frozen; round-2 findings remain in audit2/findings.json",
+ "previousRound": "audit3/findings.json"
+}

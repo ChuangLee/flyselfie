@@ -1,0 +1,226 @@
+{
+ "concept": "kite2",
+ "generated": "2026-10-19",
+ "evidence": "audit of numerical-uncalibrated simulation + literature; not a physical test",
+ "scripts": [
+  "research/concepts_2026_10_19/audit/check_kite2.mjs",
+  "research/concepts_2026_10_19/audit/rerun_kite2/run_all.mjs"
+ ],
+ "outputs": [
+  "research/concepts_2026_10_19/audit/out_kite2.json"
+ ],
+ "findings": [
+  {
+   "id": "K2-01",
+   "concept": "kite2",
+   "severity": "major",
+   "claim": "Claim: the canopy flies stably at L/D≈0.5 while depowered to CR 0.2, giving ~5 N pull and a ~41° view. The whole footage/pull result rests on one point of the ASSUMED coefficient envelope, and that point is a soft canopy that is both depowered (low AoA) and parachutal (L/D<1) at the same time.",
+   "evidence": "out_kite2.json scenarios.*.audit.filmOperatingPoint: while filming, CR is pinned at CRmin=0.2 for 100 % of the time in nominal, fast and gust, with median L/D G=0.68 (nominal), 0.64 (fast), 0.73 (gust) and median CL≈0.11. L/D is below 0.8 for 65 % (nominal) and 81 % (fast) of the time. Literature: soft ram-air or gliding-parachute canopies reach L/D≤1 only at high AoA, where the resultant coefficient is ~0.8–1.1. NASA's five-lobe gliding parachute (Ware & Libbey 1968, https://ntrs.nasa.gov/api/citations/19680018975/downloads/19680018975.pdf) has maximum lift near 25° AoA and L/D falling from 2.2 to ~0 over 22.5–90°. Parafoil wind-tunnel data (https://apps.dtic.mil/sti/pdfs/AD0731564.pdf) give CLmax 0.75–1.0 and L/Dmax 1.8–6.4. Soft wings lose internal pressure and luff or tuck at low AoA (https://www.surfertoday.com/kiteboarding/how-does-a-kite-fly; hooded-kite patent https://patents.google.com/patent/US4243191). The model treats CR and G as independent actuators. Sensitivity (out_kite2.json envelope): with CRmin 0.4, gust body force is 53.9 N (FAIL >40), gust avail 68.7 % (FAIL) and fast body force 33.6 N. With CRmin 0.6, nominal avail is 62 % (FAIL), fast 51 N and gust 69 N. With CRmin 0.8, nominal avail is 49.8 % and gust force 89 N. With Gmin 1.0 (sled-like), the view elevation is 50.7° nominal and 53.8° fast, failing the concept's own ≤50° gate. Closed form: holding 5 N needs CR 0.198 at 12 m/s and 0.088 at 18 m/s. At a parachutal CR of 0.9 the pull would be 22.7 N at 12 m/s and 51 N at 18 m/s.",
+   "recommendedFix": "Couple CR and L/D through one AoA polar, plus a separate drag device or reefing, instead of two free actuators. Depower by area (reefing or a variable-span arc) rather than by AoA. Re-run every scenario on a polar measured by tow-testing a 0.35 m² single-skin canopy (CR and L/D vs AoA, plus the collapse boundary). Treat it as fatal if the tow test shows CR ≥~0.5 at L/D ≤0.8.",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-02",
+   "concept": "kite2",
+   "severity": "major",
+   "claim": "Claim: the flying mass is 62 g (canopy + KCU with 3 actuators, IMU/GNSS/UWB/pitot and a fail-safe spring + 4K camera + cell). The concept's own itemisation already sums to 68 g, and a component-based budget gives 75–113 g. The fast-scenario KE margin then disappears.",
+   "evidence": "index.js mass note: 24+3+12+16+8+5 = 68 g, but the param v is 0.062. RunCam Thumb Pro: 16–16.5 g and 500 mA@5 V (2.5 W) confirmed (https://www.getfpv.com/runcam-thumb-pro-4k-hd-action-camera.html). It ships with a wide lens, so the 60° rectilinear optic that sets pxMed is a custom ASSUMED part. A 10–12 g KCU with three line-load actuators (brake/depower lines carry an estimated 20–40 % of 5–22 N), MCU+IMU+GNSS+UWB+pitot and a fail-safe spring is not credible. The audit estimate is 18–30 g, and the canopy 25–40 g for ~0.47 m² flat single-skin at 33 g/m² plus ribs and reinforcements; Flysurfer Peak 6 m² is 0.98 kg kite-only (https://flysurfer.com/project/peak2/). Dynamics re-run (out_kite2.json massSensitivity): fast keMax is 12.94 J at 62 g, 14.07 J at 68 g, 17.31 J at 85 g (FAIL) and 20.16 J at 100 g (FAIL); stopstart is 14.56 J at 100 g. Min flying airspeed is 2.11 → 2.47 m/s at 85 g. The kite reaches 20.4 m/s ground speed in the fast scenario.",
+   "recommendedFix": "Use the 68 g own budget as the minimum. Publish a component-level BOM with sourced masses. Cap the ground-frame kite speed (shorter line or lower station in fast mode) or the rider speed for filming at ~16 m/s, so that KE ≤14.9 J at ≥85 g.",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-03",
+   "concept": "kite2",
+   "severity": "major",
+   "claim": "Claim: the kite 'never launches while stationary' and the lift ride needs 0 actions. In fact an armed, docked kite auto-launches on a chairlift or T-bar, and the 'armed' state is never cleared by docking.",
+   "evidence": "model.js l.250: launch fires when armed && rider speed >4 m/s && apparent air from ahead for 0.5 s. There is no climb, lift or geofence check. stopstart shows that a dock keeps the kite armed (automatic relaunch). Audit sim (out_kite2.json liftInterlock) puts a docked, armed kite on a rider at 5 m/s, the line speed of a detachable chair, and it launches at t=1.0 s. T-bars run 2.5–4 m/s. Pistes often pass under lift lines, with chairs 3–10 m above the snow, and the kite flies 4–5 m up on a 7 m line. modelLimits says 'never near lifts', but nothing enforces this.",
+   "recommendedFix": "Add a launch inhibit unless altitude is decreasing (baro/GNSS descent) and the rider is not in a lift geofence. Auto-disarm at every dock or count a 'disarm' tap, which makes the honest ops 2 per run. Add an overhead-lift geofence that forces retrieve.",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-04",
+   "concept": "kite2",
+   "severity": "major",
+   "claim": "Claim: others are protected by the 22 N clutch and slide-off. In reality the 0.5 mm, essentially invisible UHMWPE line runs at chest-to-neck height through the zone directly behind the rider, which is exactly where an overtaking uphill skier passes. Only one crossing geometry was simulated, with an ASSUMED slide-off.",
+   "evidence": "Audit line height above the snow (nominal, while filming): 1 m behind min 1.15 m (lineH1m); 2 m behind p5 1.72 m, median 2.33 m (out_kite2.json lineHeightBehind_m). In the gust run the 2 m p5 is 1.75 m, in tail 1.68 m. The 'cross' scenario uses a single 0.35 m-behind crossing at 8 m/s with contact at h=1.9 m (helmet/raised pole) and an ASSUMED slide-off after 1.0 m. Neck or face contact (h 1.4–1.7 m), a skier coming up from behind along the line, and wrap-around are not modelled. Thin taut braid sliding across skin at 8–15 m/s closing speed is a laceration hazard, whatever the 22 N clutch does.",
+   "recommendedFix": "Raise the line exit with a light telescoping mast or exit boom (+0.6–0.8 m), so that the line is >2.2 m above the snow by 1 m behind. Put a high-visibility sheath on the first ~4 m. Add a weak-link breakaway (≤10 N) at the pack plus a cutter. Simulate overtaking and neck-height contacts. Restrict use to low-traffic runs.",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-05",
+   "concept": "kite2",
+   "severity": "major",
+   "claim": "Regulation and resort rules: the safe-use envelope depends on permission that resorts commonly withhold. Aviation law is light for a <1 kg kite, but resort rules (kiting and drone bans) block most pistes.",
+   "evidence": "Aspen Skiing Co. bans kiting activities (kite skiing, traction kites, speed gliding) within operating boundaries (https://www.aspensnowmass.com/four-mountains/buttermilk/mountain-regulations-buttermilk). Niseko Grand Hirafu bans snow kites and anything flying over or affecting its slopes and lifts (https://www.grand-hirafu.jp/winter/en/gelande/). Big White bans public drone use (https://bigwhite.com/node/1344). EU: the EASA FAQ says tethered free-flight aircraft such as kites fall under the UAS Regulation only above 25 kg (https://www.easa.europa.eu/en/print/pdf/node/132034/185706). An autonomously steered KCU could still be argued to make it an unmanned aircraft, which would put it in open category/C0 territory. UK CAA has a separate tethered-UA ≤1 kg provision (https://www.caa.co.uk/drones/rules-and-categories-of-drone-flying/tethered-drones-and-remotely-piloted-aircraft/). FAA Part 101 Subpart B covers only kites >5 lb, so a 62–100 g kite is outside it.",
+   "recommendedFix": "Get a written per-resort permission strategy. Position the product for permitted terrain: private or club slopes, backcountry, and resorts that permit it. Make permission checking part of the product (a geofenced allow-list).",
+   "fixable": "no"
+  },
+  {
+   "id": "K2-06",
+   "concept": "kite2",
+   "severity": "major",
+   "claim": "Claim: calm stops auto-dock 48/48 and the standstill is ≤7.4 s. That result holds only at the scenario's very low calm turbulence (σ=0.2 m/s). Docking degrades with modest turbulence and with head- or tail-wind stops, and the KCU contacts the helmet in some runs. The physical douse of a wet canopy with bridle and 3 control lines into a 2 L sleeve has no precedent at this scale.",
+   "evidence": "Audit calm-stop sweep, 96 runs per level (out_kite2.json calmDockVsTurbulence): manual push-in needed in 1/96 runs at σ 0.2 m/s, 10/96 at 0.4, 14/96 at 0.5 and 19/96 at 0.7. Stop grid with 0–4.4 m/s winds from the side, ahead and behind (out_kite2.json stops): 56/96 auto-docked, 25 manual, 15 not stowed within ~14 s (3 retries exhausted or parked). KCU-to-helmet clearance ≤0 in 4 runs, minimum −0.083 m. The concept's own demo stops are 2/5 manual, with clearance −0.01 m. Docking success in the model is judged only by approach angle (≤80°). The auto-launch/recovery precedents are a SkySails mast and Kitepower's launch setup, both large and supervised.",
+   "recommendedFix": "Add an approach-path planner that keeps the KCU out of a 0.3 m helmet keep-out zone, a retry policy that ends in a safe park or flagged landing, and a dock/douse cycle test (≥500 cycles: wet, iced, gusty). Count a manual push-in as +1 action and a 15–20 s standstill. Audit p90 standstill with a 15 s manual push-in is 17 s, which still passes ≤30 s.",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-07",
+   "concept": "kite2",
+   "severity": "major",
+   "claim": "The stated envelope ('no tailwind exceeding skier speed −3 m/s') is not safe. Short turns with a modest quartering tailwind inside that envelope lose the kite onto the snow.",
+   "evidence": "Audit wind cases (out_kite2.json windCases): short turns with a 6 m/s quartering tail (4.2 m/s along-track, inside the stated envelope at 8 m/s) give avail 4.3 % and the kite lands. Short turns with a 9 m/s tail give avail 16 % and the kite lands. Nominal carving with the same winds stays at 93–96 %. The scenario set has a tailwind case only for 12 m/s carving.",
+   "recommendedFix": "Add a short-turn/tailwind scenario to the set. Use a park/retrieve rule based on the predicted apparent-wind margin, and give an honest envelope (e.g. tailwind component ≤ 0.3 × rider speed).",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-08",
+   "concept": "kite2",
+   "severity": "minor",
+   "claim": "Nominal is a 30 s continuous carve with no stops. Every push-off costs ~2.5 s before the kite is on station, so availability over a realistic run with stops is below 80 %. This is disclosed, but nominal is not representative.",
+   "evidence": "stopstart avail 76.9 % (FAIL, reproduced), 73.1–74.0 % at 85–100 g. Nominal 92.4 %.",
+   "recommendedFix": "Report a 'whole run' scenario (3–5 stops over 2–3 min) as the headline avail. Pre-launch at walking speed if the launch path allows.",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-09",
+   "concept": "kite2",
+   "severity": "minor",
+   "claim": "On steep, slow terrain (24° moguls at 4.5 m/s) the minimum cone angle forces a near top-down view.",
+   "evidence": "Moguls viewElev 53.2° (FAIL ≤50, disclosed). With 6 seeds at 3 m/s crosswind it is 49.3–52.0°. Avail stays at 100 %.",
+   "recommendedFix": "Accept as an envelope limit, or use a longer line on steep slopes.",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-10",
+   "concept": "kite2",
+   "severity": "minor",
+   "claim": "Launch and inflation happen from the pack top, inside the rider's body wake, with the KCU ejected about 0.3 m from the helmet. The wake is not modelled (disclosed).",
+   "evidence": "Launch requires apparent wind from ahead (model.js l.249), so the pack is in the separated wake of the head and torso. The model starts inflation at 0.05 and reaches full inflation in 0.7 s with no wake deficit.",
+   "recommendedFix": "Eject the KCU upward on a spring mast above the wake. Model a wake velocity deficit (e.g. 50 % within 1 m behind the head).",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-11",
+   "concept": "kite2",
+   "severity": "minor",
+   "claim": "Endurance of 258 min is credible only if the kite's 1.3 Wh cell recharges in the dock (contacts not designed). The kite sortie has little margin.",
+   "evidence": "Recomputed: (30+1.3) Wh × 0.75 (−10 °C) × 0.9 (reserve) × 60 / 4.91 W = 258 min, which reproduces the claim. Sortie: 1.3 × 0.675 × 60 / 3.4 W = 15.5 min. The camera draw of 2.5 W is the vendor maximum (500 mA@5 V). At 3.5 W the sortie is 12 min, below the concept's own 15 min gate. The cold factor of 0.75 is reasonable for a pack cell but optimistic for an unheated 8 g cell in 12 m/s airflow.",
+   "recommendedFix": "Design the dock charging contacts or inductive link. Size the kite cell for 20 min at 3.5 W and −10 °C.",
+   "fixable": "yes"
+  },
+  {
+   "id": "K2-12",
+   "concept": "kite2",
+   "severity": "minor",
+   "claim": "Fault scenarios judged on safety only hide real losses: the snag leaves line and kite in the tree, and kcu_fail and cut lose most of the run's footage.",
+   "evidence": "snag: body force 28 N (pass ≤40); leftOnObstacle = line and kite left at the tree; avail 39.6 %; subject jitter 8.2 °/s. kcu_fail avail 33.7 %, body force 18.6 N. cut avail 41.2 %. All of these are flagged 'not judged'.",
+   "recommendedFix": "Report the recovery cost (a walk or climb to the tree, kite lost) as an ops/time penalty in the safety summary.",
+   "fixable": "yes"
+  }
+ ],
+ "verdict": {
+  "crediblePass": [
+   "footageStability (independent, criteria.js): nominal subject 0.21 / background 0.45 °/s; short turns 2.62 / 5.21 °/s; fast 0.13 / 0.14; gust 0.64 / 0.64; tail 0.82 / 1.15; moguls 0.97 / 2.89. These reproduce exactly, conditional on the coefficient envelope",
+   "jitterRms ≤3 °/s in all non-fault scenarios (0.51–2.72 °/s), dt-converged (nominal 0.543/0.544/0.544 at dt 2/1/0.5 ms)",
+   "pxMed 491–549 px. This is conditional on a custom 60° 4K optic, which is ASSUMED",
+   "addedMass 0.505 kg (pod/winch/battery budget plausible)",
+   "packVol 1.98 L (200×110×90 mm pod, plausible for the 30 Wh pack, winch and a 0.35 m² canopy)",
+   "handsBusy 0 %",
+   "setupTime ≤30 s: claimed 7.4 s; audit p90 17 s with a 15 s manual push-in in 26 % of stops; still passes",
+   "keMax at 62–68 g in all scenarios (≤14.1 J); kite-cut / fall KE ≤5.7 J",
+   "endurance 258 min arithmetic reproduced, conditional on dock charging",
+   "Reproducibility: re-running run_all.mjs gives results identical to dev/kite2/results.json (0 differences)"
+  ],
+  "disputed": [
+   {
+    "metric": "bodyForcePeak",
+    "scenario": "gust",
+    "claimed": 14.6,
+    "recomputed": 53.9,
+    "note": "with CRmin 0.4 (lower bound of a credible inflated soft canopy); 89 N at CRmin 0.8"
+   },
+   {
+    "metric": "avail",
+    "scenario": "nominal",
+    "claimed": 92.4,
+    "recomputed": 62.1,
+    "note": "with CRmin 0.6; 83.6 % at CRmin 0.4; 49.8 % at CRmin 0.8"
+   },
+   {
+    "metric": "keMax",
+    "scenario": "fast",
+    "claimed": 12.94,
+    "recomputed": 17.31,
+    "note": "85 g realistic flying mass (14.07 J at the 68 g own itemisation)"
+   },
+   {
+    "metric": "viewElev (concept gate ≤50°)",
+    "scenario": "nominal/fast",
+    "claimed": "40.9 / 44.6",
+    "recomputed": "50.7 / 53.8",
+    "note": "if the minimum stable L/D is 1.0 (sled-like) instead of 0.35"
+   },
+   {
+    "metric": "ops",
+    "scenario": "per run incl. lift",
+    "claimed": 1,
+    "recomputed": "2 (arm + disarm for the lift); 3 when a manual push-in is needed",
+    "note": "armed state survives docking; auto-launch at 5 m/s lift speed"
+   },
+   {
+    "metric": "avail",
+    "scenario": "short turns, 6 m/s quartering tailwind",
+    "claimed": "not run",
+    "recomputed": 4.3,
+    "note": "kite lands; inside the stated envelope"
+   },
+   {
+    "metric": "auto-dock rate",
+    "scenario": "calm stops",
+    "claimed": "48/48",
+    "recomputed": "77–86/96 at σ 0.4–0.7 m/s; 56/96 over 0–4.4 m/s winds from varied directions",
+    "note": "helmet contact in 4/96"
+   },
+   {
+    "metric": "avail",
+    "scenario": "stopstart (realistic run)",
+    "claimed": 76.9,
+    "recomputed": 76.9,
+    "note": "fails ≤80 % (disclosed); nominal has no stops"
+   }
+  ],
+  "overall": "CONDITIONAL / NOT CREDIBLE AS SPECIFIED. This is the most original concept and the one most worth refining. The modelling is careful and fully reproducible, and the controls idea (glide for elevation, roll for azimuth, winch-flown retrieve) is sound. But the headline result depends on an untested coefficient corner (CR 0.2 at L/D ~0.5–0.7). If a 0.35 m² soft canopy cannot fly there, the pull and footage claims fail (gust force 54–89 N, avail 50–84 %). The mass is under-budgeted (realistic 75–113 g, so the fast-mode KE fails at ≥85 g). Lift auto-launch, line-behind-rider hazard and resort kiting bans are major but fixable or scope-limiting. Nothing is fatal yet in physics, but finding K2-01 becomes fatal if a tow test shows CR ≥0.5 at L/D ≤0.8.",
+  "envelope": "Permitted terrain only (no resort kiting ban). Open, low-traffic groomed run with nobody within ~5 m behind, no trees within ~15 m, no lifts overhead. Continuous carving at 8–16 m/s (fast-mode KE marginal at realistic mass). Ambient wind ≤6 m/s with no tailwind component above ~0.3 × rider speed in short turns. Moguls/steep slopes accept a ~50° top-down view. Each stop costs ~2.5 s of footage on restart. Expect a manual push-in at 10–25 % of stops. Disarm before every lift.",
+  "summary": "Reproducible, dt-converged, honest about most limits. The decisive unknown is whether a small soft canopy can be simultaneously depowered (CR 0.2) and parachutal (L/D 0.5) while staying inflated and steerable. Literature suggests low L/D occurs only at high AoA with CR ~0.8–1.1. The next step is a tow-test polar, not more simulation."
+ },
+ "comparability": {
+  "aero": {
+   "model": "effective-coefficient point mass (CR 0.2–1.1, L/D 0.35–2.4, ASSUMED); no Reynolds dependence, no stall/collapse dynamics; rho 1.0 kg/m³ fixed",
+   "reynolds": "Re≈0.6–1.4 M at 0.35 m chord × 13–19 m/s (higher than the gliders, not comparable to a glider polar)",
+   "sensitivity_run_by_dev": "mass, camOff, az, el, hfov, Lst; no −30 % coefficient sensitivity (the audit did one: CRmin/Gmin)"
+  },
+  "battery": {
+   "pack": "30 Wh Li-ion 160 g (187 Wh/kg)",
+   "cold": "0.75 capacity at −10 °C × 0.9 reserve",
+   "kiteCell": "1.3 Wh 8 g",
+   "powerW": {
+    "camera": 2.5,
+    "kcu": 0.9,
+    "pack": 0.6,
+    "winchNominal": 0.31
+   }
+  },
+  "massBudget": {
+   "flyingClaim_kg": 0.062,
+   "ownItemisation_kg": 0.068,
+   "auditRange_kg": [
+    0.075,
+    0.113
+   ],
+   "worn_kg": 0.505,
+   "camera": "RunCam Thumb Pro 16 g, 2.5 W max, needs a custom 60° optic"
+  },
+  "keFrame": "ground frame when kite >1.5 m from the rider (always while filming); audit recomputation agrees"
+ }
+}

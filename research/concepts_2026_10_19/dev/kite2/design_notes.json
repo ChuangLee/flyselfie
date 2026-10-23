@@ -1,0 +1,1676 @@
+{
+ "conceptId": "kite2",
+ "modelVersion": "kite2@4.0.0",
+ "date": "2026-10-20",
+ "iteration": 4,
+ "evidence": "Numerical-uncalibrated simulation (sim/js/concepts/kite2, results.json) on the shared re-audit rules; closed-form polar estimates anchored to cited full-size canopy data. Nothing built, measured or validated. Polar, reefed glide, boom pointing, heave compensation, governor and docking are ASSUMED until bench/tow tests.",
+ "name": {
+  "en": "K2-R3 reefing drogue kite cam on an actively pointed boom (heave-compensating, KE-governed winch)",
+  "zh": "K2-R3 收口圆伞风筝相机：主动指向臂杆 + 升沉补偿/动能调速绞盘"
+ },
+ "oneLiner": "A ≈90 g slotted round canopy (documented L/D 0.75, half of it kept when reefed) on a 7 m line from the tip of a 1.2 m telescopic boom that a stabilised 2-axis gimbal points at the kite camera; a pack winch heave-compensates the body motion, goes to a soft clutch above the KE governor speed and reels in fast on braking so the kite docks on the boom axis before the rider stops.",
+ "rootCause": {
+  "ke": "Iteration 2 (re-run): every ensemble KE peak sat at the first hockey stop (t≈37.9 s). The body lean flips from ≈+48° to −40° in ≈0.4 s, so the exit (mast tip) moves 8–9 m/s relative to the rider CoM and yanks the 86 g kite through the elastic line to 17–18.5 m/s ground speed while the rider is at 11–13 m/s. With L/D 0.75 a second source appears: in crosswinds the kite is blown to 45–67° azimuth and carving swings it at 6–9 m/s laterally. Ground-frame KE of the kite at rider speed (13.2 m/s max in the ensemble) is only 7.6–9 J; the excess was all relative motion created by the device.",
+  "footage": "Any rigid exit (mast or boom) seen from a camera at the line end projects onto the rider: a passive line-aligned boom lags the line by ≈1.4° and shows as a 10–20 px stub (art >3 % in ≈45–55 % of frames). Iteration 2 never counted its 0.35 m mast as artefact. Only active pointing at the camera (end-on, ≤3 px) keeps the artefact below 3 %.",
+  "headClear": "A line from the pack top passes 0.4–0.5 m from the helmet centre; ≥1 m needs the exit ≥≈0.65 m from the pack along the line, i.e. a boom.",
+  "clothesline": "In hard carving the whole body inclines ≈45°: the pack top is ≈1.0–1.1 m above the snow and the line/boom rises at the station elevation (≈30–35° with the honest polar). No exit position on the body puts the line ≥2 m above the snow 1 m behind the rider in carving."
+ },
+ "changes": [
+  "Polar defaults: gMaxR 0.75 (MC-1-1C), reefed-glide retention 0.5 (reefGloss 0.5); flying mass 78 g ×1.15 = 89.7 g incl. the 3 g slot/reef/douse hardware (A2-X-09).",
+  "Heave-compensating winch: feed-forward of the exit velocity relative to the rider CoM along the line (pack IMU + boom encoders), base command slew-limited 20 m/s², fast reel-in 7 m/s on braking.",
+  "KE governor: kite ground speed > √(2·12.5 J/m) (from the actual mass) → clutch 2 N; reel-in limited to the largest r with |v_rider + r·ê| ≤ vGov − 0.3; fast-dock when the rider is within 1 m/s of vMaxFilm = min(vKE(14.9 J) − 2, vGov − 0.5).",
+  "Exit: 1.2 m 5-section telescopic carbon boom (0.26 m collapsed) on a stabilised 2-axis gimbal (rear cone ±110° az, −35…+80° el), pointed at the kite camera; tip trumpet (45° residual) + snuffer sleeve; boom out only when flying (1.5 W).",
+  "Launch: boom extends with the canopy still in its sleeve; tip pitot must confirm ≥1.6·vMin + 1 m/s; canopy released reefed (steady opening pull ≤4 N), filling distance 6·D0, opening-shock factor 1.8, streamer drag 20 %; climbs on a short line before paying out; elevation target capped at what the polar can reach; reef opened (8→14 N) when the kite is low or off azimuth.",
+  "Glide direction of the round canopy stored as a physical vector (the angle-in-a-frame form flipped on the wind axis — a singularity also present in iteration 2).",
+  "No re-inflation on snow: a landed canopy is reeled in and docked (or hand-stowed after a simulated walk if it lies outside the rear cone); body force = raw 50 ms mean at the integration step.",
+  "Head safety: overfly (kite leaves the rear cone) → flag + soft pay-out, retrieve when back behind; short line and kite within 1.3 m of the helmet or >10° out of the cone → snap onto the tip.",
+  "Wind gates on windEstimate(); airspeed in flight from the KCU pitot; azimuth authority scaled with the 2 s-mean airspeed (full ±45° side shots only at ≥12 m/s).",
+  "Proximity radar (4 m, 0.2 s) → clutch soft and climb; boom contact modelled (backdrivable gimbal, 10 N magnetic breakaway, impulse reported).",
+  "Shot plan: ±15° rear-quarter station, side swap, two commanded 8 s side shots to ±45° (azimuth span)."
+ ],
+ "mass": {
+  "flyingKg": 0.08974599999999998,
+  "flyingG": 89.74599999999998,
+  "lines": [
+   [
+    "camera 4K (RunCam Thumb Pro class)",
+    16,
+    "https://www.getfpv.com/runcam-thumb-pro-4k-hd-action-camera.html"
+   ],
+   [
+    "avionics FC/IMU/GNSS/radio",
+    10,
+    "audit LF-03 (ASSUMED)"
+   ],
+   [
+    "3 × servo-winch (trim, reef, steer)",
+    12,
+    "ASSUMED (4–5 g digital micro servo class); shared 2.5 g servo is too weak for 20–40 % of a 6–25 N line load (audit K2-02)"
+   ],
+   [
+    "wiring/boost/SD",
+    5,
+    "audit TG-02"
+   ],
+   [
+    "cell 1.2 Wh @ 150 Wh/kg",
+    8,
+    "components.js BATTERY"
+   ],
+   [
+    "canopy 0.4 m² nominal × 1.3 × 27 g/m²",
+    14,
+    "Porcher Skytex 27 (27 g/m²) + hems/tapes/slot frames (ASSUMED ×1.3)"
+   ],
+   [
+    "KCU shell, 0.2 m carbon camera arm, funnel seat cone",
+    6,
+    "ASSUMED"
+   ],
+   [
+    "8 suspension lines 0.7 m, reefing line + rings, slot/flag lines",
+    4,
+    "ASSUMED (Dyneema 0.5–0.8 mm)"
+   ],
+   [
+    "slot frames, reefing rings, dousing line, hi-vis flag hardware",
+    3,
+    "audit2 A2-X-09 (omitted in iteration 2)"
+   ]
+  ],
+  "wornKg": 0.667,
+  "packVolL": 2.86
+ },
+ "ensemble": {
+  "definition": "common/fullrun.js 39 cases; shared re-audit rules (availMask riding, footageStability jitter p90, simulated setup, ops p90+max, windEstimate gates, headClear)",
+  "judged": {
+   "avail": {
+    "stat": "mean of 39 (riding mask)",
+    "mean": 81.52,
+    "p10": 76.02,
+    "p90": 90.03,
+    "min": 20.72,
+    "max": 91.22,
+    "pass": true
+   },
+   "pxMed": {
+    "stat": "mean of case medians",
+    "mean": 522.6,
+    "pass": true
+   },
+   "jitterRms": {
+    "stat": "p90 of footageStability subjectRms over flown cases",
+    "p90": 1.66,
+    "max": 2.51,
+    "pass": true
+   },
+   "azRange": {
+    "stat": "mean of 39 / fullrun case",
+    "mean": 58.14,
+    "min": 46.18,
+    "fullrunCase": 55.281,
+    "pass": true
+   },
+   "addedMass": {
+    "stat": "design",
+    "value": 0.667,
+    "pass": true
+   },
+   "bodyForcePeak": {
+    "stat": "max of 39, raw 50 ms mean at the integration step",
+    "max": 28.14,
+    "instantaneousMax": 52.56,
+    "pass": true
+   },
+   "handsBusy": {
+    "value": 0,
+    "pass": true
+   },
+   "setupTime": {
+    "stat": "p90 of 39 (simulated)",
+    "p90": 4.7,
+    "max": 10.32,
+    "pass": true
+   },
+   "ops": {
+    "stat": "p90 (max)",
+    "p90": 1,
+    "max": 1,
+    "pass": true
+   },
+   "keMax": {
+    "stat": "max of 39",
+    "max": 12.92,
+    "pass": true
+   },
+   "packVol": {
+    "stat": "design",
+    "value": 2.86,
+    "pass": true
+   },
+   "endurance": {
+    "stat": "mean of 39 (heater over the whole day)",
+    "mean": 56.94,
+    "min": 40.05,
+    "noRegenCreditMean": 48.46,
+    "noRegenCreditMin": 33.86,
+    "pass": true
+   },
+   "headClear": {
+    "stat": "min of 39 (whole run, declared ≤2.8 s seat-to-stowed window excluded)",
+    "min": 1.1,
+    "p10": 1.1,
+    "pass": true
+   }
+  },
+  "bySpeed": {
+   "U0": {
+    "avail": 85.31,
+    "jitterRms": 0.94,
+    "setupTime": 4.18,
+    "ops": 1,
+    "bodyForcePeak": 19.58,
+    "keMax": 12.47,
+    "endurance": 57.68,
+    "headClear": 1.26,
+    "lineH1min": 0.99,
+    "lineH2min": 1.18,
+    "availP10": 84.16,
+    "jitterP90": 0.96,
+    "setupP90": 4.2,
+    "opsP90": 1,
+    "headClearMin": 1.26,
+    "lineH1minMin": 0.97
+   },
+   "U3": {
+    "avail": 85.22,
+    "jitterRms": 0.93,
+    "setupTime": 4.21,
+    "ops": 1,
+    "bodyForcePeak": 22.78,
+    "keMax": 12.58,
+    "endurance": 57.45,
+    "headClear": 1.24,
+    "lineH1min": 0.98,
+    "lineH2min": 1.16,
+    "availP10": 81.06,
+    "jitterP90": 1.03,
+    "setupP90": 4.22,
+    "opsP90": 1,
+    "headClearMin": 1.11,
+    "lineH1minMin": 0.85
+   },
+   "U6": {
+    "avail": 84.46,
+    "jitterRms": 1.22,
+    "setupTime": 4.28,
+    "ops": 1,
+    "bodyForcePeak": 26.02,
+    "keMax": 12.76,
+    "endurance": 54.97,
+    "headClear": 1.22,
+    "lineH1min": 0.94,
+    "lineH2min": 1.07,
+    "availP10": 76.02,
+    "jitterP90": 1.66,
+    "setupP90": 4.42,
+    "opsP90": 1,
+    "headClearMin": 1.1,
+    "lineH1minMin": 0.84
+   },
+   "U9": {
+    "avail": 73.92,
+    "jitterRms": 1.5,
+    "setupTime": 4.98,
+    "ops": 1,
+    "bodyForcePeak": 28.14,
+    "keMax": 12.92,
+    "endurance": 58.22,
+    "headClear": 1.22,
+    "lineH1min": 0.9,
+    "lineH2min": 0.96,
+    "availP10": 36.56,
+    "jitterP90": 2.02,
+    "setupP90": 4.85,
+    "opsP90": 1,
+    "headClearMin": 1.1,
+    "lineH1minMin": 0.82
+   }
+  },
+  "byBinAvail": {
+   "calm": 85.31,
+   "3ms_head": 88.9,
+   "3ms_tail": 80.74,
+   "3ms_crossL": 85.69,
+   "3ms_crossR": 85.54,
+   "6ms_head": 89.88,
+   "6ms_tail": 74.45,
+   "6ms_crossL": 86.96,
+   "6ms_crossR": 86.57,
+   "9ms_head": 90.71,
+   "9ms_tail": 39.18,
+   "9ms_crossL": 83.11,
+   "9ms_crossR": 82.7
+  },
+  "independentRecompute": {
+   "method": "avail over simulateRun col.riding from t = 0 with the same per-sample footage tests; F = max of the raw 50 ms tension mean column; KE = kite KE, ground frame when the KCU is >1.5 m from every body capsule (analysis bodyDist), rider frame within, every non-docked sample; ops = 1 arm tap + manual pick-ups/hand stows from the event log; setup = 2 s + wait from each standstill to the stowed event (mid-run stops beyond the rest)",
+   "cases": [
+    {
+     "id": "calm_s11",
+     "claimed": {
+      "avail": 86.369,
+      "bodyForcePeak": 19.558,
+      "keMax": 12.437,
+      "ops": 1,
+      "setupTime": 4.19
+     },
+     "recomputed": {
+      "avail": 86.369,
+      "bodyForcePeak": 19.558,
+      "keMax": 12.437,
+      "ops": 1,
+      "setupTime": 4.23
+     },
+     "maxAbsDiff": 0.04
+    },
+    {
+     "id": "head9_s12",
+     "claimed": {
+      "avail": 91.218,
+      "bodyForcePeak": 24.514,
+      "keMax": 10.228,
+      "ops": 1,
+      "setupTime": 4.854
+     },
+     "recomputed": {
+      "avail": 91.218,
+      "bodyForcePeak": 24.514,
+      "keMax": 10.228,
+      "ops": 1,
+      "setupTime": 4.894
+     },
+     "maxAbsDiff": 0.04
+    },
+    {
+     "id": "tail6_s12",
+     "claimed": {
+      "avail": 76.024,
+      "bodyForcePeak": 16.407,
+      "keMax": 12.634,
+      "ops": 1,
+      "setupTime": 4.168
+     },
+     "recomputed": {
+      "avail": 76.024,
+      "bodyForcePeak": 16.407,
+      "keMax": 12.634,
+      "ops": 1,
+      "setupTime": 4.208
+     },
+     "maxAbsDiff": 0.04
+    },
+    {
+     "id": "tail9_s12",
+     "claimed": {
+      "avail": 20.717,
+      "bodyForcePeak": 17.005,
+      "keMax": 12.195,
+      "ops": 1,
+      "setupTime": 10.32
+     },
+     "recomputed": {
+      "avail": 20.717,
+      "bodyForcePeak": 17.005,
+      "keMax": 12.195,
+      "ops": 1,
+      "setupTime": 10.44
+     },
+     "maxAbsDiff": 0.12
+    },
+    {
+     "id": "crossL9_s13",
+     "claimed": {
+      "avail": 81.223,
+      "bodyForcePeak": 23.652,
+      "keMax": 12.92,
+      "ops": 1,
+      "setupTime": 4.536
+     },
+     "recomputed": {
+      "avail": 81.223,
+      "bodyForcePeak": 23.652,
+      "keMax": 12.92,
+      "ops": 1,
+      "setupTime": 4.576
+     },
+     "maxAbsDiff": 0.04
+    },
+    {
+     "id": "crossR6_s12",
+     "claimed": {
+      "avail": 87.069,
+      "bodyForcePeak": 23.636,
+      "keMax": 12.285,
+      "ops": 1,
+      "setupTime": 4.162
+     },
+     "recomputed": {
+      "avail": 87.069,
+      "bodyForcePeak": 23.636,
+      "keMax": 12.285,
+      "ops": 1,
+      "setupTime": 4.202
+     },
+     "maxAbsDiff": 0.04
+    }
+   ]
+  },
+  "lineHeight": {
+   "h1m_min": 0.82,
+   "h1m_p10_of_case_mins": 0.85,
+   "h1m_mean_of_case_p10": 1.16,
+   "h2m_min": 0.8,
+   "h2m_p10_of_case_mins": 0.91,
+   "h2m_mean_of_case_p10": 1.41,
+   "neighbourLineForceN_crosspole": 4.526,
+   "boomImpulseNs_crossing": 1.718,
+   "boomMeanForceN_50ms": 34.364,
+   "helmetHeightCrossingContact": "no"
+  },
+  "other": {
+   "viewElevMean": 31.57,
+   "landedPerRun": 0,
+   "landedRidingSMax": 0,
+   "governorTimeMean_s": 0.17,
+   "dockResidualMax_deg": 30.76,
+   "manualMax": 0,
+   "winchMeanW": 2.71,
+   "winchMeanW_noRegen": 4.411,
+   "gimbalMeanW": 1.006
+  }
+ },
+ "sensitivity": {
+  "LD_0.60": {
+   "label": "L/D 0.6 (below MC-1-1C)",
+   "avail": 73.02,
+   "availP10": 7.3,
+   "jitterP90": 1.37,
+   "setupP90": 4.7,
+   "opsP90": 1,
+   "opsMax": 2,
+   "bodyForceMax": 27.31,
+   "keMax": 12.94,
+   "enduranceMean": 65.9,
+   "headClearMin": 1.1,
+   "azRangeMean": 50.51,
+   "lineH1min": 0.75,
+   "judgedPass": false,
+   "failing": [
+    "avail"
+   ],
+   "bySpeedAvail": {
+    "0": 84.61,
+    "3": 83.6,
+    "6": 68.96,
+    "9": 63.62
+   }
+  },
+  "LD_0.90": {
+   "label": "L/D 0.9 (MC-6 lower, non-archival)",
+   "avail": 82.38,
+   "availP10": 79.88,
+   "jitterP90": 1.6,
+   "setupP90": 4.59,
+   "opsP90": 1,
+   "opsMax": 2,
+   "bodyForceMax": 27.96,
+   "keMax": 12.89,
+   "enduranceMean": 55.87,
+   "headClearMin": 1.1,
+   "azRangeMean": 63.84,
+   "lineH1min": 0.85,
+   "judgedPass": true,
+   "failing": [],
+   "bySpeedAvail": {
+    "0": 84.42,
+    "3": 84.99,
+    "6": 84.46,
+    "9": 77.18
+   }
+  },
+  "reefKeep_0.3": {
+   "label": "30 % of the glide kept at full reef",
+   "avail": 80.78,
+   "availP10": 72.87,
+   "jitterP90": 1.67,
+   "setupP90": 4.69,
+   "opsP90": 1,
+   "opsMax": 2,
+   "bodyForceMax": 27.74,
+   "keMax": 12.98,
+   "enduranceMean": 57.01,
+   "headClearMin": 1.1,
+   "azRangeMean": 48.94,
+   "lineH1min": 0.68,
+   "judgedPass": true,
+   "failing": [],
+   "bySpeedAvail": {
+    "0": 85.52,
+    "3": 85.45,
+    "6": 84.29,
+    "9": 71.43
+   }
+  },
+  "reefKeep_0.7": {
+   "label": "70 % kept (the iteration-2 assumption)",
+   "avail": 79.55,
+   "availP10": 60.83,
+   "jitterP90": 1.95,
+   "setupP90": 4.73,
+   "opsP90": 1,
+   "opsMax": 1,
+   "bodyForceMax": 29.27,
+   "keMax": 13.01,
+   "enduranceMean": 57.1,
+   "headClearMin": 1.1,
+   "azRangeMean": 64.44,
+   "lineH1min": 0.89,
+   "judgedPass": false,
+   "failing": [
+    "avail"
+   ],
+   "bySpeedAvail": {
+    "0": 84.24,
+    "3": 84.45,
+    "6": 78.39,
+    "9": 74.63
+   }
+  },
+  "mass_+15pct": {
+   "label": "flying mass +15 % (103 g)",
+   "avail": 79.44,
+   "availP10": 61.13,
+   "jitterP90": 1.47,
+   "setupP90": 4.85,
+   "opsP90": 1,
+   "opsMax": 1,
+   "bodyForceMax": 28.12,
+   "keMax": 12.93,
+   "enduranceMean": 60.64,
+   "headClearMin": 1.1,
+   "azRangeMean": 58.71,
+   "lineH1min": 0.8,
+   "judgedPass": false,
+   "failing": [
+    "avail"
+   ],
+   "bySpeedAvail": {
+    "0": 85.55,
+    "3": 85.3,
+    "6": 81.99,
+    "9": 69.51
+   }
+  },
+  "worst_LD0.6_keep0.3_mass+15": {
+   "label": "all three adverse at once",
+   "avail": 63.45,
+   "availP10": 0,
+   "jitterP90": 1.38,
+   "setupP90": 21.98,
+   "opsP90": 2,
+   "opsMax": 3,
+   "bodyForceMax": 27.98,
+   "keMax": 12.96,
+   "enduranceMean": 73.8,
+   "headClearMin": 1.11,
+   "azRangeMean": 36.99,
+   "lineH1min": 0.66,
+   "judgedPass": false,
+   "failing": [
+    "avail",
+    "azRange"
+   ],
+   "bySpeedAvail": {
+    "0": 85.05,
+    "3": 84.03,
+    "6": 52.54,
+    "9": 48.37
+   }
+  },
+  "no_heaveComp": {
+   "label": "ablation: winch heave compensation off",
+   "avail": 79.73,
+   "availP10": 66.65,
+   "jitterP90": 1.62,
+   "setupP90": 4.6,
+   "opsP90": 1,
+   "opsMax": 1,
+   "bodyForceMax": 27.54,
+   "keMax": 13,
+   "enduranceMean": 60.98,
+   "headClearMin": 1.1,
+   "azRangeMean": 58.98,
+   "lineH1min": 0.82,
+   "judgedPass": false,
+   "failing": [
+    "avail"
+   ],
+   "bySpeedAvail": {
+    "0": 84.13,
+    "3": 84.45,
+    "6": 79.6,
+    "9": 74.04
+   }
+  },
+  "no_governor": {
+   "label": "ablation: KE governor off",
+   "avail": 81.01,
+   "availP10": 75.78,
+   "jitterP90": 1.68,
+   "setupP90": 4.44,
+   "opsP90": 1,
+   "opsMax": 1,
+   "bodyForceMax": 28.26,
+   "keMax": 21.9,
+   "enduranceMean": 56,
+   "headClearMin": 1.1,
+   "azRangeMean": 57.03,
+   "lineH1min": 0.82,
+   "judgedPass": false,
+   "failing": [
+    "keMax"
+   ],
+   "bySpeedAvail": {
+    "0": 84.89,
+    "3": 84.85,
+    "6": 84.16,
+    "9": 73.07
+   }
+  },
+  "no_hc_no_gov": {
+   "label": "ablation: both off (iteration-2 winch logic on the new polar)",
+   "avail": 79.48,
+   "availP10": 64.14,
+   "jitterP90": 1.75,
+   "setupP90": 4.4,
+   "opsP90": 1,
+   "opsMax": 1,
+   "bodyForceMax": 27.54,
+   "keMax": 22.72,
+   "enduranceMean": 60.64,
+   "headClearMin": 1.1,
+   "azRangeMean": 58.53,
+   "lineH1min": 0.82,
+   "judgedPass": false,
+   "failing": [
+    "avail",
+    "keMax"
+   ],
+   "bySpeedAvail": {
+    "0": 83.87,
+    "3": 84.22,
+    "6": 79.73,
+    "9": 73.38
+   }
+  },
+  "passive_boom": {
+   "label": "ablation: passive self-aligning boom (no pointing motors)",
+   "avail": 42.88,
+   "availP10": 28.82,
+   "jitterP90": 1.76,
+   "setupP90": 4.68,
+   "opsP90": 1,
+   "opsMax": 1,
+   "bodyForceMax": 28.01,
+   "keMax": 12.91,
+   "enduranceMean": 64.11,
+   "headClearMin": 1.1,
+   "azRangeMean": 58.03,
+   "lineH1min": 0.84,
+   "judgedPass": false,
+   "failing": [
+    "avail"
+   ],
+   "bySpeedAvail": {
+    "0": 46.06,
+    "3": 46.47,
+    "6": 42.49,
+    "9": 38.88
+   }
+  },
+  "no_boom": {
+   "label": "ablation: line from the pod lid (no boom)",
+   "avail": 0,
+   "availP10": 0,
+   "jitterP90": null,
+   "setupP90": 2,
+   "opsP90": 1,
+   "opsMax": 1,
+   "bodyForceMax": 22,
+   "keMax": 2.36,
+   "enduranceMean": 174.07,
+   "headClearMin": 0.46,
+   "azRangeMean": null,
+   "lineH1min": null,
+   "judgedPass": false,
+   "failing": [
+    "avail",
+    "jitterRms",
+    "headClear",
+    "azRange",
+    "pxMed"
+   ],
+   "bySpeedAvail": {
+    "0": 0,
+    "3": 0,
+    "6": 0,
+    "9": 0
+   }
+  },
+  "funnel_30deg": {
+   "label": "boom-tip trumpet accepts only 30° residual",
+   "avail": 81.52,
+   "availP10": 76.02,
+   "jitterP90": 1.66,
+   "setupP90": 4.7,
+   "opsP90": 1,
+   "opsMax": 2,
+   "bodyForceMax": 28.14,
+   "keMax": 12.92,
+   "enduranceMean": 56.93,
+   "headClearMin": 1.1,
+   "azRangeMean": 58.14,
+   "lineH1min": 0.82,
+   "judgedPass": true,
+   "failing": [],
+   "bySpeedAvail": {
+    "0": 85.31,
+    "3": 85.22,
+    "6": 84.46,
+    "9": 73.92
+   }
+  },
+  "launchGate_x1.3": {
+   "label": "lower launch gate (1.3 × vMin + 1 m/s)",
+   "avail": 81.52,
+   "availP10": 76.02,
+   "jitterP90": 1.66,
+   "setupP90": 4.7,
+   "opsP90": 1,
+   "opsMax": 1,
+   "bodyForceMax": 28.14,
+   "keMax": 12.92,
+   "enduranceMean": 56.94,
+   "headClearMin": 1.1,
+   "azRangeMean": 58.14,
+   "lineH1min": 0.82,
+   "judgedPass": true,
+   "failing": [],
+   "bySpeedAvail": {
+    "0": 85.31,
+    "3": 85.22,
+    "6": 84.46,
+    "9": 73.92
+   }
+  }
+ },
+ "scenarios": {
+  "nominal": {
+   "avail": 94.076,
+   "keMax": 9.962,
+   "bodyForcePeak": 15.955,
+   "headClear": 1.416,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "lineH1m",
+    "lineH2m"
+   ]
+  },
+  "fullrun": {
+   "avail": 87.069,
+   "keMax": 12.285,
+   "bodyForcePeak": 23.636,
+   "headClear": 1.386,
+   "setupTime": 4.162,
+   "ops": 1,
+   "failsJudged": [
+    "lineH1m",
+    "lineH2m"
+   ]
+  },
+  "short": {
+   "avail": 87.402,
+   "keMax": 4.859,
+   "bodyForcePeak": 15.503,
+   "headClear": 1.415,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "lineH1m",
+    "lineH2m"
+   ]
+  },
+  "shorttail": {
+   "avail": 0,
+   "keMax": 12.562,
+   "bodyForcePeak": 18.545,
+   "headClear": 1.264,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "avail"
+   ]
+  },
+  "fast": {
+   "avail": 100,
+   "keMax": 18.559,
+   "bodyForcePeak": 21.917,
+   "headClear": 1.535,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "keMax"
+   ]
+  },
+  "gust": {
+   "avail": 92.291,
+   "keMax": 10.123,
+   "bodyForcePeak": 22.757,
+   "headClear": 1.301,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "lineH1m",
+    "lineH2m"
+   ]
+  },
+  "tail": {
+   "avail": 96.146,
+   "keMax": 11.92,
+   "bodyForcePeak": 17.287,
+   "headClear": 1.384,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "lineH1m",
+    "lineH2m"
+   ]
+  },
+  "moguls": {
+   "avail": 100,
+   "keMax": 2.829,
+   "bodyForcePeak": 11.863,
+   "headClear": 1.393,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "azRange",
+    "lineH1m"
+   ]
+  },
+  "stopstart": {
+   "avail": 63.225,
+   "keMax": 11.872,
+   "bodyForcePeak": 20.166,
+   "headClear": 1.339,
+   "setupTime": 18.94,
+   "ops": 1,
+   "failsJudged": [
+    "avail",
+    "lineH1m",
+    "lineH2m"
+   ]
+  },
+  "liftline": {
+   "avail": 75.746,
+   "keMax": 12.52,
+   "bodyForcePeak": 15.67,
+   "headClear": 1.31,
+   "setupTime": 2.758,
+   "ops": 1,
+   "failsJudged": [
+    "avail",
+    "lineH1m",
+    "lineH2m"
+   ]
+  },
+  "chairlift": {
+   "avail": "n/a",
+   "keMax": 0,
+   "bodyForcePeak": 0,
+   "headClear": "n/a",
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": []
+  },
+  "chairdown": {
+   "avail": "n/a",
+   "keMax": 0,
+   "bodyForcePeak": 0,
+   "headClear": "n/a",
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": []
+  },
+  "dock_w6": {
+   "avail": "n/a",
+   "keMax": 1.893,
+   "bodyForcePeak": 10.211,
+   "headClear": 1.446,
+   "setupTime": 9.196,
+   "ops": 2,
+   "failsJudged": []
+  },
+  "dock_w9": {
+   "avail": "n/a",
+   "keMax": 1.056,
+   "bodyForcePeak": 13.57,
+   "headClear": 1.446,
+   "setupTime": 9.22,
+   "ops": 2,
+   "failsJudged": []
+  },
+  "dock_w6_back": {
+   "avail": "n/a",
+   "keMax": 1.544,
+   "bodyForcePeak": 11.197,
+   "headClear": 1.042,
+   "setupTime": 16.997,
+   "ops": 3,
+   "failsJudged": []
+  },
+  "fall": {
+   "avail": 91,
+   "keMax": 9.994,
+   "bodyForcePeak": 16.113,
+   "headClear": 1.422,
+   "setupTime": 20.96,
+   "ops": 2,
+   "failsJudged": []
+  },
+  "snag": {
+   "avail": 38.961,
+   "keMax": 10.332,
+   "bodyForcePeak": 20.279,
+   "headClear": 1.421,
+   "setupTime": 4.7,
+   "ops": 3,
+   "failsJudged": [
+    "leftOnObstacle"
+   ]
+  },
+  "cross": {
+   "avail": 91.232,
+   "keMax": 9.994,
+   "bodyForcePeak": 26.335,
+   "headClear": 1.422,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": []
+  },
+  "crosspole": {
+   "avail": 85.128,
+   "keMax": 11.973,
+   "bodyForcePeak": 27.228,
+   "headClear": 1.422,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": []
+  },
+  "winch_fail": {
+   "avail": 94.229,
+   "keMax": 12.079,
+   "bodyForcePeak": 24.607,
+   "headClear": 0.815,
+   "setupTime": 16.46,
+   "ops": 1,
+   "failsJudged": [
+    "headClear"
+   ]
+  },
+  "kcu_fail": {
+   "avail": 33.061,
+   "keMax": 12.032,
+   "bodyForcePeak": 16.144,
+   "headClear": 1.421,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": []
+  },
+  "cut": {
+   "avail": 40.4,
+   "keMax": 9.994,
+   "bodyForcePeak": 16.113,
+   "headClear": 1.422,
+   "setupTime": 4.7,
+   "ops": 3,
+   "failsJudged": []
+  },
+  "nominal_v0": {
+   "avail": 0,
+   "keMax": 54.431,
+   "bodyForcePeak": 30.395,
+   "headClear": 0.435,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "avail",
+    "pxMed",
+    "keMax",
+    "headClear",
+    "packVol",
+    "viewElev"
+   ]
+  },
+  "nominal_v1": {
+   "avail": 0,
+   "keMax": 14.817,
+   "bodyForcePeak": 10.036,
+   "headClear": 0.459,
+   "setupTime": 4.7,
+   "ops": 2,
+   "failsJudged": [
+    "avail",
+    "headClear"
+   ]
+  },
+  "nominal_fixed": {
+   "avail": 73.662,
+   "keMax": 9.213,
+   "bodyForcePeak": 30.266,
+   "headClear": 1.26,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "avail"
+   ]
+  },
+  "fast_fixed": {
+   "avail": 89.227,
+   "keMax": 20.8,
+   "bodyForcePeak": 76.438,
+   "headClear": 1.425,
+   "setupTime": 4.7,
+   "ops": 1,
+   "failsJudged": [
+    "bodyForcePeak",
+    "keMax"
+   ]
+  },
+  "nominal_wing": {
+   "avail": 13.062,
+   "keMax": 12.06,
+   "bodyForcePeak": 17.256,
+   "headClear": 1.252,
+   "setupTime": 4.7,
+   "ops": 2,
+   "failsJudged": [
+    "avail",
+    "tensionSwing"
+   ]
+  },
+  "demo": {
+   "avail": 85.563,
+   "keMax": 11.935,
+   "bodyForcePeak": 19.572,
+   "headClear": 1.204,
+   "setupTime": 2.723,
+   "ops": 1,
+   "failsJudged": [
+    "azRange",
+    "lineH1m",
+    "lineH2m"
+   ]
+  }
+ },
+ "closedForm": {
+  "vMinFly_ms": {
+   "design2": 3.8,
+   "design4_wing": 3.25
+  },
+  "launchGate_ms": 7.08,
+  "governorSpeed_ms": 16.695,
+  "vMaxFilm_ms": 16.19,
+  "steadyVsAirspeed": [
+   {
+    "Va": 4,
+    "reef": 1,
+    "elevDeg": 37.52,
+    "pullN": 2.192,
+    "unreefedPullN": 2.192,
+    "unreefedElevDeg": 37.52
+   },
+   {
+    "Va": 6,
+    "reef": 1,
+    "elevDeg": 46.371,
+    "pullN": 5.67,
+    "unreefedPullN": 5.67,
+    "unreefedElevDeg": 46.371
+   },
+   {
+    "Va": 8,
+    "reef": 0.71,
+    "elevDeg": 41.093,
+    "pullN": 6.873,
+    "unreefedPullN": 10.586,
+    "unreefedElevDeg": 48.928
+   },
+   {
+    "Va": 10,
+    "reef": 0.455,
+    "elevDeg": 34.655,
+    "pullN": 6.554,
+    "unreefedPullN": 16.917,
+    "unreefedElevDeg": 50.029
+   },
+   {
+    "Va": 12,
+    "reef": 0.316,
+    "elevDeg": 30.916,
+    "pullN": 6.418,
+    "unreefedPullN": 24.658,
+    "unreefedElevDeg": 50.607
+   },
+   {
+    "Va": 15,
+    "reef": 0.25,
+    "elevDeg": 30.409,
+    "pullN": 7.979,
+    "unreefedPullN": 38.912,
+    "unreefedElevDeg": 51.07
+   },
+   {
+    "Va": 18,
+    "reef": 0.25,
+    "elevDeg": 32.045,
+    "pullN": 11.691,
+    "unreefedPullN": 56.334,
+    "unreefedElevDeg": 51.317
+   },
+   {
+    "Va": 21,
+    "reef": 0.25,
+    "elevDeg": 33.005,
+    "pullN": 16.083,
+    "unreefedPullN": 76.926,
+    "unreefedElevDeg": 51.465
+   },
+   {
+    "Va": 24,
+    "reef": 0.25,
+    "elevDeg": 33.617,
+    "pullN": 21.154,
+    "unreefedPullN": 100.685,
+    "unreefedElevDeg": 51.561
+   }
+  ]
+ },
+ "iteration2": {
+  "modelVersion": "kite2@2.0.0",
+  "name": {
+   "en": "K2-R reefing drogue kite cam (steerable lifting drogue)",
+   "zh": "K2-R 收口圆伞风筝相机（可操控升力拖伞）"
+  },
+  "oneLiner": "An 86 g kite whose lifting surface is a 0.40 m² slotted ROUND canopy: vent-slot opening sets L/D 0–1 (statically stable, MC-1-1C/MC-6 principle) and therefore the ≈43° rear-quarter elevation, continuous skirt reefing (drag area 1→0.25) plus a gust-absorbing winch set the 6–20 N pull, and a 0.35 m folding exit mast raises the line and carries the line-aligned dock trumpet.",
+  "whyRedesign": [
+   "Audit K2-01 is confirmed by the literature: a soft wing reaches L/D ≤1 only in its post-stall band where CR ≈0.9–1.25 (TN D-4182, TN D-4672) and where it has no static trim (TN D-4672: none between α 30° and 75°; TN D-4182: violent oscillations above 50°). AoA depower gives CR 0.2 only at L/D ≈3 (TU Delft kites) → zenith, top-down. The iteration-1 corner (CR 0.2 at L/D 0.5–0.7) does not exist.",
+   "Elevation needs L/D 0.5–0.9 (tether ≈30–42° from the up-slope apparent wind → 43–55° above horizontal); pull must stay ≤40 N from 4 to 25 m/s apparent wind (q ratio ≈40). With CR fixed near 0.9 by the low L/D, only AREA can vary the pull → reefing.",
+   "A slotted round canopy is the only soft lifting surface with a documented, statically STABLE glide of L/D 0.75–1.2 (MC-1-1C, MC-6) and it can glide in any direction about its axis (yaw), and round-canopy skirt reefing has quantified drag-area data (Knacke/Ares: 0.25 at reefing ratio 0.2)."
+  ],
+  "optionsQuantified": [
+   {
+    "option": "Keep the soft wing, honest polar, active pitch stabilisation (design 4)",
+    "numbers": "ensemble avail 65.05 %, KE max 22.36 J, ops max 3; collapses on the α 22.5°/75° boundaries in nominal (4); plus undemonstrated pitch stabilisation",
+    "verdict": "rejected"
+   },
+   {
+    "option": "Smaller canopy / no reefing at honest CR (design 3)",
+    "numbers": "pull ∝ V²: nominal mean 29.0 N, 18 m/s body force 102 N; ensemble avail 61.9 %, body force max 181.98 N. Shrinking the area to keep ≤40 N at 25 m/s raises v_min above ≈6 m/s (closed form) so tailwinds/pushes are lost",
+    "verdict": "rejected"
+   },
+   {
+    "option": "Pure drag body (sled/drogue L/D≈0)",
+    "numbers": "tether trails at the slope angle (≈15° above horizontal) minus sag → line and kite at head height or on the snow",
+    "verdict": "rejected"
+   },
+   {
+    "option": "Accept higher elevation 45–55° (longer crop)",
+    "numbers": "adopted partly: view elevation ensemble mean 42.63° (p90 44.91°); concept gate relaxed 50→55°; moguls 57° fails",
+    "verdict": "adopted as gate change, disclosed"
+   },
+   {
+    "option": "Constant-tension winch depower",
+    "numbers": "only for transients: pay-out above max(14 N, 1.35×2 s mean); steady high-q pull cannot be absorbed by line length (would run out 7 m in <1 s at 21 m/s)",
+    "verdict": "kept for gusts"
+   },
+   {
+    "option": "Second line/anchor pulling the kite down-and-back",
+    "numbers": "two lines from the same rider do not change the aero equilibrium; a snow anchor/drag body puts a line on the snow behind the rider",
+    "verdict": "rejected"
+   },
+   {
+    "option": "Rigid/inflatable-beam wing at zero-lift α",
+    "numbers": "L/D 0.6 needs CL≈0.04 at CD0≈0.06: L/D swings 0→2 per few degrees, frame mass ≥15–25 g more, rigid spar in a 2 L pod and higher KE",
+    "verdict": "rejected"
+   }
+  ],
+  "chosenArchitecture": {
+   "kite": "0.40 m² nominal (≈0.71 m) slotted round canopy, Skytex 27, 8 suspension lines 0.7 m, two rear vent-slot gores, skirt reefing line through rings; KCU pod with 3 × 4 g servo-winches (slot opening, reefing, differential slots = yaw), 4K camera on 0.2 m arm, 1.2 Wh cell",
+   "polar": "CD0 0.80 on nominal area, L/D = 1.0·u (u = slot opening), CD −12 % at full opening, glide loss 30 % at full reef (ASSUMED); stable at every u",
+   "mass": {
+    "kg": 0.08629599999999998,
+    "g": 75.03999999999999,
+    "gWithMargin": 86.29599999999998,
+    "W": 4.391176470588236,
+    "lines": [
+     [
+      "camera 4K (RunCam Thumb Pro class)",
+      16,
+      "https://www.getfpv.com/runcam-thumb-pro-4k-hd-action-camera.html"
+     ],
+     [
+      "avionics FC/IMU/GNSS/radio",
+      10,
+      "audit LF-03 (ASSUMED)"
+     ],
+     [
+      "3 × servo-winch (trim, reef, steer)",
+      12,
+      "ASSUMED (4–5 g digital micro servo class); shared 2.5 g servo is too weak for 20–40 % of a 6–25 N line load (audit K2-02)"
+     ],
+     [
+      "wiring/boost/SD",
+      5,
+      "audit TG-02"
+     ],
+     [
+      "cell 1.2 Wh @ 150 Wh/kg",
+      8,
+      "components.js BATTERY"
+     ],
+     [
+      "canopy 0.4 m² nominal × 1.3 × 27 g/m²",
+      14,
+      "Porcher Skytex 27 (27 g/m²) + hems/tapes/slot frames (ASSUMED ×1.3)"
+     ],
+     [
+      "KCU shell, 0.2 m carbon camera arm, funnel seat cone",
+      6,
+      "ASSUMED"
+     ],
+     [
+      "8 suspension lines 0.7 m, reefing line + rings, slot/flag lines",
+      4,
+      "ASSUMED (Dyneema 0.5–0.8 mm)"
+     ]
+    ]
+   },
+   "pod": "2.3 L pod: BLDC winch, 30 N slip clutch, 1.5 N free-spool on line-contact detection, 12 Wh pack (80 g), heated dock holster (0.6 W, counted), 0.35 m folding mast tilted 15° back with a gimballed trumpet (accepts ≤120° off the mast axis)",
+   "control": "window-frame station loop (az ±15°, 28° above slope); outward channel → slot opening on the polar; tangential → yaw of the glide force (any direction below the wind axis); pull → reefing; winch: length hold + gust pay-out; retrieve: 3.5 m/s in calm, 1.5 m/s in wind; dock planner: funnel cone and ≥0.25 m helmet clearance, ≤3 retries, else safe flag-and-land (+1 action, +15 s)",
+   "interlocks": "launch only if armed AND descending (>0.3 m/s) AND on-snow vibration signature (ASSUMED sensor) AND rider 3.5–13.6 m/s; any 3 m climb auto-disarms; dock above 14.6 m/s rider speed (KE)"
+  },
+  "note": "iteration-2 design notes (superseded); its ensemble/sensitivity numbers were on the old judging basis"
+ },
+ "killTests": [
+  "Tow/car-top test of the 0.40 m² slotted round + KCU at 6–15 m/s: L/D vs slot opening unreefed (kill if <0.6: avail 73.02 % at 0.6) and at reef 0.25/0.35/0.5 (kill if retention <0.3 or coning >10°).",
+  "Heave-compensation winch bench: replay the measured hockey-stop exit motion (8–9 m/s, 0.4 s) on a moving anchor with a 90 g dummy: kill if the dummy ground speed exceeds √(2·14.9 J/m) or the winch lag >30 ms.",
+  "Governor: 2 N soft clutch at 7 m line; drogue deceleration on the soft line within 0.3 s.",
+  "Boom: 1.2 m telescopic on a 2-axis gimbal pointing at a moving target with ≤0.5° error at 20 Hz under carving vibration, 0.13 N·m gravity load; real footage artefact <3 % of subject height.",
+  "Dock: 500 seats onto the boom-tip trumpet at ≤45° residual (wet/iced, 0–9 m/s); snuff + retract ≤2.5 s.",
+  "Reefed launch from the boom tip at 7–14 m/s: success ≥98 %, 50 ms pull ≤20 N, never within 1.3 m of the helmet.",
+  "Clothesline / bystander: written resort permission; boom breakaway and crossing-skier tests (impulse ≤2 N·s).",
+  "Optic: ≤20 g 4K M12 module with 55–65° HFOV."
+ ],
+ "envelope": {
+  "credible": "Rider 7–16 m/s, apparent wind ≥7 m/s to launch and ≥4.2 m/s to keep flying; wind 0–9 m/s head/cross and calm (avail 85–90 %), tailwinds degrade (tail-3 ≈80 %, tail-6 ≈55–80 %, tail-9 ≈20–40 %); low-traffic pistes with written permission only (line/boom 0.8–1.3 m above the snow 1 m behind a carving rider); stow while standing only facing the wind.",
+  "requires": "L/D ≥≈0.7 unreefed for avail ≥80 % (KE/force/head clearance hold down to 0.6); flying mass ≤≈100 g for avail; active boom pointing ≤≈0.5°; heave-compensating winch ≥7 m/s with ≤30 ms lag."
+ },
+ "round4": {
+  "date": "2026-10-20",
+  "modelVersion": "kite2@4.0.0",
+  "evidence": "numerical, uncalibrated simulation on the shared round-4 rules (48 cases FULLRUN_CASES_R4, bodyPx ≥300, artefactCounts ≥2 px, helmetAt headClear, realistic actuators/estimators); not physical verification; G-MATURE closed",
+  "name": {
+   "en": "K2-R4 reefing drogue kite cam: passive hair-thin boom + motorised fishing-reel winch",
+   "zh": "K2-R4 收口圆伞风筝相机：被动细臂杆 + 电动渔线轮式绞盘"
+  },
+  "firstPrinciples": [
+   "A boom from the pack is ALWAYS projected onto the rider from a kite-borne camera (the line goes from the camera to the pack). The only way it stops being an artefact under the ≥2 px rule is to be thinner than ≈5 mm at ≈350 px/m. A boom aligned with the line by a free pivot is a two-force member in TENSION, so it can be a 3.0→2.5 mm carbon tube (inertial bending ≤0.008 N·m, ≤4 MPa in the ensemble spot runs).",
+   "A free pivot needs no gimbal motor: the audit3 torque deficit (0.35–1 N·m demand vs 0.13 N·m motors) disappears; 108 g and 1.5 W saved.",
+   "Pay-out (gusts, body heave yanking the exit) is the dangerous direction and needs no motor: a friction drag on an anti-reverse spool slips instantly above its setting (fishing-reel principle). The motor only reels in, inside a real Kv/R/current/voltage/inertia envelope, and holding costs zero current.",
+   "Height of the line 1–3 m behind the rider is set by the kite elevation (≤ atan(L/D)≈37° above the slope for the documented drogue, less when reefed) and the pack height in carving lean; raising it structurally needs a rigid member resisting T·Δh ≈8–14 N·m, which is ≥10 mm thick and therefore an artefact. So the clothesline gate cannot be met by this architecture; mitigation is force/impulse limitation, not clearance."
+  ],
+  "changes": {
+   "boom": "passive 6-section 3.0→2.5 mm carbon telescopic tube, 1.45 m (was 1.2 m, 12→4 mm, actively gimballed); free damped pivot τ=2/√(3T/mℓ); 2.5 mm tip ring; docking cone moved onto the KCU; canopy snuffed by fully cinching the reefing line (no tip sleeve); 5 N magnetic breakaway; 40 g (was 148 g)",
+   "winch": "motorised reel: 2205-class 2300 KV motor (Kt 4.15 mN·m/A, 0.08 Ω, 25 A, 10.8 V), 5:1 planetary, 12 mm spool → no-load 6.24 m/s, 36.8 N stall, reflected inertia 0.44 kg; anti-reverse bearing; servo friction drag (τ 0.08 s, 120 N/s, static/dynamic 1.15) holding max(14 N, 1.35×mean); solenoid release to 2 N (τ 0.02 s); reel-in feed-forward only as slack take-up, 0.6 m/s dead band; 85 g",
+   "governor": "drag release on the ESTIMATED kite ground speed (noise 0.2 m/s, 50 ms lag); threshold 11 J (was 12.5 J)",
+   "sensing": "pitot/vane apparent wind coloured noise 0.4 m/s (τ 0.3 s) in the window controller, reef feed-forward, low-airspeed logic and the launch tip-pitot check; heave estimate 0.3 m/s + 40 ms lag",
+   "camera": "45° HFOV 4K (was 60°), boresight tilted 2.5° down, reframing on the whole-subject bounding box, crop sized on a ±0.6 s running max (body ≈60 % of height, subject ≤78 %); filming line 5 m (was 7 m)",
+   "headClear": "judged against helmetAt(raw shared run); boom length 1.45 m is what keeps the line tip ≥1 m from the helmet in carving lean (1.2 m → 0.84 m)"
+  },
+  "ensemble48": {
+   "table": {
+    "avail": {
+     "stat": "mean",
+     "value": 72.3,
+     "p10": 54.74,
+     "pass": false
+    },
+    "pxMed": {
+     "stat": "mean of case medians (bodyPx)",
+     "value": 504.92,
+     "pass": true
+    },
+    "jitterRms": {
+     "stat": "p90 footageStability subjectRms",
+     "value": 1.78,
+     "pass": true
+    },
+    "azRange": {
+     "stat": "mean",
+     "value": 55.74,
+     "pass": true
+    },
+    "addedMass": {
+     "stat": "design",
+     "value": 0.56,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "stat": "max raw 50 ms mean",
+     "value": 29.83,
+     "pass": true
+    },
+    "handsBusy": {
+     "stat": "design",
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "stat": "p90 (simulated)",
+     "value": 4.64,
+     "max": 8.16,
+     "pass": true
+    },
+    "ops": {
+     "stat": "p90 (max)",
+     "value": 1,
+     "max": 1,
+     "pass": true
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 14.28,
+     "pass": true
+    },
+    "packVol": {
+     "stat": "design (ASSUMED layout)",
+     "value": 2.86,
+     "pass": true
+    },
+    "endurance": {
+     "stat": "mean",
+     "value": 69.81,
+     "pass": true
+    },
+    "headClear": {
+     "stat": "ensemble min vs helmetAt (flown cases)",
+     "value": 1.07,
+     "pass": true
+    }
+   },
+   "availTailBand18cases": 53.72,
+   "availNonTail30cases": 83.45,
+   "availByBin": {
+    "calm": 77.73,
+    "3ms_head": 86.77,
+    "3ms_tail": 68.7,
+    "3ms_crossL": 81.43,
+    "3ms_crossR": 81.45,
+    "6ms_head": 88.58,
+    "6ms_tail": 44.5,
+    "6ms_crossL": 83.61,
+    "6ms_crossR": 84.14,
+    "9ms_head": 90.22,
+    "9ms_tail": 24.07,
+    "9ms_crossL": 81,
+    "9ms_crossR": 79.58,
+    "3.5ms_tail": 66.47,
+    "4.5ms_tail": 61.16,
+    "5.5ms_tail": 57.44
+   }
+  },
+  "actuators": {
+   "motor": {
+    "Kv": 2300,
+    "Kt_NmPerA": 0.004,
+    "Rm": 0.08,
+    "Imax": 25,
+    "Vbat": 10.8,
+    "gear": 5,
+    "rDrum": 0.012,
+    "lineNperA": 1.47,
+    "noLoadLineSpeed_ms": 6.243,
+    "stallLineForce_N": 36.761,
+    "reflectedMass_kg": 0.444
+   },
+   "drag": {
+    "tauDrag": 0.08,
+    "dragRate": 120,
+    "tauRelease": 0.02,
+    "muRatio": 1.15,
+    "Fslip": 30,
+    "Fgov": 2
+   },
+   "boom": {
+    "passive": true,
+    "mass_kg": 0.025,
+    "length_m": 1.45,
+    "dBase_mm": 3,
+    "dTip_mm": 2.5
+   },
+   "spot": {
+    "calm_s11": {
+     "motorCurrentMax_A": 20.619,
+     "reelInShaftMax_ms": 5.5,
+     "dragSlipMax_ms": 5.712,
+     "winchElecPeak_W": 165.296,
+     "motorOnTime_s": 6.24,
+     "envelopeViolations": 0,
+     "dragRange_N": [
+      1.695,
+      30
+     ],
+     "lineTensionInstMax_N": 39.551,
+     "boomRateP99_rad_s": 1.112,
+     "boomInertialBending_Nm": 0.004,
+     "boomBendStress_MPa": 2.156
+    },
+    "head9_s12": {
+     "motorCurrentMax_A": 22.235,
+     "reelInShaftMax_ms": 5.498,
+     "dragSlipMax_ms": 7.892,
+     "winchElecPeak_W": 120.19,
+     "motorOnTime_s": 7.36,
+     "envelopeViolations": 0,
+     "dragRange_N": [
+      4.809,
+      30
+     ],
+     "lineTensionInstMax_N": 30.031,
+     "boomRateP99_rad_s": 1.07,
+     "boomInertialBending_Nm": 0.004,
+     "boomBendStress_MPa": 1.995
+    },
+    "crossL9_s12": {
+     "motorCurrentMax_A": 25,
+     "reelInShaftMax_ms": 5.5,
+     "dragSlipMax_ms": 6.897,
+     "winchElecPeak_W": 150.675,
+     "motorOnTime_s": 10.68,
+     "envelopeViolations": 0,
+     "dragRange_N": [
+      2.037,
+      30
+     ],
+     "lineTensionInstMax_N": 32.051,
+     "boomRateP99_rad_s": 1.494,
+     "boomInertialBending_Nm": 0.007,
+     "boomBendStress_MPa": 3.89
+    },
+    "tail4.5_s12": {
+     "motorCurrentMax_A": 25,
+     "reelInShaftMax_ms": 5.537,
+     "dragSlipMax_ms": 5.243,
+     "winchElecPeak_W": 162.128,
+     "motorOnTime_s": 5.34,
+     "envelopeViolations": 0,
+     "dragRange_N": [
+      0.647,
+      30
+     ],
+     "lineTensionInstMax_N": 50.732,
+     "boomRateP99_rad_s": 1.205,
+     "boomInertialBending_Nm": 0.005,
+     "boomBendStress_MPa": 2.534
+    },
+    "tail9_s11": {
+     "motorCurrentMax_A": 25,
+     "reelInShaftMax_ms": 5.5,
+     "dragSlipMax_ms": 5.884,
+     "winchElecPeak_W": 124.376,
+     "motorOnTime_s": 9.04,
+     "envelopeViolations": 0,
+     "dragRange_N": [
+      0.49,
+      30
+     ],
+     "lineTensionInstMax_N": 50.015,
+     "boomRateP99_rad_s": 1.547,
+     "boomInertialBending_Nm": 0.008,
+     "boomBendStress_MPa": 4.171
+    }
+   }
+  },
+  "clothesline": {
+   "metric": "height above the snow of the boom + line 1, 2 and 3 m (horizontal) behind the boom pivot, every airborne riding sample; lowShare = % of those samples with the lowest of the three below 1.8 m",
+   "target": "≥1.8 m everywhere 1–3 m behind (adult neck/face height, ASSUMED gate from the brief)",
+   "h1": {
+    "min": 0.842,
+    "p10OfCaseMin": 0.865,
+    "medianOfCaseP10": 1.183
+   },
+   "h2": {
+    "min": 0.805,
+    "p10OfCaseMin": 0.941,
+    "medianOfCaseP10": 1.446
+   },
+   "h3": {
+    "min": 0.744,
+    "p10OfCaseMin": 0.992,
+    "medianOfCaseP10": 1.695
+   },
+   "lowShareMeanPct": 90.166,
+   "lowShareMaxPct": 99.118,
+   "medianLowestHeight_m": 1.514,
+   "verdict": "FAIL: the line/boom is below 1.8 m within 3 m behind the rider for most of the filming time; no exit geometry can hold a ≥1.8 m line near the rider without a rigid member that resists T·Δh (8–14 N·m) and is then ≥2 px wide in the shot",
+   "crossingSkier": {
+    "scenario": "neighbour crosses 0.35 m behind at 8 m/s (cross: helmet top 1.9 m; crosspole: pole raised to 2.3 m)",
+    "boomImpulse_Ns": 0.2,
+    "boomMeanForce_N": 4,
+    "lineForcePole_N": 9.079,
+    "lineContactPole": "yes",
+    "mechanism": "rear radar (4 m, 0.2 s) drops the reel drag to 1.5 N and the kite climbs; a line contact is detected in 60 ms and the solenoid holds free-spool; the 25 g boom is on a free pivot with a 5 N magnetic breakaway (effective struck mass ≤25 g)"
+   }
+  },
+  "sensitivity": {
+   "LD_0.60": {
+    "label": "L/D 0.6 (below MC-1-1C)",
+    "avail": 67.62,
+    "keMax": 17.26,
+    "bodyForceMax": 29.82,
+    "headClearMin": 1.07,
+    "setupP90": 4.89,
+    "opsP90": 1,
+    "enduranceMean": 75.83
+   },
+   "LD_0.90": {
+    "label": "L/D 0.9 (MC-6 lower, non-archival)",
+    "avail": 71.7,
+    "keMax": 14.44,
+    "bodyForceMax": 29.84,
+    "headClearMin": 0.98,
+    "setupP90": 4.58,
+    "opsP90": 1,
+    "enduranceMean": 66.18
+   },
+   "reefKeep_0.3": {
+    "label": "30 % of the glide kept at full reef",
+    "avail": 73.93,
+    "keMax": 14.27,
+    "bodyForceMax": 29.79,
+    "headClearMin": 1.08,
+    "setupP90": 4.54,
+    "opsP90": 1,
+    "enduranceMean": 69.21
+   },
+   "reefKeep_0.7": {
+    "label": "70 % kept",
+    "avail": 70.62,
+    "keMax": 14.73,
+    "bodyForceMax": 29.86,
+    "headClearMin": 1.08,
+    "setupP90": 4.74,
+    "opsP90": 1,
+    "enduranceMean": 68.73
+   },
+   "mass_+15pct": {
+    "label": "flying mass +15 %",
+    "avail": 68.01,
+    "keMax": 16.95,
+    "bodyForceMax": 30.92,
+    "headClearMin": 1.12,
+    "setupP90": 5.06,
+    "opsP90": 1,
+    "enduranceMean": 73.26
+   },
+   "worst_LD0.6_keep0.3_mass+15": {
+    "label": "all three adverse at once",
+    "avail": 40.18,
+    "keMax": 20.45,
+    "bodyForceMax": 55.87,
+    "headClearMin": 1.13,
+    "setupP90": 21.98,
+    "opsP90": 3,
+    "enduranceMean": 104.74
+   },
+   "sensorNoise_x2": {
+    "label": "in-flight sensor / heave-estimate noise doubled",
+    "avail": 73.25,
+    "keMax": 14.31,
+    "bodyForceMax": 29.84,
+    "headClearMin": 1.07,
+    "setupP90": 4.62,
+    "opsP90": 1,
+    "enduranceMean": 68.14
+   },
+   "IDEALISED_sensors": {
+    "label": "IDEALISED (not judged): noise-free sensing, no estimator lag",
+    "avail": 72.92,
+    "keMax": 15.4,
+    "bodyForceMax": 29.83,
+    "headClearMin": 1.08,
+    "setupP90": 4.67,
+    "opsP90": 1,
+    "enduranceMean": 69.53
+   },
+   "motor_weak_15A_9V6": {
+    "label": "reel motor 15 A limit and 9.6 V sag",
+    "avail": 72.32,
+    "keMax": 14.27,
+    "bodyForceMax": 29.83,
+    "headClearMin": 1.07,
+    "setupP90": 4.56,
+    "opsP90": 1,
+    "enduranceMean": 70.22
+   },
+   "drag_stickSlip_1.3": {
+    "label": "drag static/dynamic friction 1.3 (more stick-slip)",
+    "avail": 72.43,
+    "keMax": 14.85,
+    "bodyForceMax": 29.83,
+    "headClearMin": 1.08,
+    "setupP90": 4.64,
+    "opsP90": 1,
+    "enduranceMean": 70.84
+   },
+   "no_reelFeedForward": {
+    "label": "ablation: reel-in heave feed-forward off",
+    "avail": 72.36,
+    "keMax": 14.51,
+    "bodyForceMax": 29.83,
+    "headClearMin": 1.08,
+    "setupP90": 4.63,
+    "opsP90": 1,
+    "enduranceMean": 69.19
+   },
+   "no_governor": {
+    "label": "ablation: KE governor (solenoid drag release) off",
+    "avail": 72.39,
+    "keMax": 16.05,
+    "bodyForceMax": 29.83,
+    "headClearMin": 1.06,
+    "setupP90": 4.46,
+    "opsP90": 1,
+    "enduranceMean": 70.68
+   },
+   "boom_4.5mm": {
+    "label": "boom 4.5→3.5 mm (stiffer tube) — artefact rule",
+    "avail": 2.62,
+    "keMax": 14.28,
+    "bodyForceMax": 29.83,
+    "headClearMin": 1.07,
+    "setupP90": 4.64,
+    "opsP90": 1,
+    "enduranceMean": 69.81
+   },
+   "boom_1.2m": {
+    "label": "round-3 boom length 1.2 m",
+    "avail": 73.48,
+    "keMax": 14.96,
+    "bodyForceMax": 29.83,
+    "headClearMin": 0.84,
+    "setupP90": 4.64,
+    "opsP90": 1,
+    "enduranceMean": 67.78
+   },
+   "hfov_60": {
+    "label": "round-3 lens 60° HFOV",
+    "avail": 67.7,
+    "keMax": 14.28,
+    "bodyForceMax": 29.83,
+    "headClearMin": 1.07,
+    "setupP90": 4.64,
+    "opsP90": 1,
+    "enduranceMean": 69.81
+   },
+   "Lst_6": {
+    "label": "filming line 6 m",
+    "avail": 72.81,
+    "keMax": 14.85,
+    "bodyForceMax": 29.82,
+    "headClearMin": 1.08,
+    "setupP90": 4.87,
+    "opsP90": 1,
+    "enduranceMean": 67.86
+   }
+  },
+  "dtConvergence": {
+   "case": "crossR6_s12",
+   "dt2ms": {
+    "avail": 85.857,
+    "bodyForcePeak": 29.458,
+    "keMax": 13.087,
+    "jitterRms": 1.136
+   },
+   "dt1ms": {
+    "avail": 85.075,
+    "bodyForcePeak": 29.331,
+    "keMax": 13.127,
+    "jitterRms": 1.148
+   }
+  },
+  "killTests": [
+   "3 mm telescopic boom: 500 extend/retract cycles wet/iced at −15 °C, joint play, survival of a 30 N side load and a fall onto it; ≤2 px visibility in real 4K footage at 5–9 m",
+   "Reel drag: holding force repeatability ±10 % over temperature, stick-slip ratio (sens 1.3 → KE 14.85 J), solenoid release time ≤20 ms",
+   "KE margin is 0.6 J at nominal: LD 0.6 → 17.3 J, mass +15 % → 16.95 J, governor off → 16.05 J, noise-free sensing 15.4 J — measure kite ground speed in hockey stops before anything else",
+   "Round canopy L/D 0.75 and reefed glide retention at 0.7 m diameter (avail 67.6–73.9 % over the bracket)",
+   "Clothesline: crossing-skier contact on a dummy (line ≤10 N, boom impulse ≤0.2 N·s) and written resort permission"
+  ],
+  "envelope": {
+   "def": "rider 7–16 m/s, apparent wind ≥7 m/s to launch; head/cross/calm 0–9 m/s avail 77.7–90.2 %; tailwind ≥3 m/s degrades (3–5.5 m/s 57–69 %, 6 m/s 44.5 %, 9 m/s 24 %); empty/low-traffic pistes only (clothesline)"
+  },
+  "verdict": "12/13 shared metrics pass on the 48 cases with realistic actuators; avail FAILS (72.30 %, p10 54.74) because of the tailwind band; clothesline gate FAILS (line/boom 0.74–0.84 m above snow at worst, below 1.8 m in ≈90 % of filming samples within 3 m behind)."
+ }
+}

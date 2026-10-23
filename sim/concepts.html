@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlySkiSelfie 方案实验室 / Concept Lab</title>
+<link rel="icon" href="data:,">
+<script type="importmap">{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }</script>
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/lab.css">
+</head>
+<body class="lab">
+<header class="top">
+  <div class="brand">
+    <h1 data-t="title"></h1>
+    <span class="sub" data-t="sub"></span>
+  </div>
+  <nav class="modes" role="tablist">
+    <button role="tab" data-mode="test" data-t="modeTest"></button>
+    <button role="tab" data-mode="demo" data-t="modeDemo"></button>
+    <button role="tab" data-mode="compare" data-t="modeCompare"></button>
+  </nav>
+  <div class="tools">
+    <a href="./" class="navlink" data-t="back"></a>
+    <button id="langBtn" type="button"></button>
+  </div>
+</header>
+<section class="banner lab-banner" aria-live="polite">
+  <div><b data-t="evidence"></b>: <span id="bnEvidence" class="ev-tag"></span></div>
+  <div><b data-t="model"></b>: <span id="bnModel"></span></div>
+  <div class="note" data-t="boundary"></div>
+</section>
+<main id="main" class="lab-main">
+  <aside class="side">
+    <section>
+      <h2 data-t="concepts"></h2>
+      <ul id="conceptList" class="concept-list"></ul>
+    </section>
+    <section id="scenPanel">
+      <h2 data-t="scenarios"></h2>
+      <ul id="scenarioList" class="scen-list"></ul>
+    </section>
+    <section id="paramPanel">
+      <h2 data-t="params"></h2>
+      <form id="paramForm" novalidate></form>
+      <div class="row"><button id="runBtn" class="primary" type="button" data-t="run"></button><button id="resetBtn" type="button" data-t="reset"></button></div>
+      <div id="status" class="status" role="status"></div>
+    </section>
+    <section>
+      <h2 data-t="limits"></h2>
+      <ul id="limitsList" class="limits"></ul>
+    </section>
+  </aside>
+  <section class="stage">
+    <div class="view gl-wrap">
+      <div class="gl-tools">
+        <label><span data-t="quality"></span> <select id="qualitySel"><option value="low">Smooth</option><option value="high">High</option><option value="ultra">Ultra</option></select></label>
+        <label class="chk"><input type="checkbox" id="dirChk" checked> <span data-t="director"></span></label>
+        <label class="chk"><input type="checkbox" id="pipChk" checked> <span data-t="pip"></span></label>
+        <button id="recBtn" type="button" data-t="record"></button>
+      </div>
+      <canvas id="gl3d" tabindex="0" aria-label="3D view"></canvas>
+      <div id="overlayMsg" class="overlay" hidden></div>
+    </div>
+    <div class="timeline">
+      <button id="playBtn" type="button"></button>
+      <button id="resetTime" type="button" data-t="restart"></button>
+      <select id="speedSel"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+      <input type="range" id="seek" min="0" max="1000" value="0" step="1" aria-label="timeline">
+      <output id="timeOut">0.00 s</output>
+      <div id="stageChips" class="chips"></div>
+    </div>
+    <p id="stageText" class="stage-text"></p>
+    <div class="plots" id="plots"></div>
+    <section id="comparePanel" class="compare" hidden>
+      <h2 data-t="modeCompare"></h2>
+      <p class="note" data-t="compareNote"></p>
+      <div class="table-wrap"><table id="compareTable"></table></div>
+    </section>
+  </section>
+  <aside class="right">
+    <section>
+      <h2 data-t="metrics"></h2>
+      <table id="metricsTable" class="mini metrics"></table>
+    </section>
+    <section>
+      <h2 data-t="events"></h2>
+      <ol id="eventList" class="events"></ol>
+    </section>
+    <section>
+      <h2 data-t="about"></h2>
+      <p id="conceptAbout"></p>
+    </section>
+  </aside>
+</main>
+<script type="module" src="js/concepts/lab.js"></script>
+</body>
+</html>

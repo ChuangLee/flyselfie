@@ -1,0 +1,9041 @@
+{
+ "conceptId": "activetether",
+ "modelVersion": "activetether@0.1.0",
+ "generated": "2026-10-21",
+ "evidence": "numerical-uncalibrated simulation (sim/js/concepts/activetether); NOT a physical test; parameters ASSUMED unless cited (design.js)",
+ "fileHashes": {
+  "model.js": "b830aaa8d0afbc21",
+  "analysis.js": "a36fd4580150e6f2",
+  "design.js": "d366a64c08d86e69",
+  "detect.js": "7a15ed807713cfc5",
+  "index.js": "faeb067e8ee0da48"
+ },
+ "defaults": {
+  "flyer": 0,
+  "camPos": 0,
+  "elev": 50,
+  "Tset": 3,
+  "LfilmFly": 10,
+  "LfilmLine": 14,
+  "sCam": 5.5,
+  "LmaxAdd": 1.5,
+  "gateK": 1.35,
+  "straightAcc": 2.5,
+  "vLaunch": 2,
+  "cropFc": 1.5,
+  "sideDrop": 1,
+  "devK": 0,
+  "massScale": 1,
+  "cd0Scale": 1,
+  "clmaxScale": 1,
+  "V0": 13.2,
+  "noise": 1,
+  "capScale": 1
+ },
+ "design": {
+  "flyers": {
+   "delta": {
+    "fly": {
+     "g": 101.1,
+     "gWithMargin": 116.265,
+     "kg": 0.116,
+     "W": 4.25,
+     "structureG": 30.1
+    },
+    "line": {
+     "g": 67.1,
+     "gWithMargin": 77.165,
+     "kg": 0.077,
+     "W": 1.35,
+     "structureG": 30.1
+    },
+    "LDmax": 5.923,
+    "vStallCam": 4.926,
+    "vStallNoCam": 4.013,
+    "keCapSpeedCam": 16.01
+   },
+   "kite": {
+    "fly": {
+     "g": 121.1,
+     "gWithMargin": 139.265,
+     "kg": 0.139,
+     "W": 4.25,
+     "structureG": 50.1
+    },
+    "line": {
+     "g": 87.1,
+     "gWithMargin": 100.165,
+     "kg": 0.1,
+     "W": 1.35,
+     "structureG": 50.1
+    },
+    "LDmax": 4.936,
+    "vStallCam": 3.018,
+    "vStallNoCam": 2.559,
+    "keCapSpeedCam": 14.628
+   }
+  },
+  "pod": {
+   "g": 64.5,
+   "gWithMargin": 74.175,
+   "kg": 0.074,
+   "W": 3.95,
+   "CdA": 0.002
+  },
+  "worn": {
+   "delta_fly": {
+    "back": {
+     "reelMotor": 85,
+     "beltClutchRatchet": 35,
+     "drum": 12,
+     "focDriver": 14.2,
+     "meteringHead": 15,
+     "lineAngleGimbalTrumpet": 18,
+     "mcuImuGnssRadio": 12,
+     "battery": 215,
+     "shuntHeaterInsulation": 18,
+     "cutterWeakLink": 8,
+     "line": 2.8,
+     "quiverTube": 76,
+     "hingeFoldDrive": 32,
+     "enclosureBelt": 150,
+     "podDockSleeve": 0
+    },
+    "backG": 693,
+    "backWithMarginG": 796.95,
+    "flyerG": 116.265,
+    "podG": 0,
+    "kg": 0.913,
+    "batteryWh": 32.25,
+    "flyerCellWh": 1.65,
+    "podCellWh": 0,
+    "packVol": {
+     "quiver": 1.158,
+     "back": 1.04,
+     "trumpet": 0.08,
+     "total": 2.278
+    }
+   },
+   "delta_line": {
+    "back": {
+     "reelMotor": 85,
+     "beltClutchRatchet": 35,
+     "drum": 12,
+     "focDriver": 14.2,
+     "meteringHead": 15,
+     "lineAngleGimbalTrumpet": 18,
+     "mcuImuGnssRadio": 12,
+     "battery": 215,
+     "shuntHeaterInsulation": 18,
+     "cutterWeakLink": 8,
+     "line": 2.8,
+     "quiverTube": 76,
+     "hingeFoldDrive": 32,
+     "enclosureBelt": 150,
+     "podDockSleeve": 10
+    },
+    "backG": 703,
+    "backWithMarginG": 808.45,
+    "flyerG": 77.165,
+    "podG": 74.175,
+    "kg": 0.96,
+    "batteryWh": 32.25,
+    "flyerCellWh": 1.65,
+    "podCellWh": 1.05,
+    "packVol": {
+     "quiver": 1.355,
+     "back": 1.04,
+     "trumpet": 0.08,
+     "total": 2.475
+    }
+   },
+   "kite_fly": {
+    "back": {
+     "reelMotor": 85,
+     "beltClutchRatchet": 35,
+     "drum": 12,
+     "focDriver": 14.2,
+     "meteringHead": 15,
+     "lineAngleGimbalTrumpet": 18,
+     "mcuImuGnssRadio": 12,
+     "battery": 215,
+     "shuntHeaterInsulation": 18,
+     "cutterWeakLink": 8,
+     "line": 2.8,
+     "quiverTube": 101.6,
+     "hingeFoldDrive": 32,
+     "enclosureBelt": 150,
+     "podDockSleeve": 0
+    },
+    "backG": 718.6,
+    "backWithMarginG": 826.39,
+    "flyerG": 139.265,
+    "podG": 0,
+    "kg": 0.966,
+    "batteryWh": 32.25,
+    "flyerCellWh": 1.65,
+    "podCellWh": 0,
+    "packVol": {
+     "quiver": 1.769,
+     "back": 1.04,
+     "trumpet": 0.08,
+     "total": 2.889
+    }
+   },
+   "kite_line": {
+    "back": {
+     "reelMotor": 85,
+     "beltClutchRatchet": 35,
+     "drum": 12,
+     "focDriver": 14.2,
+     "meteringHead": 15,
+     "lineAngleGimbalTrumpet": 18,
+     "mcuImuGnssRadio": 12,
+     "battery": 215,
+     "shuntHeaterInsulation": 18,
+     "cutterWeakLink": 8,
+     "line": 2.8,
+     "quiverTube": 101.6,
+     "hingeFoldDrive": 32,
+     "enclosureBelt": 150,
+     "podDockSleeve": 10
+    },
+    "backG": 728.6,
+    "backWithMarginG": 837.89,
+    "flyerG": 100.165,
+    "podG": 74.175,
+    "kg": 1.012,
+    "batteryWh": 32.25,
+    "flyerCellWh": 1.65,
+    "podCellWh": 1.05,
+    "packVol": {
+     "quiver": 2.027,
+     "back": 1.04,
+     "trumpet": 0.08,
+     "total": 3.147
+    }
+   }
+  },
+  "line": {
+   "d": 0,
+   "lambda": 0,
+   "EA": 3308,
+   "Cd": 1.1,
+   "zeta": 0.3,
+   "Ldrum": 25,
+   "kShock": 150,
+   "strokeShock": 0.12,
+   "weakLinkN": 38,
+   "clutchN": 35,
+   "src": "engineering line: 8-carrier UHMWPE 0.36 mm (PowerPro 50 lb class), EA 3308 N, 2.8 g / 25 m; fairlead shock spring 150 N/m (science_control H5) with a 0.12 m stroke (ASSUMED; bottoms at 18 N); slip clutch 35 N (engineering); weak link 38 N at the quiver exit (ASSUMED, below the 40 N body-force rule)"
+  },
+  "reel": {
+   "kv": 700,
+   "Kt": 0.014,
+   "R": 0.092,
+   "Imax": 22,
+   "gear": 2,
+   "V0": 13.2,
+   "Rbatt": 0.144,
+   "Vclamp": 14,
+   "modIdx": 0.95,
+   "drvEff": 0.92,
+   "rHub": 0.015,
+   "kWind": 0,
+   "Jdrum": 0,
+   "Jmotor": 0,
+   "b": 0,
+   "coul": 0.004,
+   "massG": 85,
+   "src": "engineering reel: T-Motor MN3110-17 700 Kv (92 mΩ, 21 A/180 s), 2:1 belt, 4 mm yo-yo drum r 15→21.9 mm for 25 m; 4S1P Molicel P28A cold bus 13.2 V − 0.144 Ω·I (fit to engineering operating points); regen clamped at 14.0 V by the 10 W shunt (cold cells not charged); rotor inertia 2.5e-5 kg·m² ASSUMED (reflected 0.21–0.46 kg, engineering)"
+  },
+  "optics": {
+   "k4_66": {
+    "th": 0.649,
+    "tv": 0.487,
+    "vfNative": 51.937,
+    "vfMin": 20.701,
+    "halfH": 0.576,
+    "halfV": 0.453
+   },
+   "mp48_66": {
+    "th": 0.649,
+    "tv": 0.487,
+    "vfNative": 51.937,
+    "vfMin": 10.021,
+    "halfH": 0.576,
+    "halfV": 0.453
+   },
+   "k4_50": {
+    "th": 0.466,
+    "tv": 0.35,
+    "vfNative": 38.553,
+    "vfMin": 14.943,
+    "halfH": 0.436,
+    "halfV": 0.336
+   }
+  }
+ },
+ "ensemble": {
+  "definition": "shared simulateRun plan (38 s ride, 20 s rest, 33 s ride, final hold extended 10→25 s so the last dock completes) × FULLRUN_CASES_R4; round-4 rules: avail on footage().bodyPx ≥300 over col.riding (never flown = 0, launch/brake/tow/capture frames not delivered), artefact = overlap AND ≥2 px; jitter = p90 over flown cases of footageStability(R).subjectRms; headClear to helmetAt() incl. line and flyer outline, only the ≤3 s capture window excluded; setup = stop→locked + overrun + 20 s per manual stow; KE ground frame beyond 1.5 m; gates on windEstimate()",
+  "judged": {
+   "avail": {
+    "stat": "mean",
+    "value": 16.748,
+    "pass": false,
+    "criterion": ">=80"
+   },
+   "pxMed": {
+    "stat": "p50",
+    "value": 279.103,
+    "pass": false,
+    "criterion": ">=300"
+   },
+   "jitterRms": {
+    "stat": "p90",
+    "value": 10.519,
+    "pass": false,
+    "criterion": "<=3"
+   },
+   "azRange": {
+    "stat": "p50",
+    "value": 66.152,
+    "pass": true,
+    "criterion": ">=45"
+   },
+   "addedMass": {
+    "stat": "max",
+    "value": 0.913,
+    "pass": true,
+    "criterion": "<=1.5"
+   },
+   "bodyForcePeak": {
+    "stat": "max",
+    "value": 32.852,
+    "pass": true,
+    "criterion": "<=40"
+   },
+   "handsBusy": {
+    "stat": "max",
+    "value": 0,
+    "pass": true,
+    "criterion": "<=5"
+   },
+   "setupTime": {
+    "stat": "p90",
+    "value": 22.19,
+    "pass": true,
+    "criterion": "<=30"
+   },
+   "ops": {
+    "stat": "p90",
+    "value": 0,
+    "pass": true,
+    "criterion": "<=2"
+   },
+   "keMax": {
+    "stat": "max",
+    "value": 57.079,
+    "pass": false,
+    "criterion": "<=14.9"
+   },
+   "packVol": {
+    "stat": "max",
+    "value": 2.278,
+    "pass": true,
+    "criterion": "<=3"
+   },
+   "headClear": {
+    "stat": "min",
+    "value": 0.014,
+    "pass": false,
+    "criterion": ">=1"
+   },
+   "endurance": {
+    "stat": "min",
+    "value": 73.374,
+    "pass": true,
+    "criterion": ">=45"
+   }
+  },
+  "stats": {
+   "avail": {
+    "mean": 16.748,
+    "p10": 0,
+    "p50": 17.699,
+    "p90": 33.594,
+    "min": 0,
+    "max": 39.143,
+    "n": 48
+   },
+   "pxMed": {
+    "mean": 280.156,
+    "p10": 249.495,
+    "p50": 279.103,
+    "p90": 315.341,
+    "min": 231.182,
+    "max": 327.387,
+    "n": 33
+   },
+   "jitterRms": {
+    "mean": 8.469,
+    "p10": 6.762,
+    "p50": 8.234,
+    "p90": 10.519,
+    "min": 6.102,
+    "max": 14.048,
+    "n": 33
+   },
+   "azRange": {
+    "mean": 67.909,
+    "p10": 60.339,
+    "p50": 66.152,
+    "p90": 77.377,
+    "min": 55.327,
+    "max": 87.168,
+    "n": 33
+   },
+   "addedMass": {
+    "mean": 0.913,
+    "p10": 0.913,
+    "p50": 0.913,
+    "p90": 0.913,
+    "min": 0.913,
+    "max": 0.913,
+    "n": 48
+   },
+   "bodyForcePeak": {
+    "mean": 13.523,
+    "p10": 0,
+    "p50": 15.129,
+    "p90": 25.457,
+    "min": 0,
+    "max": 32.852,
+    "n": 48
+   },
+   "handsBusy": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 48
+   },
+   "setupTime": {
+    "mean": 12.195,
+    "p10": 0,
+    "p50": 10.2,
+    "p90": 22.19,
+    "min": 0,
+    "max": 55,
+    "n": 48
+   },
+   "ops": {
+    "mean": 0.042,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 1,
+    "n": 48
+   },
+   "keMax": {
+    "mean": 25.323,
+    "p10": 18.734,
+    "p50": 21.647,
+    "p90": 47.858,
+    "min": 16.284,
+    "max": 57.079,
+    "n": 35
+   },
+   "packVol": {
+    "mean": 2.278,
+    "p10": 2.278,
+    "p50": 2.278,
+    "p90": 2.278,
+    "min": 2.278,
+    "max": 2.278,
+    "n": 48
+   },
+   "headClear": {
+    "mean": 0.798,
+    "p10": 0.437,
+    "p50": 0.94,
+    "p90": 1.102,
+    "min": 0.014,
+    "max": 1.142,
+    "n": 35
+   },
+   "endurance": {
+    "mean": 163.529,
+    "p10": 142.173,
+    "p50": 163.28,
+    "p90": 193.01,
+    "min": 73.374,
+    "max": 193.01,
+    "n": 48
+   },
+   "keFlyer": {
+    "mean": 25.323,
+    "p10": 18.734,
+    "p50": 21.647,
+    "p90": 47.858,
+    "min": 16.284,
+    "max": 57.079,
+    "n": 35
+   },
+   "kePod": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 35
+   },
+   "headFlyer": {
+    "mean": 0.926,
+    "p10": 0.448,
+    "p50": 1.086,
+    "p90": 1.235,
+    "min": 0.025,
+    "max": 1.298,
+    "n": 35
+   },
+   "headLine": {
+    "mean": 0.81,
+    "p10": 0.448,
+    "p50": 0.94,
+    "p90": 1.089,
+    "min": 0.014,
+    "max": 1.142,
+    "n": 35
+   },
+   "artShare": {
+    "mean": 6.784,
+    "p10": 1.758,
+    "p50": 5.342,
+    "p90": 15.235,
+    "min": 0.289,
+    "max": 22.756,
+    "n": 33
+   },
+   "filmShare": {
+    "mean": 44.037,
+    "p10": 0,
+    "p50": 43.804,
+    "p90": 80.738,
+    "min": 0,
+    "max": 81.573,
+    "n": 48
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "lowLineShare": {
+    "mean": 99.898,
+    "p10": 99.661,
+    "p50": 100,
+    "p90": 100,
+    "min": 98.592,
+    "max": 100,
+    "n": 35
+   },
+   "lowLenP90": {
+    "mean": 1.796,
+    "p10": 1.398,
+    "p50": 1.795,
+    "p90": 2.075,
+    "min": 1.332,
+    "max": 2.165,
+    "n": 35
+   },
+   "thirdPartyS": {
+    "mean": 62.159,
+    "p10": 0,
+    "p50": 84.74,
+    "p90": 100.92,
+    "min": 0,
+    "max": 113.26,
+    "n": 48
+   },
+   "lineH1p10": {
+    "mean": 0.138,
+    "p10": 0.023,
+    "p50": 0.195,
+    "p90": 0.244,
+    "min": -0.267,
+    "max": 0.252,
+    "n": 35
+   },
+   "lineH3p10": {
+    "mean": 1.108,
+    "p10": 0.17,
+    "p50": 1.479,
+    "p90": 1.873,
+    "min": -0.611,
+    "max": 2.02,
+    "n": 35
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "Tmax": {
+    "mean": 19.062,
+    "p10": 0,
+    "p50": 15.185,
+    "p90": 41.526,
+    "min": 0,
+    "max": 114.524,
+    "n": 48
+   },
+   "reelPeakW": {
+    "mean": 32.274,
+    "p10": 0,
+    "p50": 27.873,
+    "p90": 67.633,
+    "min": 0,
+    "max": 229.502,
+    "n": 48
+   },
+   "reelWh": {
+    "mean": 0.052,
+    "p10": 0,
+    "p50": 0.041,
+    "p90": 0.08,
+    "min": 0,
+    "max": 0.363,
+    "n": 48
+   },
+   "meanW": {
+    "mean": 6.481,
+    "p10": 4.9,
+    "p50": 6.127,
+    "p90": 7.302,
+    "min": 4.9,
+    "max": 15.854,
+    "n": 48
+   },
+   "elevMed": {
+    "mean": 48.445,
+    "p10": 46.206,
+    "p50": 48.957,
+    "p90": 50.222,
+    "min": 44.339,
+    "max": 50.556,
+    "n": 33
+   },
+   "tensionMed": {
+    "mean": 7.085,
+    "p10": 5.574,
+    "p50": 7.214,
+    "p90": 8.717,
+    "min": 3.006,
+    "max": 9.301,
+    "n": 33
+   },
+   "manual": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 48
+   },
+   "refuseS": {
+    "mean": 20.679,
+    "p10": 0,
+    "p50": 0.196,
+    "p90": 66.612,
+    "min": 0,
+    "max": 66.672,
+    "n": 48
+   },
+   "dockTime": {
+    "p50": 13.87,
+    "p90": 31.25,
+    "max": 70.86,
+    "n": 60
+   },
+   "capVrel": {
+    "p50": 0.46,
+    "p90": 0.73,
+    "n": 79
+   }
+  },
+  "counts": {
+   "cases": 48,
+   "flown": 33,
+   "cut": 0,
+   "broke": 2
+  },
+  "rows": [
+   {
+    "id": "calm_s11",
+    "U": 0,
+    "dir": "calm",
+    "seed": 11,
+    "avail": 21.875,
+    "pxMed": 271.009,
+    "azRange": 65.042,
+    "addedMass": 0.913,
+    "bodyForcePeak": 13.079,
+    "handsBusy": 0,
+    "setupTime": 10.37,
+    "ops": 0,
+    "keMax": 16.284,
+    "keFlyer": 16.284,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.119,
+    "headFlyer": 1.16,
+    "headLine": 1.119,
+    "endurance": 163.28,
+    "meanW": 6.123,
+    "artShare": 22.756,
+    "filmShare": 77.425,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.332,
+    "thirdPartyS": 89.84,
+    "lineH1p10": 0.033,
+    "lineH3p10": 2.02,
+    "crashes": 0,
+    "Tmax": 13.193,
+    "reelPeakW": 31.197,
+    "reelWh": 0.041,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "93.2:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 50.556,
+    "tensionMed": 7.39,
+    "jitterRms": 6.174,
+    "flown": true,
+    "dockTimes": [
+     11.23,
+     11.94
+    ],
+    "capVrel": [
+     0.7,
+     0.84
+    ],
+    "events": []
+   },
+   {
+    "id": "calm_s12",
+    "U": 0,
+    "dir": "calm",
+    "seed": 12,
+    "avail": 24.704,
+    "pxMed": 261.497,
+    "azRange": 63.567,
+    "addedMass": 0.913,
+    "bodyForcePeak": 14.068,
+    "handsBusy": 0,
+    "setupTime": 9.64,
+    "ops": 0,
+    "keMax": 19.779,
+    "keFlyer": 19.779,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.07,
+    "headFlyer": 1.214,
+    "headLine": 1.07,
+    "endurance": 163.212,
+    "meanW": 6.127,
+    "artShare": 9.131,
+    "filmShare": 78.475,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.626,
+    "thirdPartyS": 89.22,
+    "lineH1p10": 0.024,
+    "lineH3p10": 1.814,
+    "crashes": 0,
+    "Tmax": 14.219,
+    "reelPeakW": 31.11,
+    "reelWh": 0.041,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "93.4:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 49.801,
+    "tensionMed": 7.266,
+    "jitterRms": 6.461,
+    "flown": true,
+    "dockTimes": [
+     11.36,
+     11.23
+    ],
+    "capVrel": [
+     0.48,
+     0.66
+    ],
+    "events": []
+   },
+   {
+    "id": "calm_s13",
+    "U": 0,
+    "dir": "calm",
+    "seed": 13,
+    "avail": 33.594,
+    "pxMed": 305.216,
+    "azRange": 60.394,
+    "addedMass": 0.913,
+    "bodyForcePeak": 15.642,
+    "handsBusy": 0,
+    "setupTime": 10.2,
+    "ops": 0,
+    "keMax": 21.238,
+    "keFlyer": 21.238,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.089,
+    "headFlyer": 1.166,
+    "headLine": 1.089,
+    "endurance": 160.456,
+    "meanW": 6.263,
+    "artShare": 7.494,
+    "filmShare": 77.29,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.594,
+    "thirdPartyS": 90.06,
+    "lineH1p10": 0.031,
+    "lineH3p10": 1.873,
+    "crashes": 0,
+    "Tmax": 15.745,
+    "reelPeakW": 32.735,
+    "reelWh": 0.045,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "38.7:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 47.734,
+    "tensionMed": 7.886,
+    "jitterRms": 6.102,
+    "flown": true,
+    "dockTimes": [
+     11.82,
+     11.75
+    ],
+    "capVrel": [
+     0.82,
+     0.53
+    ],
+    "events": []
+   },
+   {
+    "id": "head3_s11",
+    "U": 3,
+    "dir": "head",
+    "seed": 11,
+    "avail": 15.005,
+    "pxMed": 280.631,
+    "azRange": 67.74,
+    "addedMass": 0.913,
+    "bodyForcePeak": 17.115,
+    "handsBusy": 0,
+    "setupTime": 2.16,
+    "ops": 0,
+    "keMax": 21.169,
+    "keFlyer": 21.169,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.111,
+    "headFlyer": 1.023,
+    "headLine": 1.023,
+    "endurance": 169.44,
+    "meanW": 5.835,
+    "artShare": 11.388,
+    "filmShare": 42.107,
+    "launches": 1,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 98.939,
+    "lowLenP90": 1.398,
+    "thirdPartyS": 59.6,
+    "lineH1p10": -0.267,
+    "lineH3p10": 1.643,
+    "crashes": 0,
+    "Tmax": 17.278,
+    "reelPeakW": 15.351,
+    "reelWh": 0.031,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "38.7:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 49.922,
+    "tensionMed": 8.514,
+    "jitterRms": 7.108,
+    "flown": true,
+    "dockTimes": [
+     23.77
+    ],
+    "capVrel": [
+     0.63
+    ],
+    "events": []
+   },
+   {
+    "id": "head3_s12",
+    "U": 3,
+    "dir": "head",
+    "seed": 12,
+    "avail": 14.628,
+    "pxMed": 268.351,
+    "azRange": 70.338,
+    "addedMass": 0.913,
+    "bodyForcePeak": 17.249,
+    "handsBusy": 0,
+    "setupTime": 22.71,
+    "ops": 0,
+    "keMax": 22.848,
+    "keFlyer": 22.848,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.448,
+    "headFlyer": 0.448,
+    "headLine": 0.448,
+    "endurance": 165.586,
+    "meanW": 6.013,
+    "artShare": 5.217,
+    "filmShare": 42.861,
+    "launches": 1,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.351,
+    "thirdPartyS": 80.04,
+    "lineH1p10": -0.225,
+    "lineH3p10": 1.361,
+    "crashes": 0,
+    "Tmax": 20.415,
+    "reelPeakW": 22.178,
+    "reelWh": 0.037,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "69.2:CAPTURE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 49.513,
+    "tensionMed": 8.717,
+    "jitterRms": 7.404,
+    "flown": true,
+    "dockTimes": [
+     44.28
+    ],
+    "capVrel": [
+     0.8
+    ],
+    "events": []
+   },
+   {
+    "id": "head3_s13",
+    "U": 3,
+    "dir": "head",
+    "seed": 13,
+    "avail": 18.992,
+    "pxMed": 327.387,
+    "azRange": 65.415,
+    "addedMass": 0.913,
+    "bodyForcePeak": 29.439,
+    "handsBusy": 0,
+    "setupTime": 14.63,
+    "ops": 0,
+    "keMax": 22.73,
+    "keFlyer": 22.73,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.519,
+    "headFlyer": 0.519,
+    "headLine": 0.744,
+    "endurance": 133.569,
+    "meanW": 7.89,
+    "artShare": 7.589,
+    "filmShare": 42.241,
+    "launches": 1,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 0,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.411,
+    "thirdPartyS": 106.46,
+    "lineH1p10": 0.023,
+    "lineH3p10": 1.479,
+    "crashes": 0,
+    "Tmax": 64.028,
+    "reelPeakW": 67.633,
+    "reelWh": 0.099,
+    "slipS": 0.22,
+    "satS": 1.192,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "92.9:CAPTURE:flyer",
+    "keAt": "37.9:FLY",
+    "elevMed": 47.294,
+    "tensionMed": 9.301,
+    "jitterRms": 7.256,
+    "flown": true,
+    "dockTimes": [
+     70.86
+    ],
+    "capVrel": [
+     0.55,
+     0.39,
+     0.38
+    ],
+    "events": [
+     "99.126:capFail",
+     "103.98:capFail"
+    ]
+   },
+   {
+    "id": "tail3_s11",
+    "U": 3,
+    "dir": "tail",
+    "seed": 11,
+    "avail": 6.169,
+    "pxMed": 260.907,
+    "azRange": 71.39,
+    "addedMass": 0.913,
+    "bodyForcePeak": 25.75,
+    "handsBusy": 0,
+    "setupTime": 16.41,
+    "ops": 0,
+    "keMax": 18.734,
+    "keFlyer": 18.734,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.788,
+    "headFlyer": 0.788,
+    "headLine": 0.811,
+    "endurance": 82.062,
+    "meanW": 13.983,
+    "artShare": 0.289,
+    "filmShare": 18.615,
+    "launches": 2,
+    "launchFails": 1,
+    "launchSuccess": 50,
+    "ridesNoLaunch": 1,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.386,
+    "thirdPartyS": 67.44,
+    "lineH1p10": 0.183,
+    "lineH3p10": 0.355,
+    "crashes": 1,
+    "Tmax": 41.526,
+    "reelPeakW": 75.072,
+    "reelWh": 0.301,
+    "slipS": 0.014,
+    "satS": 17.576,
+    "cut": false,
+    "broke": false,
+    "refuseS": 20.952,
+    "hcAt": "36.9:FLYIN:flyer",
+    "keAt": "14.9:FLYIN",
+    "elevMed": 50.049,
+    "tensionMed": 3.41,
+    "jitterRms": 9.691,
+    "flown": true,
+    "dockTimes": [
+     31.25,
+     17.98
+    ],
+    "capVrel": [
+     0.22,
+     0.43
+    ],
+    "events": [
+     "10.48:launchFail"
+    ]
+   },
+   {
+    "id": "tail3_s12",
+    "U": 3,
+    "dir": "tail",
+    "seed": 12,
+    "avail": 21.767,
+    "pxMed": 248.165,
+    "azRange": 57.931,
+    "addedMass": 0.913,
+    "bodyForcePeak": 11.874,
+    "handsBusy": 0,
+    "setupTime": 19,
+    "ops": 0,
+    "keMax": 21.716,
+    "keFlyer": 21.716,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.599,
+    "headFlyer": 0.781,
+    "headLine": 0.599,
+    "endurance": 174.413,
+    "meanW": 5.616,
+    "artShare": 5.342,
+    "filmShare": 70.097,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.735,
+    "thirdPartyS": 100.92,
+    "lineH1p10": 0.129,
+    "lineH3p10": 1.78,
+    "crashes": 0,
+    "Tmax": 13.19,
+    "reelPeakW": 18.86,
+    "reelWh": 0.024,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 4.9,
+    "hcAt": "40.5:BRAKE:line",
+    "keAt": "21.8:FLY",
+    "elevMed": 50.222,
+    "tensionMed": 4.379,
+    "jitterRms": 8.078,
+    "flown": true,
+    "dockTimes": [
+     18.63,
+     20.59
+    ],
+    "capVrel": [
+     0.58,
+     0.52
+    ],
+    "events": []
+   },
+   {
+    "id": "tail3_s13",
+    "U": 3,
+    "dir": "tail",
+    "seed": 13,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 24.649,
+    "handsBusy": 0,
+    "setupTime": 8.75,
+    "ops": 0,
+    "keMax": 21.457,
+    "keFlyer": 21.457,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.58,
+    "headFlyer": 0.58,
+    "headLine": 0.58,
+    "endurance": 73.374,
+    "meanW": 15.854,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 2,
+    "launchFails": 2,
+    "launchSuccess": 0,
+    "ridesNoLaunch": 2,
+    "docks": 2,
+    "dockFirstTry": 0,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.939,
+    "thirdPartyS": 62,
+    "lineH1p10": 0.024,
+    "lineH3p10": 0.202,
+    "crashes": 2,
+    "Tmax": 55.807,
+    "reelPeakW": 97.376,
+    "reelWh": 0.363,
+    "slipS": 0.03,
+    "satS": 24.382,
+    "cut": false,
+    "broke": false,
+    "refuseS": 26.204,
+    "hcAt": "72.8:FLYIN:line",
+    "keAt": "71.4:FLYIN",
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [
+     21.6,
+     36.1
+    ],
+    "capVrel": [
+     2,
+     0.48,
+     0.36,
+     0.35,
+     0.33
+    ],
+    "events": [
+     "27.77:launchFail",
+     "37.972:capFail",
+     "44.526:capFail",
+     "66.844:launchFail",
+     "96.7:capFail"
+    ]
+   },
+   {
+    "id": "crossL3_s11",
+    "U": 3,
+    "dir": "crossL",
+    "seed": 11,
+    "avail": 24.434,
+    "pxMed": 272.139,
+    "azRange": 71.024,
+    "addedMass": 0.913,
+    "bodyForcePeak": 13.047,
+    "handsBusy": 0,
+    "setupTime": 24.63,
+    "ops": 0,
+    "keMax": 17.449,
+    "keFlyer": 17.449,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.976,
+    "headFlyer": 1.163,
+    "headLine": 0.976,
+    "endurance": 162.121,
+    "meanW": 6.18,
+    "artShare": 15.235,
+    "filmShare": 77.802,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 50,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.663,
+    "thirdPartyS": 113.26,
+    "lineH1p10": 0.244,
+    "lineH3p10": 1.879,
+    "crashes": 0,
+    "Tmax": 13.173,
+    "reelPeakW": 8.2,
+    "reelWh": 0.042,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "110.7:BRAKE:line",
+    "keAt": "78.6:FLY",
+    "elevMed": 50.39,
+    "tensionMed": 6.729,
+    "jitterRms": 6.767,
+    "flown": true,
+    "dockTimes": [
+     20.9,
+     26.2
+    ],
+    "capVrel": [
+     0.44,
+     0.49,
+     0.44
+    ],
+    "events": [
+     "114.012:capFail"
+    ]
+   },
+   {
+    "id": "crossL3_s12",
+    "U": 3,
+    "dir": "crossL",
+    "seed": 12,
+    "avail": 30.657,
+    "pxMed": 270.927,
+    "azRange": 65.308,
+    "addedMass": 0.913,
+    "bodyForcePeak": 12.738,
+    "handsBusy": 0,
+    "setupTime": 19.64,
+    "ops": 0,
+    "keMax": 20.252,
+    "keFlyer": 20.252,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.987,
+    "headFlyer": 1.298,
+    "headLine": 0.987,
+    "endurance": 161.685,
+    "meanW": 6.202,
+    "artShare": 1.758,
+    "filmShare": 78.152,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.654,
+    "thirdPartyS": 108.16,
+    "lineH1p10": 0.252,
+    "lineH3p10": 1.92,
+    "crashes": 0,
+    "Tmax": 12.899,
+    "reelPeakW": 8.243,
+    "reelWh": 0.043,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "38.8:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 49.329,
+    "tensionMed": 7.081,
+    "jitterRms": 7.067,
+    "flown": true,
+    "dockTimes": [
+     21.53,
+     21.23
+    ],
+    "capVrel": [
+     0.35,
+     0.36
+    ],
+    "events": []
+   },
+   {
+    "id": "crossL3_s13",
+    "U": 3,
+    "dir": "crossL",
+    "seed": 13,
+    "avail": 17.699,
+    "pxMed": 282.223,
+    "azRange": 61.574,
+    "addedMass": 0.913,
+    "bodyForcePeak": 12.092,
+    "handsBusy": 0,
+    "setupTime": 2.6,
+    "ops": 0,
+    "keMax": 19.422,
+    "keFlyer": 19.422,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.981,
+    "headFlyer": 1.29,
+    "headLine": 0.981,
+    "endurance": 171.455,
+    "meanW": 5.745,
+    "artShare": 4.702,
+    "filmShare": 42.969,
+    "launches": 1,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 99.95,
+    "lowLenP90": 1.522,
+    "thirdPartyS": 59.82,
+    "lineH1p10": 0.244,
+    "lineH3p10": 1.835,
+    "crashes": 0,
+    "Tmax": 12.987,
+    "reelPeakW": 8.099,
+    "reelWh": 0.028,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "38.8:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 48.916,
+    "tensionMed": 7.363,
+    "jitterRms": 6.762,
+    "flown": true,
+    "dockTimes": [
+     24.23
+    ],
+    "capVrel": [
+     0.59
+    ],
+    "events": []
+   },
+   {
+    "id": "crossR3_s11",
+    "U": 3,
+    "dir": "crossR",
+    "seed": 11,
+    "avail": 14.844,
+    "pxMed": 263.961,
+    "azRange": 66.283,
+    "addedMass": 0.913,
+    "bodyForcePeak": 25.457,
+    "handsBusy": 0,
+    "setupTime": 55,
+    "ops": 1,
+    "keMax": 48.848,
+    "keFlyer": 48.848,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.933,
+    "headFlyer": 1.153,
+    "headLine": 0.933,
+    "endurance": 169.132,
+    "meanW": 5.848,
+    "artShare": 6.373,
+    "filmShare": 41.002,
+    "launches": 2,
+    "launchFails": 1,
+    "launchSuccess": 50,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 2.165,
+    "thirdPartyS": 84.74,
+    "lineH1p10": 0.215,
+    "lineH3p10": -0.566,
+    "crashes": 1,
+    "Tmax": 55.156,
+    "reelPeakW": 107.049,
+    "reelWh": 0.031,
+    "slipS": 0,
+    "satS": 0.03,
+    "cut": false,
+    "broke": true,
+    "refuseS": 0,
+    "hcAt": "69.7:RETRIEVE:line",
+    "keAt": "68.5:RETRIEVE",
+    "elevMed": 50.138,
+    "tensionMed": 7.426,
+    "jitterRms": 7.177,
+    "flown": true,
+    "dockTimes": [
+     21.07
+    ],
+    "capVrel": [
+     0.31
+    ],
+    "events": [
+     "65.386:launchFail",
+     "90.33:weaklink"
+    ]
+   },
+   {
+    "id": "crossR3_s12",
+    "U": 3,
+    "dir": "crossR",
+    "seed": 12,
+    "avail": 28.314,
+    "pxMed": 279.103,
+    "azRange": 65.668,
+    "addedMass": 0.913,
+    "bodyForcePeak": 16.109,
+    "handsBusy": 0,
+    "setupTime": 19.37,
+    "ops": 0,
+    "keMax": 21.647,
+    "keFlyer": 21.647,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.042,
+    "headFlyer": 1.115,
+    "headLine": 1.042,
+    "endurance": 161.613,
+    "meanW": 6.205,
+    "artShare": 5.581,
+    "filmShare": 76.266,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 2.074,
+    "thirdPartyS": 99.4,
+    "lineH1p10": 0.196,
+    "lineH3p10": -0.544,
+    "crashes": 1,
+    "Tmax": 16.257,
+    "reelPeakW": 27.873,
+    "reelWh": 0.043,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "66.2:LAUNCH:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 47.916,
+    "tensionMed": 7.39,
+    "jitterRms": 7.402,
+    "flown": true,
+    "dockTimes": [
+     11.82,
+     20.96
+    ],
+    "capVrel": [
+     0.66,
+     0.42
+    ],
+    "events": []
+   },
+   {
+    "id": "crossR3_s13",
+    "U": 3,
+    "dir": "crossR",
+    "seed": 13,
+    "avail": 31.385,
+    "pxMed": 300.553,
+    "azRange": 64.124,
+    "addedMass": 0.913,
+    "bodyForcePeak": 15.636,
+    "handsBusy": 0,
+    "setupTime": 17.76,
+    "ops": 0,
+    "keMax": 22.631,
+    "keFlyer": 22.631,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.94,
+    "headFlyer": 1.104,
+    "headLine": 0.94,
+    "endurance": 161.077,
+    "meanW": 6.232,
+    "artShare": 7.757,
+    "filmShare": 77.101,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 2.094,
+    "thirdPartyS": 97.46,
+    "lineH1p10": 0.218,
+    "lineH3p10": -0.611,
+    "crashes": 1,
+    "Tmax": 15.752,
+    "reelPeakW": 29.442,
+    "reelWh": 0.044,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "6.3:LAUNCH:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 47.907,
+    "tensionMed": 7.684,
+    "jitterRms": 9.407,
+    "flown": true,
+    "dockTimes": [
+     11.66,
+     19.31
+    ],
+    "capVrel": [
+     0.48,
+     0.4
+    ],
+    "events": []
+   },
+   {
+    "id": "head6_s11",
+    "U": 6,
+    "dir": "head",
+    "seed": 11,
+    "avail": 29.688,
+    "pxMed": 300.119,
+    "azRange": 77.377,
+    "addedMass": 0.913,
+    "bodyForcePeak": 20.18,
+    "handsBusy": 0,
+    "setupTime": 9.77,
+    "ops": 0,
+    "keMax": 24.083,
+    "keFlyer": 24.083,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.102,
+    "headFlyer": 1.159,
+    "headLine": 1.102,
+    "endurance": 152.758,
+    "meanW": 6.67,
+    "artShare": 18.024,
+    "filmShare": 80.711,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.599,
+    "thirdPartyS": 89.04,
+    "lineH1p10": 0.185,
+    "lineH3p10": 1.755,
+    "crashes": 0,
+    "Tmax": 21.249,
+    "reelPeakW": 25.574,
+    "reelWh": 0.059,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "38.7:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 50.14,
+    "tensionMed": 7.95,
+    "jitterRms": 8.42,
+    "flown": true,
+    "dockTimes": [
+     11.02,
+     11.34
+    ],
+    "capVrel": [
+     0.39,
+     0.31
+    ],
+    "events": []
+   },
+   {
+    "id": "head6_s12",
+    "U": 6,
+    "dir": "head",
+    "seed": 12,
+    "avail": 35.129,
+    "pxMed": 315.341,
+    "azRange": 66.152,
+    "addedMass": 0.913,
+    "bodyForcePeak": 16.252,
+    "handsBusy": 0,
+    "setupTime": 9.34,
+    "ops": 0,
+    "keMax": 23.813,
+    "keFlyer": 23.813,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.088,
+    "headFlyer": 1.186,
+    "headLine": 1.088,
+    "endurance": 150.751,
+    "meanW": 6.783,
+    "artShare": 7.423,
+    "filmShare": 80.927,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.765,
+    "thirdPartyS": 88.5,
+    "lineH1p10": 0.168,
+    "lineH3p10": 1.59,
+    "crashes": 0,
+    "Tmax": 16.447,
+    "reelPeakW": 22.739,
+    "reelWh": 0.062,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "38.6:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 49.066,
+    "tensionMed": 8.296,
+    "jitterRms": 9.523,
+    "flown": true,
+    "dockTimes": [
+     10.95,
+     10.93
+    ],
+    "capVrel": [
+     0.62,
+     0.36
+    ],
+    "events": []
+   },
+   {
+    "id": "head6_s13",
+    "U": 6,
+    "dir": "head",
+    "seed": 13,
+    "avail": 39.143,
+    "pxMed": 326.068,
+    "azRange": 69.624,
+    "addedMass": 0.913,
+    "bodyForcePeak": 17.515,
+    "handsBusy": 0,
+    "setupTime": 10.27,
+    "ops": 0,
+    "keMax": 24.933,
+    "keFlyer": 24.933,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.142,
+    "headFlyer": 1.158,
+    "headLine": 1.142,
+    "endurance": 145.31,
+    "meanW": 7.105,
+    "artShare": 6.807,
+    "filmShare": 80.738,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.753,
+    "thirdPartyS": 89.56,
+    "lineH1p10": 0.186,
+    "lineH3p10": 1.667,
+    "crashes": 0,
+    "Tmax": 17.926,
+    "reelPeakW": 23.761,
+    "reelWh": 0.073,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "38.6:BRAKE:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 46.857,
+    "tensionMed": 9.216,
+    "jitterRms": 9.015,
+    "flown": true,
+    "dockTimes": [
+     11.25,
+     11.82
+    ],
+    "capVrel": [
+     0.44,
+     0.63
+    ],
+    "events": []
+   },
+   {
+    "id": "tail6_s11",
+    "U": 6,
+    "dir": "tail",
+    "seed": 11,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.672,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail6_s12",
+    "U": 6,
+    "dir": "tail",
+    "seed": 12,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.612,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail6_s13",
+    "U": 6,
+    "dir": "tail",
+    "seed": 13,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.492,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "crossL6_s11",
+    "U": 6,
+    "dir": "crossL",
+    "seed": 11,
+    "avail": 29.041,
+    "pxMed": 270.867,
+    "azRange": 66.172,
+    "addedMass": 0.913,
+    "bodyForcePeak": 12.068,
+    "handsBusy": 0,
+    "setupTime": 22.19,
+    "ops": 0,
+    "keMax": 18.081,
+    "keFlyer": 18.081,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.82,
+    "headFlyer": 1.065,
+    "headLine": 0.82,
+    "endurance": 163.419,
+    "meanW": 6.117,
+    "artShare": 6.473,
+    "filmShare": 79.903,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 50,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.898,
+    "thirdPartyS": 102.5,
+    "lineH1p10": 0.247,
+    "lineH3p10": 1.735,
+    "crashes": 0,
+    "Tmax": 12.124,
+    "reelPeakW": 21.529,
+    "reelWh": 0.04,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0.03,
+    "hcAt": "39.9:BRAKE:line",
+    "keAt": "83.6:FLY",
+    "elevMed": 49.488,
+    "tensionMed": 6.798,
+    "jitterRms": 7.563,
+    "flown": true,
+    "dockTimes": [
+     12.1,
+     23.76
+    ],
+    "capVrel": [
+     0.49,
+     0.37,
+     0.34,
+     0.61
+    ],
+    "events": [
+     "105.946:capFail",
+     "110.906:capFail"
+    ]
+   },
+   {
+    "id": "crossL6_s12",
+    "U": 6,
+    "dir": "crossL",
+    "seed": 12,
+    "avail": 13.443,
+    "pxMed": 241.041,
+    "azRange": 62.413,
+    "addedMass": 0.913,
+    "bodyForcePeak": 20.428,
+    "handsBusy": 0,
+    "setupTime": 9.84,
+    "ops": 0,
+    "keMax": 20.128,
+    "keFlyer": 20.128,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.575,
+    "headFlyer": 0.575,
+    "headLine": 0.631,
+    "endurance": 174.082,
+    "meanW": 5.63,
+    "artShare": 3.327,
+    "filmShare": 43.723,
+    "launches": 1,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 0,
+    "manual": 0,
+    "lowLineShare": 99.661,
+    "lowLenP90": 1.795,
+    "thirdPartyS": 67.18,
+    "lineH1p10": 0.041,
+    "lineH3p10": 1.646,
+    "crashes": 0,
+    "Tmax": 23.817,
+    "reelPeakW": 32.143,
+    "reelWh": 0.024,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "62.6:CAPTURE:flyer",
+    "keAt": "36.8:FLY",
+    "elevMed": 48.957,
+    "tensionMed": 6.422,
+    "jitterRms": 8.234,
+    "flown": true,
+    "dockTimes": [
+     31.41
+    ],
+    "capVrel": [
+     0.46,
+     0.38,
+     0.38
+    ],
+    "events": [
+     "48.672:capFail",
+     "54.04:capFail"
+    ]
+   },
+   {
+    "id": "crossL6_s13",
+    "U": 6,
+    "dir": "crossL",
+    "seed": 13,
+    "avail": 30.145,
+    "pxMed": 280.958,
+    "azRange": 57.763,
+    "addedMass": 0.913,
+    "bodyForcePeak": 14.185,
+    "handsBusy": 0,
+    "setupTime": 21.63,
+    "ops": 0,
+    "keMax": 19.569,
+    "keFlyer": 19.569,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.449,
+    "headFlyer": 1.085,
+    "headLine": 0.449,
+    "endurance": 162.08,
+    "meanW": 6.182,
+    "artShare": 1.978,
+    "filmShare": 72.171,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 50,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.967,
+    "thirdPartyS": 97.8,
+    "lineH1p10": 0.226,
+    "lineH3p10": 1.71,
+    "crashes": 0,
+    "Tmax": 14.28,
+    "reelPeakW": 43.982,
+    "reelWh": 0.042,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 4.764,
+    "hcAt": "99.8:RETRIEVE:line",
+    "keAt": "79.2:FLY",
+    "elevMed": 47.362,
+    "tensionMed": 7.214,
+    "jitterRms": 7.629,
+    "flown": true,
+    "dockTimes": [
+     12.89,
+     23.18
+    ],
+    "capVrel": [
+     0.35,
+     0.37,
+     0.34,
+     0.35
+    ],
+    "events": [
+     "105.964:capFail",
+     "110.98:capFail"
+    ]
+   },
+   {
+    "id": "crossR6_s11",
+    "U": 6,
+    "dir": "crossR",
+    "seed": 11,
+    "avail": 34.429,
+    "pxMed": 285.76,
+    "azRange": 66.373,
+    "addedMass": 0.913,
+    "bodyForcePeak": 16.19,
+    "handsBusy": 0,
+    "setupTime": 9.91,
+    "ops": 0,
+    "keMax": 22.227,
+    "keFlyer": 22.227,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.045,
+    "headFlyer": 1.127,
+    "headLine": 1.045,
+    "endurance": 160.379,
+    "meanW": 6.267,
+    "artShare": 2.45,
+    "filmShare": 81.358,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 2.041,
+    "thirdPartyS": 90.58,
+    "lineH1p10": 0.232,
+    "lineH3p10": 0.47,
+    "crashes": 0,
+    "Tmax": 16.409,
+    "reelPeakW": 40.185,
+    "reelWh": 0.045,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "34.8:FLY:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 49.646,
+    "tensionMed": 7.04,
+    "jitterRms": 8.139,
+    "flown": true,
+    "dockTimes": [
+     12.42,
+     11.48
+    ],
+    "capVrel": [
+     0.38,
+     0.56
+    ],
+    "events": []
+   },
+   {
+    "id": "crossR6_s12",
+    "U": 6,
+    "dir": "crossR",
+    "seed": 12,
+    "avail": 30.9,
+    "pxMed": 277.494,
+    "azRange": 62.582,
+    "addedMass": 0.913,
+    "bodyForcePeak": 19.053,
+    "handsBusy": 0,
+    "setupTime": 12.24,
+    "ops": 0,
+    "keMax": 27.481,
+    "keFlyer": 27.481,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.072,
+    "headFlyer": 1.082,
+    "headLine": 1.072,
+    "endurance": 155.159,
+    "meanW": 6.539,
+    "artShare": 3.704,
+    "filmShare": 80.738,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 2.037,
+    "thirdPartyS": 96.68,
+    "lineH1p10": 0.221,
+    "lineH3p10": 0.65,
+    "crashes": 1,
+    "Tmax": 19.542,
+    "reelPeakW": 31.95,
+    "reelWh": 0.054,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "2.8:LAUNCH:line",
+    "keAt": "8.1:FLY",
+    "elevMed": 47.979,
+    "tensionMed": 7.065,
+    "jitterRms": 8.946,
+    "flown": true,
+    "dockTimes": [
+     16.21,
+     13.83
+    ],
+    "capVrel": [
+     0.48,
+     0.37
+    ],
+    "events": []
+   },
+   {
+    "id": "crossR6_s13",
+    "U": 6,
+    "dir": "crossR",
+    "seed": 13,
+    "avail": 31.034,
+    "pxMed": 286.904,
+    "azRange": 65.778,
+    "addedMass": 0.913,
+    "bodyForcePeak": 16.187,
+    "handsBusy": 0,
+    "setupTime": 12.32,
+    "ops": 0,
+    "keMax": 21.329,
+    "keFlyer": 21.329,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.007,
+    "headFlyer": 1.249,
+    "headLine": 1.007,
+    "endurance": 159.904,
+    "meanW": 6.291,
+    "artShare": 4.728,
+    "filmShare": 74.65,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.978,
+    "thirdPartyS": 90.16,
+    "lineH1p10": 0.215,
+    "lineH3p10": 1.037,
+    "crashes": 0,
+    "Tmax": 16.341,
+    "reelPeakW": 33.921,
+    "reelWh": 0.046,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0.708,
+    "hcAt": "7.5:LAUNCH:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 47.148,
+    "tensionMed": 6.863,
+    "jitterRms": 7.86,
+    "flown": true,
+    "dockTimes": [
+     10.51,
+     13.87
+    ],
+    "capVrel": [
+     0.45,
+     0.48
+    ],
+    "events": []
+   },
+   {
+    "id": "head9_s11",
+    "U": 9,
+    "dir": "head",
+    "seed": 11,
+    "avail": 27.182,
+    "pxMed": 295.364,
+    "azRange": 85.906,
+    "addedMass": 0.913,
+    "bodyForcePeak": 32.696,
+    "handsBusy": 0,
+    "setupTime": 10.42,
+    "ops": 0,
+    "keMax": 57.079,
+    "keFlyer": 57.079,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.031,
+    "headFlyer": 1.094,
+    "headLine": 1.031,
+    "endurance": 147.981,
+    "meanW": 6.944,
+    "artShare": 16.413,
+    "filmShare": 81.573,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.65,
+    "thirdPartyS": 92,
+    "lineH1p10": 0.225,
+    "lineH3p10": 1.656,
+    "crashes": 2,
+    "Tmax": 32.879,
+    "reelPeakW": 45.718,
+    "reelWh": 0.068,
+    "slipS": 0,
+    "satS": 0.008,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "92.2:FLY:line",
+    "keAt": "85.9:FLY",
+    "elevMed": 48.975,
+    "tensionMed": 7.846,
+    "jitterRms": 11.173,
+    "flown": true,
+    "dockTimes": [
+     13.33,
+     11.99
+    ],
+    "capVrel": [
+     0.44,
+     0.48
+    ],
+    "events": []
+   },
+   {
+    "id": "head9_s12",
+    "U": 9,
+    "dir": "head",
+    "seed": 12,
+    "avail": 32.732,
+    "pxMed": 302.032,
+    "azRange": 87.168,
+    "addedMass": 0.913,
+    "bodyForcePeak": 20.342,
+    "handsBusy": 0,
+    "setupTime": 10.61,
+    "ops": 0,
+    "keMax": 25.144,
+    "keFlyer": 25.144,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 1.037,
+    "headFlyer": 1.087,
+    "headLine": 1.037,
+    "endurance": 149.781,
+    "meanW": 6.839,
+    "artShare": 11.364,
+    "filmShare": 81.546,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.804,
+    "thirdPartyS": 90.62,
+    "lineH1p10": 0.197,
+    "lineH3p10": 1.527,
+    "crashes": 1,
+    "Tmax": 20.365,
+    "reelPeakW": 30.16,
+    "reelWh": 0.064,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "37.1:FLY:line",
+    "keAt": "31.7:FLY",
+    "elevMed": 47.461,
+    "tensionMed": 7.992,
+    "jitterRms": 9.693,
+    "flown": true,
+    "dockTimes": [
+     11.8,
+     12.2
+    ],
+    "capVrel": [
+     0.53,
+     0.32
+    ],
+    "events": []
+   },
+   {
+    "id": "head9_s13",
+    "U": 9,
+    "dir": "head",
+    "seed": 13,
+    "avail": 35.345,
+    "pxMed": 315.39,
+    "azRange": 75.03,
+    "addedMass": 0.913,
+    "bodyForcePeak": 19.54,
+    "handsBusy": 0,
+    "setupTime": 11.63,
+    "ops": 0,
+    "keMax": 24.519,
+    "keFlyer": 24.519,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.973,
+    "headFlyer": 1.086,
+    "headLine": 0.973,
+    "endurance": 142.173,
+    "meanW": 7.302,
+    "artShare": 11.984,
+    "filmShare": 80.927,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.761,
+    "thirdPartyS": 93.12,
+    "lineH1p10": 0.207,
+    "lineH3p10": 1.444,
+    "crashes": 2,
+    "Tmax": 19.581,
+    "reelPeakW": 42.558,
+    "reelWh": 0.08,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "46.0:CAPTURE:line",
+    "keAt": "13.2:FLY",
+    "elevMed": 47.399,
+    "tensionMed": 8.929,
+    "jitterRms": 9.445,
+    "flown": true,
+    "dockTimes": [
+     13.45,
+     13.18
+    ],
+    "capVrel": [
+     0.57,
+     0.73
+    ],
+    "events": []
+   },
+   {
+    "id": "tail9_s11",
+    "U": 9,
+    "dir": "tail",
+    "seed": 11,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.672,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail9_s12",
+    "U": 9,
+    "dir": "tail",
+    "seed": 12,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.612,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail9_s13",
+    "U": 9,
+    "dir": "tail",
+    "seed": 13,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.492,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "crossL9_s11",
+    "U": 9,
+    "dir": "crossL",
+    "seed": 11,
+    "avail": 12.069,
+    "pxMed": 249.495,
+    "azRange": 86.141,
+    "addedMass": 0.913,
+    "bodyForcePeak": 14.968,
+    "handsBusy": 0,
+    "setupTime": 5.04,
+    "ops": 0,
+    "keMax": 36.367,
+    "keFlyer": 36.367,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.014,
+    "headFlyer": 0.025,
+    "headLine": 0.014,
+    "endurance": 174.727,
+    "meanW": 5.603,
+    "artShare": 4.068,
+    "filmShare": 43.05,
+    "launches": 1,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 0,
+    "manual": 0,
+    "lowLineShare": 99.293,
+    "lowLenP90": 2.002,
+    "thirdPartyS": 62.46,
+    "lineH1p10": 0.144,
+    "lineH3p10": 1.146,
+    "crashes": 3,
+    "Tmax": 15.17,
+    "reelPeakW": 33.891,
+    "reelWh": 0.023,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "50.4:CAPTURE:line",
+    "keAt": "34.6:FLY",
+    "elevMed": 45.785,
+    "tensionMed": 5.587,
+    "jitterRms": 14.048,
+    "flown": true,
+    "dockTimes": [
+     26.65
+    ],
+    "capVrel": [
+     0.73,
+     0.58
+    ],
+    "events": [
+     "56.45:capFail"
+    ]
+   },
+   {
+    "id": "crossL9_s12",
+    "U": 9,
+    "dir": "crossL",
+    "seed": 12,
+    "avail": 12.096,
+    "pxMed": 254.884,
+    "azRange": 55.327,
+    "addedMass": 0.913,
+    "bodyForcePeak": 23.988,
+    "handsBusy": 0,
+    "setupTime": 18.24,
+    "ops": 0,
+    "keMax": 25.29,
+    "keFlyer": 25.29,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.33,
+    "headFlyer": 0.33,
+    "headLine": 0.509,
+    "endurance": 167.357,
+    "meanW": 5.93,
+    "artShare": 4.797,
+    "filmShare": 43.804,
+    "launches": 1,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 0,
+    "manual": 0,
+    "lowLineShare": 98.592,
+    "lowLenP90": 1.982,
+    "thirdPartyS": 75.38,
+    "lineH1p10": 0.113,
+    "lineH3p10": 0.974,
+    "crashes": 1,
+    "Tmax": 37.205,
+    "reelPeakW": 44.223,
+    "reelWh": 0.034,
+    "slipS": 0.004,
+    "satS": 0.018,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0.196,
+    "hcAt": "54.8:RETRIEVE:flyer",
+    "keAt": "36.1:FLY",
+    "elevMed": 46.426,
+    "tensionMed": 5.574,
+    "jitterRms": 10.711,
+    "flown": true,
+    "dockTimes": [
+     39.81
+    ],
+    "capVrel": [
+     0.48,
+     0.42,
+     0.85
+    ],
+    "events": [
+     "48.56:capFail",
+     "53.794:capFail"
+    ]
+   },
+   {
+    "id": "crossL9_s13",
+    "U": 9,
+    "dir": "crossL",
+    "seed": 13,
+    "avail": 29.499,
+    "pxMed": 269.813,
+    "azRange": 60.339,
+    "addedMass": 0.913,
+    "bodyForcePeak": 15.129,
+    "handsBusy": 0,
+    "setupTime": 55,
+    "ops": 0,
+    "keMax": 20.545,
+    "keFlyer": 20.545,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.437,
+    "headFlyer": 0.618,
+    "headLine": 0.437,
+    "endurance": 159.419,
+    "meanW": 6.316,
+    "artShare": 0.807,
+    "filmShare": 73.411,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 1,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 2.068,
+    "thirdPartyS": 103.22,
+    "lineH1p10": 0.195,
+    "lineH3p10": 1.553,
+    "crashes": 0,
+    "Tmax": 15.185,
+    "reelPeakW": 43.203,
+    "reelWh": 0.047,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 4.764,
+    "hcAt": "94.4:BRAKE:line",
+    "keAt": "89.5:FLY",
+    "elevMed": 45.46,
+    "tensionMed": 6.966,
+    "jitterRms": 9.335,
+    "flown": true,
+    "dockTimes": [
+     14.91
+    ],
+    "capVrel": [
+     0.59,
+     0.34,
+     0.53
+    ],
+    "events": [
+     "107.764:capFail",
+     "114.6:capFail"
+    ]
+   },
+   {
+    "id": "crossR9_s11",
+    "U": 9,
+    "dir": "crossR",
+    "seed": 11,
+    "avail": 34.537,
+    "pxMed": 287.522,
+    "azRange": 68.536,
+    "addedMass": 0.913,
+    "bodyForcePeak": 13.777,
+    "handsBusy": 0,
+    "setupTime": 9.46,
+    "ops": 0,
+    "keMax": 21.339,
+    "keFlyer": 21.339,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.867,
+    "headFlyer": 0.867,
+    "headLine": 0.867,
+    "endurance": 156.676,
+    "meanW": 6.458,
+    "artShare": 2.264,
+    "filmShare": 79.741,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.991,
+    "thirdPartyS": 89.02,
+    "lineH1p10": 0.23,
+    "lineH3p10": 0.77,
+    "crashes": 0,
+    "Tmax": 13.861,
+    "reelPeakW": 53.856,
+    "reelWh": 0.052,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0,
+    "hcAt": "2.6:LAUNCH:line",
+    "keAt": "37.9:FLY",
+    "elevMed": 50.461,
+    "tensionMed": 7.181,
+    "jitterRms": 8.477,
+    "flown": true,
+    "dockTimes": [
+     11.31,
+     11.03
+    ],
+    "capVrel": [
+     0.34,
+     0.35
+    ],
+    "events": []
+   },
+   {
+    "id": "crossR9_s12",
+    "U": 9,
+    "dir": "crossR",
+    "seed": 12,
+    "avail": 24.758,
+    "pxMed": 304.569,
+    "azRange": 60.743,
+    "addedMass": 0.913,
+    "bodyForcePeak": 15.099,
+    "handsBusy": 0,
+    "setupTime": 19.3,
+    "ops": 0,
+    "keMax": 47.858,
+    "keFlyer": 47.858,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.3,
+    "headFlyer": 0.358,
+    "headLine": 0.3,
+    "endurance": 158.097,
+    "meanW": 6.384,
+    "artShare": 2.665,
+    "filmShare": 52.559,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 2.105,
+    "thirdPartyS": 95.28,
+    "lineH1p10": 0.226,
+    "lineH3p10": 0.219,
+    "crashes": 1,
+    "Tmax": 15.111,
+    "reelPeakW": 56.339,
+    "reelWh": 0.049,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 0.2,
+    "hcAt": "40.1:CAPTURE:line",
+    "keAt": "18.8:RETRIEVE",
+    "elevMed": 46.206,
+    "tensionMed": 6.839,
+    "jitterRms": 8.435,
+    "flown": true,
+    "dockTimes": [
+     29.31,
+     20.89
+    ],
+    "capVrel": [
+     0.37,
+     0.33
+    ],
+    "events": [
+     "16.698:downed"
+    ]
+   },
+   {
+    "id": "crossR9_s13",
+    "U": 9,
+    "dir": "crossR",
+    "seed": 13,
+    "avail": 15.356,
+    "pxMed": 258.277,
+    "azRange": 75.722,
+    "addedMass": 0.913,
+    "bodyForcePeak": 32.852,
+    "handsBusy": 0,
+    "setupTime": 9.27,
+    "ops": 0,
+    "keMax": 48.631,
+    "keFlyer": 48.631,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.505,
+    "headFlyer": 0.713,
+    "headLine": 0.505,
+    "endurance": 113.066,
+    "meanW": 9.65,
+    "artShare": 2.794,
+    "filmShare": 46.282,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 2.075,
+    "thirdPartyS": 75,
+    "lineH1p10": 0.211,
+    "lineH3p10": 0.38,
+    "crashes": 5,
+    "Tmax": 114.524,
+    "reelPeakW": 229.502,
+    "reelWh": 0.157,
+    "slipS": 0.168,
+    "satS": 7.09,
+    "cut": false,
+    "broke": false,
+    "refuseS": 2.322,
+    "hcAt": "22.3:FLYIN:line",
+    "keAt": "19.4:FLYIN",
+    "elevMed": 44.339,
+    "tensionMed": 6.473,
+    "jitterRms": 10.519,
+    "flown": true,
+    "dockTimes": [
+     22.29,
+     10.82
+    ],
+    "capVrel": [
+     1.82,
+     0.41
+    ],
+    "events": [
+     "15.682:downed"
+    ]
+   },
+   {
+    "id": "tail3.5_s11",
+    "U": 3.5,
+    "dir": "tail",
+    "seed": 11,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.672,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail3.5_s12",
+    "U": 3.5,
+    "dir": "tail",
+    "seed": 12,
+    "avail": 3.314,
+    "pxMed": 231.182,
+    "azRange": 76.061,
+    "addedMass": 0.913,
+    "bodyForcePeak": 18.77,
+    "handsBusy": 0,
+    "setupTime": 55,
+    "ops": 1,
+    "keMax": 21.232,
+    "keFlyer": 21.232,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.448,
+    "headFlyer": 1.235,
+    "headLine": 0.448,
+    "endurance": 188.305,
+    "meanW": 5.068,
+    "artShare": 1.193,
+    "filmShare": 13.551,
+    "launches": 2,
+    "launchFails": 1,
+    "launchSuccess": 50,
+    "ridesNoLaunch": 1,
+    "docks": 1,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.957,
+    "thirdPartyS": 38.54,
+    "lineH1p10": 0.026,
+    "lineH3p10": 0.17,
+    "crashes": 1,
+    "Tmax": 56.581,
+    "reelPeakW": 20.568,
+    "reelWh": 0.006,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": true,
+    "refuseS": 24.256,
+    "hcAt": "40.5:BRAKE:line",
+    "keAt": "70.7:RETRIEVE",
+    "elevMed": 49.832,
+    "tensionMed": 3.006,
+    "jitterRms": 9.458,
+    "flown": true,
+    "dockTimes": [
+     15.37
+    ],
+    "capVrel": [
+     0.55
+    ],
+    "events": [
+     "64.448:launchFail",
+     "73.434:weaklink"
+    ]
+   },
+   {
+    "id": "tail3.5_s13",
+    "U": 3.5,
+    "dir": "tail",
+    "seed": 13,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 25.947,
+    "handsBusy": 0,
+    "setupTime": 11.02,
+    "ops": 0,
+    "keMax": 20.449,
+    "keFlyer": 20.449,
+    "kePod": 0,
+    "packVol": 2.278,
+    "headClear": 0.521,
+    "headFlyer": 0.521,
+    "headLine": 0.521,
+    "endurance": 86.379,
+    "meanW": 13.193,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 2,
+    "launchFails": 2,
+    "launchSuccess": 0,
+    "ridesNoLaunch": 2,
+    "docks": 2,
+    "dockFirstTry": 50,
+    "manual": 0,
+    "lowLineShare": 100,
+    "lowLenP90": 1.675,
+    "thirdPartyS": 48.56,
+    "lineH1p10": 0.01,
+    "lineH3p10": 0.23,
+    "crashes": 2,
+    "Tmax": 34.741,
+    "reelPeakW": 92.923,
+    "reelWh": 0.275,
+    "slipS": 0,
+    "satS": 18.696,
+    "cut": false,
+    "broke": false,
+    "refuseS": 37.534,
+    "hcAt": "72.5:FLYIN:line",
+    "keAt": "71.5:FLYIN",
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [
+     7.78,
+     38.37
+    ],
+    "capVrel": [
+     0.58,
+     3.04,
+     0.46,
+     0.61
+    ],
+    "events": [
+     "37.2:launchFail",
+     "66.852:launchFail",
+     "92.652:capFail",
+     "100.32:capFail"
+    ]
+   },
+   {
+    "id": "tail4.5_s11",
+    "U": 4.5,
+    "dir": "tail",
+    "seed": 11,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.672,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail4.5_s12",
+    "U": 4.5,
+    "dir": "tail",
+    "seed": 12,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.612,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail4.5_s13",
+    "U": 4.5,
+    "dir": "tail",
+    "seed": 13,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.492,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail5.5_s11",
+    "U": 5.5,
+    "dir": "tail",
+    "seed": 11,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.672,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail5.5_s12",
+    "U": 5.5,
+    "dir": "tail",
+    "seed": 12,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.612,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   },
+   {
+    "id": "tail5.5_s13",
+    "U": 5.5,
+    "dir": "tail",
+    "seed": 13,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": null,
+    "addedMass": 0.913,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "keMax": null,
+    "keFlyer": null,
+    "kePod": null,
+    "packVol": 2.278,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 193.01,
+    "meanW": 4.9,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "lowLenP90": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "lineH3p10": null,
+    "crashes": 0,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "slipS": 0,
+    "satS": 0,
+    "cut": false,
+    "broke": false,
+    "refuseS": 66.492,
+    "hcAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "events": []
+   }
+  ],
+  "seconds": 83.144,
+  "byDir": {
+   "calm": {
+    "avail": {
+     "stat": "mean",
+     "value": 26.724,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 271.009,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 6.461,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 63.567,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 15.642,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 10.37,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 21.238,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 1.07,
+     "pass": true,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 160.456,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "head": {
+    "avail": {
+     "stat": "mean",
+     "value": 27.538,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 302.032,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.693,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 70.338,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.696,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 14.63,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.448,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 133.569,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "tail": {
+    "avail": {
+     "stat": "mean",
+     "value": 1.736,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 248.165,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.691,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 71.39,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 25.947,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 16.41,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 21.716,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.448,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "crossL": {
+    "avail": {
+     "stat": "mean",
+     "value": 22.12,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 270.867,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 10.711,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 62.413,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 23.988,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 24.63,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 36.367,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 159.419,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "crossR": {
+    "avail": {
+     "stat": "mean",
+     "value": 27.284,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 285.76,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.407,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 65.778,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 19.37,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 48.848,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.3,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 113.066,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   }
+  },
+  "bySpeed": {
+   "U0": {
+    "avail": {
+     "stat": "mean",
+     "value": 26.724,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 271.009,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 6.461,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 63.567,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 15.642,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 10.37,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 21.238,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 1.07,
+     "pass": true,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 160.456,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "U3": {
+    "avail": {
+     "stat": "mean",
+     "value": 18.658,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 272.139,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.407,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 65.668,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 29.439,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 24.63,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 48.848,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.448,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "U3.5": {
+    "avail": {
+     "stat": "mean",
+     "value": 1.105,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 231.182,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.458,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 76.061,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 25.947,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 21.232,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.448,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 86.379,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "U4.5": {
+    "avail": {
+     "stat": "mean",
+     "value": 0,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": null,
+     "pass": null,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": null,
+     "pass": null,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": null,
+     "pass": null,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": null,
+     "pass": null,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 193.01,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "U5.5": {
+    "avail": {
+     "stat": "mean",
+     "value": 0,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": null,
+     "pass": null,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": null,
+     "pass": null,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": null,
+     "pass": null,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": null,
+     "pass": null,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 193.01,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "U6": {
+    "avail": {
+     "stat": "mean",
+     "value": 22.746,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 285.76,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.015,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 20.428,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 21.63,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 27.481,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.449,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 145.31,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "U9": {
+    "avail": {
+     "stat": "mean",
+     "value": 18.631,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 287.522,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 11.173,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 75.03,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 19.3,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 113.066,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   }
+  }
+ },
+ "variants": {
+  "delta_fly": {
+   "over": {
+    "flyer": 0,
+    "camPos": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.748,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 279.103,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 10.519,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "product": {
+    "launchSuccess": {
+     "mean": 90,
+     "p10": 50,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockFirstTry": {
+     "mean": 80,
+     "p10": 0,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockTime": {
+     "p50": 13.87,
+     "p90": 31.25,
+     "max": 70.86,
+     "n": 60
+    },
+    "capVrel": {
+     "p50": 0.46,
+     "p90": 0.73,
+     "n": 79
+    },
+    "lowLineShare": {
+     "mean": 99.898,
+     "p10": 99.661,
+     "p50": 100,
+     "p90": 100,
+     "min": 98.592,
+     "max": 100,
+     "n": 35
+    },
+    "lowLenP90": {
+     "mean": 1.796,
+     "p10": 1.398,
+     "p50": 1.795,
+     "p90": 2.075,
+     "min": 1.332,
+     "max": 2.165,
+     "n": 35
+    },
+    "thirdPartyS": {
+     "mean": 62.159,
+     "p10": 0,
+     "p50": 84.74,
+     "p90": 100.92,
+     "min": 0,
+     "max": 113.26,
+     "n": 48
+    },
+    "lineH1p10": {
+     "mean": 0.138,
+     "p10": 0.023,
+     "p50": 0.195,
+     "p90": 0.244,
+     "min": -0.267,
+     "max": 0.252,
+     "n": 35
+    },
+    "lineH3p10": {
+     "mean": 1.108,
+     "p10": 0.17,
+     "p50": 1.479,
+     "p90": 1.873,
+     "min": -0.611,
+     "max": 2.02,
+     "n": 35
+    },
+    "crashes": {
+     "mean": 0.521,
+     "p10": 0,
+     "p50": 0,
+     "p90": 2,
+     "min": 0,
+     "max": 5,
+     "n": 48
+    },
+    "Tmax": {
+     "mean": 19.062,
+     "p10": 0,
+     "p50": 15.185,
+     "p90": 41.526,
+     "min": 0,
+     "max": 114.524,
+     "n": 48
+    },
+    "reelPeakW": {
+     "mean": 32.274,
+     "p10": 0,
+     "p50": 27.873,
+     "p90": 67.633,
+     "min": 0,
+     "max": 229.502,
+     "n": 48
+    },
+    "meanW": {
+     "mean": 6.481,
+     "p10": 4.9,
+     "p50": 6.127,
+     "p90": 7.302,
+     "min": 4.9,
+     "max": 15.854,
+     "n": 48
+    },
+    "keFlyer": {
+     "mean": 25.323,
+     "p10": 18.734,
+     "p50": 21.647,
+     "p90": 47.858,
+     "min": 16.284,
+     "max": 57.079,
+     "n": 35
+    },
+    "kePod": {
+     "mean": 0,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 0,
+     "n": 35
+    },
+    "headFlyer": {
+     "mean": 0.926,
+     "p10": 0.448,
+     "p50": 1.086,
+     "p90": 1.235,
+     "min": 0.025,
+     "max": 1.298,
+     "n": 35
+    },
+    "headLine": {
+     "mean": 0.81,
+     "p10": 0.448,
+     "p50": 0.94,
+     "p90": 1.089,
+     "min": 0.014,
+     "max": 1.142,
+     "n": 35
+    },
+    "artShare": {
+     "mean": 6.784,
+     "p10": 1.758,
+     "p50": 5.342,
+     "p90": 15.235,
+     "min": 0.289,
+     "max": 22.756,
+     "n": 33
+    },
+    "filmShare": {
+     "mean": 44.037,
+     "p10": 0,
+     "p50": 43.804,
+     "p90": 80.738,
+     "min": 0,
+     "max": 81.573,
+     "n": 48
+    },
+    "elevMed": {
+     "mean": 48.445,
+     "p10": 46.206,
+     "p50": 48.957,
+     "p90": 50.222,
+     "min": 44.339,
+     "max": 50.556,
+     "n": 33
+    },
+    "tensionMed": {
+     "mean": 7.085,
+     "p10": 5.574,
+     "p50": 7.214,
+     "p90": 8.717,
+     "min": 3.006,
+     "max": 9.301,
+     "n": 33
+    },
+    "refuseS": {
+     "mean": 20.679,
+     "p10": 0,
+     "p50": 0.196,
+     "p90": 66.612,
+     "min": 0,
+     "max": 66.672,
+     "n": 48
+    },
+    "manual": {
+     "mean": 0,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 0,
+     "n": 48
+    }
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 33,
+    "cut": 0,
+    "broke": 2
+   }
+  },
+  "delta_line": {
+   "over": {
+    "flyer": 0,
+    "camPos": 1
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 5.305,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 312.44,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 24.165,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 59.744,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.96,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 41.632,
+     "pass": false,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 55.355,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.475,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.048,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 82.464,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "product": {
+    "launchSuccess": {
+     "mean": 92.857,
+     "p10": 50,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockFirstTry": {
+     "mean": 76.923,
+     "p10": 0,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 26
+    },
+    "dockTime": {
+     "p50": 23.75,
+     "p90": 33.78,
+     "max": 89.9,
+     "n": 41
+    },
+    "capVrel": {
+     "p50": 0.43,
+     "p90": 0.67,
+     "n": 57
+    },
+    "lowLineShare": {
+     "mean": 99.878,
+     "p10": 99.042,
+     "p50": 100,
+     "p90": 100,
+     "min": 98.836,
+     "max": 100,
+     "n": 35
+    },
+    "lowLenP90": {
+     "mean": 2.181,
+     "p10": 2.155,
+     "p50": 2.184,
+     "p90": 2.203,
+     "min": 2.115,
+     "max": 2.213,
+     "n": 35
+    },
+    "thirdPartyS": {
+     "mean": 47.61,
+     "p10": 0,
+     "p50": 59.98,
+     "p90": 90.38,
+     "min": 0,
+     "max": 111.34,
+     "n": 48
+    },
+    "lineH1p10": {
+     "mean": 0.186,
+     "p10": 0.081,
+     "p50": 0.201,
+     "p90": 0.224,
+     "min": 0.007,
+     "max": 0.266,
+     "n": 35
+    },
+    "lineH3p10": {
+     "mean": 0.167,
+     "p10": 0.061,
+     "p50": 0.144,
+     "p90": 0.269,
+     "min": -0.057,
+     "max": 0.658,
+     "n": 35
+    },
+    "crashes": {
+     "mean": 0.958,
+     "p10": 0,
+     "p50": 1,
+     "p90": 2,
+     "min": 0,
+     "max": 5,
+     "n": 48
+    },
+    "Tmax": {
+     "mean": 32.585,
+     "p10": 0,
+     "p50": 38.084,
+     "p90": 55.781,
+     "min": 0,
+     "max": 106.19,
+     "n": 48
+    },
+    "reelPeakW": {
+     "mean": 83.895,
+     "p10": 0,
+     "p50": 89.678,
+     "p90": 159.235,
+     "min": 0,
+     "max": 230.871,
+     "n": 48
+    },
+    "meanW": {
+     "mean": 6.913,
+     "p10": 5.95,
+     "p50": 6.555,
+     "p90": 7.76,
+     "min": 5.95,
+     "max": 14.393,
+     "n": 48
+    },
+    "keFlyer": {
+     "mean": 31.398,
+     "p10": 19.227,
+     "p50": 30.795,
+     "p90": 45.047,
+     "min": 14.665,
+     "max": 55.355,
+     "n": 35
+    },
+    "kePod": {
+     "mean": 18.725,
+     "p10": 12.345,
+     "p50": 19.041,
+     "p90": 25.698,
+     "min": 0,
+     "max": 28.248,
+     "n": 35
+    },
+    "headFlyer": {
+     "mean": 0.746,
+     "p10": 0.345,
+     "p50": 0.791,
+     "p90": 1.095,
+     "min": 0.072,
+     "max": 1.128,
+     "n": 35
+    },
+    "headLine": {
+     "mean": 0.687,
+     "p10": 0.179,
+     "p50": 0.755,
+     "p90": 1.093,
+     "min": 0.048,
+     "max": 1.109,
+     "n": 35
+    },
+    "artShare": {
+     "mean": 6.02,
+     "p10": 2.201,
+     "p50": 5.867,
+     "p90": 10,
+     "min": 0.825,
+     "max": 16.23,
+     "n": 33
+    },
+    "filmShare": {
+     "mean": 22.634,
+     "p10": 0,
+     "p50": 20.124,
+     "p90": 55.577,
+     "min": 0,
+     "max": 79.203,
+     "n": 48
+    },
+    "elevMed": {
+     "mean": 40.96,
+     "p10": 35.624,
+     "p50": 40.64,
+     "p90": 45.788,
+     "min": 30.157,
+     "max": 51.065,
+     "n": 33
+    },
+    "tensionMed": {
+     "mean": 3.896,
+     "p10": 0.645,
+     "p50": 4.201,
+     "p90": 5.699,
+     "min": 0.025,
+     "max": 6.638,
+     "n": 33
+    },
+    "refuseS": {
+     "mean": 20.895,
+     "p10": 0,
+     "p50": 0,
+     "p90": 66.612,
+     "min": 0,
+     "max": 66.672,
+     "n": 48
+    },
+    "manual": {
+     "mean": 0.083,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 2,
+     "n": 48
+    }
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 34,
+    "cut": 0,
+    "broke": 14
+   }
+  },
+  "kite_fly": {
+   "over": {
+    "flyer": 1,
+    "camPos": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 11.822,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 238.217,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 14.118,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 73.399,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.966,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 36.537,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 70.74,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.889,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.033,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 90.668,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "product": {
+    "launchSuccess": {
+     "mean": 91.429,
+     "p10": 50,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockFirstTry": {
+     "mean": 75.862,
+     "p10": 0,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 29
+    },
+    "dockTime": {
+     "p50": 13.67,
+     "p90": 31.86,
+     "max": 61.65,
+     "n": 47
+    },
+    "capVrel": {
+     "p50": 0.44,
+     "p90": 0.65,
+     "n": 62
+    },
+    "lowLineShare": {
+     "mean": 99.763,
+     "p10": 98.477,
+     "p50": 100,
+     "p90": 100,
+     "min": 98.256,
+     "max": 100,
+     "n": 35
+    },
+    "lowLenP90": {
+     "mean": 1.916,
+     "p10": 1.607,
+     "p50": 1.94,
+     "p90": 2.191,
+     "min": 1.47,
+     "max": 2.204,
+     "n": 35
+    },
+    "thirdPartyS": {
+     "mean": 51.971,
+     "p10": 0,
+     "p50": 64.66,
+     "p90": 96.56,
+     "min": 0,
+     "max": 106.86,
+     "n": 48
+    },
+    "lineH1p10": {
+     "mean": 0.196,
+     "p10": 0.059,
+     "p50": 0.221,
+     "p90": 0.248,
+     "min": 0.02,
+     "max": 0.335,
+     "n": 35
+    },
+    "lineH3p10": {
+     "mean": 0.943,
+     "p10": 0.171,
+     "p50": 0.896,
+     "p90": 1.713,
+     "min": 0.114,
+     "max": 1.965,
+     "n": 35
+    },
+    "crashes": {
+     "mean": 1.25,
+     "p10": 0,
+     "p50": 1,
+     "p90": 3,
+     "min": 0,
+     "max": 7,
+     "n": 48
+    },
+    "Tmax": {
+     "mean": 25.247,
+     "p10": 0,
+     "p50": 28.021,
+     "p90": 38.876,
+     "min": 0,
+     "max": 126.678,
+     "n": 48
+    },
+    "reelPeakW": {
+     "mean": 35.361,
+     "p10": 0,
+     "p50": 35.919,
+     "p90": 68.628,
+     "min": 0,
+     "max": 185.297,
+     "n": 48
+    },
+    "meanW": {
+     "mean": 6.763,
+     "p10": 4.9,
+     "p50": 6.653,
+     "p90": 8.904,
+     "min": 4.9,
+     "max": 12.483,
+     "n": 48
+    },
+    "keFlyer": {
+     "mean": 37.951,
+     "p10": 24.409,
+     "p50": 36.519,
+     "p90": 59.725,
+     "min": 9.973,
+     "max": 70.74,
+     "n": 35
+    },
+    "kePod": {
+     "mean": 0,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 0,
+     "n": 35
+    },
+    "headFlyer": {
+     "mean": 0.943,
+     "p10": 0.273,
+     "p50": 1.039,
+     "p90": 1.561,
+     "min": 0.108,
+     "max": 1.576,
+     "n": 35
+    },
+    "headLine": {
+     "mean": 0.84,
+     "p10": 0.451,
+     "p50": 0.876,
+     "p90": 1.136,
+     "min": 0.033,
+     "max": 1.242,
+     "n": 35
+    },
+    "artShare": {
+     "mean": 1.653,
+     "p10": 0,
+     "p50": 1.64,
+     "p90": 3.566,
+     "min": 0,
+     "max": 4.704,
+     "n": 33
+    },
+    "filmShare": {
+     "mean": 39.368,
+     "p10": 0,
+     "p50": 43.885,
+     "p90": 81.6,
+     "min": 0,
+     "max": 81.708,
+     "n": 48
+    },
+    "elevMed": {
+     "mean": 46.711,
+     "p10": 42.77,
+     "p50": 48.42,
+     "p90": 50.936,
+     "min": 23.036,
+     "max": 52.112,
+     "n": 33
+    },
+    "tensionMed": {
+     "mean": 10.169,
+     "p10": 7.778,
+     "p50": 9.089,
+     "p90": 15.173,
+     "min": 7.289,
+     "max": 20.042,
+     "n": 33
+    },
+    "refuseS": {
+     "mean": 20.668,
+     "p10": 0,
+     "p50": 0,
+     "p90": 66.612,
+     "min": 0,
+     "max": 66.672,
+     "n": 48
+    },
+    "manual": {
+     "mean": 0,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 0,
+     "n": 48
+    }
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 33,
+    "cut": 0,
+    "broke": 7
+   }
+  },
+  "kite_line": {
+   "over": {
+    "flyer": 1,
+    "camPos": 1
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 4.569,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 269.777,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 26.69,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 67.85,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 1.012,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 38.152,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 47.57,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 3.147,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.05,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 88.335,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "product": {
+    "launchSuccess": {
+     "mean": 88.571,
+     "p10": 50,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockFirstTry": {
+     "mean": 68.182,
+     "p10": 0,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 22
+    },
+    "dockTime": {
+     "p50": 15.1,
+     "p90": 34.85,
+     "max": 40.7,
+     "n": 34
+    },
+    "capVrel": {
+     "p50": 0.4,
+     "p90": 0.55,
+     "n": 53
+    },
+    "lowLineShare": {
+     "mean": 99.823,
+     "p10": 99.202,
+     "p50": 100,
+     "p90": 100,
+     "min": 98.152,
+     "max": 100,
+     "n": 35
+    },
+    "lowLenP90": {
+     "mean": 2.139,
+     "p10": 2.094,
+     "p50": 2.153,
+     "p90": 2.196,
+     "min": 1.669,
+     "max": 2.229,
+     "n": 35
+    },
+    "thirdPartyS": {
+     "mean": 41.788,
+     "p10": 0,
+     "p50": 35.46,
+     "p90": 92.92,
+     "min": 0,
+     "max": 117.04,
+     "n": 48
+    },
+    "lineH1p10": {
+     "mean": 0.199,
+     "p10": 0.07,
+     "p50": 0.221,
+     "p90": 0.272,
+     "min": 0.063,
+     "max": 0.285,
+     "n": 35
+    },
+    "lineH3p10": {
+     "mean": 0.453,
+     "p10": 0.137,
+     "p50": 0.354,
+     "p90": 0.911,
+     "min": -0.089,
+     "max": 1.372,
+     "n": 35
+    },
+    "crashes": {
+     "mean": 0.833,
+     "p10": 0,
+     "p50": 1,
+     "p90": 2,
+     "min": 0,
+     "max": 6,
+     "n": 48
+    },
+    "Tmax": {
+     "mean": 33.153,
+     "p10": 0,
+     "p50": 39.397,
+     "p90": 51.373,
+     "min": 0,
+     "max": 93.205,
+     "n": 48
+    },
+    "reelPeakW": {
+     "mean": 57.779,
+     "p10": 0,
+     "p50": 48.4,
+     "p90": 106.469,
+     "min": 0,
+     "max": 222.573,
+     "n": 48
+    },
+    "meanW": {
+     "mean": 7.396,
+     "p10": 5.95,
+     "p50": 7.067,
+     "p90": 9.154,
+     "min": 5.95,
+     "max": 13.316,
+     "n": 48
+    },
+    "keFlyer": {
+     "mean": 30.979,
+     "p10": 13.476,
+     "p50": 33.032,
+     "p90": 40.936,
+     "min": 7.889,
+     "max": 47.57,
+     "n": 35
+    },
+    "kePod": {
+     "mean": 14.547,
+     "p10": 5.263,
+     "p50": 15.552,
+     "p90": 21.654,
+     "min": 0,
+     "max": 25.193,
+     "n": 35
+    },
+    "headFlyer": {
+     "mean": 0.841,
+     "p10": 0.144,
+     "p50": 0.905,
+     "p90": 1.213,
+     "min": 0.056,
+     "max": 1.572,
+     "n": 35
+    },
+    "headLine": {
+     "mean": 0.785,
+     "p10": 0.169,
+     "p50": 0.892,
+     "p90": 1.144,
+     "min": 0.05,
+     "max": 1.242,
+     "n": 35
+    },
+    "artShare": {
+     "mean": 12.768,
+     "p10": 4.839,
+     "p50": 12.179,
+     "p90": 22.405,
+     "min": 2.156,
+     "max": 28.261,
+     "n": 32
+    },
+    "filmShare": {
+     "mean": 26.793,
+     "p10": 0,
+     "p50": 21.336,
+     "p90": 72.144,
+     "min": 0,
+     "max": 79.957,
+     "n": 48
+    },
+    "elevMed": {
+     "mean": 44.94,
+     "p10": 30.652,
+     "p50": 48.061,
+     "p90": 51.499,
+     "min": 20.697,
+     "max": 53.799,
+     "n": 32
+    },
+    "tensionMed": {
+     "mean": 9.153,
+     "p10": 5.555,
+     "p50": 7.949,
+     "p90": 14.753,
+     "min": 4.482,
+     "max": 17.142,
+     "n": 32
+    },
+    "refuseS": {
+     "mean": 20.622,
+     "p10": 0,
+     "p50": 0,
+     "p90": 66.612,
+     "min": 0,
+     "max": 66.672,
+     "n": 48
+    },
+    "manual": {
+     "mean": 0.083,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 2,
+     "n": 48
+    }
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 32,
+    "cut": 0,
+    "broke": 15
+   }
+  }
+ },
+ "product": {
+  "launchSuccess": {
+   "mean": 90,
+   "p10": 50,
+   "p50": 100,
+   "p90": 100,
+   "min": 0,
+   "max": 100,
+   "n": 35
+  },
+  "dockFirstTry": {
+   "mean": 80,
+   "p10": 0,
+   "p50": 100,
+   "p90": 100,
+   "min": 0,
+   "max": 100,
+   "n": 35
+  },
+  "dockTime": {
+   "p50": 13.87,
+   "p90": 31.25,
+   "max": 70.86,
+   "n": 60
+  },
+  "capVrel": {
+   "p50": 0.46,
+   "p90": 0.73,
+   "n": 79
+  },
+  "lowLineShare": {
+   "mean": 99.898,
+   "p10": 99.661,
+   "p50": 100,
+   "p90": 100,
+   "min": 98.592,
+   "max": 100,
+   "n": 35
+  },
+  "lowLenP90": {
+   "mean": 1.796,
+   "p10": 1.398,
+   "p50": 1.795,
+   "p90": 2.075,
+   "min": 1.332,
+   "max": 2.165,
+   "n": 35
+  },
+  "thirdPartyS": {
+   "mean": 62.159,
+   "p10": 0,
+   "p50": 84.74,
+   "p90": 100.92,
+   "min": 0,
+   "max": 113.26,
+   "n": 48
+  },
+  "lineH1p10": {
+   "mean": 0.138,
+   "p10": 0.023,
+   "p50": 0.195,
+   "p90": 0.244,
+   "min": -0.267,
+   "max": 0.252,
+   "n": 35
+  },
+  "lineH3p10": {
+   "mean": 1.108,
+   "p10": 0.17,
+   "p50": 1.479,
+   "p90": 1.873,
+   "min": -0.611,
+   "max": 2.02,
+   "n": 35
+  },
+  "crashes": {
+   "mean": 0.521,
+   "p10": 0,
+   "p50": 0,
+   "p90": 2,
+   "min": 0,
+   "max": 5,
+   "n": 48
+  },
+  "Tmax": {
+   "mean": 19.062,
+   "p10": 0,
+   "p50": 15.185,
+   "p90": 41.526,
+   "min": 0,
+   "max": 114.524,
+   "n": 48
+  },
+  "reelPeakW": {
+   "mean": 32.274,
+   "p10": 0,
+   "p50": 27.873,
+   "p90": 67.633,
+   "min": 0,
+   "max": 229.502,
+   "n": 48
+  },
+  "meanW": {
+   "mean": 6.481,
+   "p10": 4.9,
+   "p50": 6.127,
+   "p90": 7.302,
+   "min": 4.9,
+   "max": 15.854,
+   "n": 48
+  },
+  "keFlyer": {
+   "mean": 25.323,
+   "p10": 18.734,
+   "p50": 21.647,
+   "p90": 47.858,
+   "min": 16.284,
+   "max": 57.079,
+   "n": 35
+  },
+  "kePod": {
+   "mean": 0,
+   "p10": 0,
+   "p50": 0,
+   "p90": 0,
+   "min": 0,
+   "max": 0,
+   "n": 35
+  },
+  "headFlyer": {
+   "mean": 0.926,
+   "p10": 0.448,
+   "p50": 1.086,
+   "p90": 1.235,
+   "min": 0.025,
+   "max": 1.298,
+   "n": 35
+  },
+  "headLine": {
+   "mean": 0.81,
+   "p10": 0.448,
+   "p50": 0.94,
+   "p90": 1.089,
+   "min": 0.014,
+   "max": 1.142,
+   "n": 35
+  },
+  "artShare": {
+   "mean": 6.784,
+   "p10": 1.758,
+   "p50": 5.342,
+   "p90": 15.235,
+   "min": 0.289,
+   "max": 22.756,
+   "n": 33
+  },
+  "filmShare": {
+   "mean": 44.037,
+   "p10": 0,
+   "p50": 43.804,
+   "p90": 80.738,
+   "min": 0,
+   "max": 81.573,
+   "n": 48
+  },
+  "elevMed": {
+   "mean": 48.445,
+   "p10": 46.206,
+   "p50": 48.957,
+   "p90": 50.222,
+   "min": 44.339,
+   "max": 50.556,
+   "n": 33
+  },
+  "tensionMed": {
+   "mean": 7.085,
+   "p10": 5.574,
+   "p50": 7.214,
+   "p90": 8.717,
+   "min": 3.006,
+   "max": 9.301,
+   "n": 33
+  },
+  "refuseS": {
+   "mean": 20.679,
+   "p10": 0,
+   "p50": 0.196,
+   "p90": 66.612,
+   "min": 0,
+   "max": 66.672,
+   "n": 48
+  },
+  "manual": {
+   "mean": 0,
+   "p10": 0,
+   "p50": 0,
+   "p90": 0,
+   "min": 0,
+   "max": 0,
+   "n": 48
+  }
+ },
+ "robustness": {
+  "seeds11to16": {
+   "n": 78,
+   "keMax": {
+    "mean": 27.885,
+    "p10": 18.769,
+    "p50": 23.594,
+    "p90": 48.631,
+    "min": 16.284,
+    "max": 78.181,
+    "n": 66
+   },
+   "headClear": {
+    "mean": 0.795,
+    "p10": 0.315,
+    "p50": 0.94,
+    "p90": 1.102,
+    "min": 0.014,
+    "max": 1.164,
+    "n": 66
+   },
+   "bodyForcePeak": {
+    "mean": 16.259,
+    "p10": 0,
+    "p50": 16.187,
+    "p90": 29.397,
+    "min": 0,
+    "max": 34.161,
+    "n": 78
+   },
+   "avail": {
+    "mean": 18.293,
+    "p10": 0,
+    "p50": 18.831,
+    "p90": 31.816,
+    "min": 0,
+    "max": 39.143,
+    "n": 78
+   },
+   "keOver14_9": 66,
+   "headUnder1": 57,
+   "forceOver40": 0,
+   "cutOrBroke": 4
+  },
+  "offGrid": {
+   "n": 39,
+   "keMax": {
+    "mean": 22.962,
+    "p10": 17.779,
+    "p50": 22.382,
+    "p90": 26.411,
+    "min": 12.707,
+    "max": 41.631,
+    "n": 18
+   },
+   "headClear": {
+    "mean": 0.698,
+    "p10": 0.419,
+    "p50": 0.763,
+    "p90": 0.928,
+    "min": 0.213,
+    "max": 1.038,
+    "n": 18
+   },
+   "bodyForcePeak": {
+    "mean": 6.38,
+    "p10": 0,
+    "p50": 0,
+    "p90": 15.267,
+    "min": 0,
+    "max": 20.175,
+    "n": 39
+   },
+   "avail": {
+    "mean": 8.317,
+    "p10": 0,
+    "p50": 0,
+    "p90": 23.707,
+    "min": 0,
+    "max": 36.773,
+    "n": 39
+   },
+   "keOver14_9": 17,
+   "headUnder1": 38,
+   "forceOver40": 0,
+   "cutOrBroke": 0
+  },
+  "offGridRows": [
+   {
+    "id": "tail2_s11",
+    "avail": 23.707,
+    "keMax": 19.759,
+    "headClear": 0.913,
+    "bodyForcePeak": 10.799,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "tail2_s12",
+    "avail": 23.276,
+    "keMax": 19.162,
+    "headClear": 1.038,
+    "bodyForcePeak": 11.988,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "tail2_s13",
+    "avail": 29.31,
+    "keMax": 25.781,
+    "headClear": 0.928,
+    "bodyForcePeak": 12.535,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "tail2.5_s11",
+    "avail": 10.21,
+    "keMax": 18.654,
+    "headClear": 0.827,
+    "bodyForcePeak": 18.928,
+    "launches": 2,
+    "launchFails": 1,
+    "flown": true
+   },
+   {
+    "id": "tail2.5_s12",
+    "avail": 23.707,
+    "keMax": 18.371,
+    "headClear": 0.539,
+    "bodyForcePeak": 10.899,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "tail2.5_s13",
+    "avail": 8.675,
+    "keMax": 22.382,
+    "headClear": 0.838,
+    "bodyForcePeak": 16.583,
+    "launches": 2,
+    "launchFails": 1,
+    "flown": true
+   },
+   {
+    "id": "tail3.25_s11",
+    "avail": 14.386,
+    "keMax": 26.411,
+    "headClear": 0.365,
+    "bodyForcePeak": 12.129,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "tail3.25_s12",
+    "avail": 22.629,
+    "keMax": 23.571,
+    "headClear": 0.762,
+    "bodyForcePeak": 10.957,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "tail3.25_s13",
+    "avail": 11.153,
+    "keMax": 41.631,
+    "headClear": 0.739,
+    "bodyForcePeak": 11.286,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "tail3.75_s11",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail3.75_s12",
+    "avail": 9.887,
+    "keMax": 23.997,
+    "headClear": 0.447,
+    "bodyForcePeak": 11.564,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "tail3.75_s13",
+    "avail": 0,
+    "keMax": 15.985,
+    "headClear": 0.585,
+    "bodyForcePeak": 13.655,
+    "launches": 2,
+    "launchFails": 1,
+    "flown": true
+   },
+   {
+    "id": "tail4_s11",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail4_s12",
+    "avail": 0,
+    "keMax": 12.707,
+    "headClear": 0.763,
+    "bodyForcePeak": 13.002,
+    "launches": 1,
+    "launchFails": 1,
+    "flown": false
+   },
+   {
+    "id": "tail4_s13",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail4.25_s11",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail4.25_s12",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail4.25_s13",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail4.75_s11",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail4.75_s12",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail4.75_s13",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5_s11",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5_s12",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5_s13",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5.25_s11",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5.25_s12",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5.25_s13",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5.75_s11",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5.75_s12",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail5.75_s13",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail6_s11",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail6_s12",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "tail6_s13",
+    "avail": 0,
+    "keMax": null,
+    "headClear": null,
+    "bodyForcePeak": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "flown": false
+   },
+   {
+    "id": "crossL7.5_s11",
+    "avail": 14.871,
+    "keMax": 17.779,
+    "headClear": 0.419,
+    "bodyForcePeak": 12.388,
+    "launches": 1,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "crossR7.5_s11",
+    "avail": 36.773,
+    "keMax": 18.954,
+    "headClear": 0.971,
+    "bodyForcePeak": 14.354,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "crossL7.5_s12",
+    "avail": 15.544,
+    "keMax": 25.286,
+    "headClear": 0.505,
+    "bodyForcePeak": 20.175,
+    "launches": 1,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "crossR7.5_s12",
+    "avail": 32.247,
+    "keMax": 24.063,
+    "headClear": 0.852,
+    "bodyForcePeak": 20.131,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "crossL7.5_s13",
+    "avail": 15.787,
+    "keMax": 36.819,
+    "headClear": 0.213,
+    "bodyForcePeak": 15.267,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   },
+   {
+    "id": "crossR7.5_s13",
+    "avail": 32.193,
+    "keMax": 22.001,
+    "headClear": 0.863,
+    "bodyForcePeak": 12.176,
+    "launches": 2,
+    "launchFails": 0,
+    "flown": true
+   }
+  ],
+  "note": "grid-only safety was shown to be non-robust in round 4; these runs repeat the wind grid on 6 seeds and add off-grid tail/cross winds",
+  "seconds": 118.836
+ },
+ "sensitivity": {
+  "polar_cd0_x1_3": {
+   "over": {
+    "cd0Scale": 1.3
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 17.46,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 278.445,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.274,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 31.24,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.947,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.018,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 81.935,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 87.143,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 14.48,
+    "p90": 28.27,
+    "max": 57.57,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.313,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 4,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "polar_clmax_x0_8": {
+   "over": {
+    "clmaxScale": 0.8
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 15.012,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 272.335,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 70.633,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.048,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 65.767,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.071,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 79.097,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 78.125,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 32
+   },
+   "dockTime": {
+    "p50": 13.03,
+    "p90": 38.13,
+    "max": 66.02,
+    "n": 53
+   },
+   "crashes": {
+    "mean": 1.063,
+    "p10": 0,
+    "p50": 0,
+    "p90": 3,
+    "min": 0,
+    "max": 9,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 5
+  },
+  "mass_x0_7": {
+   "over": {
+    "massScale": 0.7
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.3,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 277.892,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.412,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 33.731,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 21.2,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 33.881,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.054,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 69.049,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 72.059,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 34
+   },
+   "dockTime": {
+    "p50": 16.4,
+    "p90": 33.77,
+    "max": 62.13,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.313,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 25,
+   "cutOrBroke": 1
+  },
+  "mass_x1_3": {
+   "over": {
+    "massScale": 1.3
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 12.648,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 282.424,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 70.344,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 34.184,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 98.478,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.107,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 66.825,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 84.286,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 74.138,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 29
+   },
+   "dockTime": {
+    "p50": 12.39,
+    "p90": 31.08,
+    "max": 61.8,
+    "n": 44
+   },
+   "crashes": {
+    "mean": 0.833,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 4,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 10
+  },
+  "mass_x0_5": {
+   "over": {
+    "massScale": 0.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 14.138,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 263.406,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.572,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.29,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 18.92,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 40.458,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.09,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 80.697,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 72.857,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 15.79,
+    "p90": 34.56,
+    "max": 42.11,
+    "n": 57
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 4,
+    "n": 48
+   },
+   "keOver14_9": 9,
+   "cutOrBroke": 0
+  },
+  "capture_x0_8": {
+   "over": {
+    "capScale": 0.8
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.47,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 279.103,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.71,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 71.429,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 17.98,
+    "p90": 31.25,
+    "max": 70.86,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "sensors_x2": {
+   "over": {
+    "noise": 2
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 13.598,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 274.613,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 11.813,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 70.758,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.308,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 53.876,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.039,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 52.851,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 81.429,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 69.355,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 31
+   },
+   "dockTime": {
+    "p50": 14.28,
+    "p90": 33.01,
+    "max": 62.65,
+    "n": 54
+   },
+   "crashes": {
+    "mean": 0.667,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 4,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 5
+  },
+  "sensors_x0": {
+   "over": {
+    "noise": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 17.778,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 282.018,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.31,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 65.635,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 33.7,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 20.92,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 41.34,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.103,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 65.366,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 84.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.37,
+    "p90": 28.38,
+    "max": 60.73,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.354,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 1
+  },
+  "motor_coldbus_11V": {
+   "over": {
+    "V0": 11
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.898,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 280.631,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 14.15,
+    "p90": 31.41,
+    "max": 70.86,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "motor_coldbus_9V5": {
+   "over": {
+    "V0": 9.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.896,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 280.631,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.87,
+    "p90": 31.41,
+    "max": 70.86,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "launch_payout_4": {
+   "over": {
+    "vLaunch": 4
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.515,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 271.508,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 67.13,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.69,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 24.62,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.077,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.01,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 71.735,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.55,
+    "p90": 29.38,
+    "max": 64.73,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.5,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 1
+  },
+  "elev_40": {
+   "over": {
+    "elev": 40
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 18.573,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 306.852,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 67.219,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.595,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 53.369,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.113,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.241,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 91.429,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 83.333,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 33
+   },
+   "dockTime": {
+    "p50": 14.9,
+    "p90": 32.4,
+    "max": 39.79,
+    "n": 52
+   },
+   "crashes": {
+    "mean": 1.25,
+    "p10": 0,
+    "p50": 1,
+    "p90": 3,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 7
+  },
+  "elev_60": {
+   "over": {
+    "elev": 60
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 9.09,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 230.4,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 68.685,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 28.836,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 19.02,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 59.828,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.012,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 71.464,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 91.429,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 77.143,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 15.69,
+    "p90": 28.16,
+    "max": 42.49,
+    "n": 59
+   },
+   "crashes": {
+    "mean": 0.292,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 0
+  },
+  "line_7_5": {
+   "over": {
+    "LfilmFly": 7.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 15.604,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 289.995,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 67.544,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.888,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.875,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.073,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 62.762,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 88.571,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 70.588,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 34
+   },
+   "dockTime": {
+    "p50": 13.6,
+    "p90": 34.49,
+    "max": 61.26,
+    "n": 56
+   },
+   "crashes": {
+    "mean": 1.625,
+    "p10": 0,
+    "p50": 0,
+    "p90": 5,
+    "min": 0,
+    "max": 11,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 5
+  },
+  "line_13": {
+   "over": {
+    "LfilmFly": 13
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 14.403,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 262.492,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 69.404,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 36.24,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 20.32,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 37.782,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.125,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 59.607,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 91.429,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 67.143,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 14.28,
+    "p90": 62.5,
+    "max": 66.42,
+    "n": 52
+   },
+   "crashes": {
+    "mean": 0.333,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 1
+  },
+  "station_meancourse_0_5": {
+   "over": {
+    "devK": 0.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 12.37,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 220.117,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 86.053,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 33.489,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.62,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 37.005,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.027,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 74.312,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 16.46,
+    "p90": 31.72,
+    "max": 65.11,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.229,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 2,
+    "n": 48
+   },
+   "keOver14_9": 32,
+   "cutOrBroke": 0
+  },
+  "camera_4K": {
+   "over": {
+    "cam48": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 9.146,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 221.728,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 10.519,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.87,
+    "p90": 31.25,
+    "max": 70.86,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "straightGate_6": {
+   "over": {
+    "straightAcc": 6
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 17.416,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 279.103,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 65.778,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.696,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 100.404,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 93.243,
+    "p10": 100,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 37
+   },
+   "dockFirstTry": {
+    "mean": 80.556,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 36
+   },
+   "dockTime": {
+    "p50": 13.83,
+    "p90": 29.31,
+    "max": 70.86,
+    "n": 61
+   },
+   "crashes": {
+    "mean": 0.396,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 37,
+   "cutOrBroke": 3
+  },
+  "gate_1_2": {
+   "over": {
+    "gateK": 1.2
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.51,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 279.83,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 33.193,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.71,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 65.464,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 88.571,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 78.571,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.87,
+    "p90": 31.41,
+    "max": 70.86,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 6,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "noSideDrop": {
+   "over": {
+    "sideDrop": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.545,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 277.494,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.71,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 71.866,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 91.429,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 82.353,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 34
+   },
+   "dockTime": {
+    "p50": 13.33,
+    "p90": 31.41,
+    "max": 70.86,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.542,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "predock_geofence_6s": {
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 12.732,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 275.11,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.636,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.142,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 48.631,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.056,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "dockFirstTry": {
+    "mean": 69.355,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 31
+   },
+   "dockTime": {
+    "p50": 18.28,
+    "p90": 31.25,
+    "max": 67.69,
+    "n": 51
+   },
+   "capVrel": {
+    "p50": 0.5,
+    "p90": 0.73,
+    "n": 75
+   }
+  }
+ },
+ "sensitivitySeconds": 980.969,
+ "falseLaunch": {
+  "days": 40,
+  "detectorStartsPerDay": 0.975,
+  "launchesPerDay_afterWindGate_head3": 0.975,
+  "perActivity": {
+   "queue": {
+    "n": 600,
+    "starts": 0,
+    "gated": 0
+   },
+   "chairlift": {
+    "n": 438,
+    "starts": 0,
+    "gated": 0
+   },
+   "surfaceLift": {
+    "n": 162,
+    "starts": 0,
+    "gated": 0
+   },
+   "walk": {
+    "n": 80,
+    "starts": 0,
+    "gated": 0
+   },
+   "gondolaUp": {
+    "n": 20,
+    "starts": 0,
+    "gated": 0
+   },
+   "catTrack": {
+    "n": 120,
+    "starts": 0,
+    "gated": 0
+   },
+   "sitDown": {
+    "n": 120,
+    "starts": 0,
+    "gated": 0
+   },
+   "busDown": {
+    "n": 40,
+    "starts": 39,
+    "gated": 39
+   },
+   "gondolaDown": {
+    "n": 20,
+    "starts": 0,
+    "gated": 0
+   }
+  },
+  "note": "synthetic traces from science_control/lib/traces.mjs (15 laps queue + chair/surface lift, walks, gondola, cat tracks, sit-downs, one bus descent per day); a \"false launch\" = detector start on a non-ski label (0) that also passes the apparent-wind gate assuming a 3 m/s headwind. Cat tracks (label 2, ambiguous) are excluded. Synthetic activity models — field logs required (≥50 ski days).",
+  "targets": {
+   "lift": "0 per 500 lift rides",
+   "unintendedPerDay": "≤0.2"
+  }
+ },
+ "dtCheck": [
+  {
+   "id": "calm_s11",
+   "dt2ms": {
+    "avail": 21.875,
+    "keMax": 16.284,
+    "headClear": 1.119,
+    "bodyForcePeak": 13.079,
+    "elevMed": 50.556,
+    "tensionMed": 7.39
+   },
+   "dt1ms": {
+    "avail": 23.491,
+    "keMax": 16.82,
+    "headClear": 1.087,
+    "bodyForcePeak": 12.758,
+    "elevMed": 50.23,
+    "tensionMed": 7.199
+   }
+  },
+  {
+   "id": "head6_s12",
+   "dt2ms": {
+    "avail": 35.129,
+    "keMax": 23.813,
+    "headClear": 1.088,
+    "bodyForcePeak": 16.252,
+    "elevMed": 49.066,
+    "tensionMed": 8.296
+   },
+   "dt1ms": {
+    "avail": 30.28,
+    "keMax": 21.543,
+    "headClear": 1.148,
+    "bodyForcePeak": 15.68,
+    "elevMed": 48.67,
+    "tensionMed": 8.26
+   }
+  },
+  {
+   "id": "crossL3_s13",
+   "dt2ms": {
+    "avail": 17.699,
+    "keMax": 19.422,
+    "headClear": 0.981,
+    "bodyForcePeak": 12.092,
+    "elevMed": 48.916,
+    "tensionMed": 7.363
+   },
+   "dt1ms": {
+    "avail": 15.356,
+    "keMax": 32.367,
+    "headClear": 0.543,
+    "bodyForcePeak": 22.009,
+    "elevMed": 49.336,
+    "tensionMed": 7.185
+   }
+  }
+ ],
+ "seconds": 1420.087
+}

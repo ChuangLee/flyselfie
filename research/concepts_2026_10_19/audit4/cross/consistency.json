@@ -1,0 +1,63 @@
+{
+ "generated": "2026-10-20",
+ "round": 4,
+ "evidence": "independent audit4 of numerical, uncalibrated simulations; not physical verification",
+ "checks": [
+  {
+   "id": "A4-X-01",
+   "severity": "major",
+   "metric": "wind-estimate bias seeding / grid coverage",
+   "finding": "windEstimate() seeds its ±1 m/s bias from the case seed, so the 48-case grid samples only 3 bias draws per wind. leapfrog keMax and C0 range pass on seeds 11–13 but fail on seeds 14–22 (tail5.5_s15 15.03 J / 54.9 m; tail6_s17 16.05 J; tail5.5_s20 15.49 J; tail6_s21 50.5 m). towglider passes all 48 but crossL7.5_s11 (off-grid, gate on) gives headClear 0.934 m. kite2 KE margin 0.62 J. Grid-only safety maxima are not robust.",
+   "favours": "leapfrog and towglider (safety maxima)",
+   "action": "integrator: judge safety maxima (keMax, headClear, range) on ≥6 seeds and an off-grid band, or decouple the bias seed from the turbulence seed",
+   "evidence": "audit4/leapfrog/out_seeds_0_48.json, out_tailseeds_0_24.json; audit4/towglider/out_crossL75.json"
+  },
+  {
+   "id": "A4-X-02",
+   "severity": "major",
+   "metric": "idealised estimators still in judged runs (rule 5)",
+   "finding": "All launch/park gates use windEstimate() (compliant for all three). But: leapfrog tracker latency compensation and GNSS feed-forward use the true LOS increment/rate (+noise, 50 Hz) and guidance uses true rider state; towglider camera mount is pointed from the true rider position; kite2 window controller uses noise-free kite position/velocity and true dynamic pressure. Effects measured: leapfrog jitter 1.64 → 2.01 (est. comp, 5 Hz GNSS) → 3.43 (1 Hz GNSS, avail 64.6 %); towglider 2.45 → 2.56–2.81 with 3–5 % detection noise; kite2 doubled noise avail +1 pp, KE 14.31 J.",
+   "favours": "leapfrog (jitter/avail rest on the rider-tag link rate)",
+   "action": "integrator: add a shared rider-tag/tracker estimator (GNSS rate, latency, noise) in common/ and require it for all pointing/guidance"
+  },
+  {
+   "id": "A4-X-03",
+   "severity": "minor",
+   "metric": "artefact rule implementation",
+   "finding": "Shared artefactCounts(≥2 px) is applied, but each concept projects its own parts. towglider tests the leash only at polyline vertices (misses the near-camera segment 3–13 px) and omits the 3 mm wand (−1.4 pp own test, −6.7 pp if the subject box includes skis). kite2 boom 1.66 px median meets the rule only because it is 3 mm (structurally infeasible, A4-K2-01). \"Bounding box\" of the subject is not defined (body vs incl. skis).",
+   "favours": "towglider (small), kite2",
+   "action": "integrator: provide a shared segment/cylinder projector and define the subject box (bodyPoints feet/head/shoulders)"
+  },
+  {
+   "id": "A4-X-04",
+   "severity": "minor",
+   "metric": "worn rigid members excluded from headClear",
+   "finding": "kite2 passive boom (free pivot, moves with the line) 0.33 m from the helmet centre; towglider wand 1.165 m (included would pass). Exclusion of a free-pivoting boom as \"worn rigid\" is generous; with a buildable 1.2 m boom kite2 headClear 0.84 m.",
+   "favours": "kite2",
+   "action": "integrator: count free-pivoting members as airborne parts"
+  },
+  {
+   "id": "A4-X-05",
+   "severity": "minor",
+   "metric": "reported sensitivities vs files",
+   "finding": "leapfrog sensitivity figures relayed in the round-4 report (mass +10 % → 69.7 %, bias ±2 → 17.65 J, stow 13.5 s → 33.1 s) are not in dev/leapfrog/results.json (18-case subset: 65.6 %, 17.92 J, 33.4 s); auditor full-48: 67.7 %, 17.92 J, 33.2 s. Same direction, all fail.",
+   "favours": "none (direction unchanged)",
+   "action": "developers: report only numbers traceable to results.json"
+  },
+  {
+   "id": "A4-X-06",
+   "severity": "minor",
+   "metric": "packVol / mass bookkeeping",
+   "finding": "All three packVol values are assumed envelopes (no CAD/fold measurement); kite2 kept the round-3 2.86 L constant despite a larger winch and 6-section boom; towglider wand 8 g missing from mass; leapfrog morph mechanism budgeted at micro-servo scale (LisHawk uses 3×7.1 g servos at 284 g).",
+   "favours": "all",
+   "action": "mock-up pack and weigh before any further ranking on these metrics"
+  },
+  {
+   "id": "A4-X-07",
+   "severity": "minor",
+   "metric": "reproducibility",
+   "finding": "common/ unchanged since the dev runs (kite2 commonHash 5d71ed4a96c0 and towglider fileHashes match the live files). All three reproduce on a copy (kite2 within 0.05 pp, leapfrog and towglider exactly). Concept tests pass on the copy (kite2 21, leapfrog 24, towglider 18).",
+   "favours": "neutral"
+  }
+ ]
+}

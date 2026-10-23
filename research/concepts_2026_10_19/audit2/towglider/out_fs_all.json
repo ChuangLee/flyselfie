@@ -1,0 +1,340 @@
+{
+ "note": "flown cases only (gated runs have no footage)",
+ "n": 33,
+ "subjectRms": {
+  "mean": 2.426883708495895,
+  "p90": 3.4006945282845757,
+  "max": 6.5726437912759135
+ },
+ "backgroundRms": {
+  "mean": 2.360960121581416,
+  "p90": 3.2584424614396057,
+  "max": 6.414314544129115
+ },
+ "devJitter": {
+  "mean": 1.5791086285584643,
+  "p90": 2.2837489812566547,
+  "max": 6.518521866872363
+ },
+ "over3": [
+  "tail3_s12",
+  "tail3_s13",
+  "crossL6_s11",
+  "crossL6_s12",
+  "crossL9_s11"
+ ],
+ "rows": [
+  {
+   "id": "calm_s11",
+   "U": 0,
+   "dir": "calm",
+   "subjectRms": 1.9807037937852854,
+   "backgroundRms": 1.7714359908001236,
+   "devJitter": 0.6583477590483756
+  },
+  {
+   "id": "calm_s12",
+   "U": 0,
+   "dir": "calm",
+   "subjectRms": 1.8749316793263837,
+   "backgroundRms": 1.7483162343283096,
+   "devJitter": 0.730484960992761
+  },
+  {
+   "id": "calm_s13",
+   "U": 0,
+   "dir": "calm",
+   "subjectRms": 1.6014375412411992,
+   "backgroundRms": 1.8946438124144762,
+   "devJitter": 0.7527618470335643
+  },
+  {
+   "id": "head3_s11",
+   "U": 3,
+   "dir": "head",
+   "subjectRms": 1.9009371782906406,
+   "backgroundRms": 1.6956314008153228,
+   "devJitter": 0.6883334434337107
+  },
+  {
+   "id": "head3_s12",
+   "U": 3,
+   "dir": "head",
+   "subjectRms": 1.8310202770141508,
+   "backgroundRms": 1.632314723012561,
+   "devJitter": 0.7052248994243355
+  },
+  {
+   "id": "head3_s13",
+   "U": 3,
+   "dir": "head",
+   "subjectRms": 1.472364527965067,
+   "backgroundRms": 1.7118365206803738,
+   "devJitter": 0.7114146397738099
+  },
+  {
+   "id": "tail3_s11",
+   "U": 3,
+   "dir": "tail",
+   "subjectRms": 2.9686616173380744,
+   "backgroundRms": 2.8640694163207057,
+   "devJitter": 2.2837489812566547
+  },
+  {
+   "id": "tail3_s12",
+   "U": 3,
+   "dir": "tail",
+   "subjectRms": 5.192715617380781,
+   "backgroundRms": 5.176912926713022,
+   "devJitter": 4.96429434026558
+  },
+  {
+   "id": "tail3_s13",
+   "U": 3,
+   "dir": "tail",
+   "subjectRms": 6.5726437912759135,
+   "backgroundRms": 6.414314544129115,
+   "devJitter": 6.518521866872363
+  },
+  {
+   "id": "crossL3_s11",
+   "U": 3,
+   "dir": "crossL",
+   "subjectRms": 2.639826328944259,
+   "backgroundRms": 2.4434784766303914,
+   "devJitter": 0.8394888062419094
+  },
+  {
+   "id": "crossL3_s12",
+   "U": 3,
+   "dir": "crossL",
+   "subjectRms": 2.027564536902993,
+   "backgroundRms": 1.8464750279663387,
+   "devJitter": 1.115256228627176
+  },
+  {
+   "id": "crossL3_s13",
+   "U": 3,
+   "dir": "crossL",
+   "subjectRms": 1.9881075898102807,
+   "backgroundRms": 2.2173841447519442,
+   "devJitter": 1.5183267064113435
+  },
+  {
+   "id": "crossR3_s11",
+   "U": 3,
+   "dir": "crossR",
+   "subjectRms": 2.509800576427409,
+   "backgroundRms": 2.365868498182159,
+   "devJitter": 1.726226009471178
+  },
+  {
+   "id": "crossR3_s12",
+   "U": 3,
+   "dir": "crossR",
+   "subjectRms": 1.9161962296009447,
+   "backgroundRms": 1.7069181161925642,
+   "devJitter": 0.7938036265098811
+  },
+  {
+   "id": "crossR3_s13",
+   "U": 3,
+   "dir": "crossR",
+   "subjectRms": 1.534860328082675,
+   "backgroundRms": 1.7892052168354489,
+   "devJitter": 0.7498443166813734
+  },
+  {
+   "id": "head6_s11",
+   "U": 6,
+   "dir": "head",
+   "subjectRms": 1.896413830922911,
+   "backgroundRms": 1.7952978602151577,
+   "devJitter": 0.9382636092472305
+  },
+  {
+   "id": "head6_s12",
+   "U": 6,
+   "dir": "head",
+   "subjectRms": 1.8617302454003233,
+   "backgroundRms": 1.7110742710525706,
+   "devJitter": 0.9527114154303739
+  },
+  {
+   "id": "head6_s13",
+   "U": 6,
+   "dir": "head",
+   "subjectRms": 1.5713736541738699,
+   "backgroundRms": 1.821477958986728,
+   "devJitter": 0.9285948635317449
+  },
+  {
+   "id": "tail6_s11",
+   "U": 6,
+   "dir": "tail",
+   "subjectRms": null,
+   "backgroundRms": null,
+   "devJitter": null
+  },
+  {
+   "id": "tail6_s12",
+   "U": 6,
+   "dir": "tail",
+   "subjectRms": null,
+   "backgroundRms": null,
+   "devJitter": null
+  },
+  {
+   "id": "tail6_s13",
+   "U": 6,
+   "dir": "tail",
+   "subjectRms": null,
+   "backgroundRms": null,
+   "devJitter": null
+  },
+  {
+   "id": "crossL6_s11",
+   "U": 6,
+   "dir": "crossL",
+   "subjectRms": 3.4006945282845757,
+   "backgroundRms": 3.2584424614396057,
+   "devJitter": 1.2960402324876816
+  },
+  {
+   "id": "crossL6_s12",
+   "U": 6,
+   "dir": "crossL",
+   "subjectRms": 3.2571961704437213,
+   "backgroundRms": 3.136605924911002,
+   "devJitter": 2.8633384525602827
+  },
+  {
+   "id": "crossL6_s13",
+   "U": 6,
+   "dir": "crossL",
+   "subjectRms": 2.4685327460377042,
+   "backgroundRms": 2.5967041719562016,
+   "devJitter": 2.1036201614623895
+  },
+  {
+   "id": "crossR6_s11",
+   "U": 6,
+   "dir": "crossR",
+   "subjectRms": 2.1693358321571394,
+   "backgroundRms": 1.8823972143189602,
+   "devJitter": 1.1872483614630978
+  },
+  {
+   "id": "crossR6_s12",
+   "U": 6,
+   "dir": "crossR",
+   "subjectRms": 2.1723068474705394,
+   "backgroundRms": 1.9326303047792261,
+   "devJitter": 1.2944236312435147
+  },
+  {
+   "id": "crossR6_s13",
+   "U": 6,
+   "dir": "crossR",
+   "subjectRms": 2.2064894468972462,
+   "backgroundRms": 2.335728777299616,
+   "devJitter": 1.7978362072808092
+  },
+  {
+   "id": "head9_s11",
+   "U": 9,
+   "dir": "head",
+   "subjectRms": 1.9314235737736634,
+   "backgroundRms": 1.849928352843937,
+   "devJitter": 1.1988130287201788
+  },
+  {
+   "id": "head9_s12",
+   "U": 9,
+   "dir": "head",
+   "subjectRms": 2.0133759185731988,
+   "backgroundRms": 1.7302035413746215,
+   "devJitter": 1.2544969950220084
+  },
+  {
+   "id": "head9_s13",
+   "U": 9,
+   "dir": "head",
+   "subjectRms": 1.6624550915116616,
+   "backgroundRms": 1.855168144358861,
+   "devJitter": 1.232994597586503
+  },
+  {
+   "id": "tail9_s11",
+   "U": 9,
+   "dir": "tail",
+   "subjectRms": null,
+   "backgroundRms": null,
+   "devJitter": null
+  },
+  {
+   "id": "tail9_s12",
+   "U": 9,
+   "dir": "tail",
+   "subjectRms": null,
+   "backgroundRms": null,
+   "devJitter": null
+  },
+  {
+   "id": "tail9_s13",
+   "U": 9,
+   "dir": "tail",
+   "subjectRms": null,
+   "backgroundRms": null,
+   "devJitter": null
+  },
+  {
+   "id": "crossL9_s11",
+   "U": 9,
+   "dir": "crossL",
+   "subjectRms": 3.5469346043142864,
+   "backgroundRms": 3.4268754777274855,
+   "devJitter": 1.712921940623717
+  },
+  {
+   "id": "crossL9_s12",
+   "U": 9,
+   "dir": "crossL",
+   "subjectRms": 2.8198823972113294,
+   "backgroundRms": 2.645035638048067,
+   "devJitter": 1.6805669883270922
+  },
+  {
+   "id": "crossL9_s13",
+   "U": 9,
+   "dir": "crossL",
+   "subjectRms": 2.475333756419211,
+   "backgroundRms": 2.5107085108194593,
+   "devJitter": 2.091349838409261
+  },
+  {
+   "id": "crossR9_s11",
+   "U": 9,
+   "dir": "crossR",
+   "subjectRms": 2.15322915298111,
+   "backgroundRms": 1.8690254286938226,
+   "devJitter": 1.328817406366362
+  },
+  {
+   "id": "crossR9_s12",
+   "U": 9,
+   "dir": "crossR",
+   "subjectRms": 2.1270723231754856,
+   "backgroundRms": 1.8543039408434752,
+   "devJitter": 1.4866846989933722
+  },
+  {
+   "id": "crossR9_s13",
+   "U": 9,
+   "dir": "crossR",
+   "subjectRms": 2.341610647230527,
+   "backgroundRms": 2.4212709827450776,
+   "devJitter": 2.005783881629692
+  }
+ ]
+}

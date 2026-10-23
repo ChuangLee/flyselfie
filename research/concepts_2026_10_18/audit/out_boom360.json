@@ -1,0 +1,637 @@
+{
+ "concept": "boom360",
+ "generated": "2026-10-19",
+ "evidence": "audit re-computation on the uncalibrated model; not a physical test",
+ "modes": {
+  "model": {
+   "sag": [
+    6.078031741771739,
+    79.16831992933349
+   ],
+   "lat": [
+    3.9967337446993394,
+    37.6034463827439
+   ]
+  },
+  "rayleighLat": 4.031,
+  "rayleighSag": 6.1,
+  "errLatPct": -0.844,
+  "errSagPct": -0.366,
+  "EIlatCheck": 480.664,
+  "EIlatModel": 480.664,
+  "mTapes": 0.342,
+  "mTip": 0.22,
+  "note": "Rayleigh quotient with the static tip-load shape incl. root spring; the model lumps 6 segments."
+ },
+ "energy": {
+  "dt0.004_elastic": {
+   "E0": 0.032,
+   "E2s": 0.024,
+   "driftPct": -23.943,
+   "maxPct": 0
+  },
+  "dt0.004_gravity": {
+   "E0": 0.056,
+   "E2s": 0.034,
+   "driftPct": -39.373,
+   "maxPct": 0
+  },
+  "dt0.001_elastic": {
+   "E0": 0.032,
+   "E2s": 0.03,
+   "driftPct": -6.89,
+   "maxPct": 0
+  },
+  "dt0.001_gravity": {
+   "E0": 0.056,
+   "E2s": 0.049,
+   "driftPct": -11.539,
+   "maxPct": 0
+  },
+  "note": "undamped chain (structural+root damping zeroed), fixed base, 2 s free vibration from the static tip-load shape; θ=0.52 adds slight numerical dissipation, positive drift would indicate instability"
+ },
+ "scenarios": [
+  {
+   "id": "nominal",
+   "dt": {
+    "0.004": {
+     "avail": 100,
+     "jitterRms": 5.969,
+     "jitterBoom": 3.971,
+     "tipTransRms": 5.755,
+     "bodyForcePeak": 18.609,
+     "rootMomentPeak": 12.442,
+     "keMax": 50.406,
+     "foldCount": 0,
+     "stickVisible": 0.916,
+     "yawTorquePeak": 9.142,
+     "ms": 372
+    },
+    "0.002": {
+     "avail": 100,
+     "jitterRms": 6,
+     "jitterBoom": 3.984,
+     "tipTransRms": 5.774,
+     "bodyForcePeak": 18.622,
+     "rootMomentPeak": 12.474,
+     "keMax": 50.413,
+     "foldCount": 0,
+     "stickVisible": 0.999,
+     "yawTorquePeak": 9.154,
+     "ms": 294
+    },
+    "0.001": {
+     "avail": 100,
+     "jitterRms": 6.016,
+     "jitterBoom": 3.992,
+     "tipTransRms": 5.784,
+     "bodyForcePeak": 18.626,
+     "rootMomentPeak": 12.488,
+     "keMax": 50.416,
+     "foldCount": 0,
+     "stickVisible": 0.999,
+     "yawTorquePeak": 9.16,
+     "ms": 359
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 6.716,
+    "jitterLosHP": 6.539,
+    "jitterLosRaw": 10.813,
+    "jitterSubjInFrameHP": 5.845,
+    "jitterRawInFrame": 5.969,
+    "keRel": 0.281,
+    "keCamAbs": 18.006,
+    "keChainAbs": 50.406,
+    "tipLatMax": 1.055,
+    "tipLatP99": 1.019,
+    "bodyForceDyn50ms": 6.069,
+    "staticWeightN": 11.403
+   },
+   "events": []
+  },
+  {
+   "id": "short",
+   "dt": {
+    "0.004": {
+     "avail": 100,
+     "jitterRms": 17.585,
+     "jitterBoom": 5.392,
+     "tipTransRms": 12.943,
+     "bodyForcePeak": 24.853,
+     "rootMomentPeak": 16.018,
+     "keMax": 38.976,
+     "foldCount": 0,
+     "stickVisible": 15.984,
+     "yawTorquePeak": 14.818,
+     "ms": 96
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 18.786,
+    "jitterLosHP": 18.479,
+    "jitterLosRaw": 50.555,
+    "jitterSubjInFrameHP": 13.318,
+    "jitterRawInFrame": 17.585,
+    "keRel": 1.028,
+    "keCamAbs": 14.613,
+    "keChainAbs": 38.976,
+    "tipLatMax": 1.525,
+    "tipLatP99": 1.51,
+    "bodyForceDyn50ms": 12.913,
+    "staticWeightN": 11.403
+   },
+   "events": []
+  },
+  {
+   "id": "moguls",
+   "dt": {
+    "0.004": {
+     "avail": 100,
+     "jitterRms": 30.439,
+     "jitterBoom": 6.326,
+     "tipTransRms": 10.243,
+     "bodyForcePeak": 28.821,
+     "rootMomentPeak": 26.03,
+     "keMax": 37.884,
+     "foldCount": 0,
+     "stickVisible": 0,
+     "yawTorquePeak": 4.964,
+     "ms": 274
+    },
+    "0.002": {
+     "avail": 100,
+     "jitterRms": 30.421,
+     "jitterBoom": 6.337,
+     "tipTransRms": 10.245,
+     "bodyForcePeak": 28.847,
+     "rootMomentPeak": 26.068,
+     "keMax": 37.914,
+     "foldCount": 0,
+     "stickVisible": 0,
+     "yawTorquePeak": 4.971,
+     "ms": 219
+    },
+    "0.001": {
+     "avail": 100,
+     "jitterRms": 30.412,
+     "jitterBoom": 6.343,
+     "tipTransRms": 10.248,
+     "bodyForcePeak": 28.862,
+     "rootMomentPeak": 26.089,
+     "keMax": 37.928,
+     "foldCount": 0,
+     "stickVisible": 0,
+     "yawTorquePeak": 4.974,
+     "ms": 262
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 34.066,
+    "jitterLosHP": 33.713,
+    "jitterLosRaw": 36.116,
+    "jitterSubjInFrameHP": 29.761,
+    "jitterRawInFrame": 30.439,
+    "keRel": 0.794,
+    "keCamAbs": 14.156,
+    "keChainAbs": 37.884,
+    "tipLatMax": 0.637,
+    "tipLatP99": 0.617,
+    "bodyForceDyn50ms": 15.561,
+    "staticWeightN": 11.403
+   },
+   "events": []
+  },
+  {
+   "id": "fast",
+   "dt": {
+    "0.004": {
+     "avail": 100,
+     "jitterRms": 6.721,
+     "jitterBoom": 4.891,
+     "tipTransRms": 6.505,
+     "bodyForcePeak": 20.488,
+     "rootMomentPeak": 16.094,
+     "keMax": 102.466,
+     "foldCount": 0,
+     "stickVisible": 1.399,
+     "yawTorquePeak": 14.627,
+     "ms": 72
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 7.532,
+    "jitterLosHP": 7.267,
+    "jitterLosRaw": 8.901,
+    "jitterSubjInFrameHP": 6.638,
+    "jitterRawInFrame": 6.721,
+    "keRel": 0.478,
+    "keCamAbs": 36.575,
+    "keChainAbs": 102.466,
+    "tipLatMax": 0.763,
+    "tipLatP99": 0.754,
+    "bodyForceDyn50ms": 8.042,
+    "staticWeightN": 11.403
+   },
+   "events": []
+  },
+  {
+   "id": "gust",
+   "dt": {
+    "0.004": {
+     "avail": 100,
+     "jitterRms": 6.076,
+     "jitterBoom": 4.13,
+     "tipTransRms": 7.588,
+     "bodyForcePeak": 30.012,
+     "rootMomentPeak": 25.58,
+     "keMax": 50.424,
+     "foldCount": 0,
+     "stickVisible": 28.072,
+     "yawTorquePeak": 24.074,
+     "ms": 106
+    },
+    "0.002": {
+     "avail": 100,
+     "jitterRms": 6.106,
+     "jitterBoom": 4.135,
+     "tipTransRms": 7.598,
+     "bodyForcePeak": 30.018,
+     "rootMomentPeak": 25.581,
+     "keMax": 50.43,
+     "foldCount": 0,
+     "stickVisible": 28.272,
+     "yawTorquePeak": 24.078,
+     "ms": 115
+    },
+    "0.001": {
+     "avail": 100,
+     "jitterRms": 6.122,
+     "jitterBoom": 4.139,
+     "tipTransRms": 7.605,
+     "bodyForcePeak": 30.017,
+     "rootMomentPeak": 25.581,
+     "keMax": 50.434,
+     "foldCount": 0,
+     "stickVisible": 28.272,
+     "yawTorquePeak": 24.08,
+     "ms": 218
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 6.853,
+    "jitterLosHP": 6.671,
+    "jitterLosRaw": 10.703,
+    "jitterSubjInFrameHP": 5.95,
+    "jitterRawInFrame": 6.076,
+    "keRel": 0.258,
+    "keCamAbs": 18.014,
+    "keChainAbs": 50.424,
+    "tipLatMax": 1.013,
+    "tipLatP99": 0.98,
+    "bodyForceDyn50ms": 17.692,
+    "staticWeightN": 11.403
+   },
+   "events": []
+  },
+  {
+   "id": "fallBack",
+   "dt": {
+    "0.004": {
+     "avail": 49.929,
+     "jitterRms": 7.751,
+     "jitterBoom": 4.51,
+     "tipTransRms": 8.685,
+     "bodyForcePeak": 112.547,
+     "rootMomentPeak": 21.392,
+     "keMax": 50.419,
+     "foldCount": 1,
+     "stickVisible": 2.286,
+     "yawTorquePeak": 8.605,
+     "ms": 165
+    },
+    "0.002": {
+     "avail": 49.929,
+     "jitterRms": 7.792,
+     "jitterBoom": 4.522,
+     "tipTransRms": 8.841,
+     "bodyForcePeak": 122.249,
+     "rootMomentPeak": 24.498,
+     "keMax": 50.425,
+     "foldCount": 1,
+     "stickVisible": 2.286,
+     "yawTorquePeak": 8.616,
+     "ms": 245
+    },
+    "0.001": {
+     "avail": 49.929,
+     "jitterRms": 7.813,
+     "jitterBoom": 4.528,
+     "tipTransRms": 8.892,
+     "bodyForcePeak": 126.877,
+     "rootMomentPeak": 25.405,
+     "keMax": 50.428,
+     "foldCount": 1,
+     "stickVisible": 2.286,
+     "yawTorquePeak": 8.623,
+     "ms": 210
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 7.224,
+    "jitterLosHP": 7.054,
+    "jitterLosRaw": 10.766,
+    "jitterSubjInFrameHP": 6.276,
+    "jitterRawInFrame": 7.751,
+    "keRel": 5.717,
+    "keCamAbs": 18.013,
+    "keChainAbs": 50.419,
+    "tipLatMax": 0.967,
+    "tipLatP99": 0.96,
+    "bodyForceDyn50ms": 6.275,
+    "staticWeightN": 11.403
+   },
+   "events": [
+    "7.653 fold",
+    "7.864 fallDetect"
+   ]
+  },
+  {
+   "id": "fallSide",
+   "dt": {
+    "0.004": {
+     "avail": 49.929,
+     "jitterRms": 6.238,
+     "jitterBoom": 4.18,
+     "tipTransRms": 6,
+     "bodyForcePeak": 99.369,
+     "rootMomentPeak": 26.178,
+     "keMax": 49.239,
+     "foldCount": 2,
+     "stickVisible": 0.571,
+     "yawTorquePeak": 17.613,
+     "ms": 70
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 6.151,
+    "jitterLosHP": 5.968,
+    "jitterLosRaw": 9.794,
+    "jitterSubjInFrameHP": 5.317,
+    "jitterRawInFrame": 6.238,
+    "keRel": 5.883,
+    "keCamAbs": 22.425,
+    "keChainAbs": 49.239,
+    "tipLatMax": 0.922,
+    "tipLatP99": 0.915,
+    "bodyForceDyn50ms": 4.327,
+    "staticWeightN": 11.403
+   },
+   "events": [
+    "7.736 fold",
+    "7.781 fold",
+    "7.824 fallDetect"
+   ]
+  },
+  {
+   "id": "snag",
+   "dt": {
+    "0.004": {
+     "avail": 43.224,
+     "jitterRms": 4.393,
+     "jitterBoom": 5.424,
+     "tipTransRms": 63.895,
+     "bodyForcePeak": 196.644,
+     "rootMomentPeak": 45.257,
+     "keMax": 29.553,
+     "foldCount": 2,
+     "stickVisible": 0,
+     "yawTorquePeak": 15.042,
+     "ms": 121
+    },
+    "0.002": {
+     "avail": 43.224,
+     "jitterRms": 4.357,
+     "jitterBoom": 5.34,
+     "tipTransRms": 63.234,
+     "bodyForcePeak": 196.712,
+     "rootMomentPeak": 45.238,
+     "keMax": 29.448,
+     "foldCount": 2,
+     "stickVisible": 0,
+     "yawTorquePeak": 14.972,
+     "ms": 183
+    },
+    "0.001": {
+     "avail": 43.224,
+     "jitterRms": 4.361,
+     "jitterBoom": 5.315,
+     "tipTransRms": 63.16,
+     "bodyForcePeak": 197.496,
+     "rootMomentPeak": 45.203,
+     "keMax": 29.457,
+     "foldCount": 2,
+     "stickVisible": 0,
+     "yawTorquePeak": 14.984,
+     "ms": 259
+    }
+   },
+   "harmonised": {
+    "avail": 43.224,
+    "jitter": 3.921,
+    "jitterLosHP": 3.783,
+    "jitterLosRaw": 11.545,
+    "jitterSubjInFrameHP": 3.385,
+    "jitterRawInFrame": 4.393,
+    "keRel": 3.134,
+    "keCamAbs": 13.464,
+    "keChainAbs": 29.553,
+    "tipLatMax": 0.818,
+    "tipLatP99": 0.814,
+    "bodyForceDyn50ms": 100.672,
+    "staticWeightN": 11.403
+   },
+   "events": [
+    "6 snag",
+    "6.049 fold",
+    "6.856 foldStuck",
+    "7.364 fold"
+   ]
+  },
+  {
+   "id": "lift",
+   "dt": {
+    "0.004": {
+     "avail": 37.885,
+     "jitterRms": 15.479,
+     "jitterBoom": 6.101,
+     "tipTransRms": 41.556,
+     "bodyForcePeak": 36.665,
+     "rootMomentPeak": 25.665,
+     "keMax": 43.729,
+     "foldCount": 1,
+     "stickVisible": 1.099,
+     "yawTorquePeak": 22.068,
+     "ms": 140
+    },
+    "0.002": {
+     "avail": 37.885,
+     "jitterRms": 15.594,
+     "jitterBoom": 6.134,
+     "tipTransRms": 42.445,
+     "bodyForcePeak": 36.653,
+     "rootMomentPeak": 25.655,
+     "keMax": 43.883,
+     "foldCount": 1,
+     "stickVisible": 1.099,
+     "yawTorquePeak": 21.701,
+     "ms": 224
+    },
+    "0.001": {
+     "avail": 37.885,
+     "jitterRms": 15.652,
+     "jitterBoom": 6.151,
+     "tipTransRms": 42.879,
+     "bodyForcePeak": 36.64,
+     "rootMomentPeak": 25.638,
+     "keMax": 43.963,
+     "foldCount": 1,
+     "stickVisible": 1.099,
+     "yawTorquePeak": 22.101,
+     "ms": 429
+    }
+   },
+   "harmonised": {
+    "avail": 77.119,
+    "jitter": 6.316,
+    "jitterLosHP": 6.138,
+    "jitterLosRaw": 10.318,
+    "jitterSubjInFrameHP": 5.469,
+    "jitterRawInFrame": 15.479,
+    "keRel": 1.38,
+    "keCamAbs": 17.075,
+    "keChainAbs": 43.729,
+    "tipLatMax": 0.923,
+    "tipLatP99": 0.915,
+    "bodyForceDyn50ms": 11.034,
+    "staticWeightN": 11.403
+   },
+   "events": [
+    "9.1 fold",
+    "9.908 foldStuck"
+   ]
+  },
+  {
+   "id": "cycle",
+   "dt": {
+    "0.004": {
+     "avail": 42.447,
+     "jitterRms": 0.023,
+     "jitterBoom": 0.034,
+     "tipTransRms": 0.295,
+     "bodyForcePeak": 11.178,
+     "rootMomentPeak": 5.406,
+     "keMax": 0.05,
+     "foldCount": 0,
+     "stickVisible": 0,
+     "yawTorquePeak": 0.085,
+     "ms": 266
+    }
+   },
+   "harmonised": {
+    "avail": 0,
+    "jitter": 0.019,
+    "jitterLosHP": 0.018,
+    "jitterLosRaw": 0.019,
+    "jitterSubjInFrameHP": 0.017,
+    "jitterRawInFrame": 0.023,
+    "keRel": 0.167,
+    "keCamAbs": 0.095,
+    "keChainAbs": 0.05,
+    "tipLatMax": 0,
+    "tipLatP99": null,
+    "bodyForceDyn50ms": 0,
+    "staticWeightN": 11.403
+   },
+   "events": []
+  },
+  {
+   "id": "damperFail",
+   "dt": {
+    "0.004": {
+     "avail": 100,
+     "jitterRms": 31.089,
+     "jitterBoom": 8.205,
+     "tipTransRms": 11.811,
+     "bodyForcePeak": 32.365,
+     "rootMomentPeak": 31.769,
+     "keMax": 38.069,
+     "foldCount": 0,
+     "stickVisible": 0,
+     "yawTorquePeak": 5.79,
+     "ms": 195
+    },
+    "0.002": {
+     "avail": 100,
+     "jitterRms": 31.085,
+     "jitterBoom": 8.337,
+     "tipTransRms": 11.87,
+     "bodyForcePeak": 32.553,
+     "rootMomentPeak": 32.021,
+     "keMax": 38.062,
+     "foldCount": 0,
+     "stickVisible": 0,
+     "yawTorquePeak": 5.799,
+     "ms": 219
+    },
+    "0.001": {
+     "avail": 100,
+     "jitterRms": 31.083,
+     "jitterBoom": 8.404,
+     "tipTransRms": 11.902,
+     "bodyForcePeak": 32.636,
+     "rootMomentPeak": 32.135,
+     "keMax": 38.06,
+     "foldCount": 0,
+     "stickVisible": 0,
+     "yawTorquePeak": 5.804,
+     "ms": 314
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 34.703,
+    "jitterLosHP": 34.276,
+    "jitterLosRaw": 36.654,
+    "jitterSubjInFrameHP": 30.443,
+    "jitterRawInFrame": 31.089,
+    "keRel": 0.927,
+    "keCamAbs": 14.26,
+    "keChainAbs": 38.069,
+    "tipLatMax": 0.638,
+    "tipLatP99": 0.617,
+    "bodyForceDyn50ms": 18.67,
+    "staticWeightN": 11.403
+   },
+   "events": []
+  }
+ ],
+ "inertiaReference": {
+  "modelRollRef": 12.5,
+  "rollAboutFeet_h1_0": 92.5,
+  "rollAboutFeet_h0_9": 77.3,
+  "addedRollModel": 3.27,
+  "addedRollPctCorrected": 3.861,
+  "yawBodyPlusSkis": 2.4677083333333334,
+  "addedYaw": 0.6,
+  "addedYawPctCorrected": 24.314,
+  "note": "I_BODY_ROLL = 12.5 kg·m² is a centroidal value but is compared with added inertia taken about the feet; consistent reference ≈ 85–93 kg·m². Skis (2 × 1.7 kg, 1.75 m) add ≈0.9 kg·m² in yaw."
+ }
+}

@@ -1,0 +1,8016 @@
+{
+ "meta": {
+  "concept": "descentglider",
+  "modelVersion": "descentglider@2.0.0",
+  "generated": "2026-10-20",
+  "evidence": "numerical-uncalibrated simulation; demo is an illustration; nothing physically tested",
+  "params": {
+   "battWh": 2,
+   "whPerKg": 150,
+   "bankWh": 18.5,
+   "airframeG": 30,
+   "Sext": 0.065,
+   "bext": 0.66,
+   "cd0": 0.05,
+   "clmaxExt": 0.8,
+   "dragScale": 1,
+   "tStatic": 1.1,
+   "fomEta": 0.5,
+   "regenEta": 0.3,
+   "stationD": 4.5,
+   "stationH": 2.6,
+   "azAmp": 30,
+   "trailK": 0.7,
+   "camHfov": 80,
+   "camTilt": 22,
+   "cropHfov": 40,
+   "eisRho": 0.1,
+   "vCapMargin": 0.95,
+   "loiterH": 7,
+   "loiterR": 11,
+   "tdLat": 3.5,
+   "muSnow": 0.35,
+   "geofence": 50,
+   "windMax": 5.5,
+   "terrainFlow": 1
+  },
+  "computeSeconds": 134
+ },
+ "sizing": {
+  "massBudget_g": {
+   "camera_4k_gyroLog": 16,
+   "fc_imu_gnss_uwb_radio": 10,
+   "tof_ranging": 5,
+   "servos_2_elevons_3_cradle": 12.5,
+   "cradle_bracket": 5,
+   "motor_1104_prop_esc": 11,
+   "wiring": 5,
+   "airframe": 30,
+   "battery": 13.3
+  },
+  "sum_g": 107.8,
+  "withMargin15_g": 124,
+  "pAvionics_W": 4.79,
+  "stall_ms": 6.84,
+  "LDmax": 8.89,
+  "KEcapSpeed_ms": 15.5,
+  "groundSpeedCap_ms": 14.73,
+  "loiter": {
+   "Va_ms": 9.92,
+   "bankDeg": 40,
+   "radius_m": 12,
+   "dragPower_W": 2.08
+  },
+  "glideDeg": {
+   "9": 7.8,
+   "11": 10.3,
+   "13": 13.5,
+   "15": 17.3
+  },
+  "battery": {
+   "flyingWh": 2,
+   "flyingG": 13.3,
+   "bankWh": 18.5,
+   "whPerKg": 150,
+   "coldFactor": 0.75,
+   "reserve": 0.15,
+   "heaterW": 0.6,
+   "liftMin": 6,
+   "transferEff": 0.85
+  },
+  "v1_at_shared_basis": {
+   "note": "v1 perch-and-hop rebuilt from the shared table: cam4k 16 + gimbal2ax 30 + avionics 10 + ToF 5 + 2×1404/4″ 34 + 3 servos 7.5 + airframe 40 + wiring 5 + 8.5 Wh at 150 Wh/kg 56.7 g = 204 g, ×1.15 = 235 g",
+   "mass_g": 235,
+   "keCap_ms": 11.26,
+   "verdict": "cannot keep up with a 13 m/s rider (KE cap 11.3 m/s); T/W 1.1 for hover"
+  }
+ },
+ "ensemble": {
+  "cases": [
+   {
+    "id": "calm_s11",
+    "U": 0,
+    "dir": "calm",
+    "seed": 11,
+    "computeMs": 3857,
+    "noFly": false,
+    "avail": 88.1,
+    "pxMed": 473,
+    "jitter": 1.02,
+    "jitterPct": 4.4,
+    "attRateRms": 2.1,
+    "azRange": 65,
+    "keMax": 13.3,
+    "setup": 33.8,
+    "tReady": 11.3,
+    "endWait": 11.7,
+    "walk": 5.8,
+    "restDist": 4.9,
+    "ops": 2,
+    "rangeMax": 39.8,
+    "pMean": 8.07,
+    "pFollow": 6.94,
+    "pLoiter": 11,
+    "Ewh": 0.256,
+    "endurance": 78.2,
+    "runsPerCharge": 5,
+    "rechargeC": 1.28,
+    "catchUp": [
+     3.6,
+     1.1
+    ],
+    "headMin": 3.67,
+    "aglMin": 1.52,
+    "lensLossPct": 0.2,
+    "landMinRider": 3.49,
+    "tdKE": 4.01,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.97,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 11.3,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 51.2,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.8,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -175° (expected slide 4.0 m)"
+     },
+     {
+      "t": 115.8,
+      "type": "touchdown",
+      "en": "Belly touchdown: 8.0 m/s, 2.5 m/s into the snow (4.0 J)"
+     },
+     {
+      "t": 117.2,
+      "type": "landed",
+      "en": "At rest on the snow 4.9 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "calm_s12",
+    "U": 0,
+    "dir": "calm",
+    "seed": 12,
+    "computeMs": 2169,
+    "noFly": false,
+    "avail": 87.9,
+    "pxMed": 465,
+    "jitter": 1.01,
+    "jitterPct": 4.3,
+    "attRateRms": 2.17,
+    "azRange": 64,
+    "keMax": 13.33,
+    "setup": 35.1,
+    "tReady": 11.2,
+    "endWait": 12.1,
+    "walk": 6.8,
+    "restDist": 5.5,
+    "ops": 2,
+    "rangeMax": 41,
+    "pMean": 8.01,
+    "pFollow": 6.87,
+    "pLoiter": 10.97,
+    "Ewh": 0.255,
+    "endurance": 78.8,
+    "runsPerCharge": 5,
+    "rechargeC": 1.27,
+    "catchUp": [
+     3.6,
+     1.5
+    ],
+    "headMin": 3.21,
+    "aglMin": 1.56,
+    "lensLossPct": 0.4,
+    "landMinRider": 3.87,
+    "tdKE": 5.07,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.95,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 11.2,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 51.1,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.8,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -178° (expected slide 4.8 m)"
+     },
+     {
+      "t": 116,
+      "type": "touchdown",
+      "en": "Belly touchdown: 9.0 m/s, 2.9 m/s into the snow (5.1 J)"
+     },
+     {
+      "t": 117.5,
+      "type": "landed",
+      "en": "At rest on the snow 5.5 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "calm_s13",
+    "U": 0,
+    "dir": "calm",
+    "seed": 13,
+    "computeMs": 1696,
+    "noFly": false,
+    "avail": 88.4,
+    "pxMed": 457,
+    "jitter": 1.02,
+    "jitterPct": 4.4,
+    "attRateRms": 2.15,
+    "azRange": 63,
+    "keMax": 13.32,
+    "setup": 33.4,
+    "tReady": 11.1,
+    "endWait": 11.8,
+    "walk": 5.5,
+    "restDist": 4.7,
+    "ops": 2,
+    "rangeMax": 40.4,
+    "pMean": 8.03,
+    "pFollow": 6.91,
+    "pLoiter": 11.03,
+    "Ewh": 0.255,
+    "endurance": 78.6,
+    "runsPerCharge": 5,
+    "rechargeC": 1.27,
+    "catchUp": [
+     3.5,
+     1.2
+    ],
+    "headMin": 3.89,
+    "aglMin": 1.6,
+    "lensLossPct": 0.5,
+    "landMinRider": 3.61,
+    "tdKE": 4.13,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.96,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 11.1,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 51,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.6,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -177° (expected slide 4.3 m)"
+     },
+     {
+      "t": 115.7,
+      "type": "touchdown",
+      "en": "Belly touchdown: 8.1 m/s, 2.7 m/s into the snow (4.1 J)"
+     },
+     {
+      "t": 117.1,
+      "type": "landed",
+      "en": "At rest on the snow 4.7 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "head3_s11",
+    "U": 3,
+    "dir": "head",
+    "seed": 11,
+    "computeMs": 1986,
+    "noFly": false,
+    "avail": 79.3,
+    "pxMed": 464,
+    "jitter": 1.09,
+    "jitterPct": 4.7,
+    "attRateRms": 2.85,
+    "azRange": 60,
+    "keMax": 13.44,
+    "setup": 47,
+    "tReady": 12,
+    "endWait": 0,
+    "walk": 30,
+    "restDist": null,
+    "ops": 3,
+    "rangeMax": 39.4,
+    "pMean": 8.05,
+    "pFollow": 10.92,
+    "pLoiter": 8.55,
+    "Ewh": 0.307,
+    "endurance": 78.4,
+    "runsPerCharge": 4.2,
+    "rechargeC": 1.53,
+    "catchUp": [
+     4.8,
+     10.1
+    ],
+    "headMin": 4.13,
+    "aglMin": 0.94,
+    "lensLossPct": 0,
+    "landMinRider": 26.41,
+    "tdKE": null,
+    "crashed": true,
+    "failsafe": false,
+    "goArounds": 1,
+    "propHeadMin": 4.92,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 12,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 51.9,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 106.5,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading 95° (expected slide 6.3 m)"
+     },
+     {
+      "t": 111.8,
+      "type": "goAround",
+      "en": "Not lined up: go-around (#1)"
+     },
+     {
+      "t": 112.1,
+      "type": "snowStrike",
+      "en": "Snow strike in flight (KE 12.4 J): manual recovery (+1 action)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "crash": 0
+    }
+   },
+   {
+    "id": "head3_s12",
+    "U": 3,
+    "dir": "head",
+    "seed": 12,
+    "computeMs": 1285,
+    "noFly": false,
+    "avail": 78.3,
+    "pxMed": 456,
+    "jitter": 1.03,
+    "jitterPct": 4.5,
+    "attRateRms": 2.88,
+    "azRange": 69,
+    "keMax": 13.44,
+    "setup": 46.7,
+    "tReady": 11.7,
+    "endWait": 0,
+    "walk": 30,
+    "restDist": null,
+    "ops": 3,
+    "rangeMax": 30.7,
+    "pMean": 8.02,
+    "pFollow": 10.86,
+    "pLoiter": 8.49,
+    "Ewh": 0.305,
+    "endurance": 78.7,
+    "runsPerCharge": 4.2,
+    "rechargeC": 1.52,
+    "catchUp": [
+     4.2,
+     8.5
+    ],
+    "headMin": 3.71,
+    "aglMin": 1.03,
+    "lensLossPct": 0.1,
+    "landMinRider": 20.96,
+    "tdKE": null,
+    "crashed": true,
+    "failsafe": false,
+    "goArounds": 1,
+    "propHeadMin": 4.95,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 11.7,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 51.6,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 106.2,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -88° (expected slide 6.3 m)"
+     },
+     {
+      "t": 112,
+      "type": "goAround",
+      "en": "Not lined up: go-around (#1)"
+     },
+     {
+      "t": 112.2,
+      "type": "snowStrike",
+      "en": "Snow strike in flight (KE 11.1 J): manual recovery (+1 action)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "crash": 0
+    }
+   },
+   {
+    "id": "head3_s13",
+    "U": 3,
+    "dir": "head",
+    "seed": 13,
+    "computeMs": 1818,
+    "noFly": false,
+    "avail": 76.5,
+    "pxMed": 434,
+    "jitter": 1.09,
+    "jitterPct": 4.7,
+    "attRateRms": 2.94,
+    "azRange": 64,
+    "keMax": 13.41,
+    "setup": 72.3,
+    "tReady": 11.4,
+    "endWait": 25.9,
+    "walk": 30,
+    "restDist": 25,
+    "ops": 2,
+    "rangeMax": 36.9,
+    "pMean": 9.6,
+    "pFollow": 10.74,
+    "pLoiter": 8.75,
+    "Ewh": 0.343,
+    "endurance": 66.5,
+    "runsPerCharge": 3.7,
+    "rechargeC": 1.71,
+    "catchUp": [
+     4,
+     11.6
+    ],
+    "headMin": 1.34,
+    "aglMin": 0.63,
+    "lensLossPct": 0,
+    "landMinRider": 0.85,
+    "tdKE": 4.64,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 2,
+    "propHeadMin": 4.97,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 11.4,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 51.3,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.9,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -87° (expected slide 5.6 m)"
+     },
+     {
+      "t": 111.6,
+      "type": "goAround",
+      "en": "Not lined up: go-around (#1)"
+     },
+     {
+      "t": 116.2,
+      "type": "goAround",
+      "en": "Not lined up: go-around (#2)"
+     },
+     {
+      "t": 125.6,
+      "type": "touchdown",
+      "en": "Belly touchdown: 8.6 m/s, 0.9 m/s into the snow (4.6 J)"
+     },
+     {
+      "t": 131.5,
+      "type": "landed",
+      "en": "At rest on the snow 25.0 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "tail3_s11",
+    "U": 3,
+    "dir": "tail",
+    "seed": 11,
+    "computeMs": 2246,
+    "noFly": false,
+    "avail": 61.2,
+    "pxMed": 364,
+    "jitter": 1.27,
+    "jitterPct": 5.5,
+    "attRateRms": 3.16,
+    "azRange": 108,
+    "keMax": 13.53,
+    "setup": 37.3,
+    "tReady": 9.9,
+    "endWait": 11.6,
+    "walk": 10.9,
+    "restDist": 8.2,
+    "ops": 2,
+    "rangeMax": 33.2,
+    "pMean": 7.98,
+    "pFollow": 5.46,
+    "pLoiter": 13.52,
+    "Ewh": 0.25,
+    "endurance": 79,
+    "runsPerCharge": 5.1,
+    "rechargeC": 1.25,
+    "catchUp": [
+     2.1,
+     11.1
+    ],
+    "headMin": 2.48,
+    "aglMin": 1.19,
+    "lensLossPct": 3.8,
+    "landMinRider": 5.84,
+    "tdKE": 1.25,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.94,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 9.9,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 49.8,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 104.4,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -170° (expected slide 1.4 m)"
+     },
+     {
+      "t": 114.9,
+      "type": "touchdown",
+      "en": "Belly touchdown: 4.4 m/s, 1.8 m/s into the snow (1.2 J)"
+     },
+     {
+      "t": 115.7,
+      "type": "landed",
+      "en": "At rest on the snow 8.2 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "tail3_s12",
+    "U": 3,
+    "dir": "tail",
+    "seed": 12,
+    "computeMs": 2198,
+    "noFly": false,
+    "avail": 51.8,
+    "pxMed": 340,
+    "jitter": 1.39,
+    "jitterPct": 6,
+    "attRateRms": 3.19,
+    "azRange": 134,
+    "keMax": 13.68,
+    "setup": 55.9,
+    "tReady": 9.8,
+    "endWait": 11.1,
+    "walk": 30,
+    "restDist": 12,
+    "ops": 2,
+    "rangeMax": 33.3,
+    "pMean": 7.99,
+    "pFollow": 5.6,
+    "pLoiter": 13.26,
+    "Ewh": 0.249,
+    "endurance": 79,
+    "runsPerCharge": 5.1,
+    "rechargeC": 1.24,
+    "catchUp": [
+     2.2,
+     11.5
+    ],
+    "headMin": 0.98,
+    "aglMin": 1.21,
+    "lensLossPct": 11.2,
+    "landMinRider": 7.19,
+    "tdKE": 1.36,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.94,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 9.7,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 49.7,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 104.3,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -174° (expected slide 1.5 m)"
+     },
+     {
+      "t": 114.3,
+      "type": "touchdown",
+      "en": "Belly touchdown: 4.5 m/s, 2.3 m/s into the snow (1.4 J)"
+     },
+     {
+      "t": 115.1,
+      "type": "landed",
+      "en": "At rest on the snow 12.0 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "tail3_s13",
+    "U": 3,
+    "dir": "tail",
+    "seed": 13,
+    "computeMs": 1835,
+    "noFly": false,
+    "avail": 46.1,
+    "pxMed": 304,
+    "jitter": 1.45,
+    "jitterPct": 6.3,
+    "attRateRms": 3.15,
+    "azRange": 129,
+    "keMax": 13.7,
+    "setup": 38.2,
+    "tReady": 9.7,
+    "endWait": 20.3,
+    "walk": 3.1,
+    "restDist": 3.1,
+    "ops": 2,
+    "rangeMax": 33.8,
+    "pMean": 8.19,
+    "pFollow": 5.55,
+    "pLoiter": 13.44,
+    "Ewh": 0.276,
+    "endurance": 77.2,
+    "runsPerCharge": 4.6,
+    "rechargeC": 1.38,
+    "catchUp": [
+     2.1,
+     17
+    ],
+    "headMin": 0.98,
+    "aglMin": 0.75,
+    "lensLossPct": 8.6,
+    "landMinRider": 3.08,
+    "tdKE": 1.2,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 1,
+    "propHeadMin": 4.93,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 9.7,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 49.6,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 104.3,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading 179° (expected slide 2.1 m)"
+     },
+     {
+      "t": 112.7,
+      "type": "goAround",
+      "en": "Not lined up: go-around (#1)"
+     },
+     {
+      "t": 123.5,
+      "type": "touchdown",
+      "en": "Belly touchdown: 4.3 m/s, 1.9 m/s into the snow (1.2 J)"
+     },
+     {
+      "t": 124.2,
+      "type": "landed",
+      "en": "At rest on the snow 3.1 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL3_s11",
+    "U": 3,
+    "dir": "crossL",
+    "seed": 11,
+    "computeMs": 2631,
+    "noFly": false,
+    "avail": 75.2,
+    "pxMed": 447,
+    "jitter": 0.96,
+    "jitterPct": 4.2,
+    "attRateRms": 2.66,
+    "azRange": 74,
+    "keMax": 13.38,
+    "setup": 35.4,
+    "tReady": 10.6,
+    "endWait": 14.8,
+    "walk": 5.1,
+    "restDist": 4.4,
+    "ops": 2,
+    "rangeMax": 37.1,
+    "pMean": 8.37,
+    "pFollow": 8.11,
+    "pLoiter": 9.96,
+    "Ewh": 0.271,
+    "endurance": 75.6,
+    "runsPerCharge": 4.7,
+    "rechargeC": 1.36,
+    "catchUp": [
+     3.2,
+     11.7
+    ],
+    "headMin": 3.45,
+    "aglMin": 1.65,
+    "lensLossPct": 0.2,
+    "landMinRider": 2.73,
+    "tdKE": 1.97,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.89,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 10.6,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 50.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.1,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -88° (expected slide 2.4 m)"
+     },
+     {
+      "t": 115.8,
+      "type": "touchdown",
+      "en": "Belly touchdown: 5.5 m/s, 0.9 m/s into the snow (2.0 J)"
+     },
+     {
+      "t": 119.6,
+      "type": "landed",
+      "en": "At rest on the snow 4.4 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL3_s12",
+    "U": 3,
+    "dir": "crossL",
+    "seed": 12,
+    "computeMs": 1864,
+    "noFly": false,
+    "avail": 77,
+    "pxMed": 439,
+    "jitter": 0.96,
+    "jitterPct": 4.1,
+    "attRateRms": 2.73,
+    "azRange": 71,
+    "keMax": 13.48,
+    "setup": 34,
+    "tReady": 10.7,
+    "endWait": 14.2,
+    "walk": 4.1,
+    "restDist": 3.8,
+    "ops": 2,
+    "rangeMax": 34.3,
+    "pMean": 8.96,
+    "pFollow": 8.49,
+    "pLoiter": 11.06,
+    "Ewh": 0.289,
+    "endurance": 70.9,
+    "runsPerCharge": 4.4,
+    "rechargeC": 1.44,
+    "catchUp": [
+     3.3,
+     11.2
+    ],
+    "headMin": 2.37,
+    "aglMin": 1.58,
+    "lensLossPct": 0.2,
+    "landMinRider": 1.24,
+    "tdKE": 1.88,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.86,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 10.6,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 50.6,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.2,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -93° (expected slide 2.9 m)"
+     },
+     {
+      "t": 115.7,
+      "type": "touchdown",
+      "en": "Belly touchdown: 5.4 m/s, 0.8 m/s into the snow (1.9 J)"
+     },
+     {
+      "t": 119,
+      "type": "landed",
+      "en": "At rest on the snow 3.8 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL3_s13",
+    "U": 3,
+    "dir": "crossL",
+    "seed": 13,
+    "computeMs": 1296,
+    "noFly": false,
+    "avail": 77.8,
+    "pxMed": 452,
+    "jitter": 0.93,
+    "jitterPct": 4,
+    "attRateRms": 2.9,
+    "azRange": 81,
+    "keMax": 13.51,
+    "setup": 33.7,
+    "tReady": 10.6,
+    "endWait": 14,
+    "walk": 4.1,
+    "restDist": 3.7,
+    "ops": 2,
+    "rangeMax": 41.9,
+    "pMean": 8.93,
+    "pFollow": 8.54,
+    "pLoiter": 10.54,
+    "Ewh": 0.287,
+    "endurance": 71.2,
+    "runsPerCharge": 4.4,
+    "rechargeC": 1.44,
+    "catchUp": [
+     3.3,
+     11
+    ],
+    "headMin": 3.69,
+    "aglMin": 1.59,
+    "lensLossPct": 0.9,
+    "landMinRider": 3.12,
+    "tdKE": 1.43,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.87,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 10.6,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 50.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.1,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading -92° (expected slide 2.2 m)"
+     },
+     {
+      "t": 115.9,
+      "type": "touchdown",
+      "en": "Belly touchdown: 4.7 m/s, 1.0 m/s into the snow (1.4 J)"
+     },
+     {
+      "t": 118.8,
+      "type": "landed",
+      "en": "At rest on the snow 3.7 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossR3_s11",
+    "U": 3,
+    "dir": "crossR",
+    "seed": 11,
+    "computeMs": 3100,
+    "noFly": false,
+    "avail": 88.2,
+    "pxMed": 460,
+    "jitter": 0.99,
+    "jitterPct": 4.3,
+    "attRateRms": 2.86,
+    "azRange": 74,
+    "keMax": 13.39,
+    "setup": 48,
+    "tReady": 10.6,
+    "endWait": 16,
+    "walk": 16.4,
+    "restDist": 11.9,
+    "ops": 2,
+    "rangeMax": 34.1,
+    "pMean": 9.18,
+    "pFollow": 8.79,
+    "pLoiter": 11.17,
+    "Ewh": 0.301,
+    "endurance": 69.3,
+    "runsPerCharge": 4.2,
+    "rechargeC": 1.5,
+    "catchUp": [
+     3.5,
+     3.6
+    ],
+    "headMin": 2.4,
+    "aglMin": 1.55,
+    "lensLossPct": 0.5,
+    "landMinRider": 2.08,
+    "tdKE": 2.39,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.85,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 10.6,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 50.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.2,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading 102° (expected slide 2.2 m)"
+     },
+     {
+      "t": 117.3,
+      "type": "touchdown",
+      "en": "Belly touchdown: 6.1 m/s, 1.3 m/s into the snow (2.4 J)"
+     },
+     {
+      "t": 120.8,
+      "type": "landed",
+      "en": "At rest on the snow 11.9 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossR3_s12",
+    "U": 3,
+    "dir": "crossR",
+    "seed": 12,
+    "computeMs": 1360,
+    "noFly": false,
+    "avail": 81.8,
+    "pxMed": 452,
+    "jitter": 0.92,
+    "jitterPct": 4,
+    "attRateRms": 2.82,
+    "azRange": 68,
+    "keMax": 13.46,
+    "setup": 38.1,
+    "tReady": 10.6,
+    "endWait": 13.6,
+    "walk": 9,
+    "restDist": 7,
+    "ops": 2,
+    "rangeMax": 37.2,
+    "pMean": 8.95,
+    "pFollow": 8.71,
+    "pLoiter": 10.37,
+    "Ewh": 0.287,
+    "endurance": 71,
+    "runsPerCharge": 4.4,
+    "rechargeC": 1.43,
+    "catchUp": [
+     3.5,
+     7.7
+    ],
+    "headMin": 2.19,
+    "aglMin": 1.51,
+    "lensLossPct": 0.5,
+    "landMinRider": 6.24,
+    "tdKE": 2.26,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.86,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 10.6,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 50.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105.1,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading 92° (expected slide 2.8 m)"
+     },
+     {
+      "t": 114.5,
+      "type": "touchdown",
+      "en": "Belly touchdown: 6.0 m/s, 0.8 m/s into the snow (2.3 J)"
+     },
+     {
+      "t": 118.4,
+      "type": "landed",
+      "en": "At rest on the snow 7.0 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossR3_s13",
+    "U": 3,
+    "dir": "crossR",
+    "seed": 13,
+    "computeMs": 1518,
+    "noFly": false,
+    "avail": 83.4,
+    "pxMed": 451,
+    "jitter": 0.96,
+    "jitterPct": 4.2,
+    "attRateRms": 2.67,
+    "azRange": 68,
+    "keMax": 13.47,
+    "setup": 48.7,
+    "tReady": 10.5,
+    "endWait": 25.5,
+    "walk": 7.7,
+    "restDist": 6.1,
+    "ops": 2,
+    "rangeMax": 33.2,
+    "pMean": 9.03,
+    "pFollow": 8.86,
+    "pLoiter": 9.55,
+    "Ewh": 0.319,
+    "endurance": 70.4,
+    "runsPerCharge": 4,
+    "rechargeC": 1.59,
+    "catchUp": [
+     3.4,
+     8.2
+    ],
+    "headMin": 1.5,
+    "aglMin": 1.51,
+    "lensLossPct": 0.4,
+    "landMinRider": 1.22,
+    "tdKE": 1.38,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 1,
+    "propHeadMin": 4.88,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 10.5,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 50.4,
+      "type": "loiter",
+      "en": "Waiting: orbit up-slope of the rider (no landing, height banked)"
+     },
+     {
+      "t": 105,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading 93° (expected slide 3.0 m)"
+     },
+     {
+      "t": 116.1,
+      "type": "goAround",
+      "en": "Not lined up: go-around (#1)"
+     },
+     {
+      "t": 127.6,
+      "type": "touchdown",
+      "en": "Belly touchdown: 4.6 m/s, 1.2 m/s into the snow (1.4 J)"
+     },
+     {
+      "t": 130.2,
+      "type": "landed",
+      "en": "At rest on the snow 6.1 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "pattern": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "head6_s11",
+    "U": 6,
+    "dir": "head",
+    "seed": 11,
+    "computeMs": 618,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 56,
+    "tReady": null,
+    "endWait": 18,
+    "walk": 30,
+    "restDist": 46.9,
+    "ops": 2,
+    "rangeMax": 34.7,
+    "pMean": 5.6,
+    "pFollow": null,
+    "pLoiter": 10.35,
+    "Ewh": 0.028,
+    "endurance": 109.4,
+    "runsPerCharge": 45.5,
+    "rechargeC": 0.14,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.15,
+    "aglMin": 3.73,
+    "lensLossPct": null,
+    "landMinRider": 17.43,
+    "tdKE": 1.45,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.85,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 6.1 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 7.0 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 7° (expected slide 0.0 m)"
+     },
+     {
+      "t": 15.9,
+      "type": "touchdown",
+      "en": "Belly touchdown: 4.6 m/s, 0.2 m/s into the snow (1.5 J)"
+     },
+     {
+      "t": 21,
+      "type": "landed",
+      "en": "At rest on the snow 46.9 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "head6_s12",
+    "U": 6,
+    "dir": "head",
+    "seed": 12,
+    "computeMs": 859,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 54.7,
+    "tReady": null,
+    "endWait": 16.7,
+    "walk": 30,
+    "restDist": 44.7,
+    "ops": 2,
+    "rangeMax": 36.7,
+    "pMean": 5.07,
+    "pFollow": null,
+    "pLoiter": 7.12,
+    "Ewh": 0.024,
+    "endurance": 119.5,
+    "runsPerCharge": 54,
+    "rechargeC": 0.12,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.23,
+    "aglMin": 3.8,
+    "lensLossPct": null,
+    "landMinRider": 19.49,
+    "tdKE": 1,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 5.01,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 5.9 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 6.8 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -0° (expected slide 0.0 m)"
+     },
+     {
+      "t": 15.6,
+      "type": "touchdown",
+      "en": "Belly touchdown: 3.7 m/s, 0.5 m/s into the snow (1.0 J)"
+     },
+     {
+      "t": 19.7,
+      "type": "landed",
+      "en": "At rest on the snow 44.7 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "head6_s13",
+    "U": 6,
+    "dir": "head",
+    "seed": 13,
+    "computeMs": 449,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.25,
+    "setup": 54.5,
+    "tReady": null,
+    "endWait": 16.5,
+    "walk": 30,
+    "restDist": 46.2,
+    "ops": 2,
+    "rangeMax": 36.2,
+    "pMean": 5.02,
+    "pFollow": null,
+    "pLoiter": 6.69,
+    "Ewh": 0.023,
+    "endurance": 120.7,
+    "runsPerCharge": 55.4,
+    "rechargeC": 0.12,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.34,
+    "aglMin": 4.01,
+    "lensLossPct": null,
+    "landMinRider": 17.7,
+    "tdKE": 1.23,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 5.06,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 5.9 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 6.3 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 1° (expected slide 0.1 m)"
+     },
+     {
+      "t": 14.9,
+      "type": "touchdown",
+      "en": "Belly touchdown: 4.2 m/s, 0.5 m/s into the snow (1.2 J)"
+     },
+     {
+      "t": 19.5,
+      "type": "landed",
+      "en": "At rest on the snow 46.2 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "tail6_s11",
+    "U": 6,
+    "dir": "tail",
+    "seed": 11,
+    "computeMs": 2422,
+    "noFly": false,
+    "avail": 24.8,
+    "pxMed": 234,
+    "jitter": 1.19,
+    "jitterPct": 5.2,
+    "attRateRms": 5.51,
+    "azRange": 217,
+    "keMax": 18.02,
+    "setup": 48.1,
+    "tReady": 13.1,
+    "endWait": 0,
+    "walk": 30,
+    "restDist": null,
+    "ops": 3,
+    "rangeMax": 69.8,
+    "pMean": 11.09,
+    "pFollow": 6.93,
+    "pLoiter": 16.8,
+    "Ewh": 0.426,
+    "endurance": 58,
+    "runsPerCharge": 3,
+    "rechargeC": 2.13,
+    "catchUp": [
+     2.8,
+     16.9
+    ],
+    "headMin": 2.22,
+    "aglMin": 0.84,
+    "lensLossPct": 41.6,
+    "landMinRider": 3.47,
+    "tdKE": null,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.99,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 5.9 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 13.1,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 53,
+      "type": "loiter",
+      "en": "Waiting: 5.7 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 107.6,
+      "type": "pattern",
+      "en": "收工: landing pattern, final heading 177° (expected slide 0.1 m)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "final": 0,
+     "flare": 0
+    }
+   },
+   {
+    "id": "tail6_s12",
+    "U": 6,
+    "dir": "tail",
+    "seed": 12,
+    "computeMs": 758,
+    "noFly": false,
+    "avail": 0,
+    "pxMed": 134,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": 22,
+    "keMax": 6.24,
+    "setup": 45.8,
+    "tReady": 10.8,
+    "endWait": 0,
+    "walk": 30,
+    "restDist": null,
+    "ops": 3,
+    "rangeMax": 37.2,
+    "pMean": 1.47,
+    "pFollow": 7.14,
+    "pLoiter": 17.86,
+    "Ewh": 0.055,
+    "endurance": 327.8,
+    "runsPerCharge": 23,
+    "rechargeC": 0.28,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.3,
+    "aglMin": 0.05,
+    "lensLossPct": 3.4,
+    "landMinRider": null,
+    "tdKE": null,
+    "crashed": true,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 5.02,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 6.1 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 10.7,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 13.6,
+      "type": "snowStrike",
+      "en": "Snow strike in flight (KE 5.8 J): manual recovery (+1 action)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "follow": 0,
+     "crash": 0
+    }
+   },
+   {
+    "id": "tail6_s13",
+    "U": 6,
+    "dir": "tail",
+    "seed": 13,
+    "computeMs": 288,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 48.5,
+    "tReady": null,
+    "endWait": 10.5,
+    "walk": 30,
+    "restDist": 31.5,
+    "ops": 2,
+    "rangeMax": 31.2,
+    "pMean": 13.21,
+    "pFollow": null,
+    "pLoiter": 18.6,
+    "Ewh": 0.038,
+    "endurance": 49.1,
+    "runsPerCharge": 33.1,
+    "rechargeC": 0.19,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.23,
+    "aglMin": 1.23,
+    "lensLossPct": null,
+    "landMinRider": 21.6,
+    "tdKE": 0.37,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.95,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 6.1 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 6.0 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -180° (expected slide 0.2 m)"
+     },
+     {
+      "t": 13.2,
+      "type": "touchdown",
+      "en": "Belly touchdown: 1.6 m/s, 2.2 m/s into the snow (0.4 J)"
+     },
+     {
+      "t": 13.5,
+      "type": "landed",
+      "en": "At rest on the snow 31.5 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL6_s11",
+    "U": 6,
+    "dir": "crossL",
+    "seed": 11,
+    "computeMs": 328,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 49.2,
+    "tReady": null,
+    "endWait": 11.2,
+    "walk": 30,
+    "restDist": 36.9,
+    "ops": 2,
+    "rangeMax": 34.7,
+    "pMean": 6.97,
+    "pFollow": null,
+    "pLoiter": 11.65,
+    "Ewh": 0.022,
+    "endurance": 89.5,
+    "runsPerCharge": 58.9,
+    "rechargeC": 0.11,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.13,
+    "aglMin": 2.36,
+    "lensLossPct": null,
+    "landMinRider": 20.38,
+    "tdKE": 0.66,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.81,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 5.8 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 5.4,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 7.1,
+      "type": "interlock",
+      "en": "Wind 5.5 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7.1,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -81° (expected slide 0.4 m)"
+     },
+     {
+      "t": 12,
+      "type": "touchdown",
+      "en": "Belly touchdown: 3.1 m/s, 0.8 m/s into the snow (0.7 J)"
+     },
+     {
+      "t": 14.2,
+      "type": "landed",
+      "en": "At rest on the snow 36.9 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL6_s12",
+    "U": 6,
+    "dir": "crossL",
+    "seed": 12,
+    "computeMs": 366,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 48.8,
+    "tReady": null,
+    "endWait": 10.8,
+    "walk": 30,
+    "restDist": 36.2,
+    "ops": 2,
+    "rangeMax": 34,
+    "pMean": 6.38,
+    "pFollow": null,
+    "pLoiter": 9.66,
+    "Ewh": 0.019,
+    "endurance": 97.2,
+    "runsPerCharge": 66.9,
+    "rechargeC": 0.1,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.1,
+    "aglMin": 2.21,
+    "lensLossPct": null,
+    "landMinRider": 19.46,
+    "tdKE": 0.76,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.78,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 5.9 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 6.1 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -83° (expected slide 0.2 m)"
+     },
+     {
+      "t": 11.6,
+      "type": "touchdown",
+      "en": "Belly touchdown: 3.2 m/s, 1.3 m/s into the snow (0.8 J)"
+     },
+     {
+      "t": 13.8,
+      "type": "landed",
+      "en": "At rest on the snow 36.2 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL6_s13",
+    "U": 6,
+    "dir": "crossL",
+    "seed": 13,
+    "computeMs": 444,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 48.3,
+    "tReady": null,
+    "endWait": 10.3,
+    "walk": 30,
+    "restDist": 34,
+    "ops": 2,
+    "rangeMax": 32,
+    "pMean": 6.4,
+    "pFollow": null,
+    "pLoiter": 9.86,
+    "Ewh": 0.018,
+    "endurance": 96.8,
+    "runsPerCharge": 69.3,
+    "rechargeC": 0.09,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.1,
+    "aglMin": 2.56,
+    "lensLossPct": null,
+    "landMinRider": 19.42,
+    "tdKE": 0.71,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.78,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 6.1 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 5.3,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 6.0 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -86° (expected slide 0.2 m)"
+     },
+     {
+      "t": 11.3,
+      "type": "touchdown",
+      "en": "Belly touchdown: 3.2 m/s, 1.0 m/s into the snow (0.7 J)"
+     },
+     {
+      "t": 13.3,
+      "type": "landed",
+      "en": "At rest on the snow 34.0 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossR6_s11",
+    "U": 6,
+    "dir": "crossR",
+    "seed": 11,
+    "computeMs": 309,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 52.3,
+    "tReady": null,
+    "endWait": 14.3,
+    "walk": 30,
+    "restDist": 37.4,
+    "ops": 2,
+    "rangeMax": 34.8,
+    "pMean": 6.73,
+    "pFollow": null,
+    "pLoiter": 11.19,
+    "Ewh": 0.027,
+    "endurance": 92.5,
+    "runsPerCharge": 47.7,
+    "rechargeC": 0.13,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.05,
+    "aglMin": 2.51,
+    "lensLossPct": null,
+    "landMinRider": 22.07,
+    "tdKE": 0.88,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.72,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 6.2 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 6.7 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 82° (expected slide 0.0 m)"
+     },
+     {
+      "t": 14.8,
+      "type": "touchdown",
+      "en": "Belly touchdown: 3.7 m/s, 0.7 m/s into the snow (0.9 J)"
+     },
+     {
+      "t": 17.3,
+      "type": "landed",
+      "en": "At rest on the snow 37.4 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossR6_s12",
+    "U": 6,
+    "dir": "crossR",
+    "seed": 12,
+    "computeMs": 307,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 52.4,
+    "tReady": null,
+    "endWait": 14.4,
+    "walk": 30,
+    "restDist": 35,
+    "ops": 2,
+    "rangeMax": 33.5,
+    "pMean": 7.16,
+    "pFollow": null,
+    "pLoiter": 9.39,
+    "Ewh": 0.029,
+    "endurance": 87.3,
+    "runsPerCharge": 44.6,
+    "rechargeC": 0.14,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.05,
+    "aglMin": 2.26,
+    "lensLossPct": null,
+    "landMinRider": 22.28,
+    "tdKE": 0.52,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.73,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 6.1 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 6.3 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 83° (expected slide 0.1 m)"
+     },
+     {
+      "t": 15.5,
+      "type": "touchdown",
+      "en": "Belly touchdown: 2.7 m/s, 0.8 m/s into the snow (0.5 J)"
+     },
+     {
+      "t": 17.4,
+      "type": "landed",
+      "en": "At rest on the snow 35.0 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossR6_s13",
+    "U": 6,
+    "dir": "crossR",
+    "seed": 13,
+    "computeMs": 348,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 51.7,
+    "tReady": null,
+    "endWait": 13.7,
+    "walk": 30,
+    "restDist": 36.9,
+    "ops": 2,
+    "rangeMax": 34.4,
+    "pMean": 6.48,
+    "pFollow": null,
+    "pLoiter": 9.36,
+    "Ewh": 0.025,
+    "endurance": 95.8,
+    "runsPerCharge": 51.8,
+    "rechargeC": 0.12,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.15,
+    "aglMin": 2.5,
+    "lensLossPct": null,
+    "landMinRider": 22.55,
+    "tdKE": 0.99,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.82,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 5.9 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 6.1 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 88° (expected slide 0.2 m)"
+     },
+     {
+      "t": 14.3,
+      "type": "touchdown",
+      "en": "Belly touchdown: 3.8 m/s, 1.1 m/s into the snow (1.0 J)"
+     },
+     {
+      "t": 16.7,
+      "type": "landed",
+      "en": "At rest on the snow 36.9 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "head9_s11",
+    "U": 9,
+    "dir": "head",
+    "seed": 11,
+    "computeMs": 446,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.47,
+    "setup": 78,
+    "tReady": null,
+    "endWait": 40,
+    "walk": 30,
+    "restDist": null,
+    "ops": 2,
+    "rangeMax": 19.3,
+    "pMean": 5.13,
+    "pFollow": null,
+    "pLoiter": 6.63,
+    "Ewh": 0.057,
+    "endurance": 118.4,
+    "runsPerCharge": 22.4,
+    "rechargeC": 0.28,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.15,
+    "aglMin": 4.29,
+    "lensLossPct": null,
+    "landMinRider": 3.77,
+    "tdKE": null,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.86,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 9.1 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 10.3 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 10° (expected slide 0.0 m)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0
+    }
+   },
+   {
+    "id": "head9_s12",
+    "U": 9,
+    "dir": "head",
+    "seed": 12,
+    "computeMs": 244,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.41,
+    "setup": 18.1,
+    "tReady": null,
+    "endWait": 8.1,
+    "walk": 2,
+    "restDist": 2.4,
+    "ops": 2,
+    "rangeMax": 11.5,
+    "pMean": 4.3,
+    "pFollow": null,
+    "pLoiter": 4.55,
+    "Ewh": 0.01,
+    "endurance": 138.3,
+    "runsPerCharge": 132,
+    "rechargeC": 0.05,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 3.09,
+    "aglMin": 4.33,
+    "lensLossPct": null,
+    "landMinRider": 2.35,
+    "tdKE": 0.14,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.93,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 8.9 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 10.1 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -1° (expected slide 0.0 m)"
+     },
+     {
+      "t": 11,
+      "type": "touchdown",
+      "en": "Belly touchdown: 0.6 m/s, 1.5 m/s into the snow (0.1 J)"
+     },
+     {
+      "t": 11.1,
+      "type": "landed",
+      "en": "At rest on the snow 2.4 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "head9_s13",
+    "U": 9,
+    "dir": "head",
+    "seed": 13,
+    "computeMs": 275,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.63,
+    "setup": 29.3,
+    "tReady": null,
+    "endWait": 10,
+    "walk": 11.3,
+    "restDist": 8.5,
+    "ops": 2,
+    "rangeMax": 12.7,
+    "pMean": 4.45,
+    "pFollow": null,
+    "pLoiter": 4.68,
+    "Ewh": 0.012,
+    "endurance": 134.3,
+    "runsPerCharge": 103.1,
+    "rechargeC": 0.06,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.43,
+    "aglMin": 4.62,
+    "lensLossPct": null,
+    "landMinRider": 7.11,
+    "tdKE": 0.09,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 5.15,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 8.7 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 9.2 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 4° (expected slide 0.0 m)"
+     },
+     {
+      "t": 12,
+      "type": "touchdown",
+      "en": "Belly touchdown: 1.1 m/s, 0.2 m/s into the snow (0.1 J)"
+     },
+     {
+      "t": 13,
+      "type": "landed",
+      "en": "At rest on the snow 8.5 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "tail9_s11",
+    "U": 9,
+    "dir": "tail",
+    "seed": 11,
+    "computeMs": 481,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 31.3,
+    "tReady": null,
+    "endWait": 11.7,
+    "walk": 11.6,
+    "restDist": 8.7,
+    "ops": 2,
+    "rangeMax": 19.5,
+    "pMean": 14.97,
+    "pFollow": null,
+    "pLoiter": 26.65,
+    "Ewh": 0.049,
+    "endurance": 43.5,
+    "runsPerCharge": 26.2,
+    "rechargeC": 0.24,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.33,
+    "aglMin": 0.94,
+    "lensLossPct": null,
+    "landMinRider": 8.03,
+    "tdKE": 0.4,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 5.08,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 8.9 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 7.7 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 168° (expected slide 0.0 m)"
+     },
+     {
+      "t": 14.1,
+      "type": "touchdown",
+      "en": "Belly touchdown: 1.0 m/s, 2.2 m/s into the snow (0.4 J)"
+     },
+     {
+      "t": 14.7,
+      "type": "landed",
+      "en": "At rest on the snow 8.7 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "tail9_s12",
+    "U": 9,
+    "dir": "tail",
+    "seed": 12,
+    "computeMs": 474,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.35,
+    "setup": 54.5,
+    "tReady": null,
+    "endWait": 16.5,
+    "walk": 30,
+    "restDist": 14.6,
+    "ops": 2,
+    "rangeMax": 21.7,
+    "pMean": 15.16,
+    "pFollow": null,
+    "pLoiter": 22.97,
+    "Ewh": 0.069,
+    "endurance": 43,
+    "runsPerCharge": 18.4,
+    "rechargeC": 0.35,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.41,
+    "aglMin": 0.54,
+    "lensLossPct": null,
+    "landMinRider": 12.9,
+    "tdKE": 0.65,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 5.16,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 9.1 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 8.0 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 177° (expected slide 0.0 m)"
+     },
+     {
+      "t": 17.7,
+      "type": "touchdown",
+      "en": "Belly touchdown: 1.7 m/s, 2.3 m/s into the snow (0.7 J)"
+     },
+     {
+      "t": 19.5,
+      "type": "landed",
+      "en": "At rest on the snow 14.6 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "tail9_s13",
+    "U": 9,
+    "dir": "tail",
+    "seed": 13,
+    "computeMs": 470,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 53.7,
+    "tReady": null,
+    "endWait": 15.7,
+    "walk": 30,
+    "restDist": 17.3,
+    "ops": 2,
+    "rangeMax": 21.4,
+    "pMean": 14.24,
+    "pFollow": null,
+    "pLoiter": 22.17,
+    "Ewh": 0.062,
+    "endurance": 45.7,
+    "runsPerCharge": 20.5,
+    "rechargeC": 0.31,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.25,
+    "aglMin": 0.89,
+    "lensLossPct": null,
+    "landMinRider": 15.26,
+    "tdKE": 0.68,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.98,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 9.3 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 9.2 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 178° (expected slide 0.0 m)"
+     },
+     {
+      "t": 18.1,
+      "type": "touchdown",
+      "en": "Belly touchdown: 0.8 m/s, 2.9 m/s into the snow (0.7 J)"
+     },
+     {
+      "t": 18.7,
+      "type": "landed",
+      "en": "At rest on the snow 17.3 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL9_s11",
+    "U": 9,
+    "dir": "crossL",
+    "seed": 11,
+    "computeMs": 310,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 46.6,
+    "tReady": null,
+    "endWait": 8.6,
+    "walk": 30,
+    "restDist": 18.6,
+    "ops": 2,
+    "rangeMax": 18.7,
+    "pMean": 7.03,
+    "pFollow": null,
+    "pLoiter": 10.75,
+    "Ewh": 0.017,
+    "endurance": 88.8,
+    "runsPerCharge": 76,
+    "rechargeC": 0.08,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.06,
+    "aglMin": 2.79,
+    "lensLossPct": null,
+    "landMinRider": 15.93,
+    "tdKE": 0.02,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.74,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 8.8 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 5.1,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 7.7 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -82° (expected slide 0.0 m)"
+     },
+     {
+      "t": 11.6,
+      "type": "touchdown",
+      "en": "Belly touchdown: 0.2 m/s, 0.5 m/s into the snow (0.0 J)"
+     },
+     {
+      "t": 11.6,
+      "type": "landed",
+      "en": "At rest on the snow 18.6 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL9_s12",
+    "U": 9,
+    "dir": "crossL",
+    "seed": 12,
+    "computeMs": 290,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 46.6,
+    "tReady": null,
+    "endWait": 8.6,
+    "walk": 30,
+    "restDist": 17.3,
+    "ops": 2,
+    "rangeMax": 17,
+    "pMean": 6.2,
+    "pFollow": null,
+    "pLoiter": 8.49,
+    "Ewh": 0.015,
+    "endurance": 99.7,
+    "runsPerCharge": 86.6,
+    "rechargeC": 0.07,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.02,
+    "aglMin": 2.59,
+    "lensLossPct": null,
+    "landMinRider": 15.25,
+    "tdKE": 0.23,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.7,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 8.9 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 5.3,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 9.0 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -86° (expected slide 0.0 m)"
+     },
+     {
+      "t": 10.7,
+      "type": "touchdown",
+      "en": "Belly touchdown: 1.2 m/s, 1.3 m/s into the snow (0.2 J)"
+     },
+     {
+      "t": 11.6,
+      "type": "landed",
+      "en": "At rest on the snow 17.3 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossL9_s13",
+    "U": 9,
+    "dir": "crossL",
+    "seed": 13,
+    "computeMs": 280,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.25,
+    "setup": 47.4,
+    "tReady": null,
+    "endWait": 9.4,
+    "walk": 30,
+    "restDist": 12.8,
+    "ops": 2,
+    "rangeMax": 13.9,
+    "pMean": 5.86,
+    "pFollow": null,
+    "pLoiter": 7.93,
+    "Ewh": 0.015,
+    "endurance": 105,
+    "runsPerCharge": 83.8,
+    "rechargeC": 0.08,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.03,
+    "aglMin": 3.08,
+    "lensLossPct": null,
+    "landMinRider": 12.78,
+    "tdKE": 0.04,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.71,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 9.2 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 5.4,
+      "type": "ready",
+      "en": "Ready cue (tag vibrates): push off now"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 8.6 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading -86° (expected slide 0.0 m)"
+     },
+     {
+      "t": 12.1,
+      "type": "touchdown",
+      "en": "Belly touchdown: 0.5 m/s, 0.5 m/s into the snow (0.0 J)"
+     },
+     {
+      "t": 12.4,
+      "type": "landed",
+      "en": "At rest on the snow 12.8 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossR9_s11",
+    "U": 9,
+    "dir": "crossR",
+    "seed": 11,
+    "computeMs": 442,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 65.3,
+    "tReady": null,
+    "endWait": 27.3,
+    "walk": 30,
+    "restDist": 24.8,
+    "ops": 2,
+    "rangeMax": 24.4,
+    "pMean": 6.53,
+    "pFollow": null,
+    "pLoiter": 10.51,
+    "Ewh": 0.049,
+    "endurance": 95.1,
+    "runsPerCharge": 25.8,
+    "rechargeC": 0.25,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 4.98,
+    "aglMin": 2.98,
+    "lensLossPct": null,
+    "landMinRider": 13.62,
+    "tdKE": 0.17,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.65,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 9.2 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 10.7 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 82° (expected slide 0.0 m)"
+     },
+     {
+      "t": 29.2,
+      "type": "touchdown",
+      "en": "Belly touchdown: 1.5 m/s, 0.6 m/s into the snow (0.2 J)"
+     },
+     {
+      "t": 30.3,
+      "type": "landed",
+      "en": "At rest on the snow 24.8 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   },
+   {
+    "id": "crossR9_s12",
+    "U": 9,
+    "dir": "crossR",
+    "seed": 12,
+    "computeMs": 505,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 78,
+    "tReady": null,
+    "endWait": 40,
+    "walk": 30,
+    "restDist": null,
+    "ops": 2,
+    "rangeMax": 33,
+    "pMean": 10.23,
+    "pFollow": null,
+    "pLoiter": 7.9,
+    "Ewh": 0.114,
+    "endurance": 62.6,
+    "runsPerCharge": 11.2,
+    "rechargeC": 0.57,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 4.94,
+    "aglMin": 2.74,
+    "lensLossPct": null,
+    "landMinRider": 18.56,
+    "tdKE": null,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.62,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 9.1 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 8.9 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 82° (expected slide 0.0 m)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0
+    }
+   },
+   {
+    "id": "crossR9_s13",
+    "U": 9,
+    "dir": "crossR",
+    "seed": 13,
+    "computeMs": 340,
+    "noFly": true,
+    "avail": 0,
+    "pxMed": null,
+    "jitter": null,
+    "jitterPct": null,
+    "attRateRms": null,
+    "azRange": null,
+    "keMax": 6.24,
+    "setup": 60.4,
+    "tReady": null,
+    "endWait": 22.4,
+    "walk": 30,
+    "restDist": 20.1,
+    "ops": 2,
+    "rangeMax": 20,
+    "pMean": 7.01,
+    "pFollow": null,
+    "pLoiter": 6.9,
+    "Ewh": 0.044,
+    "endurance": 89.1,
+    "runsPerCharge": 29.2,
+    "rechargeC": 0.22,
+    "catchUp": [
+     null,
+     null
+    ],
+    "headMin": 5.13,
+    "aglMin": 2.97,
+    "lensLossPct": null,
+    "landMinRider": 16.28,
+    "tdKE": 0.31,
+    "crashed": false,
+    "failsafe": false,
+    "goArounds": 0,
+    "propHeadMin": 4.81,
+    "events": [
+     {
+      "t": 3,
+      "type": "throw",
+      "en": "Hand throw (action 1): 10 m/s into the wind (calm: across the slope); pusher starts after 0.5 s"
+     },
+     {
+      "t": 3.5,
+      "type": "loiter",
+      "en": "Waiting: 8.8 m/s wind, into-wind station-keeping up-wind of the rider (constant-airspeed S-turns)"
+     },
+     {
+      "t": 7,
+      "type": "interlock",
+      "en": "Wind 9.6 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+     },
+     {
+      "t": 7,
+      "type": "pattern",
+      "en": "interlock: landing pattern, final heading 89° (expected slide 0.0 m)"
+     },
+     {
+      "t": 24.6,
+      "type": "touchdown",
+      "en": "Belly touchdown: 1.1 m/s, 1.8 m/s into the snow (0.3 J)"
+     },
+     {
+      "t": 25.4,
+      "type": "landed",
+      "en": "At rest on the snow 20.1 m from the rider: waiting to be picked up (action 2)"
+     }
+    ],
+    "modeTime": {
+     "stowed": 0,
+     "thrown": 0,
+     "loiter": 0,
+     "final": 0,
+     "flare": 0,
+     "slide": 0,
+     "landed": 0
+    }
+   }
+  ],
+  "summary": {
+   "n": 39,
+   "avail": {
+    "mean": 29.89,
+    "p10": 0,
+    "p50": 0,
+    "p90": 83.4,
+    "min": 0,
+    "max": 88.4,
+    "n": 39
+   },
+   "pxMed": {
+    "mean": 401.53,
+    "p10": 304,
+    "p50": 451,
+    "p90": 464,
+    "min": 134,
+    "max": 473,
+    "n": 17
+   },
+   "jitter": {
+    "mean": 1.08,
+    "p10": 0.96,
+    "p50": 1.02,
+    "p90": 1.39,
+    "min": 0.92,
+    "max": 1.45,
+    "n": 16
+   },
+   "jitterPct": {
+    "mean": 4.68,
+    "p10": 4.1,
+    "p50": 4.4,
+    "p90": 6,
+    "min": 4,
+    "max": 6.3,
+    "n": 16
+   },
+   "azRange": {
+    "mean": 84.18,
+    "p10": 63,
+    "p50": 69,
+    "p90": 129,
+    "min": 22,
+    "max": 217,
+    "n": 17
+   },
+   "setup": {
+    "mean": 47.62,
+    "p10": 33.7,
+    "p50": 48.1,
+    "p90": 60.4,
+    "min": 18.1,
+    "max": 78,
+    "n": 39
+   },
+   "keMax": {
+    "mean": 9.34,
+    "p10": 6.24,
+    "p50": 6.35,
+    "p90": 13.51,
+    "min": 6.24,
+    "max": 18.02,
+    "n": 39
+   },
+   "rangeMax": {
+    "mean": 31.5,
+    "p10": 18.7,
+    "p50": 33.8,
+    "p90": 39.8,
+    "min": 11.5,
+    "max": 69.8,
+    "n": 39
+   },
+   "ops": {
+    "mean": 2.1,
+    "p10": 2,
+    "p50": 2,
+    "p90": 2,
+    "min": 2,
+    "max": 3,
+    "n": 39,
+    "shareAbove2": 10.3
+   },
+   "pMean": {
+    "mean": 7.95,
+    "p10": 5.07,
+    "p50": 7.99,
+    "p90": 11.09,
+    "min": 1.47,
+    "max": 15.16,
+    "n": 39
+   },
+   "endurance": {
+    "fromMeanPower": 79.3,
+    "perCase": {
+     "mean": 90.51,
+     "p10": 58,
+     "p50": 79,
+     "p90": 119.5,
+     "min": 43,
+     "max": 327.8,
+     "n": 39
+    }
+   },
+   "bodyForcePeak": {
+    "max": 0
+   },
+   "crashes": 3,
+   "noFly": 22,
+   "failsafes": 0,
+   "catchUpRestart": {
+    "mean": 21.38,
+    "p10": 7.7,
+    "p50": 30,
+    "p90": 30,
+    "min": 1.1,
+    "max": 30,
+    "n": 39
+   },
+   "byWind": [
+    {
+     "U": 0,
+     "n": 3,
+     "avail": {
+      "mean": 88.13,
+      "p10": 87.9,
+      "p50": 88.1,
+      "p90": 88.4,
+      "min": 87.9,
+      "max": 88.4,
+      "n": 3
+     },
+     "pxMed": {
+      "mean": 465,
+      "p10": 457,
+      "p50": 465,
+      "p90": 473,
+      "min": 457,
+      "max": 473,
+      "n": 3
+     },
+     "jitter": {
+      "mean": 1.02,
+      "p10": 1.01,
+      "p50": 1.02,
+      "p90": 1.02,
+      "min": 1.01,
+      "max": 1.02,
+      "n": 3
+     },
+     "jitterPct": {
+      "mean": 4.37,
+      "p10": 4.3,
+      "p50": 4.4,
+      "p90": 4.4,
+      "min": 4.3,
+      "max": 4.4,
+      "n": 3
+     },
+     "azRange": {
+      "mean": 64,
+      "p10": 63,
+      "p50": 64,
+      "p90": 65,
+      "min": 63,
+      "max": 65,
+      "n": 3
+     },
+     "setup": {
+      "mean": 34.1,
+      "p10": 33.4,
+      "p50": 33.8,
+      "p90": 35.1,
+      "min": 33.4,
+      "max": 35.1,
+      "n": 3
+     },
+     "keMax": {
+      "mean": 13.32,
+      "p10": 13.3,
+      "p50": 13.32,
+      "p90": 13.33,
+      "min": 13.3,
+      "max": 13.33,
+      "n": 3
+     },
+     "rangeMax": {
+      "mean": 40.4,
+      "p10": 39.8,
+      "p50": 40.4,
+      "p90": 41,
+      "min": 39.8,
+      "max": 41,
+      "n": 3
+     },
+     "ops": {
+      "mean": 2,
+      "p10": 2,
+      "p50": 2,
+      "p90": 2,
+      "min": 2,
+      "max": 2,
+      "n": 3,
+      "shareAbove2": 0
+     },
+     "pMean": {
+      "mean": 8.04,
+      "p10": 8.01,
+      "p50": 8.03,
+      "p90": 8.07,
+      "min": 8.01,
+      "max": 8.07,
+      "n": 3
+     },
+     "endurance": {
+      "fromMeanPower": 78.5,
+      "perCase": {
+       "mean": 78.53,
+       "p10": 78.2,
+       "p50": 78.6,
+       "p90": 78.8,
+       "min": 78.2,
+       "max": 78.8,
+       "n": 3
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 0,
+     "noFly": 0,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 1.27,
+      "p10": 1.1,
+      "p50": 1.2,
+      "p90": 1.5,
+      "min": 1.1,
+      "max": 1.5,
+      "n": 3
+     }
+    },
+    {
+     "U": 3,
+     "n": 12,
+     "avail": {
+      "mean": 73.05,
+      "p10": 51.8,
+      "p50": 77.8,
+      "p90": 83.4,
+      "min": 46.1,
+      "max": 88.2,
+      "n": 12
+     },
+     "pxMed": {
+      "mean": 421.92,
+      "p10": 340,
+      "p50": 451,
+      "p90": 460,
+      "min": 304,
+      "max": 464,
+      "n": 12
+     },
+     "jitter": {
+      "mean": 1.09,
+      "p10": 0.93,
+      "p50": 1.03,
+      "p90": 1.39,
+      "min": 0.92,
+      "max": 1.45,
+      "n": 12
+     },
+     "jitterPct": {
+      "mean": 4.71,
+      "p10": 4,
+      "p50": 4.5,
+      "p90": 6,
+      "min": 4,
+      "max": 6.3,
+      "n": 12
+     },
+     "azRange": {
+      "mean": 83.33,
+      "p10": 64,
+      "p50": 74,
+      "p90": 129,
+      "min": 60,
+      "max": 134,
+      "n": 12
+     },
+     "setup": {
+      "mean": 44.61,
+      "p10": 34,
+      "p50": 46.7,
+      "p90": 55.9,
+      "min": 33.7,
+      "max": 72.3,
+      "n": 12
+     },
+     "keMax": {
+      "mean": 13.49,
+      "p10": 13.39,
+      "p50": 13.47,
+      "p90": 13.68,
+      "min": 13.38,
+      "max": 13.7,
+      "n": 12
+     },
+     "rangeMax": {
+      "mean": 35.42,
+      "p10": 33.2,
+      "p50": 34.3,
+      "p90": 39.4,
+      "min": 30.7,
+      "max": 41.9,
+      "n": 12
+     },
+     "ops": {
+      "mean": 2.17,
+      "p10": 2,
+      "p50": 2,
+      "p90": 3,
+      "min": 2,
+      "max": 3,
+      "n": 12,
+      "shareAbove2": 16.7
+     },
+     "pMean": {
+      "mean": 8.6,
+      "p10": 7.99,
+      "p50": 8.93,
+      "p90": 9.18,
+      "min": 7.98,
+      "max": 9.6,
+      "n": 12
+     },
+     "endurance": {
+      "fromMeanPower": 73.7,
+      "perCase": {
+       "mean": 73.93,
+       "p10": 69.3,
+       "p50": 75.6,
+       "p90": 79,
+       "min": 66.5,
+       "max": 79,
+       "n": 12
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 2,
+     "noFly": 0,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 10.27,
+      "p10": 7.7,
+      "p50": 11.1,
+      "p90": 11.7,
+      "min": 3.6,
+      "max": 17,
+      "n": 12
+     }
+    },
+    {
+     "U": 6,
+     "n": 12,
+     "avail": {
+      "mean": 2.07,
+      "p10": 0,
+      "p50": 0,
+      "p90": 0,
+      "min": 0,
+      "max": 24.8,
+      "n": 12
+     },
+     "pxMed": {
+      "mean": 184,
+      "p10": 134,
+      "p50": 234,
+      "p90": 234,
+      "min": 134,
+      "max": 234,
+      "n": 2
+     },
+     "jitter": {
+      "mean": 1.19,
+      "p10": 1.19,
+      "p50": 1.19,
+      "p90": 1.19,
+      "min": 1.19,
+      "max": 1.19,
+      "n": 1
+     },
+     "jitterPct": {
+      "mean": 5.2,
+      "p10": 5.2,
+      "p50": 5.2,
+      "p90": 5.2,
+      "min": 5.2,
+      "max": 5.2,
+      "n": 1
+     },
+     "azRange": {
+      "mean": 119.5,
+      "p10": 22,
+      "p50": 217,
+      "p90": 217,
+      "min": 22,
+      "max": 217,
+      "n": 2
+     },
+     "setup": {
+      "mean": 50.86,
+      "p10": 48.1,
+      "p50": 51.7,
+      "p90": 54.7,
+      "min": 45.8,
+      "max": 56,
+      "n": 12
+     },
+     "keMax": {
+      "mean": 7.22,
+      "p10": 6.24,
+      "p50": 6.24,
+      "p90": 6.25,
+      "min": 6.24,
+      "max": 18.02,
+      "n": 12
+     },
+     "rangeMax": {
+      "mean": 37.43,
+      "p10": 32,
+      "p50": 34.7,
+      "p90": 37.2,
+      "min": 31.2,
+      "max": 69.8,
+      "n": 12
+     },
+     "ops": {
+      "mean": 2.17,
+      "p10": 2,
+      "p50": 2,
+      "p90": 3,
+      "min": 2,
+      "max": 3,
+      "n": 12,
+      "shareAbove2": 16.7
+     },
+     "pMean": {
+      "mean": 6.8,
+      "p10": 5.02,
+      "p50": 6.48,
+      "p90": 11.09,
+      "min": 1.47,
+      "max": 13.21,
+      "n": 12
+     },
+     "endurance": {
+      "fromMeanPower": 91.6,
+      "perCase": {
+       "mean": 111.97,
+       "p10": 58,
+       "p50": 96.8,
+       "p90": 120.7,
+       "min": 49.1,
+       "max": 327.8,
+       "n": 12
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 1,
+     "noFly": 10,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 28.91,
+      "p10": 30,
+      "p50": 30,
+      "p90": 30,
+      "min": 16.9,
+      "max": 30,
+      "n": 12
+     }
+    },
+    {
+     "U": 9,
+     "n": 12,
+     "avail": {
+      "mean": 0,
+      "p10": 0,
+      "p50": 0,
+      "p90": 0,
+      "min": 0,
+      "max": 0,
+      "n": 12
+     },
+     "pxMed": {
+      "mean": null,
+      "p10": null,
+      "p50": null,
+      "p90": null,
+      "min": null,
+      "max": null,
+      "n": 0
+     },
+     "jitter": {
+      "mean": null,
+      "p10": null,
+      "p50": null,
+      "p90": null,
+      "min": null,
+      "max": null,
+      "n": 0
+     },
+     "jitterPct": {
+      "mean": null,
+      "p10": null,
+      "p50": null,
+      "p90": null,
+      "min": null,
+      "max": null,
+      "n": 0
+     },
+     "azRange": {
+      "mean": null,
+      "p10": null,
+      "p50": null,
+      "p90": null,
+      "min": null,
+      "max": null,
+      "n": 0
+     },
+     "setup": {
+      "mean": 50.77,
+      "p10": 29.3,
+      "p50": 53.7,
+      "p90": 78,
+      "min": 18.1,
+      "max": 78,
+      "n": 12
+     },
+     "keMax": {
+      "mean": 6.32,
+      "p10": 6.24,
+      "p50": 6.24,
+      "p90": 6.47,
+      "min": 6.24,
+      "max": 6.63,
+      "n": 12
+     },
+     "rangeMax": {
+      "mean": 19.43,
+      "p10": 12.7,
+      "p50": 19.5,
+      "p90": 24.4,
+      "min": 11.5,
+      "max": 33,
+      "n": 12
+     },
+     "ops": {
+      "mean": 2,
+      "p10": 2,
+      "p50": 2,
+      "p90": 2,
+      "min": 2,
+      "max": 2,
+      "n": 12,
+      "shareAbove2": 0
+     },
+     "pMean": {
+      "mean": 8.43,
+      "p10": 4.45,
+      "p50": 7.01,
+      "p90": 14.97,
+      "min": 4.3,
+      "max": 15.16,
+      "n": 12
+     },
+     "endurance": {
+      "fromMeanPower": 75.1,
+      "perCase": {
+       "mean": 88.63,
+       "p10": 43.5,
+       "p50": 95.1,
+       "p90": 134.3,
+       "min": 43,
+       "max": 138.3,
+       "n": 12
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 0,
+     "noFly": 12,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 30,
+      "p10": 30,
+      "p50": 30,
+      "p90": 30,
+      "min": 30,
+      "max": 30,
+      "n": 12
+     }
+    }
+   ],
+   "byDir": [
+    {
+     "dir": "calm",
+     "n": 3,
+     "avail": {
+      "mean": 88.13,
+      "p10": 87.9,
+      "p50": 88.1,
+      "p90": 88.4,
+      "min": 87.9,
+      "max": 88.4,
+      "n": 3
+     },
+     "pxMed": {
+      "mean": 465,
+      "p10": 457,
+      "p50": 465,
+      "p90": 473,
+      "min": 457,
+      "max": 473,
+      "n": 3
+     },
+     "jitter": {
+      "mean": 1.02,
+      "p10": 1.01,
+      "p50": 1.02,
+      "p90": 1.02,
+      "min": 1.01,
+      "max": 1.02,
+      "n": 3
+     },
+     "jitterPct": {
+      "mean": 4.37,
+      "p10": 4.3,
+      "p50": 4.4,
+      "p90": 4.4,
+      "min": 4.3,
+      "max": 4.4,
+      "n": 3
+     },
+     "azRange": {
+      "mean": 64,
+      "p10": 63,
+      "p50": 64,
+      "p90": 65,
+      "min": 63,
+      "max": 65,
+      "n": 3
+     },
+     "setup": {
+      "mean": 34.1,
+      "p10": 33.4,
+      "p50": 33.8,
+      "p90": 35.1,
+      "min": 33.4,
+      "max": 35.1,
+      "n": 3
+     },
+     "keMax": {
+      "mean": 13.32,
+      "p10": 13.3,
+      "p50": 13.32,
+      "p90": 13.33,
+      "min": 13.3,
+      "max": 13.33,
+      "n": 3
+     },
+     "rangeMax": {
+      "mean": 40.4,
+      "p10": 39.8,
+      "p50": 40.4,
+      "p90": 41,
+      "min": 39.8,
+      "max": 41,
+      "n": 3
+     },
+     "ops": {
+      "mean": 2,
+      "p10": 2,
+      "p50": 2,
+      "p90": 2,
+      "min": 2,
+      "max": 2,
+      "n": 3,
+      "shareAbove2": 0
+     },
+     "pMean": {
+      "mean": 8.04,
+      "p10": 8.01,
+      "p50": 8.03,
+      "p90": 8.07,
+      "min": 8.01,
+      "max": 8.07,
+      "n": 3
+     },
+     "endurance": {
+      "fromMeanPower": 78.5,
+      "perCase": {
+       "mean": 78.53,
+       "p10": 78.2,
+       "p50": 78.6,
+       "p90": 78.8,
+       "min": 78.2,
+       "max": 78.8,
+       "n": 3
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 0,
+     "noFly": 0,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 1.27,
+      "p10": 1.1,
+      "p50": 1.2,
+      "p90": 1.5,
+      "min": 1.1,
+      "max": 1.5,
+      "n": 3
+     }
+    },
+    {
+     "dir": "head",
+     "n": 9,
+     "avail": {
+      "mean": 26.01,
+      "p10": 0,
+      "p50": 0,
+      "p90": 78.3,
+      "min": 0,
+      "max": 79.3,
+      "n": 9
+     },
+     "pxMed": {
+      "mean": 451.33,
+      "p10": 434,
+      "p50": 456,
+      "p90": 464,
+      "min": 434,
+      "max": 464,
+      "n": 3
+     },
+     "jitter": {
+      "mean": 1.07,
+      "p10": 1.03,
+      "p50": 1.09,
+      "p90": 1.09,
+      "min": 1.03,
+      "max": 1.09,
+      "n": 3
+     },
+     "jitterPct": {
+      "mean": 4.63,
+      "p10": 4.5,
+      "p50": 4.7,
+      "p90": 4.7,
+      "min": 4.5,
+      "max": 4.7,
+      "n": 3
+     },
+     "azRange": {
+      "mean": 64.33,
+      "p10": 60,
+      "p50": 64,
+      "p90": 69,
+      "min": 60,
+      "max": 69,
+      "n": 3
+     },
+     "setup": {
+      "mean": 50.73,
+      "p10": 29.3,
+      "p50": 54.5,
+      "p90": 72.3,
+      "min": 18.1,
+      "max": 78,
+      "n": 9
+     },
+     "keMax": {
+      "mean": 8.73,
+      "p10": 6.24,
+      "p50": 6.47,
+      "p90": 13.44,
+      "min": 6.24,
+      "max": 13.44,
+      "n": 9
+     },
+     "rangeMax": {
+      "mean": 28.68,
+      "p10": 12.7,
+      "p50": 34.7,
+      "p90": 36.9,
+      "min": 11.5,
+      "max": 39.4,
+      "n": 9
+     },
+     "ops": {
+      "mean": 2.22,
+      "p10": 2,
+      "p50": 2,
+      "p90": 3,
+      "min": 2,
+      "max": 3,
+      "n": 9,
+      "shareAbove2": 22.2
+     },
+     "pMean": {
+      "mean": 6.14,
+      "p10": 4.45,
+      "p50": 5.13,
+      "p90": 8.05,
+      "min": 4.3,
+      "max": 9.6,
+      "n": 9
+     },
+     "endurance": {
+      "fromMeanPower": 100.6,
+      "perCase": {
+       "mean": 107.13,
+       "p10": 78.4,
+       "p50": 118.4,
+       "p90": 134.3,
+       "min": 66.5,
+       "max": 138.3,
+       "n": 9
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 2,
+     "noFly": 6,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 23.36,
+      "p10": 10.1,
+      "p50": 30,
+      "p90": 30,
+      "min": 8.5,
+      "max": 30,
+      "n": 9
+     }
+    },
+    {
+     "dir": "tail",
+     "n": 9,
+     "avail": {
+      "mean": 20.43,
+      "p10": 0,
+      "p50": 0,
+      "p90": 51.8,
+      "min": 0,
+      "max": 61.2,
+      "n": 9
+     },
+     "pxMed": {
+      "mean": 275.2,
+      "p10": 134,
+      "p50": 304,
+      "p90": 364,
+      "min": 134,
+      "max": 364,
+      "n": 5
+     },
+     "jitter": {
+      "mean": 1.33,
+      "p10": 1.19,
+      "p50": 1.39,
+      "p90": 1.45,
+      "min": 1.19,
+      "max": 1.45,
+      "n": 4
+     },
+     "jitterPct": {
+      "mean": 5.75,
+      "p10": 5.2,
+      "p50": 6,
+      "p90": 6.3,
+      "min": 5.2,
+      "max": 6.3,
+      "n": 4
+     },
+     "azRange": {
+      "mean": 122,
+      "p10": 22,
+      "p50": 129,
+      "p90": 217,
+      "min": 22,
+      "max": 217,
+      "n": 5
+     },
+     "setup": {
+      "mean": 45.92,
+      "p10": 37.3,
+      "p50": 48.1,
+      "p90": 54.5,
+      "min": 31.3,
+      "max": 55.9,
+      "n": 9
+     },
+     "keMax": {
+      "mean": 10.03,
+      "p10": 6.24,
+      "p50": 6.35,
+      "p90": 13.7,
+      "min": 6.24,
+      "max": 18.02,
+      "n": 9
+     },
+     "rangeMax": {
+      "mean": 33.46,
+      "p10": 21.4,
+      "p50": 33.2,
+      "p90": 37.2,
+      "min": 19.5,
+      "max": 69.8,
+      "n": 9
+     },
+     "ops": {
+      "mean": 2.22,
+      "p10": 2,
+      "p50": 2,
+      "p90": 3,
+      "min": 2,
+      "max": 3,
+      "n": 9,
+      "shareAbove2": 22.2
+     },
+     "pMean": {
+      "mean": 10.48,
+      "p10": 7.98,
+      "p50": 11.09,
+      "p90": 14.97,
+      "min": 1.47,
+      "max": 15.16,
+      "n": 9
+     },
+     "endurance": {
+      "fromMeanPower": 61.2,
+      "perCase": {
+       "mean": 89.14,
+       "p10": 43.5,
+       "p50": 58,
+       "p90": 79,
+       "min": 43,
+       "max": 327.8,
+       "n": 9
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 1,
+     "noFly": 4,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 22.94,
+      "p10": 11.5,
+      "p50": 30,
+      "p90": 30,
+      "min": 11.1,
+      "max": 30,
+      "n": 9
+     }
+    },
+    {
+     "dir": "crossL",
+     "n": 9,
+     "avail": {
+      "mean": 25.56,
+      "p10": 0,
+      "p50": 0,
+      "p90": 77,
+      "min": 0,
+      "max": 77.8,
+      "n": 9
+     },
+     "pxMed": {
+      "mean": 446,
+      "p10": 439,
+      "p50": 447,
+      "p90": 452,
+      "min": 439,
+      "max": 452,
+      "n": 3
+     },
+     "jitter": {
+      "mean": 0.95,
+      "p10": 0.93,
+      "p50": 0.96,
+      "p90": 0.96,
+      "min": 0.93,
+      "max": 0.96,
+      "n": 3
+     },
+     "jitterPct": {
+      "mean": 4.1,
+      "p10": 4,
+      "p50": 4.1,
+      "p90": 4.2,
+      "min": 4,
+      "max": 4.2,
+      "n": 3
+     },
+     "azRange": {
+      "mean": 75.33,
+      "p10": 71,
+      "p50": 74,
+      "p90": 81,
+      "min": 71,
+      "max": 81,
+      "n": 3
+     },
+     "setup": {
+      "mean": 43.33,
+      "p10": 34,
+      "p50": 46.6,
+      "p90": 48.8,
+      "min": 33.7,
+      "max": 49.2,
+      "n": 9
+     },
+     "keMax": {
+      "mean": 8.65,
+      "p10": 6.24,
+      "p50": 6.24,
+      "p90": 13.48,
+      "min": 6.24,
+      "max": 13.51,
+      "n": 9
+     },
+     "rangeMax": {
+      "mean": 29.29,
+      "p10": 17,
+      "p50": 34,
+      "p90": 37.1,
+      "min": 13.9,
+      "max": 41.9,
+      "n": 9
+     },
+     "ops": {
+      "mean": 2,
+      "p10": 2,
+      "p50": 2,
+      "p90": 2,
+      "min": 2,
+      "max": 2,
+      "n": 9,
+      "shareAbove2": 0
+     },
+     "pMean": {
+      "mean": 7.23,
+      "p10": 6.2,
+      "p50": 6.97,
+      "p90": 8.93,
+      "min": 5.86,
+      "max": 8.96,
+      "n": 9
+     },
+     "endurance": {
+      "fromMeanPower": 86.6,
+      "perCase": {
+       "mean": 88.3,
+       "p10": 71.2,
+       "p50": 89.5,
+       "p90": 99.7,
+       "min": 70.9,
+       "max": 105,
+       "n": 9
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 0,
+     "noFly": 6,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 23.77,
+      "p10": 11.2,
+      "p50": 30,
+      "p90": 30,
+      "min": 11,
+      "max": 30,
+      "n": 9
+     }
+    },
+    {
+     "dir": "crossR",
+     "n": 9,
+     "avail": {
+      "mean": 28.16,
+      "p10": 0,
+      "p50": 0,
+      "p90": 83.4,
+      "min": 0,
+      "max": 88.2,
+      "n": 9
+     },
+     "pxMed": {
+      "mean": 454.33,
+      "p10": 451,
+      "p50": 452,
+      "p90": 460,
+      "min": 451,
+      "max": 460,
+      "n": 3
+     },
+     "jitter": {
+      "mean": 0.96,
+      "p10": 0.92,
+      "p50": 0.96,
+      "p90": 0.99,
+      "min": 0.92,
+      "max": 0.99,
+      "n": 3
+     },
+     "jitterPct": {
+      "mean": 4.17,
+      "p10": 4,
+      "p50": 4.2,
+      "p90": 4.3,
+      "min": 4,
+      "max": 4.3,
+      "n": 3
+     },
+     "azRange": {
+      "mean": 70,
+      "p10": 68,
+      "p50": 68,
+      "p90": 74,
+      "min": 68,
+      "max": 74,
+      "n": 3
+     },
+     "setup": {
+      "mean": 54.99,
+      "p10": 48,
+      "p50": 52.3,
+      "p90": 65.3,
+      "min": 38.1,
+      "max": 78,
+      "n": 9
+     },
+     "keMax": {
+      "mean": 8.64,
+      "p10": 6.24,
+      "p50": 6.24,
+      "p90": 13.46,
+      "min": 6.24,
+      "max": 13.47,
+      "n": 9
+     },
+     "rangeMax": {
+      "mean": 31.62,
+      "p10": 24.4,
+      "p50": 33.5,
+      "p90": 34.8,
+      "min": 20,
+      "max": 37.2,
+      "n": 9
+     },
+     "ops": {
+      "mean": 2,
+      "p10": 2,
+      "p50": 2,
+      "p90": 2,
+      "min": 2,
+      "max": 2,
+      "n": 9,
+      "shareAbove2": 0
+     },
+     "pMean": {
+      "mean": 7.92,
+      "p10": 6.53,
+      "p50": 7.16,
+      "p90": 9.18,
+      "min": 6.48,
+      "max": 10.23,
+      "n": 9
+     },
+     "endurance": {
+      "fromMeanPower": 79.6,
+      "perCase": {
+       "mean": 81.46,
+       "p10": 69.3,
+       "p50": 87.3,
+       "p90": 95.1,
+       "min": 62.6,
+       "max": 95.8,
+       "n": 9
+      }
+     },
+     "bodyForcePeak": {
+      "max": 0
+     },
+     "crashes": 0,
+     "noFly": 6,
+     "failsafes": 0,
+     "catchUpRestart": {
+      "mean": 22.17,
+      "p10": 7.7,
+      "p50": 30,
+      "p90": 30,
+      "min": 3.6,
+      "max": 30,
+      "n": 9
+     }
+    }
+   ]
+  },
+  "passOnEnsemble": {
+   "avail": false,
+   "setupTime": false,
+   "ops": true,
+   "keMax": false,
+   "bodyForcePeak": true,
+   "endurance": true,
+   "jitterRms": true,
+   "pxMed": true,
+   "azRange": true
+  }
+ },
+ "speedSweep": [
+  {
+   "vTarget": 9,
+   "wind": "calm",
+   "noFly": false,
+   "avail": 85.1,
+   "pxMed": 527,
+   "jitter": 0.91,
+   "jitterPct": 3.9,
+   "attRateRms": 2.29,
+   "azRange": 77,
+   "keMax": 12.14,
+   "setup": 46.2,
+   "tReady": 11.2,
+   "endWait": 0,
+   "walk": 30,
+   "restDist": null,
+   "ops": 3,
+   "rangeMax": 39.7,
+   "pMean": 5.85,
+   "pFollow": 5.45,
+   "pLoiter": 10.58,
+   "Ewh": 0.222,
+   "endurance": 105.2,
+   "runsPerCharge": 5.8,
+   "rechargeC": 1.11,
+   "catchUp": [
+    3.5,
+    0
+   ],
+   "headMin": 4.42,
+   "aglMin": 1.39,
+   "lensLossPct": 2.3,
+   "landMinRider": 4.47,
+   "tdKE": null,
+   "crashed": true,
+   "failsafe": false,
+   "goArounds": 0,
+   "propHeadMin": 4.95
+  },
+  {
+   "vTarget": 9,
+   "wind": "crossR3",
+   "noFly": false,
+   "avail": 81.2,
+   "pxMed": 520,
+   "jitter": 1.55,
+   "jitterPct": 6.6,
+   "attRateRms": 2.96,
+   "azRange": 85,
+   "keMax": 11.33,
+   "setup": 57.1,
+   "tReady": 10.6,
+   "endWait": 28.8,
+   "walk": 12.7,
+   "restDist": 9.4,
+   "ops": 2,
+   "rangeMax": 33.5,
+   "pMean": 7.77,
+   "pFollow": 6.14,
+   "pLoiter": 10.5,
+   "Ewh": 0.282,
+   "endurance": 81,
+   "runsPerCharge": 4.5,
+   "rechargeC": 1.41,
+   "catchUp": [
+    3.4,
+    0.9
+   ],
+   "headMin": 1.55,
+   "aglMin": 1.3,
+   "lensLossPct": 1.3,
+   "landMinRider": 1.12,
+   "tdKE": 2.1,
+   "crashed": false,
+   "failsafe": false,
+   "goArounds": 1,
+   "propHeadMin": 4.86
+  },
+  {
+   "vTarget": 11,
+   "wind": "calm",
+   "noFly": false,
+   "avail": 90.5,
+   "pxMed": 486,
+   "jitter": 1.13,
+   "jitterPct": 4.9,
+   "attRateRms": 2.2,
+   "azRange": 64,
+   "keMax": 13.21,
+   "setup": 43.2,
+   "tReady": 11.2,
+   "endWait": 19.5,
+   "walk": 7.4,
+   "restDist": 6,
+   "ops": 2,
+   "rangeMax": 37.6,
+   "pMean": 7.75,
+   "pFollow": 6.19,
+   "pLoiter": 10.83,
+   "Ewh": 0.262,
+   "endurance": 81.2,
+   "runsPerCharge": 4.9,
+   "rechargeC": 1.31,
+   "catchUp": [
+    3.6,
+    1.2
+   ],
+   "headMin": 2.78,
+   "aglMin": 1.46,
+   "lensLossPct": 0,
+   "landMinRider": 2.69,
+   "tdKE": 3.54,
+   "crashed": false,
+   "failsafe": false,
+   "goArounds": 1,
+   "propHeadMin": 4.95
+  },
+  {
+   "vTarget": 11,
+   "wind": "crossR3",
+   "noFly": false,
+   "avail": 89.1,
+   "pxMed": 476,
+   "jitter": 1.02,
+   "jitterPct": 4.4,
+   "attRateRms": 2.81,
+   "azRange": 72,
+   "keMax": 13.46,
+   "setup": 50.8,
+   "tReady": 10.6,
+   "endWait": 26.6,
+   "walk": 8.5,
+   "restDist": 6.7,
+   "ops": 2,
+   "rangeMax": 30.8,
+   "pMean": 8.86,
+   "pFollow": 8.2,
+   "pLoiter": 10.58,
+   "Ewh": 0.316,
+   "endurance": 71.6,
+   "runsPerCharge": 4,
+   "rechargeC": 1.58,
+   "catchUp": [
+    3.5,
+    3.6
+   ],
+   "headMin": 1.7,
+   "aglMin": 1.48,
+   "lensLossPct": 0.6,
+   "landMinRider": 0.75,
+   "tdKE": 1.47,
+   "crashed": false,
+   "failsafe": false,
+   "goArounds": 1,
+   "propHeadMin": 4.86
+  },
+  {
+   "vTarget": 13,
+   "wind": "calm",
+   "noFly": false,
+   "avail": 80.2,
+   "pxMed": 411,
+   "jitter": 0.93,
+   "jitterPct": 4,
+   "attRateRms": 2.1,
+   "azRange": 61,
+   "keMax": 13.48,
+   "setup": 34.2,
+   "tReady": 11.2,
+   "endWait": 11.5,
+   "walk": 6.5,
+   "restDist": 5.3,
+   "ops": 2,
+   "rangeMax": 40,
+   "pMean": 8.3,
+   "pFollow": 7.14,
+   "pLoiter": 11.42,
+   "Ewh": 0.263,
+   "endurance": 76.2,
+   "runsPerCharge": 4.9,
+   "rechargeC": 1.31,
+   "catchUp": [
+    3.6,
+    3.5
+   ],
+   "headMin": 3.02,
+   "aglMin": 1.6,
+   "lensLossPct": 0.1,
+   "landMinRider": 3.66,
+   "tdKE": 4.75,
+   "crashed": false,
+   "failsafe": false,
+   "goArounds": 0,
+   "propHeadMin": 4.95
+  },
+  {
+   "vTarget": 13,
+   "wind": "crossR3",
+   "noFly": false,
+   "avail": 73.5,
+   "pxMed": 391,
+   "jitter": 0.89,
+   "jitterPct": 3.8,
+   "attRateRms": 2.69,
+   "azRange": 64,
+   "keMax": 13.51,
+   "setup": 63,
+   "tReady": 10.6,
+   "endWait": 17.4,
+   "walk": 30,
+   "restDist": 13.9,
+   "ops": 2,
+   "rangeMax": 38.7,
+   "pMean": 9.26,
+   "pFollow": 9.07,
+   "pLoiter": 10.42,
+   "Ewh": 0.307,
+   "endurance": 68.7,
+   "runsPerCharge": 4.2,
+   "rechargeC": 1.53,
+   "catchUp": [
+    3.5,
+    10.8
+   ],
+   "headMin": 1.38,
+   "aglMin": 1.58,
+   "lensLossPct": 0.1,
+   "landMinRider": 1.19,
+   "tdKE": 2.91,
+   "crashed": false,
+   "failsafe": false,
+   "goArounds": 0,
+   "propHeadMin": 4.86
+  },
+  {
+   "vTarget": 15,
+   "wind": "calm",
+   "noFly": false,
+   "avail": 6,
+   "pxMed": 148,
+   "jitter": 0.76,
+   "jitterPct": 3.3,
+   "attRateRms": 2.03,
+   "azRange": 68,
+   "keMax": 13.65,
+   "setup": 37.8,
+   "tReady": 11.2,
+   "endWait": 13.6,
+   "walk": 8,
+   "restDist": 6.4,
+   "ops": 2,
+   "rangeMax": 37.1,
+   "pMean": 7.89,
+   "pFollow": 7.09,
+   "pLoiter": 10.56,
+   "Ewh": 0.254,
+   "endurance": 79.8,
+   "runsPerCharge": 5,
+   "rechargeC": 1.27,
+   "catchUp": [
+    3.6,
+    null
+   ],
+   "headMin": 4.5,
+   "aglMin": 1.6,
+   "lensLossPct": 0.1,
+   "landMinRider": 3.48,
+   "tdKE": 4.82,
+   "crashed": false,
+   "failsafe": false,
+   "goArounds": 0,
+   "propHeadMin": 4.95
+  },
+  {
+   "vTarget": 15,
+   "wind": "crossR3",
+   "noFly": false,
+   "avail": 7.6,
+   "pxMed": 169,
+   "jitter": 0.81,
+   "jitterPct": 3.5,
+   "attRateRms": 2.66,
+   "azRange": 102,
+   "keMax": 13.74,
+   "setup": 45.6,
+   "tReady": 10.6,
+   "endWait": 0,
+   "walk": 30,
+   "restDist": null,
+   "ops": 3,
+   "rangeMax": 34.9,
+   "pMean": 4.64,
+   "pFollow": 8.47,
+   "pLoiter": 9.16,
+   "Ewh": 0.175,
+   "endurance": 129.5,
+   "runsPerCharge": 7.3,
+   "rechargeC": 0.87,
+   "catchUp": [
+    3.5,
+    null
+   ],
+   "headMin": 5.18,
+   "aglMin": 0.09,
+   "lensLossPct": 2.5,
+   "landMinRider": null,
+   "tdKE": null,
+   "crashed": true,
+   "failsafe": false,
+   "goArounds": 0,
+   "propHeadMin": 4.86
+  }
+ ],
+ "sensitivities": {
+  "base": {
+   "over": {},
+   "mass_g": 124,
+   "vKE": 15.5,
+   "avail": 75.4,
+   "setupP90": 55.9,
+   "pMean": 8.39,
+   "ops_max": 3,
+   "keMax": 13.68,
+   "jitterMean": 1.06
+  },
+  "whPerKg200": {
+   "over": {
+    "whPerKg": 200
+   },
+   "mass_g": 120.2,
+   "vKE": 15.75,
+   "avail": 77.5,
+   "setupP90": 46.6,
+   "pMean": 8.37,
+   "ops_max": 3,
+   "keMax": 13.64,
+   "jitterMean": 1.08
+  },
+  "LDminus30": {
+   "over": {
+    "dragScale": 1.43
+   },
+   "mass_g": 124,
+   "vKE": 15.5,
+   "avail": 75.7,
+   "setupP90": 46.6,
+   "pMean": 11.1,
+   "ops_max": 3,
+   "keMax": 13.63,
+   "jitterMean": 1.06
+  },
+  "clmax07": {
+   "over": {
+    "clmaxExt": 0.7
+   },
+   "mass_g": 124,
+   "vKE": 15.5,
+   "avail": 69.6,
+   "setupP90": 53.6,
+   "pMean": 8.85,
+   "ops_max": 3,
+   "keMax": 13.61,
+   "jitterMean": 1.03
+  },
+  "eis03": {
+   "over": {
+    "eisRho": 0.3
+   },
+   "mass_g": 124,
+   "vKE": 15.5,
+   "avail": 71.3,
+   "setupP90": 55.9,
+   "pMean": 8.39,
+   "ops_max": 3,
+   "keMax": 13.68,
+   "jitterMean": 2.72
+  },
+  "noCradle_fixedCam120": {
+   "over": {
+    "camRoll": 0,
+    "camHfov": 120
+   },
+   "mass_g": 124,
+   "vKE": 15.5,
+   "avail": 25.6,
+   "setupP90": 55.9,
+   "pMean": 8.39,
+   "ops_max": 3,
+   "keMax": 13.68,
+   "jitterMean": 0.78
+  },
+  "noTerrainFlow": {
+   "over": {
+    "terrainFlow": 0
+   },
+   "mass_g": 124,
+   "vKE": 15.5,
+   "avail": 77.6,
+   "setupP90": 47,
+   "pMean": 8.46,
+   "ops_max": 3,
+   "keMax": 13.71,
+   "jitterMean": 1.06
+  },
+  "mass_plus15g": {
+   "over": {
+    "airframeG": 45
+   },
+   "mass_g": 141.3,
+   "vKE": 14.52,
+   "avail": 65.2,
+   "setupP90": 55.7,
+   "pMean": 8.33,
+   "ops_max": 3,
+   "keMax": 13.76,
+   "jitterMean": 0.99
+  }
+ },
+ "dtConvergence": [
+  {
+   "dt": 0.004,
+   "avail": 88.3,
+   "pMean": 8.372,
+   "pFollow": 7.472,
+   "setup": 33.8,
+   "keMax": 13.18
+  },
+  {
+   "dt": 0.0025,
+   "avail": 88.1,
+   "pMean": 8.072,
+   "pFollow": 6.941,
+   "setup": 33.8,
+   "keMax": 13.3
+  },
+  {
+   "dt": 0.001,
+   "avail": 88.7,
+   "pMean": 7.727,
+   "pFollow": 6.435,
+   "setup": 33.9,
+   "keMax": 13.32
+  }
+ ],
+ "scenarios": {
+  "fullrun": {
+   "name": "Full run (representative case crossR3_s12): throw → ready cue → follow → loiter at the stop → follow → belly landing beside you",
+   "compare": false,
+   "fault": false,
+   "computeMs": 1498,
+   "metrics": {
+    "avail": {
+     "value": 29.25,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 381.59,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 24,
+     "unit": "°/s",
+     "pass": false,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 85.82,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "runAvail": {
+     "value": 81.76,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "runSetup": {
+     "value": 38.15,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "runOps": {
+     "value": 2,
+     "unit": "",
+     "pass": true,
+     "criterion": "≤2"
+    },
+    "runEnergy": {
+     "value": "287 mWh / 4.4",
+     "unit": "",
+     "pass": true,
+     "criterion": "≥2 runs"
+    },
+    "rechargeC": {
+     "value": 1.43,
+     "unit": "C",
+     "pass": true,
+     "criterion": "≤2C (heated cell, ASSUMED)"
+    },
+    "tReady": {
+     "value": 10.62,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "catchUp": {
+     "value": "3.5 / 7.7",
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "endWait": {
+     "value": 13.57,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "restDist": {
+     "value": 6.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "1.5–8 m"
+    },
+    "landMinRider": {
+     "value": 6.24,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥2.5 m (ASSUMED)"
+    },
+    "tdKE": {
+     "value": 2.26,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "propHead": {
+     "value": 4.86,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.5 m"
+    },
+    "pLoiter": {
+     "value": 10.37,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 8.71,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 3.98,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 2.82,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 0.49,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 37.2,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 2.19,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 1.51,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.74,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 1.14,
+    "backgroundRms": 1.55
+   },
+   "events": []
+  },
+  "fullrun_calm": {
+   "name": "Full run, calm",
+   "compare": false,
+   "fault": false,
+   "computeMs": 1619,
+   "metrics": {
+    "avail": {
+     "value": 88.05,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 472.66,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.02,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 64.54,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.3,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "runAvail": {
+     "value": 88.05,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "runSetup": {
+     "value": 33.85,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "runOps": {
+     "value": 2,
+     "unit": "",
+     "pass": true,
+     "criterion": "≤2"
+    },
+    "runEnergy": {
+     "value": "256 mWh / 5.0",
+     "unit": "",
+     "pass": true,
+     "criterion": "≥2 runs"
+    },
+    "rechargeC": {
+     "value": 1.28,
+     "unit": "C",
+     "pass": true,
+     "criterion": "≤2C (heated cell, ASSUMED)"
+    },
+    "tReady": {
+     "value": 11.32,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "catchUp": {
+     "value": "3.6 / 1.1",
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "endWait": {
+     "value": 11.7,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "restDist": {
+     "value": 4.88,
+     "unit": "m",
+     "pass": true,
+     "criterion": "1.5–8 m"
+    },
+    "landMinRider": {
+     "value": 3.49,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥2.5 m (ASSUMED)"
+    },
+    "tdKE": {
+     "value": 4.01,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "propHead": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.5 m"
+    },
+    "pLoiter": {
+     "value": 11,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 6.94,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 4.42,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 2.1,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 0.24,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 39.81,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 3.67,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 1.52,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.65,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 1.38,
+    "backgroundRms": 1.42
+   },
+   "events": []
+  },
+  "fullrun_cross6": {
+   "name": "Full run, 6 m/s crosswind (wind interlock)",
+   "compare": false,
+   "fault": false,
+   "computeMs": 365,
+   "metrics": {
+    "avail": {
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": "n/a",
+     "unit": "px",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "azRange": {
+     "value": "n/a",
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 6.24,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "runAvail": {
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "runSetup": {
+     "value": 52.35,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "runOps": {
+     "value": 2,
+     "unit": "",
+     "pass": true,
+     "criterion": "≤2"
+    },
+    "runEnergy": {
+     "value": "29 mWh / 44.6",
+     "unit": "",
+     "pass": true,
+     "criterion": "≥2 runs"
+    },
+    "rechargeC": {
+     "value": 0.14,
+     "unit": "C",
+     "pass": true,
+     "criterion": "≤2C (heated cell, ASSUMED)"
+    },
+    "tReady": {
+     "value": "n/a",
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "catchUp": {
+     "value": "— / —",
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "endWait": {
+     "value": 14.35,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "restDist": {
+     "value": 34.95,
+     "unit": "m",
+     "pass": false,
+     "criterion": "1.5–8 m"
+    },
+    "landMinRider": {
+     "value": 22.28,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥2.5 m (ASSUMED)"
+    },
+    "tdKE": {
+     "value": 0.52,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "propHead": {
+     "value": 4.73,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.5 m"
+    },
+    "pLoiter": {
+     "value": 9.39,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": "n/a",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": "n/a",
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": "n/a",
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 33.54,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 5.05,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 2.26,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 10.03,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null
+   },
+   "events": [
+    {
+     "t": 7,
+     "type": "interlock",
+     "en": "Wind 6.3 m/s beyond the envelope (>5.5 m/s: loiter would exceed the KE cap, tailwind window closed): no follow, into-wind landing nearby"
+    }
+   ]
+  },
+  "fullrun_tail3": {
+   "name": "Full run, 3 m/s down-slope tailwind",
+   "compare": false,
+   "fault": false,
+   "computeMs": 1172,
+   "metrics": {
+    "avail": {
+     "value": 51.77,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 340.46,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.39,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 134.37,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.68,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "runAvail": {
+     "value": 51.77,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "runSetup": {
+     "value": 55.87,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "runOps": {
+     "value": 2,
+     "unit": "",
+     "pass": true,
+     "criterion": "≤2"
+    },
+    "runEnergy": {
+     "value": "249 mWh / 5.1",
+     "unit": "",
+     "pass": true,
+     "criterion": "≥2 runs"
+    },
+    "rechargeC": {
+     "value": 1.24,
+     "unit": "C",
+     "pass": true,
+     "criterion": "≤2C (heated cell, ASSUMED)"
+    },
+    "tReady": {
+     "value": 9.76,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "catchUp": {
+     "value": "2.2 / 11.5",
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "endWait": {
+     "value": 11.11,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "restDist": {
+     "value": 12,
+     "unit": "m",
+     "pass": false,
+     "criterion": "1.5–8 m"
+    },
+    "landMinRider": {
+     "value": 7.19,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥2.5 m (ASSUMED)"
+    },
+    "tdKE": {
+     "value": 1.36,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "propHead": {
+     "value": 4.94,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.5 m"
+    },
+    "pLoiter": {
+     "value": 13.26,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 5.6,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 6.01,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 3.19,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 11.19,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 33.33,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 0.98,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 1.21,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.86,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 18.13,
+    "backgroundRms": 20.61
+   },
+   "events": []
+  },
+  "steady": {
+   "name": "Steady follow: 12 m/s carving, light wind (no launch/landing)",
+   "compare": false,
+   "fault": false,
+   "computeMs": 769,
+   "metrics": {
+    "avail": {
+     "value": 83.74,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 471.82,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.68,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.53,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.85,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 7.58,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 2.96,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 2.84,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 9.82,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 2.16,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.39,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.87,
+    "backgroundRms": 1
+   },
+   "events": []
+  },
+  "steady_ld70": {
+   "name": "Steady follow, L/D −30 % (sensitivity)",
+   "compare": true,
+   "fault": false,
+   "computeMs": 921,
+   "metrics": {
+    "avail": {
+     "value": 84.68,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 470.02,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.69,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.43,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.81,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 10.44,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 2.96,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 2.86,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 9.86,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 2.16,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.38,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.85,
+    "backgroundRms": 1
+   },
+   "events": []
+  },
+  "short": {
+   "name": "Short turns 8 m/s",
+   "compare": false,
+   "fault": false,
+   "computeMs": 856,
+   "metrics": {
+    "avail": {
+     "value": 70.5,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 498.81,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.79,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 98.75,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 7.2,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 4.94,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 7.31,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 3.12,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 4.4,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 11.19,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 3.84,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 2.21,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 10.78,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 6.65,
+    "backgroundRms": 7.86
+   },
+   "events": []
+  },
+  "fast": {
+   "name": "Fast 16 m/s (KE cap)",
+   "compare": false,
+   "fault": false,
+   "computeMs": 483,
+   "metrics": {
+    "avail": {
+     "value": 14.07,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 111.47,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.64,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 39.94,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.63,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 6.61,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 2.78,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 2.86,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 0.16,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 88.18,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 1.88,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.83,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.64,
+    "backgroundRms": 0.69
+   },
+   "events": [
+    {
+     "t": 20,
+     "type": "geofence",
+     "en": "Beyond the 50 m follow-me geofence: turn away from the track and land (+1 action to collect)"
+    }
+   ]
+  },
+  "steep": {
+   "name": "Steep 26° at 14 m/s: regen braking",
+   "compare": false,
+   "fault": false,
+   "computeMs": 270,
+   "metrics": {
+    "avail": {
+     "value": 10.47,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 110.28,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.6,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 58.19,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.86,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 4.77,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 2.59,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 2.98,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 48.91,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 5.39,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 1.8,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.95,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.66,
+    "backgroundRms": 0.91
+   },
+   "events": []
+  },
+  "gust": {
+   "name": "Crosswind 6 m/s + 7 m/s gust",
+   "compare": false,
+   "fault": false,
+   "computeMs": 747,
+   "metrics": {
+    "avail": {
+     "value": 81.01,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 430.1,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.66,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 60.33,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.33,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 13.51,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 7.18,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 9.07,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 4,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 13.78,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 1.35,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.66,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 2,
+    "backgroundRms": 2.04
+   },
+   "events": []
+  },
+  "trees": {
+   "name": "Tree-lined run + a neighbour crossing",
+   "compare": false,
+   "fault": false,
+   "computeMs": 880,
+   "metrics": {
+    "avail": {
+     "value": 77.28,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 448.57,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.69,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 74.36,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.38,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 7.76,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 7.3,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 2.98,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 3.93,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 12.87,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 1.96,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.13,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    },
+    "treeMin": {
+     "value": 1.85,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "neighbourMin": {
+     "value": 2.54,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥2 m (ASSUMED)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 15.43,
+    "backgroundRms": 15.44
+   },
+   "events": []
+  },
+  "moguls": {
+   "name": "Moguls 24°, 4.5 m/s",
+   "compare": false,
+   "fault": false,
+   "computeMs": 559,
+   "metrics": {
+    "avail": {
+     "value": 60.75,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 467.31,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 4.76,
+     "unit": "°/s",
+     "pass": false,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 220.69,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 7.63,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 5.31,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 20.3,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 3.69,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 49.96,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 11.74,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 2.67,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 1.27,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 11.1,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 70.04,
+    "backgroundRms": 70.21
+   },
+   "events": []
+  },
+  "fall": {
+   "name": "Rider fall at 12 m/s",
+   "compare": false,
+   "fault": false,
+   "computeMs": 574,
+   "metrics": {
+    "avail": {
+     "value": 77.17,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 500.01,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.69,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.77,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.85,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 7.64,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 2.98,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 2.88,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 42.3,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 2.16,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.39,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 1.17,
+    "backgroundRms": 1.41
+   },
+   "events": [
+    {
+     "t": 15,
+     "type": "scope",
+     "en": "Rider tumbling/lying pose not modelled beyond this"
+    }
+   ]
+  },
+  "linkloss": {
+   "name": "UWB/radio/visual lock lost together",
+   "compare": false,
+   "fault": true,
+   "computeMs": 2026,
+   "metrics": {
+    "avail": {
+     "value": 31.63,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 246.58,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.94,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 121.18,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.32,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 60.4,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.85,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.77,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 79.8,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "ensAvail": {
+     "value": "29.3 / 0.0 / 81.8",
+     "unit": "%",
+     "pass": false,
+     "criterion": "mean ≥80 %"
+    },
+    "ensAvailByWind": {
+     "value": "89 / 72 / 1 / 0",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "ensSetup": {
+     "value": "47.6 / 60.4 / 78.0",
+     "unit": "s",
+     "pass": false,
+     "criterion": "p90 ≤30 s"
+    },
+    "ensOps": {
+     "value": "2 / 3 / 10 %",
+     "unit": "",
+     "pass": true,
+     "criterion": "p90 ≤2"
+    },
+    "ensKe": {
+     "value": 18.93,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "ensRange": {
+     "value": "39.8 / 99.1",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "ensPower": {
+     "value": "7.90 / 10.23",
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": 7.6,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterPct": {
+     "value": 4.05,
+     "unit": "%/s",
+     "pass": null,
+     "criterion": null
+    },
+    "attRate": {
+     "value": 3.07,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "lensLoss": {
+     "value": 39.33,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "rangeMax": {
+     "value": 317.39,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤50 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "aglMin": {
+     "value": 2.16,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "vMax": {
+     "value": 14.39,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "massFly": {
+     "value": 124.01,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g (EU C0)"
+    },
+    "failsafeTrack": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥5 m (ASSUMED)"
+    }
+   },
+   "footageStability": {
+    "subjectRms": 96.85,
+    "backgroundRms": 96.85
+   },
+   "events": [
+    {
+     "t": 12,
+     "type": "linkLost",
+     "en": "UWB/radio link and visual lock lost together: dead-reckoning the rider track"
+    },
+    {
+     "t": 13.5,
+     "type": "failsafe",
+     "en": "Link lost >1.5 s: turn away from the predicted track and land off the track (+1 action to collect)"
+    },
+    {
+     "t": 21.7,
+     "type": "goAround",
+     "en": "Not lined up: go-around (#1)"
+    },
+    {
+     "t": 33.7,
+     "type": "goAround",
+     "en": "Not lined up: go-around (#2)"
+    }
+   ]
+  }
+ },
+ "demoPre": 10.64
+}

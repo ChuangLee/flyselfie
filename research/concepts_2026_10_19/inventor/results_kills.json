@@ -1,0 +1,103 @@
+{
+ "I-03b land_and_wait_6.3Wh": {
+  "mass_kg": 0.175,
+  "E_run_Wh": 0.453,
+  "runs": 9.4,
+  "filming_min": 38.0,
+  "v_KE_cap": 13.0
+ },
+ "I-03b land_and_wait_7.4Wh": {
+  "mass_kg": 0.182,
+  "E_run_Wh": 0.453,
+  "runs": 11.0,
+  "filming_min": 44.0,
+  "v_KE_cap": 12.8
+ },
+ "I-03b tipover": {
+  "wind5": {
+   "overturn_Nm": 0.054,
+   "restoring_Nm_tail_sunk": 0.103
+  },
+  "wind8": {
+   "overturn_Nm": 0.138,
+   "restoring_Nm_tail_sunk": 0.103
+  },
+  "wind10": {
+   "overturn_Nm": 0.216,
+   "restoring_Nm_tail_sunk": 0.103
+  }
+ },
+ "I-07 snow_pod": {
+  "max_mass_kg_for_14.9J_at_12": 0.207,
+  "at_15": 0.132,
+  "accel_free_slide_20deg_mu0.05_m_s2": 2.89,
+  "mogul_vertical_accel_g_v10_R2m": 5.1,
+  "camera_height_m": 0.3,
+  "verdict_physics": "pod goes airborne on every mogul (5 g crest) and sits in other skiers' ski paths"
+ },
+ "I-08 supercap": {
+  "E_shot_Wh": 0.5,
+  "supercap_mass_g": 123.0,
+  "liion_mass_g_equiv": 4.4,
+  "glider_run_supercap_g": 48.0
+ },
+ "I-09 ion": {
+  "T_per_kW_5.0": {
+   "thrust_N": 0.127,
+   "power_W": 25.4,
+   "battery_g_45min": 170.0
+  },
+  "T_per_kW_8.9": {
+   "thrust_N": 0.127,
+   "power_W": 14.3,
+   "battery_g_45min": 95.0
+  },
+  "electrode_len_m_at_0.22N_per_m": 0.58,
+  "prop_power_W": 2.5,
+  "gravity_glider_thrust_needed_on_slopes": 0.0
+ },
+ "I-10 leapfrog": {
+  "time_to_get_40m_ahead_s": 6.6,
+  "px_at_30m": 112,
+  "px_at_10m": 336,
+  "snatch_force_avg_N_v5_stroke0.5": 3.12,
+  "hit_prob_window_0.125_sigma_0.10": 0.79,
+  "hit_prob_window_0.125_sigma_0.15": 0.6,
+  "miss_cost": "stop + side-step uphill 5-15 m (~30-60 s)"
+ },
+ "I-11 soaring": {
+  "glider_min_airspeed_m_s": 8.0,
+  "min_sink_m_s": 0.53,
+  "upslope_wind_needed_m_s_20deg": 1.78,
+  "katabatic_typical_m_s": "2-4 DOWNslope over cooled snow (AMS glossary; EGU22-6441)",
+  "verdict_physics": "downslope drainage gives sink, not lift; ridge lift needs >=1.8 m/s upslope component plus convex terrain; opportunistic only"
+ },
+ "I-12 chairdrop": {
+  "height_m": "5-15",
+  "extra_energy_J_per_10m": 12.3,
+  "legal": "throwing/expelling objects from a lift prohibited (Colorado C.R.S. 33-44-105)"
+ },
+ "I-13 shadow": {
+  "Dec": {
+   "noon_sun_elev": 20.6,
+   "shadow_len_m": 4.7
+  },
+  "Feb": {
+   "noon_sun_elev": 31.0,
+   "shadow_len_m": 2.9
+  },
+  "Mar": {
+   "noon_sun_elev": 42.0,
+   "shadow_len_m": 1.9
+  },
+  "note": "silhouette only; visible to helmet cam only when the sun is behind (~1/3 of headings on a given slope aspect)"
+ },
+ "I-14 si_quad": {
+  "P_W": 51.6,
+  "battery_Wh_45min": 38.7,
+  "battery_g": 150.0,
+  "KE_at_12_J": 17.9,
+  "v_KE_cap": 10.9,
+  "cell_ref": "Amprius SiCore 450 Wh/kg (2025), no cold data published"
+ }
+}

@@ -1,0 +1,140 @@
+{
+  "FL01": {
+    "source_id": "ab34628db31fc918",
+    "display_number": 1,
+    "url": "https://www.dji.com/support/product/neo",
+    "title": "Support for DJI Neo"
+  },
+  "FL02": {
+    "source_id": "8f88d6dd320205f2",
+    "display_number": 2,
+    "url": "https://www.dji.com/ch/neo-2/specs",
+    "title": "DJI Neo 2 - Specs"
+  },
+  "FL03": {
+    "source_id": "5021857eba61f744",
+    "display_number": 3,
+    "url": "https://dl.djicdn.com/downloads/DJI_Neo_2/UM/20251210/DJI_Neo_2_User_Manual_v1.2_en.pdf",
+    "title": "DJI Neo 2 User Manual v1.2"
+  },
+  "FL04": {
+    "source_id": "8fb8859f3ea5c795",
+    "display_number": 4,
+    "url": "https://www.dji.com/support/product/flip",
+    "title": "Support for DJI Flip"
+  },
+  "FL05": {
+    "source_id": "5c46dd417cee7f0c",
+    "display_number": 5,
+    "url": "https://hoverair.com/pages/x1-pro-and-promax",
+    "title": "4K/8K Camera Drone for Action Sports & Adventure | HOVERAir X1 PRO & PROMAX"
+  },
+  "FL06": {
+    "source_id": "f249641126adf015",
+    "display_number": 6,
+    "url": "https://us.hoverair.com/pages/winter-sports",
+    "title": "Capture Skiing & Snow Adventures with HOVERAir"
+  },
+  "FL07": {
+    "source_id": "fc8c3776b97f487f",
+    "display_number": 7,
+    "url": "https://hoverair.com/pages/specs-comparison",
+    "title": "HOVERAir Specs Comparison | X1 vs X1 PRO vs X1 PROMAX vs AQUA"
+  },
+  "FL08": {
+    "source_id": "86ccd70577dbaddd",
+    "display_number": 8,
+    "url": "https://hoverair.com/de-de/blogs/new-features/hoverair-x1-pro-promax-ski-mode-is-now-live",
+    "title": "HOVERAir X1 PRO & PROMAX Ski Mode is Now Live!"
+  },
+  "P01": {
+    "source_id": "313385a6fd1542f2",
+    "display_number": 9,
+    "url": "https://store.insta360.com/GB/product/third_person_backpack_mount",
+    "title": "Third-Person Backpack Mount — Insta360 Store"
+  },
+  "P02": {
+    "source_id": "261170f8d35338d5",
+    "display_number": 10,
+    "url": "https://onlinemanual.insta360.com/skipolemount/en-us/faq",
+    "title": "Ski Pole Mount FAQ — Insta360 Online Manual"
+  },
+  "P03": {
+    "source_id": "33b8fdd4cfb9d030",
+    "display_number": 11,
+    "url": "https://store.insta360.com/ca/product/ski-pole-mount",
+    "title": "Ski Pole Mount — Insta360 Store"
+  },
+  "P04": {
+    "source_id": "f40d5802af5f5fdd",
+    "display_number": 12,
+    "url": "https://eu.wiralcam.com/products/wiral-lite",
+    "title": "Wiral LITE — Wiralcam"
+  },
+  "P05": {
+    "source_id": "6e01aedb769be989",
+    "display_number": 13,
+    "url": "https://eu.wiralcam.com/blogs/tutorials/what-you-need-to-know-to-start-creating-content-with-wiral-lite",
+    "title": "Here’s All You Need to Know To Start Creating Content With Wiral LITE"
+  },
+  "P06": {
+    "source_id": "daa7bb805287e9df",
+    "display_number": 14,
+    "url": "https://help.skiline.cc/en/support/solutions/articles/29000034667-skimovie",
+    "title": "Skimovie — Skiline Help Center"
+  },
+  "P07": {
+    "source_id": "32aa28c975b93802",
+    "display_number": 15,
+    "url": "https://support.veo.com/hc/en-us/articles/30159089390865-Veo-capabilities-by-sport-features-and-differences-explained",
+    "title": "Veo capabilities by sport: features and differences explained"
+  },
+  "P08": {
+    "source_id": "1ce0acc434199400",
+    "display_number": 16,
+    "url": "https://support.veo.com/hc/en-us/articles/17937774506001-Overview-of-your-Veo-journey-From-setup-to-post-match-insights",
+    "title": "Overview of your Veo journey: From setup to post-match insights"
+  },
+  "AC01": {
+    "source_id": "1f45ab285dde761a",
+    "display_number": 17,
+    "url": "https://publications.ri.cmu.edu/autonomous-drone-cinematographer-using-artistic-principles-to-create-smooth-safe-occlusion-free-trajectories-for-aerial-filming",
+    "title": "Autonomous drone cinematographer: Using artistic principles to create smooth, safe, occlusion-free trajectories for aerial filming"
+  },
+  "AC02": {
+    "source_id": "d8a3f624acc1ba5c",
+    "display_number": 18,
+    "url": "https://arxiv.org/abs/2009.04234",
+    "title": "Optimal Trajectory Planning for Cinematography with Multiple Unmanned Aerial Vehicles"
+  },
+  "AC03": {
+    "source_id": "11c3f246f4fa063d",
+    "display_number": 19,
+    "url": "https://nerfies.github.io/",
+    "title": "Nerfies: Deformable Neural Radiance Fields"
+  },
+  "AC04": {
+    "source_id": "c7b2196e14e5b7fe",
+    "display_number": 20,
+    "url": "https://kair-bair.github.io/dycheck/",
+    "title": "Monocular Dynamic View Synthesis: A Reality Check"
+  },
+  "AC05": {
+    "source_id": "37029a869e2f61f0",
+    "display_number": 21,
+    "url": "https://rpg.ifi.uzh.ch/docs/RAL18_Falanga.pdf",
+    "title": "The Foldable Drone: A Morphing Quadrotor that can Squeeze and Fly"
+  },
+  "AC06": {
+    "source_id": "0543c0caae8e6d20",
+    "display_number": 22,
+    "url": "https://lentinklab.com/wp-content/uploads/2023/12/2021-bird-inspired-perching.pdf",
+    "title": "Bird-inspired dynamic grasping and perching in arboreal environments"
+  },
+  "ROOT01": {
+    "source_id": "1e00279436b6045d",
+    "display_number": 23,
+    "url": "https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/",
+    "title": "6.0 Structures, Materials, and Mechanisms"
+  }
+}

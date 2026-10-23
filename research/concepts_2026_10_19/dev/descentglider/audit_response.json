@@ -1,0 +1,267 @@
+{
+ "concept": "descentglider",
+ "modelVersion": "descentglider@2.0.0",
+ "date": "2026-10-20",
+ "evidence": "numerical-uncalibrated simulation (39-case shared full-run ensemble, run_all.mjs → results.json); nothing built or flown",
+ "verdictSelf": "Still NOT credible as an all-conditions product and dominated by towglider on the harmonised ensemble. Redesign v2 fixes the mass/battery basis, launch catch-up, perch tip-over, geofence and footage-model gaps, but the ensemble fails avail (mean 29.9 %), setupTime (p90 60.4 s) and keMax (max 18.0 J in one 6 m/s tailwind run); it is usable only in calm–3 m/s wind for 9–13 m/s riders.",
+ "findings": [
+  {
+   "id": "DG-01",
+   "status": "fixed",
+   "change": "Battery from the shared table: 2.0 Wh flying cell at 150 Wh/kg (13.3 g) + 18.5 Wh worn bank recharging the heated flying cell in the sleeve on each 6 min lift (heater 0.6 W charged).",
+   "numbers": {
+    "endurance_min_ensembleMeanPower": 79.3,
+    "meanFullRunPower_W": 7.95,
+    "runsPerFlyingCharge_calm": "≈4.5",
+    "rechargeC_per_lift": "≈1.1–1.4 C",
+    "whPerKg200_sensitivity_avail": 77.5
+   }
+  },
+  {
+   "id": "DG-02",
+   "status": "partly",
+   "change": "Mass rebuilt from the shared table (124 g incl. 15 % margin: 16 g gyro-logged 4K camera on a 3-axis micro-servo cradle, 1 pusher, no hover motors, no gimbal motor). KE-cap ground speed 14.7 m/s vs 13.0–13.7 m/s rider. Launch catch-up removed: thrown 2–8 s before push-off and the rider waits for a 'ready' vibration; it is airborne behind/above at push-off (catch-up to <10 m: 1.2 s calm).",
+   "numbers": {
+    "mass_g": 124,
+    "keCap_ms": 14.73,
+    "catchUpAfterMidRunRestart_s_p50_3ms": 11.1,
+    "mass_plus15g_avail": 65.2
+   },
+   "remaining": "Mid-run restarts are not synchronised with the loiter phase: at 3 m/s the glider needs ≈11 s to be within 10 m again. The mass–KE-cap margin is ≈1 m/s; +15 g drops light-wind avail 75→65 %."
+  },
+  {
+   "id": "DG-03",
+   "status": "not fixed (measured honestly)",
+   "change": "setupTime/ops now come from all 39 full runs incl. recovery (30 s walk for an off-target landing).",
+   "numbers": {
+    "setup_s": {
+     "mean": 47.62,
+     "p10": 33.7,
+     "p90": 60.4,
+     "max": 78
+    },
+    "setup_p90_calm": 35.1,
+    "setup_p90_3ms": 55.9,
+    "ops": {
+     "mean": 2.1,
+     "p10": 2,
+     "p50": 2,
+     "p90": 2,
+     "min": 2,
+     "max": 3,
+     "n": 39,
+     "shareAbove2": 10.3
+    }
+   },
+   "remaining": "Even in calm the standstill is 33–35 s: draw 3 s + climb-out to the ready cue ≈8 s + landing wait ≈12 s + side-step + 5 s stow. No palm launch near the face (throw from shoulder, pusher starts after 0.5 s, ≥4.8 m from the helmet)."
+  },
+  {
+   "id": "DG-04",
+   "status": "fixed (reporting)",
+   "change": "Headline = shared full run (push-off, 38 s ride, 20 s stop, 33 s ride, lift stop) judged on 39 cases; the steady 30 s follow is kept only as 'steady'.",
+   "numbers": {
+    "avail_ensemble": {
+     "mean": 29.89,
+     "p10": 0,
+     "p90": 83.4,
+     "max": 88.4
+    },
+    "avail_by_wind_mean": {
+     "0": 88.13,
+     "3": 73.05,
+     "6": 2.07,
+     "9": 0
+    }
+   }
+  },
+  {
+   "id": "DG-05",
+   "status": "fixed",
+   "change": "Energy from the simulated full run (throw → rest) incl. climb-out, loiter (≈10.5 W in calm), landing; FoM·η 0.5 cruise (no hover phases any more); dt 2.5 ms (pMean +4.5 % vs 1 ms, conservative).",
+   "numbers": {
+    "dtConvergence": [
+     {
+      "dt": 0.004,
+      "avail": 88.3,
+      "pMean": 8.372,
+      "pFollow": 7.472,
+      "setup": 33.8,
+      "keMax": 13.18
+     },
+     {
+      "dt": 0.0025,
+      "avail": 88.1,
+      "pMean": 8.072,
+      "pFollow": 6.941,
+      "setup": 33.8,
+      "keMax": 13.3
+     },
+     {
+      "dt": 0.001,
+      "avail": 88.7,
+      "pMean": 7.727,
+      "pFollow": 6.435,
+      "setup": 33.9,
+      "keMax": 13.32
+     }
+    ]
+   }
+  },
+  {
+   "id": "DG-06",
+   "status": "fixed",
+   "change": "Datasheet-class line items from common/components.js plus explicit ASSUMED items (ToF 5 g/0.35 W, cradle frame 5 g).",
+   "numbers": {
+    "massBudget_g": {
+     "camera_4k_gyroLog": 16,
+     "fc_imu_gnss_uwb_radio": 10,
+     "tof_ranging": 5,
+     "servos_2_elevons_3_cradle": 12.5,
+     "cradle_bracket": 5,
+     "motor_1104_prop_esc": 11,
+     "wiring": 5,
+     "airframe": 30,
+     "battery": 13.3
+    },
+    "pAvionics_W": 4.79
+   }
+  },
+  {
+   "id": "DG-07",
+   "status": "fixed",
+   "change": "CLmax 0.8 base case (reflexed flying wing), ρ 1.0, CD0 0.050; sensitivity CLmax 0.7 and L/D −30 % on the light-wind subset.",
+   "numbers": {
+    "stall_ms": 6.84,
+    "clmax07_avail": 69.6,
+    "LDminus30_avail": 75.7,
+    "LDminus30_pMean": 11.1
+   }
+  },
+  {
+   "id": "DG-08",
+   "status": "fixed (by removal)",
+   "change": "No snow perch: it loiters at stops (orbit ≤3.5 m/s wind, into-wind station-keeping above) and never lands mid-run; nothing to blow over. End-of-run belly landing lies flat (spiked skid, μk 0.35/μs 0.5 ASSUMED, > tan 15°).",
+   "numbers": {
+    "loiterPower_W_calm": "≈10.5",
+    "midRunTouchdowns": 0
+   }
+  },
+  {
+   "id": "DG-09",
+   "status": "partly",
+   "change": "50 m follow-me geofence with fail-safe landing off the track; landing point 3.5 m beside the rider at the piste-side, not in the lift maze; wind interlock 5.5 m/s (no follow, land) because loiter + wind exceeds the KE cap.",
+   "numbers": {
+    "rangeMax_m": {
+     "mean": 31.5,
+     "p10": 18.7,
+     "p90": 39.8,
+     "max": 69.8
+    },
+    "keMax_J": {
+     "mean": 9.34,
+     "p10": 6.24,
+     "p90": 13.51,
+     "max": 18.02
+    }
+   },
+   "remaining": "rangeMax 69.8 m and 18.0 J in one 6 m/s tailwind run where the interlock did not trip; US VLOS and resort bans unchanged (gates)."
+  },
+  {
+   "id": "DG-10",
+   "status": "fixed",
+   "change": "Gust-driven 2nd-order roll/pitch/yaw disturbance + servo-cradle lag + 10 % gyro-stabilisation residual; jitter also reported as %/s of crop height.",
+   "numbers": {
+    "jitter_degps": {
+     "mean": 1.08,
+     "p10": 0.96,
+     "p90": 1.39,
+     "max": 1.45
+    },
+    "jitter_pct_frame_per_s": {
+     "mean": 4.68,
+     "p10": 4.1,
+     "p90": 6,
+     "max": 6.3
+    },
+    "noCradle_fixedCam120_avail": 25.6
+   }
+  },
+  {
+   "id": "DG-11",
+   "status": "fixed",
+   "change": "dt 2.5 ms, convergence table in results.json.",
+   "numbers": [
+    {
+     "dt": 0.004,
+     "avail": 88.3,
+     "pMean": 8.372,
+     "pFollow": 7.472,
+     "setup": 33.8,
+     "keMax": 13.18
+    },
+    {
+     "dt": 0.0025,
+     "avail": 88.1,
+     "pMean": 8.072,
+     "pFollow": 6.941,
+     "setup": 33.8,
+     "keMax": 13.3
+    },
+    {
+     "dt": 0.001,
+     "avail": 88.7,
+     "pMean": 7.727,
+     "pFollow": 6.435,
+     "setup": 33.9,
+     "keMax": 13.32
+    }
+   ]
+  },
+  {
+   "id": "DG-12",
+   "status": "partly",
+   "change": "Sleeve 35×12.5×6 cm + bank: packVol 2.77 L; throw and pick-up gloved durations still ASSUMED (draw 3 s, stow 5 s, side-step 1.5 s/m).",
+   "numbers": {
+    "packVol_L": 2.77
+   }
+  },
+  {
+   "id": "X-01",
+   "status": "fixed",
+   "change": "common/components.js battery/camera/avionics, ρ 1.0, reserve 15 %, cold 0.75."
+  },
+  {
+   "id": "X-02",
+   "status": "fixed",
+   "change": "Shared component masses + 15 % margin; v1 at the same basis would be 235 g (KE cap 11.3 m/s) — the reason for the redesign."
+  },
+  {
+   "id": "X-03",
+   "status": "fixed",
+   "change": "Endurance = everything worn (bank + flying cell), −10 °C, 15 % reserve, heater 0.6 W, mean full-run power.",
+   "numbers": {
+    "endurance_min": 79.3
+   }
+  },
+  {
+   "id": "X-04",
+   "status": "fixed",
+   "change": "Shared full-run scenario, 39 cases, mean/p10/p90 and per wind bin/direction in results.json; ensemble constants in ensemble.js re-checked by tests."
+  },
+  {
+   "id": "X-05",
+   "status": "fixed",
+   "change": "Attitude response + cradle/EIS residual model; jitter %/s of frame height."
+  },
+  {
+   "id": "X-06",
+   "status": "fixed",
+   "change": "results.json regenerated after the shared env/fullrun changes (2026-10-20)."
+  },
+  {
+   "id": "X-07",
+   "status": "not fixable by design",
+   "change": "C0 (<250 g, 124 g), 50 m geofence, wind interlock, landing beside (not in) the lift queue; resort written permission and US VLOS remain gates."
+  }
+ ]
+}

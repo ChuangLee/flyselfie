@@ -1,0 +1,1518 @@
+{
+ "id": "SIM-032 AT-1 science & engineering review board",
+ "date": "2026-10-20",
+ "role": "independent science & engineering review (not the build team)",
+ "evidence": "Numerical-uncalibrated simulation on a scratchpad copy of sim/ (AT-1 activetether@0.1.0, unmodified for reproduction; patched copy only for the rescue experiments, see scripts/scratch_model.patch). NOTHING was built, flown or measured. Simulation is not verification; M-070 not_run; G-MATURE closed. No plan.json writes, no deploy.",
+ "howToReproduce": "cp -r sim <scratch>/sim; apply scripts/scratch_model.patch to the copy (only needed for kFF/stopPay/sideAll/furlK and rider vTarget experiments; defaults are byte-identical in behaviour); put scripts/ beside it as <scratch>/scripts; python3 mk.py '[[\"base\",{},\"ALL\"]]' jobs.json && node par.mjs jobs.json out.json && python3 summ.py out.json. Raw outputs in data/.",
+ "verdict": {
+  "summary": "AT-1 is reproduced exactly and its physics is broadly sound, but it fails 5 of 13 judged criteria and 3 of those failures are FUNDAMENTAL to a body-tethered lifting flyer on the R4 rider/plan, not tunable: (1) KE ≤14.9 J max — ground-frame floor ½·m·v_rider² is already 10.1 J at 116 g/13.2 m/s and any crosswind excursion of a tethered wing adds speed of order (L/D_eff)·V_apparent (observed whips to 2–2.5× rider speed); even a 58 g flyer with a 13 m line, 45° elevation and riders capped at ≈11 m/s still exceeds the cap in 2/12 cases (max 25.9 J); (2) headClear ≥1 m — the exit/dock is 1.24 m from the helmet, so any line forward of ~95° body azimuth or any flyer in the last ≈1.5 m of retrieval violates 1 m; hockey stops turn the body ~80° so the course-behind flyer becomes body-lateral, and tail/crosswind at stops pushes it forward; with the rule applied as written (≤3 s capture exclusion) min headClear is 0.014 m and 22/48 cases fail; no stop-procedure variant tried got min above 0.33 m; (3) avail ≥80 % ensemble mean — per-ride launch/recovery overhead (~8 s on 33–38 s rides) caps flown cases near ≈75–80 % even with perfect framing, and tail ≥6 m/s cases (apparent wind ≈4–7 m/s ≈ stall-speed band) cannot be flown safely; with best-case camera fixes the flown 12-case subset reaches 44.6 %, i.e. ≈31 % ensemble-equivalent once the never-flown tail cases are counted; the architecture ceiling on R4 is ≈30–45 %. bodyPx and jitter are camera-chain problems that partially flip: bodyPx p50 ≥300 flips with a better tracker + 0.25 m camera offset (p50 383 px); jitter ≤3 °/s does NOT flip with any realistic electronic chain tried (best 6–7 °/s) — only truth aim + zero EIS residual reached 1.8 °/s, i.e. it needs a mechanically stabilised gimbal whose mass worsens KE.",
+  "directionCapped": true,
+  "recommendation": "Do not iterate AT-1 parameters further. The direction (worn reel + lifting flyer at 40–60° on a 10 m line behind a carving skier) is capped on KE, headClear and availability by geometry and tethered-wing physics. Any continuation needs a different envelope (riders ≤10–11 m/s, flyer ≤50 g with no onboard camera-pointing hardware, exit ≥1.6–2 m from the helmet e.g. a boom/pole, and dock/retrieve procedures that end with the flyer on the snow ≥1 m from the head) — and even then KE whips and headClear at stops remain open. Kill tests if anyone continues: tethered-wing whip speed vs L/D on a towed rig; retrieval in 9 m/s crosswind; capture at −10 °C."
+ },
+ "reproduction": {
+  "cases": 16,
+  "allMatch": true,
+  "note": "own diag script (scripts/diag.mjs) on an unmodified copy; values [review, AT-1 results.json]; deterministic — bitwise-equal to 3 dp. Full 48-case rerun also reproduces avail 16.75, pxMed 279.1, KE max 57.1, headClear min 0.25, 15 never flown (jitter p90 10.35 vs 10.52 is only a percentile-interpolation difference).",
+  "table": [
+   {
+    "id": "calm_s11",
+    "avail": [
+     21.88,
+     21.875
+    ],
+    "keMax": [
+     16.284,
+     16.284
+    ],
+    "headClear": [
+     1.119,
+     1.119
+    ],
+    "jitter": [
+     6.174,
+     6.174
+    ],
+    "pxMed": [
+     271.01,
+     271.009
+    ],
+    "match": true
+   },
+   {
+    "id": "calm_s13",
+    "avail": [
+     33.59,
+     33.594
+    ],
+    "keMax": [
+     21.238,
+     21.238
+    ],
+    "headClear": [
+     1.089,
+     1.089
+    ],
+    "jitter": [
+     6.102,
+     6.102
+    ],
+    "pxMed": [
+     305.22,
+     305.216
+    ],
+    "match": true
+   },
+   {
+    "id": "head3_s12",
+    "avail": [
+     14.63,
+     14.628
+    ],
+    "keMax": [
+     22.848,
+     22.848
+    ],
+    "headClear": [
+     1.064,
+     1.064
+    ],
+    "jitter": [
+     7.404,
+     7.404
+    ],
+    "pxMed": [
+     268.35,
+     268.351
+    ],
+    "match": true
+   },
+   {
+    "id": "head6_s12",
+    "avail": [
+     35.13,
+     35.129
+    ],
+    "keMax": [
+     23.813,
+     23.813
+    ],
+    "headClear": [
+     1.088,
+     1.088
+    ],
+    "jitter": [
+     9.523,
+     9.523
+    ],
+    "pxMed": [
+     315.34,
+     315.341
+    ],
+    "match": true
+   },
+   {
+    "id": "head9_s11",
+    "avail": [
+     27.18,
+     27.182
+    ],
+    "keMax": [
+     57.079,
+     57.079
+    ],
+    "headClear": [
+     1.031,
+     1.031
+    ],
+    "jitter": [
+     11.173,
+     11.173
+    ],
+    "pxMed": [
+     295.36,
+     295.364
+    ],
+    "match": true
+   },
+   {
+    "id": "tail3_s11",
+    "avail": [
+     6.17,
+     6.169
+    ],
+    "keMax": [
+     18.734,
+     18.734
+    ],
+    "headClear": [
+     0.788,
+     0.788
+    ],
+    "jitter": [
+     9.691,
+     9.691
+    ],
+    "pxMed": [
+     260.91,
+     260.907
+    ],
+    "match": true
+   },
+   {
+    "id": "tail3_s12",
+    "avail": [
+     21.77,
+     21.767
+    ],
+    "keMax": [
+     21.716,
+     21.716
+    ],
+    "headClear": [
+     0.599,
+     0.599
+    ],
+    "jitter": [
+     8.078,
+     8.078
+    ],
+    "pxMed": [
+     248.16,
+     248.165
+    ],
+    "match": true
+   },
+   {
+    "id": "tail3.5_s12",
+    "avail": [
+     3.31,
+     3.314
+    ],
+    "keMax": [
+     21.232,
+     21.232
+    ],
+    "headClear": [
+     0.448,
+     0.448
+    ],
+    "jitter": [
+     9.458,
+     9.458
+    ],
+    "pxMed": [
+     231.18,
+     231.182
+    ],
+    "match": true
+   },
+   {
+    "id": "tail4.5_s11",
+    "avail": [
+     0,
+     0
+    ],
+    "keMax": [
+     null,
+     null
+    ],
+    "headClear": [
+     null,
+     null
+    ],
+    "jitter": [
+     null,
+     null
+    ],
+    "pxMed": [
+     null,
+     null
+    ],
+    "match": true
+   },
+   {
+    "id": "tail6_s11",
+    "avail": [
+     0,
+     0
+    ],
+    "keMax": [
+     null,
+     null
+    ],
+    "headClear": [
+     null,
+     null
+    ],
+    "jitter": [
+     null,
+     null
+    ],
+    "pxMed": [
+     null,
+     null
+    ],
+    "match": true
+   },
+   {
+    "id": "crossL3_s12",
+    "avail": [
+     30.66,
+     30.657
+    ],
+    "keMax": [
+     20.252,
+     20.252
+    ],
+    "headClear": [
+     0.987,
+     0.987
+    ],
+    "jitter": [
+     7.067,
+     7.067
+    ],
+    "pxMed": [
+     270.93,
+     270.927
+    ],
+    "match": true
+   },
+   {
+    "id": "crossL6_s13",
+    "avail": [
+     30.15,
+     30.145
+    ],
+    "keMax": [
+     19.569,
+     19.569
+    ],
+    "headClear": [
+     0.449,
+     0.449
+    ],
+    "jitter": [
+     7.629,
+     7.629
+    ],
+    "pxMed": [
+     280.96,
+     280.958
+    ],
+    "match": true
+   },
+   {
+    "id": "crossL9_s11",
+    "avail": [
+     12.07,
+     12.069
+    ],
+    "keMax": [
+     36.367,
+     36.367
+    ],
+    "headClear": [
+     0.25,
+     0.25
+    ],
+    "jitter": [
+     14.048,
+     14.048
+    ],
+    "pxMed": [
+     249.49,
+     249.495
+    ],
+    "match": true
+   },
+   {
+    "id": "crossR3_s11",
+    "avail": [
+     14.84,
+     14.844
+    ],
+    "keMax": [
+     48.848,
+     48.848
+    ],
+    "headClear": [
+     0.933,
+     0.933
+    ],
+    "jitter": [
+     7.177,
+     7.177
+    ],
+    "pxMed": [
+     263.96,
+     263.961
+    ],
+    "match": true
+   },
+   {
+    "id": "crossR6_s12",
+    "avail": [
+     30.9,
+     30.9
+    ],
+    "keMax": [
+     27.481,
+     27.481
+    ],
+    "headClear": [
+     1.072,
+     1.072
+    ],
+    "jitter": [
+     8.946,
+     8.946
+    ],
+    "pxMed": [
+     277.49,
+     277.494
+    ],
+    "match": true
+   },
+   {
+    "id": "crossR9_s13",
+    "avail": [
+     15.36,
+     15.356
+    ],
+    "keMax": [
+     48.631,
+     48.631
+    ],
+    "headClear": [
+     0.505,
+     0.505
+    ],
+    "jitter": [
+     10.519,
+     10.519
+    ],
+    "pxMed": [
+     258.28,
+     258.277
+    ],
+    "match": true
+   }
+  ],
+  "full48": {
+   "n": 48,
+   "availMean": 16.75,
+   "pxP50": 279.1,
+   "jitterP90": 10.35,
+   "keMax": 57.1,
+   "keP50": 21.6,
+   "casesKEover14_9": 35,
+   "headClearMin_asImplemented": 0.25,
+   "headClearMin_3sRule": 0.014,
+   "casesHeadUnder1_3sRule": 22,
+   "neverFlown": 15,
+   "lossShares_pctOfRiding": {
+    "notAirborne": 38.82,
+    "launch": 6.37,
+    "brakeRetrieve": 10.77,
+    "flyNotInFrame": 3.11,
+    "flyPxLow": 19.99,
+    "flyArt": 2.85,
+    "flyFit": 1.34,
+    "avail": 16.75,
+    "other": 0
+   }
+  }
+ },
+ "physicsAudit": [
+  {
+   "item": "tether swing / pendulum",
+   "finding": "3-DOF point-mass flyer, line = elastic segments EA/L 3308 N + 150 N/m series spring, distributed weight/drag lumped to ends, parabolic sag; no line waves. Adequate for swing at 0.17 Hz carving forcing and the observed whips. Tethered-wing natural lateral frequency ≈sqrt(T/(mL)) ≈2.6 rad/s (T 8 N, 116 g, 10 m) vs carving forcing 1.08 rad/s (5.8 s full-turn period) → quasi-static following with ≈20 % overshoot — consistent with the simulated vRel p50 ≈2 m/s.",
+   "ok": true
+  },
+  {
+   "item": "apparent wind",
+   "finding": "v_a = v_flyer − wind(at flyer), Dryden-like field Lu 28 m sampled at 100 Hz. Correct. Gates use windEstimate() (shared, biased) blended with flyer air-data wind; compliant.",
+   "ok": true
+  },
+  {
+   "item": "glide-ratio / airbrake command",
+   "finding": "Feed-forward L/D_eff = tan(elev − slope) = tan(35°) ≈0.70 for 50° on a 15° slope: independently derived (line angle above the down-apparent-wind axis = 50°−15°). Correct. Implication: the 5.9 L/D wing is flown at ≈12 % of its L/D — the latent crosswind power is what produces the whips when the brake/roll loops lose the window edge.",
+   "ok": true
+  },
+  {
+   "item": "stall / polar",
+   "finding": "Linear to CLmax 1.0 then flat-plate blend; CLmax 1.0 and CD0 0.075 for a folding umbrella delta are ASSUMED and optimistic for Re≈1–2·10^5 (sensitivity CLmax×0.8 → KE max 65.8 J, headClear 0.07). Disclosed; not verified.",
+   "ok": "assumed"
+  },
+  {
+   "item": "motor / reel",
+   "finding": "MN3110 700 Kv: Kt 0.0136 N·m/A, Imax 22 A, 2:1, drum r 15–22 mm → stall line pull ≈27 N, no-load line speed ≈9 m/s at 12.5 V; V/I limits, two inertias, slip clutch 35 N, regen clamp. Physically consistent. Reel is not a limiting element in any failure (cold-bus sensitivities identical).",
+   "ok": true
+  },
+  {
+   "item": "capture model",
+   "finding": "ASSUMED 0.958·f(v)·f(angle), outcome drawn from TRUE relative speed and line angle (correct for a judge-side outcome). Disclosed; first-try 80 % is model output, not evidence.",
+   "ok": "assumed"
+  },
+  {
+   "item": "integration convergence",
+   "finding": "AT-1 own dt check: crossL3_s13 KE 19.4→32.4 J and headClear 0.98→0.54 m between dt 2 ms and 1 ms; per-case extremes are chaotic (whip timing), so max/min judged metrics on 48 cases are not converged statistics. Seeds 11–16 already gave KE 78 J / headClear 0.058 m.",
+   "ok": false
+  }
+ ],
+ "estimatorHonesty": [
+  {
+   "severity": "ok",
+   "finding": "Controllers/mode machine read only estimates (tension with scale/bias/noise/latency, exit angle + AHRS errors, metered length, UWB range, pitot/vane, GNSS velocity, shared windEstimate). Truth reads below the \"sensors\" line are confined to sensor models and judge code."
+  },
+  {
+   "severity": "low",
+   "finding": "Flyer-relative velocity est.vrel = truth(v_flyer − v_exit) + white 0.15 m/s, 30 ms — no bias/drift (idealised relative GNSS/IMU fusion). Used in rate damping, capture hold, cutter."
+  },
+  {
+   "severity": "low",
+   "finding": "Air-flow direction est.uE = truth airflow rotated by a fixed 3° attitude error + 1° noise: implies a sideslip measurement that a single AoA vane does not provide."
+  },
+  {
+   "severity": "low",
+   "finding": "CAPTURE quiver yaw alignment uses the true rider heading (no AHRS yaw error); tracker subject offset uses the true body-centre-minus-exit vector rotated by AHRS error (rider lean/crouch effectively known)."
+  },
+  {
+   "severity": "high",
+   "finding": "headClear exclusion: analysis.js excludes the WHOLE CAPTURE mode (capWin) from headClear, but the rule and the build text say \"only the ≤3 s capture window\". Measured capture windows: 100 % exceed 3 s, p50 4.2 s, max 38.8 s. Applying the 3 s rule (last 3 s of each window excluded): headClear min 0.25 → 0.014 m, cases <1 m 19 → 22/48 (head3_s12 1.06→0.45, head3_s13 1.08→0.52, crossL9_s11 0.25→0.014, crossR9_s12 0.81→0.30)."
+  },
+  {
+   "severity": "medium",
+   "finding": "Tracker switches hard between vision bearing and the geometry estimate (several-degree bias) on vision drop-outs; no bias-aligned fusion → step jumps in the aim feed jitter. A modelling choice that makes jitter pessimistic, but even with drop-outs = 0 jitter stays ≈7 °/s."
+  }
+ ],
+ "rootCause": {
+  "availabilityLossDecomposition_ppOfEnsembleRidingTime": {
+   "neverFlownCases_15_of_48": 31.25,
+   "flownCases_notAirborne": 9.69,
+   "flownCases_launch": 6.19,
+   "flownCases_brakeRetrieve": 8.84,
+   "flownCases_flyNotInFrame": 3.11,
+   "flownCases_flyPxLow": 19.99,
+   "flownCases_flyArt": 2.85,
+   "flownCases_flyFit": 1.34,
+   "availDelivered": 16.75
+  },
+  "availabilityNotes": [
+   "Total loss 83.25 pp. 31.25 pp = 15 never-flown cases (13 never launched (tail-gate ≤3 m/s on windEstimate: tail3.5_s11, tail 4.5/5.5/6/9 ×3), 2 launched but every launch failed (tail3_s13, tail3.5_s13)).",
+   "In flown cases (33/48, mean avail 24.4 %): pre-launch stowed/deploy/gate wait 14.1 %, launch phase 9.0 %, brake/retrieve/fly-in while still riding 12.9 % → flight-time share 64 % only; inside FLY: bodyPx<300 29.1 %, subject out of frame 4.5 %, line artefact 4.1 %, crop not fitting 2.0 %.",
+   "FUNDAMENTAL part: per-ride launch (detect 0.8 s + deploy 1.3 s + speed-up to the 1.35·Vstall gate + ≤2 m/s pay-out to 6 m) and stop-side recovery ≈8 s per 33–38 s ride → flown-case ceiling ≈75–80 % even with perfect framing; tail 9 m/s gives ≈4 m/s apparent wind < Vstall 4.9 m/s (116 g) → not flyable; tail 6 is flyable only by dropping the tail gate, which the experiments show destroys headClear/KE (tail_gate9 runs: launches fail or headClear 0.06–0.4 m). Ensemble mean ≥80 % is therefore unreachable on R4 for this architecture.",
+   "DESIGN part: bodyPx and artefacts (≈26 pp of flown riding time) are mostly tracker lag (1.5 Hz smoother vs LOS rates of tens of °/s from the ±8 m carving swing) and the 0.10 m camera-below-tow-point offset (line within ≈1 m of the lens ≥2 px over the subject)."
+  ],
+  "keDecomposition": {
+   "floor": "In steady FLY the flyer KE median is 10.1 J (p50 over flown cases) = ½·0.116·13.2² — i.e. the ground-frame floor at the R4 rider speed (13.2 m/s, the shared skier overshoots vTarget 12). Cap 14.9 J ⇒ |v_flyer| ≤16.0 m/s ⇒ only +2.8 m/s margin over the rider for swing, gusts and transients.",
+   "flyFlightKE_p50_p90_max_overFlownCases": [
+    10.14,
+    12.96,
+    57.1
+   ],
+   "peakEventCauses_casesOver14_9": {
+    "hockeyStopExitWhip(vExit>14.5)": 16,
+    "flyerWhip_FLYIN": 4,
+    "flyerWhip_FLY": 12,
+    "flyerWhip_RETRIEVE": 3
+   },
+   "mechanisms": [
+    "hockey-stop exit whip: the rigid lumbar quiver (exit 0.66 m behind the pelvis) swings with the ~80° skid rotation; exit speed 16–16.8 m/s at a 12 m/s rider, line jerk 10–13 N, flyer 15–20 m/s → 16–24 J (16 cases). Partly a shared-skier artefact (pelvis takes the full ski yaw), partly real (hips do rotate). Conflict: exit far behind the pelvis is needed for headClear but raises the whip radius.",
+    "crosswind whip at the window edge: carving swings the exit ±8 m laterally (5.8 s full-turn period) on a 10 m line → azimuth ±40–65°, elevation collapses to ≈13°, the braked wing is pulled across the window and accelerates to 25–31 m/s (head9_s11: 57 J). This is the crosswind-kite effect (v ≈ (L/D_eff)·V_a during the sweep); it scales with apparent wind, not with mass, so lighter flyers whip faster (58 g reached 25–34 m/s).",
+    "retrieve/fly-in transients in crosswind 9 (up to 49 J)."
+   ]
+  },
+  "headClearDecomposition": {
+   "geometry": "exit→helmet vector ≈(0.87 fwd, 0.88 up), |h| 1.24 m (1.22–1.27 riding/stopped). A line from the exit keeps ≥1 m only if its direction is ≥54° from h: safe max elevation 81° straight behind, 78° at 45° azimuth, 56° at 90° (side), 22° at 120° azimuth; any forward line fails. At a hockey stop the body turns ~77–90°, so a flyer still behind on the course sits at ≈90° body azimuth where 50° elevation is just at the limit; tail/cross wind then carries it forward.",
+   "eventsUnder1m_3sRule_byPhase": {
+    "BRAKE/line/riding": 4,
+    "RETRIEVE/flyer/riderStopped": 2,
+    "FLYIN/flyer/riding": 1,
+    "BRAKE/line/riderStopped": 5,
+    "FLYIN/line/riding": 3,
+    "RETRIEVE/line/riding": 1,
+    "LAUNCH/line/riding": 4,
+    "RETRIEVE/line/riderStopped": 2
+   },
+   "fundamental": "The dock is the exit, 1.24 m from the helmet: the final ≈1.5 m of every retrieval brings the flyer/line within 1 m of the head unless it arrives low and straight behind; in 9 m/s crosswind the flagged wing lifts off the snow at L<2.5 m (crossL9_s11: height 1.6 m at L 1.8 m → 0.014 m). Only a longer exit offset (≥≈1.6–2 m, i.e. a boom) or a dock away from the body changes this."
+  },
+  "jitterDecomposition": "Shared metric = HP(1 Hz) of subject LOS rate in frame. LOS rotates tens of °/s as the flyer lags the carving exit. Contributions measured on the 12-case subset: baseline 11.1; noise-free sensors 9.3 (AT-1 sensitivity); truth aim through the 1.5 Hz smoother 9.3; truth aim + 6 Hz 6.3; truth aim + 8 Hz with realistic EIS residual 6.1; truth aim + no EIS residual + 10 Hz 1.8. ⇒ two independent floors: aim bandwidth/latency and the electronic-stabilisation residual on a flyer whose body rates are high."
+ },
+ "rescueExperiments": {
+  "subset": "SUB12 = calm_s11, calm_s13, head3_s12, head6_s12, head9_s11, tail3_s12, crossL3_s12, crossL6_s13, crossL9_s11, crossR3_s11, crossR6_s12, crossR9_s13 (all flown at baseline; baseline subset avail 24.0, px 271, jitter p90 11.1, KE max 57.1, 12/12 KE>14.9)",
+  "results": {
+   "sub_base": {
+    "over": {},
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 24.01,
+    "pxP50": 271.0,
+    "jitterP90": 11.11,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": 0.014,
+    "casesHeadUnder1_3sRule": 7,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 5.04,
+     "flyPxLow": 30.26,
+     "flyArt": 4.39,
+     "flyFit": 2.25,
+     "avail": 24.01,
+     "other": 0
+    }
+   },
+   "fc3": {
+    "over": {
+     "cropFc": 3
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 27.73,
+    "pxP50": 314.9,
+    "jitterP90": 11.98,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 4.94,
+     "flyPxLow": 25.08,
+     "flyArt": 7.26,
+     "flyFit": 0.94,
+     "avail": 27.73,
+     "other": 0
+    }
+   },
+   "fc6": {
+    "over": {
+     "cropFc": 6
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 29.92,
+    "pxP50": 341.0,
+    "jitterP90": 17.17,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 4.37,
+     "flyPxLow": 21.51,
+     "flyArt": 9.65,
+     "flyFit": 0.52,
+     "avail": 29.92,
+     "other": 0
+    }
+   },
+   "truthAim": {
+    "over": {
+     "dbgCam": 1
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 26.63,
+    "pxP50": 306.8,
+    "jitterP90": 9.32,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 5.1,
+     "flyPxLow": 26.33,
+     "flyArt": 6.79,
+     "flyFit": 1.11,
+     "avail": 26.63,
+     "other": 0
+    }
+   },
+   "truthAim_noEIS": {
+    "over": {
+     "dbgCam": 3
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 25.33,
+    "pxP50": 302.7,
+    "jitterP90": 7.62,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 5.94,
+     "flyPxLow": 26.19,
+     "flyArt": 7.43,
+     "flyFit": 1.08,
+     "avail": 25.33,
+     "other": 0
+    }
+   },
+   "truthAim_fc6": {
+    "over": {
+     "dbgCam": 1,
+     "cropFc": 6
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 31.59,
+    "pxP50": 381.8,
+    "jitterP90": 6.31,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 1.88,
+     "flyPxLow": 16.99,
+     "flyArt": 15.34,
+     "flyFit": 0.16,
+     "avail": 31.59,
+     "other": 0
+    }
+   },
+   "truthAim_noEIS_fc10": {
+    "over": {
+     "dbgCam": 3,
+     "cropFc": 10
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 30.38,
+    "pxP50": 388.0,
+    "jitterP90": 1.77,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 0.55,
+     "flyPxLow": 16.6,
+     "flyArt": 18.32,
+     "flyFit": 0.11,
+     "avail": 30.38,
+     "other": 0
+    }
+   },
+   "m1.0_v12": {
+    "over": {},
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 24.01,
+    "pxP50": 271.0,
+    "jitterP90": 11.11,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 5.04,
+     "flyPxLow": 30.26,
+     "flyArt": 4.39,
+     "flyFit": 2.25,
+     "avail": 24.01,
+     "other": 0
+    }
+   },
+   "m0.5_v12": {
+    "over": {
+     "massScale": 0.5
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 22.53,
+    "pxP50": 266.2,
+    "jitterP90": 15.11,
+    "keMax": 33.4,
+    "keP50": 12.1,
+    "casesKEover14_9": 5,
+    "headClearMin_asImplemented": 0.24,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 14.26,
+     "launch": 11.6,
+     "brakeRetrieve": 10.85,
+     "flyNotInFrame": 4.42,
+     "flyPxLow": 31.16,
+     "flyArt": 2.51,
+     "flyFit": 2.68,
+     "avail": 22.53,
+     "other": 0
+    }
+   },
+   "m0.5_v10": {
+    "over": {
+     "massScale": 0.5
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 20.03,
+    "pxP50": 285.2,
+    "jitterP90": 14.62,
+    "keMax": 51.3,
+    "keP50": 11.0,
+    "casesKEover14_9": 5,
+    "headClearMin_asImplemented": 0.063,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 2,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 10.37,
+     "launch": 12.23,
+     "brakeRetrieve": 24.38,
+     "flyNotInFrame": 4.26,
+     "flyPxLow": 23.41,
+     "flyArt": 2.08,
+     "flyFit": 3.24,
+     "avail": 20.03,
+     "other": 0
+    }
+   },
+   "m0.4_v10": {
+    "over": {
+     "massScale": 0.4
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 16.41,
+    "pxP50": 265.9,
+    "jitterP90": 17.87,
+    "keMax": 29.1,
+    "keP50": 13.3,
+    "casesKEover14_9": 5,
+    "headClearMin_asImplemented": 0.066,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 2,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 12.5,
+     "launch": 12.74,
+     "brakeRetrieve": 24.3,
+     "flyNotInFrame": 3.72,
+     "flyPxLow": 23.42,
+     "flyArt": 1.08,
+     "flyFit": 5.83,
+     "avail": 16.41,
+     "other": 0
+    }
+   },
+   "m0.6_v10": {
+    "over": {
+     "massScale": 0.6
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 23.76,
+    "pxP50": 296.7,
+    "jitterP90": 13.36,
+    "keMax": 23.8,
+    "keP50": 11.4,
+    "casesKEover14_9": 3,
+    "headClearMin_asImplemented": 0.045,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 1,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 13.18,
+     "launch": 12.11,
+     "brakeRetrieve": 11.89,
+     "flyNotInFrame": 5.02,
+     "flyPxLow": 27.0,
+     "flyArt": 3.87,
+     "flyFit": 3.16,
+     "avail": 23.76,
+     "other": 0
+    }
+   },
+   "m1.0_v10": {
+    "over": {},
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 22.1,
+    "pxP50": 303.7,
+    "jitterP90": 13.64,
+    "keMax": 41.6,
+    "keP50": 18.1,
+    "casesKEover14_9": 9,
+    "headClearMin_asImplemented": 0.117,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 9.47,
+     "launch": 10.18,
+     "brakeRetrieve": 22.55,
+     "flyNotInFrame": 5.04,
+     "flyPxLow": 20.96,
+     "flyArt": 5.15,
+     "flyFit": 4.55,
+     "avail": 22.1,
+     "other": 0
+    }
+   },
+   "m0.5_v8.5": {
+    "over": {
+     "massScale": 0.5
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 22.11,
+    "pxP50": 307.7,
+    "jitterP90": 14.74,
+    "keMax": 19.1,
+    "keP50": 8.6,
+    "casesKEover14_9": 1,
+    "headClearMin_asImplemented": 0.105,
+    "headClearMin_3sRule": null,
+    "casesHeadUnder1_3sRule": 0,
+    "neverFlown": 2,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 10.27,
+     "launch": 13.67,
+     "brakeRetrieve": 26.19,
+     "flyNotInFrame": 4.25,
+     "flyPxLow": 18.31,
+     "flyArt": 2.5,
+     "flyFit": 2.71,
+     "avail": 22.11,
+     "other": 0
+    }
+   },
+   "ff1": {
+    "over": {
+     "kFF": 1
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 19.69,
+    "pxP50": 271.4,
+    "jitterP90": 10.61,
+    "keMax": 47.2,
+    "keP50": 28.1,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.385,
+    "headClearMin_3sRule": 0.313,
+    "casesHeadUnder1_3sRule": 9,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 8.59,
+     "launch": 9.66,
+     "brakeRetrieve": 22.51,
+     "flyNotInFrame": 5.18,
+     "flyPxLow": 24.79,
+     "flyArt": 6.6,
+     "flyFit": 2.98,
+     "avail": 19.69,
+     "other": 0
+    }
+   },
+   "ff0.6_lead0.6": {
+    "over": {
+     "kFF": 0.6,
+     "leadFF": 0.6
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 24.09,
+    "pxP50": 284.1,
+    "jitterP90": 10.24,
+    "keMax": 43.4,
+    "keP50": 24.1,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.058,
+    "headClearMin_3sRule": 0.003,
+    "casesHeadUnder1_3sRule": 6,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 7.18,
+     "launch": 9.94,
+     "brakeRetrieve": 14.26,
+     "flyNotInFrame": 5.75,
+     "flyPxLow": 30.51,
+     "flyArt": 6.38,
+     "flyFit": 1.89,
+     "avail": 24.09,
+     "other": 0
+    }
+   },
+   "L13_el45": {
+    "over": {
+     "LfilmFly": 13,
+     "elev": 45
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 25.38,
+    "pxP50": 279.7,
+    "jitterP90": 9.05,
+    "keMax": 26.3,
+    "keP50": 20.8,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.461,
+    "headClearMin_3sRule": 0.291,
+    "casesHeadUnder1_3sRule": 7,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 10.65,
+     "launch": 8.6,
+     "brakeRetrieve": 18.28,
+     "flyNotInFrame": 2.85,
+     "flyPxLow": 30.43,
+     "flyArt": 2.11,
+     "flyFit": 1.7,
+     "avail": 25.38,
+     "other": 0
+    }
+   },
+   "stopfix": {
+    "over": {
+     "stopPay": 1.5,
+     "sideAll": 1,
+     "furlK": 0.1
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 24.68,
+    "pxP50": 275.8,
+    "jitterP90": 13.72,
+    "keMax": 48.6,
+    "keP50": 25.6,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.333,
+    "headClearMin_3sRule": 0.333,
+    "casesHeadUnder1_3sRule": 8,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 7.5,
+     "launch": 10.71,
+     "brakeRetrieve": 12.24,
+     "flyNotInFrame": 5.18,
+     "flyPxLow": 31.35,
+     "flyArt": 5.34,
+     "flyFit": 3.0,
+     "avail": 24.68,
+     "other": 0
+    }
+   },
+   "cam_good": {
+    "over": {
+     "cropFc": 4
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 28.65,
+    "pxP50": 346.1,
+    "jitterP90": 9.61,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": 0.014,
+    "casesHeadUnder1_3sRule": 7,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 4.01,
+     "flyPxLow": 21.5,
+     "flyArt": 11.18,
+     "flyFit": 0.61,
+     "avail": 28.65,
+     "other": 0
+    }
+   },
+   "cam_good_off25": {
+    "over": {
+     "cropFc": 4
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 37.42,
+    "pxP50": 348.5,
+    "jitterP90": 11.07,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": 0.014,
+    "casesHeadUnder1_3sRule": 7,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 4.1,
+     "flyPxLow": 23.74,
+     "flyArt": 0.08,
+     "flyFit": 0.62,
+     "avail": 37.42,
+     "other": 0
+    }
+   },
+   "cam_vgood_fc8": {
+    "over": {
+     "cropFc": 8
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 44.65,
+    "pxP50": 382.9,
+    "jitterP90": 7.6,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": 0.014,
+    "casesHeadUnder1_3sRule": 7,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 1.48,
+     "flyPxLow": 19.43,
+     "flyArt": 0.24,
+     "flyFit": 0.17,
+     "avail": 44.65,
+     "other": 0
+    }
+   },
+   "ke_m05_L13_e45_v10": {
+    "over": {
+     "massScale": 0.5,
+     "LfilmFly": 13,
+     "elev": 45
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 25.27,
+    "pxP50": 303.1,
+    "jitterP90": 10.49,
+    "keMax": 25.9,
+    "keP50": 9.8,
+    "casesKEover14_9": 2,
+    "headClearMin_asImplemented": 0.224,
+    "headClearMin_3sRule": 0.02,
+    "casesHeadUnder1_3sRule": 9,
+    "neverFlown": 1,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 12.55,
+     "launch": 11.9,
+     "brakeRetrieve": 19.3,
+     "flyNotInFrame": 2.47,
+     "flyPxLow": 25.08,
+     "flyArt": 1.34,
+     "flyFit": 2.11,
+     "avail": 25.27,
+     "other": 0
+    }
+   },
+   "ke_m05_L13_e45_phi15_v10": {
+    "over": {
+     "massScale": 0.5,
+     "LfilmFly": 13,
+     "elev": 45,
+     "phiMax": 15
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 19.12,
+    "pxP50": 283.9,
+    "jitterP90": 9.69,
+    "keMax": 31.7,
+    "keP50": 14.6,
+    "casesKEover14_9": 5,
+    "headClearMin_asImplemented": 0.143,
+    "headClearMin_3sRule": 0.08,
+    "casesHeadUnder1_3sRule": 10,
+    "neverFlown": 2,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 12.36,
+     "launch": 11.65,
+     "brakeRetrieve": 28.9,
+     "flyNotInFrame": 1.61,
+     "flyPxLow": 23.12,
+     "flyArt": 0.96,
+     "flyFit": 2.27,
+     "avail": 19.12,
+     "other": 0
+    }
+   },
+   "ke_L13_e45_phi15": {
+    "over": {
+     "LfilmFly": 13,
+     "elev": 45,
+     "phiMax": 15
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 13.91,
+    "pxP50": 262.3,
+    "jitterP90": 13.04,
+    "keMax": 84.6,
+    "keP50": 32.0,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.113,
+    "headClearMin_3sRule": 0.091,
+    "casesHeadUnder1_3sRule": 9,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 9.85,
+     "launch": 8.41,
+     "brakeRetrieve": 37.82,
+     "flyNotInFrame": 1.24,
+     "flyPxLow": 22.82,
+     "flyArt": 3.35,
+     "flyFit": 2.6,
+     "avail": 13.91,
+     "other": 0
+    }
+   },
+   "jit_vgood_nodrop": {
+    "over": {
+     "cropFc": 8
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 44.48,
+    "pxP50": 386.3,
+    "jitterP90": 7.09,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": 0.014,
+    "casesHeadUnder1_3sRule": 7,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 1.46,
+     "flyPxLow": 19.68,
+     "flyArt": 0.18,
+     "flyFit": 0.16,
+     "avail": 44.48,
+     "other": 0
+    }
+   },
+   "jit_vgood_nodrop_fc4": {
+    "over": {
+     "cropFc": 4
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 40.42,
+    "pxP50": 361.5,
+    "jitterP90": 7.9,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": 0.014,
+    "casesHeadUnder1_3sRule": 7,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 3.68,
+     "flyPxLow": 21.27,
+     "flyArt": 0.19,
+     "flyFit": 0.41,
+     "avail": 40.42,
+     "other": 0
+    }
+   },
+   "jit_truth_realEIS_fc8": {
+    "over": {
+     "cropFc": 8,
+     "dbgCam": 1
+    },
+    "cases": "SUB12",
+    "n": 12,
+    "availMean": 31.93,
+    "pxP50": 385.1,
+    "jitterP90": 6.06,
+    "keMax": 57.1,
+    "keP50": 23.3,
+    "casesKEover14_9": 12,
+    "headClearMin_asImplemented": 0.25,
+    "headClearMin_3sRule": 0.014,
+    "casesHeadUnder1_3sRule": 7,
+    "neverFlown": 0,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 11.87,
+     "launch": 9.71,
+     "brakeRetrieve": 12.45,
+     "flyNotInFrame": 1.36,
+     "flyPxLow": 16.69,
+     "flyArt": 15.85,
+     "flyFit": 0.14,
+     "avail": 31.93,
+     "other": 0
+    }
+   },
+   "tail_gate9": {
+    "over": {
+     "tailGate": 9
+    },
+    "cases": [
+     "tail3.5_s11",
+     "tail4.5_s11",
+     "tail5.5_s11",
+     "tail6_s11",
+     "tail9_s11",
+     "tail9_s12"
+    ],
+    "n": 6,
+    "availMean": 0.27,
+    "pxP50": 228.8,
+    "jitterP90": 24.01,
+    "keMax": 50.9,
+    "keP50": 26.1,
+    "casesKEover14_9": 6,
+    "headClearMin_asImplemented": 0.392,
+    "headClearMin_3sRule": 0.392,
+    "casesHeadUnder1_3sRule": 5,
+    "neverFlown": 5,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 31.16,
+     "launch": 3.09,
+     "brakeRetrieve": 61.01,
+     "flyNotInFrame": 0.65,
+     "flyPxLow": 0.26,
+     "flyArt": 0.05,
+     "flyFit": 3.51,
+     "avail": 0.27,
+     "other": 0
+    }
+   },
+   "tail_gate9_kite": {
+    "over": {
+     "tailGate": 9,
+     "flyer": 1
+    },
+    "cases": [
+     "tail3.5_s11",
+     "tail4.5_s11",
+     "tail5.5_s11",
+     "tail6_s11",
+     "tail9_s11",
+     "tail9_s12"
+    ],
+    "n": 6,
+    "availMean": 6.25,
+    "pxP50": 216.6,
+    "jitterP90": 12.96,
+    "keMax": 66.1,
+    "keP50": 42.5,
+    "casesKEover14_9": 6,
+    "headClearMin_asImplemented": 0.03,
+    "headClearMin_3sRule": 0.03,
+    "casesHeadUnder1_3sRule": 6,
+    "neverFlown": 1,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 20.69,
+     "launch": 4.59,
+     "brakeRetrieve": 40.32,
+     "flyNotInFrame": 1.75,
+     "flyPxLow": 15.57,
+     "flyArt": 0.28,
+     "flyFit": 10.55,
+     "avail": 6.25,
+     "other": 0
+    }
+   },
+   "tail_gate9_m05": {
+    "over": {
+     "tailGate": 9,
+     "massScale": 0.5
+    },
+    "cases": [
+     "tail3.5_s11",
+     "tail4.5_s11",
+     "tail5.5_s11",
+     "tail6_s11",
+     "tail9_s11",
+     "tail9_s12"
+    ],
+    "n": 6,
+    "availMean": 8.6,
+    "pxP50": 211.7,
+    "jitterP90": 14.01,
+    "keMax": 25.8,
+    "keP50": 14.3,
+    "casesKEover14_9": 3,
+    "headClearMin_asImplemented": 0.06,
+    "headClearMin_3sRule": 0.06,
+    "casesHeadUnder1_3sRule": 6,
+    "neverFlown": 1,
+    "lossShares_pctOfRiding": {
+     "notAirborne": 23.54,
+     "launch": 8.57,
+     "brakeRetrieve": 31.01,
+     "flyNotInFrame": 3.3,
+     "flyPxLow": 17.3,
+     "flyArt": 0.66,
+     "flyFit": 7.01,
+     "avail": 8.6,
+     "other": 0
+    }
+   }
+  },
+  "conclusions": [
+   {
+    "hypothesis": "(a) ultralight 40–70 g flyer + rider speed envelope ≤11–12 m/s",
+    "flips": "KE partially (never fully)",
+    "numbers": "m 58 g @R4 speed: KE max 33.4, 5/12 over; 70 g @≈11 m/s: 23.8, 3/12; 58 g @≈9.8 m/s: 19.1, 1/12; 58 g + 13 m line + 45° @≈11 m/s: 25.9, 2/12. KE p50 halves (≈10→3.5 J in flight) but whips remain. headClear unchanged or worse (min 0.02–0.1 m), jitter worse (13–18 °/s: lighter wing is more gust-responsive), avail unchanged (16–25 %).",
+    "cost": "camera-only pod ≈10 g forces a 4K-class (not 48 MP) sensor → bodyPx −50 px (AT-1 camera_4K sensitivity: avail 9.2 %, px 222); no pointing servos; structure+avionics+cell in ≈40 g is beyond the engineering budget (30 g structure alone). Speed envelope ≤10–11 m/s refuses most recreational carvers (shared skier 13.2 m/s)."
+   },
+   {
+    "hypothesis": "(b) swing suppression: phase-led roll feed-forward from pack turn detection; line length",
+    "flips": "nothing",
+    "numbers": "kFF 1.0: KE max 47.2 (12/12 over), avail 19.7, headClear min 0.39; kFF 0.6 lead 0.6 s: KE 43.4, headClear 0.06; 13 m line + 45°: KE max 26.3 but p50 20.8 (12/12 over), hc3 min 0.29; adding a 15° bank limit made it worse (KE 84.6). Following the exit costs the ½mv_rider² floor anyway; not following means ±40–65° azimuth swings and window-edge whips.",
+    "cost": "n/a"
+   },
+   {
+    "hypothesis": "(c) camera pointing / EIS bandwidth for jitter ≤3 °/s",
+    "flips": "bodyPx yes; jitter no",
+    "numbers": "vision σ0.1°/60 Hz/30 ms + EIS residual ×0.25 + 4 Hz reframing: px 346, jitter 9.6, avail 28.7 (art 11 %); + camera 0.25 m below the tow point: avail 37.4, art 0.1 %; σ0.05°/120 Hz/15 ms + EIS ×0.1 + 8 Hz + 0.25 m offset: avail 44.6 (subset), px 383, jitter 7.6 (7.1 with zero drop-outs). Only truth aim + zero EIS residual reaches 1.8 °/s.",
+    "cost": "pxMed flip needs a better-than-assumed vision tracker (ASSUMED numbers) + a 0.25 m camera drop/boom; jitter ≤3 needs a mechanically stabilised 3-axis gimbal (≈25–40 g) → KE worse; still not proven."
+   },
+   {
+    "hypothesis": "(d) stop procedure keeping headClear ≥1 m (side landing in all winds, pay-out at the stop, furled wing for tow-in)",
+    "flips": "no",
+    "numbers": "stopPay 1.5 m/s + side-drop always + aero ×0.1 when retrieving: hc3 min 0.33 (baseline subset 0.014), 8/12 still <1 m; KE max 48.6. The residual events are launch in crosswind, fly-in while riding and the last 1.5 m of the retrieval next to the 1.24 m dock.",
+    "cost": "n/a"
+   },
+   {
+    "hypothesis": "(e1) drop the tail gate so tail 3.5–9 cases fly",
+    "flips": "no",
+    "numbers": "116 g: 5/6 tail cases still never fly (launch fails), headClear 0.39; kite 139 g/0.30 m²: flies 5/6 but avail 0–12 %, KE 66 J, headClear 0.03; 58 g: flies 5/6, avail 0–15 %, headClear 0.06. The tail gate exists for a real reason.",
+    "cost": "n/a"
+   },
+   {
+    "hypothesis": "(e2) honest rule application (≤3 s capture exclusion)",
+    "flips": "makes headClear worse",
+    "numbers": "min 0.014 m, 22/48 < 1 m.",
+    "cost": "n/a"
+   }
+  ]
+ },
+ "findings": [
+  {
+   "id": "SE-01",
+   "severity": "critical",
+   "title": "KE cap is fundamentally violated",
+   "detail": "Floor ½mv_rider² = 10.1 J at 116 g/13.2 m/s; tethered-wing whips at the window edge and at hockey stops reach 16–57 J; 35/48 cases >14.9 J. No tried mass/speed/line/steering combination brings the 12-case max under 14.9 J (best 19.1 J at 58 g with riders ≈9.8 m/s)."
+  },
+  {
+   "id": "SE-02",
+   "severity": "critical",
+   "title": "headClear: dock/exit 1.24 m from the helmet is geometrically incompatible with a 1.0 m criterion through stops, crosswind launch and the final retrieval",
+   "detail": "Safe-cone analysis + 22/48 failures with the 3 s rule; no stop procedure tried lifted min above 0.33 m."
+  },
+  {
+   "id": "SE-03",
+   "severity": "high",
+   "title": "headClear exclusion window not limited to 3 s (judge bug)",
+   "detail": "analysis.js uses the entire CAPTURE mode (p50 4.2 s, up to 38.8 s). Reported min 0.25 m should read 0.014 m."
+  },
+  {
+   "id": "SE-04",
+   "severity": "critical",
+   "title": "Availability ≥80 % unreachable on R4",
+   "detail": "Decomposition above; per-ride overhead + unflyable tail winds cap the ensemble mean at ≈30–45 % even with a much better camera chain (measured 44.6 % on flown subset ≈31 % ensemble-equivalent)."
+  },
+  {
+   "id": "SE-05",
+   "severity": "high",
+   "title": "Jitter ≤3 °/s needs a mechanical gimbal",
+   "detail": "Best realistic electronic chain 7.1–7.6 °/s; floor set by EIS residual on a high-rate flyer body and aim bandwidth."
+  },
+  {
+   "id": "SE-06",
+   "severity": "medium",
+   "title": "bodyPx and line artefact are design-fixable",
+   "detail": "Better tracker + 0.25 m camera offset: px p50 383, art 0.1 % (ASSUMED sensor numbers)."
+  },
+  {
+   "id": "SE-07",
+   "severity": "medium",
+   "title": "Judged extremes not converged",
+   "detail": "dt 2→1 ms and seed changes move per-case KE/headClear by 50–100 %; report max/min with seed/dt bands."
+  },
+  {
+   "id": "SE-08",
+   "severity": "low",
+   "title": "Shared skier puts the full skid yaw on the pelvis at hockey stops",
+   "detail": "Creates the 16–16.8 m/s exit spike for a rear-mounted exit; affects every concept with a body-offset exit; flag to the integrator (common/skier.js), not an AT-1 error."
+  },
+  {
+   "id": "SE-09",
+   "severity": "low",
+   "title": "Idealised flyer-relative velocity and sideslip estimates",
+   "detail": "See estimatorHonesty; does not change any verdict (noise ×0 and ×2 sensitivities bracket it)."
+  }
+ ],
+ "limitations": [
+  "Same simulator as the build (shared skier, wind, rules); no independent physics engine.",
+  "Rescue experiments are quick controller/parameter patches, not optimised designs; a better controller could reduce whips, but the floors (½mv², 1.24 m dock geometry, per-ride overhead, tail-wind apparent wind) do not depend on the controller.",
+  "All camera/sensor improvements are ASSUMED numbers."
+ ]
+}

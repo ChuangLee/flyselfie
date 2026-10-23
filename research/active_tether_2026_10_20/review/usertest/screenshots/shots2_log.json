@@ -1,0 +1,71 @@
+[
+ {
+  "shot": "t04_tail45_refusal_quiver_out.png",
+  "scenario": "Full run: 4.5 m/s tailwind (the round-4 critical band)",
+  "t": 20,
+  "time": "20.00 / 119.2 s"
+ },
+ {
+  "shot": "t11_chair_download_stowed.png",
+  "scenario": "Downloading chairlift (5 m/s descent, no on-snow vibration)",
+  "t": 10,
+  "time": "10.00 / 30.0 s"
+ },
+ {
+  "shot": "p1_beg5_quiver_out_no_launch.png",
+  "scenario": "UT P1 beginner 5 m/s calm",
+  "t": 12,
+  "time": "12.00 / 129.8 s"
+ },
+ {
+  "shot": "p1_beg7_flyer_dragged_while_riding.png",
+  "scenario": "UT P1 beginner 7 m/s calm",
+  "t": 15,
+  "time": "15.00 / 129.8 s"
+ },
+ {
+  "shot": "p1_beg7_manual_stow.png",
+  "scenario": "UT P1 beginner 7 m/s calm",
+  "t": 112,
+  "time": "112.00 / 129.8 s"
+ },
+ {
+  "shot": "p4_family_towed_behind.png",
+  "scenario": "UT P4 family 6.5 m/s head 3",
+  "t": 12,
+  "time": "12.00 / 145.4 s"
+ },
+ {
+  "shot": "p4_family_filming.png",
+  "scenario": "UT P4 family 6.5 m/s head 3",
+  "t": 42,
+  "time": "42.00 / 145.4 s"
+ },
+ {
+  "shot": "t05_stop10_standing.png",
+  "scenario": "UT T05 stop 10 s and go (head 3)",
+  "t": 45,
+  "time": "45.00 / 109.2 s"
+ },
+ {
+  "shot": "t05_second_ride_towed.png",
+  "scenario": "UT T05 stop 10 s and go (head 3)",
+  "t": 66,
+  "time": "66.00 / 109.2 s"
+ },
+ {
+  "shot": "p3_exp15_launch_fail.png",
+  "scenario": "UT P3 expert 15 m/s calm",
+  "t": 3,
+  "time": "3.00 / 66.6 s"
+ },
+ {
+  "shot": "p3_exp15_weaklink_flyer_lost.png",
+  "scenario": "UT P3 expert 15 m/s calm",
+  "t": 8,
+  "time": "8.00 / 66.6 s"
+ },
+ {
+  "errors": []
+ }
+]

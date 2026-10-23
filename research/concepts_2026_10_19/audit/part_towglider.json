@@ -1,0 +1,297 @@
+{
+ "concept": "towglider",
+ "generated": "2026-10-19",
+ "evidence": "audit of a numerical-uncalibrated simulation plus literature/web checks; not a physical test",
+ "scripts": [
+  "audit/check_towglider.mjs",
+  "audit/check_towglider_stopsweep.mjs",
+  "audit/rerun_towglider/run_all.mjs"
+ ],
+ "findings": [
+  {
+   "id": "TG-01",
+   "concept": "towglider",
+   "severity": "major",
+   "claim": "Unplanned stop is handled by 'land beside + snow pull' with ≤17.9 s standstill in 0–9 m/s wind (stop_wind passes).",
+   "evidence": "stop_wind uses wind seed 5, one of the favourable seeds. Same scenario, seeds 1–12: 6/12 end with the hip cutter firing (line paid out to the 25 m spool end while the 95 g glider kites downwind instead of landing); airMin 0.877–1.65 Vs; line touches the rider's body in 10/12 and a pole in 7/12. Wider sweep (stop, 0/3/6/9 m/s × 4 directions × 4 seeds, 52 runs): cut/release 0/4, 0/16, 1/16, 8/16; airMin <1 Vs in 9 runs; harmonised p90 standstill = 21 s with the model's own hard-coded 21 s 'manual pick-up', 120 s if a loose glider ≥25 m downwind costs 120 s (ASSUMED). After a cut the glider stays hooked and free-flies trailing up to 25 m of 0.17 mm line across the piste. audit/out_towglider.json seedSweep.stop_wind, audit/out_towglider_stopsweep.json.",
+   "recommendedFix": "In mean wind >5 m/s: on stop, dive to the snow immediately (full split flaps, nose down) instead of the 'recover' glide; retract at full winch rate while still airborne; release the hook BEFORE any hip cut so no line trails the glider; report the seed sweep, not one seed.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-02",
+   "concept": "towglider",
+   "severity": "major",
+   "claim": "95 g all-up glider incl. 4K camera 16 g and a 12 g 2-axis micro gimbal (mass_budget_g in design_notes).",
+   "evidence": "No 12 g gimbal able to carry a 16 g 4K camera was found. The smallest brushless 2-axis FPV gimbal found is the Caddx GM2 at 30 g, for 19 mm micro cameras (https://rotorama.com/product/gm2). The XF C-40D is 38 g. Lighter mounts are servo pan/tilt and do not stabilise. Wiring/connectors/5 V boost/SD (~4 g) and the tow-release and fold-latch actuators (~2 g) are not budgeted. Audit estimate 115–125 g. At 117 g with CLmax 0.9 and CD0 0.05: Vs 6.81 m/s (claimed 5.82), KE-cap speed 15.799 m/s (claimed 17.4–17.7). 16 m/s run: hook release, avail 21.982 %. Slow 6 m/s beginner: airMin 0.086 Vs, minimum height 0.035 m (snow contact), jitter 44.66 °/s, avail 33.494 %. dock_wind KE 16.158 J (>14.9). Nominal still passes (avail 88.422 %, KE 13.802 J).",
+   "recommendedFix": "Budget a real gimbal (≥25–30 g), or drop to a single-axis tilt with wide-sensor EIS (the cam_fixed90 variant failed, so this needs a new study). Then resize the wing (S≈0.065–0.07 m²) to keep Vs ≤6 m/s and re-run all scenarios at 120 g.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-03",
+   "concept": "towglider",
+   "severity": "major",
+   "claim": "Endurance 102 min at −10 °C (glider 1.2 Wh topped up from the 10 Wh hip cell on every lift ride).",
+   "evidence": "Running the RunCam Thumb Pro 4K (16 g) at 2.5 W max at 5 V (https://www.getfpv.com/runcam-thumb-pro-4k-hd-action-camera.html) through a boost converter, the audit avionics total is 4.441 W, against 3.3 W claimed. Glider-only flight: 10.944 min (claimed 14.7). A 4 min run uses 0.296 Wh, so an 8 min lift must recharge at about 1.85 C. Li-ion/LiPo must not be charged below about 0 °C because lithium plates (https://www.redarcelectronics.com/us/resources/chargers-isolators-faqs/do-not-charge-lithium-battery-below-32-degrees/). A −10 °C holster blocks the top-up, so the day is limited to about 11 min of flight. A heated holster and cell at the audit power gives 79.102 min.",
+   "recommendedFix": "Heat the holster and glider cell from the hip cell (+~1 W while docked), or fly the glider on a hip-cell supply fed through the leash (a conductive line adds mass and visibility), or fit a 2–3 Wh glider cell (+8–12 g). Re-state endurance with the real camera power.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-04",
+   "concept": "towglider",
+   "severity": "major",
+   "claim": "Envelope: carving and short turns pass on 15°; ≤~17 m/s; wind 5 m/s head/tail and 9 m/s gusty crosswind pass.",
+   "evidence": "The concept did not run the calibrated shared presets. Expert carve, 20°, 13 m/s: avail 73.535 % (FAIL <80), pxMed 389.969. Steep 28°, 15 m/s: avail 37.635 %, KE 15.336 J (FAIL >14.9). Tailwind 5 m/s over 12 seeds: avail min 74.1 % (1 FAIL), airMin <1 Vs in 2/12 (stall in the model). Moguls 24° at 4.5 m/s pass (avail 90.092 %). 16 m/s at 95 g passes (100 %).",
+   "recommendedFix": "State the envelope as 10–18° pistes and 6–16 m/s (95 g) or 8–15 m/s (≈120 g). Add the expertCarve and steep presets to the scenario set. For steep slopes, use a larger brake ΔCD or a higher station to burn energy.",
+   "fixable": "partly"
+  },
+  {
+   "id": "TG-05",
+   "concept": "towglider",
+   "severity": "major",
+   "claim": "Per-run user cost: ops 2 (arm + dock tap), standstill p90 17.9 s, handsBusy 0.4 %.",
+   "evidence": "The nominal scenario contains no stop, no launch and no dock; these are judged in separate runs, and setupTime is a single worst event, not a per-run sum. The model has no docked→launch transition, so after an unplanned rest stop the glider stays seated until it is re-armed: ops = 2 + number of rest stops. One rest stop: ops 3, standstill 1 + 15.5–21 + 1 s. Two rest stops: about 35–44 s (FAIL ≤30). In the hook-release cases (rider >17 m/s, snag, crossing) the glider lands for manual pick-up: fast lagMax 89.9 m upslope, yet setupTime is reported as the constant 17.9 s. design_notes says 30–120 s ASSUMED.",
+   "recommendedFix": "Auto-relaunch at the next push-off while the run is armed, and disarm with the lift-base geofence (ops → 1 + 0). Report standstill per realistic run (2 rest stops plus the final dock), and count release pick-ups at a walking speed uphill.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-06",
+   "concept": "towglider",
+   "severity": "major",
+   "claim": "Regulation: <250 g, EU C0/A1 follow-me ≤50 m; the US position is unresolved.",
+   "evidence": "EU: follow-me within 50 m is allowed in A1 (https://www.oesterreich.gv.at/de/themen/reisen_und_freizeit/Drohnen/Drohnenkategorien_open_specific_certified). A privately built drone under 250 g that carries a camera and is not a toy still needs operator registration (https://www.easa.europa.eu/en/the-agency/faqs/open-category); design_notes omits this. US: 49 USC 44809 requires VLOS by the operator or by a co-located visual observer in direct communication (https://pilotinstitute.com/drone-vlos-rules/). A solo rider facing downhill cannot meet that, and a hook-release free flight is plainly a UA rather than a kite. Resorts: Vail Resorts bans all drone use, hobbyists and filming included, on or over its land, also on USFS land (https://www.vail.com/the-mountain/about-the-mountain/safety/drones.aspx).",
+   "recommendedFix": "Treat it as EU/UK A1-only with registration. Seek written resort permission. For the US, a Part 107 §107.31 waiver or a kite classification would require that it never free-flies, which conflicts with the hook-release safety design.",
+   "fixable": "no"
+  },
+  {
+   "id": "TG-07",
+   "concept": "towglider",
+   "severity": "major",
+   "claim": "Leash safety: 3 N clutch cap, the line clears head height beyond 1.6 m behind the hip, and a crossing skier feels ≤1.85 N.",
+   "evidence": "The crossing case is modelled well (1.85 N, hook release in 0.1 s). Not covered: (a) the smoothed station lags the rider laterally (lagMax 10.715 m in nominal), so for most of the time a near-invisible line sweeps across the piste between 1 and 3.5 m height; (b) after an unplanned stop, 10–20 m of line lies over the piste uphill of the stopped rider for 15–21 s while the glider is pulled in; (c) the cut case leaves a free glider trailing up to 25 m of line (TG-01); (d) the line touches the rider's body or a pole in many wind-stop runs (16/52 and 8/52). Laceration is judged only by contact pressure (0.9 MPa); sliding a 0.17 mm braid across skin at 5–10 m/s is not assessed.",
+   "recommendedFix": "Use a 1–2 m sheathed hi-vis leader at the hip and pennants every 2–3 m. Always release the hook before cutting. Sense line strikes (tension-rate spike → free pay-out). Keep the station within ±2 m of the rider's track when others are within 20 m (UWB/vision).",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-08",
+   "concept": "towglider",
+   "severity": "major",
+   "claim": "In-motion dock through the skier wake: seated 4.5 s before the stop at 0.9–1.3 m/s relative.",
+   "evidence": "The final approach runs at about 2 m/s airspeed (≈0.35 Vs) in an 85 % wake deficit, so the glider is an unstable towed body. The model treats it as a point mass with no attitude dynamics, in a turbulence-free far-wake similarity deficit, captured when the hook comes within 9 cm of the funnel; the wings fold only below 0.55 m of line. A skier's wake sheds at roughly St≈0.2 → 0.2·12/0.5 ≈ 5 Hz with large velocity fluctuations. Capture reliability is therefore unknown, not 100 % (52/52 dock runs succeed in the model by construction).",
+   "recommendedFix": "Treat the dock as unverified. Use land + snow pull as the baseline. Plan a bench and tow test of capture in a wake; consider folding the wings before entering the wake (≥2 m) and drawing the folded dart in.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-09",
+   "concept": "towglider",
+   "severity": "minor",
+   "claim": "jitterRms 0.52 °/s (footageStability subject 0.97, background 1.12 °/s nominal) with a 2-axis micro gimbal.",
+   "evidence": "The gimbal is an ideal 3 Hz world-frame LOS tracker plus a 0.5 °/s residual; the glider has no attitude dynamics (3-DOF point mass), so turbulence-driven rotation of a 95 g airframe never reaches the gimbal. Roll is levelled electronically at bank angles up to 50°. The pass is plausible for a real brushless gimbal, but this model cannot falsify it.",
+   "recommendedFix": "Add rigid-body attitude (roll/pitch response to gusts) and a gimbal plant with a finite disturbance-rejection bandwidth, then re-run.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-10",
+   "concept": "towglider",
+   "severity": "minor",
+   "claim": "Test 'dt-converged core' and the convergence claim.",
+   "evidence": "The sub-step count is KS = max(6, …) and the floor of 6 dominates, so subFactor 1, 2 and 4 give bit-identical outputs (position rms difference 0 m in nominal, short and gust). The test compares identical runs, and the 50 Hz controller and sample step are never refined.",
+   "recommendedFix": "Make KS scale with subFactor (KS = 6·kFac) and add a run at controller step 0.01 s.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-11",
+   "concept": "towglider",
+   "severity": "minor",
+   "claim": "results.json is the record of the current model.",
+   "evidence": "The gust row is stale. dev/towglider/results.json has avail 88.353, bodyForcePeak 1.576 N, tensionP95 0.818 N and towShare 48.7 %; a fresh run of the same code gives 88.491, 0.826, 0.617 and 37.8 %. The other 19 scenarios match exactly. The model is deterministic: two runs gave identical output.",
+   "recommendedFix": "Re-run run_all.mjs after every model edit; add a hash of the model files to results.json.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-12",
+   "concept": "towglider",
+   "severity": "minor",
+   "claim": "keMax ≤14.2 J everywhere (fast 13.8 J).",
+   "evidence": "The 1 s settle window excludes t<1 s from keMax. In the fast scenario the glider starts at 18 m/s: KE 17.3 J at t=0.02 s (an initial-condition artefact). Steep 28° gives 15.336 J. Dock in wind exceeds 14.9 J in 6/52 sweep runs (max ≈15 J). The KE governor runs at 0.97 of the cap, so ground speed is designed onto the threshold.",
+   "recommendedFix": "Judge KE over the whole run. Initialise the fast case below the cap or start it from launch. Move the governor to ≤0.9 of the cap, or include gusts in it (it acts on ground speed only).",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-13",
+   "concept": "towglider",
+   "severity": "minor",
+   "claim": "Wind model: shared makeWind with Taylor advection.",
+   "evidence": "makeWind advects only along the mean-wind direction. In the crosswind scenarios (mean along y) a glider flying 12 m/s down x samples no spatial turbulence, so the encounter spectrum is under-estimated; this applies to every concept using makeWind. Audit probe with 4 m/s along the fall line at intensity 0.35: avail 87.9 %, airMin 1.04 Vs, minimum height 2.6 m, so the result still passes, with a smaller stall margin.",
+   "recommendedFix": "Shared model: advect with the flyer's own velocity relative to the air (evaluate wind at p − U·t along the relative-wind vector).",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-14",
+   "concept": "towglider",
+   "severity": "minor",
+   "claim": "Usability: one gloved tap to arm and one to dock; 2.58 L hip holster.",
+   "evidence": "A rigid 37 × 8 × 6 cm holster behind the left hip (the gimbal adds height: GM2 is 47 × 47 × 26 mm) conflicts with chairlift seats and T-bars. That is not modelled. After a release, re-clipping a 0.17 mm leash to the hook with gloves needs two bare hands. The snow pull drags the folded glider, with its camera and gimbal, 10–20 m over snow, so abrasion, icing and snow packing into the hinges are not modelled. Launch drags the glider 6.5 m behind the rider at lift exits.",
+   "recommendedFix": "Make the holster rotatable to the back or side. Use a magnetic hook with a large gloved-hand loop. Add a skid and lens cover on the belly for the snow pull. Package the gimbal inside the fuselage.",
+   "fixable": "yes"
+  },
+  {
+   "id": "TG-15",
+   "concept": "towglider",
+   "severity": "minor",
+   "claim": "Low-Re polar: CD0 0.040 (pod and hinges included), e 0.8, AR 8, CLmax 1.0; L/D 11.2 at 6 m/s and 5.5 at 12 m/s.",
+   "evidence": "Chord 0.083 m; Re ≈ 29790 at 6 m/s, 59580 at 12 m/s, 84405 at 17 m/s (ρ 1.0, μ 1.67e-5). Closed-form L/Dmax 11.21 at 6.147 m/s matches the model. CD0 0.040 is plausible: a section at 0.015–0.025 near Re 60k (laminar-bubble regime, UIUC LSAT data, https://m-selig.ae.illinois.edu/uiuc_lsat/AirfoilsVolume3.pdf), plus pod (~CDA 4.5e-4 → +0.008), tail and fuselage → 0.040–0.055. At 12 m/s the operating L/D (5.5) is only needed to exceed 1/tan15° = 3.73, and the leash covers the deficit (L/D −30 % still passes, tow share 48 %), so the follow result does not rest on optimistic aero. Weak point: CLmax at Re ≈ 30k is about 0.85, giving Vs ≈ 6.314 m/s rather than 5.82, which erodes the slow-rider and tailwind margin (see TG-02, TG-04).",
+   "recommendedFix": "Use a Re-dependent CLmax and CD0 (UIUC data for the chosen section) and re-run the tailwind, beginner and stop cases.",
+   "fixable": "yes"
+  }
+ ],
+ "verdict": {
+  "crediblePass": [
+   "nominal 12 m/s carve on 15°: avail 88.5 % (audit recompute 88.9 %), pxMed 460, robust over 12 wind seeds (88.4–88.6 %) and at 117 g",
+   "short turns 15°, moguls 24° at 4.5 m/s, 3° cat-track with 3 m/s headwind (leash aerotow), 5 m/s headwind: footage criteria pass",
+   "bodyForcePeak: ≤6.1 N raw and ≤5.2 N as a 50 ms mean in every scenario incl. snag and strike (criterion 40 N); robust",
+   "addedMass 0.355 kg (≈0.38 kg at a realistic glider mass); handsBusy 0.4 %",
+   "launch from standstill: one tap, on station 4.3 s after push-off (model)",
+   "planned in-motion dock 0–9 m/s: standstill 1 s in 52/52 model runs (capture physics unverified, TG-08)",
+   "L/D −30 % sensitivity: passes because the leash tows (tow share 48 %)",
+   "packVol 2.58 L (borderline once a real gimbal is packaged)",
+   "the I-05 original (fixed camera) honestly reported as failing (avail 10 %, jitter 19.6 °/s)"
+  ],
+  "disputed": [
+   {
+    "metric": "setupTime",
+    "scenario": "stop_wind / 0–9 m/s sweep",
+    "claimed": "17.9 s pass",
+    "recomputed": "p90 21 s using the model's own manual-pick-up constant (cutter fires in 8/16 runs at 9 m/s); 120 s if a loose glider is fetched on foot",
+    "note": "TG-01; claimed seed 5 is a favourable one"
+   },
+   {
+    "metric": "setupTime + ops per real run",
+    "scenario": "nominal with rest stops",
+    "claimed": "17.9 s, 2 ops",
+    "recomputed": "1 rest stop: ~18–23 s, 3 ops; 2 rest stops: ~35–44 s (fail), 4 ops",
+    "note": "TG-05, no docked→launch transition"
+   },
+   {
+    "metric": "endurance",
+    "scenario": "all",
+    "claimed": "102 min",
+    "recomputed": "10.944 min glider-only (no charging below 0 °C); 79.102 min with a heated holster and 4.4 W avionics",
+    "note": "TG-03"
+   },
+   {
+    "metric": "mass",
+    "scenario": "-",
+    "claimed": "95 g",
+    "recomputed": "115–125 g (30 g gimbal, wiring, release actuator)",
+    "note": "TG-02"
+   },
+   {
+    "metric": "avail",
+    "scenario": "expert carve 20°, 13 m/s (shared preset, not run by the concept)",
+    "claimed": "n/a",
+    "recomputed": "73.535 % FAIL",
+    "note": "TG-04"
+   },
+   {
+    "metric": "avail / keMax",
+    "scenario": "steep 28°, 15 m/s",
+    "claimed": "n/a",
+    "recomputed": "37.635 % / 15.336 J FAIL",
+    "note": "TG-04"
+   },
+   {
+    "metric": "avail / airMin",
+    "scenario": "slow rider 6 m/s at 117 g, CLmax 0.9",
+    "claimed": "n/a",
+    "recomputed": "33.494 % / 0.086 Vs (stall, snow contact)",
+    "note": "TG-02"
+   },
+   {
+    "metric": "keMax",
+    "scenario": "fast",
+    "claimed": "13.8 J",
+    "recomputed": "17.3 J at t = 0.02 s (initial-condition artefact hidden by the 1 s settle window)",
+    "note": "TG-12"
+   },
+   {
+    "metric": "keMax",
+    "scenario": "dock_wind at 117 g",
+    "claimed": "14.2 J",
+    "recomputed": "16.158 J",
+    "note": "TG-02/12"
+   },
+   {
+    "metric": "avail / airMin",
+    "scenario": "tailwind 5 m/s, 12 seeds",
+    "claimed": "86.3 %, 1.03 Vs",
+    "recomputed": "min 74.1 % (1/12 fail), airMin 0.92 Vs (2/12 below stall)",
+    "note": "TG-04"
+   },
+   {
+    "metric": "footageStability",
+    "scenario": "nominal / stop_wind",
+    "claimed": "subject 0.97 / 2.08 °/s, background 1.12 / 3.41 °/s",
+    "recomputed": "identical (re-run); at 117 g stop_wind subject 3.59 °/s, background 6.76 °/s; ideal gimbal assumed",
+    "note": "TG-09"
+   }
+  ],
+  "overall": "CONDITIONAL. No fatal physics: following a skier by gravity glide, with the leash topping up the drag shortfall, is sound at the operating point, and the follow footage is robust. It fails the harmonised targets as specified on three counts: endurance in the cold unless the holster is heated, standstill and ops in real runs with rest stops or windy unplanned stops, and a 95 g mass that relies on a gimbal that does not exist at 12 g. Regulatory exposure is high: US VLOS, resort bans, and EU registration.",
+  "envelope": "Open, uncrowded 10–18° pistes; rider 8–15 m/s at a realistic 115–125 g (6–16 m/s only if 95 g is reached); carving or short turns; mean wind ≤5–6 m/s for unplanned stops (≤9 m/s only when docking while moving); ≤1 rest stop per run; EU/UK A1 with operator registration and written resort permission; holster heated for charging.",
+  "summary": "Original and physically sensible: the slope pays for flight and a 0.12–1 N leash replaces the battery-heavy hover. The model is careful and mostly honest (fast and I-05 failures reported, L/D −30 % run). The main gaps are a seed-favourable stop_wind result (the cutter fires in half of 9 m/s seeds), the missing per-run stop accounting, cold charging, gimbal mass, and an unverified wake dock."
+ },
+ "comparability": {
+  "aero": {
+   "Re": "30k @6 m/s, 60k @12 m/s, 84k @17 m/s (chord 83 mm, ρ 1.0, μ 1.67e-5)",
+   "CLmax": 1.0,
+   "CD0": 0.04,
+   "e": 0.8,
+   "AR": 8,
+   "LDmax": 11.2,
+   "LDat12": 5.5,
+   "mass": 0.095,
+   "wingArea": 0.055,
+   "rho": 1.0,
+   "vStall": 5.82,
+   "airbrakeDeltaCD": 0.2,
+   "ldSensitivity": "−30 % run (passes)"
+  },
+  "battery": {
+   "Wh": "glider 1.2 Wh (8 g) + hip 10 Wh (60 g)",
+   "coldDerate": 0.75,
+   "reserve": 0.9,
+   "powerW": "3.3 avionics (2.9 + 0.4 gimbal) + reel ≈0.8; audit 4.4 W avionics",
+   "chargingInCold": "assumed allowed (not justified)"
+  },
+  "massBudget": {
+   "claimed_g": {
+    "airframe_EPP_carbon": 36,
+    "hinges_springs_latch": 5,
+    "camera_4K_module": 16,
+    "micro_gimbal": 12,
+    "FC_GNSS_UWB_radio": 8,
+    "servos_x4": 7,
+    "cell_1S_1.2Wh": 8,
+    "hook_loadcell": 3,
+    "total": 95
+   },
+   "audit_g": {
+    "airframe": "36–42",
+    "hinges": 5,
+    "camera (RunCam Thumb Pro 4K 16 g, 2.5 W)": 16,
+    "gimbal (Caddx GM2 30 g)": 30,
+    "FC_GNSS_UWB_radio": 8,
+    "wiring_boost_SD": 4,
+    "servos_x4": 7,
+    "release+fold actuators": 2,
+    "cell": 8,
+    "hook_loadcell": 3,
+    "total": "119–125 (audit ran 117 g)"
+   }
+  },
+  "kinetic": {
+   "keGovernor": "ground speed ≤0.97·sqrt(2·14.9/m)",
+   "keCapSpeed_95g": 17.7,
+   "keCapSpeed_117g": 16.0
+  }
+ }
+}

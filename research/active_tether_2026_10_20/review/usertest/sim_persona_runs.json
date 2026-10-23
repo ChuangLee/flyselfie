@@ -1,0 +1,4154 @@
+{
+ "evidence": "numerical-uncalibrated simulation on a scratchpad copy of sim/ (activetether@0.1.0); persona plans are user-tester ASSUMPTIONS; NOT a user test or physical test",
+ "runs": {
+  "P1_beginner_5ms": {
+   "plan": [
+    {
+     "ride": 25,
+     "skier": {
+      "style": "short",
+      "slopeDeg": 10,
+      "vTarget": 5,
+      "v0": 5,
+      "turnPeriod": 3.2,
+      "turnAmpDeg": 35,
+      "mu": 0.07
+     }
+    },
+    {
+     "hold": 15
+    },
+    {
+     "ride": 20,
+     "skier": {
+      "style": "short",
+      "slopeDeg": 10,
+      "vTarget": 5,
+      "v0": 5,
+      "turnPeriod": 3.2,
+      "turnAmpDeg": 35,
+      "mu": 0.07
+     }
+    },
+    {
+     "hold": 5
+    },
+    {
+     "ride": 30,
+     "skier": {
+      "style": "short",
+      "slopeDeg": 10,
+      "vTarget": 5,
+      "v0": 5,
+      "turnPeriod": 3.2,
+      "turnAmpDeg": 35,
+      "mu": 0.07
+     }
+    },
+    {
+     "hold": 30
+    }
+   ],
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.79,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 67.8,
+     "quiverOutRideS": 71.74,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 52.42,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.2:deploy",
+      "42.7:deploy",
+      "69.3:deploy"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.93,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.38,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 67.94,
+     "quiverOutRideS": 71.9,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 52.44,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.82,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.1:deploy",
+      "42.7:deploy",
+      "69.3:deploy"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.87,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 67.88,
+     "quiverOutRideS": 71.84,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 52.42,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.0:deploy",
+      "42.6:deploy",
+      "69.4:deploy"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 10.13,
+     "pxMed": 389.62,
+     "keMax": 6.25,
+     "headClear": 0.96,
+     "bodyForcePeak": 12.56,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 3,
+     "docks": 3,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      8.24,
+      13.99,
+      30.2
+     ],
+     "manual": 0,
+     "thirdPartyS": 87.32,
+     "refuseS": 0,
+     "crashes": 3,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 13.88,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.56,
+     "towedOnSnowWhileRidingS": 33.16,
+     "standS": 52.42,
+     "standDeviceBusyS": 17.42,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 7.44,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 5.1,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 4.94,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "53.49:launchFail",
+      "73.728:launchFail"
+     ],
+     "events": [
+      "1.2:deploy",
+      "2.5:launch",
+      "25.0:stop",
+      "26.7:landed",
+      "33.2:docked",
+      "42.7:deploy",
+      "44.0:launch",
+      "53.5:launchFail",
+      "54.3:landed",
+      "67.5:docked",
+      "69.6:deploy",
+      "70.9:launch",
+      "73.7:launchFail",
+      "74.0:landed",
+      "103.9:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 21.04,
+     "pxMed": 351.01,
+     "keMax": 6.41,
+     "headClear": 0.93,
+     "bodyForcePeak": 10.64,
+     "launches": 3,
+     "launchFails": 1,
+     "rides": 3,
+     "docks": 3,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      10.32,
+      19.07,
+      17.76
+     ],
+     "manual": 0,
+     "thirdPartyS": 101.56,
+     "refuseS": 0,
+     "crashes": 2,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.38,
+     "flownRideS": 34.1,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.66,
+     "towedOnSnowWhileRidingS": 13.84,
+     "standS": 52.44,
+     "standDeviceBusyS": 31.72,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 9.52,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 5.24,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.82,
+       "lockedAfterS": 17.02,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "48.56:launchFail"
+     ],
+     "events": [
+      "1.1:deploy",
+      "2.4:launch",
+      "25.0:stop",
+      "28.4:landed",
+      "35.3:docked",
+      "42.7:deploy",
+      "44.0:launch",
+      "48.6:launchFail",
+      "48.6:landed",
+      "67.6:docked",
+      "69.7:deploy",
+      "71.0:launch",
+      "98.2:stop",
+      "113.0:landed",
+      "116.0:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 8.68,
+     "pxMed": 329.9,
+     "keMax": 4.67,
+     "headClear": 1.07,
+     "bodyForcePeak": 13.01,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 3,
+     "docks": 3,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      22.06,
+      16.23,
+      18.2
+     ],
+     "manual": 0,
+     "thirdPartyS": 97.54,
+     "refuseS": 0,
+     "crashes": 3,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 13.76,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.78,
+     "towedOnSnowWhileRidingS": 26.44,
+     "standS": 52.42,
+     "standDeviceBusyS": 27.56,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 4.96,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 5.22,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 17.44,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "8.698:launchFail",
+      "51.384:launchFail"
+     ],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "8.7:launchFail",
+      "9.8:landed",
+      "30.8:docked",
+      "42.6:deploy",
+      "43.9:launch",
+      "51.4:launchFail",
+      "51.9:landed",
+      "67.6:docked",
+      "69.7:deploy",
+      "71.0:launch",
+      "98.2:stop",
+      "113.8:landed",
+      "116.4:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "tail3",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.79,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 67.8,
+     "quiverOutRideS": 71.74,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 52.42,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.2:deploy",
+      "42.7:deploy",
+      "69.3:deploy"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "tail3",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.93,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.38,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 67.94,
+     "quiverOutRideS": 71.9,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 52.44,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.82,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.1:deploy",
+      "42.7:deploy",
+      "69.3:deploy"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "tail3",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.87,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 67.88,
+     "quiverOutRideS": 71.84,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 52.42,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.0:deploy",
+      "42.6:deploy",
+      "69.4:deploy"
+     ],
+     "fallT": null
+    }
+   ]
+  },
+  "P1_beginner_7ms": {
+   "plan": [
+    {
+     "ride": 25,
+     "skier": {
+      "style": "short",
+      "slopeDeg": 12,
+      "vTarget": 7,
+      "v0": 7,
+      "turnPeriod": 3.2,
+      "turnAmpDeg": 35,
+      "mu": 0.07
+     }
+    },
+    {
+     "hold": 15
+    },
+    {
+     "ride": 20,
+     "skier": {
+      "style": "short",
+      "slopeDeg": 12,
+      "vTarget": 7,
+      "v0": 7,
+      "turnPeriod": 3.2,
+      "turnAmpDeg": 35,
+      "mu": 0.07
+     }
+    },
+    {
+     "hold": 5
+    },
+    {
+     "ride": 30,
+     "skier": {
+      "style": "short",
+      "slopeDeg": 12,
+      "vTarget": 7,
+      "v0": 7,
+      "turnPeriod": 3.2,
+      "turnAmpDeg": 35,
+      "mu": 0.07
+     }
+    },
+    {
+     "hold": 30
+    }
+   ],
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 6.68,
+     "headClear": 0.36,
+     "bodyForcePeak": 15.26,
+     "launches": 2,
+     "launchFails": 2,
+     "rides": 3,
+     "docks": 2,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      25.73,
+      19.36
+     ],
+     "manual": 0,
+     "thirdPartyS": 55.1,
+     "refuseS": 0.6,
+     "crashes": 2,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0.6,
+     "quiverOutRideS": 48.28,
+     "towedOnSnowWhileRidingS": 28.86,
+     "standS": 50.62,
+     "standDeviceBusyS": 10.2,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 4.98,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 7.48,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "5.636:launchFail",
+      "51.112:launchFail"
+     ],
+     "events": [
+      "1.0:deploy",
+      "2.4:launch",
+      "5.6:launchFail",
+      "7.6:landed",
+      "31.4:docked",
+      "42.5:deploy",
+      "44.4:launch",
+      "51.1:launchFail",
+      "52.9:landed",
+      "70.5:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 1.34,
+     "pxMed": 272.93,
+     "keMax": 6.75,
+     "headClear": 0.51,
+     "bodyForcePeak": 17.01,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 3,
+     "docks": 3,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      21.23,
+      18.06,
+      16
+     ],
+     "manual": 0,
+     "thirdPartyS": 85.46,
+     "refuseS": 0,
+     "crashes": 3,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 3.82,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 74.66,
+     "towedOnSnowWhileRidingS": 38.48,
+     "standS": 50.62,
+     "standDeviceBusyS": 14.1,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 4.2,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 5.12,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 4.84,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "9.358:launchFail",
+      "50.05:launchFail",
+      "88.426:downed"
+     ],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "9.4:launchFail",
+      "10.2:landed",
+      "30.6:docked",
+      "42.5:deploy",
+      "43.9:launch",
+      "50.0:launchFail",
+      "51.8:landed",
+      "68.1:docked",
+      "70.2:deploy",
+      "71.5:launch",
+      "88.4:downed",
+      "88.4:landed",
+      "104.4:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 6.21,
+     "headClear": 0.67,
+     "bodyForcePeak": 13.83,
+     "launches": 2,
+     "launchFails": 1,
+     "rides": 3,
+     "docks": 2,
+     "dockFirstTry": 50,
+     "dockTimes": [
+      25.99
+     ],
+     "manual": 1,
+     "thirdPartyS": 112.06,
+     "refuseS": 0.24,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.24,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0.24,
+     "quiverOutRideS": 76.08,
+     "towedOnSnowWhileRidingS": 19.12,
+     "standS": 50.58,
+     "standDeviceBusyS": 37.54,
+     "perStop": [
+      {
+       "stopS": 15.18,
+       "lockedAfterS": 5.04,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 63.94,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 30.18,
+       "lockedAfterS": 27.32,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "5.464:launchFail",
+      "67.116:capFail",
+      "100.084:capFail",
+      "106.92:capFail",
+      "106.92:manual"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.5:launch",
+      "5.5:launchFail",
+      "7.2:landed",
+      "31.5:docked",
+      "42.5:deploy",
+      "43.9:launch",
+      "64.5:landed",
+      "67.1:capFail",
+      "100.1:capFail",
+      "106.9:capFail",
+      "106.9:manual"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 7.65,
+     "pxMed": 320.25,
+     "keMax": 12.51,
+     "headClear": 1.12,
+     "bodyForcePeak": 13.8,
+     "launches": 2,
+     "launchFails": 1,
+     "rides": 3,
+     "docks": 2,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      25.47,
+      42.7
+     ],
+     "manual": 0,
+     "thirdPartyS": 89.5,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 11.72,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 75.98,
+     "towedOnSnowWhileRidingS": 49.78,
+     "standS": 50.62,
+     "standDeviceBusyS": 14.84,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 4.92,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 41.34,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 4.74,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "5.848:launchFail"
+     ],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "5.8:launchFail",
+      "7.1:landed",
+      "31.3:docked",
+      "42.5:deploy",
+      "43.9:launch",
+      "61.6:stop",
+      "69.1:landed",
+      "104.3:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 25.1,
+     "pxMed": 321.84,
+     "keMax": 6.64,
+     "headClear": 1.02,
+     "bodyForcePeak": 9.44,
+     "launches": 2,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 2,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      42.92,
+      22
+     ],
+     "manual": 0,
+     "thirdPartyS": 114.52,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 40.86,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 76.24,
+     "towedOnSnowWhileRidingS": 20.66,
+     "standS": 50.62,
+     "standDeviceBusyS": 40.74,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 41.54,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 4.94,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 20.64,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "25.0:stop",
+      "42.3:landed",
+      "67.9:docked",
+      "70.0:deploy",
+      "71.3:launch",
+      "98.2:stop",
+      "118.0:landed",
+      "120.2:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 5.4,
+     "pxMed": 289.29,
+     "keMax": 18.55,
+     "headClear": 1.04,
+     "bodyForcePeak": 12.3,
+     "launches": 2,
+     "launchFails": 1,
+     "rides": 3,
+     "docks": 2,
+     "dockFirstTry": 50,
+     "dockTimes": [
+      25.69,
+      43.04
+     ],
+     "manual": 0,
+     "thirdPartyS": 90.22,
+     "refuseS": 0,
+     "crashes": 3,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.24,
+     "flownRideS": 12.22,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 76.08,
+     "towedOnSnowWhileRidingS": 44.08,
+     "standS": 50.58,
+     "standDeviceBusyS": 15.46,
+     "perStop": [
+      {
+       "stopS": 15.18,
+       "lockedAfterS": 5.26,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 41.64,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 30.18,
+       "lockedAfterS": 5.02,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "5.988:launchFail",
+      "73.238:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "6.0:launchFail",
+      "8.7:landed",
+      "31.7:docked",
+      "42.5:deploy",
+      "43.9:launch",
+      "61.6:stop",
+      "64.5:landed",
+      "73.2:capFail",
+      "104.6:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "tail3",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 68.13,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 68.14,
+     "quiverOutRideS": 72.08,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 50.62,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.0:deploy",
+      "42.5:deploy",
+      "69.3:deploy"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "tail3",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 68.15,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 68.16,
+     "quiverOutRideS": 72.12,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 50.62,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.0:deploy",
+      "42.5:deploy",
+      "69.2:deploy"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "tail3",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 68.19,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 79.24,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 68.2,
+     "quiverOutRideS": 72.16,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 50.58,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.18,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.18,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.9:deploy",
+      "42.5:deploy",
+      "69.2:deploy"
+     ],
+     "fallT": null
+    }
+   ]
+  },
+  "T05_stop10_go": {
+   "plan": [
+    {
+     "ride": 38,
+     "preset": "recreationalCarve"
+    },
+    {
+     "hold": 10
+    },
+    {
+     "ride": 33,
+     "preset": "recreationalCarve"
+    },
+    {
+     "hold": 25
+    }
+   ],
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 11.1,
+     "pxMed": 259.01,
+     "keMax": 29.85,
+     "headClear": 0.99,
+     "bodyForcePeak": 19.94,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      57.2
+     ],
+     "manual": 0,
+     "thirdPartyS": 92.98,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 30.66,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.68,
+     "towedOnSnowWhileRidingS": 34.3,
+     "standS": 34.98,
+     "standDeviceBusyS": 20.96,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 55.6,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 11,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "49.708:capFail",
+      "90.412:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "38.0:stop",
+      "41.7:landed",
+      "49.7:capFail",
+      "90.4:capFail",
+      "95.2:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 24.68,
+     "pxMed": 273.37,
+     "keMax": 16.73,
+     "headClear": 1.12,
+     "bodyForcePeak": 12.87,
+     "launches": 2,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 2,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      11.12,
+      11.34
+     ],
+     "manual": 0,
+     "thirdPartyS": 88.36,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 56.96,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 71.4,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 34.98,
+     "standDeviceBusyS": 19.24,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 9.54,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 9.76,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "38.0:stop",
+      "41.5:landed",
+      "49.1:docked",
+      "51.2:deploy",
+      "52.5:launch",
+      "82.6:stop",
+      "86.5:landed",
+      "93.9:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 18.21,
+     "pxMed": 301.93,
+     "keMax": 22.38,
+     "headClear": 0.58,
+     "bodyForcePeak": 30.14,
+     "launches": 2,
+     "launchFails": 1,
+     "rides": 2,
+     "docks": 2,
+     "dockFirstTry": 50,
+     "dockTimes": [
+      11.52,
+      36.4
+     ],
+     "manual": 0,
+     "thirdPartyS": 83.94,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.06,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 71.4,
+     "towedOnSnowWhileRidingS": 1.6,
+     "standS": 34.98,
+     "standDeviceBusyS": 15.18,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 9.9,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 5.34,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "53.12:launchFail",
+      "82.632:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "38.0:stop",
+      "41.3:landed",
+      "49.5:docked",
+      "51.6:deploy",
+      "52.9:launch",
+      "53.1:launchFail",
+      "82.6:capFail",
+      "89.5:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 13.63,
+     "pxMed": 264.4,
+     "keMax": 22.85,
+     "headClear": 0.16,
+     "bodyForcePeak": 12.25,
+     "launches": 2,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 2,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      35.02,
+      24.35
+     ],
+     "manual": 0,
+     "thirdPartyS": 98.02,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 29.96,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 71.2,
+     "towedOnSnowWhileRidingS": 29.22,
+     "standS": 34.98,
+     "standDeviceBusyS": 28.14,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 5.42,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 22.78,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "10:downed"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "10.0:downed",
+      "10.3:landed",
+      "45.0:docked",
+      "50.5:deploy",
+      "51.8:launch",
+      "82.6:stop",
+      "103.6:landed",
+      "107.0:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 15.89,
+     "pxMed": 270.14,
+     "keMax": 20.87,
+     "headClear": 0.99,
+     "bodyForcePeak": 16.83,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      56.89
+     ],
+     "manual": 0,
+     "thirdPartyS": 92.72,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 32.08,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.7,
+     "towedOnSnowWhileRidingS": 33.88,
+     "standS": 34.98,
+     "standDeviceBusyS": 20.68,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 55.32,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.72,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "90.096:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "38.0:stop",
+      "50.2:landed",
+      "90.1:capFail",
+      "94.9:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 20.02,
+     "pxMed": 315.87,
+     "keMax": 23.77,
+     "headClear": 0.77,
+     "bodyForcePeak": 33.2,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      51.17
+     ],
+     "manual": 0,
+     "thirdPartyS": 86.94,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.78,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.7,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 34.98,
+     "standDeviceBusyS": 14.9,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 49.54,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 4.94,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "38.0:stop",
+      "50.3:flyin",
+      "85.4:landed",
+      "89.1:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 11,
+     "avail": 10.8,
+     "pxMed": 263,
+     "keMax": 14.7,
+     "headClear": 0.83,
+     "bodyForcePeak": 30.67,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      54.66
+     ],
+     "manual": 0,
+     "thirdPartyS": 90.44,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.32,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.68,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 34.98,
+     "standDeviceBusyS": 18.42,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 53.06,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 8.46,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "86.85:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "38.0:stop",
+      "86.8:landed",
+      "86.8:capFail",
+      "92.6:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 12,
+     "avail": 12.69,
+     "pxMed": 244.5,
+     "keMax": 16.36,
+     "headClear": 0.17,
+     "bodyForcePeak": 31.33,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      56.5
+     ],
+     "manual": 0,
+     "thirdPartyS": 92.32,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 32.24,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.7,
+     "towedOnSnowWhileRidingS": 1.06,
+     "standS": 34.98,
+     "standDeviceBusyS": 20.28,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 54.92,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.32,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "82.848:capFail",
+      "89.7:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "38.0:stop",
+      "82.8:capFail",
+      "89.7:capFail",
+      "94.5:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 13,
+     "avail": 17.08,
+     "pxMed": 277.65,
+     "keMax": 18.97,
+     "headClear": 0.83,
+     "bodyForcePeak": 31.07,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      52.86
+     ],
+     "manual": 0,
+     "thirdPartyS": 88.64,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.94,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.7,
+     "towedOnSnowWhileRidingS": 1.6,
+     "standS": 34.98,
+     "standDeviceBusyS": 16.6,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 51.24,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 6.64,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "82.632:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "38.0:stop",
+      "82.6:capFail",
+      "90.8:docked"
+     ],
+     "fallT": null
+    }
+   ]
+  },
+  "T05_stop5_go": {
+   "plan": [
+    {
+     "ride": 38,
+     "preset": "recreationalCarve"
+    },
+    {
+     "hold": 5
+    },
+    {
+     "ride": 33,
+     "preset": "recreationalCarve"
+    },
+    {
+     "hold": 25
+    }
+   ],
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 12.28,
+     "pxMed": 268.08,
+     "keMax": 17.74,
+     "headClear": 1.08,
+     "bodyForcePeak": 12.85,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      14.61
+     ],
+     "manual": 0,
+     "thirdPartyS": 50.32,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 30.46,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 47.42,
+     "towedOnSnowWhileRidingS": 0.18,
+     "standS": 29.98,
+     "standDeviceBusyS": 5,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 13.02,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "38.0:stop",
+      "41.6:landed",
+      "52.6:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 10.67,
+     "pxMed": 246.06,
+     "keMax": 19.19,
+     "headClear": 1.1,
+     "bodyForcePeak": 13.29,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      12.88
+     ],
+     "manual": 0,
+     "thirdPartyS": 48.74,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.32,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 45.86,
+     "towedOnSnowWhileRidingS": 0.06,
+     "standS": 29.98,
+     "standDeviceBusyS": 5,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 11.28,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "38.0:stop",
+      "41.4:landed",
+      "50.9:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 17.46,
+     "pxMed": 301.73,
+     "keMax": 18.86,
+     "headClear": 1.09,
+     "bodyForcePeak": 14.61,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      13.83
+     ],
+     "manual": 0,
+     "thirdPartyS": 49.54,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 30.78,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 46.64,
+     "towedOnSnowWhileRidingS": 0.12,
+     "standS": 29.98,
+     "standDeviceBusyS": 5,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 12.22,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "38.0:stop",
+      "41.5:landed",
+      "51.8:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 13.95,
+     "pxMed": 273.85,
+     "keMax": 23.59,
+     "headClear": 1.06,
+     "bodyForcePeak": 28.16,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      44.13
+     ],
+     "manual": 0,
+     "thirdPartyS": 79.82,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.06,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.6,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 29.98,
+     "standDeviceBusyS": 7.88,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 42.52,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 2.92,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "38.0:stop",
+      "40.7:landed",
+      "82.1:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 13.01,
+     "pxMed": 269.7,
+     "keMax": 22.01,
+     "headClear": 1.1,
+     "bodyForcePeak": 29.39,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      44.89
+     ],
+     "manual": 0,
+     "thirdPartyS": 80.74,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.82,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.76,
+     "towedOnSnowWhileRidingS": 0.44,
+     "standS": 29.98,
+     "standDeviceBusyS": 8.64,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 43.28,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 3.68,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "38.0:stop",
+      "41.1:landed",
+      "82.9:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 18.7,
+     "pxMed": 307.56,
+     "keMax": 30.32,
+     "headClear": 0.86,
+     "bodyForcePeak": 31.27,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      51.44
+     ],
+     "manual": 0,
+     "thirdPartyS": 87.14,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.36,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.62,
+     "towedOnSnowWhileRidingS": 1.58,
+     "standS": 29.98,
+     "standDeviceBusyS": 15.18,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 49.82,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.22,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "77.652:capFail",
+      "84.56:capFail"
+     ],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "38.0:stop",
+      "45.4:flyin",
+      "77.7:capFail",
+      "84.6:capFail",
+      "89.4:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 11,
+     "avail": 15.71,
+     "pxMed": 269.99,
+     "keMax": 17.29,
+     "headClear": 0.64,
+     "bodyForcePeak": 32,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      51.9
+     ],
+     "manual": 0,
+     "thirdPartyS": 87.6,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.5,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.6,
+     "towedOnSnowWhileRidingS": 1.18,
+     "standS": 29.98,
+     "standDeviceBusyS": 15.66,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 50.3,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.7,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "77.634:capFail",
+      "85.072:capFail"
+     ],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "38.0:stop",
+      "45.6:flyin",
+      "77.6:capFail",
+      "85.1:capFail",
+      "89.9:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 12,
+     "avail": 14.66,
+     "pxMed": 256.64,
+     "keMax": 20.06,
+     "headClear": 0.83,
+     "bodyForcePeak": 31.28,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      49.54
+     ],
+     "manual": 0,
+     "thirdPartyS": 85.4,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.9,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.76,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 29.98,
+     "standDeviceBusyS": 13.3,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 47.94,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 8.34,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "81.736:capFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "38.0:stop",
+      "81.7:landed",
+      "81.7:capFail",
+      "87.5:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 13,
+     "avail": 18.1,
+     "pxMed": 288.49,
+     "keMax": 17.23,
+     "headClear": 0.79,
+     "bodyForcePeak": 31.05,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "docks": 0,
+     "dockFirstTry": 0,
+     "dockTimes": [],
+     "manual": 1,
+     "thirdPartyS": 101.94,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.74,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 72.62,
+     "towedOnSnowWhileRidingS": 1.58,
+     "standS": 29.98,
+     "standDeviceBusyS": 29.98,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": null,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "MANUAL"
+      }
+     ],
+     "warnings": [
+      "77.652:capFail",
+      "85.082:capFail",
+      "89.932:capFail",
+      "89.932:manual"
+     ],
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "38.0:stop",
+      "77.7:capFail",
+      "85.1:capFail",
+      "89.9:capFail",
+      "89.9:manual"
+     ],
+     "fallT": null
+    }
+   ]
+  },
+  "P3_expert_15ms": {
+   "plan": [
+    {
+     "ride": 40,
+     "skier": {
+      "style": "carve",
+      "slopeDeg": 25,
+      "vTarget": 15,
+      "v0": 15,
+      "turnPeriod": 2.9,
+      "turnAmpDeg": 50
+     }
+    },
+    {
+     "hold": 25
+    }
+   ],
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 52.24,
+     "headClear": 0.7,
+     "bodyForcePeak": 28.62,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      46.61
+     ],
+     "manual": 0,
+     "thirdPartyS": 46.76,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.18,
+     "towedOnSnowWhileRidingS": 37.42,
+     "standS": 25,
+     "standDeviceBusyS": 7.24,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 7.26,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.236:launchFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.2:launchFail",
+      "4.2:landed",
+      "48.8:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 22.2,
+     "pxMed": 189.23,
+     "keMax": 30.03,
+     "headClear": 0.98,
+     "bodyForcePeak": 23.41,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      11.18
+     ],
+     "manual": 0,
+     "thirdPartyS": 50.86,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 35.8,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.14,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 11.38,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 11.4,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "41.8:stop",
+      "46.8:landed",
+      "53.0:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 15.05,
+     "headClear": 0.93,
+     "bodyForcePeak": 24.63,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 3.22,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": true,
+     "rideS": 41.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.28,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 25,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "FREE"
+      }
+     ],
+     "warnings": [
+      "2.148:launchFail",
+      "5.214:weaklink"
+     ],
+     "events": [
+      "0.7:deploy",
+      "2.0:launch",
+      "2.1:launchFail",
+      "5.2:weaklink"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 19,
+     "headClear": 1.08,
+     "bodyForcePeak": 27.98,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 2.5,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": true,
+     "rideS": 41.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.18,
+     "towedOnSnowWhileRidingS": 0.44,
+     "standS": 25,
+     "standDeviceBusyS": 25,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "FREE"
+      }
+     ],
+     "warnings": [
+      "2.232:launchFail",
+      "4.598:weaklink"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.2:launchFail",
+      "4.2:landed",
+      "4.6:weaklink"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 24.12,
+     "pxMed": 198.21,
+     "keMax": 32.19,
+     "headClear": 1,
+     "bodyForcePeak": 24.07,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      10.01
+     ],
+     "manual": 0,
+     "thirdPartyS": 49.68,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 36.38,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.14,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 10.2,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.22,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "41.8:stop",
+      "45.0:landed",
+      "51.8:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 13.24,
+     "headClear": 1.04,
+     "bodyForcePeak": 27.51,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 3.22,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": true,
+     "rideS": 41.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.28,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 25,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "FREE"
+      }
+     ],
+     "warnings": [
+      "2.14:launchFail",
+      "5.202:weaklink"
+     ],
+     "events": [
+      "0.7:deploy",
+      "2.0:launch",
+      "2.1:launchFail",
+      "5.2:weaklink"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL6",
+     "seed": 11,
+     "avail": 23.74,
+     "pxMed": 222.99,
+     "keMax": 29.89,
+     "headClear": 0.58,
+     "bodyForcePeak": 17.8,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      11.13
+     ],
+     "manual": 0,
+     "thirdPartyS": 50.84,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 35.9,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.18,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 11.32,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 11.34,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "41.8:stop",
+      "46.0:landed",
+      "52.9:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL6",
+     "seed": 12,
+     "avail": 22.35,
+     "pxMed": 188.15,
+     "keMax": 31.89,
+     "headClear": 0.92,
+     "bodyForcePeak": 16.53,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      10.81
+     ],
+     "manual": 0,
+     "thirdPartyS": 50.48,
+     "refuseS": 0,
+     "crashes": 0,
+     "cut": false,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 36.2,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.14,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 11,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 11.02,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "41.8:stop",
+      "45.1:landed",
+      "52.6:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL6",
+     "seed": 13,
+     "avail": 20.52,
+     "pxMed": 186.99,
+     "keMax": 34.16,
+     "headClear": 0.77,
+     "bodyForcePeak": 23.66,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      17.52
+     ],
+     "manual": 0,
+     "thirdPartyS": 55.54,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 34.98,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 40.28,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 15.92,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 15.94,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [],
+     "events": [
+      "0.7:deploy",
+      "2.0:launch",
+      "40.0:stop",
+      "45.7:flyin",
+      "49.5:landed",
+      "57.5:docked"
+     ],
+     "fallT": null
+    }
+   ]
+  },
+  "P4_family_6_5ms": {
+   "plan": [
+    {
+     "ride": 20,
+     "skier": {
+      "style": "carve",
+      "slopeDeg": 12,
+      "vTarget": 6.5,
+      "v0": 6.5,
+      "turnPeriod": 3.4,
+      "turnAmpDeg": 40
+     }
+    },
+    {
+     "hold": 8
+    },
+    {
+     "ride": 18,
+     "skier": {
+      "style": "carve",
+      "slopeDeg": 12,
+      "vTarget": 6.5,
+      "v0": 6.5,
+      "turnPeriod": 3.4,
+      "turnAmpDeg": 40
+     }
+    },
+    {
+     "hold": 20
+    },
+    {
+     "ride": 22,
+     "skier": {
+      "style": "carve",
+      "slopeDeg": 12,
+      "vTarget": 6.5,
+      "v0": 6.5,
+      "turnPeriod": 3.4,
+      "turnAmpDeg": 40
+     }
+    },
+    {
+     "hold": 6
+    },
+    {
+     "ride": 20,
+     "skier": {
+      "style": "carve",
+      "slopeDeg": 12,
+      "vTarget": 6.5,
+      "v0": 6.5,
+      "turnPeriod": 3.4,
+      "turnAmpDeg": 40
+     }
+    },
+    {
+     "hold": 25
+    }
+   ],
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 7.33,
+     "headClear": 0.86,
+     "bodyForcePeak": 15.91,
+     "launches": 4,
+     "launchFails": 4,
+     "rides": 4,
+     "docks": 4,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      20.37,
+      17.5,
+      14.54,
+      19.9
+     ],
+     "manual": 0,
+     "thirdPartyS": 84.74,
+     "refuseS": 10.41,
+     "crashes": 4,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.6,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 10.42,
+     "quiverOutRideS": 79.3,
+     "towedOnSnowWhileRidingS": 51.28,
+     "standS": 59.82,
+     "standDeviceBusyS": 18.5,
+     "perStop": [
+      {
+       "stopS": 8.18,
+       "lockedAfterS": 5.22,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.22,
+       "lockedAfterS": 4.06,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 4.04,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.2,
+       "lockedAfterS": 5.3,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "6.268:launchFail",
+      "35.526:launchFail",
+      "82.1:launchFail",
+      "105.582:launchFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.3:launch",
+      "6.3:launchFail",
+      "7.5:landed",
+      "26.6:docked",
+      "30.5:deploy",
+      "32.0:launch",
+      "35.5:launchFail",
+      "35.5:landed",
+      "53.0:docked",
+      "70.2:deploy",
+      "80.0:launch",
+      "82.1:launchFail",
+      "82.8:landed",
+      "96.6:docked",
+      "99.8:deploy",
+      "102.7:launch",
+      "105.6:launchFail",
+      "106.1:landed",
+      "125.5:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 7.41,
+     "headClear": 0.41,
+     "bodyForcePeak": 20.12,
+     "launches": 3,
+     "launchFails": 3,
+     "rides": 4,
+     "docks": 3,
+     "dockFirstTry": 66.67,
+     "dockTimes": [
+      20.82,
+      17.64,
+      34.05
+     ],
+     "manual": 0,
+     "thirdPartyS": 82.78,
+     "refuseS": 0,
+     "crashes": 2,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 70.32,
+     "towedOnSnowWhileRidingS": 46.52,
+     "standS": 59.88,
+     "standDeviceBusyS": 15.9,
+     "perStop": [
+      {
+       "stopS": 8.2,
+       "lockedAfterS": 4.88,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.26,
+       "lockedAfterS": 4.8,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.22,
+       "lockedAfterS": 15.94,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "5.44:launchFail",
+      "36.09:launchFail",
+      "74.456:launchFail",
+      "97.9:capFail"
+     ],
+     "events": [
+      "1.1:deploy",
+      "2.4:launch",
+      "5.4:launchFail",
+      "6.0:landed",
+      "26.3:docked",
+      "30.6:deploy",
+      "31.9:launch",
+      "36.1:launchFail",
+      "36.1:landed",
+      "53.7:docked",
+      "70.2:deploy",
+      "71.5:launch",
+      "74.5:launchFail",
+      "74.5:landed",
+      "97.9:capFail",
+      "108.5:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 10.08,
+     "headClear": 0.44,
+     "bodyForcePeak": 17.67,
+     "launches": 3,
+     "launchFails": 3,
+     "rides": 4,
+     "docks": 3,
+     "dockFirstTry": 66.67,
+     "dockTimes": [
+      32,
+      21.94,
+      21.34
+     ],
+     "manual": 0,
+     "thirdPartyS": 86.36,
+     "refuseS": 0.23,
+     "crashes": 3,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0.24,
+     "quiverOutRideS": 71.62,
+     "towedOnSnowWhileRidingS": 32.7,
+     "standS": 59.88,
+     "standDeviceBusyS": 18.42,
+     "perStop": [
+      {
+       "stopS": 8.24,
+       "lockedAfterS": 16.86,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 20.24,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 4.64,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 5.62,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "6.22:launchFail",
+      "22.204:capFail",
+      "29.178:capFail",
+      "75.294:launchFail",
+      "104.48:launchFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.4:launch",
+      "6.2:launchFail",
+      "22.2:landed",
+      "22.2:capFail",
+      "29.2:capFail",
+      "38.2:docked",
+      "70.2:deploy",
+      "71.5:launch",
+      "75.3:launchFail",
+      "75.3:landed",
+      "97.2:docked",
+      "99.7:deploy",
+      "101.0:launch",
+      "104.5:launchFail",
+      "105.5:landed",
+      "125.8:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 13.74,
+     "pxMed": 330.47,
+     "keMax": 11.67,
+     "headClear": 0.84,
+     "bodyForcePeak": 21.57,
+     "launches": 3,
+     "launchFails": 1,
+     "rides": 4,
+     "docks": 3,
+     "dockFirstTry": 66.67,
+     "dockTimes": [
+      10.08,
+      21.17,
+      30.15
+     ],
+     "manual": 0,
+     "thirdPartyS": 102.52,
+     "refuseS": 0.62,
+     "crashes": 3,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.6,
+     "flownRideS": 23.86,
+     "readyQuiverOutRideS": 0.62,
+     "quiverOutRideS": 81.12,
+     "towedOnSnowWhileRidingS": 10.5,
+     "standS": 59.82,
+     "standDeviceBusyS": 25.44,
+     "perStop": [
+      {
+       "stopS": 8.18,
+       "lockedAfterS": 8.68,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 20.22,
+       "lockedAfterS": 9.86,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 28.84,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25.2,
+       "lockedAfterS": 1.24,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "37.67:launchFail",
+      "54.018:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.3:launch",
+      "20.0:stop",
+      "22.9:landed",
+      "30.1:docked",
+      "32.2:deploy",
+      "34.1:launch",
+      "37.7:launchFail",
+      "38.5:landed",
+      "54.0:capFail",
+      "58.8:docked",
+      "70.2:deploy",
+      "71.5:launch",
+      "91.3:stop",
+      "99.6:flyin",
+      "121.4:landed",
+      "121.4:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 13.28,
+     "pxMed": 362.4,
+     "keMax": 14.68,
+     "headClear": 1.07,
+     "bodyForcePeak": 19.38,
+     "launches": 3,
+     "launchFails": 0,
+     "rides": 4,
+     "docks": 3,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      11.42,
+      49.55,
+      16.98
+     ],
+     "manual": 0,
+     "thirdPartyS": 114.16,
+     "refuseS": 0,
+     "crashes": 6,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 20.98,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 80.62,
+     "towedOnSnowWhileRidingS": 17.42,
+     "standS": 59.88,
+     "standDeviceBusyS": 35.52,
+     "perStop": [
+      {
+       "stopS": 8.2,
+       "lockedAfterS": 4.8,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.26,
+       "lockedAfterS": 48.24,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 6.22,
+       "lockedAfterS": 4.6,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 5.94,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "14.78:downed",
+      "109.174:downed"
+     ],
+     "events": [
+      "1.1:deploy",
+      "2.4:launch",
+      "14.8:downed",
+      "15.1:landed",
+      "26.2:docked",
+      "30.6:deploy",
+      "31.9:launch",
+      "47.6:stop",
+      "68.8:landed",
+      "97.2:docked",
+      "99.8:deploy",
+      "101.1:launch",
+      "109.2:downed",
+      "109.2:landed",
+      "126.2:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 5.38,
+     "pxMed": 417.29,
+     "keMax": 8.23,
+     "headClear": 0.7,
+     "bodyForcePeak": 10.64,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 4,
+     "docks": 3,
+     "dockFirstTry": 66.67,
+     "dockTimes": [
+      21.59,
+      20.26,
+      50.9
+     ],
+     "manual": 0,
+     "thirdPartyS": 115.64,
+     "refuseS": 0,
+     "crashes": 2,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 9.82,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 80.94,
+     "towedOnSnowWhileRidingS": 41.36,
+     "standS": 59.88,
+     "standDeviceBusyS": 36.76,
+     "perStop": [
+      {
+       "stopS": 8.24,
+       "lockedAfterS": 5.98,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.24,
+       "lockedAfterS": 18.92,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 33.34,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 5.72,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "5.746:launchFail",
+      "75.024:launchFail",
+      "97.382:capFail",
+      "109.29:capFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "5.7:launchFail",
+      "7.3:landed",
+      "27.3:docked",
+      "30.6:deploy",
+      "31.9:launch",
+      "47.6:stop",
+      "64.4:landed",
+      "67.9:docked",
+      "70.2:deploy",
+      "71.5:launch",
+      "75.0:launchFail",
+      "76.1:landed",
+      "97.4:capFail",
+      "109.3:capFail",
+      "125.9:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 11,
+     "avail": 10.07,
+     "pxMed": 528.18,
+     "keMax": 8.37,
+     "headClear": 1.07,
+     "bodyForcePeak": 16.21,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 4,
+     "docks": 3,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      14.97,
+      17.37,
+      13.67
+     ],
+     "manual": 0,
+     "thirdPartyS": 71.92,
+     "refuseS": 10.51,
+     "crashes": 2,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.6,
+     "flownRideS": 10.84,
+     "readyQuiverOutRideS": 10.52,
+     "quiverOutRideS": 68.28,
+     "towedOnSnowWhileRidingS": 21.1,
+     "standS": 59.82,
+     "standDeviceBusyS": 17.6,
+     "perStop": [
+      {
+       "stopS": 8.18,
+       "lockedAfterS": 13.56,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 20.22,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 4.66,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.2,
+       "lockedAfterS": 4.84,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "79.878:launchFail",
+      "111.368:launchFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "2.3:launch",
+      "20.0:stop",
+      "28.9:landed",
+      "35.0:docked",
+      "70.2:deploy",
+      "76.6:launch",
+      "79.9:launchFail",
+      "79.9:landed",
+      "97.2:docked",
+      "99.8:deploy",
+      "106.5:launch",
+      "111.4:launchFail",
+      "111.8:landed",
+      "125.0:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 12,
+     "avail": 7.18,
+     "pxMed": 419.77,
+     "keMax": 9.24,
+     "headClear": 0.86,
+     "bodyForcePeak": 17.5,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 4,
+     "docks": 3,
+     "dockFirstTry": 66.67,
+     "dockTimes": [
+      43.9,
+      18.82,
+      21.45
+     ],
+     "manual": 0,
+     "thirdPartyS": 112.22,
+     "refuseS": 0,
+     "crashes": 3,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 10.52,
+     "readyQuiverOutRideS": 0.02,
+     "quiverOutRideS": 80.92,
+     "towedOnSnowWhileRidingS": 44.84,
+     "standS": 59.88,
+     "standDeviceBusyS": 33.7,
+     "perStop": [
+      {
+       "stopS": 8.2,
+       "lockedAfterS": 42.52,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 20.26,
+       "lockedAfterS": 14.98,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.22,
+       "lockedAfterS": 5.24,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 5.38,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "54.282:capFail",
+      "59.098:capFail",
+      "78.992:launchFail",
+      "104.142:launchFail"
+     ],
+     "events": [
+      "1.1:deploy",
+      "2.4:launch",
+      "20.0:stop",
+      "30.3:landed",
+      "54.3:capFail",
+      "59.1:capFail",
+      "63.9:docked",
+      "70.2:deploy",
+      "71.5:launch",
+      "79.0:launchFail",
+      "81.2:landed",
+      "97.8:docked",
+      "99.9:deploy",
+      "101.2:launch",
+      "104.1:launchFail",
+      "105.4:landed",
+      "125.6:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL3",
+     "seed": 13,
+     "avail": 2.74,
+     "pxMed": 297.45,
+     "keMax": 10.16,
+     "headClear": 0.73,
+     "bodyForcePeak": 15.21,
+     "launches": 4,
+     "launchFails": 3,
+     "rides": 4,
+     "docks": 4,
+     "dockFirstTry": 75,
+     "dockTimes": [
+      14.22,
+      24.82,
+      20.56,
+      15.85
+     ],
+     "manual": 0,
+     "thirdPartyS": 104.58,
+     "refuseS": 5.34,
+     "crashes": 3,
+     "cut": false,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 6.46,
+     "readyQuiverOutRideS": 5.34,
+     "quiverOutRideS": 79.34,
+     "towedOnSnowWhileRidingS": 37.14,
+     "standS": 59.88,
+     "standDeviceBusyS": 33.22,
+     "perStop": [
+      {
+       "stopS": 8.24,
+       "lockedAfterS": 4.5,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.24,
+       "lockedAfterS": 10.04,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 4.3,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 14.5,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "11.62:launchFail",
+      "34.182:launchFail",
+      "54.156:capFail",
+      "76.32:launchFail"
+     ],
+     "events": [
+      "0.9:deploy",
+      "7.5:launch",
+      "11.6:launchFail",
+      "13.1:landed",
+      "25.8:docked",
+      "30.6:deploy",
+      "31.9:launch",
+      "34.2:launchFail",
+      "36.2:landed",
+      "54.2:capFail",
+      "59.0:docked",
+      "70.2:deploy",
+      "71.5:launch",
+      "76.3:launchFail",
+      "76.3:landed",
+      "96.9:docked",
+      "99.7:deploy",
+      "101.0:launch",
+      "118.9:stop",
+      "131.7:landed",
+      "134.7:docked"
+     ],
+     "fallT": null
+    }
+   ]
+  },
+  "P5_tour_descent": {
+   "plan": [
+    {
+     "ride": 60,
+     "skier": {
+      "style": "carve",
+      "slopeDeg": 28,
+      "vTarget": 10,
+      "v0": 10,
+      "turnPeriod": 3,
+      "turnAmpDeg": 40,
+      "mu": 0.08
+     }
+    },
+    {
+     "hold": 25
+    }
+   ],
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 24.67,
+     "headClear": 0.17,
+     "bodyForcePeak": 20.17,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      71.13
+     ],
+     "manual": 0,
+     "thirdPartyS": 71.4,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.22,
+     "towedOnSnowWhileRidingS": 57.36,
+     "standS": 25,
+     "standDeviceBusyS": 11.84,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 11.86,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.314:launchFail",
+      "68.59:capFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.3:launchFail",
+      "4.3:landed",
+      "68.6:capFail",
+      "73.4:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 17.44,
+     "headClear": 0.77,
+     "bodyForcePeak": 29.89,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      62.27
+     ],
+     "manual": 0,
+     "thirdPartyS": 62.68,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.16,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 3.18,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 3.2,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.514:launchFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.5:launchFail",
+      "64.8:landed",
+      "64.8:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 17.27,
+     "headClear": 0.81,
+     "bodyForcePeak": 25.28,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      61.88
+     ],
+     "manual": 0,
+     "thirdPartyS": 62.24,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.2,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 2.7,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 2.72,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.422:launchFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.4:launchFail",
+      "64.3:landed",
+      "64.3:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL6",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 19.27,
+     "headClear": 0.1,
+     "bodyForcePeak": 31.39,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 0,
+     "dockTimes": [
+      66.92
+     ],
+     "manual": 0,
+     "thirdPartyS": 67.06,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.22,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 7.5,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 7.52,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.18:launchFail",
+      "61.812:capFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.2:launchFail",
+      "61.8:capFail",
+      "69.1:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL6",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 11.48,
+     "headClear": 1.08,
+     "bodyForcePeak": 23.46,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 0,
+     "dockFirstTry": null,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 3.2,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": true,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.16,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 25,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "FREE"
+      }
+     ],
+     "warnings": [
+      "2.24:launchFail",
+      "5.304:weaklink"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.2:launchFail",
+      "5.3:weaklink"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "crossL6",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 16.57,
+     "headClear": 0.59,
+     "bodyForcePeak": 34.28,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      67.02
+     ],
+     "manual": 0,
+     "thirdPartyS": 67.14,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.2,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 7.6,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 7.62,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.192:launchFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.2:launchFail",
+      "63.9:landed",
+      "69.2:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 39.44,
+     "headClear": 0.72,
+     "bodyForcePeak": 24.88,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      64.96
+     ],
+     "manual": 0,
+     "thirdPartyS": 65.12,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.22,
+     "towedOnSnowWhileRidingS": 57.4,
+     "standS": 25,
+     "standDeviceBusyS": 5.56,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 5.58,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.224:launchFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.2:launchFail",
+      "4.2:landed",
+      "67.2:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 18.08,
+     "headClear": 1.15,
+     "bodyForcePeak": 29.94,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      78.87
+     ],
+     "manual": 0,
+     "thirdPartyS": 79.14,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.16,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 19.64,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 19.66,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.374:launchFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.4:launchFail",
+      "80.0:landed",
+      "81.2:docked"
+     ],
+     "fallT": null
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 17.55,
+     "headClear": 1.14,
+     "bodyForcePeak": 31.04,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "docks": 1,
+     "dockFirstTry": 100,
+     "dockTimes": [
+      70.22
+     ],
+     "manual": 0,
+     "thirdPartyS": 70.48,
+     "refuseS": 0,
+     "crashes": 1,
+     "cut": false,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "readyQuiverOutRideS": 0,
+     "quiverOutRideS": 60.2,
+     "towedOnSnowWhileRidingS": 0,
+     "standS": 25,
+     "standDeviceBusyS": 10.94,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.96,
+       "modeAtRestart": "STOWED"
+      }
+     ],
+     "warnings": [
+      "2.326:launchFail"
+     ],
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.3:launchFail",
+      "64.0:landed",
+      "72.5:docked"
+     ],
+     "fallT": null
+    }
+   ]
+  },
+  "T02_fall_beginner_5ms": {
+   "rows": [
+    {
+     "seed": 3,
+     "speedAtFall": 5.68,
+     "fallDetectedAt": 14.6,
+     "detectLatencyS": 0.6,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 0.98,
+      "maxBodyForce": 7.17,
+      "maxKE": 1.53
+     },
+     "run": {
+      "keMax": 2.74,
+      "headClear": 0.98,
+      "bodyForcePeak": 8.53,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "4.8:launchFail",
+      "5.7:landed",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 5,
+     "speedAtFall": 5.7,
+     "fallDetectedAt": 14.620000000000001,
+     "detectLatencyS": 0.62,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.04,
+      "maxBodyForce": 4.97,
+      "maxKE": 1.31
+     },
+     "run": {
+      "keMax": 2.77,
+      "headClear": 1.04,
+      "bodyForcePeak": 9.7,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "5.2:launchFail",
+      "7.1:landed",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 8,
+     "speedAtFall": 5.7,
+     "fallDetectedAt": 14.64,
+     "detectLatencyS": 0.64,
+     "launched": 0,
+     "postFall6s": {
+      "minHeadClear": null,
+      "maxBodyForce": 0,
+      "maxKE": 0
+     },
+     "run": {
+      "keMax": null,
+      "headClear": null,
+      "bodyForcePeak": 0,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "1.0:deploy"
+     ]
+    }
+   ]
+  },
+  "T06_fall_12ms": {
+   "rows": [
+    {
+     "seed": 3,
+     "speedAtFall": 13.1,
+     "fallDetectedAt": 14.6,
+     "detectLatencyS": 0.6,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.27,
+      "maxBodyForce": 4.89,
+      "maxKE": 6.3
+     },
+     "run": {
+      "keMax": 13.27,
+      "headClear": 1.17,
+      "bodyForcePeak": 10.53,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "14.4:stop",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 5,
+     "speedAtFall": 13.14,
+     "fallDetectedAt": 14.6,
+     "detectLatencyS": 0.6,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.27,
+      "maxBodyForce": 2.99,
+      "maxKE": 5.54
+     },
+     "run": {
+      "keMax": 12.2,
+      "headClear": 1.18,
+      "bodyForcePeak": 10.45,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "14.4:stop",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 8,
+     "speedAtFall": 13.16,
+     "fallDetectedAt": 14.58,
+     "detectLatencyS": 0.58,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.26,
+      "maxBodyForce": 3.46,
+      "maxKE": 5.69
+     },
+     "run": {
+      "keMax": 12.08,
+      "headClear": 1.15,
+      "bodyForcePeak": 10.74,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "14.4:stop",
+      "14.6:abort"
+     ]
+    }
+   ]
+  },
+  "P3_fall_15ms": {
+   "rows": [
+    {
+     "seed": 3,
+     "speedAtFall": 16.99,
+     "fallDetectedAt": 14.6,
+     "detectLatencyS": 0.6,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.25,
+      "maxBodyForce": 8.06,
+      "maxKE": 11.83
+     },
+     "run": {
+      "keMax": 22.69,
+      "headClear": 1.03,
+      "bodyForcePeak": 18.37,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "14.4:stop",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 5,
+     "speedAtFall": 17.08,
+     "fallDetectedAt": 14.56,
+     "detectLatencyS": 0.56,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 99,
+      "maxBodyForce": 0,
+      "maxKE": 0
+     },
+     "run": {
+      "keMax": 15.42,
+      "headClear": 0.91,
+      "bodyForcePeak": 25.4,
+      "cut": false,
+      "broke": true
+     },
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.2:launchFail",
+      "5.3:weaklink"
+     ]
+    },
+    {
+     "seed": 8,
+     "speedAtFall": 17.11,
+     "fallDetectedAt": 14.58,
+     "detectLatencyS": 0.58,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": null,
+      "maxBodyForce": 0,
+      "maxKE": 0
+     },
+     "run": {
+      "keMax": 37.55,
+      "headClear": 0.95,
+      "bodyForcePeak": 32.14,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "2.3:launchFail",
+      "14.4:docked"
+     ]
+    }
+   ]
+  }
+ },
+ "detector": {
+  "note": "shipped detector (sim/js/concepts/activetether/detect.js) on user-tester synthetic activity traces (ASSUMED kinematics); a detector start deploys the quiver; launch then needs the apparent-wind and straight-glide gates",
+  "skinUp": {
+   "traces": 10,
+   "detectorStarts": 0,
+   "tracesWithStart": 0
+  },
+  "skinDownTraverse": {
+   "traces": 40,
+   "detectorStarts": 19,
+   "tracesWithStart": 19
+  },
+  "magicCarpet": {
+   "traces": 40,
+   "detectorStarts": 0,
+   "tracesWithStart": 0
+  },
+  "beginnerDrift": {
+   "traces": 40,
+   "detectorStarts": 24,
+   "tracesWithStart": 24
+  },
+  "childGuide": {
+   "traces": 40,
+   "detectorStarts": 0,
+   "tracesWithStart": 0
+  },
+  "catTrackDown": {
+   "traces": 40,
+   "detectorStarts": 27,
+   "tracesWithStart": 27
+  },
+  "carDown": {
+   "traces": 40,
+   "detectorStarts": 40,
+   "tracesWithStart": 40
+  },
+  "sledTowDown": {
+   "traces": 40,
+   "detectorStarts": 40,
+   "tracesWithStart": 40
+  }
+ }
+}

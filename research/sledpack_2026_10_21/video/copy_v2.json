@@ -1,0 +1,475 @@
+{
+  "_note": "Copy for the SledPack concept film v2 (SIM-034, user decisions 2026-10-21). Numbers only from dev/promo_facts.json (sledpack@0.2.0 / I10). Untested behaviour is phrased as a design goal/concept. Re-render text only: python3 sim/tools/render_promo.py --v2 --stage text --keep",
+  "_numbers_source": "research/sledpack_2026_10_21/dev/promo_facts.json FINAL sledpack@0.2.1 / I11 + review/report_I10.json copyAudit (applied)",
+  "tag": {
+    "zh": "概念可视化 · 仿真渲染 · 未经实物验证",
+    "en": "Concept visualisation · simulated render · not physically tested"
+  },
+  "sections": {
+    "hero": {
+      "title": {
+        "zh": "SledPack",
+        "en": "SledPack"
+      },
+      "sub": {
+        "zh": "背在背上的跟拍风筝 · 概念",
+        "en": "A follow-cam kite you wear on your back · concept"
+      },
+      "example": {
+        "zh": "本片以滑雪为例",
+        "en": "Skiing is just the example in this film"
+      }
+    },
+    "product": {
+      "title": {
+        "zh": "没有杆子。风筝就趴在背上。",
+        "en": "No pole. The kite rides on your back."
+      },
+      "sub": {
+        "zh": "不用折叠收纳：张开的软翼风筝直接贴在背上",
+        "en": "Nothing to fold away: the open soft kite rides flat on your back"
+      }
+    },
+    "onback": {
+      "title": {
+        "zh": "张开的风筝贴在背上；动力都在腰包里",
+        "en": "The open kite rides on your back; everything powered sits at the hip"
+      },
+      "callouts": {
+        "kiteOnBack": {
+          "zh": "张开的雪橇风筝，机头朝上贴在背上",
+          "en": "Open sled kite, nose up, lying on your back"
+        },
+        "seat": {
+          "zh": "肩带上的磁吸座卡住两根翼杆",
+          "en": "Magnetic seats on the straps hold the two keels"
+        },
+        "lumbar": {
+          "zh": "腰包：双卷轴、电池、电子",
+          "en": "Lumbar module: two-drum reel, battery, electronics"
+        },
+        "mouth": {
+          "zh": "出线环在臀后约 15 cm 的可折平短片上，环可脱开（不是杆；摔倒/坐下时的风险待评估）",
+          "en": "Line eyelet on a ≈15 cm fold-flat hip-belt tab with a breakaway ring (not a pole; fall/sitting risk not yet assessed)"
+        }
+      }
+    },
+    "sense": {
+      "title": {
+        "zh": "设计目标：蹬出去，它就知道",
+        "en": "Designed to know when you push off"
+      },
+      "sub": {
+        "zh": "惯导 + 卫星定位判定滑行（仿真设想，未实测）",
+        "en": "IMU + GNSS to confirm you are skiing (simulated concept, not tested)"
+      },
+      "hud": {
+        "speed": {
+          "zh": "速度",
+          "en": "SPEED"
+        },
+        "wind": {
+          "zh": "相对风",
+          "en": "APPARENT WIND"
+        },
+        "line": {
+          "zh": "线长",
+          "en": "LINE"
+        },
+        "lawX": {
+          "zh": "相对风 →",
+          "en": "apparent wind →"
+        },
+        "lawY": {
+          "zh": "线长",
+          "en": "line length"
+        },
+        "modes": {
+          "ON BACK": {
+            "zh": "在背上",
+            "en": "ON BACK"
+          },
+          "ARMED": {
+            "zh": "待命",
+            "en": "ARMED"
+          },
+          "LAUNCH": {
+            "zh": "放飞",
+            "en": "LAUNCH"
+          },
+          "FILMING · HIGH": {
+            "zh": "跟拍 · 高远",
+            "en": "FILMING · HIGH"
+          },
+          "FILMING · LOW": {
+            "zh": "跟拍 · 低近",
+            "en": "FILMING · LOW"
+          },
+          "DEPOWER": {
+            "zh": "泄力",
+            "en": "DEPOWER"
+          },
+          "RETRIEVE": {
+            "zh": "回收",
+            "en": "RETRIEVE"
+          },
+          "DOCKING": {
+            "zh": "回到背上",
+            "en": "DOCKING"
+          },
+          "PARKED": {
+            "zh": "雪面待机",
+            "en": "PARKED"
+          },
+          "RELAUNCH": {
+            "zh": "再起飞",
+            "en": "RELAUNCH"
+          },
+          "SWING GUARD": {
+            "zh": "防摆收线",
+            "en": "SWING GUARD"
+          }
+        },
+        "note": {
+          "zh": "示意界面 · 数值为剧本示意",
+          "en": "Illustrative HUD · scripted values"
+        },
+        "law": {
+          "ref": 6,
+          "vRef": 12,
+          "k": 0.75,
+          "min": 5,
+          "max": 9,
+          "_note": "line schedule shown in the HUD graph (promo_facts I10); the 3D kite and HUD line readout follow sim/js/promo2/timeline.js GEOM — a cap change needs a 3D re-render too"
+        }
+      }
+    },
+    "launch": {
+      "title": {
+        "zh": "设计设想：直接从背上放飞",
+        "en": "Concept: launches straight off your back"
+      },
+      "sub": {
+        "zh": "磁扣松开，风筝约 0.8 s 从背上剥离，先落进身后尾流，放线进入干净气流后爬升（仿真中约 2 s 开始拍；从背上脱离和尾流为假设模型）",
+        "en": "The seats release, the kite peels off your back in ≈0.8 s, drops into the wake and climbs once paid out into clean air (filming after ≈2 s in simulation; release from the back and the wake are assumed models)"
+      }
+    },
+    "fast": {
+      "title": {
+        "zh": "滑得越快、风越大，放得越远（因此越高）",
+        "en": "Faster and windier: farther out, and so higher"
+      },
+      "sub": {
+        "zh": "线长随相对风 5–9 m（约 4–7.5 m 高），仰角保持约 55°（仿真中的控制规律）",
+        "en": "Line 5–9 m with the apparent wind (≈4–7.5 m up) at about the same 55° angle (control law in simulation)"
+      }
+    },
+    "onboard": {
+      "label": {
+        "zh": "机载视角 · 仿真渲染，非实拍",
+        "en": "Onboard view · simulated render, not real footage"
+      },
+      "sub": {
+        "zh": "吊舱相机顺着线看向你",
+        "en": "The pod camera looks down the line at you"
+      }
+    },
+    "light": {
+      "title": {
+        "zh": "风小或顺风：更近、更低；顺风大时不飞",
+        "en": "Light air or tailwind: closer and lower — or not at all"
+      },
+      "sub": {
+        "zh": "线收到 5 m；顺风超过约 5 m/s 就留在背上不放飞",
+        "en": "The line comes in to 5 m; above ≈5 m/s tailwind it stays on your back"
+      }
+    },
+    "stop": {
+      "title": {
+        "zh": "一停下，先泄力、拉低",
+        "en": "Slow down: it depowers and is pulled low"
+      },
+      "sub": {
+        "zh": "帆像旗一样塌下，趁人还在滑立即拉低，设计上避免它飘过头顶（仿真最近 0.49 m）",
+        "en": "The sail flags and is pulled down while you still slide, designed to keep it from drifting over your head (closest 0.49 m in simulation)"
+      }
+    },
+    "dock": {
+      "title": {
+        "zh": "有时它能自己回到背上",
+        "en": "Sometimes it lays itself back onto your back"
+      },
+      "sub": {
+        "zh": "只在线从身后收回时——仿真中约每 10 次停下 1 次；其余时候在雪面待机。收工时手动拿起（约 20 s）",
+        "en": "Only when the line comes in from behind — about 1 stop in 10 in simulation; otherwise it parks on the snow. End of run: pick it up by hand (≈20 s)"
+      }
+    },
+    "stowed": {
+      "title": {
+        "zh": "背着就走",
+        "en": "Wear it and go"
+      },
+      "sub": {
+        "zh": "没有杆，没有要折叠的东西；也可以手动卷起放进背包（约 2.5 L，可选）",
+        "en": "No pole, nothing to fold; optionally roll it up by hand into a pack (≈2.5 L)"
+      }
+    },
+    "facts": {
+      "title": {
+        "zh": "仿真中达标的项目与设计估算",
+        "en": "Passing in simulation, plus design estimates"
+      },
+      "tags": {
+        "sim": {
+          "zh": "仿真",
+          "en": "SIMULATED"
+        },
+        "est": {
+          "zh": "设计估算",
+          "en": "DESIGN ESTIMATE"
+        },
+        "asm": {
+          "zh": "假设模型",
+          "en": "ASSUMED MODEL"
+        }
+      },
+      "items": [
+        {
+          "k": "worn",
+          "label": {
+            "zh": "全套背负质量（设计估算）",
+            "en": "Total worn (design estimate)"
+          },
+          "value": "0.62",
+          "unit": "kg",
+          "tag": "est"
+        },
+        {
+          "k": "launch",
+          "label": {
+            "zh": "放飞到开拍（中位）",
+            "en": "Launch to filming (median)"
+          },
+          "value": "1.9",
+          "unit": "s",
+          "tag": "sim"
+        },
+        {
+          "k": "lsucc",
+          "label": {
+            "zh": "放飞成功率（假设的背上脱离与尾流模型）",
+            "en": "Launch success (assumed release-from-back and wake models)"
+          },
+          "value": "100",
+          "unit": "%",
+          "tag": "asm"
+        },
+        {
+          "k": "ops",
+          "label": {
+            "zh": "滑行中手动操作",
+            "en": "Hand actions while skiing"
+          },
+          "value": "0",
+          "unit": "",
+          "tag": "sim"
+        },
+        {
+          "k": "head",
+          "label": {
+            "zh": "线/风筝离头盔中心最近，不接触（仿真 0.49 m；每次靠近 ≤1.9 s；取决于尾流/脱离模型）",
+            "en": "Closest line/kite to the helmet centre, no contact (0.49 m in simulation; each close pass ≤1.9 s; depends on wake/release models)"
+          },
+          "value": "0.49",
+          "unit": "m",
+          "tag": "sim"
+        },
+        {
+          "k": "force",
+          "label": {
+            "zh": "对身体的最大拉力（限值 40 N；取决于尾流模型）",
+            "en": "Peak pull on the body (limit 40 N; depends on the wake model)"
+          },
+          "value": "36",
+          "unit": "N",
+          "tag": "sim"
+        },
+        {
+          "k": "endurance",
+          "label": {
+            "zh": "−10 °C 拍摄续航（中级滑雪者；高手速度约 37 min）",
+            "en": "Filming at −10 °C (intermediate rider; ≈37 min at expert speeds)"
+          },
+          "value": "49",
+          "unit": "min",
+          "tag": "sim"
+        },
+        {
+          "k": "ke",
+          "label": {
+            "zh": "最大撞击动能（限值 14.9 J；15–17 m/s 高手速度时超限）",
+            "en": "Peak strike energy (limit 14.9 J; fails for 15–17 m/s riders)"
+          },
+          "value": "13.6",
+          "unit": "J",
+          "tag": "sim"
+        }
+      ],
+      "footnote": {
+        "zh": "数值来自未经标定的数值仿真（48 种风况、一种中级滑雪者速度），不是实测；部分子模型为假设。",
+        "en": "Numbers from uncalibrated numerical simulation (48 wind cases, one intermediate rider profile), not measurements; some sub-models are assumed."
+      },
+      "dev": {
+        "title": {
+          "zh": "仍待攻克",
+          "en": "Still open"
+        },
+        "items": [
+          {
+            "zh": "可用画面约 48%，目标 ≥80%；顺风时约 20%，顺风超过约 5 m/s 不放飞",
+            "en": "Usable footage ≈48% vs a ≥80% target; ≈20% in tailwinds, no flight in tailwinds above ≈5 m/s"
+          },
+          {
+            "zh": "顺风或强侧风时线在头部 1 m 以内最多约占滑行的 21%（目标 ≤5%）",
+            "en": "In tailwinds or strong crosswinds the line is within 1 m of the head for up to ≈21% of riding (target ≤5%)"
+          },
+          {
+            "zh": "画面抖动约 6.5 °/s，目标 ≤3 °/s",
+            "en": "Picture shake ≈6.5 °/s vs a ≤3 °/s target"
+          },
+          {
+            "zh": "多数停下时在雪面待机，而不是回到背上；收工需手动拿起",
+            "en": "At most stops it parks on the snow rather than re-docking; pick it up by hand at the end"
+          },
+          {
+            "zh": "风筝在身后雪面待机时，线和风筝可能被后方滑雪者压到或绊到；雪面再起飞未经验证",
+            "en": "While parked on the snow behind you, the kite and line can be skied over or tripped on by others; relaunching from the snow is unverified"
+          },
+          {
+            "zh": "约 55% 的飞行时间线低悬在骑手身后（他人可能被绊）",
+            "en": "The line runs low behind the rider for ≈55% of airborne time (others can trip)"
+          },
+          {
+            "zh": "共同指标里的收纳体积按展开平放在背上计算为约 20 L（用户已接受不折叠）",
+            "en": "Packed volume on the shared rule is ≈20 L as carried open and flat (the user accepted not folding it)"
+          },
+          {
+            "zh": "不可转向：拍摄角度固定（用户已接受）",
+            "en": "Not steerable: fixed filming angle (accepted by the user)"
+          },
+          {
+            "zh": "13 项共同指标中仿真达标 8 项",
+            "en": "8 of 13 shared criteria pass in simulation"
+          },
+          {
+            "zh": "尚未做任何实物与雪场试验",
+            "en": "No physical or on-snow tests yet"
+          }
+        ]
+      }
+    },
+    "end": {
+      "title": {
+        "zh": "SledPack",
+        "en": "SledPack"
+      },
+      "sub": {
+        "zh": "设计目标：背着走，滑起来就飞，停下就待命",
+        "en": "The goal: wear it, ski, and it flies; stop, and it waits for you."
+      },
+      "disclaimer": {
+        "zh": "概念设计。本片全部画面为计算机仿真渲染，不是实拍；性能数字来自未经标定的仿真，尚未进行任何实物试验。13 项判定指标中仿真达标 8 项，尚不是可用设计。",
+        "en": "Concept design. Every frame is a computer-simulated render, not real footage. Performance numbers come from uncalibrated simulation; no physical tests have been run. It meets 8 of 13 criteria in simulation and is not yet a usable design."
+      }
+    },
+    "how": {
+      "title": {
+        "zh": "背包来放风筝；拍摄角度固定",
+        "en": "The pack flies the kite; the filming angle is fixed"
+      },
+      "sub": {
+        "zh": "风筝偏到侧面时，背包稍微收线直到它回正（防摆，不是转向）",
+        "en": "If the kite drifts to the side, the pack reels in a little until it recentres (swing guard — not steering)"
+      },
+      "callouts": {
+        "mouth": {
+          "zh": "出线环：主线 + 泄力线",
+          "en": "Eyelet: main line + depower line"
+        },
+        "mainMid": {
+          "zh": "主线：按相对风放长、收短",
+          "en": "Main line: lengthened or shortened with the apparent wind"
+        },
+        "depMid": {
+          "zh": "泄力线：调迎角，控制拉力",
+          "en": "Depower line: trims angle of attack to hold the pull"
+        },
+        "kite": {
+          "zh": "风筝上没有电机、没有螺旋桨",
+          "en": "No motor, no propeller on the kite"
+        }
+      }
+    },
+    "park": {
+      "title": {
+        "zh": "停下后：在身后雪面待机，出发时再起飞",
+        "en": "Stopped: it waits on the snow behind you and relaunches"
+      },
+      "sub": {
+        "zh": "通常在身后约 2.5 m 的雪面待机，下次蹬出时设计上从雪面再起飞（未验证）",
+        "en": "Usually it parks ≈2.5 m behind on the snow and is designed to relaunch from there when you push off (unverified)"
+      }
+    },
+    "uses": {
+      "title": {
+        "zh": "不止滑雪",
+        "en": "Not just for skiing"
+      },
+      "tag": {
+        "zh": "设想中的其他用途 · 未经仿真评估",
+        "en": "Other possible uses · not simulated or evaluated"
+      },
+      "rules": {
+        "zh": "需遵守当地道路与空域规定；图示为封闭场地、海滩或水面，不在公共道路上",
+        "en": "Local road and airspace rules apply; shown on closed tracks, beaches or open water, not public roads"
+      },
+      "items": [
+        {
+          "k": "car",
+          "label": {
+            "zh": "驾车（封闭场地）",
+            "en": "Driving (closed track)"
+          }
+        },
+        {
+          "k": "moto",
+          "label": {
+            "zh": "摩托车（封闭场地）",
+            "en": "Motorcycle (closed track)"
+          }
+        },
+        {
+          "k": "run",
+          "label": {
+            "zh": "跑步（海滩）",
+            "en": "Running (beach)"
+          }
+        },
+        {
+          "k": "bike",
+          "label": {
+            "zh": "骑行",
+            "en": "Cycling"
+          }
+        },
+        {
+          "k": "kayak",
+          "label": {
+            "zh": "皮划艇 / 划船",
+            "en": "Kayaking / boating"
+          }
+        }
+      ]
+    }
+  }
+}

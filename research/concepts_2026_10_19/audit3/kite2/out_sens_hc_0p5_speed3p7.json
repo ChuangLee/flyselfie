@@ -1,0 +1,28 @@
+{
+ "generated": "2026-10-20T12:15:22.674Z",
+ "name": "hc_0p5_speed3p7",
+ "over": {
+  "hc": 0.5,
+  "vRetFast": 3.7,
+  "vIn": 3.7,
+  "vOut": 3.7,
+  "vRet": 3.5
+ },
+ "avail": {
+  "mean": 80.99,
+  "p10": 68.13,
+  "p90": 91.27,
+  "min": 21.61,
+  "max": 92.4,
+  "n": 39
+ },
+ "jitterP90": 1.57,
+ "setupP90": 5.31,
+ "opsP90": 1,
+ "opsMax": 1,
+ "F50max": 27.05,
+ "keMax": 12.79,
+ "endurance": 63.32,
+ "headClearMin": 1.11,
+ "judgedPass": true
+}

@@ -1,0 +1,43 @@
+
+============================================================
+CITATION VERIFICATION: 18-open-form-product-research-zh.md
+============================================================
+
+Found 23 citations
+
+  [1] URL accessible ✓
+  [2] URL accessible ✓
+  [3] URL accessible ✓
+  [4] URL accessible ✓
+  [5] URL accessible ✓
+  [6] URL accessible ✓
+  [7] URL accessible ✓
+  [8] URL accessible ✓
+  [9] URL accessible ✓
+  [10] URL accessible ✓
+  [11] URL accessible ✓
+  [12] URL accessible ✓
+  [13] URL accessible ✓
+  [14] URL accessible ✓
+  [17] URL accessible ✓
+  [18] URL accessible ✓
+  [19] URL accessible ✓
+  [20] URL accessible ✓
+  [21] URL accessible ✓
+  [22] URL accessible ✓
+  [23] URL accessible ✓
+
+============================================================
+VERIFICATION SUMMARY
+============================================================
+
+DOI Verified: 0/23
+URL Verified: 21/23
+Suspicious: 0/23
+Unverified: 2/23
+
+UNVERIFIED CITATIONS (Could not check):
+  [15] URL check failed: HTTP 403
+  [16] URL check failed: HTTP 403
+
+CITATION VERIFICATION PASSED

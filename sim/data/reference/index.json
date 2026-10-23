@@ -1,0 +1,14 @@
+{
+  "note": "Reference replays computed by the browser solver with default inputs; uncalibrated numerical evidence, not L1 source-model replays.",
+  "files": [
+    "launch.json",
+    "film_turns.json",
+    "retrieval_headwind.json",
+    "retrieval_calm.json",
+    "retrieval_crosswind.json",
+    "wind_loss.json",
+    "abrupt_stop.json",
+    "slack_overpayout.json",
+    "reel_jam.json"
+  ]
+}

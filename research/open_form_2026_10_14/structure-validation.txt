@@ -1,0 +1,24 @@
+
+============================================================
+VALIDATING REPORT: 18-open-form-product-research-zh.md
+============================================================
+
+⏳ Checking: Executive Summary... ✅ PASS
+⏳ Checking: Required Sections... ✅ PASS
+⏳ Checking: Citations... ✅ PASS
+⏳ Checking: Bibliography... ✅ PASS
+⏳ Checking: Placeholder Text... ✅ PASS
+⏳ Checking: Content Truncation... ✅ PASS
+⏳ Checking: Word Count... ✅ PASS
+⏳ Checking: Source Count... ✅ PASS
+⏳ Checking: Broken Links... ✅ PASS
+
+============================================================
+VALIDATION SUMMARY
+============================================================
+
+⚠️  WARNINGS (1):
+   • Executive summary too short: 15 words (should be ≥50)
+
+✅ VALIDATION PASSED (with warnings)
+

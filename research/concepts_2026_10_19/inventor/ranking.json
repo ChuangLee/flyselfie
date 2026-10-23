@@ -1,0 +1,99 @@
+{
+ "date": "2026-10-19",
+ "method": "1-5 per axis: originality, footage (x2), interference, convenience, safety, simplicity, tech_risk (5=low risk); physics kills excluded",
+ "top4": [
+  {
+   "rank": 1,
+   "id": "I-05",
+   "why": "Gravity pays for the flight and the leash pays only the deficit (p99 0.4 N vs kite 12-38 N). Hands-free launch and dock, ~430 px, 52 min.",
+   "biggest_risk": "thin line behind the skier (hazard to others/snags) and the regulatory class"
+  },
+  {
+   "rank": 2,
+   "id": "I-03",
+   "why": "Free viewpoint; landing and waiting in the snow cuts hover to ~10 s per segment, giving 44 min vs 9 min hover-only",
+   "biggest_risk": "tail-sitter transition in gusts near snow; tipping over above ~6-7 m/s wind"
+  },
+  {
+   "rank": 3,
+   "id": "I-01",
+   "why": "Simplest proof of the slope-energy principle; no tether, no motor",
+   "biggest_risk": "headwind (32 % follow at 5 m/s) and a pick-up at every stop"
+  },
+  {
+   "rank": 4,
+   "id": "I-10",
+   "why": "Most surprising: lead-and-snatch with the skier's pole; best used as a mode of I-05/I-01",
+   "biggest_risk": "pole aim reliability (60-79 % hit) and self-placed-camera scope"
+  }
+ ],
+ "scores": {
+  "I-01": {
+   "footage": 4,
+   "interference": 5,
+   "convenience": 2,
+   "safety": 3,
+   "simplicity": 4,
+   "originality": 5,
+   "tech_risk": 3
+  },
+  "I-02": {
+   "footage": 0,
+   "interference": 2,
+   "convenience": 4,
+   "safety": 2,
+   "simplicity": 2,
+   "originality": 4,
+   "tech_risk": 1
+  },
+  "I-03": {
+   "footage": 4,
+   "interference": 5,
+   "convenience": 4,
+   "safety": 3,
+   "simplicity": 2,
+   "originality": 4,
+   "tech_risk": 2
+  },
+  "I-04": {
+   "footage": 1,
+   "interference": 5,
+   "convenience": 2,
+   "safety": 4,
+   "simplicity": 3,
+   "originality": 4,
+   "tech_risk": 1
+  },
+  "I-05": {
+   "footage": 4,
+   "interference": 4,
+   "convenience": 4,
+   "safety": 3,
+   "simplicity": 3,
+   "originality": 5,
+   "tech_risk": 3
+  },
+  "I-10": {
+   "footage": 3,
+   "interference": 3,
+   "convenience": 2,
+   "safety": 3,
+   "simplicity": 3,
+   "originality": 5,
+   "tech_risk": 3
+  }
+ },
+ "killed": {
+  "I-02": "KILLED as a free perch: the skier's wake leaves 4.5-6.3 m/s airspeed at 1-2 m, below stall. The idea survives as I-05's line-guided dock, where the reel supplies the energy and the glider doesn't need to fly the final metre.",
+  "I-04": "KILLED: L/D about 3 gives gravity-following on only 17 % of skiing time; the speed window is 8.2-13.8 m/s.",
+  "I-06": "KILLED: 0.2 % L/D gain at 0.4 m, and at knee height it is a strike hazard to other skiers' legs and on moguls.",
+  "I-07": "KILLED: trip hazard on the piste, uncontrollable over moguls, low occluded view.",
+  "I-08": "KILLED: mass. A glider could use one (48 g), but it is not worth it over a heated Li-ion cell.",
+  "I-09": "KILLED: 6-10x the power of a propeller, and on slopes gravity needs no thrust at all.",
+  "I-11": "KILLED as a mode the product relies on; opportunistic on windward ridges only.",
+  "I-12": "KILLED: legal and conduct rules.",
+  "I-13": "KILLED as a product (not real appearance footage); possible free bonus clip in any helmet cam.",
+  "I-14": "KILLED: batteries do not fix the hover-power x KE corner; changing the energy source (gravity) does."
+ },
+ "note_for_kite_workstream": "I-05 is not a kite: lift balances weight by gliding and the tether carries only drag deficit; the kite agent may reuse the reel/funnel dock and the sled-tow+winch launch."
+}

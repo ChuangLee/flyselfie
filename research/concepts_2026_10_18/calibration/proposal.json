@@ -1,0 +1,1054 @@
+{
+ "id": "CAL-2026-10-18",
+ "task": "SIM-030",
+ "status": "proposal — literature-calibrated, not physically verified (M-070 not_run)",
+ "evidenceKinds": {
+  "MEASURED": "value reported in the cited study",
+  "SPEC": "manufacturer/standard specification",
+  "INFERENCE": "derived by this calibration, not measured",
+  "GAP": "no measured value found"
+ },
+ "sources": {
+  "brunner2015": {
+   "cite": "Brunner, Ruedl et al. 2015, PLoS ONE (radar, n=416 recreational adults, Austria)",
+   "url": "https://doi.org/10.1371/journal.pone.0132002",
+   "access": "snippet_or_abstract_only"
+  },
+  "ettlinger2005": {
+   "cite": "Ettlinger, Shealy & Johnson 2005, J ASTM Int (radar, blue groomed trails, USA)",
+   "url": "https://store.astm.org/stp12212s.html",
+   "access": "snippet_or_abstract_only"
+  },
+  "supej2018": {
+   "cite": "Supej, Ogrin & Holmberg 2018, Front Physiol (instructors, GNSS + accelerometers)",
+   "url": "https://doi.org/10.3389/fphys.2018.00204",
+   "access": "fetched_full_text"
+  },
+  "klous2014": {
+   "cite": "Klous et al. 2014, Comput Math Methods Med (ski teachers, 21° slope)",
+   "url": "https://doi.org/10.1155/2014/340272",
+   "access": "fetched_full_text"
+  },
+  "gilgien2015": {
+   "cite": "Gilgien et al. 2015, PLoS ONE (World Cup GNSS)",
+   "url": "https://doi.org/10.1371/journal.pone.0118119",
+   "access": "fetched_full_text"
+  },
+  "martinez2019": {
+   "cite": "Martínez et al. 2019, Front Sports Act Living (experts, boot IMUs)",
+   "url": "https://doi.org/10.3389/fspor.2019.00018",
+   "access": "fetched_full_text"
+  },
+  "sporri2016": {
+   "cite": "Spörri et al. 2016, Orthop J Sports Med (elite racers, sacrum+sternum IMUs, insoles)",
+   "url": "https://doi.org/10.1177/2325967116630719",
+   "access": "fetched_full_text"
+  },
+  "sporri2017": {
+   "cite": "Spörri et al. 2017, Front Physiol (racers, vibration bands, sacrum RMS)",
+   "url": "https://doi.org/10.3389/fphys.2017.00522",
+   "access": "fetched_full_text"
+  },
+  "reid2020": {
+   "cite": "Reid et al. 2020, Front Sports Act Living (slalom 3D video)",
+   "url": "https://doi.org/10.3389/fspor.2020.00025",
+   "access": "fetched_full_text"
+  },
+  "nakazato2011": {
+   "cite": "Nakazato, Scheiber & Müller 2011, J Sports Sci Med (force plates, experts/intermediates)",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3761512",
+   "access": "fetched_full_text"
+  },
+  "steenstrup2018": {
+   "cite": "Steenstrup et al. 2018, Br J Sports Med 52:32 (WC head impacts, video)",
+   "url": "https://doi.org/10.1136/bjsports-2017-098050",
+   "access": "snippet_or_abstract_only"
+  },
+  "lubricants2016": {
+   "cite": "Ski-suit fabric on snow tribometer, Lubricants 2016",
+   "url": "https://doaj.org/article/80fa8d48cb5647a4812f0b934b3addf1",
+   "access": "snippet_or_abstract_only"
+  },
+  "mogulKnee2007": {
+   "cite": "Mogul knee goniometry, 6 competitive freestyle skiers (conference, via search)",
+   "url": "https://researchspace.auckland.ac.nz/handle/2292/6772",
+   "access": "snippet_or_abstract_only"
+  },
+  "fisMogul": {
+   "cite": "FIS/NSF mogul course specification sheet (2007 rev.)",
+   "url": "https://skiforbundet.no/contentassets/e4988bcec1a94439bbabfb3922c11395/mogul-spec-mog-final.pdf",
+   "access": "snippet_or_abstract_only"
+  },
+  "wmo2010": {
+   "cite": "Harper, Kepert & Ginger 2010, WMO/TD-1555 gust factors",
+   "url": "https://www.systemsengineeringaustralia.com.au/download/WMO_TC_Wind_Averaging_27_Aug_2010.pdf",
+   "access": "fetched_full_text"
+  },
+  "iec61400": {
+   "cite": "IEC 61400-1 turbulence classes and Kaimal length scale (secondary summary)",
+   "url": "https://support.ul-renewables.com/windographer/articles-IEC-turbulence.htm",
+   "access": "snippet_or_abstract_only"
+  },
+  "tuwienLift": {
+   "cite": "TU Wien 2021, ropeway crosswind availability limit",
+   "url": "https://www.tuwien.at/en/tu-wien/news/news-articles/news/how-windproof-are-cable-cars-1",
+   "access": "snippet_or_abstract_only"
+  },
+  "hoverair": {
+   "cite": "HoverAir X1 PRO/PROMAX ski product page",
+   "url": "https://us.hoverair.com/products/hoverair-x1-pro-promax-for-skiing",
+   "access": "snippet_or_abstract_only"
+  },
+  "djiNeo": {
+   "cite": "DJI Neo specs",
+   "url": "https://www.dji.com/neo/specs",
+   "access": "snippet_or_abstract_only"
+  },
+  "djiFlip": {
+   "cite": "DJI Flip spec copy",
+   "url": "https://dronespec.dronedesk.io/dji-flip",
+   "access": "snippet_or_abstract_only"
+  },
+  "insta360x4": {
+   "cite": "Insta360 X4 review/spec",
+   "url": "https://www.maisondudrone.com/en/insta360-x4-complete-test-the-360-power-of-8k",
+   "access": "snippet_or_abstract_only"
+  },
+  "faa107": {
+   "cite": "14 CFR 107 Subpart D",
+   "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-107/subpart-D",
+   "access": "snippet_or_abstract_only"
+  },
+  "astmF3389": {
+   "cite": "ASTM F3389/F3389M-21",
+   "url": "https://store.astm.org/f3389_f3389m-21.html",
+   "access": "snippet_or_abstract_only"
+  },
+  "easa2019_945": {
+   "cite": "EASA Easy Access Rules UAS, Reg. (EU) 2019/945 classes",
+   "url": "https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-unmanned-aircraft-systems?page=19",
+   "access": "snippet_or_abstract_only"
+  },
+  "sust80J": {
+   "cite": "Swiss STSB safety recommendation on the 80 J criterion",
+   "url": "https://www.sust.admin.ch/en/safety-recommendations/aviation/av_se_587.pdf",
+   "access": "snippet_or_abstract_only"
+  },
+  "nasaSickness": {
+   "cite": "Terenzi & Zaal 2020, NASA/AIAA 2020-0171 cybersickness thresholds",
+   "url": "https://ntrs.nasa.gov/api/citations/20200000787/downloads/20200000787.pdf",
+   "access": "fetched_full_text"
+  },
+  "cipaDC011": {
+   "cite": "CIPA DC-X011 image stabilisation measurement (stills)",
+   "url": "https://corp.dxomark.com/wp-content/uploads/2025/11/CIPA-DC-X011-2014_E.pdf",
+   "access": "snippet_or_abstract_only"
+  },
+  "militaryLoad": {
+   "cite": "Military load carriage review (combat 30% BW, march 45% BW)",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4580806",
+   "access": "snippet_or_abstract_only"
+  },
+  "torayT700": {
+   "cite": "Toray T700S datasheet",
+   "url": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+   "access": "snippet_or_abstract_only"
+  },
+  "fleckTape": {
+   "cite": "Fleck/Pellegrino woven CFRP tape spring",
+   "url": "https://www.repository.cam.ac.uk/bitstream/1810/285430/1/Fleck60JMPSRevised.pdf",
+   "access": "snippet_or_abstract_only"
+  },
+  "battCold": {
+   "cite": "Li-ion low-temperature capacity, Machines 13(12):1114",
+   "url": "https://www.mdpi.com/2075-1702/13/12/1114",
+   "access": "snippet_or_abstract_only"
+  }
+ },
+ "literature": {
+  "speed": [
+   {
+    "v": "48.2±14.3 km/h (13.4±4.0 m/s)",
+    "pop": "recreational adults, radar",
+    "src": "brunner2015",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "44.5 km/h skiers (12.4 m/s), peak over window",
+    "pop": "recreational, blue groomed",
+    "src": "ettlinger2005",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "carved turns 13.3 m/s; snow-plow 4.8 m/s",
+    "pop": "instructors, GNSS",
+    "src": "supej2018",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "carved turn mean 13.9, max 16.5 m/s (21° slope)",
+    "pop": "ski teachers",
+    "src": "klous2014",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "GS 17.75±2.30 m/s median±IQR",
+    "pop": "World Cup",
+    "src": "gilgien2015",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "p95 recreational ≈ 62–72 km/h (17–20 m/s)",
+    "pop": "mean+1.645 SD",
+    "src": "brunner2015",
+    "kind": "INFERENCE"
+   }
+  ],
+  "turnDuration": [
+   {
+    "v": "long carving 2.97±0.43 s/turn; short turns 1.04±0.41 s/turn",
+    "pop": "experts (ex-racers, instructors)",
+    "src": "martinez2019",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "GS 1.45±0.11 s; SL 0.90±0.04 s",
+    "pop": "elite racers 26° icy",
+    "src": "sporri2016",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "SL min radius 3.96–4.94 m; edge angle 66–71°",
+    "pop": "slalom racers",
+    "src": "reid2020",
+    "kind": "MEASURED"
+   }
+  ],
+  "groundReactionBW": [
+   {
+    "v": "short carving peak 1.91–2.05 (experts), 1.61–1.68 (intermediates); long steered peak 1.76–1.86",
+    "pop": "force plates 15°/23°",
+    "src": "nakazato2011",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "carve 1.93, short swing 1.89, straight 1.23",
+    "pop": "instructors",
+    "src": "supej2018",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "GS 1.80, SL 2.02–2.25 (insoles, read ~30–40% low)",
+    "pop": "racers",
+    "src": "sporri2016",
+    "kind": "MEASURED"
+   }
+  ],
+  "trunk": [
+   {
+    "v": "frontal flexion avg/max GS 27/29°, SL 11/13°; lateral bending GS 11–12/13–14°, SL 6–7/9–10°; torsion GS 6/8–9°, SL 5–6/7.5°",
+    "pop": "elite racers, sacrum+sternum IMUs",
+    "src": "sporri2016",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "knee angle change 50–60° per mogul turn",
+    "pop": "6 competitive freestyle skiers",
+    "src": "mogulKnee2007",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "mogul spacing ≈3.5 m; course 26–28°",
+    "pop": "competition course",
+    "src": "fisMogul",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "NO measured trunk oscillation amplitude/frequency for recreational skiers, nor trunk angles in moguls, nor pelvis lateral excursion was found",
+    "src": null,
+    "kind": "GAP"
+   }
+  ],
+  "vibration": [
+   {
+    "v": "boot weighted RMS: carve 9.69, short swing 12.92, basic swing 7.73, straight 2.55, plough 6.05 m/s²; PSD peaks 1.5–8 Hz; extra 8.5–35 Hz band only with skidding; falls above 35 Hz",
+    "pop": "instructors groomed",
+    "src": "supej2018",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "sacrum weighted RMS GS 11.10, SL 9.35 m/s²; bands <4 Hz turning, 4–10 Hz spine resonance, 10–20 Hz shank/thigh, 15–25 Hz ski chatter",
+    "pop": "racers, compact artificial snow 19°",
+    "src": "sporri2017",
+    "kind": "MEASURED"
+   }
+  ],
+  "falls": [
+   {
+    "v": "normal head impact velocity 8.1±0.6 m/s (1.9–12.1)",
+    "pop": "World Cup crashes, video",
+    "src": "steenstrup2018",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "ski-suit on snow μ 0.19–0.48 → sliding decel ≈ 2–5 m/s² minus slope component",
+    "src": "lubricants2016",
+    "kind": "MEASURED (μ) / INFERENCE (decel)"
+   },
+   {
+    "v": "NO measured whole-body crash deceleration/duration found",
+    "src": null,
+    "kind": "GAP"
+   }
+  ],
+  "wind": [
+   {
+    "v": "G(3 s/600 s) at 10 m: in-land 1.66, off-land 1.52, off-sea 1.38, at-sea 1.23 (SD≈0.1); G = 1 + g·Iu; Iu ≈ 1/ln(z/z0)",
+    "src": "wmo2010",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "snow z0 0.0002–0.005 m → Iu 0.11–0.15 at 2–10 m, G3s 1.3–1.45 over flat snow",
+    "src": "wmo2010",
+    "kind": "INFERENCE"
+   },
+   {
+    "v": "Kaimal Lu = 8.1·0.7z → 28 m at z = 5 m",
+    "src": "iec61400",
+    "kind": "MEASURED (standard)"
+   },
+   {
+    "v": "ropeway crosswind limit 14–18 m/s",
+    "src": "tuwienLift",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "NO measured Iu on steep alpine ski slopes retrieved (TEAMx data pending)",
+    "src": null,
+    "kind": "GAP"
+   }
+  ],
+  "devices": [
+   {
+    "v": "HoverAir X1 PRO/PROMAX 191.5/192.5 g, auto-follow 11.7 m/s, wind Level 5 (10.7 m/s), 16 min",
+    "src": "hoverair",
+    "kind": "SPEC"
+   },
+   {
+    "v": "DJI Neo 135 g, follow 6–8 m/s, wind 8 m/s, 18 min, −10…40 °C",
+    "src": "djiNeo",
+    "kind": "SPEC"
+   },
+   {
+    "v": "DJI Flip <249 g, tracking 12 m/s, wind 10.7 m/s, 31 min, −10…40 °C",
+    "src": "djiFlip",
+    "kind": "SPEC"
+   },
+   {
+    "v": "Insta360 X4 203 g, 8K30 (7680×3840) 75 min, 5.7K30 135 min, −20…40 °C; X5 200 g 8K30 88–93 min",
+    "src": "insta360x4",
+    "kind": "SPEC"
+   },
+   {
+    "v": "Li-ion at −10 °C: plan 60–85 % of rated capacity",
+    "src": "battCold",
+    "kind": "INFERENCE"
+   },
+   {
+    "v": "no maker publishes FlowState gyro range / max stabilisable rate / rolling-shutter time",
+    "src": null,
+    "kind": "GAP"
+   }
+  ],
+  "material": [
+   {
+    "v": "T700S fibre 4900 MPa, 230 GPa, 2.1 %, 1.80 g/cm³; UD 60 % Vf 2860 MPa, 134 GPa, 2.0 %",
+    "src": "torayT700",
+    "kind": "SPEC"
+   },
+   {
+    "v": "woven CFRP tape spring R 12.5 mm, t 0.65 mm",
+    "src": "fleckTape",
+    "kind": "MEASURED"
+   },
+   {
+    "v": "−20 °C benign for fibre-dominated properties; thermal-cycling matrix microcracking is the risk",
+    "src": "torayT700",
+    "kind": "INFERENCE"
+   }
+  ]
+ },
+ "currentModelDeviations": {
+  "skier": [
+   "turnPeriod is the duration of ONE turn (edge change to edge change). Default 4.5 s gives 0.22 turns/s vs measured 2.97±0.43 s for long carving (martinez2019): turns ~50 % too long.",
+   "style 'short' (0.45×4.5 = 2.0 s/turn at 13 m/s) vs measured 1.04 s/turn; short turns are also run at long-turn speed.",
+   "Default apex lateral acceleration 0.54 g, lean 28°, quasi-static load peak 1.14 BW vs measured GRF peaks 1.6–2.05 BW (implying ~1.2–1.6 g, 50–57° inclination): turn loads and lean are ~half of reality. Concept scenarios (boom moguls case 0.34 g / 1.03 BW, demo 0.47 g) are even gentler.",
+   "Speed is constant within ±1 % (p05≈p95); mean settles ≈1–2.5 m/s ABOVE vTarget because the skid controller is proportional only (gain 1.2 s⁻¹). Default mean 13.2 m/s is consistent with recreational radar means (12.4–13.4 m/s) but there is no population spread (SD 4 m/s measured) and no p95 case (17–20 m/s, INFERENCE).",
+   "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body. Each concept adds its own (boom360: ±4° pitch at v/λ, rough 1.2 m/s² hip RMS 1–30 Hz)."
+  ],
+  "trunkAndVibration": [
+   "boom360 rough 1.2 m/s² (default) / 2.0 (mogul scenario) hip RMS is LOW against measured weighted RMS 9.4–11.1 m/s² at the sacrum (racers, sporri2017) and 9.7/12.9 m/s² at the boot (instructors carve/short, supej2018). Proposed recreational vertical trunk RMS ≈ 2.6–2.7 m/s² groomed, ≈4.3 icy, ≈3.7 moguls (INFERENCE: scaled down for speed, softer snow, single axis; still below the racer figures).",
+   "boom360 roughness shape (∝f² up to 6 Hz, 1–30 Hz) misses the measured 4–10 Hz spine-resonance peak and the 15–25 Hz chatter band; replace with the two-band shape in trunkModel.",
+   "boom360 mogul pitch ±4° at 1.8 Hz (>1 Hz rate RMS ≈32 °/s) and 0.5 g bumps: same order as the proposal (±6°, ≈2 Hz at 3.5 m spacing, >1 Hz pitch-rate RMS ≈52 °/s, 4.5 m/s² bumps), but the amplitude is unmeasured for both (GAP). Bump wavelength 5 m in boom360 vs ≈3.5 m measured course spacing."
+  ],
+  "wind": [
+   "Realised Iu equals the requested intensity; σv/σu 0.8 and σw/σu 0.5 match standard ratios; PSD slope −1.56 vs −5/3 Kolmogorov: OK; Lu 30 m matches IEC Kaimal 28 m at z = 5 m.",
+   "Gust factor G3s: model 1.30 (Iu 0.15), 1.38 (0.2), 1.49 (0.25), 1.55 (0.3) → peak factor g ≈ 1.9–2.0 vs WMO in-land 1.66 at Iu 0.25 (g ≈ 2.6). Model underestimates gust peaks ~25 % at a given Iu (24-mode sum-of-sines, lowest mode 0.02 Hz).",
+   "For U < 2 m/s the model floors σ at Iu·2 m/s (Iu realised 0.30 at U = 1): acceptable for calm-with-puffs but label it.",
+   "No Taylor advection: a skier moving 12 m/s into a 5 m/s wind sees the same >1 Hz share (6.2 %) as a fixed point; frozen turbulence would raise it ~2.3× (INFERENCE). The spatial phase term 0.01·φ rad/m is frequency-independent."
+  ]
+ },
+ "skier": {
+  "styles": {
+   "recreational_carve": {
+    "params": {
+     "style": "carve",
+     "slopeDeg": 15,
+     "vTarget": 12,
+     "v0": 12,
+     "turnPeriod": 2.9,
+     "turnAmpDeg": 45,
+     "mu": 0.05,
+     "CdA": 0.5
+    },
+    "targets": "turn 2.97 s (martinez2019), mean speed 12.4–13.4 m/s (ettlinger2005, brunner2015), peak GRF 1.61–1.68 BW intermediates (nakazato2011)",
+    "model": {
+     "speed_ms": {
+      "mean": 13.01,
+      "p05": 12.84,
+      "p95": 13.14,
+      "kmh_mean": 46.8
+     },
+     "turn_s": {
+      "mean": 2.84,
+      "min": 2.58,
+      "max": 3.12,
+      "turnsPerS": 0.352,
+      "fullCycleHz": 0.176,
+      "n": 12
+     },
+     "apexLat_g": {
+      "mean": 1.18,
+      "max": 1.29
+     },
+     "apexRadius_m": {
+      "mean": 14.9,
+      "min": 13.5
+     },
+     "apexLean_deg": {
+      "mean": 48.4,
+      "max": 51.1
+     },
+     "loadFactor_bw": {
+      "p95": 1.51,
+      "max": 1.61
+     }
+    }
+   },
+   "expert_carve": {
+    "params": {
+     "style": "carve",
+     "slopeDeg": 20,
+     "vTarget": 13,
+     "v0": 13,
+     "turnPeriod": 2.9,
+     "turnAmpDeg": 50,
+     "mu": 0.05,
+     "CdA": 0.5
+    },
+    "targets": "turn 2.97 s, speed 13.3–13.9 m/s (supej2018, klous2014), peak GRF 1.76–1.93 BW (nakazato2011, supej2018)",
+    "model": {
+     "speed_ms": {
+      "mean": 14.42,
+      "p05": 14.14,
+      "p95": 14.64,
+      "kmh_mean": 51.9
+     },
+     "turn_s": {
+      "mean": 2.84,
+      "min": 2.62,
+      "max": 3.14,
+      "turnsPerS": 0.353,
+      "fullCycleHz": 0.176,
+      "n": 12
+     },
+     "apexLat_g": {
+      "mean": 1.48,
+      "max": 1.59
+     },
+     "apexRadius_m": {
+      "mean": 14.7,
+      "min": 13.5
+     },
+     "apexLean_deg": {
+      "mean": 54.7,
+      "max": 56.8
+     },
+     "loadFactor_bw": {
+      "p95": 1.74,
+      "max": 1.85
+     }
+    }
+   },
+   "short_turns": {
+    "params": {
+     "style": "short",
+     "slopeDeg": 15,
+     "vTarget": 8,
+     "v0": 8,
+     "turnPeriod": 2.3,
+     "turnAmpDeg": 40,
+     "mu": 0.05,
+     "CdA": 0.5
+    },
+    "targets": "turn 1.04 s (martinez2019; the model multiplies turnPeriod by 0.45 for short), peak GRF 1.89–2.05 BW (supej2018, nakazato2011); speed 8–10 m/s is INFERENCE (no measured short-swing speed found)",
+    "model": {
+     "speed_ms": {
+      "mean": 9.35,
+      "p05": 9.29,
+      "p95": 9.39,
+      "kmh_mean": 33.7
+     },
+     "turn_s": {
+      "mean": 1.04,
+      "min": 0.92,
+      "max": 1.16,
+      "turnsPerS": 0.964,
+      "fullCycleHz": 0.482,
+      "n": 34
+     },
+     "apexLat_g": {
+      "mean": 1.56,
+      "max": 1.76
+     },
+     "apexRadius_m": {
+      "mean": 5.7,
+      "min": 5.1
+     },
+     "apexLean_deg": {
+      "mean": 52.6,
+      "max": 56.2
+     },
+     "loadFactor_bw": {
+      "p95": 1.86,
+      "max": 2.01
+     }
+    }
+   },
+   "moguls_recreational": {
+    "params": {
+     "style": "short",
+     "slopeDeg": 24,
+     "vTarget": 4.5,
+     "v0": 5,
+     "turnPeriod": 2.3,
+     "turnAmpDeg": 30,
+     "mu": 0.08,
+     "CdA": 0.5
+    },
+    "targets": "one turn per bump at ≈3.5 m spacing (fisMogul) → ~1 s/turn; speed 5–7 m/s INFERENCE; resulting bump rate v/λ ≈ 2 Hz",
+    "model": {
+     "speed_ms": {
+      "mean": 6.97,
+      "p05": 6.93,
+      "p95": 7.01,
+      "kmh_mean": 25.1
+     },
+     "turn_s": {
+      "mean": 1.04,
+      "min": 0.92,
+      "max": 1.18,
+      "turnsPerS": 0.964,
+      "fullCycleHz": 0.482,
+      "n": 34
+     },
+     "apexLat_g": {
+      "mean": 0.87,
+      "max": 0.98
+     },
+     "apexRadius_m": {
+      "mean": 5.8,
+      "min": 5.1
+     },
+     "apexLean_deg": {
+      "mean": 36.5,
+      "max": 40.2
+     },
+     "loadFactor_bw": {
+      "p95": 1.27,
+      "max": 1.34
+     }
+    }
+   },
+   "gs_racer_reference": {
+    "params": {
+     "style": "carve",
+     "slopeDeg": 24,
+     "vTarget": 16.5,
+     "v0": 16,
+     "turnPeriod": 1.45,
+     "turnAmpDeg": 30,
+     "mu": 0.03,
+     "CdA": 0.35
+    },
+    "targets": "GS 17.75 m/s (gilgien2015), 1.45 s/turn (sporri2016), GRF ~2.5–2.9 BW force-plate equivalent",
+    "model": {
+     "speed_ms": {
+      "mean": 18.76,
+      "p05": 18.69,
+      "p95": 18.83,
+      "kmh_mean": 67.6
+     },
+     "turn_s": {
+      "mean": 1.42,
+      "min": 1.28,
+      "max": 1.56,
+      "turnsPerS": 0.702,
+      "fullCycleHz": 0.351,
+      "n": 24
+     },
+     "apexLat_g": {
+      "mean": 2.15,
+      "max": 2.46
+     },
+     "apexRadius_m": {
+      "mean": 16.8,
+      "min": 14.5
+     },
+     "apexLean_deg": {
+      "mean": 62.9,
+      "max": 65.8
+     },
+     "loadFactor_bw": {
+      "p95": 2.33,
+      "max": 2.62
+     }
+    }
+   }
+  },
+  "populationSpeed": {
+   "meanKmh": 48.2,
+   "sdKmh": 14.3,
+   "src": "brunner2015",
+   "note": "draw vTarget ≈ N(12.2, 3.5) m/s clipped 5–20 to cover the population; model mean ≈ vTarget+1 m/s (INFERENCE)"
+  },
+  "mu": {
+   "value": 0.05,
+   "range": [
+    0.03,
+    0.1
+   ],
+   "src": "Kuroiwa ski–snow friction via search snippet",
+   "kind": "MEASURED (range), snippet only"
+  },
+  "CdA": {
+   "value": 0.5,
+   "range": [
+    0.35,
+    0.7
+   ],
+   "src": null,
+   "kind": "INFERENCE — not verified in this pass; keep ASSUMED"
+  },
+  "modelChanges": [
+   "add a PI speed controller or document vTarget ≈ desired mean − 1 m/s",
+   "add within-turn speed modulation (skid at apex) — not quantified in retrieved sources"
+  ],
+  "fall": {
+   "slidingDecel_ms2": [
+    2,
+    5
+   ],
+   "kind": "INFERENCE from suit–snow μ 0.19–0.48 (lubricants2016)",
+   "headImpactNormal_ms": {
+    "mean": 8.1,
+    "range": [
+     1.9,
+     12.1
+    ],
+    "src": "steenstrup2018",
+    "note": "World Cup; recreational lower (GAP)"
+   },
+   "current": "model uses 4–6 m/s² sliding: within the inferred range"
+  }
+ },
+ "trunkModel": {
+  "outputs": {
+   "pitch": "rad, flexion oscillation about the crouch mean",
+   "roll": "rad, angulation (trunk inclination = lean − roll) + sway",
+   "yaw": "rad, trunk vs travel heading (counter-rotation)",
+   "zAcc": "m/s², trunk-up acceleration, zero mean"
+  },
+  "params": {
+   "angulation": {
+    "carve": "0.2×lean capped 14°",
+    "short": "0.15×lean capped 10°",
+    "src": "sporri2016 lateral bending 6–14°",
+    "kind": "MEASURED range, INFERENCE mapping"
+   },
+   "turnPitch": {
+    "carve": "±5° once per turn",
+    "short": "±7°",
+    "src": "sporri2016 mean flexion 11–27° (posture only)",
+    "kind": "INFERENCE (GAP for amplitude)"
+   },
+   "yaw": {
+    "carve": "−0.25ψ capped 12°",
+    "short": "−0.6ψ capped 25°",
+    "src": "sporri2016 torsion 5–9° (trunk vs pelvis)",
+    "kind": "MEASURED trunk–pelvis; trunk–ski counter-rotation INFERENCE"
+   },
+   "randomRotation": {
+    "pitchRmsDeg": {
+     "groomed": 1.0,
+     "icy": 1.5,
+     "moguls": 2.0
+    },
+    "rollRmsDeg": {
+     "groomed": 0.8,
+     "icy": 1.0,
+     "moguls": 1.5
+    },
+    "band": "0.5–4 Hz, PSD ∝ f⁻²",
+    "kind": "INFERENCE"
+   },
+   "vertical": {
+    "bands": {
+     "body": "2–10 Hz centred 5.5 Hz (spine resonance 4–10 Hz)",
+     "chatter": "10–30 Hz centred 18 Hz (ski chatter 15–25 Hz)"
+    },
+    "bandSrc": [
+     "sporri2017",
+     "supej2018"
+    ],
+    "rmsAt13ms": {
+     "groomed": {
+      "body": 2.5,
+      "chatter": 1.0
+     },
+     "icy": {
+      "body": 3.0,
+      "chatter": 3.0
+     },
+     "moguls": {
+      "body": 2.5,
+      "chatter": 1.0
+     }
+    },
+    "styleFactor": {
+     "carve": 1.0,
+     "short": 1.33,
+     "straight": 0.3,
+     "src": "supej2018 ratios 12.9/9.7, 2.6/9.7"
+    },
+    "speedScaling": "linear in v/13, capped 1.6 (INFERENCE)",
+    "kind": "bands MEASURED; levels INFERENCE scaled below measured 9.4–12.9 m/s² weighted RMS"
+   },
+   "moguls": {
+    "lambda_m": 3.5,
+    "lambdaVar": 0.15,
+    "zAmp_ms2": 4.5,
+    "pitchAmpDeg": 6,
+    "pitchLagRad": 0.8,
+    "rollAmpDeg": 3,
+    "src": "fisMogul (spacing); knee 50–60°/turn (mogulKnee2007)",
+    "kind": "spacing MEASURED; amplitudes INFERENCE (GAP)"
+   }
+  },
+  "resultingStats": {
+   "note": "Proposed trunk model statistics (rad→deg). rate_gt1Hz is the >1 Hz trunk angular-rate RMS, the input a body-mounted camera mount/stabiliser must reject (cf. criteria jitterRms 3 °/s).",
+   "carve_groomed": {
+    "pitch_pp_deg": 13.2,
+    "roll_pp_deg": 22.5,
+    "yaw_pp_deg": 24.5,
+    "pitch_gt1Hz_rms_deg": 0.61,
+    "rate_gt1Hz_rms_degps": {
+     "pitch": 7.8,
+     "roll": 6.2,
+     "yaw": 3.1
+    },
+    "zAcc_rms_ms2": 2.72,
+    "zAcc_peak_ms2": 9.2
+   },
+   "carve_icy": {
+    "pitch_pp_deg": 15,
+    "roll_pp_deg": 23.3,
+    "yaw_pp_deg": 24.7,
+    "pitch_gt1Hz_rms_deg": 0.9,
+    "rate_gt1Hz_rms_degps": {
+     "pitch": 11.6,
+     "roll": 7.7,
+     "yaw": 3.9
+    },
+    "zAcc_rms_ms2": 4.28,
+    "zAcc_peak_ms2": 16
+   },
+   "short_groomed": {
+    "pitch_pp_deg": 13,
+    "roll_pp_deg": 19.3,
+    "yaw_pp_deg": 41.6,
+    "pitch_gt1Hz_rms_deg": 1.42,
+    "rate_gt1Hz_rms_degps": {
+     "pitch": 10.1,
+     "roll": 5.6,
+     "yaw": 4
+    },
+    "zAcc_rms_ms2": 2.6,
+    "zAcc_peak_ms2": 8.7
+   },
+   "moguls": {
+    "pitch_pp_deg": 25.2,
+    "roll_pp_deg": 20.1,
+    "yaw_pp_deg": 31.7,
+    "pitch_gt1Hz_rms_deg": 4.27,
+    "rate_gt1Hz_rms_degps": {
+     "pitch": 52,
+     "roll": 9.4,
+     "yaw": 6
+    },
+    "zAcc_rms_ms2": 3.73,
+    "zAcc_peak_ms2": 10.8
+   },
+   "boom360_assumption": {
+    "mogul_pitch": "±4° at bump rate v/λ = 9/5 = 1.8 Hz → peak rate 4·2π·1.8 = 45 °/s, >1 Hz rate RMS ≈ 32 °/s",
+    "rough": "1.2 m/s² (default) / 2.0 m/s² (mogul scenario) hip RMS 1–30 Hz, two axes",
+    "moguls_A": "0.5 g = 4.9 m/s² amplitude (scenario), 0.3 g in the demo"
+   }
+  },
+  "dropInJs": "// Drop-in candidate for sim/js/concepts/common/skier.js: trunkAt(sk, t, opts)\n// Trunk (thorax) rotation relative to the whole-body frame given by skierAt()\n// (heading + inclination 'lean' + crouch), plus vertical acceleration at the\n// pelvis/trunk from snow roughness and moguls. Deterministic and seeded.\n//   pitch: forward flexion oscillation about the crouch-implied mean (rad, + = more flexed)\n//   roll : angulation, same sign convention as skierAt().lean; trunk inclination = lean − roll\n//          (the trunk stays more upright than the legs), plus small random lateral sway\n//   yaw  : trunk rotation relative to the travel heading (rad, + = left), counter-rotation\n//   zAcc : vertical (body-up) acceleration at the trunk, m/s², zero mean\n// Parameter values: see calibration/proposal.json (TRUNK_PARAMS) — each with its source.\n// The model is a parametric fit to published ranges, NOT a measured trunk spectrum.\nimport { skierAt } from '../../../sim/js/concepts/common/skier.js';\n\nfunction mulberry32(seed) { let a = seed >>> 0; return function () { a = (a + 0x6d2b79f5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }\n\nexport const TRUNK_PARAMS = {\n  // Turn-synchronous terms per style. Basis (see proposal.json trunkModel.sources):\n  //  angulation: lateral trunk bending vs pelvis 6–12° avg, 9–14° max in SL/GS racers (Spörri 2016, MEASURED);\n  //    with apex lean 50–60° that is ≈0.2 of the lean (INFERENCE); cap at the measured max.\n  //  pitchTurnDeg: flexion–extension once per turn; amplitude INFERRED (no measured oscillation amplitude found);\n  //    mean flexion 11–27° (SL–GS, Spörri 2016) is the posture, carried by crouch in skierAt().\n  //  yaw: trunk torsion vs pelvis 5–9° (Spörri 2016, MEASURED); upper body facing the fall line in short turns\n  //    (technique convention, INFERENCE) gives a larger trunk-vs-travel counter-rotation.\n  carve:    { angulation: 0.2, angulationMaxDeg: 14, pitchTurnDeg: 5, yawCounter: 0.25, yawMaxDeg: 12 },\n  short:    { angulation: 0.15, angulationMaxDeg: 10, pitchTurnDeg: 7, yawCounter: 0.6, yawMaxDeg: 25 },\n  straight: { angulation: 0, angulationMaxDeg: 0, pitchTurnDeg: 1, yawCounter: 0, yawMaxDeg: 0 },\n  // Terrain: vertical (trunk-up) acceleration RMS at 13 m/s, two spectral bumps:\n  //  'body' 2–10 Hz (turning + spine resonance 4–10 Hz) and 'chatter' 10–30 Hz (ski chatter 15–25 Hz),\n  //  band edges from Spörri 2017 and Supej 2018 (MEASURED bands); RMS levels are INFERRED by scaling the\n  //  measured sacrum 9.4–11.1 m/s² (racers, compact artificial snow, weighted) and boot 9.7 (carve) /\n  //  12.9 (short) m/s² (instructors, groomed) down to recreational speed/snow and to the vertical axis only.\n  terrain: {\n    groomed: { zBodyRms: 2.5, zChatRms: 1.0, pitchRmsDeg: 1.0, rollRmsDeg: 0.8 },\n    icy:     { zBodyRms: 3.0, zChatRms: 3.0, pitchRmsDeg: 1.5, rollRmsDeg: 1.0 },\n    moguls:  { zBodyRms: 2.5, zChatRms: 1.0, pitchRmsDeg: 2.0, rollRmsDeg: 1.5,\n               mogul: { lambda: 3.5, lambdaVar: 0.15, zAmp: 4.5, pitchAmpDeg: 6, pitchLagRad: 0.8, rollAmpDeg: 3 } },\n  },\n  styleVib: { carve: 1.0, short: 1.33, straight: 0.3 }, // Supej 2018: short swing 12.9 vs carve 9.7 vs straight 2.6 m/s²\n  rotBand: [0.5, 4], // random trunk rotation band (INFERENCE: below spine resonance)\n};\n\n// sum-of-sines band-limited noise, unit RMS, log-spaced frequencies in [f0,f1], spectral weight w(f)\nfunction multisine(rng, f0, f1, n, w = () => 1) {\n  const m = []; let p = 0;\n  for (let i = 0; i < n; i++) { const f = f0 * Math.pow(f1 / f0, (i + rng()) / n); const a = Math.sqrt(w(f) * f); m.push([2 * Math.PI * f, a, 2 * Math.PI * rng()]); p += a * a / 2; }\n  const s = 1 / Math.sqrt(p || 1); for (const c of m) c[1] *= s;\n  return (t) => { let y = 0; for (const [om, a, ph] of m) y += a * Math.sin(om * t + ph); return y; };\n}\n\n// Build a trunk-motion function bound to one simulated skier `sk` (from simulateSkier).\n// opts: { terrain: 'groomed'|'icy'|'moguls', moguls: [t0,t1] (time span on moguls), seed }\nexport function makeTrunk(sk, opts = {}) {\n  const P = { ...TRUNK_PARAMS, ...(opts.params || {}) };\n  const style = sk.opts.style in P ? sk.opts.style : 'carve';\n  const S = P[style];\n  const T = P.terrain[opts.terrain || 'groomed'];\n  const span = opts.moguls || (opts.terrain === 'moguls' ? [0, Infinity] : null);\n  const rng = mulberry32(opts.seed ?? 17);\n  const D = Math.PI / 180;\n  // vertical chatter: acceleration PSD flat-ish in band with a roll-off (ASSUMED shape within the cited band)\n  const bump = (fc, q) => (f) => Math.exp(-Math.pow(Math.log(f / fc) / q, 2));\n  const zB = multisine(rng, 2, 10, 24, bump(5.5, 0.5)), zC = multisine(rng, 10, 30, 24, bump(18, 0.35));\n  const vib = P.styleVib[style] ?? 1;\n  const pink = (f) => 1 / (f * f); // angle PSD ∝ f⁻² (INFERENCE: postural sway-like)\n  const pN = multisine(rng, P.rotBand[0], P.rotBand[1], 16, pink), rN = multisine(rng, P.rotBand[0], P.rotBand[1], 16, pink), yN = multisine(rng, P.rotBand[0], P.rotBand[1], 16, pink);\n  // mogul phase table (distance-based, bump spacing varies ±lambdaVar)\n  const dt = sk.sampleDt, ph = new Float64Array(sk.n + 1);\n  if (T.mogul) {\n    let phase = 0, lam = T.mogul.lambda;\n    for (let i = 0; i < sk.n; i++) {\n      ph[i] = phase; const before = Math.floor(phase / (2 * Math.PI));\n      phase += (2 * Math.PI * sk.col.v[i] * dt) / lam;\n      if (Math.floor(phase / (2 * Math.PI)) !== before) lam = T.mogul.lambda * (1 - T.mogul.lambdaVar + 2 * T.mogul.lambdaVar * rng());\n    }\n    ph[sk.n] = phase;\n  }\n  // turn phase from the heading: the flexion–extension cycle repeats once per turn (2× the L–R cycle)\n  return function trunkAt(t) {\n    const s = skierAt(sk, t);\n    if (s.fallen) return { pitch: 0, roll: 0, yaw: 0, zAcc: 0, s };\n    const vScale = Math.min(1.6, Math.max(0, s.speed / 13)); // roughness grows ~linearly with speed (INFERENCE)\n    const ampPsi = (sk.opts.turnAmpDeg || 30) * D;\n    const u = Math.max(-1, Math.min(1, s.psi / ampPsi)); // ~sin(turn phase)\n    // pitch: most flexed at edge change (u≈0), extended at apex (|u|≈1): cos(2·phase) ≈ 1 − 2u²\n    let pitch = S.pitchTurnDeg * D * (1 - 2 * u * u) + T.pitchRmsDeg * D * pN(t) * vScale;\n    const ang = Math.max(-S.angulationMaxDeg * D, Math.min(S.angulationMaxDeg * D, S.angulation * s.lean));\n    let roll = ang + T.rollRmsDeg * D * rN(t) * vScale;\n    let yaw = Math.max(-S.yawMaxDeg * D, Math.min(S.yawMaxDeg * D, -S.yawCounter * s.psi)) + 0.5 * T.rollRmsDeg * D * yN(t);\n    let zAcc = vib * vScale * (T.zBodyRms * zB(t) + T.zChatRms * zC(t));\n    if (T.mogul && span && t >= span[0] && t <= span[1]) {\n      const f = Math.max(0, Math.min(sk.n, t / dt)), i = Math.floor(f), w = f - i;\n      const phase = ph[i] * (1 - w) + ph[Math.min(sk.n, i + 1)] * w;\n      const env = Math.min(1, (t - span[0]) / 0.5, (span[1] - t) / 0.5);\n      zAcc += env * T.mogul.zAmp * Math.sin(phase);\n      pitch += env * T.mogul.pitchAmpDeg * D * Math.sin(phase - T.mogul.pitchLagRad);\n      roll += env * T.mogul.rollAmpDeg * D * Math.sin(0.5 * phase);\n    }\n    return { pitch, roll, yaw, zAcc, s };\n  };\n}\n\n// Signature requested by the integrator: trunkAt(sk, t, opts) with a per-skier cache.\nconst cache = new WeakMap();\nexport function trunkAt(sk, t, opts = {}) {\n  const key = JSON.stringify(opts);\n  let m = cache.get(sk); if (!m) { m = new Map(); cache.set(sk, m); }\n  let f = m.get(key); if (!f) { f = makeTrunk(sk, opts); m.set(key, f); }\n  const { pitch, roll, yaw, zAcc } = f(t);\n  return { pitch, roll, yaw, zAcc };\n}\n",
+  "integration": "copy makeTrunk/trunkAt/TRUNK_PARAMS into sim/js/concepts/common/skier.js (replace the skierAt import; use mulberry32 from ../../model/util.js); call trunkAt(sk, t, {terrain:'groomed'|'icy'|'moguls', moguls:[t0,t1], seed}). Rerun npm test and npm run gen-reference."
+ },
+ "wind": {
+  "defaults": {
+   "Lu_m": 28,
+   "IuFlatSnow": [
+    0.11,
+    0.15
+   ],
+   "IuSlopeDefault": 0.2,
+   "IuStress": 0.3,
+   "meanEnvelope_ms": [
+    0,
+    9
+   ],
+   "liftHold_ms": [
+    14,
+    18
+   ],
+   "kinds": "Lu, Iu flat snow from IEC/WMO formulas (standard + INFERENCE for snow z0); 0.2/0.3 for complex slopes INFERENCE (GAP: no steep-slope Iu retrieved); envelope 0–9 m/s is a design choice below lift holds"
+  },
+  "gustFactorTargets": {
+   "G3s_600s": {
+    "flatSnow": [
+     1.3,
+     1.45
+    ],
+    "complexTerrain": [
+     1.5,
+     1.66
+    ]
+   },
+   "src": "wmo2010"
+  },
+  "modelChanges": [
+   "raise mode count (≥48, ratio ≈1.13, lowest 0.005 Hz) or add a peak-factor check so G3s ≈ 1 + 2.6·Iu",
+   "replace spatial phase with Taylor advection: phase k·(x·ê_U) with k = ω/U so moving platforms see Doppler-shifted gusts"
+  ],
+  "measured": {
+   "note": "Gust factors are 3 s / 1 s moving-average maxima over T divided by the T-mean (WMO convention uses a 10-min mean). The model clamps U to ≥2 m/s for σ, so calm runs still get σ=I·2 m/s.",
+   "calm_U1_I0p15": {
+    "U": 1,
+    "I": 0.15,
+    "Lu": 30,
+    "T": 600,
+    "meanSpeed": 1.03,
+    "Iu_realised": 0.303,
+    "sigV_over_sigU": 0.8,
+    "sigW_over_sigU": 0.5,
+    "gust3s_factor": 1.59,
+    "gust1s_factor": 1.74,
+    "maxInstant_factor": 1.86,
+    "psdSlope_0p25to4Hz": -1.56,
+    "kolmogorov_expected": -1.67,
+    "fracPowerAbove1Hz": 0.054
+   },
+   "default_U5_I0p15": {
+    "U": 5,
+    "I": 0.15,
+    "Lu": 30,
+    "T": 600,
+    "meanSpeed": 5.04,
+    "Iu_realised": 0.151,
+    "sigV_over_sigU": 0.8,
+    "sigW_over_sigU": 0.5,
+    "gust3s_factor": 1.3,
+    "gust1s_factor": 1.38,
+    "maxInstant_factor": 1.44,
+    "psdSlope_0p25to4Hz": -1.56,
+    "kolmogorov_expected": -1.67,
+    "fracPowerAbove1Hz": 0.063
+   },
+   "U5_I0p25": {
+    "U": 5,
+    "I": 0.25,
+    "Lu": 30,
+    "T": 600,
+    "meanSpeed": 5.11,
+    "Iu_realised": 0.252,
+    "sigV_over_sigU": 0.8,
+    "sigW_over_sigU": 0.5,
+    "gust3s_factor": 1.49,
+    "gust1s_factor": 1.63,
+    "maxInstant_factor": 1.74,
+    "psdSlope_0p25to4Hz": -1.56,
+    "kolmogorov_expected": -1.67,
+    "fracPowerAbove1Hz": 0.063
+   },
+   "U9_I0p2": {
+    "U": 9,
+    "I": 0.2,
+    "Lu": 30,
+    "T": 600,
+    "meanSpeed": 9.12,
+    "Iu_realised": 0.202,
+    "sigV_over_sigU": 0.8,
+    "sigW_over_sigU": 0.5,
+    "gust3s_factor": 1.38,
+    "gust1s_factor": 1.51,
+    "maxInstant_factor": 1.61,
+    "psdSlope_0p25to4Hz": -1.56,
+    "kolmogorov_expected": -1.67,
+    "fracPowerAbove1Hz": 0.077
+   },
+   "U9_I0p3": {
+    "U": 9,
+    "I": 0.3,
+    "Lu": 30,
+    "T": 600,
+    "meanSpeed": 9.29,
+    "Iu_realised": 0.302,
+    "sigV_over_sigU": 0.8,
+    "sigW_over_sigU": 0.5,
+    "gust3s_factor": 1.55,
+    "gust1s_factor": 1.76,
+    "maxInstant_factor": 1.9,
+    "psdSlope_0p25to4Hz": -1.56,
+    "kolmogorov_expected": -1.67,
+    "fracPowerAbove1Hz": 0.077
+   },
+   "advection_check": {
+    "fracPowerAbove1Hz_static": 0.063,
+    "fracPowerAbove1Hz_moving12ms_into5msWind": 0.062,
+    "taylor_expected_moving": "for a -5/3 range the >1 Hz share should grow ~ (3.4)^(2/3)≈2.3× (inference, Taylor hypothesis)"
+   }
+  }
+ },
+ "devices": {
+  "insta360": {
+   "equiW": 7680,
+   "fps8K": 30,
+   "equiW_5p7K": 5760,
+   "massG": 200,
+   "opTempC": [
+    -20,
+    40
+   ],
+   "src": "insta360x4",
+   "note": "boom360 equiW 5760 (5.7K) is conservative; 8K only at 30 fps"
+  },
+  "hoverairX1ProMax": {
+   "massG": 192.5,
+   "followMs": 11.7,
+   "windMs": 10.7,
+   "flightMin": 16,
+   "src": "hoverair",
+   "note": "follow speed < p95 recreational speed (17–20 m/s INFERENCE) and below carving 13–14 m/s at times"
+  },
+  "djiFlip": {
+   "massG": 249,
+   "trackMs": 12,
+   "windMs": 10.7,
+   "flightMin": 31,
+   "opTempC": [
+    -10,
+    40
+   ],
+   "src": "djiFlip"
+  },
+  "djiNeo": {
+   "massG": 135,
+   "followMs": 8,
+   "windMs": 8,
+   "flightMin": 18,
+   "opTempC": [
+    -10,
+    40
+   ],
+   "src": "djiNeo"
+  },
+  "liIonColdFactor_m10C": [
+   0.6,
+   0.85
+  ],
+  "liIonColdSrc": "battCold (INFERENCE range)"
+ },
+ "materials": {
+  "CFRP_UD_T700": {
+   "E_GPa": 134,
+   "strength_MPa": 2860,
+   "failStrain": 0.02,
+   "density": 1.55,
+   "src": "torayT700",
+   "note": "composite density 1.55 is INFERENCE (60 % Vf)"
+  },
+  "tapeSpringExample": {
+   "R_mm": 12.5,
+   "t_mm": 0.65,
+   "src": "fleckTape"
+  }
+ },
+ "criteriaReview": {
+  "jitterRms_3degps": {
+   "verdict": "UNSUPPORTED (no published video shake watchability threshold found)",
+   "evidence": "CIPA DC-X011 covers stills; NASA cybersickness onset for constant rotation ≈0.415 rad/s ≈ 24 °/s (nasaSickness, VR not video); smooth-pursuit ~40 °/s",
+   "recommendation": "keep 3 °/s as ASSUMED design target, label it as such, report also 10 °/s as a secondary \"degraded\" line; schedule a viewer test. Note the proposed trunk model gives 6–12 °/s (groomed/icy) and ~52 °/s (moguls) >1 Hz trunk rate: a body mount must reject 70–95 % on groomed and ~95 % in moguls."
+  },
+  "addedMass_1p5kg": {
+   "verdict": "supported as product target, not a tolerance limit",
+   "evidence": "1.5 kg = 1.9 % BW (80 kg) vs carriage guidance 10–15 % BW (popular) and military 30 % BW (militaryLoad)",
+   "recommendation": "keep; label as convenience target"
+  },
+  "bodyForcePeak_40N": {
+   "verdict": "UNSUPPORTED (no wearer jerk/impulse tolerance source found)",
+   "evidence": "context only: turn GRF fluctuates 1.2–2 BW ≈ 950–1600 N (nakazato2011); 40 N ≈ 3–5 % of that",
+   "recommendation": "keep as ASSUMED; better to express as a fraction of BW and as an overturning moment about the CoM"
+  },
+  "keMax_14p9J": {
+   "verdict": "supported as conservative reference",
+   "evidence": "FAA §107.120 Cat 2 = 11 ft-lb (14.9 J) transferred from a rigid object; Cat 3 = 25 ft-lb (33.9 J); Cat 1 = 0.55 lb; ASTM F3389 Method A < 73 J; EASA C0 < 250 g (no J), C1 < 900 g or < 80 J",
+   "recommendation": "keep 14.9 J; note it is a transferred-energy limit so applying it to KE is conservative; 80 J kill line comes from fragment-injury data (sust80J) — label as regulatory class boundary, not injury threshold; also add Cat 1 mass check (≤250 g, no exposed rotors)"
+  },
+  "endurance_45min": {
+   "verdict": "user-goal target; device data show drones fail it per pack",
+   "evidence": "HoverAir 16 min, Flip 31 min, Neo 18 min at room temperature; Li-ion 60–85 % at −10 °C; Insta360 X4 75 min 8K30 at room temperature",
+   "recommendation": "keep; note baseline/index.js hard-codes 90 min with a \"≥30 min (assumed)\" label inconsistent with the shared 45 min"
+  },
+  "pxMed_300px": {
+   "verdict": "geometry target, not literature",
+   "evidence": "8K equirect = 21.3 px/° → 1.75 m skier at 5 m ≈ 20° ≈ 430 px; 5.7K = 16 px/° ≈ 320 px",
+   "recommendation": "keep"
+  },
+  "setupTime/handsBusy/ops/azRange/avail": {
+   "verdict": "user-goal targets; no literature basis expected",
+   "recommendation": "keep as ASSUMED"
+  }
+ },
+ "scripts": [
+  "compare_skier.mjs → skier_stats.json",
+  "compare_wind.mjs → wind_stats.json",
+  "trunk_model.mjs (drop-in)",
+  "compare_trunk.mjs → trunk_stats.json",
+  "tune_scan.mjs (parameter scan)",
+  "build_proposal.py → proposal.json"
+ ]
+}

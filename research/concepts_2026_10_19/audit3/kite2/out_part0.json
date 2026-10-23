@@ -1,0 +1,2542 @@
+{
+ "generated": "2026-10-20T12:11:58.077Z",
+ "simCopy": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/copy3",
+ "modelVersion": "kite2@3.0.0",
+ "rows": [
+  {
+   "id": "calm_s11",
+   "U": 0,
+   "dir": "calm",
+   "devRerun": {
+    "avail": 86.369,
+    "jitterRms": 0.944,
+    "setupTime": 4.19,
+    "ops": 1,
+    "bodyForcePeak": 19.558,
+    "keMax": 12.437,
+    "endurance": 57.556,
+    "headClear": 1.259,
+    "boomHead": 0.458,
+    "pxMed": 523.912,
+    "azRange": 61.998,
+    "lineH1min": 0.998,
+    "lineH2min": 1.175
+   },
+   "claimed": {
+    "avail": 86.369,
+    "jitterRms": 0.944,
+    "setupTime": 4.19,
+    "ops": 1,
+    "bodyForcePeak": 19.558,
+    "keMax": 12.437,
+    "endurance": 57.556,
+    "headClear": 1.259,
+    "pxMed": 523.912,
+    "azRange": 61.998
+   },
+   "aud": {
+    "avail": 86.369,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 87.958,
+    "pxMed": 523.943,
+    "azRange": 61.998,
+    "fsSubject": 0.944,
+    "fsBackground": 0.838,
+    "fsSamples": 3165,
+    "keMax": 12.437,
+    "keMaxExclDock": 12.437,
+    "headClear": 1.259,
+    "headClearVertHelmet": 0.472,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.259,
+    "headClearWorst": {
+     "t": 93.5,
+     "mode": 5,
+     "L": 1.569
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.16,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.68,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.458,
+    "boomTipToHelmet": 0.698,
+    "lineH1min": 0.998,
+    "lineH1p10": 1.184,
+    "lineH2min": 1.175,
+    "lineH2p10": 1.443,
+    "bodyForce50": 19.558,
+    "bodyForce50grid20ms": 19.781,
+    "tensionRawMax": 40.109,
+    "ops": 1,
+    "setupTime": 4.23,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.92,
+      "wait": 2.32,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.43,
+      "wait": 2.23,
+      "counted": 2.23,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 57.556,
+    "enduranceNoRegen": 49.004,
+    "pMeanW": 6.954,
+    "boomOutShare": 0.692,
+    "winch": {
+     "nuMax": 7.98,
+     "nuP99": 6.582,
+     "accMax": 91.261,
+     "PmechMax": 92.803,
+     "PmechP99": 67.286,
+     "motorRadS_atNuMax": 3990.069,
+     "backEmfV_atNuMax": 47.881,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.555,
+     "alphaP99_rad_s2": 5.713,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.165,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 1
+    }
+   },
+   "ms": 8790
+  },
+  {
+   "id": "calm_s13",
+   "U": 0,
+   "dir": "calm",
+   "devRerun": {
+    "avail": 84.159,
+    "jitterRms": 0.927,
+    "setupTime": 4.202,
+    "ops": 1,
+    "bodyForcePeak": 19.582,
+    "keMax": 12.353,
+    "endurance": 57.723,
+    "headClear": 1.256,
+    "boomHead": 0.458,
+    "pxMed": 522.569,
+    "azRange": 64.298,
+    "lineH1min": 0.966,
+    "lineH2min": 1.17
+   },
+   "claimed": {
+    "avail": 84.159,
+    "jitterRms": 0.927,
+    "setupTime": 4.202,
+    "ops": 1,
+    "bodyForcePeak": 19.582,
+    "keMax": 12.353,
+    "endurance": 57.723,
+    "headClear": 1.256,
+    "pxMed": 522.569,
+    "azRange": 64.298
+   },
+   "aud": {
+    "avail": 84.159,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 88.173,
+    "pxMed": 522.569,
+    "azRange": 64.298,
+    "fsSubject": 0.927,
+    "fsBackground": 0.87,
+    "fsSamples": 3173,
+    "keMax": 12.353,
+    "keMaxExclDock": 12.353,
+    "headClear": 1.256,
+    "headClearVertHelmet": 0.453,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.256,
+    "headClearWorst": {
+     "t": 93.5,
+     "mode": 4,
+     "L": 1.675
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.16,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.7,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.458,
+    "boomTipToHelmet": 0.695,
+    "lineH1min": 0.966,
+    "lineH1p10": 1.17,
+    "lineH2min": 1.17,
+    "lineH2p10": 1.423,
+    "bodyForce50": 19.582,
+    "bodyForce50grid20ms": 19.58,
+    "tensionRawMax": 40.097,
+    "ops": 1,
+    "setupTime": 4.242,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.904,
+      "wait": 2.304,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.442,
+      "wait": 2.242,
+      "counted": 2.242,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 57.723,
+    "enduranceNoRegen": 49.457,
+    "pMeanW": 6.929,
+    "boomOutShare": 0.694,
+    "winch": {
+     "nuMax": 7.976,
+     "nuP99": 6.54,
+     "accMax": 68.522,
+     "PmechMax": 81.279,
+     "PmechP99": 61.364,
+     "motorRadS_atNuMax": 3987.942,
+     "backEmfV_atNuMax": 47.855,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.602,
+     "alphaP99_rad_s2": 4.476,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.129,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 1
+    }
+   },
+   "ms": 7440
+  },
+  {
+   "id": "head3_s12",
+   "U": 3,
+   "dir": "head",
+   "devRerun": {
+    "avail": 88.739,
+    "jitterRms": 1.007,
+    "setupTime": 4.198,
+    "ops": 1,
+    "bodyForcePeak": 22.125,
+    "keMax": 12.327,
+    "endurance": 53.933,
+    "headClear": 1.266,
+    "boomHead": 0.458,
+    "pxMed": 532.86,
+    "azRange": 56.993,
+    "lineH1min": 0.902,
+    "lineH2min": 1.015
+   },
+   "claimed": {
+    "avail": 88.739,
+    "jitterRms": 1.007,
+    "setupTime": 4.198,
+    "ops": 1,
+    "bodyForcePeak": 22.125,
+    "keMax": 12.327,
+    "endurance": 53.933,
+    "headClear": 1.266,
+    "pxMed": 532.86,
+    "azRange": 56.993
+   },
+   "aud": {
+    "avail": 88.739,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 90.463,
+    "pxMed": 532.967,
+    "azRange": 56.993,
+    "fsSubject": 1.007,
+    "fsBackground": 0.971,
+    "fsSamples": 3258,
+    "keMax": 12.327,
+    "keMaxExclDock": 12.327,
+    "headClear": 1.266,
+    "headClearVertHelmet": 0.456,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.266,
+    "headClearWorst": {
+     "t": 38.98,
+     "mode": 5,
+     "L": 1.582
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.16,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.68,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.458,
+    "boomTipToHelmet": 0.686,
+    "lineH1min": 0.902,
+    "lineH1p10": 1.074,
+    "lineH2min": 1.015,
+    "lineH2p10": 1.269,
+    "bodyForce50": 22.125,
+    "bodyForce50grid20ms": 22.039,
+    "tensionRawMax": 32.947,
+    "ops": 1,
+    "setupTime": 4.238,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.912,
+      "wait": 2.312,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.438,
+      "wait": 2.238,
+      "counted": 2.238,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 53.933,
+    "enduranceNoRegen": 44.591,
+    "pMeanW": 7.543,
+    "boomOutShare": 0.709,
+    "winch": {
+     "nuMax": 8.006,
+     "nuP99": 6.6,
+     "accMax": 61.536,
+     "PmechMax": 105.686,
+     "PmechP99": 86.091,
+     "motorRadS_atNuMax": 4002.856,
+     "backEmfV_atNuMax": 48.034,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.501,
+     "alphaP99_rad_s2": 5.011,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.144,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 0
+    }
+   },
+   "ms": 4223
+  },
+  {
+   "id": "tail3_s11",
+   "U": 3,
+   "dir": "tail",
+   "devRerun": {
+    "avail": 81.492,
+    "jitterRms": 0.737,
+    "setupTime": 4.202,
+    "ops": 1,
+    "bodyForcePeak": 18.835,
+    "keMax": 12.577,
+    "endurance": 62.181,
+    "headClear": 1.232,
+    "boomHead": 0.456,
+    "pxMed": 517.797,
+    "azRange": 59.965,
+    "lineH1min": 1.154,
+    "lineH2min": 1.506
+   },
+   "claimed": {
+    "avail": 81.492,
+    "jitterRms": 0.737,
+    "setupTime": 4.202,
+    "ops": 1,
+    "bodyForcePeak": 18.835,
+    "keMax": 12.577,
+    "endurance": 62.181,
+    "headClear": 1.232,
+    "pxMed": 517.797,
+    "azRange": 59.965
+   },
+   "aud": {
+    "avail": 81.492,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 84.968,
+    "pxMed": 517.657,
+    "azRange": 59.965,
+    "fsSubject": 0.737,
+    "fsBackground": 0.484,
+    "fsSamples": 3055,
+    "keMax": 12.577,
+    "keMaxExclDock": 12.577,
+    "headClear": 1.232,
+    "headClearVertHelmet": 0.484,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.232,
+    "headClearWorst": {
+     "t": 93.5,
+     "mode": 4,
+     "L": 1.658
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.18,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.68,
+      "dur": 2.78,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.78,
+    "boomSegToHelmet": 0.456,
+    "boomTipToHelmet": 0.695,
+    "lineH1min": 1.154,
+    "lineH1p10": 1.344,
+    "lineH2min": 1.506,
+    "lineH2p10": 1.761,
+    "bodyForce50": 18.835,
+    "bodyForce50grid20ms": 18.766,
+    "tensionRawMax": 45.551,
+    "ops": 1,
+    "setupTime": 4.242,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.924,
+      "wait": 2.324,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.442,
+      "wait": 2.242,
+      "counted": 2.242,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 62.181,
+    "enduranceNoRegen": 53.254,
+    "pMeanW": 6.302,
+    "boomOutShare": 0.671,
+    "winch": {
+     "nuMax": 8.148,
+     "nuP99": 6.778,
+     "accMax": 106.484,
+     "PmechMax": 97.128,
+     "PmechP99": 51.979,
+     "motorRadS_atNuMax": 4074.249,
+     "backEmfV_atNuMax": 48.891,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.685,
+     "alphaP99_rad_s2": 5.718,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.165,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 2
+    }
+   },
+   "ms": 5034
+  },
+  {
+   "id": "tail3_s13",
+   "U": 3,
+   "dir": "tail",
+   "devRerun": {
+    "avail": 79.661,
+    "jitterRms": 0.706,
+    "setupTime": 4.202,
+    "ops": 1,
+    "bodyForcePeak": 19.173,
+    "keMax": 12.485,
+    "endurance": 62.467,
+    "headClear": 1.25,
+    "boomHead": 0.457,
+    "pxMed": 518.781,
+    "azRange": 67.741,
+    "lineH1min": 1.105,
+    "lineH2min": 1.437
+   },
+   "claimed": {
+    "avail": 79.661,
+    "jitterRms": 0.706,
+    "setupTime": 4.202,
+    "ops": 1,
+    "bodyForcePeak": 19.173,
+    "keMax": 12.485,
+    "endurance": 62.467,
+    "headClear": 1.25,
+    "pxMed": 518.781,
+    "azRange": 67.741
+   },
+   "aud": {
+    "avail": 79.661,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 84.51,
+    "pxMed": 518.874,
+    "azRange": 67.741,
+    "fsSubject": 0.706,
+    "fsBackground": 0.463,
+    "fsSamples": 3038,
+    "keMax": 12.485,
+    "keMaxExclDock": 12.485,
+    "headClear": 1.25,
+    "headClearVertHelmet": 0.472,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.25,
+    "headClearWorst": {
+     "t": 38.96,
+     "mode": 4,
+     "L": 1.618
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.14,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.7,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.457,
+    "boomTipToHelmet": 0.693,
+    "lineH1min": 1.105,
+    "lineH1p10": 1.333,
+    "lineH2min": 1.437,
+    "lineH2p10": 1.762,
+    "bodyForce50": 19.173,
+    "bodyForce50grid20ms": 24.38,
+    "tensionRawMax": 48.76,
+    "ops": 1,
+    "setupTime": 4.242,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.89,
+      "wait": 2.29,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.442,
+      "wait": 2.242,
+      "counted": 2.242,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 62.467,
+    "enduranceNoRegen": 53.382,
+    "pMeanW": 6.264,
+    "boomOutShare": 0.667,
+    "winch": {
+     "nuMax": 8.049,
+     "nuP99": 6.633,
+     "accMax": 75.093,
+     "PmechMax": 72.385,
+     "PmechP99": 47.579,
+     "motorRadS_atNuMax": 4024.406,
+     "backEmfV_atNuMax": 48.293,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.519,
+     "alphaP99_rad_s2": 6.198,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.179,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 1
+    }
+   },
+   "ms": 4380
+  },
+  {
+   "id": "crossL3_s12",
+   "U": 3,
+   "dir": "crossL",
+   "devRerun": {
+    "avail": 85.318,
+    "jitterRms": 0.982,
+    "setupTime": 4.218,
+    "ops": 1,
+    "bodyForcePeak": 19.697,
+    "keMax": 12.497,
+    "endurance": 55.96,
+    "headClear": 1.129,
+    "boomHead": 0.431,
+    "pxMed": 528.757,
+    "azRange": 63.72,
+    "lineH1min": 0.979,
+    "lineH2min": 1.144
+   },
+   "claimed": {
+    "avail": 85.318,
+    "jitterRms": 0.982,
+    "setupTime": 4.218,
+    "ops": 1,
+    "bodyForcePeak": 19.697,
+    "keMax": 12.497,
+    "endurance": 55.96,
+    "headClear": 1.129,
+    "pxMed": 528.757,
+    "azRange": 63.72
+   },
+   "aud": {
+    "avail": 85.318,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 88.766,
+    "pxMed": 528.561,
+    "azRange": 63.72,
+    "fsSubject": 0.982,
+    "fsBackground": 0.793,
+    "fsSamples": 3195,
+    "keMax": 12.497,
+    "keMaxExclDock": 12.497,
+    "headClear": 1.129,
+    "headClearVertHelmet": 0.394,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.129,
+    "headClearWorst": {
+     "t": 93.54,
+     "mode": 5,
+     "L": 1.522
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.16,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.7,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.431,
+    "boomTipToHelmet": 0.699,
+    "lineH1min": 0.979,
+    "lineH1p10": 1.149,
+    "lineH2min": 1.144,
+    "lineH2p10": 1.406,
+    "bodyForce50": 19.697,
+    "bodyForce50grid20ms": 19.69,
+    "tensionRawMax": 38.478,
+    "ops": 1,
+    "setupTime": 4.258,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.916,
+      "wait": 2.316,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.458,
+      "wait": 2.258,
+      "counted": 2.258,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 55.96,
+    "enduranceNoRegen": 47.968,
+    "pMeanW": 7.204,
+    "boomOutShare": 0.698,
+    "winch": {
+     "nuMax": 8.115,
+     "nuP99": 6.771,
+     "accMax": 90.836,
+     "PmechMax": 101.057,
+     "PmechP99": 65.784,
+     "motorRadS_atNuMax": 4057.549,
+     "backEmfV_atNuMax": 48.691,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.655,
+     "alphaP99_rad_s2": 4.98,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.143,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 3
+    }
+   },
+   "ms": 3721
+  },
+  {
+   "id": "crossR3_s11",
+   "U": 3,
+   "dir": "crossR",
+   "devRerun": {
+    "avail": 85.884,
+    "jitterRms": 0.979,
+    "setupTime": 4.218,
+    "ops": 1,
+    "bodyForcePeak": 22.156,
+    "keMax": 12.346,
+    "endurance": 57.423,
+    "headClear": 1.326,
+    "boomHead": 0.459,
+    "pxMed": 525.129,
+    "azRange": 61.946,
+    "lineH1min": 0.939,
+    "lineH2min": 1.105
+   },
+   "claimed": {
+    "avail": 85.884,
+    "jitterRms": 0.979,
+    "setupTime": 4.218,
+    "ops": 1,
+    "bodyForcePeak": 22.156,
+    "keMax": 12.346,
+    "endurance": 57.423,
+    "headClear": 1.326,
+    "pxMed": 525.129,
+    "azRange": 61.946
+   },
+   "aud": {
+    "avail": 85.884,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 88.524,
+    "pxMed": 525.129,
+    "azRange": 61.946,
+    "fsSubject": 0.979,
+    "fsBackground": 0.856,
+    "fsSamples": 3186,
+    "keMax": 12.346,
+    "keMaxExclDock": 12.346,
+    "headClear": 1.326,
+    "headClearVertHelmet": 0.557,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.326,
+    "headClearWorst": {
+     "t": 38,
+     "mode": 4,
+     "L": 7.386
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.16,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.7,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.459,
+    "boomTipToHelmet": 0.701,
+    "lineH1min": 0.939,
+    "lineH1p10": 1.186,
+    "lineH2min": 1.105,
+    "lineH2p10": 1.438,
+    "bodyForce50": 22.156,
+    "bodyForce50grid20ms": 22.184,
+    "tensionRawMax": 39.315,
+    "ops": 1,
+    "setupTime": 4.258,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.916,
+      "wait": 2.316,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.458,
+      "wait": 2.258,
+      "counted": 2.258,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 57.423,
+    "enduranceNoRegen": 47.767,
+    "pMeanW": 6.974,
+    "boomOutShare": 0.697,
+    "winch": {
+     "nuMax": 7.996,
+     "nuP99": 6.578,
+     "accMax": 100.43,
+     "PmechMax": 101.005,
+     "PmechP99": 75.774,
+     "motorRadS_atNuMax": 3998.186,
+     "backEmfV_atNuMax": 47.978,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.519,
+     "alphaP99_rad_s2": 4.78,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.138,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 1
+    }
+   },
+   "ms": 2955
+  },
+  {
+   "id": "crossR3_s13",
+   "U": 3,
+   "dir": "crossR",
+   "devRerun": {
+    "avail": 85.291,
+    "jitterRms": 1.02,
+    "setupTime": 4.216,
+    "ops": 1,
+    "bodyForcePeak": 20.935,
+    "keMax": 12.515,
+    "endurance": 57.728,
+    "headClear": 1.36,
+    "boomHead": 0.459,
+    "pxMed": 524.699,
+    "azRange": 63.921,
+    "lineH1min": 0.875,
+    "lineH2min": 0.98
+   },
+   "claimed": {
+    "avail": 85.291,
+    "jitterRms": 1.02,
+    "setupTime": 4.216,
+    "ops": 1,
+    "bodyForcePeak": 20.935,
+    "keMax": 12.515,
+    "endurance": 57.728,
+    "headClear": 1.36,
+    "pxMed": 524.699,
+    "azRange": 63.921
+   },
+   "aud": {
+    "avail": 85.291,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 88.901,
+    "pxMed": 524.699,
+    "azRange": 63.921,
+    "fsSubject": 1.02,
+    "fsBackground": 0.929,
+    "fsSamples": 3201,
+    "keMax": 12.515,
+    "keMaxExclDock": 12.515,
+    "headClear": 1.36,
+    "headClearVertHelmet": 0.624,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.36,
+    "headClearWorst": {
+     "t": 93.52,
+     "mode": 4,
+     "L": 1.606
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.14,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.7,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.459,
+    "boomTipToHelmet": 0.696,
+    "lineH1min": 0.875,
+    "lineH1p10": 1.171,
+    "lineH2min": 0.98,
+    "lineH2p10": 1.429,
+    "bodyForce50": 20.935,
+    "bodyForce50grid20ms": 20.906,
+    "tensionRawMax": 39.447,
+    "ops": 1,
+    "setupTime": 4.256,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.886,
+      "wait": 2.286,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.456,
+      "wait": 2.256,
+      "counted": 2.256,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 57.728,
+    "enduranceNoRegen": 47.489,
+    "pMeanW": 6.928,
+    "boomOutShare": 0.698,
+    "winch": {
+     "nuMax": 8.023,
+     "nuP99": 6.592,
+     "accMax": 61.42,
+     "PmechMax": 93.226,
+     "PmechP99": 75.072,
+     "motorRadS_atNuMax": 4011.702,
+     "backEmfV_atNuMax": 48.14,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.412,
+     "alphaP99_rad_s2": 7.742,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.223,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 1
+    }
+   },
+   "ms": 1691
+  },
+  {
+   "id": "head6_s12",
+   "U": 6,
+   "dir": "head",
+   "devRerun": {
+    "avail": 90.113,
+    "jitterRms": 1.158,
+    "setupTime": 4.304,
+    "ops": 1,
+    "bodyForcePeak": 21.667,
+    "keMax": 12.173,
+    "endurance": 47.515,
+    "headClear": 1.263,
+    "boomHead": 0.458,
+    "pxMed": 537.485,
+    "azRange": 52.444,
+    "lineH1min": 0.853,
+    "lineH2min": 0.91
+   },
+   "claimed": {
+    "avail": 90.113,
+    "jitterRms": 1.158,
+    "setupTime": 4.304,
+    "ops": 1,
+    "bodyForcePeak": 21.667,
+    "keMax": 12.173,
+    "endurance": 47.515,
+    "headClear": 1.263,
+    "pxMed": 537.485,
+    "azRange": 52.444
+   },
+   "aud": {
+    "avail": 90.113,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 91.002,
+    "pxMed": 537.653,
+    "azRange": 52.444,
+    "fsSubject": 1.158,
+    "fsBackground": 1.153,
+    "fsSamples": 3279,
+    "keMax": 12.173,
+    "keMaxExclDock": 12.173,
+    "headClear": 1.263,
+    "headClearVertHelmet": 0.42,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.263,
+    "headClearWorst": {
+     "t": 39.02,
+     "mode": 4,
+     "L": 1.591
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.2,
+      "dur": 2.78,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.76,
+      "dur": 2.8,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.8,
+    "boomSegToHelmet": 0.458,
+    "boomTipToHelmet": 0.685,
+    "lineH1min": 0.853,
+    "lineH1p10": 1.014,
+    "lineH2min": 0.91,
+    "lineH2p10": 1.17,
+    "bodyForce50": 21.667,
+    "bodyForce50grid20ms": 21.559,
+    "tensionRawMax": 30.179,
+    "ops": 1,
+    "setupTime": 4.344,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.968,
+      "wait": 2.368,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.544,
+      "wait": 2.344,
+      "counted": 2.344,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 47.515,
+    "enduranceNoRegen": 39.505,
+    "pMeanW": 8.808,
+    "boomOutShare": 0.713,
+    "winch": {
+     "nuMax": 7.714,
+     "nuP99": 6.633,
+     "accMax": 61.056,
+     "PmechMax": 118.274,
+     "PmechP99": 102.308,
+     "motorRadS_atNuMax": 3856.822,
+     "backEmfV_atNuMax": 46.282,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.538,
+     "alphaP99_rad_s2": 4.197,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.121,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 0
+    }
+   },
+   "ms": 2292
+  },
+  {
+   "id": "tail6_s11",
+   "U": 6,
+   "dir": "tail",
+   "devRerun": {
+    "avail": 70.797,
+    "jitterRms": 1.658,
+    "setupTime": 4.224,
+    "ops": 1,
+    "bodyForcePeak": 18.166,
+    "keMax": 12.616,
+    "endurance": 63.749,
+    "headClear": 1.15,
+    "boomHead": 0.438,
+    "pxMed": 510.071,
+    "azRange": 66.516,
+    "lineH1min": 1.01,
+    "lineH2min": 1.16
+   },
+   "claimed": {
+    "avail": 70.797,
+    "jitterRms": 1.658,
+    "setupTime": 4.224,
+    "ops": 1,
+    "bodyForcePeak": 18.166,
+    "keMax": 12.616,
+    "endurance": 63.749,
+    "headClear": 1.15,
+    "pxMed": 510.071,
+    "azRange": 66.516
+   },
+   "aud": {
+    "avail": 70.797,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 74.65,
+    "pxMed": 510.071,
+    "azRange": 66.516,
+    "fsSubject": 1.658,
+    "fsBackground": 1.74,
+    "fsSamples": 2672,
+    "keMax": 12.616,
+    "keMaxExclDock": 12.616,
+    "headClear": 1.15,
+    "headClearVertHelmet": 0.581,
+    "headClearInclExcluded": 0.582,
+    "headClearDevMin": 1.15,
+    "headClearWorst": {
+     "t": 38.92,
+     "mode": 4,
+     "L": 1.947
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.14,
+      "dur": 2.78,
+      "minDist": 0.603
+     },
+     {
+      "t0": 64.34,
+      "dur": 1.5,
+      "minDist": 0.582
+     },
+     {
+      "t0": 93.72,
+      "dur": 2.76,
+      "minDist": 0.603
+     }
+    ],
+    "excludedMaxDur": 2.78,
+    "boomSegToHelmet": 0.438,
+    "boomTipToHelmet": 0.674,
+    "lineH1min": 1.051,
+    "lineH1p10": 1.304,
+    "lineH2min": 1.16,
+    "lineH2p10": 1.665,
+    "bodyForce50": 18.166,
+    "bodyForce50grid20ms": 24.751,
+    "tensionRawMax": 49.503,
+    "ops": 1,
+    "setupTime": 4.264,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.902,
+      "wait": 2.302,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.464,
+      "wait": 2.264,
+      "counted": 2.264,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 63.749,
+    "enduranceNoRegen": 56.967,
+    "pMeanW": 6.102,
+    "boomOutShare": 0.612,
+    "winch": {
+     "nuMax": 8.147,
+     "nuP99": 6.845,
+     "accMax": 111.343,
+     "PmechMax": 114.686,
+     "PmechP99": 43.343,
+     "motorRadS_atNuMax": 4073.61,
+     "backEmfV_atNuMax": 48.883,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 2.038,
+     "alphaP99_rad_s2": 28.036,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.807,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 3,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 1,
+     "aborts": 1,
+     "governor": 8
+    }
+   },
+   "ms": 3738
+  },
+  {
+   "id": "tail6_s13",
+   "U": 6,
+   "dir": "tail",
+   "devRerun": {
+    "avail": 76.536,
+    "jitterRms": 1.473,
+    "setupTime": 4.202,
+    "ops": 1,
+    "bodyForcePeak": 17.993,
+    "keMax": 12.577,
+    "endurance": 62.286,
+    "headClear": 1.127,
+    "boomHead": 0.431,
+    "pxMed": 501.533,
+    "azRange": 52.886,
+    "lineH1min": 0.908,
+    "lineH2min": 0.995
+   },
+   "claimed": {
+    "avail": 76.536,
+    "jitterRms": 1.473,
+    "setupTime": 4.202,
+    "ops": 1,
+    "bodyForcePeak": 17.993,
+    "keMax": 12.577,
+    "endurance": 62.286,
+    "headClear": 1.127,
+    "pxMed": 501.533,
+    "azRange": 52.886
+   },
+   "aud": {
+    "avail": 76.536,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 79.014,
+    "pxMed": 501.705,
+    "azRange": 52.886,
+    "fsSubject": 1.473,
+    "fsBackground": 1.84,
+    "fsSamples": 2832,
+    "keMax": 12.577,
+    "keMaxExclDock": 12.577,
+    "headClear": 1.127,
+    "headClearVertHelmet": 0.585,
+    "headClearInclExcluded": 0.603,
+    "headClearDevMin": 1.127,
+    "headClearWorst": {
+     "t": 93.46,
+     "mode": 4,
+     "L": 1.964
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.18,
+      "dur": 2.76,
+      "minDist": 0.603
+     },
+     {
+      "t0": 93.7,
+      "dur": 2.76,
+      "minDist": 0.603
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.431,
+    "boomTipToHelmet": 0.686,
+    "lineH1min": 0.908,
+    "lineH1p10": 1.267,
+    "lineH2min": 0.995,
+    "lineH2p10": 1.593,
+    "bodyForce50": 17.993,
+    "bodyForce50grid20ms": 26.279,
+    "tensionRawMax": 52.557,
+    "ops": 1,
+    "setupTime": 4.242,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.928,
+      "wait": 2.328,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.442,
+      "wait": 2.242,
+      "counted": 2.242,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 62.286,
+    "enduranceNoRegen": 56.039,
+    "pMeanW": 6.288,
+    "boomOutShare": 0.634,
+    "winch": {
+     "nuMax": 7.795,
+     "nuP99": 6.796,
+     "accMax": 99.146,
+     "PmechMax": 100.155,
+     "PmechP99": 53.785,
+     "motorRadS_atNuMax": 3897.328,
+     "backEmfV_atNuMax": 46.768,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 2.058,
+     "alphaP99_rad_s2": 26.616,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.767,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 1,
+     "aborts": 0,
+     "governor": 9
+    }
+   },
+   "ms": 2813
+  },
+  {
+   "id": "crossL6_s12",
+   "U": 6,
+   "dir": "crossL",
+   "devRerun": {
+    "avail": 86.988,
+    "jitterRms": 1.166,
+    "setupTime": 4.258,
+    "ops": 1,
+    "bodyForcePeak": 22.639,
+    "keMax": 12.603,
+    "endurance": 53.515,
+    "headClear": 1.105,
+    "boomHead": 0.423,
+    "pxMed": 524.015,
+    "azRange": 62.569,
+    "lineH1min": 0.938,
+    "lineH2min": 1.082
+   },
+   "claimed": {
+    "avail": 86.988,
+    "jitterRms": 1.166,
+    "setupTime": 4.258,
+    "ops": 1,
+    "bodyForcePeak": 22.639,
+    "keMax": 12.603,
+    "endurance": 53.515,
+    "headClear": 1.105,
+    "pxMed": 524.015,
+    "azRange": 62.569
+   },
+   "aud": {
+    "avail": 86.988,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 89.925,
+    "pxMed": 523.996,
+    "azRange": 62.569,
+    "fsSubject": 1.166,
+    "fsBackground": 1.085,
+    "fsSamples": 3239,
+    "keMax": 12.603,
+    "keMaxExclDock": 12.603,
+    "headClear": 1.105,
+    "headClearVertHelmet": 0.489,
+    "headClearInclExcluded": 0.603,
+    "headClearDevMin": 1.105,
+    "headClearWorst": {
+     "t": 93.58,
+     "mode": 5,
+     "L": 1.49
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.22,
+      "dur": 2.78,
+      "minDist": 0.603
+     },
+     {
+      "t0": 93.74,
+      "dur": 2.76,
+      "minDist": 0.603
+     }
+    ],
+    "excludedMaxDur": 2.78,
+    "boomSegToHelmet": 0.423,
+    "boomTipToHelmet": 0.688,
+    "lineH1min": 0.938,
+    "lineH1p10": 1.152,
+    "lineH2min": 1.082,
+    "lineH2p10": 1.387,
+    "bodyForce50": 22.639,
+    "bodyForce50grid20ms": 22.576,
+    "tensionRawMax": 36.88,
+    "ops": 1,
+    "setupTime": 4.298,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.982,
+      "wait": 2.382,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.498,
+      "wait": 2.298,
+      "counted": 2.298,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 53.515,
+    "enduranceNoRegen": 45.212,
+    "pMeanW": 7.617,
+    "boomOutShare": 0.706,
+    "winch": {
+     "nuMax": 8.122,
+     "nuP99": 6.796,
+     "accMax": 113.01,
+     "PmechMax": 119.657,
+     "PmechP99": 74.322,
+     "motorRadS_atNuMax": 4060.776,
+     "backEmfV_atNuMax": 48.729,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.672,
+     "alphaP99_rad_s2": 10.071,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.29,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 8
+    }
+   },
+   "ms": 1702
+  },
+  {
+   "id": "crossR6_s11",
+   "U": 6,
+   "dir": "crossR",
+   "devRerun": {
+    "avail": 86.584,
+    "jitterRms": 1.009,
+    "setupTime": 4.204,
+    "ops": 1,
+    "bodyForcePeak": 24.127,
+    "keMax": 12.477,
+    "endurance": 56.712,
+    "headClear": 1.343,
+    "boomHead": 0.459,
+    "pxMed": 524.608,
+    "azRange": 54.839,
+    "lineH1min": 0.96,
+    "lineH2min": 1.072
+   },
+   "claimed": {
+    "avail": 86.584,
+    "jitterRms": 1.009,
+    "setupTime": 4.204,
+    "ops": 1,
+    "bodyForcePeak": 24.127,
+    "keMax": 12.477,
+    "endurance": 56.712,
+    "headClear": 1.343,
+    "pxMed": 524.608,
+    "azRange": 54.839
+   },
+   "aud": {
+    "avail": 86.584,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 90.032,
+    "pxMed": 524.541,
+    "azRange": 54.839,
+    "fsSubject": 1.009,
+    "fsBackground": 1.015,
+    "fsSamples": 3243,
+    "keMax": 12.477,
+    "keMaxExclDock": 12.477,
+    "headClear": 1.343,
+    "headClearVertHelmet": 0.615,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.343,
+    "headClearWorst": {
+     "t": 38,
+     "mode": 4,
+     "L": 7.265
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.16,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.68,
+      "dur": 2.78,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.78,
+    "boomSegToHelmet": 0.459,
+    "boomTipToHelmet": 0.689,
+    "lineH1min": 0.96,
+    "lineH1p10": 1.159,
+    "lineH2min": 1.072,
+    "lineH2p10": 1.391,
+    "bodyForce50": 24.127,
+    "bodyForce50grid20ms": 24.063,
+    "tensionRawMax": 35.457,
+    "ops": 1,
+    "setupTime": 4.244,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.906,
+      "wait": 2.306,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.444,
+      "wait": 2.244,
+      "counted": 2.244,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 56.712,
+    "enduranceNoRegen": 45.204,
+    "pMeanW": 7.085,
+    "boomOutShare": 0.706,
+    "winch": {
+     "nuMax": 8.048,
+     "nuP99": 6.786,
+     "accMax": 69.029,
+     "PmechMax": 122.698,
+     "PmechP99": 101.895,
+     "motorRadS_atNuMax": 4024.065,
+     "backEmfV_atNuMax": 48.289,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.523,
+     "alphaP99_rad_s2": 5.773,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.166,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 2
+    }
+   },
+   "ms": 1689
+  },
+  {
+   "id": "crossR6_s13",
+   "U": 6,
+   "dir": "crossR",
+   "devRerun": {
+    "avail": 86.045,
+    "jitterRms": 1.132,
+    "setupTime": 4.218,
+    "ops": 1,
+    "bodyForcePeak": 24.558,
+    "keMax": 12.512,
+    "endurance": 57.858,
+    "headClear": 1.398,
+    "boomHead": 0.459,
+    "pxMed": 521.356,
+    "azRange": 54.171,
+    "lineH1min": 0.915,
+    "lineH2min": 1.078
+   },
+   "claimed": {
+    "avail": 86.045,
+    "jitterRms": 1.132,
+    "setupTime": 4.218,
+    "ops": 1,
+    "bodyForcePeak": 24.558,
+    "keMax": 12.512,
+    "endurance": 57.858,
+    "headClear": 1.398,
+    "pxMed": 521.356,
+    "azRange": 54.171
+   },
+   "aud": {
+    "avail": 86.045,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 89.278,
+    "pxMed": 521.772,
+    "azRange": 54.171,
+    "fsSubject": 1.132,
+    "fsBackground": 0.966,
+    "fsSamples": 3215,
+    "keMax": 12.512,
+    "keMaxExclDock": 12.512,
+    "headClear": 1.398,
+    "headClearVertHelmet": 1.013,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.398,
+    "headClearWorst": {
+     "t": 87.62,
+     "mode": 2,
+     "L": 6.562
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.04,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.7,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.459,
+    "boomTipToHelmet": 0.692,
+    "lineH1min": 0.915,
+    "lineH1p10": 1.148,
+    "lineH2min": 1.078,
+    "lineH2p10": 1.429,
+    "bodyForce50": 24.558,
+    "bodyForce50grid20ms": 24.523,
+    "tensionRawMax": 39.578,
+    "ops": 1,
+    "setupTime": 4.258,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.798,
+      "wait": 2.198,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.458,
+      "wait": 2.258,
+      "counted": 2.258,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 57.858,
+    "enduranceNoRegen": 46.408,
+    "pMeanW": 6.908,
+    "boomOutShare": 0.699,
+    "winch": {
+     "nuMax": 8.158,
+     "nuP99": 6.658,
+     "accMax": 65.528,
+     "PmechMax": 122.387,
+     "PmechP99": 99.361,
+     "motorRadS_atNuMax": 4079.084,
+     "backEmfV_atNuMax": 48.949,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.706,
+     "alphaP99_rad_s2": 6.196,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.178,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 2
+    }
+   },
+   "ms": 1780
+  },
+  {
+   "id": "head9_s12",
+   "U": 9,
+   "dir": "head",
+   "devRerun": {
+    "avail": 91.218,
+    "jitterRms": 1.348,
+    "setupTime": 4.854,
+    "ops": 1,
+    "bodyForcePeak": 24.514,
+    "keMax": 10.228,
+    "endurance": 40.048,
+    "headClear": 1.235,
+    "boomHead": 0.456,
+    "pxMed": 535.223,
+    "azRange": 51.586,
+    "lineH1min": 0.82,
+    "lineH2min": 0.799
+   },
+   "claimed": {
+    "avail": 91.218,
+    "jitterRms": 1.348,
+    "setupTime": 4.854,
+    "ops": 1,
+    "bodyForcePeak": 24.514,
+    "keMax": 10.228,
+    "endurance": 40.048,
+    "headClear": 1.235,
+    "pxMed": 535.223,
+    "azRange": 51.586
+   },
+   "aud": {
+    "avail": 91.218,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 91.918,
+    "pxMed": 535.411,
+    "azRange": 51.586,
+    "fsSubject": 1.348,
+    "fsBackground": 1.313,
+    "fsSamples": 3313,
+    "keMax": 10.228,
+    "keMaxExclDock": 10.228,
+    "headClear": 1.235,
+    "headClearVertHelmet": 0.421,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.235,
+    "headClearWorst": {
+     "t": 39.26,
+     "mode": 5,
+     "L": 1.59
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.5,
+      "dur": 2.8,
+      "minDist": 0.604
+     },
+     {
+      "t0": 94.3,
+      "dur": 2.8,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.8,
+    "boomSegToHelmet": 0.456,
+    "boomTipToHelmet": 0.685,
+    "lineH1min": 0.82,
+    "lineH1p10": 1.003,
+    "lineH2min": 0.799,
+    "lineH2p10": 1.137,
+    "bodyForce50": 24.514,
+    "bodyForce50grid20ms": 24.501,
+    "tensionRawMax": 30.179,
+    "ops": 1,
+    "setupTime": 4.894,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 42.29,
+      "wait": 2.69,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 97.094,
+      "wait": 2.894,
+      "counted": 2.894,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 40.048,
+    "enduranceNoRegen": 33.861,
+    "pMeanW": 10.789,
+    "boomOutShare": 0.721,
+    "winch": {
+     "nuMax": 6.341,
+     "nuP99": 5.877,
+     "accMax": 61.269,
+     "PmechMax": 118.014,
+     "PmechP99": 101.726,
+     "motorRadS_atNuMax": 3170.391,
+     "backEmfV_atNuMax": 38.045,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.465,
+     "alphaP99_rad_s2": 6.578,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.189,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 0
+    }
+   },
+   "ms": 2648
+  },
+  {
+   "id": "tail9_s11",
+   "U": 9,
+   "dir": "tail",
+   "devRerun": {
+    "avail": 60.264,
+    "jitterRms": 2.506,
+    "setupTime": 4.208,
+    "ops": 1,
+    "bodyForcePeak": 20.807,
+    "keMax": 12.813,
+    "endurance": 61.482,
+    "headClear": 1.108,
+    "boomHead": 0.424,
+    "pxMed": 485.748,
+    "azRange": 69.496,
+    "lineH1min": 0.92,
+    "lineH2min": 1.009
+   },
+   "claimed": {
+    "avail": 60.264,
+    "jitterRms": 2.506,
+    "setupTime": 4.208,
+    "ops": 1,
+    "bodyForcePeak": 20.807,
+    "keMax": 12.813,
+    "endurance": 61.482,
+    "headClear": 1.108,
+    "pxMed": 485.748,
+    "azRange": 69.496
+   },
+   "aud": {
+    "avail": 60.264,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 68.912,
+    "pxMed": 485.748,
+    "azRange": 69.496,
+    "fsSubject": 2.506,
+    "fsBackground": 2.171,
+    "fsSamples": 2409,
+    "keMax": 12.813,
+    "keMaxExclDock": 12.813,
+    "headClear": 1.108,
+    "headClearVertHelmet": 0.913,
+    "headClearInclExcluded": 0.589,
+    "headClearDevMin": 1.108,
+    "headClearWorst": {
+     "t": 93.56,
+     "mode": 5,
+     "L": 1.225
+    },
+    "excludedWindows": [
+     {
+      "t0": 30.92,
+      "dur": 2.8,
+      "minDist": 0.589
+     },
+     {
+      "t0": 93.7,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.8,
+    "boomSegToHelmet": 0.424,
+    "boomTipToHelmet": 0.672,
+    "lineH1min": 0.92,
+    "lineH1p10": 1.186,
+    "lineH2min": 1.009,
+    "lineH2p10": 1.437,
+    "bodyForce50": 20.807,
+    "bodyForce50grid20ms": 25.004,
+    "tensionRawMax": 50.007,
+    "ops": 1,
+    "setupTime": 4.248,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": null,
+      "wait": 0,
+      "counted": 0,
+      "airborneAtStop": false
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.448,
+      "wait": 2.248,
+      "counted": 2.248,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 61.482,
+    "enduranceNoRegen": 54.212,
+    "pMeanW": 6.394,
+    "boomOutShare": 0.564,
+    "winch": {
+     "nuMax": 7.623,
+     "nuP99": 4.877,
+     "accMax": 144.068,
+     "PmechMax": 117.543,
+     "PmechP99": 59.315,
+     "motorRadS_atNuMax": 3811.562,
+     "backEmfV_atNuMax": 45.739,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 2.306,
+     "alphaP99_rad_s2": 28.409,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.818,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 1,
+     "aborts": 0,
+     "governor": 72
+    }
+   },
+   "ms": 3154
+  },
+  {
+   "id": "tail9_s13",
+   "U": 9,
+   "dir": "tail",
+   "devRerun": {
+    "avail": 36.557,
+    "jitterRms": 1.882,
+    "setupTime": 4.408,
+    "ops": 1,
+    "bodyForcePeak": 15.465,
+    "keMax": 12.698,
+    "endurance": 88.344,
+    "headClear": 1.156,
+    "boomHead": 0.44,
+    "pxMed": 511.636,
+    "azRange": 57.259,
+    "lineH1min": 0.964,
+    "lineH2min": 1.052
+   },
+   "claimed": {
+    "avail": 36.557,
+    "jitterRms": 1.882,
+    "setupTime": 4.408,
+    "ops": 1,
+    "bodyForcePeak": 15.465,
+    "keMax": 12.698,
+    "endurance": 88.344,
+    "headClear": 1.156,
+    "pxMed": 511.636,
+    "azRange": 57.259
+   },
+   "aud": {
+    "avail": 36.557,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 38.658,
+    "pxMed": 511.636,
+    "azRange": 57.259,
+    "fsSubject": 1.882,
+    "fsBackground": 1.665,
+    "fsSamples": 1312,
+    "keMax": 12.698,
+    "keMaxExclDock": 12.698,
+    "headClear": 1.156,
+    "headClearVertHelmet": 0.841,
+    "headClearInclExcluded": 0.567,
+    "headClearDevMin": 1.156,
+    "headClearWorst": {
+     "t": 93.76,
+     "mode": 5,
+     "L": 1.249
+    },
+    "excludedWindows": [
+     {
+      "t0": 24.64,
+      "dur": 2.8,
+      "minDist": 0.579
+     },
+     {
+      "t0": 29.24,
+      "dur": 1.5,
+      "minDist": 0.567
+     },
+     {
+      "t0": 38.06,
+      "dur": 2.8,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.9,
+      "dur": 2.76,
+      "minDist": 0.603
+     }
+    ],
+    "excludedMaxDur": 2.8,
+    "boomSegToHelmet": 0.44,
+    "boomTipToHelmet": 0.663,
+    "lineH1min": 0.964,
+    "lineH1p10": 1.189,
+    "lineH2min": 1.052,
+    "lineH2p10": 1.471,
+    "bodyForce50": 15.465,
+    "bodyForce50grid20ms": 25.087,
+    "tensionRawMax": 51.179,
+    "ops": 1,
+    "setupTime": 4.448,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 40.86,
+      "wait": 1.26,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.648,
+      "wait": 2.448,
+      "counted": 2.448,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 88.344,
+    "enduranceNoRegen": 83.125,
+    "pMeanW": 3.897,
+    "boomOutShare": 0.391,
+    "winch": {
+     "nuMax": 7.139,
+     "nuP99": 4.283,
+     "accMax": 96.655,
+     "PmechMax": 109.267,
+     "PmechP99": 29.134,
+     "motorRadS_atNuMax": 3569.652,
+     "backEmfV_atNuMax": 42.836,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 2.505,
+     "alphaP99_rad_s2": 33.51,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.965,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 4,
+     "docks": 3,
+     "landed": 0,
+     "collapses": 1,
+     "aborts": 1,
+     "governor": 18
+    }
+   },
+   "ms": 2711
+  },
+  {
+   "id": "crossL9_s12",
+   "U": 9,
+   "dir": "crossL",
+   "devRerun": {
+    "avail": 83.486,
+    "jitterRms": 1.371,
+    "setupTime": 4.698,
+    "ops": 1,
+    "bodyForcePeak": 28.145,
+    "keMax": 12.724,
+    "endurance": 46.048,
+    "headClear": 1.105,
+    "boomHead": 0.423,
+    "pxMed": 521.603,
+    "azRange": 63.722,
+    "lineH1min": 0.936,
+    "lineH2min": 1.025
+   },
+   "claimed": {
+    "avail": 83.486,
+    "jitterRms": 1.371,
+    "setupTime": 4.698,
+    "ops": 1,
+    "bodyForcePeak": 28.145,
+    "keMax": 12.724,
+    "endurance": 46.048,
+    "headClear": 1.105,
+    "pxMed": 521.603,
+    "azRange": 63.722
+   },
+   "aud": {
+    "avail": 83.459,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 89.978,
+    "pxMed": 521.61,
+    "azRange": 63.722,
+    "fsSubject": 1.371,
+    "fsBackground": 1.478,
+    "fsSamples": 3241,
+    "keMax": 12.724,
+    "keMaxExclDock": 12.724,
+    "headClear": 1.105,
+    "headClearVertHelmet": 0.185,
+    "headClearInclExcluded": 0.603,
+    "headClearDevMin": 1.105,
+    "headClearWorst": {
+     "t": 38.92,
+     "mode": 4,
+     "L": 2.832
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.28,
+      "dur": 2.76,
+      "minDist": 0.603
+     },
+     {
+      "t0": 94.14,
+      "dur": 2.8,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.8,
+    "boomSegToHelmet": 0.423,
+    "boomTipToHelmet": 0.691,
+    "lineH1min": 0.936,
+    "lineH1p10": 1.103,
+    "lineH2min": 1.025,
+    "lineH2p10": 1.296,
+    "bodyForce50": 28.145,
+    "bodyForce50grid20ms": 28.068,
+    "tensionRawMax": 40.115,
+    "ops": 1,
+    "setupTime": 4.738,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 42.026,
+      "wait": 2.426,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.938,
+      "wait": 2.738,
+      "counted": 2.738,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 46.048,
+    "enduranceNoRegen": 37.26,
+    "pMeanW": 9.146,
+    "boomOutShare": 0.706,
+    "winch": {
+     "nuMax": 7.951,
+     "nuP99": 7.032,
+     "accMax": 170.281,
+     "PmechMax": 165.668,
+     "PmechP99": 108.324,
+     "motorRadS_atNuMax": 3975.695,
+     "backEmfV_atNuMax": 47.708,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.936,
+     "alphaP99_rad_s2": 17.756,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.511,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 16
+    }
+   },
+   "ms": 2575
+  },
+  {
+   "id": "crossR9_s11",
+   "U": 9,
+   "dir": "crossR",
+   "devRerun": {
+    "avail": 82.839,
+    "jitterRms": 1.198,
+    "setupTime": 4.24,
+    "ops": 1,
+    "bodyForcePeak": 24.426,
+    "keMax": 12.573,
+    "endurance": 52.765,
+    "headClear": 1.347,
+    "boomHead": 0.459,
+    "pxMed": 522.363,
+    "azRange": 52.251,
+    "lineH1min": 0.909,
+    "lineH2min": 0.847
+   },
+   "claimed": {
+    "avail": 82.839,
+    "jitterRms": 1.198,
+    "setupTime": 4.24,
+    "ops": 1,
+    "bodyForcePeak": 24.426,
+    "keMax": 12.573,
+    "endurance": 52.765,
+    "headClear": 1.347,
+    "pxMed": 522.363,
+    "azRange": 52.251
+   },
+   "aud": {
+    "avail": 82.839,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 89.413,
+    "pxMed": 522.363,
+    "azRange": 52.251,
+    "fsSubject": 1.198,
+    "fsBackground": 1.185,
+    "fsSamples": 3220,
+    "keMax": 12.573,
+    "keMaxExclDock": 12.573,
+    "headClear": 1.347,
+    "headClearVertHelmet": 0.831,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.347,
+    "headClearWorst": {
+     "t": 88.06,
+     "mode": 2,
+     "L": 6.703
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.14,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.72,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.459,
+    "boomTipToHelmet": 0.695,
+    "lineH1min": 0.909,
+    "lineH1p10": 1.119,
+    "lineH2min": 0.847,
+    "lineH2p10": 1.306,
+    "bodyForce50": 24.426,
+    "bodyForce50grid20ms": 24.349,
+    "tensionRawMax": 38.775,
+    "ops": 1,
+    "setupTime": 4.28,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.892,
+      "wait": 2.292,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.48,
+      "wait": 2.28,
+      "counted": 2.28,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 52.765,
+    "enduranceNoRegen": 41.801,
+    "pMeanW": 7.751,
+    "boomOutShare": 0.701,
+    "winch": {
+     "nuMax": 8.119,
+     "nuP99": 6.684,
+     "accMax": 113.847,
+     "PmechMax": 124.092,
+     "PmechP99": 91.497,
+     "motorRadS_atNuMax": 4059.69,
+     "backEmfV_atNuMax": 48.716,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.69,
+     "alphaP99_rad_s2": 6.15,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.177,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 4
+    }
+   },
+   "ms": 2375
+  },
+  {
+   "id": "crossR9_s13",
+   "U": 9,
+   "dir": "crossR",
+   "devRerun": {
+    "avail": 81.843,
+    "jitterRms": 1.131,
+    "setupTime": 4.332,
+    "ops": 1,
+    "bodyForcePeak": 25.703,
+    "keMax": 12.601,
+    "endurance": 50.979,
+    "headClear": 1.403,
+    "boomHead": 0.459,
+    "pxMed": 527.936,
+    "azRange": 49.307,
+    "lineH1min": 0.953,
+    "lineH2min": 1.041
+   },
+   "claimed": {
+    "avail": 81.843,
+    "jitterRms": 1.131,
+    "setupTime": 4.332,
+    "ops": 1,
+    "bodyForcePeak": 25.703,
+    "keMax": 12.601,
+    "endurance": 50.979,
+    "headClear": 1.403,
+    "pxMed": 527.936,
+    "azRange": 49.307
+   },
+   "aud": {
+    "avail": 81.843,
+    "availStrictArt0": 0,
+    "filmShareOfRiding": 86.907,
+    "pxMed": 527.936,
+    "azRange": 49.307,
+    "fsSubject": 1.131,
+    "fsBackground": 0.956,
+    "fsSamples": 3126,
+    "keMax": 12.601,
+    "keMaxExclDock": 12.601,
+    "headClear": 1.403,
+    "headClearVertHelmet": 1.028,
+    "headClearInclExcluded": 0.604,
+    "headClearDevMin": 1.403,
+    "headClearWorst": {
+     "t": 82.22,
+     "mode": 2,
+     "L": 6.709
+    },
+    "excludedWindows": [
+     {
+      "t0": 39.08,
+      "dur": 2.76,
+      "minDist": 0.604
+     },
+     {
+      "t0": 93.82,
+      "dur": 2.76,
+      "minDist": 0.604
+     }
+    ],
+    "excludedMaxDur": 2.76,
+    "boomSegToHelmet": 0.459,
+    "boomTipToHelmet": 0.693,
+    "lineH1min": 0.953,
+    "lineH1p10": 1.123,
+    "lineH2min": 1.041,
+    "lineH2p10": 1.371,
+    "bodyForce50": 25.703,
+    "bodyForce50grid20ms": 25.663,
+    "tensionRawMax": 48.76,
+    "ops": 1,
+    "setupTime": 4.372,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 41.838,
+      "wait": 2.238,
+      "counted": 0,
+      "airborneAtStop": true
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 96.572,
+      "wait": 2.372,
+      "counted": 2.372,
+      "airborneAtStop": true
+     }
+    ],
+    "manual": 0,
+    "endurance": 50.979,
+    "enduranceNoRegen": 43.04,
+    "pMeanW": 8.086,
+    "boomOutShare": 0.681,
+    "winch": {
+     "nuMax": 8.181,
+     "nuP99": 6.681,
+     "accMax": 114.142,
+     "PmechMax": 129.733,
+     "PmechP99": 89.024,
+     "motorRadS_atNuMax": 4090.53,
+     "backEmfV_atNuMax": 49.086,
+     "lineSpeedAt11V1": 1.85
+    },
+    "boom": {
+     "omegaP99_rad_s": 1.667,
+     "alphaP99_rad_s2": 7.053,
+     "I_kgm2": 0.029,
+     "torqueP99_Nm": 0.203,
+     "gravTorque_Nm": 0.353
+    },
+    "events": {
+     "launches": 2,
+     "docks": 2,
+     "landed": 0,
+     "collapses": 0,
+     "aborts": 0,
+     "governor": 10
+    }
+   },
+   "ms": 1612
+  }
+ ]
+}

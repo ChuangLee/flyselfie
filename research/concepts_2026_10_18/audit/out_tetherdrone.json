@@ -1,0 +1,306 @@
+{
+ "concept": "tetherdrone",
+ "generated": "2026-10-19",
+ "evidence": "audit re-computation on the uncalibrated model; not a physical test",
+ "power": {
+  "idealHoverW": 14.426,
+  "modelRotorHoverW": 37.963,
+  "closedFormHoverW": 37.963,
+  "plusAvionics": 43.963,
+  "forward": [
+   {
+    "V": 0,
+    "tetherN": 0,
+    "thrustN": 1.962,
+    "tiltDeg": 0,
+    "modelW": 37.963,
+    "closedFormW": 37.963,
+    "towPowerFromRiderW": 0
+   },
+   {
+    "V": 12,
+    "tetherN": 0,
+    "thrustN": 2.144,
+    "tiltDeg": 23.767,
+    "modelW": 50.758,
+    "closedFormW": 50.758,
+    "towPowerFromRiderW": 0
+   },
+   {
+    "V": 12,
+    "tetherN": 1.5,
+    "thrustN": 2.846,
+    "tiltDeg": -7.363,
+    "modelW": 34.501,
+    "closedFormW": 34.5,
+    "towPowerFromRiderW": 14.745
+   },
+   {
+    "V": 18,
+    "tetherN": 1.5,
+    "thrustN": 2.912,
+    "tiltDeg": 14.221,
+    "modelW": 65.52,
+    "closedFormW": 65.517,
+    "towPowerFromRiderW": 22.117
+   }
+  ],
+  "tether": {
+   "R_ohm": 4.128,
+   "modelR": 4.128,
+   "I_A": 0.511,
+   "modelI": 0.511,
+   "lossW": 1.077,
+   "modelLoss": 1.077,
+   "lossPct": 2.154
+  },
+  "rhoNote": "tetherdrone uses ρ = 1.0 kg/m³ (fixed), trackdrone derives 1.05 (ISA 2000 m, −10 °C); boom uses 1.0. ~5 % effect on induced power.",
+  "voltageNote": "100 V DC on a body-worn, flexing, possibly wet conductor exceeds the 60 V DC ES1/SELV limit (IEC 62368-1); requires reinforced insulation + ground-fault/arc detection."
+ },
+ "tetherStatics": {
+  "sagAt1_5N_mm": 52.974,
+  "weightN": 0.106,
+  "dragAt12ms_N": 0.414
+ },
+ "scenarios": [
+  {
+   "id": "nominal",
+   "sub": {
+    "0.75": {
+     "avail": 100,
+     "jitter": 0.792,
+     "jitterNoResid": 0.613,
+     "jitterLosRaw": 6.179,
+     "T0max": 1.765,
+     "headMin": 5.135,
+     "keGround": 19.656,
+     "keRelRider": 0.231,
+     "ms": 901,
+     "warnings": []
+    },
+    "0.375": {
+     "avail": 100,
+     "jitter": 0.792,
+     "jitterNoResid": 0.613,
+     "jitterLosRaw": 6.178,
+     "T0max": 1.764,
+     "headMin": 5.134,
+     "keGround": 19.656,
+     "keRelRider": 0.231,
+     "ms": 686,
+     "warnings": []
+    }
+   }
+  },
+  {
+   "id": "short",
+   "sub": {
+    "0.75": {
+     "avail": 100,
+     "jitter": 0.925,
+     "jitterNoResid": 0.776,
+     "jitterLosRaw": 13.581,
+     "T0max": 2.283,
+     "headMin": 5.324,
+     "keGround": 16.787,
+     "keRelRider": 0.305,
+     "ms": 583,
+     "warnings": []
+    },
+    "0.375": {
+     "avail": 100,
+     "jitter": 0.925,
+     "jitterNoResid": 0.776,
+     "jitterLosRaw": 13.587,
+     "T0max": 2.281,
+     "headMin": 5.324,
+     "keGround": 16.789,
+     "keRelRider": 0.305,
+     "ms": 297,
+     "warnings": []
+    }
+   }
+  },
+  {
+   "id": "fast",
+   "sub": {
+    "0.75": {
+     "avail": 100,
+     "jitter": 0.962,
+     "jitterNoResid": 0.821,
+     "jitterLosRaw": 4.09,
+     "T0max": 1.781,
+     "headMin": 5.572,
+     "keGround": 38.18,
+     "keRelRider": 0.135,
+     "ms": 244,
+     "warnings": []
+    },
+    "0.375": {
+     "avail": 100,
+     "jitter": 0.962,
+     "jitterNoResid": 0.821,
+     "jitterLosRaw": 4.09,
+     "T0max": 1.779,
+     "headMin": 5.572,
+     "keGround": 38.181,
+     "keRelRider": 0.135,
+     "ms": 332,
+     "warnings": []
+    }
+   }
+  },
+  {
+   "id": "gust",
+   "sub": {
+    "0.75": {
+     "avail": 100,
+     "jitter": 0.845,
+     "jitterNoResid": 0.68,
+     "jitterLosRaw": 8.111,
+     "T0max": 1.866,
+     "headMin": 4.863,
+     "keGround": 22.672,
+     "keRelRider": 0.791,
+     "ms": 510,
+     "warnings": []
+    },
+    "0.375": {
+     "avail": 100,
+     "jitter": 0.845,
+     "jitterNoResid": 0.68,
+     "jitterLosRaw": 8.111,
+     "T0max": 1.864,
+     "headMin": 4.862,
+     "keGround": 22.673,
+     "keRelRider": 0.79,
+     "ms": 330,
+     "warnings": []
+    }
+   }
+  },
+  {
+   "id": "side",
+   "sub": {
+    "0.75": {
+     "avail": 98.929,
+     "jitter": 0.86,
+     "jitterNoResid": 0.699,
+     "jitterLosRaw": 8.53,
+     "T0max": 2.314,
+     "headMin": 2.749,
+     "keGround": 21.152,
+     "keRelRider": 0.248,
+     "ms": 764,
+     "warnings": []
+    }
+   }
+  },
+  {
+   "id": "fall",
+   "sub": {
+    "0.75": {
+     "avail": 100,
+     "jitter": 0.794,
+     "jitterNoResid": 0.616,
+     "jitterLosRaw": 4.265,
+     "T0max": 2.816,
+     "headMin": 4.669,
+     "keGround": 19.601,
+     "keRelRider": 1.363,
+     "ms": 404,
+     "warnings": [
+      "10.08 fall"
+     ]
+    },
+    "0.375": {
+     "avail": 100,
+     "jitter": 0.794,
+     "jitterNoResid": 0.616,
+     "jitterLosRaw": 4.265,
+     "T0max": 2.822,
+     "headMin": 4.668,
+     "keGround": 19.601,
+     "keRelRider": 1.365,
+     "ms": 517,
+     "warnings": [
+      "10.08 fall"
+     ]
+    }
+   }
+  },
+  {
+   "id": "snag",
+   "sub": {
+    "0.75": {
+     "avail": 49.723,
+     "jitter": 9.074,
+     "jitterNoResid": 9.059,
+     "jitterLosRaw": 15.528,
+     "T0max": 5.828,
+     "headMin": 5.236,
+     "keGround": 19.601,
+     "keRelRider": 41.762,
+     "ms": 589,
+     "warnings": [
+      "10.26 snag",
+      "10.28 weaklink",
+      "10.28 backup"
+     ]
+    },
+    "0.375": {
+     "avail": 49.723,
+     "jitter": 9.076,
+     "jitterNoResid": 9.061,
+     "jitterLosRaw": 15.529,
+     "T0max": 5.778,
+     "headMin": 5.235,
+     "keGround": 19.601,
+     "keRelRider": 41.829,
+     "ms": 719,
+     "warnings": [
+      "10.26 snag",
+      "10.28 weaklink",
+      "10.28 backup"
+     ]
+    }
+   }
+  },
+  {
+   "id": "power",
+   "sub": {
+    "0.75": {
+     "avail": 100,
+     "jitter": 2.188,
+     "jitterNoResid": 2.13,
+     "jitterLosRaw": 7.836,
+     "T0max": 2.845,
+     "headMin": 3.214,
+     "keGround": 19.601,
+     "keRelRider": 0.366,
+     "ms": 576,
+     "warnings": [
+      "10.00 powerfault"
+     ]
+    }
+   }
+  },
+  {
+   "id": "dock",
+   "sub": {
+    "0.75": {
+     "avail": 0,
+     "jitter": null,
+     "jitterNoResid": null,
+     "jitterLosRaw": null,
+     "T0max": 2.401,
+     "headMin": 0.159,
+     "keGround": 0.601,
+     "keRelRider": 0.601,
+     "ms": 821,
+     "warnings": []
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,278 @@
+{
+ "generated": "2026-10-20",
+ "round": 3,
+ "evidence": "independent audit3 of numerical, uncalibrated simulations (re-run on a copy of sim/) + code reading; NOT physical verification; M-070 not_run, G-MATURE closed",
+ "counts": {
+  "kite2": {
+   "fatal": 0,
+   "major": 4,
+   "minor": 3
+  },
+  "towglider": {
+   "fatal": 0,
+   "major": 4,
+   "minor": 3
+  },
+  "leapfrog": {
+   "fatal": 0,
+   "major": 3,
+   "minor": 5
+  },
+  "cross": {
+   "fatal": 0,
+   "major": 4,
+   "minor": 5
+  }
+ },
+ "findings": [
+  {
+   "id": "A3-K2-01",
+   "severity": "major",
+   "title": "Clothesline hazard unfixed: boom/line 0.80–1.0 m above the snow 1–2 m behind the rider in every run",
+   "detail": "Own recompute (FILM, riding): 1 m behind the pivot min 0.82 m (p10 of case minima 0.852), 2 m behind min 0.799 m. Developer's own ≥2.0 m gate fails in 39/39 runs; developer states no body exit can fix it in carving. Bystander line force 4.5 N (crossing pole), boom impact 1.7 N·s ≈34 N at shoulder height. Kills piste use without written resort permission; this is an envelope limit (empty/low-traffic slopes), not a metric pass.",
+   "evidence": "audit3/kite2/out_recheck_all.json (lineH1min/lineH2min); dev audit_response A2-K2-04",
+   "concept": "kite2"
+  },
+  {
+   "id": "A3-K2-02",
+   "severity": "major",
+   "title": "avail pass depends on tolerating a permanent boom artefact (<3 % of subject height) and is knife-edge",
+   "detail": "The boom is correctly counted in A.art, but it is over the rider in 100 % of filming frames (≈4.5 px wide end-on stub, art p50 0.6–1.1 %). criteria.js says no ≥1 px artefact over the subject → strict avail 0 %. With the 3 % tolerance (also used in round 2) avail 81.5 % reproduces exactly, margin 1.5 pp: hc 0.5 → 80.0 %, mass +15 % → 79.4 %, reefed-glide 70 % → 79.6 %, L/D 0.6 → 73.0 %, all-adverse 63.5 %. Tailwind ≥6 m/s bins 39–80 %.",
+   "evidence": "audit3/kite2/out_spot_actuators.json; out_sens_hc_0p5.json; dev results.json sensitivity",
+   "concept": "kite2"
+  },
+  {
+   "id": "A3-K2-03",
+   "severity": "major",
+   "title": "Active boom gimbal is undersized vs its own simulated demand",
+   "detail": "Boom 60 g over 1.2 m: static gravity torque ≈0.353 N·m horizontal, p99 dynamic torque 0.121–0.965 N·m (pointing τ 20 ms), plus a ≈90 g KCU seated on the tip during each 2.8 s stow (≈1 N·m). Budget: 2 × 40 g brushless gimbal motors, 1.5 W, kill test written at 0.13 N·m. Gimbal motors of that class deliver ≈0.05–0.15 N·m; a geared actuator adds mass/volume/power. The active boom is load-bearing: passive boom ablation → avail 42.9 %.",
+   "evidence": "audit3/kite2/out_recheck_all.json agg.boom; sim/js/concepts/kite2/model.js PDEF (boomMass, tauBoomAct, pGimbal); dev results sensitivity passive_boom",
+   "concept": "kite2"
+  },
+  {
+   "id": "A3-K2-04",
+   "severity": "major",
+   "title": "Heave-compensating winch is idealised: perfect zero-lag feed-forward, no motor speed/voltage limit",
+   "detail": "nuHC = exact exit velocity along the line (no sensor lag/noise) added after the slew limiter; reel-in under load reaches 6.341–7.98 m/s at 8–16 N, motoring peaks 93–166 W, line acceleration up to 172.112 m/s². With the model's own Kt 0.012 N·m/A, 6:1, 12 mm drum this needs ≈40–50 V back-EMF (max line speed 1.85 m/s at 11.1 V); power and I²R loss are therefore computed for an impossible operating point. A drone-class motor with lower gearing could plausibly do it (not a kill), but the 70 g winch budget and the endurance figure are unverified. Sensitivity: hc 0.5 → avail 80.04 % (pass by 0.04 pp), KE 13.1 J; hc 0 → 79.7 % FAIL (dev ablation). No parameter caps total line speed, so a true speed-limit test needs a model change.",
+   "evidence": "audit3/kite2/out_spot_actuators.json; out_sens_hc_0p5*.json; model.js winch block",
+   "concept": "kite2"
+  },
+  {
+   "id": "A3-K2-05",
+   "severity": "minor",
+   "title": "headClear margin is 10 cm and excludes the worn boom (0.42 m from the helmet centre)",
+   "detail": "Own geometry reproduces 1.105 m (crossL cases, line just beyond the boom tip). Declared exclusion windows 2.76–2.82 s (≤3 s, compliant); inside them the seated KCU is 0.563 m from the helmet centre. Boom segment 0.423 m, tip 0.661 m from the helmet centre whenever extended — not 'airborne' under criteria.js, but an actuated rigid tube near the head in a fall/collision. Fault case (winch failure at a stop) 0.815 m (dev).",
+   "evidence": "audit3/kite2/out_recheck_all.json",
+   "concept": "kite2"
+  },
+  {
+   "id": "A3-K2-06",
+   "severity": "minor",
+   "title": "Wind gates honest; in-flight control and tip-pitot check use noise-free local true wind",
+   "detail": "Launch, park, stop and retrieve-planning gates read windEstimate() (fullrun.js) — compliant. The launch confirmation (tip pitot, model.js ~L516) and the in-flight wind-window controller (eaW from true local wind, 40 ms filter) are noise-free sensor idealisations, not oracle case-mean wind. Setup is simulated (arm tap 2 s constant only); ops from the event log.",
+   "evidence": "grep windTrue/wEst in sim/js/concepts/kite2/model.js",
+   "concept": "kite2"
+  },
+  {
+   "id": "A3-K2-07",
+   "severity": "minor",
+   "title": "Polar sensitivities disclosed honestly; avail fails at the documented-low end",
+   "detail": "Default L/D lowered to 0.75 (MC-1-1C) and reefed retention 0.5 (no data). KE, force and headClear no longer depend on them (verified by dev sensitivities, KE 12.9–13.0 J). avail: L/D 0.6 → 73.0 %, retention 0.7-loss → 79.6 %, mass +15 % → 79.4 %, combined 63.5 % — the concept passes only at nominal assumptions.",
+   "evidence": "dev results.json sensitivity",
+   "concept": "kite2"
+  },
+  {
+   "id": "A3-TG-01",
+   "severity": "major",
+   "title": "Unsafe tailwind gap between the ensemble grid points (3.5–4 m/s): KE 21–22 J, head clearance 0.36 m",
+   "detail": "Off-grid runs (same seeds): tail3.5_s11 KE 21.8 J, ops 3; tail4_s11 KE 21.3 J, headClear 0.93 m, ops 3; tail4_s12 headClear 0.36 m (deep-stall drop overtaken by the tailwind at the rest stop). Causes: the 4.5 m/s gate on a ±1 m/s biased estimate lets 3.5–4.5 m/s tailwinds launch, and a refused relaunch snow-pulls the parked glider into the holster at ≈18 m/s ground speed. The 39-case pass on keMax/headClear is a grid artefact.",
+   "evidence": "audit3/towglider/out_tail_edge.json, out_tail_edge2.json",
+   "concept": "towglider"
+  },
+  {
+   "id": "A3-TG-02",
+   "severity": "major",
+   "title": "headClear passes by 1 cm only on the concept's own head model; <1.0 m in 9/39 runs with the brief's helmet approximation",
+   "detail": "Minimum 1.011 m (crossL9_s12, deep-stall drop at the rest stop while the rider decelerates). Same geometry to an upright helmet at pos + 1.61 m: 0.859 m. Dev scenarios also show 0.79 m (beginner 6 m/s), 0.55 m (moguls), 0.92 m (dock variant).",
+   "evidence": "audit3/towglider/out_recheck_all.json; dev results.json runEnvelope",
+   "concept": "towglider"
+  },
+  {
+   "id": "A3-TG-03",
+   "severity": "major",
+   "title": "avail fails (72.0 %) for a structural reason: the tailwind gate refuses 6/39 runs and its t=0 estimate also refuses whole rides in 9 m/s crosswind",
+   "detail": "Launched runs 85.1 % (passes); tail 28 %, cross 82 %, head 90 %. crossL9_s13/crossR9_s13 lose the first ride because windEstimate at t=0.5 s has no history (single sample + bias = 4.8 m/s down-slope in a pure crosswind).",
+   "evidence": "out_recheck_all.json byDir; events of crossL9_s13",
+   "concept": "towglider"
+  },
+  {
+   "id": "A3-TG-04",
+   "severity": "major",
+   "title": "Jitter pass rests on an 8 % EIS residual and 0.15° mount deadband (both ASSUMED)",
+   "detail": "p90 1.92 reproduced; 15 % residual → 2.99 (edge), 25 % → 4.65, 0.5° deadband → 3.51 °/s (fail). Verdict conditional until measured.",
+   "evidence": "out_sens_eis015/025.json, out_sens_db05.json",
+   "concept": "towglider"
+  },
+  {
+   "id": "A3-TG-05",
+   "severity": "minor",
+   "title": "Endurance omits lift-time idle power (39 min if the hip unit stays on)",
+   "detail": "0.66 W (reel idle 0.3 + hip electronics 0.3 + stowed glider) × 8 min lift per run is not charged; needs a modelled sleep mode with GNSS geofence wake.",
+   "evidence": "make_part.py summary.enduranceLiftIdle",
+   "concept": "towglider"
+  },
+  {
+   "id": "A3-TG-06",
+   "severity": "minor",
+   "title": "Leash lies on the snow / ≤0.45 m high 1–2 m behind the rider",
+   "detail": "Own line-height recompute incl. sled tow: min 0.004 m, p10 ≈0.25–0.43 m. Low trip-line rather than clothesline; dev crossing strike force ≤1.9 N with pull-through. Documented, not judged.",
+   "evidence": "out_recheck_all.json summary.line*",
+   "concept": "towglider"
+  },
+  {
+   "id": "A3-TG-07",
+   "severity": "minor",
+   "title": "Narrow rider envelope",
+   "detail": "avail ≥80 % only at 8–13 m/s and ≤≈20°; ≥15 m/s or 24° the glider is released and the walk-up costs 400–1300 s; beginners/moguls fail headClear.",
+   "evidence": "dev results.json envelope/runEnvelope (reproduced path)",
+   "concept": "towglider"
+  },
+  {
+   "id": "A3-LF-01",
+   "severity": "major",
+   "title": "avail fails on the full ensemble (75.2 %); reproduced exactly",
+   "detail": "Own recompute 75.216 % (dev 75.22). 7/39 refused: progress gate has a cliff — feasible downhill progress 12.0 m/s at 3.2–3.4 m/s estimated downslope wind, −3 m/s at 4.4 → 1 of 3 tail3 seeds refused on the ±1 m/s estimate bias; all tail 6/9 refused (bypass: 14.532 % avail, left behind). 9 m/s headwind 18.6–58.5 %. By wind 0/3/6/9: 97.396, 88.663, 73.563, 57.878 %. Honest envelope limit, not a definition artefact.",
+   "evidence": "audit3/leapfrog/out_summary.json",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A3-LF-02",
+   "severity": "major",
+   "title": "Jitter pass (2.22 °/s) relies on perfect offline subject tracking; rose from 1.0 because pointing is now sourced and the lens narrower",
+   "detail": "Reproduced p90 2.216 (max 3.468). Rise vs round 2: sourced pointing (≈3° RMS vs 1.2° GM; it.2 pointing → 1.75), 22° lens and adaptive lane. The output crop follows a low-pass of the TRUE line of sight; live framing 7.077, UWB-only 4.2, estimate bias ×2 3.326, closer lead 3.468 all FAIL.",
+   "evidence": "sim/js/concepts/leapfrog/analysis.js (losLP); dev results.json variants",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A3-LF-03",
+   "severity": "major",
+   "title": "Follow-me radius margin 1.4 m (48.6 m vs EU C0 50 m)",
+   "detail": "Own max glider–rider distance 48.614 m (crossR6_s13); L/D −30 % → 56.216 m (breach); gate off → 47.159 m.",
+   "evidence": "out_summary.json rangeMax; dev variants V11/V12",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A3-LF-04",
+   "severity": "minor",
+   "title": "Oracle wind removed from gates; idealised residuals remain",
+   "detail": "Launch/progress gate and approach decisions use windEstimate. wl initialised with true wind at t=0 (model.js:251); gust interlock uses noise-free instantaneous wind + bias. Gate-bypass KE now 13.43 J (round 2: 16.4–40.8 J) — audit2 A2-LF-02 genuinely fixed.",
+   "evidence": "model.js:207-251, 293-330, 347-357; out_bypass.json",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A3-LF-05",
+   "severity": "minor",
+   "title": "setupTime simulated but keeps an 8 s pick-up/fold constant",
+   "detail": "Recount identical (p90 24.528 s, max 32.104 s); a fold/holster ≥13.5 s with gloves fails p90.",
+   "evidence": "index.js:66,186",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A3-LF-06",
+   "severity": "minor",
+   "title": "packVol 2.72 L is geometrically tight (85 mm chord in an 85 mm outer holster)",
+   "detail": "With realistic 3 mm walls ≈3.1 L (> 3 L). Same class of issue as audit2 towglider.",
+   "evidence": "index.js:61; results.json airframe.chord 0.085",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A3-LF-07",
+   "severity": "minor",
+   "title": "Mass budget uses a 4 g NPU, not the shared 11 g vision computer",
+   "detail": "Shared-part variant 171.9 g → subset avail 69.302 %, endurance 49.33 min (still ≥45).",
+   "evidence": "results.json airframe, variants V1",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A3-LF-08",
+   "severity": "minor",
+   "title": "Bystander exposure unjudged",
+   "detail": "Dev exposure table: 0.7–7.3 flight passes within 5 m of other skiers per run (low–high density), perched glider on the piste in other riders' lines; headClear covers only the owner.",
+   "evidence": "results.json exposure",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A3-X-01",
+   "concept": "cross",
+   "severity": "major",
+   "title": "avail artefact tolerance",
+   "detail": "criteria.js says \"no product artefact ≥1 px over the subject\". kite2 tolerates a line/boom artefact up to 3 % of subject height (≈15 px at 520 px; boom stub ≈4.5 px wide over the rider in 100 % of filming frames → literal rule gives avail 0 %); towglider counts a frame bad only when ≥3 px of ≥1 px-wide leash lies over the subject; leapfrog has no tether (airframe occlusion only). The tolerances differ in kind and size.",
+   "favours": "kite2 (avail passes only under its 3 % tolerance); towglider mildly"
+  },
+  {
+   "id": "A3-X-02",
+   "concept": "cross",
+   "severity": "major",
+   "title": "off-grid tailwind band 3.5–5.5 m/s",
+   "detail": "FULLRUN_CASES has no wind between 3 and 6 m/s, where every tail gate sits. Auditor off-grid runs (same seeds): towglider tail3.5–4 → KE 21–22 J, headClear 0.36 m, ops 3 (audit3/towglider/out_tail_edge*.json); leapfrog launches in 4/15 band runs and is left behind → ops 3, avail 0–72 %, KE ≤14.303 J, headClear ≥1.97 m (safe but fails ops); kite2 robust: avail 72–82 %, KE ≤12.745 J, headClear ≥1.136 m, ops 1.",
+   "favours": "towglider and leapfrog in grid-only tables"
+  },
+  {
+   "id": "A3-X-03",
+   "concept": "cross",
+   "severity": "major",
+   "title": "headClear helmet definition",
+   "detail": "Brief approximation (skier.pos + 1.75·0.92 m vertical) vs concept body-model head (includes carving lean). kite2 dev 1.105 m (body head) vs 0.17 m with the vertical approximation (boom/line pass near the vertical point when the rider leans 45°); towglider 1.011 (own) vs 0.859 (vertical, 9/39 runs <1.0); leapfrog 1.89 vs 1.88. Also: kite2 excludes the worn 1.2 m boom (passes 0.42 m from the helmet centre) because the definition covers only airborne parts.",
+   "favours": "kite2 and towglider"
+  },
+  {
+   "id": "A3-X-04",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "subjectPx definition",
+   "detail": "env.footage() subjectPx is the full bounding box incl. ski tips, not feet→head as criteria.js words it. Strict feet→head: towglider avail 72 → 52 %, pxMed 535 → 373. Applies to every concept using env.footage (not re-run for kite2/leapfrog).",
+   "favours": "all concepts using env.footage"
+  },
+  {
+   "id": "A3-X-05",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "oracle wind",
+   "detail": "Round-2 oracle gates are removed: all three use windEstimate() for launch/park/no-fly gates. Remaining idealisations: kite2 tip-pitot/in-flight control on noise-free local wind; leapfrog in-flight estimate initialised with true wind and noise-free gust interlock; towglider estimate has no history at t=0.5 s (false refusal in 2 cross9 runs — penalises towglider).",
+   "favours": "small, mixed"
+  },
+  {
+   "id": "A3-X-06",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "endurance",
+   "detail": "All use enduranceMin(..., {heated}) with the heater over the whole day. Idle electronics on the lift are not charged by any concept; towglider most sensitive (57.8 → 39 min if the hip unit stays on). kite2 includes a winch-regeneration credit (48.5 min without).",
+   "favours": "towglider, kite2"
+  },
+  {
+   "id": "A3-X-07",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "constants vs simulated quantities",
+   "detail": "Setup is simulated for all three; residual constants: kite2 2 s arm tap; leapfrog 8 s pick-up/fold and 2.5 s no-fly handling (≥13.5 s fold → p90 >30 s); towglider none found. Mass budgets: leapfrog 4 g NPU instead of the shared 11 g vision computer (172 g → avail 69.3 %, endurance 49.3 on a subset).",
+   "favours": "leapfrog (mildly)"
+  },
+  {
+   "id": "A3-X-08",
+   "concept": "cross",
+   "severity": "major",
+   "title": "idealised actuators/estimators carrying passes",
+   "detail": "kite2: zero-lag heave-compensating winch beyond its own motor constants (needs 6–8 m/s reel-in, 93–166 W) and a boom gimbal sized for 0.13 N·m vs 0.35–1 N·m simulated load (passive boom → avail 42.9 %); towglider: 8 % EIS residual (15 % → jitter p90 2.99, 25 % → 4.65); leapfrog: perfect offline subject tracking (live framing 7.1, UWB-only pointing 4.2 °/s).",
+   "favours": "each concept in its own table"
+  },
+  {
+   "id": "A3-X-09",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "reproduction",
+   "detail": "All three developer ensembles reproduce exactly from a copy of sim/ (max abs diff 0–0.002 on judged columns); auditor-own recomputations agree (towglider body force 5.3 vs 4.3 N, avail 72.01 vs 72.10 — immaterial).",
+   "favours": "neutral"
+  }
+ ],
+ "descentglider": "frozen; round-2 findings remain in audit2/findings.json"
+}

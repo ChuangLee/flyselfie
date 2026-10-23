@@ -1,0 +1,91 @@
+{
+ "model": "H5 - reel on the flyer vs reel in the backpack.\n\nMass items are ASSUMED catalogue-class values (micro metal gearmotor ~9.5 g, Pololu); flyer energy\nfor reeling comes from h2/h3 results (mean reel power). Consequences evaluated with the same physics\nas h1/h4: stall speed (sqrt(m)), static elevation at Va 8 m/s (h1 solver), KE at 13.2 m/s rider speed,\nthe 171 g KE mass ceiling, and the cell mass the flyer must carry for reel energy per 45 min.\n",
+ "flyerReelKit_g": {
+  "micro gearmotor (N20 / micro metal class)": 9.5,
+  "spool + level-wind + frame": 6.0,
+  "line 30 m UHMWPE 0.5 mm (0.15 g/m)": 4.5,
+  "driver + encoder + tension sense (current)": 2.0
+ },
+ "kit_total_g": 22.0,
+ "cases": [
+  {
+   "scenario": "heave/tension trim only (0.5 W mean, ASSUMED)",
+   "reelAt": "flyer",
+   "reelPower_W": 0.5,
+   "flyerCell_g": 3.9,
+   "flyerMass_g": 155.9,
+   "vmin": 5.03,
+   "eps_Va8_l15": 72.0,
+   "KE_at_13_2": 13.6,
+   "keCapSpeed": 13.82,
+   "line": "UHMWPE 0.5 mm"
+  },
+  {
+   "scenario": "heave/tension trim only (0.5 W mean, ASSUMED)",
+   "reelAt": "backpack",
+   "reelPower_W": 0.5,
+   "flyerCell_g": 0.0,
+   "flyerMass_g": 122.0,
+   "vmin": 4.45,
+   "eps_Va8_l15": 74.3,
+   "KE_at_13_2": 10.6,
+   "keCapSpeed": 15.63,
+   "line": "conductive 0.6 mm"
+  },
+  {
+   "scenario": "tension-tracking reel (h3 mode 1 mean |P|)",
+   "reelAt": "flyer",
+   "reelPower_W": 4.33,
+   "flyerCell_g": 34.0,
+   "flyerMass_g": 186.0,
+   "vmin": 5.49,
+   "eps_Va8_l15": 67.6,
+   "KE_at_13_2": 16.2,
+   "keCapSpeed": 12.66,
+   "line": "UHMWPE 0.5 mm"
+  },
+  {
+   "scenario": "tension-tracking reel (h3 mode 1 mean |P|)",
+   "reelAt": "backpack",
+   "reelPower_W": 4.33,
+   "flyerCell_g": 0.0,
+   "flyerMass_g": 122.0,
+   "vmin": 4.45,
+   "eps_Va8_l15": 74.3,
+   "KE_at_13_2": 10.6,
+   "keCapSpeed": 15.63,
+   "line": "conductive 0.6 mm"
+  },
+  {
+   "scenario": "calm-stop yo-yo 40 % of the time (h2 S3 best)",
+   "reelAt": "flyer",
+   "reelPower_W": 2.41,
+   "flyerCell_g": 18.9,
+   "flyerMass_g": 170.9,
+   "vmin": 5.26,
+   "eps_Va8_l15": 70.0,
+   "KE_at_13_2": 14.9,
+   "keCapSpeed": 13.2,
+   "line": "UHMWPE 0.5 mm"
+  },
+  {
+   "scenario": "calm-stop yo-yo 40 % of the time (h2 S3 best)",
+   "reelAt": "backpack",
+   "reelPower_W": 2.41,
+   "flyerCell_g": 0.0,
+   "flyerMass_g": 122.0,
+   "vmin": 4.45,
+   "eps_Va8_l15": 74.3,
+   "KE_at_13_2": 10.6,
+   "keCapSpeed": 15.63,
+   "line": "conductive 0.6 mm"
+  }
+ ],
+ "dynamics": {
+  "exitDisturbance": "rider carving: exit speed oscillation ~0.8 m/s at 0.69 Hz, body heave 3 cm at 2 Hz, hockey-stop lean flip moves the exit 8-9 m/s for ~0.4 s (kite2 design_notes rootCause.ke)",
+  "packReelLatency_ms": "~10-20 (pack IMU -> motor, local) ASSUMED",
+  "flyerReelLatency_ms": "~30-60 (pack IMU -> radio -> flyer MCU -> motor) ASSUMED",
+  "flyerReelPeakPower_W": "to cancel a 8 m/s, 0.4 s lean-flip at 5 N needs ~40 W peak and ~20 m/s^2 for a few hundred ms - a 9.5 g gearmotor is ~1-2 W class",
+  "packReelPeakPower_W": "40 W peak is a 30-50 g outrunner + 1:5 belt: fine in the pack (ASSUMED)"
+ }
+}

@@ -1,0 +1,6758 @@
+{
+ "id": "SIM-032 science_aero",
+ "date": "2026-10-20",
+ "role": "aerodynamics / flight-dynamics scientist",
+ "evidenceLevel": "First-principles reduced-order models and small numerical simulations (point-mass flyer, straight elastic line with cross-flow drag, finite actuators). Numerical-uncalibrated. NOTHING was built, flown or measured; no physical test was run (M-070 not_run, G-MATURE closed). Coefficients without a source are ASSUMED.",
+ "howToReproduce": {
+  "dir": "research/active_tether_2026_10_20/science_aero/",
+  "commands": [
+   "python3 h1_equilibrium.py",
+   "python3 h4_ke.py",
+   "python3 h6_crosswind.py",
+   "python3 h2_reel_sustain.py",
+   "python3 launch_dock.py",
+   "python3 h3_control.py",
+   "python3 h5_reel_location.py",
+   "python3 build_report.py"
+  ],
+  "python": "3 (stdlib only; multiprocessing)"
+ },
+ "basis": {
+  "flyers": {
+   "G130": {
+    "name": "G130",
+    "kind": "glider",
+    "mass_g": 130.0,
+    "S_m2": 0.11,
+    "AR": 6.0,
+    "span_m": 0.812,
+    "chord_m": 0.135,
+    "CD0": 0.045,
+    "e": 0.8,
+    "CLmax": 1.1,
+    "wingLoading_Nm2": 11.59,
+    "LDmax": 9.15,
+    "vmin_ms": 4.59,
+    "Re_at_7ms": 56755,
+    "status": "ASSUMED polar (CD0 0.045 at Re ~5e4 incl. camera pod/tail; e 0.8; CLmax 1.1)"
+   },
+   "K120": {
+    "name": "K120",
+    "kind": "kite",
+    "mass_g": 120.0,
+    "S_m2": 0.6,
+    "AR": 4.0,
+    "span_m": 1.549,
+    "chord_m": 0.387,
+    "CD0": 0.09,
+    "e": 0.7,
+    "CLmax": 1.0,
+    "wingLoading_Nm2": 1.96,
+    "LDmax": 4.94,
+    "vmin_ms": 1.98,
+    "Re_at_7ms": 162341,
+    "status": "ASSUMED low-wing-loading semi-rigid kite (single-skin + bridle CD0 0.09)"
+   },
+   "sweep": "h1 also sweeps 80/130/200 g x (L/D)max 5/7.5/10 with S = 0.11 m^2"
+  },
+  "lines": {
+   "conductive": {
+    "name": "conductive 0.6 mm",
+    "d_mm": 0.6,
+    "g_per_m": 0.4,
+    "Cd": 1.1,
+    "EA_N": 5000.0,
+    "Re_at_10ms": 359,
+    "source": "towglider design_notes.json round 3 (0.60 mm, 0.40 g/m)"
+   },
+   "uhmwpe": {
+    "name": "UHMWPE 0.5 mm",
+    "d_mm": 0.5,
+    "g_per_m": 0.15,
+    "Cd": 1.1,
+    "EA_N": 10000.0,
+    "Re_at_10ms": 299,
+    "status": "ASSUMED"
+   }
+  },
+  "lineDragCd": "1.1 for a cylinder at Re 2e2-1e3 (https://en.wikipedia.org/wiki/Drag_coefficient) - ASSUMED for a braided line",
+  "atmosphere": "rho 1.0 kg/m^3, -10 C (components.js ATMOS, ASSUMED design day)",
+  "camera": {
+   "w": 3840,
+   "h": 2880,
+   "hfov_deg": 66.0,
+   "vfov_deg": 51.937322848372254,
+   "source": "towglider round-3 camera (4K 4:3, 66 deg HFOV M12, ASSUMED there); bodyPx replicates env.js footage().bodyPx"
+  },
+  "battery": "150 Wh/kg pack, x0.75 cold, 15 % reserve (components.js BATTERY); reel motor+gear+driver efficiency 0.5 ASSUMED",
+  "turbulence": "MIL-F-8785C low-altitude Dryden longitudinal, W20 = 6 m/s, h = 5 m -> sigma_u 1.17 m/s, L_u 36 m (https://en.wikipedia.org/wiki/Dryden_Wind_Turbulence_Model); rider speed oscillation 0.8 m/s at 0.69 Hz and 3 cm/2 Hz heave ASSUMED",
+  "KEcap": "14.9 J ground frame (criteria.js keMax)"
+ },
+ "hypotheses": [
+  {
+   "id": "H1",
+   "title": "A high-L/D tethered glider flies steep (tan eps ~ L/D_eff), so the line no longer forms a low clothesline - and what that does to the camera view",
+   "method": "h1_equilibrium.py: moment balance of a straight line with flyer lift/drag/weight + cross-flow line drag + line weight; bisection on eps; trim CL for max L/D and for max eps; grid l 5-30 m, m 80-200 g, (L/D)max 5-10, Va 3-20 m/s, two lines. Cross-checked by the 3D simulator (sim3d.py): fixed-CL runs settle at 73.3 deg (Va 8, l 15) and 78.5 deg (Va 12) vs 73.6/78.5 deg from the static solver. Camera: env.js bodyPx rule replicated; head clearance = distance helmet centre -> line segment (shared headClear >= 1.0 m).",
+   "numbers": {
+    "G130_conductiveLine": [
+     {
+      "l": 5,
+      "Va": 5,
+      "eps_deg": 50.4,
+      "tanEps": 1.21,
+      "T_exit_N": 0.28,
+      "lineH_1m": 2.56,
+      "lineH_2m": 3.77,
+      "lineH_3m": 4.98,
+      "sag_m": 0.028,
+      "camDist_m": 5.43,
+      "camDep_deg": 52.1,
+      "bodyPx_camOnFlyer": 552,
+      "headClear_packTopExit": 0.35
+     },
+     {
+      "l": 5,
+      "Va": 8,
+      "eps_deg": 77.2,
+      "tanEps": 4.4,
+      "T_exit_N": 1.63,
+      "lineH_1m": 5.73,
+      "lineH_2m": null,
+      "lineH_3m": null,
+      "sag_m": 0.002,
+      "camDist_m": 5.46,
+      "camDep_deg": 76.6,
+      "bodyPx_camOnFlyer": 207,
+      "headClear_packTopExit": 0.3
+     },
+     {
+      "l": 5,
+      "Va": 12,
+      "eps_deg": 81.0,
+      "tanEps": 6.31,
+      "T_exit_N": 5.28,
+      "lineH_1m": null,
+      "lineH_2m": null,
+      "lineH_3m": null,
+      "sag_m": 0.0,
+      "camDist_m": 5.45,
+      "camDep_deg": 80.2,
+      "bodyPx_camOnFlyer": 153,
+      "headClear_packTopExit": 0.29
+     },
+     {
+      "l": 5,
+      "Va": 20,
+      "eps_deg": 82.2,
+      "tanEps": 7.3,
+      "T_exit_N": 16.94,
+      "lineH_1m": null,
+      "lineH_2m": null,
+      "lineH_3m": null,
+      "sag_m": 0.0,
+      "camDist_m": 5.45,
+      "camDep_deg": 81.3,
+      "bodyPx_camOnFlyer": 136,
+      "headClear_packTopExit": 0.28
+     },
+     {
+      "l": 10,
+      "Va": 5,
+      "eps_deg": 47.1,
+      "tanEps": 1.08,
+      "T_exit_N": 0.26,
+      "lineH_1m": 2.42,
+      "lineH_2m": 3.5,
+      "lineH_3m": 4.57,
+      "sag_m": 0.127,
+      "camDist_m": 10.42,
+      "camDep_deg": 48.1,
+      "bodyPx_camOnFlyer": 313,
+      "headClear_packTopExit": 0.35
+     },
+     {
+      "l": 10,
+      "Va": 8,
+      "eps_deg": 75.4,
+      "tanEps": 3.84,
+      "T_exit_N": 1.61,
+      "lineH_1m": 5.18,
+      "lineH_2m": 9.01,
+      "lineH_3m": null,
+      "sag_m": 0.008,
+      "camDist_m": 10.46,
+      "camDep_deg": 75.2,
+      "bodyPx_camOnFlyer": 119,
+      "headClear_packTopExit": 0.31
+     },
+     {
+      "l": 10,
+      "Va": 12,
+      "eps_deg": 79.7,
+      "tanEps": 5.5,
+      "T_exit_N": 5.25,
+      "lineH_1m": 6.87,
+      "lineH_2m": null,
+      "lineH_3m": null,
+      "sag_m": 0.002,
+      "camDist_m": 10.45,
+      "camDep_deg": 79.4,
+      "bodyPx_camOnFlyer": 86,
+      "headClear_packTopExit": 0.29
+     },
+     {
+      "l": 10,
+      "Va": 20,
+      "eps_deg": 81.1,
+      "tanEps": 6.39,
+      "T_exit_N": 16.91,
+      "lineH_1m": 7.74,
+      "lineH_2m": null,
+      "lineH_3m": null,
+      "sag_m": 0.0,
+      "camDist_m": 10.45,
+      "camDep_deg": 80.7,
+      "bodyPx_camOnFlyer": 76,
+      "headClear_packTopExit": 0.29
+     },
+     {
+      "l": 15,
+      "Va": 5,
+      "eps_deg": 44.0,
+      "tanEps": 0.97,
+      "T_exit_N": 0.25,
+      "lineH_1m": 2.32,
+      "lineH_2m": 3.28,
+      "lineH_3m": 4.25,
+      "sag_m": 0.32,
+      "camDist_m": 15.41,
+      "camDep_deg": 44.8,
+      "bodyPx_camOnFlyer": 226,
+      "headClear_packTopExit": 0.35
+     },
+     {
+      "l": 15,
+      "Va": 8,
+      "eps_deg": 73.6,
+      "tanEps": 3.4,
+      "T_exit_N": 1.59,
+      "lineH_1m": 4.75,
+      "lineH_2m": 8.15,
+      "lineH_3m": 11.56,
+      "sag_m": 0.02,
+      "camDist_m": 15.46,
+      "camDep_deg": 73.5,
+      "bodyPx_camOnFlyer": 90,
+      "headClear_packTopExit": 0.31
+     },
+     {
+      "l": 15,
+      "Va": 12,
+      "eps_deg": 78.5,
+      "tanEps": 4.92,
+      "T_exit_N": 5.23,
+      "lineH_1m": 6.26,
+      "lineH_2m": 11.18,
+      "lineH_3m": null,
+      "sag_m": 0.004,
+      "camDist_m": 15.46,
+      "camDep_deg": 78.3,
+      "bodyPx_camOnFlyer": 64,
+      "headClear_packTopExit": 0.29
+     },
+     {
+      "l": 15,
+      "Va": 20,
+      "eps_deg": 80.0,
+      "tanEps": 5.67,
+      "T_exit_N": 16.88,
+      "lineH_1m": 7.04,
+      "lineH_2m": 12.73,
+      "lineH_3m": null,
+      "sag_m": 0.001,
+      "camDist_m": 15.45,
+      "camDep_deg": 79.8,
+      "bodyPx_camOnFlyer": 56,
+      "headClear_packTopExit": 0.29
+     },
+     {
+      "l": 20,
+      "Va": 5,
+      "eps_deg": 41.2,
+      "tanEps": 0.88,
+      "T_exit_N": 0.23,
+      "lineH_1m": 2.22,
+      "lineH_2m": 3.1,
+      "lineH_3m": 3.97,
+      "sag_m": 0.631,
+      "camDist_m": 20.4,
+      "camDep_deg": 41.8,
+      "bodyPx_camOnFlyer": 179,
+      "headClear_packTopExit": 0.35
+     },
+     {
+      "l": 20,
+      "Va": 8,
+      "eps_deg": 71.9,
+      "tanEps": 3.06,
+      "T_exit_N": 1.57,
+      "lineH_1m": 4.41,
+      "lineH_2m": 7.48,
+      "lineH_3m": 10.54,
+      "sag_m": 0.039,
+      "camDist_m": 20.46,
+      "camDep_deg": 71.9,
+      "bodyPx_camOnFlyer": 74,
+      "headClear_packTopExit": 0.32
+     },
+     {
+      "l": 20,
+      "Va": 12,
+      "eps_deg": 77.3,
+      "tanEps": 4.44,
+      "T_exit_N": 5.2,
+      "lineH_1m": 5.78,
+      "lineH_2m": 10.21,
+      "lineH_3m": 14.64,
+      "sag_m": 0.008,
+      "camDist_m": 20.46,
+      "camDep_deg": 77.1,
+      "bodyPx_camOnFlyer": 53,
+      "headClear_packTopExit": 0.3
+     },
+     {
+      "l": 20,
+      "Va": 20,
+      "eps_deg": 79.0,
+      "tanEps": 5.14,
+      "T_exit_N": 16.84,
+      "lineH_1m": 6.48,
+      "lineH_2m": 11.61,
+      "lineH_3m": 16.74,
+      "sag_m": 0.002,
+      "camDist_m": 20.45,
+      "camDep_deg": 78.8,
+      "bodyPx_camOnFlyer": 47,
+      "headClear_packTopExit": 0.29
+     },
+     {
+      "l": 30,
+      "Va": 5,
+      "eps_deg": 36.0,
+      "tanEps": 0.73,
+      "T_exit_N": 0.21,
+      "lineH_1m": 2.08,
+      "lineH_2m": 2.81,
+      "lineH_3m": 3.53,
+      "sag_m": 1.703,
+      "camDist_m": 30.38,
+      "camDep_deg": 36.5,
+      "bodyPx_camOnFlyer": 130,
+      "headClear_packTopExit": 0.35
+     },
+     {
+      "l": 30,
+      "Va": 8,
+      "eps_deg": 68.7,
+      "tanEps": 2.56,
+      "T_exit_N": 1.52,
+      "lineH_1m": 3.91,
+      "lineH_2m": 6.47,
+      "lineH_3m": 9.03,
+      "sag_m": 0.106,
+      "camDist_m": 30.46,
+      "camDep_deg": 68.7,
+      "bodyPx_camOnFlyer": 59,
+      "headClear_packTopExit": 0.32
+     },
+     {
+      "l": 30,
+      "Va": 12,
+      "eps_deg": 74.9,
+      "tanEps": 3.71,
+      "T_exit_N": 5.14,
+      "lineH_1m": 5.05,
+      "lineH_2m": 8.76,
+      "lineH_3m": 12.46,
+      "sag_m": 0.022,
+      "camDist_m": 30.46,
+      "camDep_deg": 74.8,
+      "bodyPx_camOnFlyer": 42,
+      "headClear_packTopExit": 0.31
+     },
+     {
+      "l": 30,
+      "Va": 20,
+      "eps_deg": 76.9,
+      "tanEps": 4.3,
+      "T_exit_N": 16.74,
+      "lineH_1m": 5.65,
+      "lineH_2m": 9.94,
+      "lineH_3m": 14.24,
+      "sag_m": 0.006,
+      "camDist_m": 30.46,
+      "camDep_deg": 76.8,
+      "bodyPx_camOnFlyer": 37,
+      "headClear_packTopExit": 0.3
+     }
+    ],
+    "massAndLD_l15": [
+     {
+      "flyer": "G80_LD5",
+      "Va": 5,
+      "eps_deg": 57.5,
+      "eps_max_deg": 61.9,
+      "vaStaticMin": 3.67,
+      "T_exit": 0.6
+     },
+     {
+      "flyer": "G80_LD5",
+      "Va": 8,
+      "eps_deg": 71.2,
+      "eps_max_deg": 72.5,
+      "vaStaticMin": 3.67,
+      "T_exit": 2.75
+     },
+     {
+      "flyer": "G80_LD5",
+      "Va": 12,
+      "eps_deg": 73.7,
+      "eps_max_deg": 74.6,
+      "vaStaticMin": 3.67,
+      "T_exit": 7.2
+     },
+     {
+      "flyer": "G80_LD10",
+      "Va": 5,
+      "eps_deg": 55.2,
+      "eps_max_deg": 72.4,
+      "vaStaticMin": 3.67,
+      "T_exit": 0.22
+     },
+     {
+      "flyer": "G80_LD10",
+      "Va": 8,
+      "eps_deg": 77.1,
+      "eps_max_deg": 79.4,
+      "vaStaticMin": 3.67,
+      "T_exit": 1.82
+     },
+     {
+      "flyer": "G80_LD10",
+      "Va": 12,
+      "eps_deg": 79.6,
+      "eps_max_deg": 80.8,
+      "vaStaticMin": 3.67,
+      "T_exit": 5.15
+     },
+     {
+      "flyer": "G130_LD5",
+      "Va": 5,
+      "eps_deg": 10.4,
+      "eps_max_deg": 30.7,
+      "vaStaticMin": 4.64,
+      "T_exit": 0.3
+     },
+     {
+      "flyer": "G130_LD5",
+      "Va": 8,
+      "eps_deg": 67.4,
+      "eps_max_deg": 69.5,
+      "vaStaticMin": 4.64,
+      "T_exit": 2.28
+     },
+     {
+      "flyer": "G130_LD5",
+      "Va": 12,
+      "eps_deg": 72.6,
+      "eps_max_deg": 73.7,
+      "vaStaticMin": 4.64,
+      "T_exit": 6.72
+     },
+     {
+      "flyer": "G130_LD10",
+      "Va": 5,
+      "eps_deg": 45.2,
+      "eps_max_deg": 45.2,
+      "vaStaticMin": 4.64,
+      "T_exit": 0.24
+     },
+     {
+      "flyer": "G130_LD10",
+      "Va": 8,
+      "eps_deg": 72.8,
+      "eps_max_deg": 77.5,
+      "vaStaticMin": 4.64,
+      "T_exit": 1.34
+     },
+     {
+      "flyer": "G130_LD10",
+      "Va": 12,
+      "eps_deg": 78.5,
+      "eps_max_deg": 80.2,
+      "vaStaticMin": 4.64,
+      "T_exit": 4.66
+     },
+     {
+      "flyer": "G200_LD5",
+      "Va": 5,
+      "eps_deg": null,
+      "eps_max_deg": null,
+      "vaStaticMin": 5.74,
+      "T_exit": null
+     },
+     {
+      "flyer": "G200_LD5",
+      "Va": 8,
+      "eps_deg": 59.1,
+      "eps_max_deg": 63.1,
+      "vaStaticMin": 5.74,
+      "T_exit": 1.65
+     },
+     {
+      "flyer": "G200_LD5",
+      "Va": 12,
+      "eps_deg": 70.7,
+      "eps_max_deg": 72.1,
+      "vaStaticMin": 5.74,
+      "T_exit": 6.06
+     },
+     {
+      "flyer": "G200_LD10",
+      "Va": 5,
+      "eps_deg": null,
+      "eps_max_deg": null,
+      "vaStaticMin": 5.74,
+      "T_exit": null
+     },
+     {
+      "flyer": "G200_LD10",
+      "Va": 8,
+      "eps_deg": 58.8,
+      "eps_max_deg": 73.2,
+      "vaStaticMin": 5.74,
+      "T_exit": 0.68
+     },
+     {
+      "flyer": "G200_LD10",
+      "Va": 12,
+      "eps_deg": 76.7,
+      "eps_max_deg": 79.2,
+      "vaStaticMin": 5.74,
+      "T_exit": 3.98
+     },
+     {
+      "flyer": "K120",
+      "Va": 5,
+      "eps_deg": 75.5,
+      "eps_max_deg": 75.8,
+      "vaStaticMin": 2.01,
+      "T_exit": 5.6
+     },
+     {
+      "flyer": "K120",
+      "Va": 8,
+      "eps_deg": 77.2,
+      "eps_max_deg": 77.3,
+      "vaStaticMin": 2.01,
+      "T_exit": 16.22
+     },
+     {
+      "flyer": "K120",
+      "Va": 12,
+      "eps_deg": 77.7,
+      "eps_max_deg": 77.7,
+      "vaStaticMin": 2.01,
+      "T_exit": 38.0
+     }
+    ],
+    "staticFlightFloor_Va": {
+     "G130 (stall 4.6 m/s)": 4.6,
+     "G80 (L/D10)": 3.7,
+     "G200": 5.7,
+     "K120": 2.0
+    },
+    "effectiveLD_note": "tan(eps) = 3.4-7.5 for G130 at Va >= 8 m/s i.e. 40-80 % of (L/D)max 9.15; the deficit is weight at low Va and line drag at long l (line drag scales with (Va sin eps)^2, so steep lines carry MORE normal drag).",
+    "lineHeightBehindExit": "eps 70-80 deg -> line 4-6 m above the snow 1 m behind a 1.35 m exit (3.8-5.1 m in a carving lean with a 1.05 m exit); at eps 45 deg: 2.35 m (2.05 m carving). Catenary sag <= 0.1 m for T >= 1.5 N.",
+    "cameraOnFlyer_maxEpsFor300px": {
+     "4": 70,
+     "5": 70,
+     "6": 65,
+     "8": 55,
+     "10": 45,
+     "12": 30
+    },
+    "cameraOnFlyer_examples": "l 10 m: eps 30 -> 402 px, 45 -> 325 px, 55 -> 264 px, 75 -> 122 px; l 5 m: eps 65 -> 371 px, 75 -> 237 px (upright rider); a 40 deg carving lean costs another 10-20 %.",
+    "cameraOnLine_l20": [
+     {
+      "eps": 40,
+      "s_cam": 5,
+      "bodyPx": 666,
+      "camDep": 42.5,
+      "camDist": 5.4
+     },
+     {
+      "eps": 40,
+      "s_cam": 6,
+      "bodyPx": 566,
+      "camDep": 42.1,
+      "camDist": 6.4
+     },
+     {
+      "eps": 50,
+      "s_cam": 5,
+      "bodyPx": 556,
+      "camDep": 51.7,
+      "camDist": 5.43
+     },
+     {
+      "eps": 50,
+      "s_cam": 6,
+      "bodyPx": 472,
+      "camDep": 51.5,
+      "camDist": 6.43
+     },
+     {
+      "eps": 55,
+      "s_cam": 5,
+      "bodyPx": 497,
+      "camDep": 56.3,
+      "camDist": 5.44
+     },
+     {
+      "eps": 55,
+      "s_cam": 6,
+      "bodyPx": 422,
+      "camDep": 56.1,
+      "camDist": 6.44
+     },
+     {
+      "eps": 60,
+      "s_cam": 5,
+      "bodyPx": 435,
+      "camDep": 60.9,
+      "camDist": 5.45
+     },
+     {
+      "eps": 60,
+      "s_cam": 6,
+      "bodyPx": 369,
+      "camDep": 60.8,
+      "camDist": 6.45
+     },
+     {
+      "eps": 65,
+      "s_cam": 5,
+      "bodyPx": 371,
+      "camDep": 65.5,
+      "camDist": 5.46
+     },
+     {
+      "eps": 65,
+      "s_cam": 6,
+      "bodyPx": 314,
+      "camDep": 65.4,
+      "camDist": 6.46
+     },
+     {
+      "eps": 70,
+      "s_cam": 5,
+      "bodyPx": 305,
+      "camDep": 70.1,
+      "camDist": 5.46
+     },
+     {
+      "eps": 70,
+      "s_cam": 6,
+      "bodyPx": 258,
+      "camDep": 70.1,
+      "camDist": 6.46
+     },
+     {
+      "eps": 75,
+      "s_cam": 5,
+      "bodyPx": 237,
+      "camDep": 74.7,
+      "camDist": 5.46
+     },
+     {
+      "eps": 75,
+      "s_cam": 6,
+      "bodyPx": 199,
+      "camDep": 74.7,
+      "camDist": 6.46
+     },
+     {
+      "eps": 80,
+      "s_cam": 5,
+      "bodyPx": 167,
+      "camDep": 79.2,
+      "camDist": 5.45
+     },
+     {
+      "eps": 80,
+      "s_cam": 6,
+      "bodyPx": 140,
+      "camDep": 79.4,
+      "camDist": 6.45
+     }
+    ],
+    "headClearance": "Pack-top exit: 0.27-0.35 m for every eps/azimuth (the helmet is 0.35 m from the exit itself). Seat exit 0.41-0.74 m, belt exit 0.53-0.85 m, worse when steeper. Only an exit >= ~0.95 m behind the helmet (0.8 m rear boom) gives >= 1.0 m.",
+    "brakeForCameraEps": [
+     {
+      "flyer": "G130",
+      "Va": 6,
+      "l": 10,
+      "eps_target": 45,
+      "brake_dCD": 0.059,
+      "brake_over_CD": 0.65,
+      "eps_free": 55.9,
+      "T_exit": 0.43
+     },
+     {
+      "flyer": "G130",
+      "Va": 6,
+      "l": 10,
+      "eps_target": 60,
+      "brake_dCD": 0.0,
+      "eps_free": 55.9
+     },
+     {
+      "flyer": "G130",
+      "Va": 8,
+      "l": 10,
+      "eps_target": 45,
+      "brake_dCD": 0.345,
+      "brake_over_CD": 3.83,
+      "eps_free": 75.4,
+      "T_exit": 2.2
+     },
+     {
+      "flyer": "G130",
+      "Va": 8,
+      "l": 10,
+      "eps_target": 60,
+      "brake_dCD": 0.147,
+      "brake_over_CD": 1.64,
+      "eps_free": 75.4,
+      "T_exit": 1.79
+     },
+     {
+      "flyer": "G130",
+      "Va": 10,
+      "l": 10,
+      "eps_target": 45,
+      "brake_dCD": 0.477,
+      "brake_over_CD": 5.3,
+      "eps_free": 78.5,
+      "T_exit": 4.48
+     },
+     {
+      "flyer": "G130",
+      "Va": 10,
+      "l": 10,
+      "eps_target": 60,
+      "brake_dCD": 0.224,
+      "brake_over_CD": 2.49,
+      "eps_free": 78.5,
+      "T_exit": 3.65
+     },
+     {
+      "flyer": "G130",
+      "Va": 12,
+      "l": 10,
+      "eps_target": 45,
+      "brake_dCD": 0.549,
+      "brake_over_CD": 6.1,
+      "eps_free": 79.7,
+      "T_exit": 7.26
+     },
+     {
+      "flyer": "G130",
+      "Va": 12,
+      "l": 10,
+      "eps_target": 60,
+      "brake_dCD": 0.265,
+      "brake_over_CD": 2.95,
+      "eps_free": 79.7,
+      "T_exit": 5.92
+     },
+     {
+      "flyer": "G130",
+      "Va": 15,
+      "l": 10,
+      "eps_target": 45,
+      "brake_dCD": 0.608,
+      "brake_over_CD": 6.75,
+      "eps_free": 80.6,
+      "T_exit": 12.39
+     },
+     {
+      "flyer": "G130",
+      "Va": 15,
+      "l": 10,
+      "eps_target": 60,
+      "brake_dCD": 0.299,
+      "brake_over_CD": 3.32,
+      "eps_free": 80.6,
+      "T_exit": 10.1
+     },
+     {
+      "flyer": "G130",
+      "Va": 20,
+      "l": 10,
+      "eps_target": 45,
+      "brake_dCD": 0.654,
+      "brake_over_CD": 7.26,
+      "eps_free": 81.1,
+      "T_exit": 23.45
+     },
+     {
+      "flyer": "G130",
+      "Va": 20,
+      "l": 10,
+      "eps_target": 60,
+      "brake_dCD": 0.326,
+      "brake_over_CD": 3.62,
+      "eps_free": 81.1,
+      "T_exit": 19.13
+     }
+    ]
+   },
+   "verdict": "SUPPORTED for the clothesline, REFUTED as a free lunch for the camera and head clearance",
+   "finding": "A 9:1 glider at Va >= 8 m/s settles at eps 73-82 deg (tan eps 3.4-7.5): the line rises 4-6 m within 1 m behind the rider, so the kite2/towglider clothesline (0.7-0.8 m above the snow) disappears. But (a) a camera ON the flyer then looks almost straight down: bodyPx >= 300 needs eps <= 65 deg at l 5 m, <= 55 deg at 8 m, <= 45 deg at 10 m, <= 25 deg at 15 m; (b) head clearance is set by the exit, not by eps - a pack-top exit is 0.35 m from the helmet whatever the line angle. The flyer must deliberately fly LOWER than it can (airbrake dCD 0.15-0.65 at Va 8-20 m/s for eps 45-60 deg, at +10-35 % tension) or the camera must leave the flyer (H8).",
+   "assumed": [
+    "G130/K120 polars",
+    "line Cd 1.1",
+    "rider/helmet geometry (helmet 0.35 m from a pack-top exit)",
+    "camera 66 deg HFOV 4K 4:3"
+   ]
+  },
+  {
+   "id": "H2",
+   "title": "Active reel-in keeps the flyer up when the apparent wind is too low (stops, tailwinds, slow riders)",
+   "method": "h2_reel_sustain.py: S1 straight reel-in (closed form); S2 circling on a cone round the stopped rider with a tension-held reel (sim3d, 20 s, calm); S3 \"yo-yo\": tension-controlled winch-climb inbound + glide outbound with fed-forward pay-out (sim3d, 40 s, calm); S4 free circling glide (closed form); S5 dock & relaunch. Battery budget per 45 min = 54 stops (27 laps of the R4 run).",
+   "numbers": {
+    "S1": [
+     {
+      "flyer": "G130",
+      "Vreq": 5.28,
+      "t": 5,
+      "lineNeeded": 26.4,
+      "E_batt_J": 9.6
+     },
+     {
+      "flyer": "G130",
+      "Vreq": 5.28,
+      "t": 10,
+      "lineNeeded": 52.8,
+      "E_batt_J": 19.1
+     },
+     {
+      "flyer": "G130",
+      "Vreq": 5.28,
+      "t": 20,
+      "lineNeeded": 105.6,
+      "E_batt_J": 38.3
+     },
+     {
+      "flyer": "G130",
+      "Vreq": 5.28,
+      "t": 38,
+      "lineNeeded": 200.6,
+      "E_batt_J": 72.7
+     },
+     {
+      "flyer": "K120",
+      "Vreq": 2.28,
+      "t": 5,
+      "lineNeeded": 11.4,
+      "E_batt_J": 7.1
+     },
+     {
+      "flyer": "K120",
+      "Vreq": 2.28,
+      "t": 10,
+      "lineNeeded": 22.8,
+      "E_batt_J": 14.1
+     },
+     {
+      "flyer": "K120",
+      "Vreq": 2.28,
+      "t": 20,
+      "lineNeeded": 45.6,
+      "E_batt_J": 28.2
+     },
+     {
+      "flyer": "K120",
+      "Vreq": 2.28,
+      "t": 38,
+      "lineNeeded": 86.6,
+      "E_batt_J": 53.6
+     }
+    ],
+    "S2_spiral": [
+     {
+      "strategy": "S2_spiral",
+      "flyer": "G130",
+      "l0": 20,
+      "eps0": 55,
+      "Tset": 1.0,
+      "ok": false,
+      "t": 18.9,
+      "dz": -17.43,
+      "lineUsed": 12.72,
+      "E_batt_J": 15.0
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "G130",
+      "l0": 20,
+      "eps0": 55,
+      "Tset": 2.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -15.71,
+      "lineUsed": 16.36,
+      "E_batt_J": 52.4
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "G130",
+      "l0": 20,
+      "eps0": 55,
+      "Tset": 4.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -16.73,
+      "lineUsed": 17.01,
+      "E_batt_J": 117.3
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "G130",
+      "l0": 20,
+      "eps0": 55,
+      "Tset": 6.0,
+      "ok": false,
+      "t": 19.9,
+      "dz": -17.43,
+      "lineUsed": 17.01,
+      "E_batt_J": 174.5
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "G130",
+      "l0": 30,
+      "eps0": 55,
+      "Tset": 1.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -18.76,
+      "lineUsed": 20.74,
+      "E_batt_J": 19.4
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "G130",
+      "l0": 30,
+      "eps0": 55,
+      "Tset": 2.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -17.79,
+      "lineUsed": 20.35,
+      "E_batt_J": 61.7
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "G130",
+      "l0": 30,
+      "eps0": 55,
+      "Tset": 4.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -19.06,
+      "lineUsed": 22.47,
+      "E_batt_J": 151.6
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "G130",
+      "l0": 30,
+      "eps0": 55,
+      "Tset": 6.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -21.08,
+      "lineUsed": 25.11,
+      "E_batt_J": 258.3
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "K120",
+      "l0": 20,
+      "eps0": 55,
+      "Tset": 1.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -10.29,
+      "lineUsed": 11.56,
+      "E_batt_J": 14.8
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "K120",
+      "l0": 20,
+      "eps0": 55,
+      "Tset": 2.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -11.11,
+      "lineUsed": 13.08,
+      "E_batt_J": 42.9
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "K120",
+      "l0": 20,
+      "eps0": 55,
+      "Tset": 4.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -13.04,
+      "lineUsed": 15.7,
+      "E_batt_J": 113.4
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "K120",
+      "l0": 20,
+      "eps0": 55,
+      "Tset": 6.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -14.63,
+      "lineUsed": 17.02,
+      "E_batt_J": 188.6
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "K120",
+      "l0": 30,
+      "eps0": 55,
+      "Tset": 1.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -10.92,
+      "lineUsed": 11.4,
+      "E_batt_J": 15.0
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "K120",
+      "l0": 30,
+      "eps0": 55,
+      "Tset": 2.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -11.72,
+      "lineUsed": 13.26,
+      "E_batt_J": 42.8
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "K120",
+      "l0": 30,
+      "eps0": 55,
+      "Tset": 4.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -13.62,
+      "lineUsed": 16.13,
+      "E_batt_J": 115.0
+     },
+     {
+      "strategy": "S2_spiral",
+      "flyer": "K120",
+      "l0": 30,
+      "eps0": 55,
+      "Tset": 6.0,
+      "ok": true,
+      "t": 20.0,
+      "dz": -15.8,
+      "lineUsed": 18.99,
+      "E_batt_J": 209.0
+     }
+    ],
+    "S3_yoyo": [
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "G130",
+      "lmin": 6.0,
+      "lmax": 15.0,
+      "vinMax": 10.0,
+      "Ttow": 2.0,
+      "CLin": 1.0,
+      "ok": false,
+      "t": 14.6,
+      "cycles": 2,
+      "h_start": 9.3,
+      "h_end": 0.3,
+      "h_min_2nd_half": 0.3,
+      "lineRange": [
+       5.7,
+       17.6
+      ],
+      "E_batt_J": 22.0,
+      "meanP_W": 1.5
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "G130",
+      "lmin": 6.0,
+      "lmax": 15.0,
+      "vinMax": 10.0,
+      "Ttow": 3.0,
+      "CLin": 1.0,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 8,
+      "h_start": 9.3,
+      "h_end": 10.57,
+      "h_min_2nd_half": 7.91,
+      "lineRange": [
+       7.3,
+       18.5
+      ],
+      "E_batt_J": 415.0,
+      "meanP_W": 10.37
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "G130",
+      "lmin": 6.0,
+      "lmax": 15.0,
+      "vinMax": 10.0,
+      "Ttow": 5.0,
+      "CLin": 1.0,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 9,
+      "h_start": 9.3,
+      "h_end": 7.92,
+      "h_min_2nd_half": 5.67,
+      "lineRange": [
+       6.5,
+       18.7
+      ],
+      "E_batt_J": 709.7,
+      "meanP_W": 17.74
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "G130",
+      "lmin": 8.0,
+      "lmax": 25.0,
+      "vinMax": 10.0,
+      "Ttow": 2.0,
+      "CLin": 1.0,
+      "ok": false,
+      "t": 11.9,
+      "cycles": 1,
+      "h_start": 9.3,
+      "h_end": 0.3,
+      "h_min_2nd_half": 0.3,
+      "lineRange": [
+       7.8,
+       28.2
+      ],
+      "E_batt_J": 13.0,
+      "meanP_W": 1.09
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "G130",
+      "lmin": 8.0,
+      "lmax": 25.0,
+      "vinMax": 10.0,
+      "Ttow": 3.0,
+      "CLin": 1.0,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 4,
+      "h_start": 9.3,
+      "h_end": 13.95,
+      "h_min_2nd_half": 7.57,
+      "lineRange": [
+       13.2,
+       27.9
+      ],
+      "E_batt_J": 241.2,
+      "meanP_W": 6.03
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "G130",
+      "lmin": 8.0,
+      "lmax": 25.0,
+      "vinMax": 10.0,
+      "Ttow": 5.0,
+      "CLin": 1.0,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 6,
+      "h_start": 9.3,
+      "h_end": 16.38,
+      "h_min_2nd_half": 13.42,
+      "lineRange": [
+       14.7,
+       27.8
+      ],
+      "E_batt_J": 512.7,
+      "meanP_W": 12.82
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "K120",
+      "lmin": 6.0,
+      "lmax": 15.0,
+      "vinMax": 10.0,
+      "Ttow": 1.5,
+      "CLin": 0.95,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 4,
+      "h_start": 9.3,
+      "h_end": 4.57,
+      "h_min_2nd_half": 1.09,
+      "lineRange": [
+       5.9,
+       15.7
+      ],
+      "E_batt_J": 65.6,
+      "meanP_W": 1.64
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "K120",
+      "lmin": 6.0,
+      "lmax": 15.0,
+      "vinMax": 10.0,
+      "Ttow": 2.5,
+      "CLin": 0.95,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 4,
+      "h_start": 9.3,
+      "h_end": 7.05,
+      "h_min_2nd_half": 5.08,
+      "lineRange": [
+       8.9,
+       15.5
+      ],
+      "E_batt_J": 187.9,
+      "meanP_W": 4.7
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "K120",
+      "lmin": 6.0,
+      "lmax": 15.0,
+      "vinMax": 10.0,
+      "Ttow": 4.0,
+      "CLin": 0.95,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 5,
+      "h_start": 9.3,
+      "h_end": 9.81,
+      "h_min_2nd_half": 7.58,
+      "lineRange": [
+       10.6,
+       15.4
+      ],
+      "E_batt_J": 229.2,
+      "meanP_W": 5.73
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "K120",
+      "lmin": 8.0,
+      "lmax": 25.0,
+      "vinMax": 10.0,
+      "Ttow": 1.5,
+      "CLin": 0.95,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 2,
+      "h_start": 9.3,
+      "h_end": 0.95,
+      "h_min_2nd_half": 0.95,
+      "lineRange": [
+       8.3,
+       25.6
+      ],
+      "E_batt_J": 54.6,
+      "meanP_W": 1.36
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "K120",
+      "lmin": 8.0,
+      "lmax": 25.0,
+      "vinMax": 10.0,
+      "Ttow": 2.5,
+      "CLin": 0.95,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 3,
+      "h_start": 9.3,
+      "h_end": 14.88,
+      "h_min_2nd_half": 8.11,
+      "lineRange": [
+       14.5,
+       25.5
+      ],
+      "E_batt_J": 181.0,
+      "meanP_W": 4.52
+     },
+     {
+      "strategy": "S3_yoyo",
+      "flyer": "K120",
+      "lmin": 8.0,
+      "lmax": 25.0,
+      "vinMax": 10.0,
+      "Ttow": 4.0,
+      "CLin": 0.95,
+      "ok": true,
+      "t": 40.0,
+      "cycles": 3,
+      "h_start": 9.3,
+      "h_end": 12.68,
+      "h_min_2nd_half": 12.07,
+      "lineRange": [
+       17.1,
+       25.5
+      ],
+      "E_batt_J": 495.0,
+      "meanP_W": 12.37
+     }
+    ],
+    "S4_freeGlide": [
+     {
+      "flyer": "G130",
+      "CL": 0.99,
+      "bank": 0,
+      "V": 4.84,
+      "sink": 0.54,
+      "turnRadius": null,
+      "heightFor20s": 10.8,
+      "heightFor10s": 5.4
+     },
+     {
+      "flyer": "G130",
+      "CL": 0.99,
+      "bank": 30,
+      "V": 5.2,
+      "sink": 0.58,
+      "turnRadius": 4.8,
+      "heightFor20s": 11.6,
+      "heightFor10s": 5.8
+     },
+     {
+      "flyer": "G130",
+      "CL": 0.99,
+      "bank": 45,
+      "V": 5.76,
+      "sink": 0.64,
+      "turnRadius": 3.4,
+      "heightFor20s": 12.8,
+      "heightFor10s": 6.4
+     },
+     {
+      "flyer": "K120",
+      "CL": 0.9,
+      "bank": 0,
+      "V": 2.09,
+      "sink": 0.42,
+      "turnRadius": null,
+      "heightFor20s": 8.4,
+      "heightFor10s": 4.2
+     },
+     {
+      "flyer": "K120",
+      "CL": 0.9,
+      "bank": 30,
+      "V": 2.24,
+      "sink": 0.45,
+      "turnRadius": 0.9,
+      "heightFor20s": 9.1,
+      "heightFor10s": 4.5
+     },
+     {
+      "flyer": "K120",
+      "CL": 0.9,
+      "bank": 45,
+      "V": 2.48,
+      "sink": 0.5,
+      "turnRadius": 0.6,
+      "heightFor20s": 10.0,
+      "heightFor10s": 5.0
+     }
+    ],
+    "S5_dock": [
+     {
+      "l": 10,
+      "E_batt_J": 40.0,
+      "t_s": 5.3
+     },
+     {
+      "l": 20,
+      "E_batt_J": 80.0,
+      "t_s": 8.7
+     },
+     {
+      "l": 30,
+      "E_batt_J": 120.0,
+      "t_s": 12.0
+     }
+    ],
+    "batteryFit": [
+     {
+      "E_per_stop_J": 20,
+      "Wh_per_45min": 0.3,
+      "cell_g": 3.1
+     },
+     {
+      "E_per_stop_J": 50,
+      "Wh_per_45min": 0.75,
+      "cell_g": 7.8
+     },
+     {
+      "E_per_stop_J": 100,
+      "Wh_per_45min": 1.5,
+      "cell_g": 15.7
+     },
+     {
+      "E_per_stop_J": 200,
+      "Wh_per_45min": 3.0,
+      "cell_g": 31.4
+     },
+     {
+      "E_per_stop_J": 500,
+      "Wh_per_45min": 7.5,
+      "cell_g": 78.4
+     }
+    ],
+    "lineEqualsAltitude": "In calm with a fixed exit, height = l sin(eps): every metre of line reeled in while circling is lost height. S2 runs lost 10-21 m of height and used 11-25 m of line in 20 s whatever the tension set-point (1-6 N); more tension only burned more energy (15-260 J)."
+   },
+   "verdict": "CONDITIONAL - straight reel-in REFUTED; circling + reel REFUTED; yo-yo pumping SUPPORTED in simulation but costly and unfilmable",
+   "finding": "Straight reel-in needs line at the stall-margin airspeed: 106 m for a 20 s stop (G130), 46 m (K120) - a 30 m line buys 5.7 s / 13 s. Circling on a tension-held reel cannot hold height in calm (line = altitude). The only reel-only strategy that held height was the yo-yo (winch-climb in, glide out): G130 sustained 40 s with line between ~7 and 28 m at 6.03-17.74 W mean battery power (K120 4.52-12.37 W), i.e. 120-350 J per 20 s stop, 1.8-5 Wh per 45 min = 20-55 g of cells in the PACK (not on the flyer). It fits the battery only if the reel is in the backpack; the flyer swoops 7-28 m round the rider every 5-10 s (no usable footage, head-clearance risk on every inbound leg). Docking and relaunching costs 40-120 J per stop and is the rational stop strategy; the minimum line budget is set by the 6-7 m camera station plus ~5 m of gust/heave margin (h3: 0 m with a CL loop) - ~12-15 m, or >= 28 m if the yo-yo is kept.",
+   "assumed": [
+    "motor efficiency 0.5",
+    "tow tension set-points",
+    "guidance laws (crude; better optimal control would lower energy)"
+   ]
+  },
+  {
+   "id": "H3",
+   "title": "\"Fly it like a kite\": pay out when lift is surplus, reel in when it drops, to regulate tension and position",
+   "method": "h3_control.py Part A: reduced-order in-plane model (eps, eps_dot, l; inputs reel speed and CL) linearised numerically about the h1 equilibrium -> mode frequency, damping, reel->tension and gust->tension gains, with and without airbrake. Part B: sim3d with Dryden turbulence + rider speed oscillation + heave; controllers 0 locked reel, 1 tension-tracking reel (PI, lag tau 0.02-0.5 s, |a| <= 20 m/s^2, |v| <= 8 m/s), 2 = 1 + eps-rate damping via CL, 3 CL tension loop (servo-rate limited) + slow reel length hold.",
+   "numbers": {
+    "linear_G130_unbraked": [
+     {
+      "Va": 6,
+      "l": 10,
+      "eps0_deg": 55.9,
+      "T0": 0.38,
+      "fn_Hz": 0.091,
+      "zeta": -0.432,
+      "dT_dReelOut": -0.165,
+      "dT_dVa": 0.484,
+      "dT_dCL": 1.76
+     },
+     {
+      "Va": 6,
+      "l": 20,
+      "eps0_deg": 49.7,
+      "T0": 0.36,
+      "fn_Hz": 0.067,
+      "zeta": -0.598,
+      "dT_dReelOut": -0.176,
+      "dT_dVa": 0.453,
+      "dT_dCL": 1.65
+     },
+     {
+      "Va": 8,
+      "l": 10,
+      "eps0_deg": 75.4,
+      "T0": 1.63,
+      "fn_Hz": 0.18,
+      "zeta": 0.017,
+      "dT_dReelOut": -0.131,
+      "dT_dVa": 0.721,
+      "dT_dCL": 3.5
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "eps0_deg": 71.9,
+      "T0": 1.61,
+      "fn_Hz": 0.129,
+      "zeta": 0.009,
+      "dT_dReelOut": -0.15,
+      "dT_dVa": 0.714,
+      "dT_dCL": 3.47
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "eps0_deg": 79.7,
+      "T0": 5.27,
+      "fn_Hz": 0.321,
+      "zeta": 0.09,
+      "dT_dReelOut": -0.157,
+      "dT_dVa": 1.091,
+      "dT_dCL": 7.95
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "eps0_deg": 77.3,
+      "T0": 5.24,
+      "fn_Hz": 0.228,
+      "zeta": 0.133,
+      "dT_dReelOut": -0.179,
+      "dT_dVa": 1.087,
+      "dT_dCL": 7.92
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "eps0_deg": 80.7,
+      "T0": 10.37,
+      "fn_Hz": 0.45,
+      "zeta": 0.102,
+      "dT_dReelOut": -0.197,
+      "dT_dVa": 1.456,
+      "dT_dCL": 14.14
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "eps0_deg": 78.5,
+      "T0": 10.33,
+      "fn_Hz": 0.319,
+      "zeta": 0.155,
+      "dT_dReelOut": -0.224,
+      "dT_dVa": 1.452,
+      "dT_dCL": 14.1
+     },
+     {
+      "Va": 20,
+      "l": 10,
+      "eps0_deg": 81.1,
+      "T0": 16.93,
+      "fn_Hz": 0.575,
+      "zeta": 0.106,
+      "dT_dReelOut": -0.24,
+      "dT_dVa": 1.821,
+      "dT_dCL": 22.11
+     },
+     {
+      "Va": 20,
+      "l": 20,
+      "eps0_deg": 79.0,
+      "T0": 16.88,
+      "fn_Hz": 0.407,
+      "zeta": 0.163,
+      "dT_dReelOut": -0.273,
+      "dT_dVa": 1.817,
+      "dT_dCL": 22.05
+     }
+    ],
+    "linear_G130_braked": [
+     {
+      "Va": 8,
+      "l": 10,
+      "brake": 0.685,
+      "eps0_deg": 30.0,
+      "T0": 3.16,
+      "fn_Hz": 0.251,
+      "zeta": 0.672,
+      "dT_dReelOut": -0.753,
+      "dT_dVa": 0.953
+     },
+     {
+      "Va": 8,
+      "l": 10,
+      "brake": 0.345,
+      "eps0_deg": 45.0,
+      "T0": 2.22,
+      "fn_Hz": 0.212,
+      "zeta": 0.338,
+      "dT_dReelOut": -0.468,
+      "dT_dVa": 0.783
+     },
+     {
+      "Va": 8,
+      "l": 10,
+      "brake": 0.147,
+      "eps0_deg": 60.0,
+      "T0": 1.81,
+      "fn_Hz": 0.191,
+      "zeta": 0.13,
+      "dT_dReelOut": -0.287,
+      "dT_dVa": 0.732
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "brake": 0.66,
+      "eps0_deg": 30.0,
+      "T0": 3.08,
+      "fn_Hz": 0.176,
+      "zeta": 0.928,
+      "dT_dReelOut": -0.734,
+      "dT_dVa": 0.934
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "brake": 0.318,
+      "eps0_deg": 45.0,
+      "T0": 2.14,
+      "fn_Hz": 0.15,
+      "zeta": 0.452,
+      "dT_dReelOut": -0.45,
+      "dT_dVa": 0.766
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "brake": 0.118,
+      "eps0_deg": 60.0,
+      "T0": 1.74,
+      "fn_Hz": 0.135,
+      "zeta": 0.149,
+      "dT_dReelOut": -0.271,
+      "dT_dVa": 0.719
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "brake": 1.039,
+      "eps0_deg": 30.0,
+      "T0": 10.36,
+      "fn_Hz": 0.451,
+      "zeta": 0.952,
+      "dT_dReelOut": -1.539,
+      "dT_dVa": 1.834
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "brake": 0.549,
+      "eps0_deg": 45.0,
+      "T0": 7.28,
+      "fn_Hz": 0.381,
+      "zeta": 0.604,
+      "dT_dReelOut": -0.904,
+      "dT_dVa": 1.365
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "brake": 0.265,
+      "eps0_deg": 60.0,
+      "T0": 5.94,
+      "fn_Hz": 0.344,
+      "zeta": 0.348,
+      "dT_dReelOut": -0.528,
+      "dT_dVa": 1.176
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "brake": 1.019,
+      "eps0_deg": 30.0,
+      "T0": 10.21,
+      "fn_Hz": 0.318,
+      "zeta": 1.33,
+      "dT_dReelOut": -1.517,
+      "dT_dVa": 1.812
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "brake": 0.525,
+      "eps0_deg": 45.0,
+      "T0": 7.13,
+      "fn_Hz": 0.269,
+      "zeta": 0.834,
+      "dT_dReelOut": -0.881,
+      "dT_dVa": 1.343
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "brake": 0.238,
+      "eps0_deg": 60.0,
+      "T0": 5.81,
+      "fn_Hz": 0.244,
+      "zeta": 0.465,
+      "dT_dReelOut": -0.506,
+      "dT_dVa": 1.158
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "brake": 1.163,
+      "eps0_deg": 30.0,
+      "T0": 20.42,
+      "fn_Hz": 0.633,
+      "zeta": 1.035,
+      "dT_dReelOut": -2.243,
+      "dT_dVa": 2.634
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "brake": 0.621,
+      "eps0_deg": 45.0,
+      "T0": 14.36,
+      "fn_Hz": 0.534,
+      "zeta": 0.681,
+      "dT_dReelOut": -1.3,
+      "dT_dVa": 1.91
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "brake": 0.307,
+      "eps0_deg": 60.0,
+      "T0": 11.71,
+      "fn_Hz": 0.483,
+      "zeta": 0.411,
+      "dT_dReelOut": -0.75,
+      "dT_dVa": 1.605
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "brake": 1.145,
+      "eps0_deg": 30.0,
+      "T0": 20.2,
+      "fn_Hz": 0.447,
+      "zeta": 1.449,
+      "dT_dReelOut": -2.216,
+      "dT_dVa": 2.607
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "brake": 0.598,
+      "eps0_deg": 45.0,
+      "T0": 14.12,
+      "fn_Hz": 0.378,
+      "zeta": 0.945,
+      "dT_dReelOut": -1.271,
+      "dT_dVa": 1.881
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "brake": 0.28,
+      "eps0_deg": 60.0,
+      "T0": 11.51,
+      "fn_Hz": 0.342,
+      "zeta": 0.555,
+      "dT_dReelOut": -0.721,
+      "dT_dVa": 1.581
+     }
+    ],
+    "linear_K120": [
+     {
+      "Va": 6,
+      "l": 10,
+      "eps0_deg": 76.6,
+      "T0": 8.63,
+      "fn_Hz": 0.425,
+      "zeta": 0.436,
+      "dT_dReelOut": -0.702
+     },
+     {
+      "Va": 6,
+      "l": 20,
+      "eps0_deg": 76.2,
+      "T0": 8.61,
+      "fn_Hz": 0.299,
+      "zeta": 0.617,
+      "dT_dReelOut": -0.713
+     },
+     {
+      "Va": 8,
+      "l": 10,
+      "eps0_deg": 77.4,
+      "T0": 16.26,
+      "fn_Hz": 0.583,
+      "zeta": 0.455,
+      "dT_dReelOut": -0.908
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "eps0_deg": 77.0,
+      "T0": 16.24,
+      "fn_Hz": 0.411,
+      "zeta": 0.645,
+      "dT_dReelOut": -0.922
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "eps0_deg": 77.9,
+      "T0": 38.04,
+      "fn_Hz": 0.892,
+      "zeta": 0.467,
+      "dT_dReelOut": -1.335
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "eps0_deg": 77.5,
+      "T0": 38.02,
+      "fn_Hz": 0.628,
+      "zeta": 0.662,
+      "dT_dReelOut": -1.354
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "eps0_deg": 78.0,
+      "T0": 68.54,
+      "fn_Hz": 1.198,
+      "zeta": 0.47,
+      "dT_dReelOut": -1.768
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "eps0_deg": 77.7,
+      "T0": 68.52,
+      "fn_Hz": 0.843,
+      "zeta": 0.668,
+      "dT_dReelOut": -1.793
+     },
+     {
+      "Va": 20,
+      "l": 10,
+      "eps0_deg": 78.1,
+      "T0": 107.76,
+      "fn_Hz": 1.502,
+      "zeta": 0.472,
+      "dT_dReelOut": -2.203
+     },
+     {
+      "Va": 20,
+      "l": 20,
+      "eps0_deg": 77.8,
+      "T0": 107.74,
+      "fn_Hz": 1.057,
+      "zeta": 0.67,
+      "dT_dReelOut": -2.234
+     }
+    ],
+    "timeDomain": [
+     {
+      "Va": 8.0,
+      "l": 10.0,
+      "mode": 0,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 2.43,
+      "Tsd": 2.19,
+      "Tp95": 5.2,
+      "Tmax": 35.65,
+      "Tmin": 0.0,
+      "eps_sd": 7.9,
+      "eps_min": 55.0,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 8.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.02,
+      "ok": false,
+      "Tref": null,
+      "Tsd": null,
+      "Tp95": null,
+      "Tmax": null,
+      "Tmin": null,
+      "eps_sd": null,
+      "eps_min": null,
+      "lineExcursion": null,
+      "reelVmax": null,
+      "reelAccP99": null,
+      "reelPowerMeanAbs_W": null
+     },
+     {
+      "Va": 8.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.05,
+      "ok": false,
+      "Tref": null,
+      "Tsd": null,
+      "Tp95": null,
+      "Tmax": null,
+      "Tmin": null,
+      "eps_sd": null,
+      "eps_min": null,
+      "lineExcursion": null,
+      "reelVmax": null,
+      "reelAccP99": null,
+      "reelPowerMeanAbs_W": null
+     },
+     {
+      "Va": 8.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.1,
+      "ok": false,
+      "Tref": null,
+      "Tsd": null,
+      "Tp95": null,
+      "Tmax": null,
+      "Tmin": null,
+      "eps_sd": null,
+      "eps_min": null,
+      "lineExcursion": null,
+      "reelVmax": null,
+      "reelAccP99": null,
+      "reelPowerMeanAbs_W": null
+     },
+     {
+      "Va": 8.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.2,
+      "ok": false,
+      "Tref": null,
+      "Tsd": null,
+      "Tp95": null,
+      "Tmax": null,
+      "Tmin": null,
+      "eps_sd": null,
+      "eps_min": null,
+      "lineExcursion": null,
+      "reelVmax": null,
+      "reelAccP99": null,
+      "reelPowerMeanAbs_W": null
+     },
+     {
+      "Va": 8.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.5,
+      "ok": false,
+      "Tref": null,
+      "Tsd": null,
+      "Tp95": null,
+      "Tmax": null,
+      "Tmin": null,
+      "eps_sd": null,
+      "eps_min": null,
+      "lineExcursion": null,
+      "reelVmax": null,
+      "reelAccP99": null,
+      "reelPowerMeanAbs_W": null
+     },
+     {
+      "Va": 8.0,
+      "l": 10.0,
+      "mode": 2,
+      "tau": 0.05,
+      "ok": false,
+      "Tref": null,
+      "Tsd": null,
+      "Tp95": null,
+      "Tmax": null,
+      "Tmin": null,
+      "eps_sd": null,
+      "eps_min": null,
+      "lineExcursion": null,
+      "reelVmax": null,
+      "reelAccP99": null,
+      "reelPowerMeanAbs_W": null
+     },
+     {
+      "Va": 8.0,
+      "l": 10.0,
+      "mode": 3,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 2.43,
+      "Tsd": 1.3,
+      "Tp95": 4.04,
+      "Tmax": 16.43,
+      "Tmin": 0.0,
+      "eps_sd": 2.9,
+      "eps_min": 67.0,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 8.0,
+      "l": 20.0,
+      "mode": 0,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 1.92,
+      "Tsd": 2.85,
+      "Tp95": 8.11,
+      "Tmax": 17.45,
+      "Tmin": 0.0,
+      "eps_sd": 10.2,
+      "eps_min": 48.6,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 8.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.02,
+      "ok": true,
+      "Tref": 1.92,
+      "Tsd": 1.87,
+      "Tp95": 3.89,
+      "Tmax": 21.5,
+      "Tmin": 0.0,
+      "eps_sd": 16.6,
+      "eps_min": 7.6,
+      "lineExcursion": 18.05,
+      "reelVmax": 6.05,
+      "reelAccP99": 20.0,
+      "reelPowerMeanAbs_W": 2.04
+     },
+     {
+      "Va": 8.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 1.92,
+      "Tsd": 0.84,
+      "Tp95": 3.15,
+      "Tmax": 4.39,
+      "Tmin": 0.0,
+      "eps_sd": 15.2,
+      "eps_min": 18.4,
+      "lineExcursion": 15.98,
+      "reelVmax": 2.81,
+      "reelAccP99": 9.7,
+      "reelPowerMeanAbs_W": 1.52
+     },
+     {
+      "Va": 8.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.1,
+      "ok": true,
+      "Tref": 1.92,
+      "Tsd": 0.87,
+      "Tp95": 3.22,
+      "Tmax": 4.83,
+      "Tmin": 0.0,
+      "eps_sd": 14.2,
+      "eps_min": 22.7,
+      "lineExcursion": 15.51,
+      "reelVmax": 3.3,
+      "reelAccP99": 8.8,
+      "reelPowerMeanAbs_W": 1.54
+     },
+     {
+      "Va": 8.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.2,
+      "ok": true,
+      "Tref": 1.92,
+      "Tsd": 0.87,
+      "Tp95": 3.35,
+      "Tmax": 3.88,
+      "Tmin": 0.0,
+      "eps_sd": 13.8,
+      "eps_min": 23.0,
+      "lineExcursion": 15.67,
+      "reelVmax": 2.52,
+      "reelAccP99": 7.3,
+      "reelPowerMeanAbs_W": 1.31
+     },
+     {
+      "Va": 8.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.5,
+      "ok": true,
+      "Tref": 1.92,
+      "Tsd": 1.08,
+      "Tp95": 3.65,
+      "Tmax": 6.98,
+      "Tmin": 0.0,
+      "eps_sd": 9.7,
+      "eps_min": 39.2,
+      "lineExcursion": 15.19,
+      "reelVmax": 3.21,
+      "reelAccP99": 6.1,
+      "reelPowerMeanAbs_W": 1.24
+     },
+     {
+      "Va": 8.0,
+      "l": 20.0,
+      "mode": 2,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 1.92,
+      "Tsd": 1.58,
+      "Tp95": 3.11,
+      "Tmax": 52.52,
+      "Tmin": 0.0,
+      "eps_sd": 13.8,
+      "eps_min": 20.9,
+      "lineExcursion": 19.24,
+      "reelVmax": 3.66,
+      "reelAccP99": 20.0,
+      "reelPowerMeanAbs_W": 1.51
+     },
+     {
+      "Va": 8.0,
+      "l": 20.0,
+      "mode": 3,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 1.92,
+      "Tsd": 1.02,
+      "Tp95": 3.3,
+      "Tmax": 10.66,
+      "Tmin": 0.0,
+      "eps_sd": 2.4,
+      "eps_min": 66.1,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 12.0,
+      "l": 10.0,
+      "mode": 0,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 5.81,
+      "Tsd": 1.79,
+      "Tp95": 8.33,
+      "Tmax": 10.37,
+      "Tmin": 0.86,
+      "eps_sd": 1.2,
+      "eps_min": 76.4,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 12.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.02,
+      "ok": true,
+      "Tref": 5.81,
+      "Tsd": 1.72,
+      "Tp95": 8.78,
+      "Tmax": 10.4,
+      "Tmin": 1.49,
+      "eps_sd": 20.6,
+      "eps_min": -23.2,
+      "lineExcursion": 8.93,
+      "reelVmax": 2.03,
+      "reelAccP99": 7.9,
+      "reelPowerMeanAbs_W": 3.66
+     },
+     {
+      "Va": 12.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 5.81,
+      "Tsd": 1.82,
+      "Tp95": 8.97,
+      "Tmax": 11.25,
+      "Tmin": 1.51,
+      "eps_sd": 18.7,
+      "eps_min": -7.0,
+      "lineExcursion": 8.59,
+      "reelVmax": 2.42,
+      "reelAccP99": 7.8,
+      "reelPowerMeanAbs_W": 3.95
+     },
+     {
+      "Va": 12.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.1,
+      "ok": true,
+      "Tref": 5.81,
+      "Tsd": 1.91,
+      "Tp95": 9.03,
+      "Tmax": 11.47,
+      "Tmin": 1.48,
+      "eps_sd": 19.9,
+      "eps_min": -27.7,
+      "lineExcursion": 8.72,
+      "reelVmax": 2.14,
+      "reelAccP99": 7.4,
+      "reelPowerMeanAbs_W": 3.92
+     },
+     {
+      "Va": 12.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.2,
+      "ok": true,
+      "Tref": 5.81,
+      "Tsd": 2.19,
+      "Tp95": 9.8,
+      "Tmax": 12.98,
+      "Tmin": 1.45,
+      "eps_sd": 15.1,
+      "eps_min": 2.4,
+      "lineExcursion": 7.98,
+      "reelVmax": 2.65,
+      "reelAccP99": 6.3,
+      "reelPowerMeanAbs_W": 4.18
+     },
+     {
+      "Va": 12.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.5,
+      "ok": true,
+      "Tref": 5.81,
+      "Tsd": 2.3,
+      "Tp95": 10.14,
+      "Tmax": 13.75,
+      "Tmin": 1.49,
+      "eps_sd": 16.4,
+      "eps_min": -4.9,
+      "lineExcursion": 7.4,
+      "reelVmax": 2.6,
+      "reelAccP99": 3.7,
+      "reelPowerMeanAbs_W": 3.49
+     },
+     {
+      "Va": 12.0,
+      "l": 10.0,
+      "mode": 2,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 5.81,
+      "Tsd": 1.65,
+      "Tp95": 8.61,
+      "Tmax": 11.6,
+      "Tmin": 1.38,
+      "eps_sd": 20.0,
+      "eps_min": -21.8,
+      "lineExcursion": 9.45,
+      "reelVmax": 2.03,
+      "reelAccP99": 12.8,
+      "reelPowerMeanAbs_W": 3.21
+     },
+     {
+      "Va": 12.0,
+      "l": 10.0,
+      "mode": 3,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 5.81,
+      "Tsd": 1.07,
+      "Tp95": 7.35,
+      "Tmax": 8.33,
+      "Tmin": 1.85,
+      "eps_sd": 1.0,
+      "eps_min": 78.3,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 12.0,
+      "l": 20.0,
+      "mode": 0,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 5.97,
+      "Tsd": 1.8,
+      "Tp95": 8.31,
+      "Tmax": 10.68,
+      "Tmin": 0.68,
+      "eps_sd": 1.0,
+      "eps_min": 74.6,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 12.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.02,
+      "ok": true,
+      "Tref": 5.97,
+      "Tsd": 1.8,
+      "Tp95": 8.55,
+      "Tmax": 11.69,
+      "Tmin": 1.37,
+      "eps_sd": 8.0,
+      "eps_min": 42.6,
+      "lineExcursion": 15.9,
+      "reelVmax": 2.34,
+      "reelAccP99": 7.2,
+      "reelPowerMeanAbs_W": 3.68
+     },
+     {
+      "Va": 12.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 5.97,
+      "Tsd": 1.83,
+      "Tp95": 8.64,
+      "Tmax": 11.67,
+      "Tmin": 1.37,
+      "eps_sd": 7.9,
+      "eps_min": 43.9,
+      "lineExcursion": 15.83,
+      "reelVmax": 2.31,
+      "reelAccP99": 6.9,
+      "reelPowerMeanAbs_W": 3.72
+     },
+     {
+      "Va": 12.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.1,
+      "ok": true,
+      "Tref": 5.97,
+      "Tsd": 1.89,
+      "Tp95": 8.87,
+      "Tmax": 12.47,
+      "Tmin": 1.36,
+      "eps_sd": 7.5,
+      "eps_min": 47.7,
+      "lineExcursion": 15.79,
+      "reelVmax": 2.22,
+      "reelAccP99": 5.5,
+      "reelPowerMeanAbs_W": 3.78
+     },
+     {
+      "Va": 12.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.2,
+      "ok": true,
+      "Tref": 5.97,
+      "Tsd": 2.0,
+      "Tp95": 9.06,
+      "Tmax": 12.53,
+      "Tmin": 1.28,
+      "eps_sd": 7.6,
+      "eps_min": 50.0,
+      "lineExcursion": 15.55,
+      "reelVmax": 2.05,
+      "reelAccP99": 4.9,
+      "reelPowerMeanAbs_W": 3.73
+     },
+     {
+      "Va": 12.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.5,
+      "ok": true,
+      "Tref": 5.97,
+      "Tsd": 2.1,
+      "Tp95": 9.06,
+      "Tmax": 15.32,
+      "Tmin": 1.13,
+      "eps_sd": 8.5,
+      "eps_min": 34.7,
+      "lineExcursion": 15.62,
+      "reelVmax": 2.3,
+      "reelAccP99": 2.9,
+      "reelPowerMeanAbs_W": 3.53
+     },
+     {
+      "Va": 12.0,
+      "l": 20.0,
+      "mode": 2,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 5.97,
+      "Tsd": 1.58,
+      "Tp95": 8.04,
+      "Tmax": 13.08,
+      "Tmin": 1.23,
+      "eps_sd": 5.9,
+      "eps_min": 56.4,
+      "lineExcursion": 15.84,
+      "reelVmax": 2.39,
+      "reelAccP99": 12.0,
+      "reelPowerMeanAbs_W": 3.08
+     },
+     {
+      "Va": 12.0,
+      "l": 20.0,
+      "mode": 3,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 5.97,
+      "Tsd": 1.09,
+      "Tp95": 7.52,
+      "Tmax": 8.42,
+      "Tmin": 1.87,
+      "eps_sd": 0.5,
+      "eps_min": 76.9,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 16.0,
+      "l": 10.0,
+      "mode": 0,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 11.06,
+      "Tsd": 2.61,
+      "Tp95": 15.08,
+      "Tmax": 17.41,
+      "Tmin": 4.1,
+      "eps_sd": 1.2,
+      "eps_min": 78.4,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 16.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.02,
+      "ok": true,
+      "Tref": 11.06,
+      "Tsd": 3.32,
+      "Tp95": 18.59,
+      "Tmax": 22.6,
+      "Tmin": 4.33,
+      "eps_sd": 11.1,
+      "eps_min": 21.3,
+      "lineExcursion": 10.38,
+      "reelVmax": 3.0,
+      "reelAccP99": 8.2,
+      "reelPowerMeanAbs_W": 8.45
+     },
+     {
+      "Va": 16.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 11.06,
+      "Tsd": 3.38,
+      "Tp95": 18.59,
+      "Tmax": 23.02,
+      "Tmin": 4.16,
+      "eps_sd": 10.9,
+      "eps_min": 23.7,
+      "lineExcursion": 10.55,
+      "reelVmax": 3.05,
+      "reelAccP99": 6.8,
+      "reelPowerMeanAbs_W": 8.55
+     },
+     {
+      "Va": 16.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.1,
+      "ok": true,
+      "Tref": 11.06,
+      "Tsd": 3.5,
+      "Tp95": 18.6,
+      "Tmax": 23.28,
+      "Tmin": 3.85,
+      "eps_sd": 10.4,
+      "eps_min": 27.9,
+      "lineExcursion": 10.44,
+      "reelVmax": 2.91,
+      "reelAccP99": 6.3,
+      "reelPowerMeanAbs_W": 8.58
+     },
+     {
+      "Va": 16.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.2,
+      "ok": true,
+      "Tref": 11.06,
+      "Tsd": 3.92,
+      "Tp95": 18.4,
+      "Tmax": 24.06,
+      "Tmin": 3.39,
+      "eps_sd": 10.1,
+      "eps_min": 33.0,
+      "lineExcursion": 10.13,
+      "reelVmax": 3.16,
+      "reelAccP99": 5.4,
+      "reelPowerMeanAbs_W": 8.74
+     },
+     {
+      "Va": 16.0,
+      "l": 10.0,
+      "mode": 1,
+      "tau": 0.5,
+      "ok": true,
+      "Tref": 11.06,
+      "Tsd": 4.73,
+      "Tp95": 19.5,
+      "Tmax": 31.31,
+      "Tmin": 3.61,
+      "eps_sd": 11.3,
+      "eps_min": 16.7,
+      "lineExcursion": 9.54,
+      "reelVmax": 3.39,
+      "reelAccP99": 4.7,
+      "reelPowerMeanAbs_W": 8.05
+     },
+     {
+      "Va": 16.0,
+      "l": 10.0,
+      "mode": 2,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 11.06,
+      "Tsd": 2.79,
+      "Tp95": 16.29,
+      "Tmax": 22.54,
+      "Tmin": 4.42,
+      "eps_sd": 10.8,
+      "eps_min": 27.9,
+      "lineExcursion": 7.44,
+      "reelVmax": 2.39,
+      "reelAccP99": 13.7,
+      "reelPowerMeanAbs_W": 5.65
+     },
+     {
+      "Va": 16.0,
+      "l": 10.0,
+      "mode": 3,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 11.06,
+      "Tsd": 1.3,
+      "Tp95": 13.01,
+      "Tmax": 14.08,
+      "Tmin": 5.78,
+      "eps_sd": 1.3,
+      "eps_min": 78.8,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 16.0,
+      "l": 20.0,
+      "mode": 0,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 10.99,
+      "Tsd": 2.36,
+      "Tp95": 14.43,
+      "Tmax": 16.65,
+      "Tmin": 3.92,
+      "eps_sd": 0.5,
+      "eps_min": 77.1,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     },
+     {
+      "Va": 16.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.02,
+      "ok": true,
+      "Tref": 10.99,
+      "Tsd": 2.0,
+      "Tp95": 13.49,
+      "Tmax": 15.17,
+      "Tmin": 5.13,
+      "eps_sd": 1.8,
+      "eps_min": 77.3,
+      "lineExcursion": 10.78,
+      "reelVmax": 1.48,
+      "reelAccP99": 5.0,
+      "reelPowerMeanAbs_W": 4.23
+     },
+     {
+      "Va": 16.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 10.99,
+      "Tsd": 2.05,
+      "Tp95": 13.56,
+      "Tmax": 15.28,
+      "Tmin": 4.95,
+      "eps_sd": 1.8,
+      "eps_min": 77.2,
+      "lineExcursion": 10.68,
+      "reelVmax": 1.47,
+      "reelAccP99": 4.5,
+      "reelPowerMeanAbs_W": 4.27
+     },
+     {
+      "Va": 16.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.1,
+      "ok": true,
+      "Tref": 10.99,
+      "Tsd": 2.17,
+      "Tp95": 13.79,
+      "Tmax": 15.56,
+      "Tmin": 4.79,
+      "eps_sd": 1.9,
+      "eps_min": 77.1,
+      "lineExcursion": 10.5,
+      "reelVmax": 1.45,
+      "reelAccP99": 3.9,
+      "reelPowerMeanAbs_W": 4.3
+     },
+     {
+      "Va": 16.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.2,
+      "ok": true,
+      "Tref": 10.99,
+      "Tsd": 2.37,
+      "Tp95": 14.23,
+      "Tmax": 16.02,
+      "Tmin": 4.61,
+      "eps_sd": 1.9,
+      "eps_min": 77.0,
+      "lineExcursion": 10.21,
+      "reelVmax": 1.33,
+      "reelAccP99": 3.2,
+      "reelPowerMeanAbs_W": 4.19
+     },
+     {
+      "Va": 16.0,
+      "l": 20.0,
+      "mode": 1,
+      "tau": 0.5,
+      "ok": true,
+      "Tref": 10.99,
+      "Tsd": 2.49,
+      "Tp95": 14.54,
+      "Tmax": 16.51,
+      "Tmin": 4.6,
+      "eps_sd": 1.9,
+      "eps_min": 77.0,
+      "lineExcursion": 10.23,
+      "reelVmax": 1.07,
+      "reelAccP99": 1.7,
+      "reelPowerMeanAbs_W": 3.58
+     },
+     {
+      "Va": 16.0,
+      "l": 20.0,
+      "mode": 2,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 10.99,
+      "Tsd": 1.83,
+      "Tp95": 13.34,
+      "Tmax": 14.89,
+      "Tmin": 5.48,
+      "eps_sd": 1.9,
+      "eps_min": 77.1,
+      "lineExcursion": 11.18,
+      "reelVmax": 1.41,
+      "reelAccP99": 4.1,
+      "reelPowerMeanAbs_W": 4.05
+     },
+     {
+      "Va": 16.0,
+      "l": 20.0,
+      "mode": 3,
+      "tau": 0.05,
+      "ok": true,
+      "Tref": 10.99,
+      "Tsd": 1.12,
+      "Tp95": 12.73,
+      "Tmax": 13.65,
+      "Tmin": 6.23,
+      "eps_sd": 0.5,
+      "eps_min": 77.8,
+      "lineExcursion": 0.0,
+      "reelVmax": 0.0,
+      "reelAccP99": 0.0,
+      "reelPowerMeanAbs_W": 0.0
+     }
+    ]
+   },
+   "verdict": "REFUTED for a steep, unbraked glider; CONDITIONAL (supported) when the flyer is braked to eps 30-60 deg and the fast loop is CL/airbrake, the reel slow",
+   "finding": "The in-plane \"tether pendulum\" of a fixed-trim 9:1 glider is lightly damped (zeta 0.00-0.2 at Va 8-20 m/s, fn 0.1-0.8 Hz) and UNSTABLE at Va 6 m/s (zeta -0.3 to -0.67: it overshoots over the zenith and falls, also seen in sim3d). At eps ~75-82 deg the reel is a weak tension actuator: dT/d(reel speed) = 0.12-0.3 N per m/s against dT/dVa = 0.7-1.8 N per m/s of gust, so cancelling sigma_u 1.2 m/s would need 4-8 m/s of reel speed. A tension-tracking reel made things worse in time domain (tension sd up to 3.4 N vs 2.6 N locked, eps excursions to 17-48 deg, 10-16 m line wander) for every reel lag 0.02-0.5 s. A CL/airbrake tension loop with the reel only holding length cut tension sd to 0.9-1.3 N (Tmax/Tref 1.24-1.43 at Va 12-16) with eps sd 0.5-1.3 deg and zero line excursion. Braking to eps 30-60 deg raises zeta to 0.35-1.45 and reel authority to 0.45-2.2 N per m/s (dT/dReel approaches dT/dVa at eps 30 deg). Requirements: CL/brake actuator >= 3 CL/s (micro-servo class), pitch-rate/eps-rate damping; reel loop bandwidth ~1-2 Hz for heave and slack take-up, |a| ~5-14 m/s^2, |v| ~1.5-3.4 m/s, mean |P| 3-9 W when it chases tension (avoid), < 1 W when it only holds length. At Va 8 m/s gusts still produce slack/snatch (Tmin 0, Tmax 10-35 N): the low-Va end needs a softer line segment or a slip clutch.",
+   "assumed": [
+    "Dryden parameters (W20 6 m/s)",
+    "rider speed oscillation and heave amplitudes",
+    "quasi-steady aero (no pitch dynamics of the flyer)",
+    "controller gains (hand-tuned)"
+   ]
+  },
+  {
+   "id": "H4",
+   "title": "The reel as the KE governor; where reel-in to stay airborne conflicts with KE <= 14.9 J",
+   "method": "h4_ke.py: exact kinematics in the rider frame; identity ground^2 - airspeed^2 = W_t (v_s + Va + 2 v_in cos eps); KE speed cap sqrt(2*14.9/m); h6 riding cases give KE of crosswind manoeuvres; launch_dock stop simulations give KE of fast reel-in at a hockey stop.",
+   "numbers": {
+    "speedCap": [
+     {
+      "mass_g": 80,
+      "vCap": 19.3
+     },
+     {
+      "mass_g": 100,
+      "vCap": 17.26
+     },
+     {
+      "mass_g": 130,
+      "vCap": 15.14
+     },
+     {
+      "mass_g": 150,
+      "vCap": 14.09
+     },
+     {
+      "mass_g": 171,
+      "vCap": 13.2
+     },
+     {
+      "mass_g": 200,
+      "vCap": 12.21
+     }
+    ],
+    "massCeiling_g": {
+     "rider 13.2 m/s (R4 max)": 171.0,
+     "rider 12 m/s": 206.9
+    },
+    "conflicts": [
+     {
+      "mass_g": 200,
+      "vs": 10,
+      "Wt": 9,
+      "eps": 60,
+      "Va": 1,
+      "vinNeeded": 4.71,
+      "groundSpeed": 13.01,
+      "KE": 16.9,
+      "cap": 12.21,
+      "conflict": true,
+      "lineUsedPer10s": 47.1
+     },
+     {
+      "mass_g": 200,
+      "vs": 12,
+      "Wt": 9,
+      "eps": 60,
+      "Va": 3,
+      "vinNeeded": 3.1,
+      "groundSpeed": 13.81,
+      "KE": 19.1,
+      "cap": 12.21,
+      "conflict": true,
+      "lineUsedPer10s": 31.0
+     },
+     {
+      "mass_g": 200,
+      "vs": 13.2,
+      "Wt": 0,
+      "eps": 60,
+      "Va": 13.2,
+      "vinNeeded": 0.0,
+      "groundSpeed": 13.2,
+      "KE": 17.4,
+      "cap": 12.21,
+      "conflict": true,
+      "lineUsedPer10s": 0.0
+     },
+     {
+      "mass_g": 200,
+      "vs": 13.2,
+      "Wt": 3,
+      "eps": 60,
+      "Va": 10.2,
+      "vinNeeded": 0.0,
+      "groundSpeed": 13.2,
+      "KE": 17.4,
+      "cap": 12.21,
+      "conflict": true,
+      "lineUsedPer10s": 0.0
+     },
+     {
+      "mass_g": 200,
+      "vs": 13.2,
+      "Wt": 4.5,
+      "eps": 60,
+      "Va": 8.7,
+      "vinNeeded": 0.0,
+      "groundSpeed": 13.2,
+      "KE": 17.4,
+      "cap": 12.21,
+      "conflict": true,
+      "lineUsedPer10s": 0.0
+     },
+     {
+      "mass_g": 200,
+      "vs": 13.2,
+      "Wt": 6,
+      "eps": 60,
+      "Va": 7.2,
+      "vinNeeded": 0.0,
+      "groundSpeed": 13.2,
+      "KE": 17.4,
+      "cap": 12.21,
+      "conflict": true,
+      "lineUsedPer10s": 0.0
+     },
+     {
+      "mass_g": 200,
+      "vs": 13.2,
+      "Wt": 9,
+      "eps": 60,
+      "Va": 4.2,
+      "vinNeeded": 1.73,
+      "groundSpeed": 14.14,
+      "KE": 20.0,
+      "cap": 12.21,
+      "conflict": true,
+      "lineUsedPer10s": 17.3
+     }
+    ],
+    "crosswindAllowance": [
+     {
+      "mass_g": 80,
+      "vs": 5,
+      "vCrossAllowed": 18.64
+     },
+     {
+      "mass_g": 80,
+      "vs": 8,
+      "vCrossAllowed": 17.56
+     },
+     {
+      "mass_g": 80,
+      "vs": 10,
+      "vCrossAllowed": 16.51
+     },
+     {
+      "mass_g": 80,
+      "vs": 12,
+      "vCrossAllowed": 15.12
+     },
+     {
+      "mass_g": 80,
+      "vs": 13.2,
+      "vCrossAllowed": 14.08
+     },
+     {
+      "mass_g": 130,
+      "vs": 5,
+      "vCrossAllowed": 14.29
+     },
+     {
+      "mass_g": 130,
+      "vs": 8,
+      "vCrossAllowed": 12.85
+     },
+     {
+      "mass_g": 130,
+      "vs": 10,
+      "vCrossAllowed": 11.37
+     },
+     {
+      "mass_g": 130,
+      "vs": 12,
+      "vCrossAllowed": 9.23
+     },
+     {
+      "mass_g": 130,
+      "vs": 13.2,
+      "vCrossAllowed": 7.42
+     },
+     {
+      "mass_g": 171,
+      "vs": 5,
+      "vCrossAllowed": 12.22
+     },
+     {
+      "mass_g": 171,
+      "vs": 8,
+      "vCrossAllowed": 10.5
+     },
+     {
+      "mass_g": 171,
+      "vs": 10,
+      "vCrossAllowed": 8.62
+     },
+     {
+      "mass_g": 171,
+      "vs": 12,
+      "vCrossAllowed": 5.5
+     },
+     {
+      "mass_g": 171,
+      "vs": 13.2,
+      "vCrossAllowed": 0.17
+     },
+     {
+      "mass_g": 200,
+      "vs": 5,
+      "vCrossAllowed": 11.14
+     },
+     {
+      "mass_g": 200,
+      "vs": 8,
+      "vCrossAllowed": 9.22
+     },
+     {
+      "mass_g": 200,
+      "vs": 10,
+      "vCrossAllowed": 7.0
+     },
+     {
+      "mass_g": 200,
+      "vs": 12,
+      "vCrossAllowed": 2.24
+     },
+     {
+      "mass_g": 200,
+      "vs": 13.2,
+      "vCrossAllowed": 0.0
+     }
+    ],
+    "payoutGovernor": [
+     {
+      "mass_g": 130,
+      "vs": 12.0,
+      "payoutSpeed": 0.0,
+      "linePer10s": 0.0,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 130,
+      "vs": 13.2,
+      "payoutSpeed": 0.0,
+      "linePer10s": 0.0,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 130,
+      "vs": 14.0,
+      "payoutSpeed": 0.0,
+      "linePer10s": 0.0,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 150,
+      "vs": 12.0,
+      "payoutSpeed": 0.0,
+      "linePer10s": 0.0,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 150,
+      "vs": 13.2,
+      "payoutSpeed": 0.0,
+      "linePer10s": 0.0,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 150,
+      "vs": 14.0,
+      "payoutSpeed": 0.21,
+      "linePer10s": 2.1,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 171,
+      "vs": 12.0,
+      "payoutSpeed": 0.0,
+      "linePer10s": 0.0,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 171,
+      "vs": 13.2,
+      "payoutSpeed": 0.3,
+      "linePer10s": 3.0,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 171,
+      "vs": 14.0,
+      "payoutSpeed": 1.1,
+      "linePer10s": 11.0,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 200,
+      "vs": 12.0,
+      "payoutSpeed": 0.09,
+      "linePer10s": 0.9,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 200,
+      "vs": 13.2,
+      "payoutSpeed": 1.29,
+      "linePer10s": 12.9,
+      "airspeedLossOK": true
+     },
+     {
+      "mass_g": 200,
+      "vs": 14.0,
+      "payoutSpeed": 2.09,
+      "linePer10s": 20.9,
+      "airspeedLossOK": true
+     }
+    ],
+    "loopsWhileRiding": [
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "vs": 12.0,
+      "Vlim": 7.0,
+      "ok": false,
+      "KEmax": null,
+      "Vmax": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "vs": 12.0,
+      "Vlim": 9.0,
+      "ok": false,
+      "KEmax": null,
+      "Vmax": null
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "vs": 12.0,
+      "Vlim": 7.0,
+      "ok": true,
+      "KEmax": 14.1,
+      "Vmax": 7.61
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "vs": 12.0,
+      "Vlim": 9.0,
+      "ok": false,
+      "KEmax": null,
+      "Vmax": null
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "vs": 13.2,
+      "Vlim": 7.0,
+      "ok": true,
+      "KEmax": 16.3,
+      "Vmax": 7.61
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "vs": 13.2,
+      "Vlim": 9.0,
+      "ok": false,
+      "KEmax": null,
+      "Vmax": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "vs": 8.0,
+      "Vlim": 7.0,
+      "ok": false,
+      "KEmax": null,
+      "Vmax": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "vs": 8.0,
+      "Vlim": 9.0,
+      "ok": false,
+      "KEmax": null,
+      "Vmax": null
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "vs": 12.0,
+      "Vlim": 7.0,
+      "ok": true,
+      "KEmax": 13.9,
+      "Vmax": 8.11
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "vs": 12.0,
+      "Vlim": 9.0,
+      "ok": true,
+      "KEmax": 15.4,
+      "Vmax": 9.78
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "vs": 12.0,
+      "Vlim": 7.0,
+      "ok": true,
+      "KEmax": 13.6,
+      "Vmax": 8.58
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "vs": 12.0,
+      "Vlim": 9.0,
+      "ok": true,
+      "KEmax": 15.1,
+      "Vmax": 10.22
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "vs": 13.2,
+      "Vlim": 7.0,
+      "ok": true,
+      "KEmax": 15.7,
+      "Vmax": 8.58
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "vs": 13.2,
+      "Vlim": 9.0,
+      "ok": true,
+      "KEmax": 17.1,
+      "Vmax": 10.22
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "vs": 8.0,
+      "Vlim": 7.0,
+      "ok": true,
+      "KEmax": 8.1,
+      "Vmax": 8.11
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "vs": 8.0,
+      "Vlim": 9.0,
+      "ok": true,
+      "KEmax": 9.8,
+      "Vmax": 9.78
+     }
+    ],
+    "hockeyStopFastReelIn": [
+     {
+      "flyer": "G130",
+      "l0": 10.0,
+      "strategy": "none",
+      "KEmaxGround": 9.4,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 10.0
+     },
+     {
+      "flyer": "G130",
+      "l0": 10.0,
+      "strategy": "brake",
+      "KEmaxGround": 9.4,
+      "minHelmetDist": 7.07,
+      "maxAheadOfRider": -1.7
+     },
+     {
+      "flyer": "G130",
+      "l0": 10.0,
+      "strategy": "reelin",
+      "KEmaxGround": 38.0,
+      "minHelmetDist": 4.58,
+      "maxAheadOfRider": 5.0
+     },
+     {
+      "flyer": "G130",
+      "l0": 10.0,
+      "strategy": "payout_loiter",
+      "KEmaxGround": 9.4,
+      "minHelmetDist": 6.15,
+      "maxAheadOfRider": 11.3
+     },
+     {
+      "flyer": "G130",
+      "l0": 20.0,
+      "strategy": "none",
+      "KEmaxGround": 10.2,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 20.0
+     },
+     {
+      "flyer": "G130",
+      "l0": 20.0,
+      "strategy": "brake",
+      "KEmaxGround": 9.4,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": -4.3
+     },
+     {
+      "flyer": "G130",
+      "l0": 20.0,
+      "strategy": "reelin",
+      "KEmaxGround": 84.6,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 11.8
+     },
+     {
+      "flyer": "G130",
+      "l0": 20.0,
+      "strategy": "payout_loiter",
+      "KEmaxGround": 9.4,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 22.5
+     },
+     {
+      "flyer": "K120",
+      "l0": 10.0,
+      "strategy": "none",
+      "KEmaxGround": 8.6,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 10.0
+     },
+     {
+      "flyer": "K120",
+      "l0": 10.0,
+      "strategy": "brake",
+      "KEmaxGround": 8.6,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": -2.1
+     },
+     {
+      "flyer": "K120",
+      "l0": 10.0,
+      "strategy": "reelin",
+      "KEmaxGround": 145.1,
+      "minHelmetDist": 0.16,
+      "maxAheadOfRider": 3.5
+     },
+     {
+      "flyer": "K120",
+      "l0": 10.0,
+      "strategy": "payout_loiter",
+      "KEmaxGround": 8.6,
+      "minHelmetDist": 3.9,
+      "maxAheadOfRider": 9.9
+     },
+     {
+      "flyer": "K120",
+      "l0": 20.0,
+      "strategy": "none",
+      "KEmaxGround": 8.6,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 16.9
+     },
+     {
+      "flyer": "K120",
+      "l0": 20.0,
+      "strategy": "brake",
+      "KEmaxGround": 8.6,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": -4.3
+     },
+     {
+      "flyer": "K120",
+      "l0": 20.0,
+      "strategy": "reelin",
+      "KEmaxGround": 132.0,
+      "minHelmetDist": 0.1,
+      "maxAheadOfRider": 4.4
+     },
+     {
+      "flyer": "K120",
+      "l0": 20.0,
+      "strategy": "payout_loiter",
+      "KEmaxGround": 8.6,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 7.0
+     }
+    ]
+   },
+   "verdict": "SUPPORTED as a governor by PAYING OUT; REFUTED as \"reel in harder\"",
+   "finding": "Any flyer that keeps station follows at the rider's ground speed, so KE = m v_s^2/2 regardless of the reel: m <= 171 g at the R4 maximum 13.2 m/s (207 g at 12 m/s). Reel-in for airspeed in a tailwind adds ground speed by the exact identity ground^2 = airspeed^2 + W_t(v_s + Va + 2 v_in cos eps): with 130 g it never broke the cap in the R4 grid (worst 13 J at 13.2 m/s with 9 m/s tail), with 200 g it broke it in every fast-rider case. Crosswind loops while riding broke it for G130 at 13.2 m/s (16.3 J) and K120 (15.1-17.1 J). The dangerous case is braking: fast reel-in at a hockey stop gave 38-145 J ground-frame KE and passed 0.1-0.16 m from the helmet (K120). A pay-out governor works kinematically (pay out at v_s - v_cap; 1.3 m/s = 13 m per 10 s for 200 g at 13.2 m/s) but eats line; a <= 150 g flyer needs essentially none. Rules: m_flyer <= ~150 g; never reel in faster than KE allows; on a stop brake/deep-stall instead of reeling (H-stop below).",
+   "assumed": [
+    "Vreq = 1.15 x stall",
+    "R4 maximum rider speed 13.2 m/s (kite2 design_notes)"
+   ]
+  },
+  {
+   "id": "H5",
+   "title": "Reel on the flyer vs reel in the backpack",
+   "method": "h5_reel_location.py: flyer reel kit mass (micro gearmotor 9.5 g, spool/level-wind 6 g, 30 m UHMWPE 4.5 g, driver/encoder 2 g = 22 g, ASSUMED class values) + cell for reel energy (from h2/h3), consequences for stall speed, eps (h1 solver), KE at 13.2 m/s; latency/peak-power argument for heave compensation.",
+   "numbers": {
+    "cases": [
+     {
+      "scenario": "heave/tension trim only (0.5 W mean, ASSUMED)",
+      "reelAt": "flyer",
+      "reelPower_W": 0.5,
+      "flyerCell_g": 3.9,
+      "flyerMass_g": 155.9,
+      "vmin": 5.03,
+      "eps_Va8_l15": 72.0,
+      "KE_at_13_2": 13.6,
+      "keCapSpeed": 13.82,
+      "line": "UHMWPE 0.5 mm"
+     },
+     {
+      "scenario": "heave/tension trim only (0.5 W mean, ASSUMED)",
+      "reelAt": "backpack",
+      "reelPower_W": 0.5,
+      "flyerCell_g": 0.0,
+      "flyerMass_g": 122.0,
+      "vmin": 4.45,
+      "eps_Va8_l15": 74.3,
+      "KE_at_13_2": 10.6,
+      "keCapSpeed": 15.63,
+      "line": "conductive 0.6 mm"
+     },
+     {
+      "scenario": "tension-tracking reel (h3 mode 1 mean |P|)",
+      "reelAt": "flyer",
+      "reelPower_W": 4.33,
+      "flyerCell_g": 34.0,
+      "flyerMass_g": 186.0,
+      "vmin": 5.49,
+      "eps_Va8_l15": 67.6,
+      "KE_at_13_2": 16.2,
+      "keCapSpeed": 12.66,
+      "line": "UHMWPE 0.5 mm"
+     },
+     {
+      "scenario": "tension-tracking reel (h3 mode 1 mean |P|)",
+      "reelAt": "backpack",
+      "reelPower_W": 4.33,
+      "flyerCell_g": 0.0,
+      "flyerMass_g": 122.0,
+      "vmin": 4.45,
+      "eps_Va8_l15": 74.3,
+      "KE_at_13_2": 10.6,
+      "keCapSpeed": 15.63,
+      "line": "conductive 0.6 mm"
+     },
+     {
+      "scenario": "calm-stop yo-yo 40 % of the time (h2 S3 best)",
+      "reelAt": "flyer",
+      "reelPower_W": 2.41,
+      "flyerCell_g": 18.9,
+      "flyerMass_g": 170.9,
+      "vmin": 5.26,
+      "eps_Va8_l15": 70.0,
+      "KE_at_13_2": 14.9,
+      "keCapSpeed": 13.2,
+      "line": "UHMWPE 0.5 mm"
+     },
+     {
+      "scenario": "calm-stop yo-yo 40 % of the time (h2 S3 best)",
+      "reelAt": "backpack",
+      "reelPower_W": 2.41,
+      "flyerCell_g": 0.0,
+      "flyerMass_g": 122.0,
+      "vmin": 4.45,
+      "eps_Va8_l15": 74.3,
+      "KE_at_13_2": 10.6,
+      "keCapSpeed": 15.63,
+      "line": "conductive 0.6 mm"
+     }
+    ],
+    "kit": {
+     "micro gearmotor (N20 / micro metal class)": 9.5,
+     "spool + level-wind + frame": 6.0,
+     "line 30 m UHMWPE 0.5 mm (0.15 g/m)": 4.5,
+     "driver + encoder + tension sense (current)": 2.0
+    },
+    "dynamics": {
+     "exitDisturbance": "rider carving: exit speed oscillation ~0.8 m/s at 0.69 Hz, body heave 3 cm at 2 Hz, hockey-stop lean flip moves the exit 8-9 m/s for ~0.4 s (kite2 design_notes rootCause.ke)",
+     "packReelLatency_ms": "~10-20 (pack IMU -> motor, local) ASSUMED",
+     "flyerReelLatency_ms": "~30-60 (pack IMU -> radio -> flyer MCU -> motor) ASSUMED",
+     "flyerReelPeakPower_W": "to cancel a 8 m/s, 0.4 s lean-flip at 5 N needs ~40 W peak and ~20 m/s^2 for a few hundred ms - a 9.5 g gearmotor is ~1-2 W class",
+     "packReelPeakPower_W": "40 W peak is a 30-50 g outrunner + 1:5 belt: fine in the pack (ASSUMED)"
+    }
+   },
+   "verdict": "Backpack reel SUPPORTED; flyer reel REFUTED for this product",
+   "finding": "A flyer reel adds 22 g of kit plus 4-34 g of cells: 156-186 g flyer, stall +10-20 %, eps at Va 8 m/s down 2-6 deg, KE at 13.2 m/s 13.6-16.2 J (over the cap from ~171 g). A pack reel adds nothing to the flyer and, with the conductive line, removes the flyer cell (122 g, KE 10.6 J, cap speed 15.6 m/s). The disturbance (rider speed oscillation, heave, the 8-9 m/s lean flip at a hockey stop) enters at the exit, so the pack reel can cancel it locally with ~10-20 ms latency and ~40 W peak; a 9.5 g flyer gearmotor is a 1-2 W device behind a radio hop. Line drag is the same either way (same deployed length). The flyer-reel advantage (no moving drum on the body, simple harness breakaway) does not outweigh mass/KE/power.",
+   "assumed": [
+    "kit masses (class values)",
+    "latencies",
+    "pack motor class"
+   ]
+  },
+  {
+   "id": "H6",
+   "title": "(bold) Crosswind figure-8 / loops (or \"dynamic soaring\") keep a kite up with zero net reel energy down to apparent wind X",
+   "method": "h6_crosswind.py: sim3d with the reel locked, vector-field loop and figure-8 guidance on the tether sphere, high-lift trim, airspeed governor (CL reduction + spoiler above 9 m/s), l 10/20 m, two loop centres, W 0-6 m/s, 60 s; KE in the ground frame for riding cases. Physics bound for W = 0: no energy source (stopped rider has no wake; dynamic soaring needs a wind gradient - Sachs 2005).",
+   "numbers": {
+    "X_bestPattern_ms": {
+     "G130": 2.0,
+     "K120": 1.5
+    },
+    "X_byPattern": {
+     "G130_l10_circle": 2.5,
+     "G130_l10_eight": 3.0,
+     "G130_l20_circle": 3.0,
+     "G130_l20_eight": 2.0,
+     "K120_l10_circle": 2.0,
+     "K120_l10_eight": 1.5,
+     "K120_l20_circle": 2.0,
+     "K120_l20_eight": 1.5
+    },
+    "staticFloor_ms": {
+     "G130": 4.6,
+     "K120": 2.0
+    },
+    "loopSpeedsUngoverned": "W 4 m/s, l 15 m, no governor: airspeed 24 m/s, tension 31 N for a 130 g glider (Loyd v ~ W L/D cos eps)",
+    "orbitRate_degPerS": "line-of-sight rate of the rider from the looping flyer: p50 13-55, p90 20-78 deg/s (shared jitter rule p90 <= 3 deg/s)",
+    "runs": [
+     {
+      "flyer": "G130",
+      "W": 1.0,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.0,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.0,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.0,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.5,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.5,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.5,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.5,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.0,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.0,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.0,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.0,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": true,
+      "zMin": 4.12,
+      "Tmean": 1.33,
+      "Tp95": 4.39,
+      "Vmean": 6.21,
+      "KEmax": 5.9,
+      "losP90": 51.7
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": true,
+      "zMin": 1.62,
+      "Tmean": 2.58,
+      "Tp95": 4.46,
+      "Vmean": 7.88,
+      "KEmax": 9.6,
+      "losP90": 66.3
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": true,
+      "zMin": 4.11,
+      "Tmean": 1.62,
+      "Tp95": 4.39,
+      "Vmean": 6.65,
+      "KEmax": 7.6,
+      "losP90": 56.5
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 0.39,
+      "Tmean": 1.19,
+      "Tp95": 3.41,
+      "Vmean": 6.53,
+      "KEmax": 7.4,
+      "losP90": 53.4
+     },
+     {
+      "flyer": "G130",
+      "W": 1.0,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.0,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.0,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.0,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.5,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.5,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.5,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 1.5,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.0,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.0,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 0.48,
+      "Tmean": 1.07,
+      "Tp95": 2.79,
+      "Vmean": 5.7,
+      "KEmax": 6.0,
+      "losP90": 25.1
+     },
+     {
+      "flyer": "G130",
+      "W": 2.0,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.0,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 0.4,
+      "Tmean": 1.16,
+      "Tp95": 3.78,
+      "Vmean": 6.1,
+      "KEmax": 8.0,
+      "losP90": 27.3
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 2.5,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 1.27,
+      "Tmean": 1.06,
+      "Tp95": 3.27,
+      "Vmean": 5.96,
+      "KEmax": 7.0,
+      "losP90": 26.9
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 1.24,
+      "Tmean": 0.97,
+      "Tp95": 3.68,
+      "Vmean": 6.11,
+      "KEmax": 8.4,
+      "losP90": 26.6
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": true,
+      "zMin": 6.78,
+      "Tmean": 1.19,
+      "Tp95": 4.03,
+      "Vmean": 6.42,
+      "KEmax": 6.3,
+      "losP90": 27.0
+     },
+     {
+      "flyer": "G130",
+      "W": 3.0,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 2.45,
+      "Tmean": 1.06,
+      "Tp95": 3.81,
+      "Vmean": 6.27,
+      "KEmax": 8.2,
+      "losP90": 28.6
+     },
+     {
+      "flyer": "K120",
+      "W": 1.0,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.0,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.0,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.0,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.5,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.5,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 4.36,
+      "Tmean": 1.04,
+      "Tp95": 2.13,
+      "Vmean": 2.84,
+      "KEmax": 0.9,
+      "losP90": 20.2
+     },
+     {
+      "flyer": "K120",
+      "W": 1.5,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.5,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 3.92,
+      "Tmean": 1.05,
+      "Tp95": 2.45,
+      "Vmean": 2.82,
+      "KEmax": 1.1,
+      "losP90": 21.7
+     },
+     {
+      "flyer": "K120",
+      "W": 2.0,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": true,
+      "zMin": 3.7,
+      "Tmean": 11.95,
+      "Tp95": 23.34,
+      "Vmean": 6.39,
+      "KEmax": 6.0,
+      "losP90": 54.4
+     },
+     {
+      "flyer": "K120",
+      "W": 2.0,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 3.7,
+      "Tmean": 9.39,
+      "Tp95": 22.57,
+      "Vmean": 5.98,
+      "KEmax": 5.7,
+      "losP90": 51.5
+     },
+     {
+      "flyer": "K120",
+      "W": 2.0,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 2.0,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 3.96,
+      "Tmean": 13.08,
+      "Tp95": 18.73,
+      "Vmean": 7.65,
+      "KEmax": 4.3,
+      "losP90": 47.7
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": true,
+      "zMin": 3.68,
+      "Tmean": 18.47,
+      "Tp95": 24.13,
+      "Vmean": 8.26,
+      "KEmax": 6.9,
+      "losP90": 59.9
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 0.8,
+      "Tmean": 18.34,
+      "Tp95": 24.79,
+      "Vmean": 9.05,
+      "KEmax": 5.4,
+      "losP90": 53.7
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": true,
+      "zMin": 7.74,
+      "Tmean": 1.93,
+      "Tp95": 7.8,
+      "Vmean": 3.3,
+      "KEmax": 2.6,
+      "losP90": 23.3
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 2.17,
+      "Tmean": 18.23,
+      "Tp95": 24.63,
+      "Vmean": 9.03,
+      "KEmax": 5.5,
+      "losP90": 54.5
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "l": 10,
+      "elc": 35,
+      "eight": false,
+      "ok": true,
+      "zMin": 3.67,
+      "Tmean": 22.23,
+      "Tp95": 24.71,
+      "Vmean": 9.24,
+      "KEmax": 7.6,
+      "losP90": 63.0
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "l": 10,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "l": 10,
+      "elc": 50,
+      "eight": false,
+      "ok": true,
+      "zMin": 5.5,
+      "Tmean": 8.91,
+      "Tp95": 24.12,
+      "Vmean": 5.44,
+      "KEmax": 7.7,
+      "losP90": 54.2
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "l": 10,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 1.19,
+      "Tmean": 19.9,
+      "Tp95": 25.5,
+      "Vmean": 9.6,
+      "KEmax": 5.8,
+      "losP90": 55.8
+     },
+     {
+      "flyer": "K120",
+      "W": 1.0,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.0,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.0,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.0,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.5,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.5,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 6.47,
+      "Tmean": 1.13,
+      "Tp95": 2.58,
+      "Vmean": 2.89,
+      "KEmax": 1.1,
+      "losP90": 11.5
+     },
+     {
+      "flyer": "K120",
+      "W": 1.5,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": false,
+      "zMin": null,
+      "Tmean": null,
+      "Tp95": null,
+      "Vmean": null,
+      "KEmax": null,
+      "losP90": null
+     },
+     {
+      "flyer": "K120",
+      "W": 1.5,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 5.78,
+      "Tmean": 1.22,
+      "Tp95": 3.33,
+      "Vmean": 2.93,
+      "KEmax": 1.8,
+      "losP90": 11.8
+     },
+     {
+      "flyer": "K120",
+      "W": 2.0,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": true,
+      "zMin": 6.56,
+      "Tmean": 2.5,
+      "Tp95": 15.26,
+      "Vmean": 3.42,
+      "KEmax": 6.1,
+      "losP90": 14.0
+     },
+     {
+      "flyer": "K120",
+      "W": 2.0,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 11.77,
+      "Tmean": 0.79,
+      "Tp95": 1.69,
+      "Vmean": 2.84,
+      "KEmax": 1.6,
+      "losP90": 8.5
+     },
+     {
+      "flyer": "K120",
+      "W": 2.0,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": true,
+      "zMin": 1.18,
+      "Tmean": 0.39,
+      "Tp95": 0.61,
+      "Vmean": 2.2,
+      "KEmax": 0.3,
+      "losP90": 1.7
+     },
+     {
+      "flyer": "K120",
+      "W": 2.0,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 12.44,
+      "Tmean": 2.26,
+      "Tp95": 6.67,
+      "Vmean": 3.79,
+      "KEmax": 2.3,
+      "losP90": 14.0
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": true,
+      "zMin": 6.23,
+      "Tmean": 16.78,
+      "Tp95": 23.64,
+      "Vmean": 7.88,
+      "KEmax": 6.9,
+      "losP90": 29.8
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 2.72,
+      "Tmean": 17.34,
+      "Tp95": 24.27,
+      "Vmean": 8.9,
+      "KEmax": 5.4,
+      "losP90": 26.8
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": true,
+      "zMin": 15.96,
+      "Tmean": 1.5,
+      "Tp95": 2.92,
+      "Vmean": 3.17,
+      "KEmax": 1.5,
+      "losP90": 11.2
+     },
+     {
+      "flyer": "K120",
+      "W": 2.5,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 4.96,
+      "Tmean": 17.18,
+      "Tp95": 23.95,
+      "Vmean": 8.86,
+      "KEmax": 5.5,
+      "losP90": 26.9
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "l": 20,
+      "elc": 35,
+      "eight": false,
+      "ok": true,
+      "zMin": 6.21,
+      "Tmean": 21.16,
+      "Tp95": 24.21,
+      "Vmean": 9.07,
+      "KEmax": 7.6,
+      "losP90": 31.5
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "l": 20,
+      "elc": 35,
+      "eight": true,
+      "ok": true,
+      "zMin": 0.79,
+      "Tmean": 19.05,
+      "Tp95": 25.06,
+      "Vmean": 9.49,
+      "KEmax": 5.7,
+      "losP90": 27.5
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "l": 20,
+      "elc": 50,
+      "eight": false,
+      "ok": true,
+      "zMin": 9.74,
+      "Tmean": 8.11,
+      "Tp95": 23.63,
+      "Vmean": 5.28,
+      "KEmax": 7.8,
+      "losP90": 26.5
+     },
+     {
+      "flyer": "K120",
+      "W": 3.0,
+      "l": 20,
+      "elc": 50,
+      "eight": true,
+      "ok": true,
+      "zMin": 2.73,
+      "Tmean": 19.05,
+      "Tp95": 24.93,
+      "Vmean": 9.49,
+      "KEmax": 5.9,
+      "losP90": 27.9
+     }
+    ]
+   },
+   "verdict": "CONDITIONAL - X ~ 2-2.5 m/s (130 g glider) and ~1.5 m/s (120 g low-loading kite); REFUTED at a stop in calm (X > 0 by first principles); loops are a survival mode, not a filming mode",
+   "finding": "Crosswind loops halve the wind floor of the 9:1 glider (static 4.6 -> loops 2.0-2.5 m/s, pattern- and controller-dependent) and give the low-wing-loading kite 1.5 m/s (static 2.0). Ungoverned loops are violent (24 m/s, 31 N at W 4 m/s), so a speed governor is mandatory; with it, riding cases at Va 3 m/s still reached 14-17 J at 12-13.2 m/s rider speed. The orbiting viewpoint sweeps the rider at typically 13-55 deg/s (p50), up to 78 deg/s (p90), far above the 3 deg/s jitter rule. Calm at a stop: nothing in the simulations sustained at W 0-1 m/s, as physics requires. Circular loops twist the line (one turn per loop) - figure-8 or a swivel is required. Guidance here is crude; an optimised controller could lower X somewhat, never to 0.",
+   "assumed": [
+    "guidance laws/gains",
+    "uniform wind (no gradient near the snow)",
+    "speed-governor law"
+   ]
+  },
+  {
+   "id": "H7",
+   "title": "(bold, own) When the tailwind exceeds the rider speed the stable station flips AHEAD of the rider - fly the kite in front and film the face",
+   "method": "Kinematics of apparent wind (h4) over the R4 wind grid, dead-band classification with X (h6) and the static floor (h1); geometry of the transition.",
+   "numbers": {
+    "deadBand_R4": [
+     {
+      "riderSpeed": 12.0,
+      "wind": "calm0",
+      "headingFromFallLine": 0,
+      "Va": 12.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "calm0",
+      "headingFromFallLine": 45,
+      "Va": 12.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "head3",
+      "headingFromFallLine": 0,
+      "Va": 15.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "head3",
+      "headingFromFallLine": 45,
+      "Va": 14.28,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "head6",
+      "headingFromFallLine": 0,
+      "Va": 18.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "head6",
+      "headingFromFallLine": 45,
+      "Va": 16.79,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "head9",
+      "headingFromFallLine": 0,
+      "Va": 21.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "head9",
+      "headingFromFallLine": 45,
+      "Va": 19.44,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail3",
+      "headingFromFallLine": 0,
+      "Va": 9.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail3",
+      "headingFromFallLine": 45,
+      "Va": 10.1,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail6",
+      "headingFromFallLine": 0,
+      "Va": 6.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail6",
+      "headingFromFallLine": 45,
+      "Va": 8.84,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail9",
+      "headingFromFallLine": 0,
+      "Va": 3.0,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail9",
+      "headingFromFallLine": 45,
+      "Va": 8.5,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "cross3",
+      "headingFromFallLine": 0,
+      "Va": 12.37,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "cross3",
+      "headingFromFallLine": 45,
+      "Va": 10.1,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "cross6",
+      "headingFromFallLine": 0,
+      "Va": 13.42,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "cross6",
+      "headingFromFallLine": 45,
+      "Va": 8.84,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "cross9",
+      "headingFromFallLine": 0,
+      "Va": 15.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "cross9",
+      "headingFromFallLine": 45,
+      "Va": 8.5,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail3.5",
+      "headingFromFallLine": 0,
+      "Va": 8.5,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail3.5",
+      "headingFromFallLine": 45,
+      "Va": 9.84,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail4.5",
+      "headingFromFallLine": 0,
+      "Va": 7.5,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail4.5",
+      "headingFromFallLine": 45,
+      "Va": 9.37,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail5.5",
+      "headingFromFallLine": 0,
+      "Va": 6.5,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 12.0,
+      "wind": "tail5.5",
+      "headingFromFallLine": 45,
+      "Va": 9.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "calm0",
+      "headingFromFallLine": 0,
+      "Va": 8.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "calm0",
+      "headingFromFallLine": 45,
+      "Va": 8.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "head3",
+      "headingFromFallLine": 0,
+      "Va": 11.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "head3",
+      "headingFromFallLine": 45,
+      "Va": 10.34,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "head6",
+      "headingFromFallLine": 0,
+      "Va": 14.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "head6",
+      "headingFromFallLine": 45,
+      "Va": 12.96,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "head9",
+      "headingFromFallLine": 0,
+      "Va": 17.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "head9",
+      "headingFromFallLine": 45,
+      "Va": 15.71,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail3",
+      "headingFromFallLine": 0,
+      "Va": 5.0,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail3",
+      "headingFromFallLine": 45,
+      "Va": 6.25,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail6",
+      "headingFromFallLine": 0,
+      "Va": 2.0,
+      "apparentWindReversed": false,
+      "G130": "dead-band",
+      "K120": "loops-only"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail6",
+      "headingFromFallLine": 45,
+      "Va": 5.67,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail9",
+      "headingFromFallLine": 0,
+      "Va": 1.0,
+      "apparentWindReversed": true,
+      "G130": "dead-band (flyer would sit AHEAD)",
+      "K120": "dead-band (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail9",
+      "headingFromFallLine": 45,
+      "Va": 6.57,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "cross3",
+      "headingFromFallLine": 0,
+      "Va": 8.54,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "cross3",
+      "headingFromFallLine": 45,
+      "Va": 6.25,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "cross6",
+      "headingFromFallLine": 0,
+      "Va": 10.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "cross6",
+      "headingFromFallLine": 45,
+      "Va": 5.67,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "cross9",
+      "headingFromFallLine": 0,
+      "Va": 12.04,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "cross9",
+      "headingFromFallLine": 45,
+      "Va": 6.57,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail3.5",
+      "headingFromFallLine": 0,
+      "Va": 4.5,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail3.5",
+      "headingFromFallLine": 45,
+      "Va": 6.05,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail4.5",
+      "headingFromFallLine": 0,
+      "Va": 3.5,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail4.5",
+      "headingFromFallLine": 45,
+      "Va": 5.77,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail5.5",
+      "headingFromFallLine": 0,
+      "Va": 2.5,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 8.0,
+      "wind": "tail5.5",
+      "headingFromFallLine": 45,
+      "Va": 5.66,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "calm0",
+      "headingFromFallLine": 0,
+      "Va": 4.0,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "calm0",
+      "headingFromFallLine": 45,
+      "Va": 4.0,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "head3",
+      "headingFromFallLine": 0,
+      "Va": 7.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "head3",
+      "headingFromFallLine": 45,
+      "Va": 6.48,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "head6",
+      "headingFromFallLine": 0,
+      "Va": 10.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "head6",
+      "headingFromFallLine": 45,
+      "Va": 9.27,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "head9",
+      "headingFromFallLine": 0,
+      "Va": 13.0,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "head9",
+      "headingFromFallLine": 45,
+      "Va": 12.16,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail3",
+      "headingFromFallLine": 0,
+      "Va": 1.0,
+      "apparentWindReversed": false,
+      "G130": "dead-band",
+      "K120": "dead-band"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail3",
+      "headingFromFallLine": 45,
+      "Va": 2.83,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail6",
+      "headingFromFallLine": 0,
+      "Va": 2.0,
+      "apparentWindReversed": true,
+      "G130": "dead-band (flyer would sit AHEAD)",
+      "K120": "loops-only (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail6",
+      "headingFromFallLine": 45,
+      "Va": 4.25,
+      "apparentWindReversed": true,
+      "G130": "loops-only (flyer would sit AHEAD)",
+      "K120": "static (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail9",
+      "headingFromFallLine": 0,
+      "Va": 5.0,
+      "apparentWindReversed": true,
+      "G130": "loops-only (flyer would sit AHEAD)",
+      "K120": "static (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail9",
+      "headingFromFallLine": 45,
+      "Va": 6.79,
+      "apparentWindReversed": true,
+      "G130": "static (flyer would sit AHEAD)",
+      "K120": "static (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "cross3",
+      "headingFromFallLine": 0,
+      "Va": 5.0,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "cross3",
+      "headingFromFallLine": 45,
+      "Va": 2.83,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "cross6",
+      "headingFromFallLine": 0,
+      "Va": 7.21,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "cross6",
+      "headingFromFallLine": 45,
+      "Va": 4.25,
+      "apparentWindReversed": true,
+      "G130": "loops-only (flyer would sit AHEAD)",
+      "K120": "static (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "cross9",
+      "headingFromFallLine": 0,
+      "Va": 9.85,
+      "apparentWindReversed": false,
+      "G130": "static",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "cross9",
+      "headingFromFallLine": 45,
+      "Va": 6.79,
+      "apparentWindReversed": true,
+      "G130": "static (flyer would sit AHEAD)",
+      "K120": "static (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail3.5",
+      "headingFromFallLine": 0,
+      "Va": 0.5,
+      "apparentWindReversed": false,
+      "G130": "dead-band",
+      "K120": "dead-band"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail3.5",
+      "headingFromFallLine": 45,
+      "Va": 2.91,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail4.5",
+      "headingFromFallLine": 0,
+      "Va": 0.5,
+      "apparentWindReversed": true,
+      "G130": "dead-band (flyer would sit AHEAD)",
+      "K120": "dead-band (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail4.5",
+      "headingFromFallLine": 45,
+      "Va": 3.29,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail5.5",
+      "headingFromFallLine": 0,
+      "Va": 1.5,
+      "apparentWindReversed": true,
+      "G130": "dead-band (flyer would sit AHEAD)",
+      "K120": "loops-only (flyer would sit AHEAD)"
+     },
+     {
+      "riderSpeed": 4.0,
+      "wind": "tail5.5",
+      "headingFromFallLine": 45,
+      "Va": 3.89,
+      "apparentWindReversed": false,
+      "G130": "loops-only",
+      "K120": "static"
+     }
+    ],
+    "X": {
+     "G130": 2.5,
+     "K120": 1.5
+    },
+    "staticVaNeeded": {
+     "G130": 5.28,
+     "K120": 2.28
+    }
+   },
+   "verdict": "REFUTED as a product mode (physically true)",
+   "finding": "Apparent wind reverses whenever the tailwind component exceeds the rider speed (R4: tail 9 with any rider below 9 m/s, every push-off in tail >= 3 m/s, short turns at 8 m/s in tail 9). The flyer's equilibrium is then downwind = ahead. But the transition passes through |Va| < X (no flight) and over the rider's head, and a line in front of the body is a face/neck hazard. At 12 m/s riding the G130 is \"static\" in calm/head/cross/tail <= 6 and \"loops-only\" in tail 9 (Va 3); at 8 m/s tail 6 is loops-only and tail 9 is dead/reversed; at 4 m/s (push-off, moguls) most tail cases are dead. These are wind-gate / dock cases, not flight cases.",
+   "assumed": [
+    "X values from h6",
+    "rider speeds 4/8/12 m/s"
+   ]
+  },
+  {
+   "id": "H8",
+   "title": "(bold, own) Put the camera ON THE LINE 5-6 m from the exit (kite-aerial-photography style) and let the flyer fly high and steep",
+   "method": "h1 geometry: camera clamped on a straight line at s metres from the exit, flyer at l = 20 m; env.js bodyPx rule.",
+   "numbers": {
+    "cameraOnLine_l20": [
+     {
+      "eps": 40,
+      "s_cam": 4,
+      "bodyPx": 810,
+      "camDep": 43.1,
+      "camDist": 4.4
+     },
+     {
+      "eps": 40,
+      "s_cam": 5,
+      "bodyPx": 666,
+      "camDep": 42.5,
+      "camDist": 5.4
+     },
+     {
+      "eps": 40,
+      "s_cam": 6,
+      "bodyPx": 566,
+      "camDep": 42.1,
+      "camDist": 6.4
+     },
+     {
+      "eps": 40,
+      "s_cam": 7,
+      "bodyPx": 492,
+      "camDep": 41.8,
+      "camDist": 7.4
+     },
+     {
+      "eps": 40,
+      "s_cam": 8,
+      "bodyPx": 435,
+      "camDep": 41.6,
+      "camDist": 8.4
+     },
+     {
+      "eps": 40,
+      "s_cam": 10,
+      "bodyPx": 353,
+      "camDep": 41.3,
+      "camDist": 10.4
+     },
+     {
+      "eps": 50,
+      "s_cam": 4,
+      "bodyPx": 677,
+      "camDep": 52.1,
+      "camDist": 4.43
+     },
+     {
+      "eps": 50,
+      "s_cam": 5,
+      "bodyPx": 556,
+      "camDep": 51.7,
+      "camDist": 5.43
+     },
+     {
+      "eps": 50,
+      "s_cam": 6,
+      "bodyPx": 472,
+      "camDep": 51.5,
+      "camDist": 6.43
+     },
+     {
+      "eps": 50,
+      "s_cam": 7,
+      "bodyPx": 411,
+      "camDep": 51.3,
+      "camDist": 7.43
+     },
+     {
+      "eps": 50,
+      "s_cam": 8,
+      "bodyPx": 363,
+      "camDep": 51.1,
+      "camDist": 8.43
+     },
+     {
+      "eps": 50,
+      "s_cam": 10,
+      "bodyPx": 295,
+      "camDep": 50.9,
+      "camDist": 10.43
+     },
+     {
+      "eps": 55,
+      "s_cam": 4,
+      "bodyPx": 606,
+      "camDep": 56.6,
+      "camDist": 4.44
+     },
+     {
+      "eps": 55,
+      "s_cam": 5,
+      "bodyPx": 497,
+      "camDep": 56.3,
+      "camDist": 5.44
+     },
+     {
+      "eps": 55,
+      "s_cam": 6,
+      "bodyPx": 422,
+      "camDep": 56.1,
+      "camDist": 6.44
+     },
+     {
+      "eps": 55,
+      "s_cam": 7,
+      "bodyPx": 367,
+      "camDep": 56.0,
+      "camDist": 7.44
+     },
+     {
+      "eps": 55,
+      "s_cam": 8,
+      "bodyPx": 324,
+      "camDep": 55.9,
+      "camDist": 8.44
+     },
+     {
+      "eps": 55,
+      "s_cam": 10,
+      "bodyPx": 264,
+      "camDep": 55.7,
+      "camDist": 10.44
+     },
+     {
+      "eps": 60,
+      "s_cam": 4,
+      "bodyPx": 531,
+      "camDep": 61.1,
+      "camDist": 4.45
+     },
+     {
+      "eps": 60,
+      "s_cam": 5,
+      "bodyPx": 435,
+      "camDep": 60.9,
+      "camDist": 5.45
+     },
+     {
+      "eps": 60,
+      "s_cam": 6,
+      "bodyPx": 369,
+      "camDep": 60.8,
+      "camDist": 6.45
+     },
+     {
+      "eps": 60,
+      "s_cam": 7,
+      "bodyPx": 321,
+      "camDep": 60.7,
+      "camDist": 7.45
+     },
+     {
+      "eps": 60,
+      "s_cam": 8,
+      "bodyPx": 283,
+      "camDep": 60.6,
+      "camDist": 8.45
+     },
+     {
+      "eps": 60,
+      "s_cam": 10,
+      "bodyPx": 230,
+      "camDep": 60.5,
+      "camDist": 10.45
+     },
+     {
+      "eps": 65,
+      "s_cam": 4,
+      "bodyPx": 454,
+      "camDep": 65.6,
+      "camDist": 4.46
+     },
+     {
+      "eps": 65,
+      "s_cam": 5,
+      "bodyPx": 371,
+      "camDep": 65.5,
+      "camDist": 5.46
+     },
+     {
+      "eps": 65,
+      "s_cam": 6,
+      "bodyPx": 314,
+      "camDep": 65.4,
+      "camDist": 6.46
+     },
+     {
+      "eps": 65,
+      "s_cam": 7,
+      "bodyPx": 273,
+      "camDep": 65.4,
+      "camDist": 7.46
+     },
+     {
+      "eps": 65,
+      "s_cam": 8,
+      "bodyPx": 241,
+      "camDep": 65.3,
+      "camDist": 8.46
+     },
+     {
+      "eps": 65,
+      "s_cam": 10,
+      "bodyPx": 195,
+      "camDep": 65.3,
+      "camDist": 10.46
+     },
+     {
+      "eps": 70,
+      "s_cam": 4,
+      "bodyPx": 374,
+      "camDep": 70.1,
+      "camDist": 4.46
+     },
+     {
+      "eps": 70,
+      "s_cam": 5,
+      "bodyPx": 305,
+      "camDep": 70.1,
+      "camDist": 5.46
+     },
+     {
+      "eps": 70,
+      "s_cam": 6,
+      "bodyPx": 258,
+      "camDep": 70.1,
+      "camDist": 6.46
+     },
+     {
+      "eps": 70,
+      "s_cam": 7,
+      "bodyPx": 223,
+      "camDep": 70.1,
+      "camDist": 7.46
+     },
+     {
+      "eps": 70,
+      "s_cam": 8,
+      "bodyPx": 197,
+      "camDep": 70.0,
+      "camDist": 8.46
+     },
+     {
+      "eps": 70,
+      "s_cam": 10,
+      "bodyPx": 159,
+      "camDep": 70.0,
+      "camDist": 10.46
+     },
+     {
+      "eps": 75,
+      "s_cam": 4,
+      "bodyPx": 293,
+      "camDep": 74.6,
+      "camDist": 4.46
+     },
+     {
+      "eps": 75,
+      "s_cam": 5,
+      "bodyPx": 237,
+      "camDep": 74.7,
+      "camDist": 5.46
+     },
+     {
+      "eps": 75,
+      "s_cam": 6,
+      "bodyPx": 199,
+      "camDep": 74.7,
+      "camDist": 6.46
+     },
+     {
+      "eps": 75,
+      "s_cam": 7,
+      "bodyPx": 172,
+      "camDep": 74.7,
+      "camDist": 7.46
+     },
+     {
+      "eps": 75,
+      "s_cam": 8,
+      "bodyPx": 151,
+      "camDep": 74.8,
+      "camDist": 8.46
+     },
+     {
+      "eps": 75,
+      "s_cam": 10,
+      "bodyPx": 122,
+      "camDep": 74.8,
+      "camDist": 10.46
+     },
+     {
+      "eps": 80,
+      "s_cam": 4,
+      "bodyPx": 209,
+      "camDep": 79.1,
+      "camDist": 4.45
+     },
+     {
+      "eps": 80,
+      "s_cam": 5,
+      "bodyPx": 167,
+      "camDep": 79.2,
+      "camDist": 5.45
+     },
+     {
+      "eps": 80,
+      "s_cam": 6,
+      "bodyPx": 140,
+      "camDep": 79.4,
+      "camDist": 6.45
+     },
+     {
+      "eps": 80,
+      "s_cam": 7,
+      "bodyPx": 120,
+      "camDep": 79.4,
+      "camDist": 7.45
+     },
+     {
+      "eps": 80,
+      "s_cam": 8,
+      "bodyPx": 105,
+      "camDep": 79.5,
+      "camDist": 8.45
+     },
+     {
+      "eps": 80,
+      "s_cam": 10,
+      "bodyPx": 84,
+      "camDep": 79.6,
+      "camDist": 10.45
+     }
+    ]
+   },
+   "verdict": "SUPPORTED (geometry) - CONDITIONAL on eps <= 60-65 deg and a stabilised camera mount",
+   "finding": "A line-mounted camera at 5-6 m gives bodyPx 369-435 at eps 60 deg, 422-497 at 55 deg, 472-556 at 50 deg, at a 5.4-6.4 m distance and a depression equal to eps. The camera sits ON the line, so its own line runs end-on towards the subject (no clothesline across the frame), it moves only s/l (25-30 %) of the flyer motion (gust and loop motion attenuated), and the flyer can stay at 15-30 m where it is >= 10 m from the head and in cleaner air. The flyer must still be braked to eps <= 60-65 deg (H1/H9), and the camera needs a Picavet/gimbal against line swing. Kite aerial photography already hangs cameras on the line (https://en.wikipedia.org/wiki/Kite_aerial_photography).",
+   "assumed": [
+    "straight line between exit and flyer (sag <= 0.1 m at T >= 1.5 N)",
+    "camera mass not modelled in the equilibrium"
+   ]
+  },
+  {
+   "id": "H9",
+   "title": "(bold, own) \"Fly braked\": one airbrake setting fixes the camera angle, the pendulum damping and the reel authority at once",
+   "method": "h1 brake bisection + h3 linearisation of the braked equilibria.",
+   "numbers": {
+    "braked": [
+     {
+      "Va": 8,
+      "l": 10,
+      "brake": 0.685,
+      "eps0_deg": 30.0,
+      "T0": 3.16,
+      "zeta": 0.672,
+      "dT_dReelOut": -0.753,
+      "dT_dVa": 0.953
+     },
+     {
+      "Va": 8,
+      "l": 10,
+      "brake": 0.345,
+      "eps0_deg": 45.0,
+      "T0": 2.22,
+      "zeta": 0.338,
+      "dT_dReelOut": -0.468,
+      "dT_dVa": 0.783
+     },
+     {
+      "Va": 8,
+      "l": 10,
+      "brake": 0.147,
+      "eps0_deg": 60.0,
+      "T0": 1.81,
+      "zeta": 0.13,
+      "dT_dReelOut": -0.287,
+      "dT_dVa": 0.732
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "brake": 0.66,
+      "eps0_deg": 30.0,
+      "T0": 3.08,
+      "zeta": 0.928,
+      "dT_dReelOut": -0.734,
+      "dT_dVa": 0.934
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "brake": 0.318,
+      "eps0_deg": 45.0,
+      "T0": 2.14,
+      "zeta": 0.452,
+      "dT_dReelOut": -0.45,
+      "dT_dVa": 0.766
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "brake": 0.118,
+      "eps0_deg": 60.0,
+      "T0": 1.74,
+      "zeta": 0.149,
+      "dT_dReelOut": -0.271,
+      "dT_dVa": 0.719
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "brake": 1.039,
+      "eps0_deg": 30.0,
+      "T0": 10.36,
+      "zeta": 0.952,
+      "dT_dReelOut": -1.539,
+      "dT_dVa": 1.834
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "brake": 0.549,
+      "eps0_deg": 45.0,
+      "T0": 7.28,
+      "zeta": 0.604,
+      "dT_dReelOut": -0.904,
+      "dT_dVa": 1.365
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "brake": 0.265,
+      "eps0_deg": 60.0,
+      "T0": 5.94,
+      "zeta": 0.348,
+      "dT_dReelOut": -0.528,
+      "dT_dVa": 1.176
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "brake": 1.019,
+      "eps0_deg": 30.0,
+      "T0": 10.21,
+      "zeta": 1.33,
+      "dT_dReelOut": -1.517,
+      "dT_dVa": 1.812
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "brake": 0.525,
+      "eps0_deg": 45.0,
+      "T0": 7.13,
+      "zeta": 0.834,
+      "dT_dReelOut": -0.881,
+      "dT_dVa": 1.343
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "brake": 0.238,
+      "eps0_deg": 60.0,
+      "T0": 5.81,
+      "zeta": 0.465,
+      "dT_dReelOut": -0.506,
+      "dT_dVa": 1.158
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "brake": 1.163,
+      "eps0_deg": 30.0,
+      "T0": 20.42,
+      "zeta": 1.035,
+      "dT_dReelOut": -2.243,
+      "dT_dVa": 2.634
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "brake": 0.621,
+      "eps0_deg": 45.0,
+      "T0": 14.36,
+      "zeta": 0.681,
+      "dT_dReelOut": -1.3,
+      "dT_dVa": 1.91
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "brake": 0.307,
+      "eps0_deg": 60.0,
+      "T0": 11.71,
+      "zeta": 0.411,
+      "dT_dReelOut": -0.75,
+      "dT_dVa": 1.605
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "brake": 1.145,
+      "eps0_deg": 30.0,
+      "T0": 20.2,
+      "zeta": 1.449,
+      "dT_dReelOut": -2.216,
+      "dT_dVa": 2.607
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "brake": 0.598,
+      "eps0_deg": 45.0,
+      "T0": 14.12,
+      "zeta": 0.945,
+      "dT_dReelOut": -1.271,
+      "dT_dVa": 1.881
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "brake": 0.28,
+      "eps0_deg": 60.0,
+      "T0": 11.51,
+      "zeta": 0.555,
+      "dT_dReelOut": -0.721,
+      "dT_dVa": 1.581
+     }
+    ],
+    "unbraked": [
+     {
+      "Va": 8,
+      "l": 10,
+      "eps0_deg": 75.4,
+      "T0": 1.63,
+      "zeta": 0.017,
+      "dT_dReelOut": -0.131
+     },
+     {
+      "Va": 8,
+      "l": 20,
+      "eps0_deg": 71.9,
+      "T0": 1.61,
+      "zeta": 0.009,
+      "dT_dReelOut": -0.15
+     },
+     {
+      "Va": 12,
+      "l": 10,
+      "eps0_deg": 79.7,
+      "T0": 5.27,
+      "zeta": 0.09,
+      "dT_dReelOut": -0.157
+     },
+     {
+      "Va": 12,
+      "l": 20,
+      "eps0_deg": 77.3,
+      "T0": 5.24,
+      "zeta": 0.133,
+      "dT_dReelOut": -0.179
+     },
+     {
+      "Va": 16,
+      "l": 10,
+      "eps0_deg": 80.7,
+      "T0": 10.37,
+      "zeta": 0.102,
+      "dT_dReelOut": -0.197
+     },
+     {
+      "Va": 16,
+      "l": 20,
+      "eps0_deg": 78.5,
+      "T0": 10.33,
+      "zeta": 0.155,
+      "dT_dReelOut": -0.224
+     }
+    ]
+   },
+   "verdict": "SUPPORTED in the model",
+   "finding": "Braking the G130 from eps 75-81 deg down to 45-60 deg raises damping from zeta 0.01-0.16 to 0.13-0.95, raises reel authority 2-6x (0.27-1.3 N per m/s), and puts the camera geometry in the 300-px window, at a tension cost of +11-13 % (60 deg), +36-38 % (45 deg), ~+95 % (30 deg) - still <= 15 N at Va 16 m/s for 45 deg. The \"high L/D\" requirement therefore becomes \"high L/D with a large, fast drag modulation range (dCD 0-0.7)\": the L/D is spent on climbing to station at low Va, the brake on holding it at high Va.",
+   "assumed": [
+    "brake as a pure dCD (spoiler/split flap) without CL change",
+    "quasi-steady aero"
+   ]
+  },
+  {
+   "id": "H10",
+   "title": "Launch from the back at rider speed 3-8 m/s",
+   "method": "launch_dock.py: closed-form release envelope + sim3d release 0.4 m behind/0.3 m above the exit on a 0.5 m line, CL scheduled so lift <= 3 mg, pay-out-only tension control (T_ref 0.5 N) to 12 m.",
+   "numbers": {
+    "envelope": [
+     {
+      "flyer": "G130",
+      "tailwind": -3,
+      "releaseVa": 5.28,
+      "riderSpeedNeeded": 2.28
+     },
+     {
+      "flyer": "G130",
+      "tailwind": 0,
+      "releaseVa": 5.28,
+      "riderSpeedNeeded": 5.28
+     },
+     {
+      "flyer": "G130",
+      "tailwind": 3,
+      "releaseVa": 5.28,
+      "riderSpeedNeeded": 8.28
+     },
+     {
+      "flyer": "G130",
+      "tailwind": 4.5,
+      "releaseVa": 5.28,
+      "riderSpeedNeeded": 9.78
+     },
+     {
+      "flyer": "G130",
+      "tailwind": 6,
+      "releaseVa": 5.28,
+      "riderSpeedNeeded": 11.28
+     },
+     {
+      "flyer": "G130",
+      "Va": 3,
+      "eps_on_3m_line": null
+     },
+     {
+      "flyer": "G130",
+      "Va": 4,
+      "eps_on_3m_line": null
+     },
+     {
+      "flyer": "G130",
+      "Va": 5,
+      "eps_on_3m_line": 51.8
+     },
+     {
+      "flyer": "G130",
+      "Va": 6,
+      "eps_on_3m_line": 73.5
+     },
+     {
+      "flyer": "G130",
+      "Va": 8,
+      "eps_on_3m_line": 79.7
+     },
+     {
+      "flyer": "K120",
+      "tailwind": -3,
+      "releaseVa": 2.28,
+      "riderSpeedNeeded": -0.72
+     },
+     {
+      "flyer": "K120",
+      "tailwind": 0,
+      "releaseVa": 2.28,
+      "riderSpeedNeeded": 2.28
+     },
+     {
+      "flyer": "K120",
+      "tailwind": 3,
+      "releaseVa": 2.28,
+      "riderSpeedNeeded": 5.28
+     },
+     {
+      "flyer": "K120",
+      "tailwind": 4.5,
+      "releaseVa": 2.28,
+      "riderSpeedNeeded": 6.78
+     },
+     {
+      "flyer": "K120",
+      "tailwind": 6,
+      "releaseVa": 2.28,
+      "riderSpeedNeeded": 8.28
+     },
+     {
+      "flyer": "K120",
+      "Va": 3,
+      "eps_on_3m_line": 69.9
+     },
+     {
+      "flyer": "K120",
+      "Va": 4,
+      "eps_on_3m_line": 74.8
+     },
+     {
+      "flyer": "K120",
+      "Va": 5,
+      "eps_on_3m_line": 76.3
+     },
+     {
+      "flyer": "K120",
+      "Va": 6,
+      "eps_on_3m_line": 77.0
+     },
+     {
+      "flyer": "K120",
+      "Va": 8,
+      "eps_on_3m_line": 77.7
+     }
+    ],
+    "sim": [
+     {
+      "flyer": "G130",
+      "Va": 4.0,
+      "Tref": 0.5,
+      "ok": false,
+      "t_to_3m": null,
+      "t_to_6m": null,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 0.3,
+      "Tmax": 79.36,
+      "lineOut": 1.1,
+      "eps_end": -71.9
+     },
+     {
+      "flyer": "G130",
+      "Va": 4.0,
+      "Tref": 1.0,
+      "ok": false,
+      "t_to_3m": null,
+      "t_to_6m": null,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 0.3,
+      "Tmax": 79.36,
+      "lineOut": 1.1,
+      "eps_end": -71.6
+     },
+     {
+      "flyer": "G130",
+      "Va": 5.0,
+      "Tref": 0.5,
+      "ok": false,
+      "t_to_3m": null,
+      "t_to_6m": null,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 0.3,
+      "Tmax": 5.07,
+      "lineOut": 1.2,
+      "eps_end": -63.1
+     },
+     {
+      "flyer": "G130",
+      "Va": 5.0,
+      "Tref": 1.0,
+      "ok": false,
+      "t_to_3m": null,
+      "t_to_6m": null,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 0.3,
+      "Tmax": 5.07,
+      "lineOut": 1.1,
+      "eps_end": -67.9
+     },
+     {
+      "flyer": "G130",
+      "Va": 6.0,
+      "Tref": 0.5,
+      "ok": true,
+      "t_to_3m": 3.28,
+      "t_to_6m": null,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 6.6,
+      "lineOut": 3.5,
+      "eps_end": 59.7
+     },
+     {
+      "flyer": "G130",
+      "Va": 6.0,
+      "Tref": 1.0,
+      "ok": true,
+      "t_to_3m": null,
+      "t_to_6m": null,
+      "minHelmetDist": 0.54,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 6.6,
+      "lineOut": 1.0,
+      "eps_end": 75.9
+     },
+     {
+      "flyer": "G130",
+      "Va": 8.0,
+      "Tref": 0.5,
+      "ok": true,
+      "t_to_3m": 0.72,
+      "t_to_6m": 2.94,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 11.09,
+      "lineOut": 12.1,
+      "eps_end": 77.2
+     },
+     {
+      "flyer": "G130",
+      "Va": 8.0,
+      "Tref": 1.0,
+      "ok": true,
+      "t_to_3m": 0.82,
+      "t_to_6m": 3.3,
+      "minHelmetDist": 0.64,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 11.09,
+      "lineOut": 12.0,
+      "eps_end": 70.2
+     },
+     {
+      "flyer": "G130",
+      "Va": 12.0,
+      "Tref": 0.5,
+      "ok": true,
+      "t_to_3m": 0.53,
+      "t_to_6m": 1.57,
+      "minHelmetDist": 0.64,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 16.15,
+      "lineOut": 12.6,
+      "eps_end": 73.1
+     },
+     {
+      "flyer": "G130",
+      "Va": 12.0,
+      "Tref": 1.0,
+      "ok": true,
+      "t_to_3m": 0.59,
+      "t_to_6m": 1.7,
+      "minHelmetDist": 0.63,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 16.15,
+      "lineOut": 12.4,
+      "eps_end": 73.2
+     },
+     {
+      "flyer": "K120",
+      "Va": 4.0,
+      "Tref": 0.5,
+      "ok": true,
+      "t_to_3m": 1.78,
+      "t_to_6m": 5.51,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 15.74,
+      "lineOut": 12.1,
+      "eps_end": 71.2
+     },
+     {
+      "flyer": "K120",
+      "Va": 4.0,
+      "Tref": 1.0,
+      "ok": true,
+      "t_to_3m": 1.57,
+      "t_to_6m": 4.86,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 15.74,
+      "lineOut": 12.1,
+      "eps_end": 71.1
+     },
+     {
+      "flyer": "K120",
+      "Va": 5.0,
+      "Tref": 0.5,
+      "ok": true,
+      "t_to_3m": 1.23,
+      "t_to_6m": 3.83,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 18.28,
+      "lineOut": 12.2,
+      "eps_end": 68.5
+     },
+     {
+      "flyer": "K120",
+      "Va": 5.0,
+      "Tref": 1.0,
+      "ok": true,
+      "t_to_3m": 1.15,
+      "t_to_6m": 3.48,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 18.28,
+      "lineOut": 12.2,
+      "eps_end": 68.5
+     },
+     {
+      "flyer": "K120",
+      "Va": 6.0,
+      "Tref": 0.5,
+      "ok": true,
+      "t_to_3m": 0.99,
+      "t_to_6m": 3.05,
+      "minHelmetDist": 0.65,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 23.05,
+      "lineOut": 12.3,
+      "eps_end": 63.4
+     },
+     {
+      "flyer": "K120",
+      "Va": 6.0,
+      "Tref": 1.0,
+      "ok": true,
+      "t_to_3m": 0.96,
+      "t_to_6m": 2.84,
+      "minHelmetDist": 0.64,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 23.05,
+      "lineOut": 12.3,
+      "eps_end": 63.4
+     },
+     {
+      "flyer": "K120",
+      "Va": 8.0,
+      "Tref": 0.5,
+      "ok": true,
+      "t_to_3m": 0.56,
+      "t_to_6m": 2.1,
+      "minHelmetDist": 0.63,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 32.96,
+      "lineOut": 12.6,
+      "eps_end": 65.8
+     },
+     {
+      "flyer": "K120",
+      "Va": 8.0,
+      "Tref": 1.0,
+      "ok": true,
+      "t_to_3m": 0.6,
+      "t_to_6m": 2.07,
+      "minHelmetDist": 0.63,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 32.96,
+      "lineOut": 12.5,
+      "eps_end": 65.8
+     },
+     {
+      "flyer": "K120",
+      "Va": 12.0,
+      "Tref": 0.5,
+      "ok": true,
+      "t_to_3m": 0.51,
+      "t_to_6m": 1.43,
+      "minHelmetDist": 0.56,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 54.58,
+      "lineOut": 12.6,
+      "eps_end": 68.6
+     },
+     {
+      "flyer": "K120",
+      "Va": 12.0,
+      "Tref": 1.0,
+      "ok": true,
+      "t_to_3m": 0.51,
+      "t_to_6m": 1.43,
+      "minHelmetDist": 0.56,
+      "minHeightAboveSnow": 1.65,
+      "Tmax": 54.58,
+      "lineOut": 12.6,
+      "eps_end": 68.6
+     }
+    ]
+   },
+   "verdict": "CONDITIONAL",
+   "finding": "The 130 g glider needs Va >= 5.3 m/s to release and ~7 m/s to climb briskly: in calm it cannot launch below ~6 m/s rider speed (Va 4-5 m/s: falls; Va 6: 3.3 s to 3 m and stalls out of the climb; Va 7: 1.3 s to 3 m, 4.9 s to 6 m; Va 8: 0.7/2.9 s; Va 12-16: 0.5/1.3-1.6 s). With a 3 m/s tailwind the rider must exceed ~8.3 m/s. The 120 g low-loading kite launches from Va 4 m/s (1.8 s to 3 m) but pulls 16-83 N on the way up unless depowered. Releasing from the pack top passes 0.47-0.65 m from the helmet in every case - launch must start from a station >= 1 m from the helmet (rear boom or seat holster, as towglider did) to meet headClear. At high Va a full-CL release loops the flyer over and into the snow (first runs, 380 N) - the release CL must be scheduled with airspeed (pitot), exactly like a kite launched in strong wind.",
+   "assumed": [
+    "release geometry",
+    "CL schedule",
+    "pitot available on the flyer"
+   ]
+  },
+  {
+   "id": "H11",
+   "title": "Hockey stop and docking: reel in fast, or brake?",
+   "method": "launch_dock.py: rider 12 -> 0 m/s in 2 s (6 m/s^2) in calm, 0.2 s detection latency; strategies none / brake (spoiler dCD 0.8, CL 0.3, slack take-up only) / fast reel-in 6 m/s / pay-out-and-loiter. Dock snap from line spring (EA 5 kN over 0.5 m).",
+   "numbers": {
+    "stop": [
+     {
+      "flyer": "G130",
+      "l0": 10.0,
+      "strategy": "none",
+      "eps0": 79.7,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 10.0,
+      "KEmaxGround": 9.4,
+      "landedAt_xy": [
+       -9.9,
+       -0.8
+      ],
+      "tEnd": 3.3,
+      "lineEnd": 10.0
+     },
+     {
+      "flyer": "G130",
+      "l0": 10.0,
+      "strategy": "brake",
+      "eps0": 79.7,
+      "minHelmetDist": 7.07,
+      "maxAheadOfRider": -1.7,
+      "KEmaxGround": 9.4,
+      "landedAt_xy": [
+       7.0,
+       0.0
+      ],
+      "tEnd": 3.0,
+      "lineEnd": 7.1
+     },
+     {
+      "flyer": "G130",
+      "l0": 10.0,
+      "strategy": "reelin",
+      "eps0": 79.7,
+      "minHelmetDist": 4.58,
+      "maxAheadOfRider": 5.0,
+      "KEmaxGround": 38.0,
+      "landedAt_xy": [
+       -4.5,
+       -0.9
+      ],
+      "tEnd": 1.2,
+      "lineEnd": 4.7
+     },
+     {
+      "flyer": "G130",
+      "l0": 10.0,
+      "strategy": "payout_loiter",
+      "eps0": 79.7,
+      "minHelmetDist": 6.15,
+      "maxAheadOfRider": 11.3,
+      "KEmaxGround": 9.4,
+      "landedAt_xy": [
+       -11.3,
+       0.1
+      ],
+      "tEnd": 5.5,
+      "lineEnd": 11.4
+     },
+     {
+      "flyer": "G130",
+      "l0": 20.0,
+      "strategy": "none",
+      "eps0": 77.3,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 20.0,
+      "KEmaxGround": 10.2,
+      "landedAt_xy": [
+       -20.0,
+       -0.3
+      ],
+      "tEnd": 5.6,
+      "lineEnd": 20.0
+     },
+     {
+      "flyer": "G130",
+      "l0": 20.0,
+      "strategy": "brake",
+      "eps0": 77.3,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": -4.3,
+      "KEmaxGround": 9.4,
+      "landedAt_xy": [
+       12.9,
+       0.0
+      ],
+      "tEnd": 5.0,
+      "lineEnd": 14.6
+     },
+     {
+      "flyer": "G130",
+      "l0": 20.0,
+      "strategy": "reelin",
+      "eps0": 77.3,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 11.8,
+      "KEmaxGround": 84.6,
+      "landedAt_xy": [
+       -8.7,
+       6.3
+      ],
+      "tEnd": 1.9,
+      "lineEnd": 10.7
+     },
+     {
+      "flyer": "G130",
+      "l0": 20.0,
+      "strategy": "payout_loiter",
+      "eps0": 77.3,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 22.5,
+      "KEmaxGround": 9.4,
+      "landedAt_xy": [
+       -22.5,
+       -0.3
+      ],
+      "tEnd": 8.7,
+      "lineEnd": 22.6
+     },
+     {
+      "flyer": "K120",
+      "l0": 10.0,
+      "strategy": "none",
+      "eps0": 77.9,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 10.0,
+      "KEmaxGround": 8.6,
+      "landedAt_xy": [
+       -9.9,
+       0.8
+      ],
+      "tEnd": 9.0,
+      "lineEnd": 10.0
+     },
+     {
+      "flyer": "K120",
+      "l0": 10.0,
+      "strategy": "brake",
+      "eps0": 77.9,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": -2.1,
+      "KEmaxGround": 8.6,
+      "landedAt_xy": [
+       9.0,
+       0.0
+      ],
+      "tEnd": 5.2,
+      "lineEnd": 9.1
+     },
+     {
+      "flyer": "K120",
+      "l0": 10.0,
+      "strategy": "reelin",
+      "eps0": 77.9,
+      "minHelmetDist": 0.16,
+      "maxAheadOfRider": 3.5,
+      "KEmaxGround": 145.1,
+      "landedAt_xy": null,
+      "tEnd": 12.0,
+      "lineEnd": 0.2
+     },
+     {
+      "flyer": "K120",
+      "l0": 10.0,
+      "strategy": "payout_loiter",
+      "eps0": 77.9,
+      "minHelmetDist": 3.9,
+      "maxAheadOfRider": 9.9,
+      "KEmaxGround": 8.6,
+      "landedAt_xy": null,
+      "tEnd": 12.0,
+      "lineEnd": 12.0
+     },
+     {
+      "flyer": "K120",
+      "l0": 20.0,
+      "strategy": "none",
+      "eps0": 77.5,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 16.9,
+      "KEmaxGround": 8.6,
+      "landedAt_xy": null,
+      "tEnd": 12.0,
+      "lineEnd": 20.0
+     },
+     {
+      "flyer": "K120",
+      "l0": 20.0,
+      "strategy": "brake",
+      "eps0": 77.5,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": -4.3,
+      "KEmaxGround": 8.6,
+      "landedAt_xy": [
+       15.2,
+       0.0
+      ],
+      "tEnd": 10.1,
+      "lineEnd": 15.2
+     },
+     {
+      "flyer": "K120",
+      "l0": 20.0,
+      "strategy": "reelin",
+      "eps0": 77.5,
+      "minHelmetDist": 0.1,
+      "maxAheadOfRider": 4.4,
+      "KEmaxGround": 132.0,
+      "landedAt_xy": null,
+      "tEnd": 12.0,
+      "lineEnd": 0.2
+     },
+     {
+      "flyer": "K120",
+      "l0": 20.0,
+      "strategy": "payout_loiter",
+      "eps0": 77.5,
+      "minHelmetDist": 9.0,
+      "maxAheadOfRider": 7.0,
+      "KEmaxGround": 8.6,
+      "landedAt_xy": null,
+      "tEnd": 12.0,
+      "lineEnd": 21.4
+     }
+    ],
+    "dockSnap": [
+     {
+      "flyer": "G130",
+      "closing": 1.0,
+      "relKE_J": 0.065,
+      "Tpeak_rigidStop_N": 36.1,
+      "strokeFor5N_mm": 13.0,
+      "strokeFor10N_mm": 6.5
+     },
+     {
+      "flyer": "G130",
+      "closing": 2.0,
+      "relKE_J": 0.26,
+      "Tpeak_rigidStop_N": 72.1,
+      "strokeFor5N_mm": 52.0,
+      "strokeFor10N_mm": 26.0
+     },
+     {
+      "flyer": "G130",
+      "closing": 3.0,
+      "relKE_J": 0.585,
+      "Tpeak_rigidStop_N": 108.2,
+      "strokeFor5N_mm": 117.0,
+      "strokeFor10N_mm": 58.5
+     },
+     {
+      "flyer": "K120",
+      "closing": 1.0,
+      "relKE_J": 0.06,
+      "Tpeak_rigidStop_N": 34.6,
+      "strokeFor5N_mm": 12.0,
+      "strokeFor10N_mm": 6.0
+     },
+     {
+      "flyer": "K120",
+      "closing": 2.0,
+      "relKE_J": 0.24,
+      "Tpeak_rigidStop_N": 69.3,
+      "strokeFor5N_mm": 48.0,
+      "strokeFor10N_mm": 24.0
+     },
+     {
+      "flyer": "K120",
+      "closing": 3.0,
+      "relKE_J": 0.54,
+      "Tpeak_rigidStop_N": 103.9,
+      "strokeFor5N_mm": 108.0,
+      "strokeFor10N_mm": 54.0
+     }
+    ],
+    "lineElasticEnergy": [
+     {
+      "T": 5,
+      "l": 10,
+      "E_J": 0.025
+     },
+     {
+      "T": 5,
+      "l": 30,
+      "E_J": 0.075
+     },
+     {
+      "T": 20,
+      "l": 10,
+      "E_J": 0.4
+     },
+     {
+      "T": 20,
+      "l": 30,
+      "E_J": 1.2
+     },
+     {
+      "T": 40,
+      "l": 10,
+      "E_J": 1.6
+     },
+     {
+      "T": 40,
+      "l": 30,
+      "E_J": 4.8
+     }
+    ]
+   },
+   "verdict": "Brake-then-retrieve SUPPORTED; fast reel-in REFUTED",
+   "finding": "Doing nothing, the steep flyer keeps its 12 m/s and overflies the stopped rider by 10-20 m (lands ahead). Fast reel-in is the worst option: 38-145 J ground-frame KE and, for the kite, 0.1-0.16 m from the helmet. Deep-stall/airbrake at stop onset with slack-only take-up kept the flyer behind the rider (never ahead), >= 7 m from the helmet, KE <= 9.4 J, landing 7-15 m behind; it is then reeled in along the snow or re-flown if the wind allows. Docking: a rigid stop at 2 m/s closing speed snaps the line to ~70 N; a 26-52 mm compliant dock stroke (or reel slip clutch) keeps it to 5-10 N; relative KE at 2 m/s is 0.26 J. Line elastic energy is small (0.03-1.2 J at 5-20 N), so snap-back is a minor hazard compared with the flyer itself.",
+   "assumed": [
+    "stop deceleration 6 m/s^2",
+    "detection latency 0.2 s",
+    "brake dCD 0.8 achievable (split flap / deep-stall trim)"
+   ]
+  }
+ ],
+ "designImplications": [
+  "1. Decouple the camera from the flyer's elevation: either clamp the camera on the line 5-6 m from the exit (H8) or brake the flyer to eps 45-60 deg (H9); a camera on a free-flying 9:1 glider at its natural 75-82 deg sees the top of the helmet (bodyPx 120-240 at 5-10 m). The high-L/D wing earns its keep at LOW apparent wind (station-keeping 4.6->~2.5 m/s with loops) - at high Va it must carry a fast, large airbrake (dCD 0-0.7), which is also the primary tension/KE/stop actuator.",
+  "2. Put the reel in the backpack and use it slowly: length hold, slack take-up, heave compensation at the exit, retrieve. The fast tension loop belongs to the flyer's CL/airbrake (H3: reel tension-chasing is ineffective at steep eps and degraded every metric). Never reel in to regain airspeed at a stop (H4/H11: 38-145 J); deep-stall/brake instead. Keep the flyer <= ~150 g (KE ceiling 171 g at 13.2 m/s; a flyer reel pushes it to 156-186 g).",
+  "3. Treat low apparent wind as a gate, not a flight regime: below ~5.3 m/s (G130) static flight is impossible, below ~2-2.5 m/s nothing reel-free works, and in calm the only reel-only sustain (yo-yo) costs 6-18 W, 18-28 m of line and all usable footage. Stops -> brake, land behind, retrieve/dock (40-120 J), relaunch above ~6-7 m/s rider speed (or use a low-wing-loading wing, which launches at ~4 m/s but needs a 5-10x depower range). Separately, headClear >= 1.0 m is set by where the line leaves the body: a pack-top exit (0.35 m) cannot pass for any line angle - the exit/launch station must sit >= 1 m from the helmet (rear boom ~0.8 m, or a seat/hip holster)."
+ ],
+ "limitations": [
+  "Point-mass flyer: no pitch/roll dynamics, no aeroelasticity, quasi-steady aero; the in-plane mode damping depends on these and must be re-derived with a 6-DOF model and wind-tunnel/tow data.",
+  "Straight line with cross-flow drag (no line waves, no sag dynamics); valid for T >= ~1 N, l <= 30 m.",
+  "Uniform wind in the rider frame (no gradient near the snow, no terrain); turbulence longitudinal only.",
+  "Guidance/controllers hand-tuned; X, energies and launch times are controller-dependent (upper bounds on what optimal control achieves for X; lower bounds on achievable energy are physics-bound only for W = 0).",
+  "Polars ASSUMED for Re ~5e4-1.6e5; low-Re hysteresis/laminar bubbles can cut L/D and CLmax by 20-40 % (Selig, VFS 2026).",
+  "No physical test of any kind. Simulation is not physical verification (AGENTS.md)."
+ ],
+ "sources": [
+  {
+   "id": "Loyd1980",
+   "what": "Crosswind kite power: v_crosswind ~ W (L/D); power ~ (L/D)^2",
+   "url": "https://awesco.eu/awe-explained/Loyd1980.pdf"
+  },
+  {
+   "id": "CrosswindWiki",
+   "what": "crosswind kite power overview",
+   "url": "https://en.wikipedia.org/wiki/Crosswind_kite_power"
+  },
+  {
+   "id": "vanderVlugt2019",
+   "what": "Quasi-steady model of a pumping kite power system (gravity matters; tether drag grows with length)",
+   "url": "https://arxiv.org/pdf/1705.04133"
+  },
+  {
+   "id": "Fagiano2010",
+   "what": "High-altitude wind power generation, IEEE TEC 25(1):168-180 (automatic crosswind flight of tethered airfoils)",
+   "url": "https://fagiano.faculty.polimi.it/docs/FaMiPi_TR_27082009.pdf"
+  },
+  {
+   "id": "Fechner_FF",
+   "what": "Feed-forward control of kite power systems (winch force/speed control)",
+   "url": "https://core.ac.uk/works/33452152"
+  },
+  {
+   "id": "RigidWingPumping",
+   "what": "Control of a rigid-wing pumping AWE system in all operational phases",
+   "url": "https://arxiv.org/pdf/2006.11141"
+  },
+  {
+   "id": "ReelingNoWind",
+   "what": "Optimal reeling control without wind speed feedback (reel speed ~ tension)",
+   "url": "https://arxiv.org/pdf/2109.15032"
+  },
+  {
+   "id": "Kitepower",
+   "what": "pumping cycle: reel-out 80 % / reel-in 20 % of 100 s, reel-in at low force",
+   "url": "https://thekitepower.com/?p=21710"
+  },
+  {
+   "id": "TetherDragFoM",
+   "what": "tether drag in the AWE figure of merit (Houska & Diehl estimate)",
+   "url": "https://repository.tudelft.nl/file/File_0a654ec4-4393-4122-8796-c659717911c3"
+  },
+  {
+   "id": "BGA_winch",
+   "what": "winch launch practice (release under tension, height vs cable length)",
+   "url": "https://www.gliding.co.uk/wp-content/uploads/sites/3/2019/06/Winch-Launch.pdf"
+  },
+  {
+   "id": "WinchSim",
+   "what": "glider winch launch simulation: cable speed, release at ~60 deg cable angle",
+   "url": "https://bogan.ca/soaring/winch/winch.html"
+  },
+  {
+   "id": "WinchRule",
+   "what": "release height ~1/3 of cable length (club rule of thumb)",
+   "url": "https://soargbsc.com/inststud/SOARING/photo_page_7.htm"
+  },
+  {
+   "id": "IndoorKite",
+   "what": "kites flown with no wind by relative motion / line pulls",
+   "url": "https://en.wikipedia.org/wiki/Indoor_kite"
+  },
+  {
+   "id": "Sachs2005",
+   "what": "Minimum shear wind strength for dynamic soaring (Ibis 147:1-10)",
+   "url": "https://portal.fis.tum.de/en/publications/minimum-shear-wind-strength-required-for-dynamic-soaring-of-albat/"
+  },
+  {
+   "id": "Richardson2011",
+   "what": "How do albatrosses fly around the world without flapping (Rayleigh cycle, wind gradient required)",
+   "url": "https://www2.whoi.edu/staff/prichardson/wp-content/uploads/sites/75/2018/11/Richardson-2011-PinO-How-do-albatrosses-fly.pdf"
+  },
+  {
+   "id": "SeligLowRe",
+   "what": "airfoils at low speeds (UIUC low-Re data)",
+   "url": "https://m-selig.ae.illinois.edu/ads/soartech8_abs.html"
+  },
+  {
+   "id": "VFS2026LowRe",
+   "what": "L/D strongly Re-dependent at 1e4-1e5 (laminar separation bubbles)",
+   "url": "https://proceedings.vtol.org/82/proceedingsPaper?paper=217"
+  },
+  {
+   "id": "Dryden",
+   "what": "MIL-F-8785C low-altitude Dryden turbulence scales",
+   "url": "https://en.wikipedia.org/wiki/Dryden_Wind_Turbulence_Model"
+  },
+  {
+   "id": "CylinderCd",
+   "what": "cylinder drag coefficient ~1.0-1.2 at line Reynolds numbers",
+   "url": "https://en.wikipedia.org/wiki/Drag_coefficient"
+  },
+  {
+   "id": "KAP",
+   "what": "kite aerial photography: camera suspended on the line (Picavet)",
+   "url": "https://en.wikipedia.org/wiki/Kite_aerial_photography"
+  },
+  {
+   "id": "PololuMicro",
+   "what": "micro metal gearmotor 9.5 g class",
+   "url": "https://www.robotshop.com/products/pololu-50-to-1-micro-hp-gear-motor"
+  },
+  {
+   "id": "project",
+   "what": "shared rules/basis: sim/js/concepts/common/{criteria,components,env,fullrun}.js; research/concepts_2026_10_19/dev/{kite2,towglider}/design_notes.json",
+   "url": "local repository"
+  }
+ ]
+}

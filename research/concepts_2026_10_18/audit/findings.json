@@ -1,0 +1,258 @@
+{
+ "generated": "2026-10-18",
+ "evidence": "audit of numerical-uncalibrated simulations; not a physical test",
+ "findings": [
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/model.js",
+   "line": 501,
+   "severity": "critical",
+   "issue": "S1 fails footage stability for a structural reason the metric split hides: the camera is rigidly carried by the torso, so every >1 Hz torso rotation is multiplied by the ~2 m lever into camera translation (LOS rate ≈ (R/d)·torso rate ≈ 0.9× torso rate). EIS and the subject-tracking crop cannot remove translation parallax. The moguls verdict is driven by an ASSUMED ±4° torso pitch at the bump frequency (l.501).",
+   "evidence": "Harmonised LOS jitter (1 Hz HP): nominal 6.716 °/s, short 18.786, moguls 34.066, fast 7.532, gust 6.853 vs 3 °/s; boom-flex-only part (jitterBoom) is already 4.0 °/s nominal; dt-converged (6.00/6.02 at dt/2, dt/4). audit/out_boom360.json",
+   "suggested_fix": "Decouple the camera from torso rotation: active 2-axis root stabiliser (IMU-commanded, ≈10 N·m peak for ±4° at 2 Hz on 0.6–0.9 kg·m²) or root at the pelvis/hip belt; plus f1Lat ≥ 8 Hz. Validate the torso-pitch assumption with an IMU-on-pack recording in moguls."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/index.js",
+   "line": 223,
+   "severity": "major",
+   "issue": "keMax is the KE of the whole boom relative to the snow and judged against 80 J; it is dominated by the rider’s own speed and is not added bystander risk (a person struck within the rider’s envelope is struck by the 80 kg rider too). The 18 m/s scenario fails for this reason only.",
+   "evidence": "Rider-relative KE (m_eff = tip + ⅓ tapes): nominal 0.281 J, fast 0.478 J, falls ≤5.883 J vs reported 50.4 / 102.5 J. Camera-only ground-frame KE 18.006 J nominal (definition-dependent).",
+   "suggested_fix": "Report keMax in the rider frame for parts within 1.5 m of the body (harmonised criterion) and separately flag lateral tip protrusion beyond the rider’s corridor."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/model.js",
+   "line": 36,
+   "severity": "major",
+   "issue": "I_BODY_ROLL = 12.5 kg·m² is a centroidal whole-body value but rollInertiaPct compares it with added inertia computed about the FEET line (index.js l.183, l.238). Inconsistent reference makes the metric fail spuriously in every scenario.",
+   "evidence": "Parallel-axis: 12.5 + 80·(0.95 m)² ≈ 85 kg·m² (77–93 for h_cm 0.9–1.0 m); 3.27 kg·m² added ⇒ 3.9 % (pass ≤20 %) instead of 26 % (fail). Yaw reference 1.5 kg·m² omits skis/boots (≈+0.9 kg·m²): 24 % instead of 40 %. audit/out_boom360.json inertiaReference",
+   "suggested_fix": "Use I_feet = I_cm + m·h_cm² (≈85–93 kg·m²) and include skis in the yaw reference."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/index.js",
+   "line": 72,
+   "severity": "major",
+   "issue": "Snag body force (197 N, fail) is set by the scenario’s ASSUMED branch slip load (slip: 200 N), not by the design: the tape-spring fold limits BENDING moment only, so an axial/backward pull passes straight into the back until the branch lets go.",
+   "evidence": "Events: fold at 45.7 N·m at 6.049 s, branch slips at 202 N at 6.074 s; 50 ms dynamic body force 100.7 N (harmonised fail vs 40 N); unchanged at dt/4 (197.5 N).",
+   "suggested_fix": "Add an axial breakaway (magnetic camera/tip release ≈30–40 N with lanyard) and test the snag at several slip loads (50–400 N)."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/index.js",
+   "line": 33,
+   "severity": "major",
+   "issue": "Lateral fold fuse (25 N·m) has almost no margin over operating loads: a hockey stop causes a false fold (lift scenario, 26.8 N·m, footage lost while still decelerating) and the gust scenario reaches 24.1 N·m yaw torque.",
+   "evidence": "lift: fold at 9.1 s, foldStuck → retract; harmonised avail 77.119 % (<80). gust yawTorquePeak 24.07 N·m. results.json + audit dt runs (foldCount 1 at all dt).",
+   "suggested_fix": "Raise foldLat to ≥35 N·m with a rate-sensitive (viscous) fuse, or use the IMU fall detector for retraction and keep the passive fuse for impacts only."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/index.js",
+   "line": 150,
+   "severity": "minor",
+   "issue": "avail denominator is the whole scenario (incl. standstill, deploy, post-fall) and the threshold is 70 % while both drones use 80 %; falls appear to fail although the boom films all skiing time.",
+   "evidence": "Harmonised (skiing-time denominator): fallBack/fallSide 100 % vs reported 49.9 %.",
+   "suggested_fix": "Use the harmonised skiing-time denominator and ≥80 %."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/model.js",
+   "line": 432,
+   "severity": "minor",
+   "issue": "bodyForcePeak is an instantaneous (1–4 ms) peak that includes the 11.4 N static weight of the worn parts; the drones exclude weight and S3 uses a 20 ms mean.",
+   "evidence": "Dynamic 50 ms value nominal 6.069 N vs reported 18.6 N.",
+   "suggested_fix": "Subtract static weight and use a 50 ms moving mean."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/model.js",
+   "line": 28,
+   "severity": "minor",
+   "issue": "Impact transients are not fully dt-converged (the θ-method integrator itself is stable and only weakly dissipative).",
+   "evidence": "fallBack bodyForcePeak 112.5 → 122.2 → 126.9 N and rootMomentPeak 21.4 → 24.5 → 25.4 N·m at dt 4/2/1 ms; steady metrics change <1 %. Undamped first-mode free vibration loses 24 % energy in 2 s at 4 ms (ζ_num ≈ 0.2 %) and 7 % at 1 ms, never gains energy; modes within 0.9 % of a Rayleigh closed form (f1Lat 4.00 vs 4.03 Hz, f1Sag 6.08 vs 6.10 Hz).",
+   "suggested_fix": "Sub-step to 0.5 ms during contact or report impact peaks with a convergence band; verdicts unchanged (still below 150 N / 40 N·m)."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/index.js",
+   "line": 65,
+   "severity": "minor",
+   "issue": "Fall scenario expectation text says the root folds at ~15 N·m but the parameter foldPos is 25 N·m (l.31).",
+   "evidence": "index.js l.31 v: 25 vs l.65 \"~15 N·m\"; events show folds at 25.9–27.7 N·m.",
+   "suggested_fix": "Align the text with the parameter."
+  },
+  {
+   "concept": "boom360",
+   "file": "sim/js/concepts/boom360/index.js",
+   "line": 224,
+   "severity": "minor",
+   "issue": "endurance is a hard-coded 75 min (ASSUMED camera spec × cold factor); deploy-motor energy not counted.",
+   "evidence": "index.js l.224",
+   "suggested_fix": "Compute from camera + motor energy budget at −10 °C."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/model.js",
+   "line": 785,
+   "severity": "major",
+   "issue": "Residual gimbal jitter model scales the per-sample ANGLE noise with the airframe tilt RATE (σ = 0.02° + 0.002·tiltRate[°/s]); at 50 Hz this injects ≈4 °/s of artificial rate jitter that dominates jitterRms. A gimbal that leaks 0.2 % of the airframe rate gives a 0.2 °/s-class residual.",
+   "evidence": "Residual-model RMS 4.14 °/s; harmonised jitter nominal 4.373 °/s as modelled vs 1.755 °/s with a rate-consistent residual (LOS HP alone 1.677). Short turns stay above 3 °/s either way (7.528).",
+   "suggested_fix": "Model the residual as rate leakage (ω_res = k·ω_airframe, k≈0.1–0.5 %) plus a small angle floor, and judge the >1 Hz LOS rate."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/index.js",
+   "line": 215,
+   "severity": "major",
+   "issue": "Endurance is judged per run (≥4 min) instead of per day; the ≤249 g battery holds only one cold run, and the per-lift pod recharge assumes 20 W into a 13.5 Wh cell held at 5 °C (≈1.5 C), above typical cold-charge limits (≤0.3–0.5 C). The power bank this needs is not in addedMass (l.209).",
+   "evidence": "Mean power 96.462 W nominal (mean tilt 51.361°); 4.5–6.3 min per battery cold; 10.007 batteries for 45 min cold (7.374 if kept warm); podSustain 0.54 even at 20 W.",
+   "suggested_fix": "Judge cumulative filming time per day (≥45 min); count power-bank mass; limit pod charging to the cold-charge C-rate or heat the pod."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/index.js",
+   "line": 214,
+   "severity": "major",
+   "issue": "keMax fails robustly: 0.245 kg at the rider’s speed exceeds 14.9 J above 11 m/s; only ≤150 g would pass at the nominal 14.1 m/s peak. (Regulatory note: FAA Cat 1 / EU C0 permit ≤250 g without exposed rotors over people with no energy limit.)",
+   "evidence": "KE nominal 24.408 J at 14.116 m/s; crosswind 49.896 J; mass for 14.9 J at nominal peak 0.15 kg.",
+   "suggested_fix": "Either a crushable shroud certified by an ASTM F3389 transfer test, or a ≤150 g airframe; state which regulatory route (Cat 1 vs Cat 2) is targeted."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/index.js",
+   "line": 188,
+   "severity": "major",
+   "issue": "setupTime is evaluated only at 0.6× the scenario mean wind; the dock sweep shows 67 % success at 6 m/s and 0 % at 9 m/s, so the p90 setup time with manual retrieval is not represented.",
+   "evidence": "results.json dock: dock6 66.7 %, dock9 0 %; setupTime 12.65–12.84 s in all scenarios.",
+   "suggested_fix": "Report setupTime at p90 of a wind sweep including the fallback landing + pick-up time."
+  },
+  {
+   "concept": "common",
+   "file": "sim/js/concepts/common/env.js",
+   "line": 108,
+   "severity": "major",
+   "issue": "losJitter() uses |Δ∠LOS| − |Δ∠fwd| (difference of magnitudes). It ignores direction, so a camera rotating at the right speed in the wrong direction scores zero; it underestimates the relative LOS rate.",
+   "evidence": "On trackdrone nominal arrays: shared 5.422 °/s vs vector relative-rate 7.034 °/s (+30 %); short 9.912 vs 12.433. tetherdrone index.js l.125 copies the same scalar form.",
+   "suggested_fix": "Compute the rate of the LOS expressed in the camera frame (vector difference), as in audit/harmonise.mjs losJitterVector()."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/model.js",
+   "line": 39,
+   "severity": "minor",
+   "issue": "Hover power uses FoM 0.38 for 4×76 mm ducted rotors (53.7 W hover at ρ 1.05); a DJI Avata-class benchmark implies FoM_eff ≈0.5–0.6, so power is pessimistic by up to ~1.5×. Not verdict-changing (endurance stays ≪45 min).",
+   "evidence": "Closed-form ideal hover 19.066 W; model 53.674 W; trim 12 m/s 80.069 W at 35.702°; the parasitic term dominates at 12–14 m/s (CdA 0.016–0.022 m²).",
+   "suggested_fix": "Bracket FoM 0.38–0.55 and CdA 0.008–0.02 in a sensitivity table."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/model.js",
+   "line": 652,
+   "severity": "minor",
+   "issue": "Battery current limits are not enforced: 312 W peak (highspeed) on a 13.5 Wh 3S Li-ion pack is ≈23 C, beyond typical high-energy Li-ion ratings (~10 C); voltage sag is modelled but not a current limit.",
+   "evidence": "peakPowerW highspeed 312.631 W; vCellMin 3.17 V.",
+   "suggested_fix": "Cap discharge current at the cell rating and let the drone fall behind accordingly."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/index.js",
+   "line": 195,
+   "severity": "minor",
+   "issue": "bodyForcePeak uses worn mass × horizontal skier acceleration only (no vertical/bump loads). Values ~1 N so the verdict is unaffected.",
+   "evidence": "index.js l.195–196",
+   "suggested_fix": "Use the 3-D acceleration of the pack anchor."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/index.js",
+   "line": 164,
+   "severity": "minor",
+   "issue": "avail denominator = filming modes incl. lost/hold rather than skiing time.",
+   "evidence": "Harmonised values equal within 0.2 pp (overhang 99.825 vs 100).",
+   "suggested_fix": "Use the skiing-time denominator."
+  },
+  {
+   "concept": "trackdrone",
+   "file": "sim/js/concepts/trackdrone/index.js",
+   "line": 135,
+   "severity": "minor",
+   "issue": "Integration converges (dt 5 → 2.5 ms changes metrics ≤4 %), but crosswind crossMax moves from 0.602 to 0.644 m around its 0.6 m threshold; the default export also drops the extra argument (simulate: (params, scenario) => simulate(params, scenario), l.385), so dt studies must use simulateWith.",
+   "evidence": "audit/out_trackdrone.json dt table",
+   "suggested_fix": "Document simulateWith for convergence tests."
+  },
+  {
+   "concept": "tetherdrone",
+   "file": "sim/js/concepts/tetherdrone/analysis.js",
+   "line": 36,
+   "severity": "major",
+   "issue": "The tether crosses the rider in 100 % of frames at ≈1.3 px width (visible ≥0.5 px in 93–100 % of frames at Lst ≤6 m, 52 % at 10 m) in every geometry tried (attachOff 0–0.2 m, Lst 3–10 m) because the line ends on the rider’s back; avail ignores it.",
+   "evidence": "results.json tetherCross 100 %, tetherCrossVis 100 % nominal, tetherWidthPx 1.28 px; sensitivity attachOff 0/0.2 unchanged.",
+   "suggested_fix": "Fold device artefacts into avail; evaluate known-geometry tether inpainting (line position is known from reel length + exit angle) or a sub-0.5 px (≤0.5 mm) conductor."
+  },
+  {
+   "concept": "tetherdrone",
+   "file": "sim/js/concepts/tetherdrone/model.js",
+   "line": 37,
+   "severity": "major",
+   "issue": "100 V DC bus on a body-worn, flexing tether exceeds the 60 V DC ES1/SELV touch-safe limit; electrical safety is not a metric.",
+   "evidence": "PDEF Vbus 100; 48 V counterfactual loss 5.9 % (passes <5 % only marginally); loss at 100 V 1.1 W at 6 m (closed form R 4.13 Ω, I 0.51 A — matches model).",
+   "suggested_fix": "Either 48–60 V with 0.08–0.1 mm² conductors (loss ≈3 %) or reinforced insulation + ground-fault/arc cut-off; add an electrical-safety gate."
+  },
+  {
+   "concept": "tetherdrone",
+   "file": "sim/js/concepts/tetherdrone/index.js",
+   "line": 188,
+   "severity": "minor",
+   "issue": "keRelNear (KE relative to the rider at closest approach, 0.03 J, pass) is not a bystander metric: the drone is ~5 m from the rider, so the ground-frame keMax (19.7 J, fail) governs.",
+   "evidence": "Audit ground-frame KE nominal 19.656 J, fast 38.18 J; rider-relative 0.231 J.",
+   "suggested_fix": "Drop keRelNear from the pass list or relabel as rider-strike energy."
+  },
+  {
+   "concept": "tetherdrone",
+   "file": "sim/js/concepts/tetherdrone/index.js",
+   "line": 125,
+   "severity": "minor",
+   "issue": "Jitter uses a scalar magnitude difference and no residual stabilisation term; with the harmonised LOS form plus the same rate-leak residual as S2 it still passes.",
+   "evidence": "Harmonised nominal 0.792 °/s (no residual 0.613), short 0.925, snag 9.074.",
+   "suggested_fix": "Use the shared vector form with a residual term."
+  },
+  {
+   "concept": "tetherdrone",
+   "file": "sim/js/concepts/tetherdrone/index.js",
+   "line": 181,
+   "severity": "minor",
+   "issue": "handsBusy charges a 1 s tap per run against the scenario duration even though taps happen when stopped (3–5 %).",
+   "evidence": "index.js l.181",
+   "suggested_fix": "Count only actions while skiing (0 %)."
+  },
+  {
+   "concept": "tetherdrone",
+   "file": "sim/js/concepts/tetherdrone/index.js",
+   "line": 204,
+   "severity": "minor",
+   "issue": "p24max is a 24 V counterfactual but is reported with pass=false, polluting the fail list of the 100 V design.",
+   "evidence": "results.json p24max fail in every scenario",
+   "suggested_fix": "Report counterfactuals with pass=null."
+  },
+  {
+   "concept": "tetherdrone",
+   "file": "sim/js/concepts/tetherdrone/model.js",
+   "line": 38,
+   "severity": "minor",
+   "issue": "Air density fixed at 1.0 kg/m³ (boom 1.0) while trackdrone derives 1.05 from ISA 2000 m/−10 °C; ~5 % on induced power across concepts.",
+   "evidence": "PDEF rho 1.0; trackdrone derive().rho 1.052",
+   "suggested_fix": "Use the shared ISA function for all concepts."
+  },
+  {
+   "concept": "tetherdrone",
+   "file": "sim/js/concepts/tetherdrone/model.js",
+   "line": 145,
+   "severity": "minor",
+   "issue": "No physics error found in rotor power or tether electrics: rotorPower matches closed-form momentum/Glauert hover and forward flight; the 27 W mean drone power (below 44 W hover) is real — the 1.5 N tether tows the drone and the rider supplies ≈15 W.",
+   "evidence": "hover 43.963 W; 12 m/s untethered 50.758 W vs towed 34.501 W (tow power 14.745 W); sub-step factor 0.75→0.375 changes T0max/KE <0.5 %.",
+   "suggested_fix": "None; document the towing effect."
+  }
+ ]
+}

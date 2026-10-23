@@ -1,0 +1,3195 @@
+{
+ "concept": "descentglider",
+ "generated": "2026-10-19",
+ "evidence": "audit re-computation on the uncalibrated model; not a physical test",
+ "aero": {
+  "rho": 1.05,
+  "mass_kg": 0.1244,
+  "configs": {
+   "spread": {
+    "S": 0.06,
+    "b": 0.62,
+    "AR": 6.41,
+    "chord_m": 0.097,
+    "e": 0.75,
+    "cd0": 0.06,
+    "CLmax": 1,
+    "LDmax": 7.93,
+    "CL_LDmax": 0.952,
+    "V_LDmax": 6.38,
+    "Vstall": 6.22,
+    "Re_at_8": 49000,
+    "Re_at_12": 73000,
+    "Re_at_15": 91000
+   },
+   "swept": {
+    "S": 0.034,
+    "b": 0.4,
+    "AR": 4.71,
+    "chord_m": 0.085,
+    "e": 0.7,
+    "cd0": 0.057,
+    "CLmax": 0.8,
+    "LDmax": 6.74,
+    "CL_LDmax": 0.768,
+    "V_LDmax": 9.43,
+    "Vstall": 9.24,
+    "Re_at_8": 43000,
+    "Re_at_12": 64000,
+    "Re_at_15": 80000
+   }
+  },
+  "hover_W": {
+   "model_fomEta0p5": 14.6,
+   "fomEta0p40": 18.3,
+   "fomEta0p35": 20.9
+  },
+  "staticThrustRequired_perMotor_g": 62,
+  "claimedStatic_perMotor_g": 133
+ },
+ "tipWind_ms_atBody": {
+  "0": {
+   "anchored": 11.7,
+   "ice_anchorM0": 10.1
+  },
+  "15": {
+   "anchored": 8.2,
+   "ice_anchorM0": 7
+  },
+  "30": {
+   "anchored": 6.7,
+   "ice_anchorM0": 5.8
+  },
+  "45": {
+   "anchored": 5.9,
+   "ice_anchorM0": 5.1
+  },
+  "90": {
+   "anchored": 5.2,
+   "ice_anchorM0": 4.5
+  }
+ },
+ "tipWind_note": "model applies 0.64× the mean wind at 0.18 m (log law) and 0.8× gust excursions, so free-stream tip-over is ≈1/0.64 of these for steady wind; perch yaw is frozen at touchdown",
+ "scenarios": {
+  "nominal": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     85.41,
+     true
+    ],
+    "pxMed": [
+     470.01,
+     true
+    ],
+    "jitterRms": [
+     0.52,
+     true
+    ],
+    "azRange": [
+     59.88,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.4,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     50.51,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.65,
+    "backgroundRms": 0.87
+   },
+   "keRecomputedRule": 12.4,
+   "keGroundAnyDistance": 12.4,
+   "events": []
+  },
+  "nominal_ld70": {
+   "fault": false,
+   "compare": true,
+   "claimed": {
+    "avail": [
+     86.48,
+     true
+    ],
+    "pxMed": [
+     467.53,
+     true
+    ],
+    "jitterRms": [
+     0.52,
+     true
+    ],
+    "azRange": [
+     59.71,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.35,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     38.92,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.63,
+    "backgroundRms": 0.87
+   },
+   "keRecomputedRule": 12.35,
+   "keGroundAnyDistance": 12.35,
+   "events": []
+  },
+  "nominal_fixed": {
+   "fault": false,
+   "compare": true,
+   "claimed": {
+    "avail": [
+     85.74,
+     true
+    ],
+    "pxMed": [
+     471.64,
+     true
+    ],
+    "jitterRms": [
+     0.52,
+     true
+    ],
+    "azRange": [
+     59.09,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.36,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     38.34,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.63,
+    "backgroundRms": 0.86
+   },
+   "keRecomputedRule": 12.36,
+   "keGroundAnyDistance": 12.36,
+   "events": []
+  },
+  "short": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     73.3,
+     false
+    ],
+    "pxMed": [
+     515.64,
+     true
+    ],
+    "jitterRms": [
+     1.17,
+     true
+    ],
+    "azRange": [
+     84.33,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     6.44,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     67.55,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 1.44,
+    "backgroundRms": 4.03
+   },
+   "keRecomputedRule": 6.44,
+   "keGroundAnyDistance": 6.44,
+   "events": []
+  },
+  "fast": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     9.19,
+     false
+    ],
+    "pxMed": [
+     62.67,
+     false
+    ],
+    "jitterRms": [
+     0.51,
+     true
+    ],
+    "azRange": [
+     33.09,
+     false
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     13.4,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     64.55,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.18,
+    "backgroundRms": 0.18
+   },
+   "keRecomputedRule": 13.4,
+   "keGroundAnyDistance": 13.4,
+   "events": []
+  },
+  "steep": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     9.99,
+     false
+    ],
+    "pxMed": [
+     95.07,
+     false
+    ],
+    "jitterRms": [
+     0.51,
+     true
+    ],
+    "azRange": [
+     57.59,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     13.04,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     82.46,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.47,
+    "backgroundRms": 0.74
+   },
+   "keRecomputedRule": 13.04,
+   "keGroundAnyDistance": 13.04,
+   "events": []
+  },
+  "flat": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     98.64,
+     true
+    ],
+    "pxMed": [
+     700.35,
+     true
+    ],
+    "jitterRms": [
+     0.51,
+     true
+    ],
+    "azRange": [
+     59.97,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     5.99,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     53.52,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.86,
+    "backgroundRms": 0.51
+   },
+   "keRecomputedRule": 5.99,
+   "keGroundAnyDistance": 5.99,
+   "events": []
+  },
+  "headwind": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     91.85,
+     true
+    ],
+    "pxMed": [
+     464.41,
+     true
+    ],
+    "jitterRms": [
+     0.6,
+     true
+    ],
+    "azRange": [
+     59.4,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.18,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     23.48,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.64,
+    "backgroundRms": 1.08
+   },
+   "keRecomputedRule": 12.18,
+   "keGroundAnyDistance": 12.18,
+   "events": []
+  },
+  "tailwind": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     4.72,
+     false
+    ],
+    "pxMed": [
+     26,
+     false
+    ],
+    "jitterRms": [
+     0.86,
+     true
+    ],
+    "azRange": [
+     65.11,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     3,
+     false
+    ],
+    "keMax": [
+     12.41,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     39.57,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.78,
+    "backgroundRms": 1.23
+   },
+   "keRecomputedRule": 12.41,
+   "keGroundAnyDistance": 12.41,
+   "events": [
+    "0.6 tailwindAbort"
+   ]
+  },
+  "gust": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     86.01,
+     true
+    ],
+    "pxMed": [
+     466.4,
+     true
+    ],
+    "jitterRms": [
+     0.57,
+     true
+    ],
+    "azRange": [
+     59.57,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.44,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     33.74,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.65,
+    "backgroundRms": 0.97
+   },
+   "keRecomputedRule": 12.44,
+   "keGroundAnyDistance": 12.44,
+   "events": []
+  },
+  "stop": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     61.32,
+     false
+    ],
+    "pxMed": [
+     411.79,
+     true
+    ],
+    "jitterRms": [
+     0.62,
+     true
+    ],
+    "azRange": [
+     80.24,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.49,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     44.26,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.77,
+    "backgroundRms": 1.27
+   },
+   "keRecomputedRule": 12.49,
+   "keGroundAnyDistance": 12.49,
+   "events": []
+  },
+  "stop_windy": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     90.73,
+     true
+    ],
+    "pxMed": [
+     450.42,
+     true
+    ],
+    "jitterRms": [
+     0.65,
+     true
+    ],
+    "azRange": [
+     97.53,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.66,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     24.66,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.93,
+    "backgroundRms": 1.2
+   },
+   "keRecomputedRule": 12.66,
+   "keGroundAnyDistance": 12.66,
+   "events": []
+  },
+  "stop_forceperch": {
+   "fault": false,
+   "compare": true,
+   "claimed": {
+    "avail": [
+     21.88,
+     false
+    ],
+    "pxMed": [
+     277.7,
+     false
+    ],
+    "jitterRms": [
+     0.67,
+     true
+    ],
+    "azRange": [
+     106.4,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     3,
+     false
+    ],
+    "keMax": [
+     11.89,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     20.62,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.53,
+    "backgroundRms": 1.17
+   },
+   "keRecomputedRule": 11.89,
+   "keGroundAnyDistance": 11.89,
+   "events": [
+    "25.03 tipover"
+   ]
+  },
+  "fall": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     82,
+     true
+    ],
+    "pxMed": [
+     513.85,
+     true
+    ],
+    "jitterRms": [
+     0.53,
+     true
+    ],
+    "azRange": [
+     59.73,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.4,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     50.32,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 1.03,
+    "backgroundRms": 1.32
+   },
+   "keRecomputedRule": 12.4,
+   "keGroundAnyDistance": 12.4,
+   "events": [
+    "15 scope"
+   ]
+  },
+  "trees": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     77.75,
+     false
+    ],
+    "pxMed": [
+     446.97,
+     true
+    ],
+    "jitterRms": [
+     0.63,
+     true
+    ],
+    "azRange": [
+     76.1,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.43,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     47.97,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.74,
+    "backgroundRms": 1.38
+   },
+   "keRecomputedRule": 12.43,
+   "keGroundAnyDistance": 12.43,
+   "events": []
+  },
+  "linkloss": {
+   "fault": true,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     46.04,
+     null
+    ],
+    "pxMed": [
+     457.9,
+     null
+    ],
+    "jitterRms": [
+     0.57,
+     null
+    ],
+    "azRange": [
+     112.68,
+     null
+    ],
+    "addedMass": [
+     0.2,
+     null
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     null
+    ],
+    "setupTime": [
+     17,
+     null
+    ],
+    "ops": [
+     3,
+     null
+    ],
+    "keMax": [
+     12.4,
+     true
+    ],
+    "packVol": [
+     2.32,
+     null
+    ],
+    "endurance": [
+     51.28,
+     null
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.74,
+    "backgroundRms": 0.98
+   },
+   "keRecomputedRule": 12.4,
+   "keGroundAnyDistance": 12.4,
+   "events": [
+    "12 linkLost",
+    "13.5 failsafe"
+   ]
+  },
+  "moguls": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     66.19,
+     false
+    ],
+    "pxMed": [
+     539.12,
+     true
+    ],
+    "jitterRms": [
+     1.17,
+     true
+    ],
+    "azRange": [
+     129.19,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     6.68,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     66.56,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 1.76,
+    "backgroundRms": 3.95
+   },
+   "keRecomputedRule": 6.68,
+   "keGroundAnyDistance": 6.68,
+   "events": []
+  },
+  "cycle": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     65.19,
+     false
+    ],
+    "pxMed": [
+     359.37,
+     true
+    ],
+    "jitterRms": [
+     0.76,
+     true
+    ],
+    "azRange": [
+     68.77,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     15.96,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.67,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     51.33,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 1.5,
+    "backgroundRms": 1.79
+   },
+   "keRecomputedRule": 12.67,
+   "keGroundAnyDistance": 12.67,
+   "events": []
+  },
+  "cycle_w5": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     71.12,
+     false
+    ],
+    "pxMed": [
+     437.76,
+     true
+    ],
+    "jitterRms": [
+     0.75,
+     true
+    ],
+    "azRange": [
+     78.63,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17.08,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.67,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     49.33,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 2.22,
+    "backgroundRms": 2.5
+   },
+   "keRecomputedRule": 12.67,
+   "keGroundAnyDistance": 12.67,
+   "events": []
+  },
+  "cycle_w9": {
+   "fault": false,
+   "compare": false,
+   "claimed": {
+    "avail": [
+     53.98,
+     false
+    ],
+    "pxMed": [
+     307.83,
+     true
+    ],
+    "jitterRms": [
+     0.62,
+     true
+    ],
+    "azRange": [
+     77,
+     true
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     13.19,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     12.56,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     18.63,
+     false
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 0.47,
+    "backgroundRms": 0.7
+   },
+   "keRecomputedRule": 12.56,
+   "keGroundAnyDistance": 12.56,
+   "events": []
+  },
+  "dock_pack": {
+   "fault": false,
+   "compare": true,
+   "claimed": {
+    "avail": [
+     "n/a",
+     null
+    ],
+    "pxMed": [
+     "n/a",
+     null
+    ],
+    "jitterRms": [
+     "n/a",
+     null
+    ],
+    "azRange": [
+     "n/a",
+     null
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     0.07,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     "n/a",
+     null
+    ]
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null
+   },
+   "keRecomputedRule": 0.07,
+   "keGroundAnyDistance": 0.07,
+   "events": []
+  },
+  "dock_pack_w9": {
+   "fault": false,
+   "compare": true,
+   "claimed": {
+    "avail": [
+     "n/a",
+     null
+    ],
+    "pxMed": [
+     "n/a",
+     null
+    ],
+    "jitterRms": [
+     "n/a",
+     null
+    ],
+    "azRange": [
+     "n/a",
+     null
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     0.35,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     "n/a",
+     null
+    ]
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null
+   },
+   "keRecomputedRule": 0.35,
+   "keGroundAnyDistance": 0.35,
+   "events": []
+  },
+  "droplaunch": {
+   "fault": false,
+   "compare": true,
+   "claimed": {
+    "avail": [
+     "n/a",
+     null
+    ],
+    "pxMed": [
+     "n/a",
+     null
+    ],
+    "jitterRms": [
+     "n/a",
+     null
+    ],
+    "azRange": [
+     "n/a",
+     null
+    ],
+    "addedMass": [
+     0.2,
+     true
+    ],
+    "bodyForcePeak": [
+     0,
+     true
+    ],
+    "handsBusy": [
+     0,
+     true
+    ],
+    "setupTime": [
+     17,
+     true
+    ],
+    "ops": [
+     2,
+     true
+    ],
+    "keMax": [
+     8.39,
+     true
+    ],
+    "packVol": [
+     2.32,
+     true
+    ],
+    "endurance": [
+     68.28,
+     true
+    ]
+   },
+   "footageStability": {
+    "subjectRms": 1.93,
+    "backgroundRms": 1.59
+   },
+   "keRecomputedRule": 8.39,
+   "keGroundAnyDistance": 8.39,
+   "events": []
+  }
+ },
+ "dtConvergence": {
+  "nominal": {
+   "0.004": {
+    "avail": 85.41,
+    "pFollow": 4.21,
+    "keMax": 12.4,
+    "endurance": 50.51
+   },
+   "0.002": {
+    "avail": 84.68,
+    "pFollow": 3.67,
+    "keMax": 12.26,
+    "endurance": 55.17
+   },
+   "0.001": {
+    "avail": 84.01,
+    "pFollow": 3.54,
+    "keMax": 12.25,
+    "endurance": 56.4
+   }
+  },
+  "stop": {
+   "0.004": {
+    "avail": 61.32,
+    "pFollow": 5.12,
+    "keMax": 12.49,
+    "endurance": 44.26,
+    "tipped": "no"
+   },
+   "0.002": {
+    "avail": 60.21,
+    "pFollow": 4.71,
+    "keMax": 12.45,
+    "endurance": 46.86,
+    "tipped": "no"
+   },
+   "0.001": {
+    "avail": 60.14,
+    "pFollow": 4.62,
+    "keMax": 12.41,
+    "endurance": 47.47,
+    "tipped": "no"
+   }
+  },
+  "gust": {
+   "0.004": {
+    "avail": 86.01,
+    "pFollow": 7.41,
+    "keMax": 12.44,
+    "endurance": 33.74
+   },
+   "0.002": {
+    "avail": 85.81,
+    "pFollow": 7.18,
+    "keMax": 12.45,
+    "endurance": 34.57
+   },
+   "0.001": {
+    "avail": 85.28,
+    "pFollow": 7.11,
+    "keMax": 12.41,
+    "endurance": 34.84
+   }
+  },
+  "cycle_w5": {
+   "0.004": {
+    "avail": 71.12,
+    "pFollow": 4.36,
+    "keMax": 12.67,
+    "endurance": 49.33,
+    "tipped": "no"
+   },
+   "0.002": {
+    "avail": 71.12,
+    "pFollow": 4.24,
+    "keMax": 12.59,
+    "endurance": 50.31,
+    "tipped": "no"
+   },
+   "0.001": {
+    "avail": 71.71,
+    "pFollow": 4.21,
+    "keMax": 12.57,
+    "endurance": 50.49,
+    "tipped": "no"
+   }
+  }
+ },
+ "seedSensitivity": {
+  "nominal": {
+   "defaultSeed": 7,
+   "availMin": 85.4,
+   "availMedian": 87.1,
+   "availMax": 88.4,
+   "availPassShare": 1,
+   "rows": [
+    {
+     "seed": 1,
+     "avail": 87.4,
+     "endurance": 45.9,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 2,
+     "avail": 88.4,
+     "endurance": 49.7,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 3,
+     "avail": 87.5,
+     "endurance": 46.8,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 4,
+     "avail": 86.5,
+     "endurance": 47.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 5,
+     "avail": 87.7,
+     "endurance": 50.1,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 6,
+     "avail": 86.5,
+     "endurance": 47.4,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 7,
+     "avail": 85.4,
+     "endurance": 50.5,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 8,
+     "avail": 87.1,
+     "endurance": 47.8,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 9,
+     "avail": 86.9,
+     "endurance": 52.6,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 11,
+     "avail": 87,
+     "endurance": 48.8,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 13,
+     "avail": 85.8,
+     "endurance": 49,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 17,
+     "avail": 87.3,
+     "endurance": 48.3,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    }
+   ]
+  },
+  "gust": {
+   "defaultSeed": 9,
+   "availMin": 78.9,
+   "availMedian": 86,
+   "availMax": 88.2,
+   "availPassShare": 0.92,
+   "rows": [
+    {
+     "seed": 1,
+     "avail": 83.8,
+     "endurance": 26,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 2,
+     "avail": 87.6,
+     "endurance": 32.8,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 3,
+     "avail": 80.5,
+     "endurance": 28.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 4,
+     "avail": 82.5,
+     "endurance": 27.3,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 5,
+     "avail": 86.7,
+     "endurance": 31.1,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 6,
+     "avail": 85.3,
+     "endurance": 28,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 7,
+     "avail": 87.5,
+     "endurance": 31.1,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 8,
+     "avail": 88.2,
+     "endurance": 30.1,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 9,
+     "avail": 86,
+     "endurance": 33.7,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 11,
+     "avail": 80.7,
+     "endurance": 29.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 13,
+     "avail": 78.9,
+     "endurance": 28,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 17,
+     "avail": 87.7,
+     "endurance": 29.4,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    }
+   ]
+  },
+  "stop": {
+   "defaultSeed": 7,
+   "availMin": 59.9,
+   "availMedian": 62,
+   "availMax": 63.1,
+   "availPassShare": 0,
+   "rows": [
+    {
+     "seed": 1,
+     "avail": 62.7,
+     "endurance": 40.9,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 2,
+     "avail": 63.1,
+     "endurance": 45.5,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 3,
+     "avail": 62.5,
+     "endurance": 43,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 4,
+     "avail": 61.7,
+     "endurance": 45.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 5,
+     "avail": 62,
+     "endurance": 49.5,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 6,
+     "avail": 60.5,
+     "endurance": 44.8,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 7,
+     "avail": 61.3,
+     "endurance": 44.3,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 8,
+     "avail": 62,
+     "endurance": 43,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 9,
+     "avail": 62.8,
+     "endurance": 46.6,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 11,
+     "avail": 62.4,
+     "endurance": 44.9,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 13,
+     "avail": 59.9,
+     "endurance": 47.3,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    },
+    {
+     "seed": 17,
+     "avail": 61,
+     "endurance": 44.6,
+     "ops": 2,
+     "setup": 17,
+     "tipped": "no"
+    }
+   ]
+  },
+  "short": {
+   "defaultSeed": 7,
+   "availMin": 73.2,
+   "availMedian": 74.9,
+   "availMax": 75.3,
+   "availPassShare": 0,
+   "rows": [
+    {
+     "seed": 1,
+     "avail": 75,
+     "endurance": 65.1,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 2,
+     "avail": 75.3,
+     "endurance": 68.5,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 3,
+     "avail": 75.1,
+     "endurance": 66.1,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 4,
+     "avail": 75,
+     "endurance": 66.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 5,
+     "avail": 75.1,
+     "endurance": 70.3,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 6,
+     "avail": 74.7,
+     "endurance": 65.7,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 7,
+     "avail": 73.3,
+     "endurance": 67.5,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 8,
+     "avail": 74.7,
+     "endurance": 66.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 9,
+     "avail": 74.9,
+     "endurance": 70.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 11,
+     "avail": 74.7,
+     "endurance": 69.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 13,
+     "avail": 73.2,
+     "endurance": 68.8,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    },
+    {
+     "seed": 17,
+     "avail": 74.8,
+     "endurance": 64.2,
+     "ops": 2,
+     "setup": 17,
+     "tipped": null
+    }
+   ]
+  },
+  "cycle_w5": {
+   "defaultSeed": 6,
+   "availMin": 4.9,
+   "availMedian": 63.7,
+   "availMax": 74.5,
+   "availPassShare": 0,
+   "rows": [
+    {
+     "seed": 1,
+     "avail": 73,
+     "endurance": 42.3,
+     "ops": 2,
+     "setup": 17.6,
+     "tipped": "no"
+    },
+    {
+     "seed": 2,
+     "avail": 47.4,
+     "endurance": 47.1,
+     "ops": 2,
+     "setup": 15.2,
+     "tipped": "no"
+    },
+    {
+     "seed": 3,
+     "avail": 69.2,
+     "endurance": 45.2,
+     "ops": 2,
+     "setup": 16.9,
+     "tipped": "no"
+    },
+    {
+     "seed": 4,
+     "avail": 60.9,
+     "endurance": 46.9,
+     "ops": 2,
+     "setup": 16.5,
+     "tipped": "no"
+    },
+    {
+     "seed": 5,
+     "avail": 70.7,
+     "endurance": 61.4,
+     "ops": 2,
+     "setup": 17.8,
+     "tipped": "no"
+    },
+    {
+     "seed": 6,
+     "avail": 71.1,
+     "endurance": 49.3,
+     "ops": 2,
+     "setup": 17.1,
+     "tipped": "no"
+    },
+    {
+     "seed": 7,
+     "avail": 36.6,
+     "endurance": 50.6,
+     "ops": 3,
+     "setup": 34,
+     "tipped": "no"
+    },
+    {
+     "seed": 8,
+     "avail": 57.3,
+     "endurance": 43.8,
+     "ops": 2,
+     "setup": 16.4,
+     "tipped": "no"
+    },
+    {
+     "seed": 9,
+     "avail": 63.7,
+     "endurance": 48.6,
+     "ops": 2,
+     "setup": 17.1,
+     "tipped": "no"
+    },
+    {
+     "seed": 11,
+     "avail": 74.5,
+     "endurance": 56.2,
+     "ops": 2,
+     "setup": 18.2,
+     "tipped": "no"
+    },
+    {
+     "seed": 13,
+     "avail": 20.6,
+     "endurance": 62.8,
+     "ops": 3,
+     "setup": 9.6,
+     "tipped": "no"
+    },
+    {
+     "seed": 17,
+     "avail": 4.9,
+     "endurance": 24.2,
+     "ops": 3,
+     "setup": 34,
+     "tipped": "no"
+    }
+   ]
+  }
+ },
+ "cycleWindSweep": {
+  "n": 51,
+  "setupP90_claimedRule": 34,
+  "setupP90_withRecovery": 109,
+  "availMedian": 55.7,
+  "availPassShare": 0.08,
+  "opsOver2Share": 0.33,
+  "palmLaunchHeadFail": 6,
+  "rows": [
+   {
+    "U": 0,
+    "dir": "cross",
+    "seed": 2,
+    "avail": 62.4,
+    "setupClaimed": 15.2,
+    "setupWithRecovery": 15.2,
+    "ops": 2,
+    "endurance": 54.2,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 0,
+    "dir": "cross",
+    "seed": 6,
+    "avail": 65,
+    "setupClaimed": 15.6,
+    "setupWithRecovery": 15.6,
+    "ops": 2,
+    "endurance": 54,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 0,
+    "dir": "cross",
+    "seed": 8,
+    "avail": 63.6,
+    "setupClaimed": 15,
+    "setupWithRecovery": 15,
+    "ops": 2,
+    "endurance": 51.9,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "downslopeTail",
+    "seed": 2,
+    "avail": 60.9,
+    "setupClaimed": 15.7,
+    "setupWithRecovery": 15.7,
+    "ops": 2,
+    "endurance": 64.3,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "downslopeTail",
+    "seed": 6,
+    "avail": 68.6,
+    "setupClaimed": 16.1,
+    "setupWithRecovery": 16.1,
+    "ops": 2,
+    "endurance": 64,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "downslopeTail",
+    "seed": 8,
+    "avail": 59.3,
+    "setupClaimed": 16,
+    "setupWithRecovery": 16,
+    "ops": 2,
+    "endurance": 63.6,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "cross",
+    "seed": 2,
+    "avail": 63.2,
+    "setupClaimed": 14.4,
+    "setupWithRecovery": 14.4,
+    "ops": 2,
+    "endurance": 44.9,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "cross",
+    "seed": 6,
+    "avail": 66.8,
+    "setupClaimed": 14.3,
+    "setupWithRecovery": 14.3,
+    "ops": 2,
+    "endurance": 42.6,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "cross",
+    "seed": 8,
+    "avail": 65.7,
+    "setupClaimed": 14.5,
+    "setupWithRecovery": 14.5,
+    "ops": 2,
+    "endurance": 43.6,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "upslopeHead",
+    "seed": 2,
+    "avail": 59.3,
+    "setupClaimed": 14.5,
+    "setupWithRecovery": 14.5,
+    "ops": 2,
+    "endurance": 35.6,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "upslopeHead",
+    "seed": 6,
+    "avail": 63.6,
+    "setupClaimed": 14.8,
+    "setupWithRecovery": 14.8,
+    "ops": 2,
+    "endurance": 37,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "upslopeHead",
+    "seed": 8,
+    "avail": 63.2,
+    "setupClaimed": 14.4,
+    "setupWithRecovery": 14.4,
+    "ops": 2,
+    "endurance": 36.3,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "diagTail",
+    "seed": 2,
+    "avail": 61,
+    "setupClaimed": 17.6,
+    "setupWithRecovery": 17.6,
+    "ops": 2,
+    "endurance": 56.5,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "diagTail",
+    "seed": 6,
+    "avail": 73.2,
+    "setupClaimed": 16.1,
+    "setupWithRecovery": 16.1,
+    "ops": 2,
+    "endurance": 55.3,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 3,
+    "dir": "diagTail",
+    "seed": 8,
+    "avail": 68.8,
+    "setupClaimed": 16.7,
+    "setupWithRecovery": 16.7,
+    "ops": 2,
+    "endurance": 59,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "downslopeTail",
+    "seed": 2,
+    "avail": 4.6,
+    "setupClaimed": 34,
+    "setupWithRecovery": 94,
+    "ops": 3,
+    "endurance": 33.3,
+    "headLaunch": null,
+    "events": [
+     "tailwindAbort",
+     "perched"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "downslopeTail",
+    "seed": 6,
+    "avail": 5,
+    "setupClaimed": 34,
+    "setupWithRecovery": 94,
+    "ops": 3,
+    "endurance": 34.6,
+    "headLaunch": null,
+    "events": [
+     "tailwindAbort",
+     "perched"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "downslopeTail",
+    "seed": 8,
+    "avail": 9.8,
+    "setupClaimed": 34,
+    "setupWithRecovery": 94,
+    "ops": 3,
+    "endurance": 64.7,
+    "headLaunch": null,
+    "events": [
+     "tailwindAbort",
+     "perched"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "cross",
+    "seed": 2,
+    "avail": 63.6,
+    "setupClaimed": 14.2,
+    "setupWithRecovery": 14.2,
+    "ops": 2,
+    "endurance": 37.8,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "cross",
+    "seed": 6,
+    "avail": 65.4,
+    "setupClaimed": 14.3,
+    "setupWithRecovery": 14.3,
+    "ops": 2,
+    "endurance": 34.7,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "cross",
+    "seed": 8,
+    "avail": 61.5,
+    "setupClaimed": 14.3,
+    "setupWithRecovery": 14.3,
+    "ops": 2,
+    "endurance": 36,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "upslopeHead",
+    "seed": 2,
+    "avail": 52.5,
+    "setupClaimed": 14.5,
+    "setupWithRecovery": 14.5,
+    "ops": 2,
+    "endurance": 27.4,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "upslopeHead",
+    "seed": 6,
+    "avail": 63,
+    "setupClaimed": 14.4,
+    "setupWithRecovery": 14.4,
+    "ops": 2,
+    "endurance": 25.1,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "upslopeHead",
+    "seed": 8,
+    "avail": 61.5,
+    "setupClaimed": 14.7,
+    "setupWithRecovery": 14.7,
+    "ops": 2,
+    "endurance": 28.1,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "diagTail",
+    "seed": 2,
+    "avail": 12.8,
+    "setupClaimed": 34,
+    "setupWithRecovery": 94,
+    "ops": 3,
+    "endurance": 65.5,
+    "headLaunch": null,
+    "events": [
+     "tailwindAbort",
+     "perched"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "diagTail",
+    "seed": 6,
+    "avail": 55.7,
+    "setupClaimed": 16.8,
+    "setupWithRecovery": 16.8,
+    "ops": 2,
+    "endurance": 51.7,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 5,
+    "dir": "diagTail",
+    "seed": 8,
+    "avail": 48.4,
+    "setupClaimed": 15.9,
+    "setupWithRecovery": 15.9,
+    "ops": 2,
+    "endurance": 51.5,
+    "headLaunch": null,
+    "events": [
+     "landed"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "downslopeTail",
+    "seed": 2,
+    "avail": 0,
+    "setupClaimed": 34,
+    "setupWithRecovery": 124,
+    "ops": 4,
+    "endurance": 9.3,
+    "headLaunch": 0.6444353192183185,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "snowStrike",
+     "scope"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "downslopeTail",
+    "seed": 6,
+    "avail": 10.2,
+    "setupClaimed": 34,
+    "setupWithRecovery": 124,
+    "ops": 4,
+    "endurance": 30.4,
+    "headLaunch": 0.6418530029479761,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "snowStrike",
+     "scope"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "downslopeTail",
+    "seed": 8,
+    "avail": 8.3,
+    "setupClaimed": 34,
+    "setupWithRecovery": 124,
+    "ops": 4,
+    "endurance": 19.7,
+    "headLaunch": 0.6430694977234532,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "snowStrike",
+     "scope"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "cross",
+    "seed": 2,
+    "avail": 4.9,
+    "setupClaimed": 34,
+    "setupWithRecovery": 64,
+    "ops": 3,
+    "endurance": 48.8,
+    "headLaunch": 0.6408547884280866,
+    "events": [
+     "palmLaunch",
+     "snowStrike",
+     "scope"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "cross",
+    "seed": 6,
+    "avail": 92.7,
+    "setupClaimed": 13.9,
+    "setupWithRecovery": 13.9,
+    "ops": 2,
+    "endurance": 29.2,
+    "headLaunch": 0.4772962931779962,
+    "events": [
+     "palmLaunch",
+     "landed"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "cross",
+    "seed": 8,
+    "avail": 51.2,
+    "setupClaimed": 14.2,
+    "setupWithRecovery": 14.2,
+    "ops": 2,
+    "endurance": 31.5,
+    "headLaunch": 0.6121050568130455,
+    "events": [
+     "palmLaunch",
+     "landed"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "upslopeHead",
+    "seed": 2,
+    "avail": 89.6,
+    "setupClaimed": 13.2,
+    "setupWithRecovery": 13.2,
+    "ops": 2,
+    "endurance": 22,
+    "headLaunch": 0.6411729271311677,
+    "events": [
+     "palmLaunch",
+     "landed"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "upslopeHead",
+    "seed": 6,
+    "avail": 96.5,
+    "setupClaimed": 34,
+    "setupWithRecovery": 34,
+    "ops": 2,
+    "endurance": 21,
+    "headLaunch": 0.15424602899429374,
+    "events": [
+     "palmLaunch"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "upslopeHead",
+    "seed": 8,
+    "avail": 67.3,
+    "setupClaimed": 13.9,
+    "setupWithRecovery": 13.9,
+    "ops": 2,
+    "endurance": 21.4,
+    "headLaunch": 0.28664312617492477,
+    "events": [
+     "palmLaunch",
+     "landed"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "diagTail",
+    "seed": 2,
+    "avail": 8.1,
+    "setupClaimed": 34,
+    "setupWithRecovery": 109,
+    "ops": 3,
+    "endurance": 25.3,
+    "headLaunch": 0.6416626562125343,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "perched",
+     "tipover"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "diagTail",
+    "seed": 6,
+    "avail": 8.4,
+    "setupClaimed": 34,
+    "setupWithRecovery": 94,
+    "ops": 3,
+    "endurance": 25.2,
+    "headLaunch": 0.6409650751552274,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "perched"
+    ]
+   },
+   {
+    "U": 7,
+    "dir": "diagTail",
+    "seed": 8,
+    "avail": 29.9,
+    "setupClaimed": 34,
+    "setupWithRecovery": 94,
+    "ops": 3,
+    "endurance": 38.9,
+    "headLaunch": 0.641440713880582,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "perched"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "downslopeTail",
+    "seed": 2,
+    "avail": 0,
+    "setupClaimed": 34,
+    "setupWithRecovery": 94,
+    "ops": 3,
+    "endurance": 7.5,
+    "headLaunch": 0.6466212701860252,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "downslopeTail",
+    "seed": 6,
+    "avail": 10.7,
+    "setupClaimed": 34,
+    "setupWithRecovery": 109,
+    "ops": 3,
+    "endurance": 17.8,
+    "headLaunch": 0.6421156227576494,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "perched",
+     "tipover"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "downslopeTail",
+    "seed": 8,
+    "avail": 10.7,
+    "setupClaimed": 34,
+    "setupWithRecovery": 109,
+    "ops": 3,
+    "endurance": 8.4,
+    "headLaunch": 0.6443830374288917,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "perched",
+     "tipover"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "cross",
+    "seed": 2,
+    "avail": 35.5,
+    "setupClaimed": 14.3,
+    "setupWithRecovery": 14.3,
+    "ops": 2,
+    "endurance": 27.7,
+    "headLaunch": 0.6391012986117675,
+    "events": [
+     "palmLaunch",
+     "landed"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "cross",
+    "seed": 6,
+    "avail": 89.2,
+    "setupClaimed": 16,
+    "setupWithRecovery": 16,
+    "ops": 2,
+    "endurance": 25,
+    "headLaunch": 0.2464432239345744,
+    "events": [
+     "palmLaunch",
+     "landed"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "cross",
+    "seed": 8,
+    "avail": 43.9,
+    "setupClaimed": 15.5,
+    "setupWithRecovery": 15.5,
+    "ops": 2,
+    "endurance": 26.7,
+    "headLaunch": 0.5683207445775484,
+    "events": [
+     "palmLaunch",
+     "landed"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "upslopeHead",
+    "seed": 2,
+    "avail": 2.9,
+    "setupClaimed": 34,
+    "setupWithRecovery": 34,
+    "ops": 2,
+    "endurance": 19,
+    "headLaunch": 0.6410483586812321,
+    "events": [
+     "palmLaunch"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "upslopeHead",
+    "seed": 6,
+    "avail": 0,
+    "setupClaimed": 34,
+    "setupWithRecovery": 34,
+    "ops": 2,
+    "endurance": 17.8,
+    "headLaunch": 0.09475785700001932,
+    "events": [
+     "palmLaunch"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "upslopeHead",
+    "seed": 8,
+    "avail": 7.2,
+    "setupClaimed": 34,
+    "setupWithRecovery": 34,
+    "ops": 2,
+    "endurance": 17.9,
+    "headLaunch": 0.1386380114395273,
+    "events": [
+     "palmLaunch"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "diagTail",
+    "seed": 2,
+    "avail": 9.5,
+    "setupClaimed": 34,
+    "setupWithRecovery": 109,
+    "ops": 3,
+    "endurance": 12.8,
+    "headLaunch": 0.6418767349691101,
+    "events": [
+     "palmLaunch",
+     "stall",
+     "tailwindAbort",
+     "perched",
+     "tipover"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "diagTail",
+    "seed": 6,
+    "avail": 9.5,
+    "setupClaimed": 34,
+    "setupWithRecovery": 94,
+    "ops": 3,
+    "endurance": 18.6,
+    "headLaunch": 0.6400671880350466,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort"
+    ]
+   },
+   {
+    "U": 9,
+    "dir": "diagTail",
+    "seed": 8,
+    "avail": 9.3,
+    "setupClaimed": 34,
+    "setupWithRecovery": 109,
+    "ops": 3,
+    "endurance": 19,
+    "headLaunch": 0.64147848293615,
+    "events": [
+     "palmLaunch",
+     "tailwindAbort",
+     "perched",
+     "tipover"
+    ]
+   }
+  ]
+ },
+ "componentSensitivity": {
+  "claimed": {
+   "mass_g": 124.4,
+   "vKEcap_ms": 14.24,
+   "nominal": {
+    "avail": 85.4,
+    "endurance": 50.5,
+    "pFollow": 4.21,
+    "keMax": 12.4,
+    "hoverJ": 0
+   },
+   "stop": {
+    "avail": 61.3,
+    "endurance": 44.3,
+    "pFollow": 5.12,
+    "keMax": 12.49,
+    "hoverJ": 131
+   },
+   "cycle": {
+    "avail": 65.2,
+    "endurance": 51.3,
+    "pFollow": 4.11,
+    "keMax": 12.67,
+    "hoverJ": 174
+   },
+   "fast": {
+    "avail": 9.2,
+    "endurance": 64.6,
+    "pFollow": 2.81,
+    "keMax": 13.4,
+    "hoverJ": 0
+   },
+   "gust": {
+    "avail": 86,
+    "endurance": 33.7,
+    "pFollow": 7.41,
+    "keMax": 12.44,
+    "hoverJ": 0
+   }
+  },
+  "batt200WhKg": {
+   "mass_g": 144.5,
+   "vKEcap_ms": 13.21,
+   "nominal": {
+    "avail": 79.9,
+    "endurance": 58,
+    "pFollow": 3.38,
+    "keMax": 12.69,
+    "hoverJ": 0
+   },
+   "stop": {
+    "avail": 51.1,
+    "endurance": 46.8,
+    "pFollow": 4.72,
+    "keMax": 12.68,
+    "hoverJ": 187
+   },
+   "cycle": {
+    "avail": 24,
+    "endurance": 59.6,
+    "pFollow": 3.23,
+    "keMax": 12.86,
+    "hoverJ": 229
+   },
+   "fast": {
+    "avail": 7.8,
+    "endurance": 69.6,
+    "pFollow": 2.45,
+    "keMax": 13.69,
+    "hoverJ": 0
+   },
+   "gust": {
+    "avail": 75.6,
+    "endurance": 37.3,
+    "pFollow": 6.5,
+    "keMax": 12.76,
+    "hoverJ": 0
+   }
+  },
+  "batt150WhKg": {
+   "mass_g": 158.7,
+   "vKEcap_ms": 12.61,
+   "nominal": {
+    "avail": 43.7,
+    "endurance": 63.7,
+    "pFollow": 2.87,
+    "keMax": 12.78,
+    "hoverJ": 0
+   },
+   "stop": {
+    "avail": 47.9,
+    "endurance": 50.5,
+    "pFollow": 4.21,
+    "keMax": 12.77,
+    "hoverJ": 204
+   },
+   "cycle": {
+    "avail": 2.9,
+    "endurance": 61.9,
+    "pFollow": 3.02,
+    "keMax": 13,
+    "hoverJ": 230
+   },
+   "fast": {
+    "avail": 7.1,
+    "endurance": 70.9,
+    "pFollow": 2.36,
+    "keMax": 13.87,
+    "hoverJ": 0
+   },
+   "gust": {
+    "avail": 41.7,
+    "endurance": 41.1,
+    "pFollow": 5.68,
+    "keMax": 12.78,
+    "hoverJ": 0
+   }
+  },
+  "sameMass_battWh_at200": {
+   "mass_g": 113.8,
+   "vKEcap_ms": 14.89,
+   "nominal": {
+    "avail": 85.1,
+    "endurance": 26.2,
+    "pFollow": 4.31,
+    "keMax": 12,
+    "hoverJ": 0
+   },
+   "stop": {
+    "avail": 67.6,
+    "endurance": 22.9,
+    "pFollow": 5.25,
+    "keMax": 12.43,
+    "hoverJ": 109
+   },
+   "cycle": {
+    "avail": 69.5,
+    "endurance": 26.3,
+    "pFollow": 4.27,
+    "keMax": 12.66,
+    "hoverJ": 138
+   },
+   "fast": {
+    "avail": 10.3,
+    "endurance": 31.8,
+    "pFollow": 3.16,
+    "keMax": 13.22,
+    "hoverJ": 0
+   },
+   "gust": {
+    "avail": 83.5,
+    "endurance": 17.8,
+    "pFollow": 7.41,
+    "keMax": 11.95,
+    "hoverJ": 0
+   }
+  },
+  "avionics3p3W": {
+   "mass_g": 124.4,
+   "vKEcap_ms": 14.24,
+   "nominal": {
+    "avail": 85.4,
+    "endurance": 45.6,
+    "pFollow": 4.91,
+    "keMax": 12.4,
+    "hoverJ": 0
+   },
+   "stop": {
+    "avail": 61.3,
+    "endurance": 40.4,
+    "pFollow": 5.82,
+    "keMax": 12.49,
+    "hoverJ": 131
+   },
+   "cycle": {
+    "avail": 65.2,
+    "endurance": 46.2,
+    "pFollow": 4.81,
+    "keMax": 12.67,
+    "hoverJ": 174
+   },
+   "fast": {
+    "avail": 9.2,
+    "endurance": 56.7,
+    "pFollow": 3.51,
+    "keMax": 13.4,
+    "hoverJ": 0
+   },
+   "gust": {
+    "avail": 86,
+    "endurance": 31.5,
+    "pFollow": 8.11,
+    "keMax": 12.44,
+    "hoverJ": 0
+   }
+  },
+  "fomEta0p35": {
+   "mass_g": 124.4,
+   "vKEcap_ms": 14.24,
+   "nominal": {
+    "avail": 85.4,
+    "endurance": 44.6,
+    "pFollow": 5.06,
+    "keMax": 12.4,
+    "hoverJ": 0
+   },
+   "stop": {
+    "avail": 61.3,
+    "endurance": 37.9,
+    "pFollow": 6.34,
+    "keMax": 12.49,
+    "hoverJ": 187
+   },
+   "cycle": {
+    "avail": 65.2,
+    "endurance": 45.3,
+    "pFollow": 4.95,
+    "keMax": 12.67,
+    "hoverJ": 248
+   },
+   "fast": {
+    "avail": 9.2,
+    "endurance": 61.2,
+    "pFollow": 3.09,
+    "keMax": 13.4,
+    "hoverJ": 0
+   },
+   "gust": {
+    "avail": 86,
+    "endurance": 27,
+    "pFollow": 9.8,
+    "keMax": 12.44,
+    "hoverJ": 0
+   }
+  },
+  "realistic": {
+   "mass_g": 152.5,
+   "vKEcap_ms": 12.86,
+   "nominal": {
+    "avail": 64.1,
+    "endurance": 51.3,
+    "pFollow": 4.11,
+    "keMax": 12.75,
+    "hoverJ": 0
+   },
+   "stop": {
+    "avail": 50.4,
+    "endurance": 38.9,
+    "pFollow": 6.14,
+    "keMax": 12.73,
+    "hoverJ": 280
+   },
+   "cycle": {
+    "avail": 5.4,
+    "endurance": 50.1,
+    "pFollow": 4.26,
+    "keMax": 12.75,
+    "hoverJ": 354
+   },
+   "fast": {
+    "avail": 7.4,
+    "endurance": 59.2,
+    "pFollow": 3.26,
+    "keMax": 13.79,
+    "hoverJ": 0
+   },
+   "gust": {
+    "avail": 56.2,
+    "endurance": 30.2,
+    "pFollow": 8.52,
+    "keMax": 12.83,
+    "hoverJ": 0
+   }
+  },
+  "realistic_LDm30": {
+   "mass_g": 152.5,
+   "vKEcap_ms": 12.86,
+   "nominal": {
+    "avail": 60.4,
+    "endurance": 37.9,
+    "pFollow": 6.35,
+    "keMax": 12.7,
+    "hoverJ": 0
+   },
+   "stop": {
+    "avail": 49.9,
+    "endurance": 30.3,
+    "pFollow": 8.49,
+    "keMax": 12.68,
+    "hoverJ": 279
+   },
+   "cycle": {
+    "avail": 4.9,
+    "endurance": 40.3,
+    "pFollow": 5.84,
+    "keMax": 12.77,
+    "hoverJ": 335
+   },
+   "fast": {
+    "avail": 7.4,
+    "endurance": 46.6,
+    "pFollow": 4.75,
+    "keMax": 13.75,
+    "hoverJ": 0
+   },
+   "gust": {
+    "avail": 52.8,
+    "endurance": 24,
+    "pFollow": 11.34,
+    "keMax": 12.82,
+    "hoverJ": 0
+   }
+  }
+ },
+ "enduranceCheck": {
+  "usableJ": 19508,
+  "RUN_S": 150,
+  "pFollowNominal": 4.21,
+  "claimed_min": 50.5,
+  "twoStopsPerRun_min": 44.5,
+  "hover0p35_twoStops_min": 37.7,
+  "perchedWaitIncluded": false,
+  "note": "endurance counts only filmed follow seconds; the perched/landed time (camera on at 0.85×2.6 W) and the wait at the top are excluded; a 5 min run with 60 s of stops adds ≈130 J"
+ }
+}

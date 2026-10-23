@@ -1,0 +1,134 @@
+{
+ "generated": "2026-10-20T12:13:18.676Z",
+ "modelVersion": "kite2@3.0.0",
+ "cases": {
+  "calm_s11": {
+   "default": {
+    "avail": 86.369,
+    "artP50": 0.709,
+    "artP90": 1.452,
+    "shareArtGt0": 100,
+    "shareArtGe3": 0.031,
+    "artWidthPxP50": 4.568,
+    "reelInUnderLoadMax_m_s": 7.98,
+    "tensionAtThat_N": 9.39,
+    "motoringPowerMax_W": 92.803,
+    "motorSpeedNeeded_rad_s": 3990.069,
+    "backEmf_V": 47.881,
+    "maxLineSpeedAt11V1": 1.85,
+    "maxLineSpeedAt22V2": 3.7
+   },
+   "noBoomArtefact_boomDiam0": {
+    "avail": 86.369,
+    "artP50": 0,
+    "artP90": 0,
+    "shareArtGt0": 0.031,
+    "shareArtGe3": 0,
+    "artWidthPxP50": 0.486,
+    "reelInUnderLoadMax_m_s": 7.98,
+    "tensionAtThat_N": 9.39,
+    "motoringPowerMax_W": 92.803,
+    "motorSpeedNeeded_rad_s": 3990.069,
+    "backEmf_V": 47.881,
+    "maxLineSpeedAt11V1": 1.85,
+    "maxLineSpeedAt22V2": 3.7
+   }
+  },
+  "crossL9_s12": {
+   "default": {
+    "avail": 83.486,
+    "artP50": 0.636,
+    "artP90": 1.46,
+    "shareArtGt0": 100,
+    "shareArtGe3": 1.587,
+    "artWidthPxP50": 4.495,
+    "reelInUnderLoadMax_m_s": 7.951,
+    "tensionAtThat_N": 14.691,
+    "motoringPowerMax_W": 165.668,
+    "motorSpeedNeeded_rad_s": 3975.695,
+    "backEmf_V": 47.708,
+    "maxLineSpeedAt11V1": 1.85,
+    "maxLineSpeedAt22V2": 3.7
+   },
+   "noBoomArtefact_boomDiam0": {
+    "avail": 84.213,
+    "artP50": 0,
+    "artP90": 0,
+    "shareArtGt0": 0,
+    "shareArtGe3": 0,
+    "artWidthPxP50": 0.325,
+    "reelInUnderLoadMax_m_s": 7.951,
+    "tensionAtThat_N": 14.691,
+    "motoringPowerMax_W": 165.668,
+    "motorSpeedNeeded_rad_s": 3975.695,
+    "backEmf_V": 47.708,
+    "maxLineSpeedAt11V1": 1.85,
+    "maxLineSpeedAt22V2": 3.7
+   }
+  },
+  "tail9_s11": {
+   "default": {
+    "avail": 60.264,
+    "artP50": 1.121,
+    "artP90": 2.587,
+    "shareArtGt0": 100,
+    "shareArtGe3": 7.506,
+    "artWidthPxP50": 4.841,
+    "reelInUnderLoadMax_m_s": 7.623,
+    "tensionAtThat_N": 8.447,
+    "motoringPowerMax_W": 117.543,
+    "motorSpeedNeeded_rad_s": 3811.562,
+    "backEmf_V": 45.739,
+    "maxLineSpeedAt11V1": 1.85,
+    "maxLineSpeedAt22V2": 3.7
+   },
+   "noBoomArtefact_boomDiam0": {
+    "avail": 61.8,
+    "artP50": 0,
+    "artP90": 0,
+    "shareArtGt0": 3.362,
+    "shareArtGe3": 3.01,
+    "artWidthPxP50": 0.544,
+    "reelInUnderLoadMax_m_s": 7.623,
+    "tensionAtThat_N": 8.447,
+    "motoringPowerMax_W": 117.543,
+    "motorSpeedNeeded_rad_s": 3811.562,
+    "backEmf_V": 45.739,
+    "maxLineSpeedAt11V1": 1.85,
+    "maxLineSpeedAt22V2": 3.7
+   }
+  },
+  "head9_s12": {
+   "default": {
+    "avail": 91.218,
+    "artP50": 0.58,
+    "artP90": 1.097,
+    "shareArtGt0": 100,
+    "shareArtGe3": 0,
+    "artWidthPxP50": 4.53,
+    "reelInUnderLoadMax_m_s": 6.341,
+    "tensionAtThat_N": 15.529,
+    "motoringPowerMax_W": 118.014,
+    "motorSpeedNeeded_rad_s": 3170.391,
+    "backEmf_V": 38.045,
+    "maxLineSpeedAt11V1": 1.85,
+    "maxLineSpeedAt22V2": 3.7
+   },
+   "noBoomArtefact_boomDiam0": {
+    "avail": 91.218,
+    "artP50": 0,
+    "artP90": 0,
+    "shareArtGt0": 0,
+    "shareArtGe3": 0,
+    "artWidthPxP50": 0.465,
+    "reelInUnderLoadMax_m_s": 6.341,
+    "tensionAtThat_N": 15.529,
+    "motoringPowerMax_W": 118.014,
+    "motorSpeedNeeded_rad_s": 3170.391,
+    "backEmf_V": 38.045,
+    "maxLineSpeedAt11V1": 1.85,
+    "maxLineSpeedAt22V2": 3.7
+   }
+  }
+ }
+}

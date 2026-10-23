@@ -1,0 +1,153 @@
+{
+ "status": "FINAL for sledpack@0.1.0 iteration I9 (after independent review research/sledpack_2026_10_21/review/report.json). Numbers from the 48-case FULLRUN_CASES_R4 ensemble, dev/results.json",
+ "evidence": "numerical-uncalibrated simulation; NOT physically tested; G-MATURE closed, M-070 not_run. Any promo must label every frame as concept/simulation, never as real footage, and must not present untested behaviour as proven",
+ "name": {
+  "zh": "SledPack 无杆背包软翼风筝相机",
+  "en": "SledPack pole-free backpack soft-kite camera"
+ },
+ "coords": "body frame: f forward along ski heading, l left, u up; metres; relative to the shared bodyPoints() pelvis point unless noted",
+ "pack": {
+  "type": "slim spine unit on a harness (or clipped to the rider's own pack/back protector): Ø60 mm sleeve along the spine + lumbar module; NO pole, NO boom",
+  "sleeve": {
+   "outerDiameter": 0.06,
+   "innerDiameter": 0.055,
+   "length": 0.65,
+   "runs": "vertically along the spine, bottom end (mouth) at the sacrum, top ≈0.53 m above the pelvis point (below the pack top / shoulder blades)",
+   "mouth": {
+    "pos_rel_pelvis": {
+     "f": -0.17,
+     "u": -0.12
+    },
+    "axis": "points down and 35° backward",
+    "funnel": "orange Ø120 mm swivel funnel on a ±80° spring-centred ball gimbal",
+    "guard": "design follow-up (not simulated): flip-down cover + roller fairlead against chairlift seats and backward falls"
+   },
+   "stowBudget_m": {
+    "pod": 0.045,
+    "spars": 0.457,
+    "drogueConePastSpars": 0.1,
+    "clearance": 0.05,
+    "tailLineAndBridles": "folded alongside the spars"
+   }
+  },
+  "lumbarModule": {
+   "size_m": [
+    0.2,
+    0.13,
+    0.055
+   ],
+   "contents": "two-drum reel (main + depower line) with 2204-class motor and spring brake, 2S 18650 pack (120 g) in a heated pouch, MCU/IMU/GNSS/baro, tension/line-angle eyelet, weak link 38 N + cutter, dock charging contacts"
+  },
+  "led": "status LED on the left shoulder strap; one strap button = session arm / manual stow",
+  "wornMass_kg": 0.607,
+  "packedVolume_L": 2.89
+ },
+ "kite": {
+  "type": "single-skin sled kite, two longitudinal carbon keel spars, no cross spar, bridle V to the apex, drogue tail",
+  "area_m2": 0.2,
+  "span_m": 0.588,
+  "chord_sparLength_m": 0.457,
+  "bridle_m": 0.327,
+  "spars": "Ø2 mm pultruded carbon",
+  "fabric": "Icarex-class 31 g/m² ripstop, hi-vis orange with white centre panel",
+  "tail": {
+   "drogue": "Ø0.12 m pink cone (render) / Ø0.25 m design, CdA ≈0.05 m²",
+   "tailLine_m": 1.2
+  },
+  "pod": {
+   "at": "bridle apex (main line attachment)",
+   "size_mm": [
+    45,
+    35,
+    32
+   ],
+   "camera": "48 MP 4:3 gyro-EIS module (30 g, 3.2 W counted), 66° lens, looks down the line at the rider; lens 0.12 m below the line (keep the main line out of the onboard view; judged artefact share ≈0)",
+   "cell": "1S 160 mAh, warmed then charged in the sleeve"
+  },
+  "mass_g_withMargin": 70.9,
+  "folded": "pulled apex-first through the swivel funnel: the keels come together and the sail wraps round them, bundle Ø≈50 × 0.46 m"
+ },
+ "lines": {
+  "main": "0.30 mm UHMWPE hi-vis pink, mouth → apex",
+  "depower": "0.20 mm white, second drum → sail trailing edge (last 5 % of stroke flags the sail)",
+  "film_m": 6,
+  "max_m": 10,
+  "mechanicalEndStop_m": 25,
+  "elevation_deg_median": 55.3,
+  "tension_N_median": 14.1,
+  "twistRisk": "main + depower + tail line from one mouth can twist: swivel at the apex and line separation at the eyelet needed (not simulated)"
+ },
+ "timing_s": {
+  "rideDetectAfterPushoff": "≈0.8–1.0 (shared detector)",
+  "launchGate": "estimated apparent wind ≥5.5 m/s",
+  "streamingBeforePower_m": 3,
+  "launchToFilming_p50": 2.82,
+  "launchToFilming_p90": 3.68,
+  "retrieveToLocked_p50": 5.67,
+  "retrieveToLocked_p90": 9.84,
+  "tailwindEnvelope": "no launch / early retrieve when the estimated along-course tailwind > 6 m/s (disclosed refusal)"
+ },
+ "phases": [
+  {
+   "key": "docked",
+   "zh": "背着走/坐缆车：风筝收在脊柱套管里，背包先加热再给吊舱充电",
+   "en": "Walking/lift: kite inside the spine sleeve; the pack warms then charges the pod cell"
+  },
+  {
+   "key": "detect",
+   "zh": "蹬出约 1 s：IMU+GNSS+气压判定起滑（缆车/上坡锁定），估计相对风 ≥5.5 m/s 才放；估计顺风 >6 m/s 时不放飞",
+   "en": "≈1 s after push-off: IMU+GNSS+baro confirm the ride (lift/uphill lockout); launches only at ≥5.5 m/s estimated apparent wind; no launch above ≈6 m/s estimated tailwind"
+  },
+  {
+   "key": "launch",
+   "zh": "气流把吊舱和折叠风筝从骶骨处的套管口拉出，先泄力低空拖出 3 m，再给力张开、爬升到约 55°，放到 6 m",
+   "en": "The airflow pulls the pod and folded kite out of the sacrum mouth, it streams flagged and low to 3 m, then is powered, opens and climbs to ≈55°, line out to 6 m"
+  },
+  {
+   "key": "fly",
+   "zh": "背包的泄力线控拉力（约 13 N），卷轴只管线长和松线",
+   "en": "The pack's depower line holds ≈13 N; the reel only manages length and slack"
+  },
+  {
+   "key": "stop",
+   "zh": "减速：全泄力，帆像旗一样塌下；趁人还在滑、风筝还在身后立即快速拉低（顺风停下时不让它飘过头顶），落低后拖回",
+   "en": "Slowing: full depower flags the sail; it is pulled down fast while the rider still slides and the kite is still behind (so a tailwind stop cannot carry it over the head), then towed in low"
+  },
+  {
+   "key": "dock",
+   "zh": "最后 1.5 m 慢收，吊舱进入万向漏斗，翼杆并拢滑进套管，触点接通充电",
+   "en": "Last 1.5 m slow, the pod enters the swivel funnel, keels close and slide into the sleeve, contacts mate"
+  }
+ ],
+ "verifiedInSimulationOnly": {
+  "criteriaPassed": "8/13",
+  "avail_mean_pct": 43.1,
+  "avail_tailwind_pct": 21.6,
+  "pxMed": 379,
+  "jitter_p90_rawOU_judged": 6.42,
+  "jitter_p90_lowpassDrift_info": 4.02,
+  "azRange_commandable_deg": 0,
+  "azWander_uncontrolled_p50_deg": 40.1,
+  "keMax_J": 14.43,
+  "keP90_J": 12.7,
+  "bodyForcePeak_N": 35.9,
+  "setupTime_p90_s": 8.3,
+  "ops_p90": 0,
+  "endurance_min": 54.2,
+  "headClear_min_m": 0.403,
+  "kiteToHead_min_m": 0.606,
+  "lineToHead_p50_m": 0.66,
+  "dockFirstTry_pct": 97.8,
+  "launchSuccess_pct": 98.9,
+  "tailwindRefusal_s_per_run_mean": 8.7,
+  "clothesline_pct": 44.8
+ },
+ "doNotClaim": [
+  "meets all 13 criteria (it fails avail, jitter, azRange (commandable 0°), headClear)",
+  "works in all winds (does not fly above ≈6 m/s tailwind; tailwind avail ≈22 %)",
+  "you can choose the viewing angle (it cannot be steered)",
+  "tested on snow",
+  "the line stays ≥1 m from the head (geometry forbids it without a pole; min 0.40 m)",
+  "KE passes with margin (14.43 vs 14.9 J; fails at kite mass +10 % and for 15–17 m/s riders)"
+ ]
+}

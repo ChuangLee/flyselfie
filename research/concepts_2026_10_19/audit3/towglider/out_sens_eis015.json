@@ -1,0 +1,360 @@
+{
+ "generated": "2026-10-20T12:15:47.567Z",
+ "simCopy": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/copy3",
+ "modelVersion": "towglider@0.4.0",
+ "eis": 0.15,
+ "dbDeg": 0.15,
+ "rows": [
+  {
+   "id": "calm_s11",
+   "U": 0,
+   "dir": "calm",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.268,
+   "fsBackground": 3.032
+  },
+  {
+   "id": "calm_s12",
+   "U": 0,
+   "dir": "calm",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.358,
+   "fsBackground": 2.865
+  },
+  {
+   "id": "calm_s13",
+   "U": 0,
+   "dir": "calm",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.107,
+   "fsBackground": 2.784
+  },
+  {
+   "id": "head3_s11",
+   "U": 3,
+   "dir": "head",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.254,
+   "fsBackground": 2.991
+  },
+  {
+   "id": "head3_s12",
+   "U": 3,
+   "dir": "head",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.359,
+   "fsBackground": 2.841
+  },
+  {
+   "id": "head3_s13",
+   "U": 3,
+   "dir": "head",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.11,
+   "fsBackground": 2.775
+  },
+  {
+   "id": "tail3_s11",
+   "U": 3,
+   "dir": "tail",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.437,
+   "fsBackground": 3.204
+  },
+  {
+   "id": "tail3_s12",
+   "U": 3,
+   "dir": "tail",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.436,
+   "fsBackground": 2.986
+  },
+  {
+   "id": "tail3_s13",
+   "U": 3,
+   "dir": "tail",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.185,
+   "fsBackground": 2.865
+  },
+  {
+   "id": "crossL3_s11",
+   "U": 3,
+   "dir": "crossL",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.419,
+   "fsBackground": 3.138
+  },
+  {
+   "id": "crossL3_s12",
+   "U": 3,
+   "dir": "crossL",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.432,
+   "fsBackground": 2.928
+  },
+  {
+   "id": "crossL3_s13",
+   "U": 3,
+   "dir": "crossL",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.195,
+   "fsBackground": 2.833
+  },
+  {
+   "id": "crossR3_s11",
+   "U": 3,
+   "dir": "crossR",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.349,
+   "fsBackground": 3.077
+  },
+  {
+   "id": "crossR3_s12",
+   "U": 3,
+   "dir": "crossR",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.457,
+   "fsBackground": 2.945
+  },
+  {
+   "id": "crossR3_s13",
+   "U": 3,
+   "dir": "crossR",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.182,
+   "fsBackground": 2.819
+  },
+  {
+   "id": "head6_s11",
+   "U": 6,
+   "dir": "head",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.354,
+   "fsBackground": 2.963
+  },
+  {
+   "id": "head6_s12",
+   "U": 6,
+   "dir": "head",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.575,
+   "fsBackground": 2.969
+  },
+  {
+   "id": "head6_s13",
+   "U": 6,
+   "dir": "head",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.293,
+   "fsBackground": 2.768
+  },
+  {
+   "id": "tail6_s11",
+   "U": 6,
+   "dir": "tail",
+   "seed": 11,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "tail6_s12",
+   "U": 6,
+   "dir": "tail",
+   "seed": 12,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "tail6_s13",
+   "U": 6,
+   "dir": "tail",
+   "seed": 13,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "crossL6_s11",
+   "U": 6,
+   "dir": "crossL",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.711,
+   "fsBackground": 3.32
+  },
+  {
+   "id": "crossL6_s12",
+   "U": 6,
+   "dir": "crossL",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.791,
+   "fsBackground": 3.233
+  },
+  {
+   "id": "crossL6_s13",
+   "U": 6,
+   "dir": "crossL",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.497,
+   "fsBackground": 3.067
+  },
+  {
+   "id": "crossR6_s11",
+   "U": 6,
+   "dir": "crossR",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.621,
+   "fsBackground": 3.278
+  },
+  {
+   "id": "crossR6_s12",
+   "U": 6,
+   "dir": "crossR",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.766,
+   "fsBackground": 3.164
+  },
+  {
+   "id": "crossR6_s13",
+   "U": 6,
+   "dir": "crossR",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.632,
+   "fsBackground": 3.176
+  },
+  {
+   "id": "head9_s11",
+   "U": 9,
+   "dir": "head",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.526,
+   "fsBackground": 2.957
+  },
+  {
+   "id": "head9_s12",
+   "U": 9,
+   "dir": "head",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.678,
+   "fsBackground": 2.907
+  },
+  {
+   "id": "head9_s13",
+   "U": 9,
+   "dir": "head",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.441,
+   "fsBackground": 2.813
+  },
+  {
+   "id": "tail9_s11",
+   "U": 9,
+   "dir": "tail",
+   "seed": 11,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "tail9_s12",
+   "U": 9,
+   "dir": "tail",
+   "seed": 12,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "tail9_s13",
+   "U": 9,
+   "dir": "tail",
+   "seed": 13,
+   "gated": true,
+   "fsSubject": null,
+   "fsBackground": null
+  },
+  {
+   "id": "crossL9_s11",
+   "U": 9,
+   "dir": "crossL",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 3.02,
+   "fsBackground": 3.523
+  },
+  {
+   "id": "crossL9_s12",
+   "U": 9,
+   "dir": "crossL",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.07,
+   "fsBackground": 3.446
+  },
+  {
+   "id": "crossL9_s13",
+   "U": 9,
+   "dir": "crossL",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.848,
+   "fsBackground": 3.46
+  },
+  {
+   "id": "crossR9_s11",
+   "U": 9,
+   "dir": "crossR",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.99,
+   "fsBackground": 3.529
+  },
+  {
+   "id": "crossR9_s12",
+   "U": 9,
+   "dir": "crossR",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.031,
+   "fsBackground": 3.35
+  },
+  {
+   "id": "crossR9_s13",
+   "U": 9,
+   "dir": "crossR",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.724,
+   "fsBackground": 3.337
+  }
+ ]
+}

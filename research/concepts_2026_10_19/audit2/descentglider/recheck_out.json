@@ -1,0 +1,609 @@
+{
+ "generated": "2026-10-20",
+ "copyRoot": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/dgcopy",
+ "spot": [
+  {
+   "id": "calm_s11",
+   "U": 0,
+   "dir": "calm",
+   "noFly": false,
+   "claimed": {
+    "avail": 88.1,
+    "setup": 33.8,
+    "ops": 2,
+    "keMax": 13.3,
+    "pMean": 8.07,
+    "jitter": 1.02,
+    "tdKE": 4.01,
+    "crashed": false,
+    "landMinRider": 3.49
+   },
+   "recomputed": {
+    "availRiding": 87.28,
+    "availSpeed2": 88.05,
+    "ridingS": 74.24,
+    "fullRideS": 70.2,
+    "setup": 33.85,
+    "top": 11.32,
+    "endWait": 11.7,
+    "walk": 5.82,
+    "restDist": 4.88,
+    "ops": 2,
+    "keMax": 13.3,
+    "keAt": {
+     "t": 20.66,
+     "mode": 3,
+     "distBody": 7.65,
+     "speed": 14.65
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 3.49,
+    "landMinRider": 3.49,
+    "tdKE": 4.01,
+    "pMean": 8.07,
+    "Ewh": 0.25612999999999997,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": 1.38,
+    "backgroundRms": 1.42,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "head3_s11",
+   "U": 3,
+   "dir": "head",
+   "noFly": false,
+   "claimed": {
+    "avail": 79.3,
+    "setup": 47,
+    "ops": 3,
+    "keMax": 13.44,
+    "pMean": 8.05,
+    "jitter": 1.09,
+    "tdKE": null,
+    "crashed": true,
+    "landMinRider": 26.41
+   },
+   "recomputed": {
+    "availRiding": 78.53,
+    "availSpeed2": 79.34,
+    "ridingS": 74.24,
+    "fullRideS": 70.2,
+    "setup": 47.02,
+    "top": 12.02,
+    "endWait": 0,
+    "walk": 30,
+    "restDist": null,
+    "ops": 3,
+    "keMax": 13.44,
+    "keAt": {
+     "t": 75.14,
+     "mode": 3,
+     "distBody": 21.55,
+     "speed": 14.72
+    },
+    "crashKE": 12.33,
+    "minBodyDistInFlight": 4.05,
+    "landMinRider": 26.41,
+    "tdKE": null,
+    "pMean": 8.05,
+    "Ewh": 0.30682,
+    "crashed": true,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": 1.28,
+    "backgroundRms": 1.38,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "tail3_s12",
+   "U": 3,
+   "dir": "tail",
+   "noFly": false,
+   "claimed": {
+    "avail": 51.8,
+    "setup": 55.9,
+    "ops": 2,
+    "keMax": 13.68,
+    "pMean": 7.99,
+    "jitter": 1.39,
+    "tdKE": 1.36,
+    "crashed": false,
+    "landMinRider": 7.19
+   },
+   "recomputed": {
+    "availRiding": 51.24,
+    "availSpeed2": 51.77,
+    "ridingS": 74.24,
+    "fullRideS": 70.2,
+    "setup": 55.87,
+    "top": 9.76,
+    "endWait": 11.11,
+    "walk": 30,
+    "restDist": 12,
+    "ops": 2,
+    "keMax": 13.68,
+    "keAt": {
+     "t": 80.5,
+     "mode": 3,
+     "distBody": 12.53,
+     "speed": 14.86
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 0.85,
+    "landMinRider": 7.19,
+    "tdKE": 1.36,
+    "pMean": 7.99,
+    "Ewh": 0.24861000000000003,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": 18.13,
+    "backgroundRms": 20.61,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "crossL3_s13",
+   "U": 3,
+   "dir": "crossL",
+   "noFly": false,
+   "claimed": {
+    "avail": 77.8,
+    "setup": 33.7,
+    "ops": 2,
+    "keMax": 13.51,
+    "pMean": 8.93,
+    "jitter": 0.93,
+    "tdKE": 1.43,
+    "crashed": false,
+    "landMinRider": 3.12
+   },
+   "recomputed": {
+    "availRiding": 76.97,
+    "availSpeed2": 77.76,
+    "ridingS": 74.24,
+    "fullRideS": 70.2,
+    "setup": 33.72,
+    "top": 10.6,
+    "endWait": 14,
+    "walk": 4.12,
+    "restDist": 3.75,
+    "ops": 2,
+    "keMax": 13.51,
+    "keAt": {
+     "t": 81.18,
+     "mode": 3,
+     "distBody": 11.54,
+     "speed": 14.76
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 3.15,
+    "landMinRider": 3.12,
+    "tdKE": 1.43,
+    "pMean": 8.93,
+    "Ewh": 0.28716,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": 1.41,
+    "backgroundRms": 1.62,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "crossR3_s12",
+   "U": 3,
+   "dir": "crossR",
+   "noFly": false,
+   "claimed": {
+    "avail": 81.8,
+    "setup": 38.1,
+    "ops": 2,
+    "keMax": 13.46,
+    "pMean": 8.95,
+    "jitter": 0.92,
+    "tdKE": 2.26,
+    "crashed": false,
+    "landMinRider": 6.24
+   },
+   "recomputed": {
+    "availRiding": 80.93,
+    "availSpeed2": 81.76,
+    "ridingS": 74.24,
+    "fullRideS": 70.2,
+    "setup": 38.15,
+    "top": 10.62,
+    "endWait": 13.57,
+    "walk": 8.96,
+    "restDist": 6.97,
+    "ops": 2,
+    "keMax": 13.46,
+    "keAt": {
+     "t": 74.18,
+     "mode": 3,
+     "distBody": 16.64,
+     "speed": 14.74
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 2.07,
+    "landMinRider": 6.24,
+    "tdKE": 2.26,
+    "pMean": 8.95,
+    "Ewh": 0.28697,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": 1.14,
+    "backgroundRms": 1.55,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "head6_s11",
+   "U": 6,
+   "dir": "head",
+   "noFly": true,
+   "claimed": {
+    "avail": 0,
+    "setup": 56,
+    "ops": 2,
+    "keMax": 6.24,
+    "pMean": 5.6,
+    "jitter": null,
+    "tdKE": 1.45,
+    "crashed": false,
+    "landMinRider": 17.43
+   },
+   "recomputed": {
+    "availRiding": 0,
+    "availSpeed2": 0,
+    "ridingS": 0,
+    "fullRideS": 70.2,
+    "setup": 56.03,
+    "top": 3,
+    "endWait": 18.03,
+    "walk": 30,
+    "restDist": 46.85,
+    "ops": 2,
+    "keMax": 6.24,
+    "keAt": {
+     "t": 3.02,
+     "mode": 1,
+     "distBody": 0.83,
+     "speed": 10.04
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 5.15,
+    "landMinRider": 17.43,
+    "tdKE": 1.45,
+    "pMean": 5.6,
+    "Ewh": 0.028030000000000003,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null,
+    "samples": 0
+   }
+  },
+  {
+   "id": "tail6_s11",
+   "U": 6,
+   "dir": "tail",
+   "noFly": false,
+   "claimed": {
+    "avail": 24.8,
+    "setup": 48.1,
+    "ops": 3,
+    "keMax": 18.02,
+    "pMean": 11.09,
+    "jitter": 1.19,
+    "tdKE": null,
+    "crashed": false,
+    "landMinRider": 3.47
+   },
+   "recomputed": {
+    "availRiding": 24.57,
+    "availSpeed2": 24.82,
+    "ridingS": 74.24,
+    "fullRideS": 70.2,
+    "setup": 48.12,
+    "top": 13.12,
+    "endWait": 0,
+    "walk": 30,
+    "restDist": null,
+    "ops": 3,
+    "keMax": 18.02,
+    "keAt": {
+     "t": 45.2,
+     "mode": 3,
+     "distBody": 13.38,
+     "speed": 17.05
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 2.25,
+    "landMinRider": 3.47,
+    "tdKE": null,
+    "pMean": 11.09,
+    "Ewh": 0.42616000000000004,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": 110.62,
+    "backgroundRms": 110.75,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "tail6_s12",
+   "U": 6,
+   "dir": "tail",
+   "noFly": false,
+   "claimed": {
+    "avail": 0,
+    "setup": 45.8,
+    "ops": 3,
+    "keMax": 6.24,
+    "pMean": 1.47,
+    "jitter": null,
+    "tdKE": null,
+    "crashed": true,
+    "landMinRider": null
+   },
+   "recomputed": {
+    "availRiding": 0,
+    "availSpeed2": 0,
+    "ridingS": 74.24,
+    "fullRideS": 70.2,
+    "setup": 45.76,
+    "top": 10.76,
+    "endWait": 0,
+    "walk": 30,
+    "restDist": null,
+    "ops": 3,
+    "keMax": 6.24,
+    "keAt": {
+     "t": 3,
+     "mode": 1,
+     "distBody": 0.56,
+     "speed": 10.03
+    },
+    "crashKE": 5.85,
+    "minBodyDistInFlight": 5.3,
+    "landMinRider": null,
+    "tdKE": null,
+    "pMean": 1.47,
+    "Ewh": 0.05543,
+    "crashed": true,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": 71.08,
+    "backgroundRms": 70.99,
+    "samples": 75
+   }
+  },
+  {
+   "id": "crossR6_s12",
+   "U": 6,
+   "dir": "crossR",
+   "noFly": true,
+   "claimed": {
+    "avail": 0,
+    "setup": 52.4,
+    "ops": 2,
+    "keMax": 6.24,
+    "pMean": 7.16,
+    "jitter": null,
+    "tdKE": 0.52,
+    "crashed": false,
+    "landMinRider": 22.28
+   },
+   "recomputed": {
+    "availRiding": 0,
+    "availSpeed2": 0,
+    "ridingS": 0,
+    "fullRideS": 70.2,
+    "setup": 52.35,
+    "top": 3,
+    "endWait": 14.35,
+    "walk": 30,
+    "restDist": 34.95,
+    "ops": 2,
+    "keMax": 6.24,
+    "keAt": {
+     "t": 3,
+     "mode": 1,
+     "distBody": 0.56,
+     "speed": 10.03
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 5.05,
+    "landMinRider": 22.28,
+    "tdKE": 0.52,
+    "pMean": 7.16,
+    "Ewh": 0.02856,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null,
+    "samples": 0
+   }
+  },
+  {
+   "id": "head9_s12",
+   "U": 9,
+   "dir": "head",
+   "noFly": true,
+   "claimed": {
+    "avail": 0,
+    "setup": 18.1,
+    "ops": 2,
+    "keMax": 6.41,
+    "pMean": 4.3,
+    "jitter": null,
+    "tdKE": 0.14,
+    "crashed": false,
+    "landMinRider": 2.35
+   },
+   "recomputed": {
+    "availRiding": 0,
+    "availSpeed2": 0,
+    "ridingS": 0,
+    "fullRideS": 70.2,
+    "setup": 18.11,
+    "top": 3,
+    "endWait": 8.08,
+    "walk": 2.03,
+    "restDist": 2.35,
+    "ops": 2,
+    "keMax": 6.41,
+    "keAt": {
+     "t": 3.08,
+     "mode": 1,
+     "distBody": 1.43,
+     "speed": 10.17
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 2.42,
+    "landMinRider": 2.35,
+    "tdKE": 0.14,
+    "pMean": 4.3,
+    "Ewh": 0.00966,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null,
+    "samples": 0
+   }
+  },
+  {
+   "id": "tail9_s12",
+   "U": 9,
+   "dir": "tail",
+   "noFly": true,
+   "claimed": {
+    "avail": 0,
+    "setup": 54.5,
+    "ops": 2,
+    "keMax": 6.35,
+    "pMean": 15.16,
+    "jitter": null,
+    "tdKE": 0.65,
+    "crashed": false,
+    "landMinRider": 12.9
+   },
+   "recomputed": {
+    "availRiding": 0,
+    "availSpeed2": 0,
+    "ridingS": 0,
+    "fullRideS": 70.2,
+    "setup": 54.46,
+    "top": 3,
+    "endWait": 16.46,
+    "walk": 30,
+    "restDist": 14.61,
+    "ops": 2,
+    "keMax": 6.35,
+    "keAt": {
+     "t": 3.14,
+     "mode": 1,
+     "distBody": 1.96,
+     "speed": 10.12
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 5.37,
+    "landMinRider": 12.9,
+    "tdKE": 0.65,
+    "pMean": 15.16,
+    "Ewh": 0.06931,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null,
+    "samples": 0
+   }
+  },
+  {
+   "id": "crossR9_s12",
+   "U": 9,
+   "dir": "crossR",
+   "noFly": true,
+   "claimed": {
+    "avail": 0,
+    "setup": 78,
+    "ops": 2,
+    "keMax": 6.24,
+    "pMean": 10.23,
+    "jitter": null,
+    "tdKE": null,
+    "crashed": false,
+    "landMinRider": 18.56
+   },
+   "recomputed": {
+    "availRiding": 0,
+    "availSpeed2": 0,
+    "ridingS": 0,
+    "fullRideS": 70.2,
+    "setup": 78,
+    "top": 3,
+    "endWait": 40,
+    "walk": 30,
+    "restDist": null,
+    "ops": 3,
+    "keMax": 6.24,
+    "keAt": {
+     "t": 3,
+     "mode": 1,
+     "distBody": 0.56,
+     "speed": 10.03
+    },
+    "crashKE": null,
+    "minBodyDistInFlight": 4.93,
+    "landMinRider": 18.56,
+    "tdKE": null,
+    "pMean": 10.23,
+    "Ewh": 0.11370999999999999,
+    "crashed": false,
+    "failsafe": false
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null,
+    "samples": 0
+   }
+  }
+ ],
+ "endurance": {
+  "devMethod_min": 79.3,
+  "pMeanEns_W": 7.95,
+  "perRunAccounting": {
+   "meanRunWh": 0.14095,
+   "heaterPerLiftWh": 0.05999999999999999,
+   "usableWh": 11.3,
+   "runsPerCharge": 56.23,
+   "filmingMinPerRun": 1.18,
+   "filmingMin": 66.54
+  },
+  "flyingCellUsableWh": 1.27,
+  "flyingCellRuns": 9.05,
+  "note": "dev method = enduranceMin(bank·0.85 + cell, ensemble mean throw→rest power, heated) i.e. minutes of airborne time incl. loiter/landing; per-run accounting counts the heater over the whole lift ride and only riding minutes as filming"
+ }
+}

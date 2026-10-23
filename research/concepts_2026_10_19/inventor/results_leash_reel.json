@@ -1,0 +1,105 @@
+{
+ "tow_tension_N": {
+  "p50": 0.012,
+  "p90": 0.156,
+  "p99": 0.399,
+  "max": 0.57,
+  "flat_0deg_v10_headwind5": 0.382,
+  "glider_weight_N": 1.226,
+  "kite_round1_pull_N": "12-38 (aerial/calc_kite.py)",
+  "share_of_time_gravity_alone_wind_mix": 0.642
+ },
+ "line": {
+  "deployed_length_m": 7.83,
+  "elevation_deg": 26.6,
+  "drag_N_at_12ms": 0.029,
+  "mass_g_15m": 0.38,
+  "height_at_1m_behind_skier": 1.5,
+  "distance_behind_where_line_above_1.8m": 1.6
+ },
+ "line_in_frame": {
+  "px_width_at_subject_range": 0.053,
+  "px_width_at_1m_from_lens": 0.42,
+  "note": "line leaves the glider ~5 cm below the lens and runs almost along the line of sight to the hip; over the subject silhouette it is at 6-8 m range -> <0.1 px (criterion: no artefact >=1 px over subject)."
+ },
+ "start_launch": {
+  "skier_speed_at_reel_start": 4.0,
+  "t_reel_start_s": 2.7,
+  "reel_speed_needed_m_s": 3.7,
+  "liftoff_airspeed": 7.7,
+  "snow_tow_friction_N_mu0.15": 0.184,
+  "climb_energy_J": 5.5,
+  "launch_tension_N": 1.96,
+  "reel_power_W": 7.2,
+  "time_to_follow_height_s": 4.9,
+  "line_needed_m": 17.0
+ },
+ "stop_dock": {
+  "skier_stop_time_s": 3.33,
+  "reel_time_s": 2.61,
+  "glider_overrun_if_no_reel_m": 7.0,
+  "funnel_entry_KE_rider_frame_J": 0.141,
+  "funnel_force_N_0.15m_stroke": 0.94,
+  "reel_power_W": 4.8,
+  "fallback_snow_drag_N_mu0.3": 0.368,
+  "fallback_time_s_10m_at_2ms": 5.0,
+  "extra_standstill_s": "0 if docked during deceleration; <=6 s if dragged over snow (auto, no action)"
+ },
+ "hazards": {
+  "rider_frame_KE_if_rider_falls_J": 5.46,
+  "ground_KE_at_KE_cap_J": 14.9,
+  "line_contact_force_cap_N": 3.0,
+  "line_contact_pressure_MPa_20mm": 0.88,
+  "snag_force_on_body_N": 3.0,
+  "weak_link_glider_N": 15.0,
+  "note": "reel pays out above 3 N, so a crossing skier or a tree branch meets a free-running line, not a taut one; spool end is tied with a 10 N breakaway so the reel never anchors a snagged line."
+ },
+ "energy": {
+  "reel_energy_per_run_J": 108.0,
+  "reel_energy_per_day_20runs_Wh": 0.6,
+  "glider_filming_min_per_charge": "52 (results_slope_glider.json I-01 energy); quiver contacts top up glider from a 10 Wh hip cell during lift rides"
+ },
+ "budget": {
+  "glider_g": 125,
+  "reel_motor_clutch_g": 70,
+  "hip_cell_10Wh_g": 60,
+  "funnel_quiver_g": 90,
+  "belt_g": 80,
+  "total_worn_g": 425,
+  "quiver_box_L": 2.62,
+  "reel_L": 0.25,
+  "packed_L": 2.87
+ },
+ "I-02 wake": {
+  "x0.5m": {
+   "deficit_frac": 0.82,
+   "half_width_m": 0.65,
+   "airspeed_in_wake_m_s": 1.7,
+   "below_stall": true
+  },
+  "x1m": {
+   "deficit_frac": 0.52,
+   "half_width_m": 0.74,
+   "airspeed_in_wake_m_s": 4.5,
+   "below_stall": true
+  },
+  "x2m": {
+   "deficit_frac": 0.32,
+   "half_width_m": 0.86,
+   "airspeed_in_wake_m_s": 6.3,
+   "below_stall": true
+  },
+  "x3m": {
+   "deficit_frac": 0.25,
+   "half_width_m": 0.94,
+   "airspeed_in_wake_m_s": 7.0,
+   "below_stall": false
+  }
+ },
+ "I-02 perch": {
+  "relative_KE_J_at_1.5ms": 0.141,
+  "perch_must_be_above_head_m": 0.74,
+  "capture_window_needed_m": "+-0.15 (UWB relative +-0.1, trunk heave +-0.05-0.1, ASSUMED)",
+  "DLR_car_landing_accuracy_m": 0.5
+ }
+}

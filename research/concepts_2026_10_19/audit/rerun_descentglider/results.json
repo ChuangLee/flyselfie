@@ -1,0 +1,6510 @@
+{
+ "meta": {
+  "concept": "descentglider",
+  "modelVersion": "descentglider@1.0.0",
+  "generated": "2026-10-20",
+  "evidence": "numerical-uncalibrated simulation; demo is an illustration; nothing physically tested",
+  "params": {
+   "dryMass": 0.102,
+   "battWh": 8.5,
+   "Sext": 0.06,
+   "bext": 0.62,
+   "Ssw": 0.034,
+   "bsw": 0.4,
+   "cd0": 0.06,
+   "clmaxExt": 1,
+   "clmaxSw": 0.8,
+   "dragScale": 1,
+   "sweepOn": 1,
+   "tStatic": 2.6,
+   "fomEta": 0.5,
+   "regenEta": 0.3,
+   "regenPmax": 3,
+   "pAvionics": 2.6,
+   "coldFactor": 0.75,
+   "stationD": 4.5,
+   "stationH": 2.6,
+   "azAmp": 30,
+   "followMode": 1,
+   "trailK": 0.7,
+   "cropHfov": 40,
+   "smoothTau": 1.6,
+   "vCapMargin": 0.92,
+   "stopMode": 0,
+   "perchDist": 5.5,
+   "endPerchDist": 3,
+   "baseR": 0.07,
+   "anchorM": 0.03,
+   "tipMargin": 1.25,
+   "tailwindMax": 5,
+   "linkHold": 1.5
+  },
+  "resolvedMass_kg": 0.1244,
+  "totalComputeMs": 15545
+ },
+ "sizing": {
+  "LDmax_spread": 7.93,
+  "LDmax_swept": 6.74,
+  "stall_spread_ms": 6.22,
+  "stall_swept_ms": 9.24,
+  "hoverPower_W": 14.6,
+  "KEcapSpeed_ms": 15.48,
+  "glideDeg": {
+   "8": {
+    "spread": 7.9,
+    "swept": null
+   },
+   "10": {
+    "spread": 10.2,
+    "swept": 8.5
+   },
+   "12": {
+    "spread": 13.5,
+    "swept": 9.4
+   },
+   "14": {
+    "spread": 17.6,
+    "swept": 11.2
+   },
+   "16": {
+    "spread": 22.1,
+    "swept": 13.5
+   }
+  },
+  "tipWind_ms": {
+   "spanAligned": 11.7,
+   "offset15deg": 8.2
+  }
+ },
+ "scenarios": {
+  "nominal": {
+   "name": "Nominal: 12 m/s carving, light wind",
+   "expect": "Gravity-paid follow: ≥80 % usable, ≥300 px, KE ≤14.9 J, mean electrical power near the avionics load. Fail: height loss, lag, stall.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 737,
+   "metrics": {
+    "avail": {
+     "value": 85.41,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 470.01,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.52,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.88,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.4,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 50.51,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 4.21,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "59 J / 11 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 73.68,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.11,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.12,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 85.41,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 470.01,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.52,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.88,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.4,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 50.51,
+     "pass": true
+    }
+   },
+   "std12Passed": 12,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.65,
+    "backgroundRms": 0.87
+   },
+   "extremes": {
+    "agl": [
+     2.11,
+     2.78
+    ],
+    "airspeed": [
+     10.16,
+     15.54
+    ],
+    "groundSpeed": [
+     10.72,
+     14.12
+    ],
+    "headDist": [
+     4.97,
+     11.21
+    ],
+    "keSnow": [
+     7.15,
+     12.4
+    ],
+    "pElec": [
+     0.12,
+     16.34
+    ],
+    "energyWh": 0.035,
+    "regenJ": 11,
+    "motorJ": 57
+   },
+   "modeTime": {
+    "follow": 30.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "nominal_ld70": {
+   "name": "Nominal with L/D −30 % (sensitivity)",
+   "expect": "Brief-mandated sensitivity: drag ×1.43. How much motor assist and endurance remain.",
+   "compare": true,
+   "fault": false,
+   "computeMs": 595,
+   "metrics": {
+    "avail": {
+     "value": 86.48,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 467.53,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.52,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.71,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.35,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 38.92,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 6.13,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "112 J / 6 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 46.97,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.07,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.09,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 86.48,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 467.53,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.52,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.71,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.35,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 38.92,
+     "pass": false
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.63,
+    "backgroundRms": 0.87
+   },
+   "extremes": {
+    "agl": [
+     2.07,
+     2.74
+    ],
+    "airspeed": [
+     10.03,
+     15.48
+    ],
+    "groundSpeed": [
+     10.59,
+     14.09
+    ],
+    "headDist": [
+     4.97,
+     11.26
+    ],
+    "keSnow": [
+     6.98,
+     12.35
+    ],
+    "pElec": [
+     0.46,
+     19.85
+    ],
+    "energyWh": 0.051,
+    "regenJ": 6,
+    "motorJ": 110
+   },
+   "modeTime": {
+    "follow": 30.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "nominal_fixed": {
+   "name": "Nominal, fixed spread wing (no sweep morph)",
+   "expect": "Is morphing worth it: motor energy of the same airframe without sweep.",
+   "compare": true,
+   "fault": false,
+   "computeMs": 488,
+   "metrics": {
+    "avail": {
+     "value": 85.74,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 471.64,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.52,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.09,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.36,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 38.34,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 6.25,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "115 J / 6 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 44.97,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.17,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.1,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 85.74,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 471.64,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.52,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.09,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.36,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 38.34,
+     "pass": false
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.63,
+    "backgroundRms": 0.86
+   },
+   "extremes": {
+    "agl": [
+     2.17,
+     2.89
+    ],
+    "airspeed": [
+     10.09,
+     15.39
+    ],
+    "groundSpeed": [
+     10.65,
+     14.1
+    ],
+    "headDist": [
+     4.97,
+     11.09
+    ],
+    "keSnow": [
+     7.05,
+     12.36
+    ],
+    "pElec": [
+     0.43,
+     20.14
+    ],
+    "energyWh": 0.052,
+    "regenJ": 6,
+    "motorJ": 113
+   },
+   "modeTime": {
+    "follow": 30.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "short": {
+   "name": "Short turns 8 m/s (calibrated preset)",
+   "expect": "Slow: the reference is near 1.2 Vs, so constant-airspeed S-turns are needed. Jitter, availability, energy.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 327,
+   "metrics": {
+    "avail": {
+     "value": 73.3,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 515.64,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.17,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 84.33,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 6.44,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 67.55,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 2.59,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "8 J / 9 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 94.48,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.25,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.32,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 10.18,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 73.3,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 515.64,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.17,
+     "pass": true
+    },
+    "azRange": {
+     "value": 84.33,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 6.44,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 67.55,
+     "pass": true
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 1.44,
+    "backgroundRms": 4.03
+   },
+   "extremes": {
+    "agl": [
+     2.25,
+     2.7
+    ],
+    "airspeed": [
+     7.7,
+     10.39
+    ],
+    "groundSpeed": [
+     8.08,
+     10.18
+    ],
+    "headDist": [
+     4.32,
+     9.26
+    ],
+    "keSnow": [
+     4.06,
+     6.44
+    ],
+    "pElec": [
+     1.34,
+     12.13
+    ],
+    "energyWh": 0.018,
+    "regenJ": 9,
+    "motorJ": 8
+   },
+   "modeTime": {
+    "follow": 25.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "fast": {
+   "name": "High speed 18 m/s (KE cap)",
+   "expect": "Rider faster than the 14.9 J speed: the glider is speed-capped and falls behind. Availability expected to fail; reported as the envelope.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 477,
+   "metrics": {
+    "avail": {
+     "value": 9.19,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 62.67,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.51,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 33.09,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.4,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 64.55,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 2.81,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "16 J / 11 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 95.92,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.94,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.68,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 9.19,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 62.67,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 0.51,
+     "pass": true
+    },
+    "azRange": {
+     "value": 33.09,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.4,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 64.55,
+     "pass": true
+    }
+   },
+   "std12Passed": 9,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.18,
+    "backgroundRms": 0.18
+   },
+   "extremes": {
+    "agl": [
+     1.94,
+     2.6
+    ],
+    "airspeed": [
+     13.15,
+     15.22
+    ],
+    "groundSpeed": [
+     13.55,
+     14.68
+    ],
+    "headDist": [
+     4.97,
+     132.88
+    ],
+    "keSnow": [
+     11.42,
+     13.4
+    ],
+    "pElec": [
+     0.28,
+     20.85
+    ],
+    "energyWh": 0.019,
+    "regenJ": 11,
+    "motorJ": 15
+   },
+   "modeTime": {
+    "follow": 25.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "steep": {
+   "name": "Steep 26° pitch at 14 m/s: regenerative braking",
+   "expect": "Energy surplus: wind-milling regen + spoilerons; no overspeed, footage kept.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 177,
+   "metrics": {
+    "avail": {
+     "value": 9.99,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 95.07,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.51,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 57.59,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.04,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 82.46,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 1.72,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "4 J / 27 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 98.24,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.88,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 5.39,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.48,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 9.99,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 95.07,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 0.51,
+     "pass": true
+    },
+    "azRange": {
+     "value": 57.59,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.04,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 82.46,
+     "pass": true
+    }
+   },
+   "std12Passed": 10,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.47,
+    "backgroundRms": 0.74
+   },
+   "extremes": {
+    "agl": [
+     1.88,
+     2.6
+    ],
+    "airspeed": [
+     12.26,
+     15.62
+    ],
+    "groundSpeed": [
+     12.86,
+     14.48
+    ],
+    "headDist": [
+     5.39,
+     66.51
+    ],
+    "keSnow": [
+     10.29,
+     13.04
+    ],
+    "pElec": [
+     -0.14,
+     10.62
+    ],
+    "energyWh": 0.012,
+    "regenJ": 27,
+    "motorJ": 4
+   },
+   "modeTime": {
+    "follow": 25.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "flat": {
+   "name": "Gentle 6° catwalk at 9 m/s",
+   "expect": "Slope below the glide angle: motor assist. Power and endurance.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 150,
+   "metrics": {
+    "avail": {
+     "value": 98.64,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 700.35,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.51,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.97,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 5.99,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 53.52,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 3.85,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "33 J / 1 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 74.58,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.15,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.73,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 9.81,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 98.64,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 700.35,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.51,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.97,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 5.99,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 53.52,
+     "pass": true
+    }
+   },
+   "std12Passed": 12,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.86,
+    "backgroundRms": 0.51
+   },
+   "extremes": {
+    "agl": [
+     2.15,
+     2.69
+    ],
+    "airspeed": [
+     8.01,
+     10.71
+    ],
+    "groundSpeed": [
+     8.44,
+     9.81
+    ],
+    "headDist": [
+     4.73,
+     7.75
+    ],
+    "keSnow": [
+     4.43,
+     5.99
+    ],
+    "pElec": [
+     1.87,
+     9.83
+    ],
+    "energyWh": 0.026,
+    "regenJ": 1,
+    "motorJ": 31
+   },
+   "modeTime": {
+    "follow": 25.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "headwind": {
+   "name": "6 m/s upslope headwind",
+   "expect": "Airspeed ≈18 m/s: high drag, motor makes up the deficit.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 268,
+   "metrics": {
+    "avail": {
+     "value": 91.85,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 464.41,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.6,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.4,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.18,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 23.48,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 11.62,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "228 J / 3 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 30.14,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.04,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.94,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 91.85,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 464.41,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.6,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.4,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.18,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 23.48,
+     "pass": false
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.64,
+    "backgroundRms": 1.08
+   },
+   "extremes": {
+    "agl": [
+     1.04,
+     3.44
+    ],
+    "airspeed": [
+     16.25,
+     21.48
+    ],
+    "groundSpeed": [
+     10.78,
+     14
+    ],
+    "headDist": [
+     4.94,
+     11.12
+    ],
+    "keSnow": [
+     7.22,
+     12.18
+    ],
+    "pElec": [
+     0.52,
+     25.8
+    ],
+    "energyWh": 0.08,
+    "regenJ": 3,
+    "motorJ": 227
+   },
+   "modeTime": {
+    "follow": 25.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "tailwind": {
+   "name": "6 m/s downslope tailwind",
+   "expect": "Airspeed only ≈6 m/s, below 1.2 Vs: spread wing + S-turns, or stall.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 245,
+   "metrics": {
+    "avail": {
+     "value": 4.72,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 26,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.86,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 65.11,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": false,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.41,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 39.57,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 5.99,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "133 J / 0 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 40,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 8.26,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 131,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.44,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 3.39,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.12,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "tipped": {
+     "value": "no",
+     "unit": "",
+     "pass": true,
+     "criterion": "no tip-over"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 4.72,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 26,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 0.86,
+     "pass": true
+    },
+    "azRange": {
+     "value": 65.11,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 3,
+     "pass": false
+    },
+    "keMax": {
+     "value": 12.41,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 39.57,
+     "pass": false
+    }
+   },
+   "std12Passed": 8,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.78,
+    "backgroundRms": 1.23
+   },
+   "extremes": {
+    "agl": [
+     0.17,
+     2.98
+    ],
+    "airspeed": [
+     0,
+     10.8
+    ],
+    "groundSpeed": [
+     0,
+     14.12
+    ],
+    "headDist": [
+     3.39,
+     275.92
+    ],
+    "keSnow": [
+     0,
+     12.41
+    ],
+    "pElec": [
+     1.83,
+     43.78
+    ],
+    "energyWh": 0.053,
+    "regenJ": 0,
+    "motorJ": 133
+   },
+   "modeTime": {
+    "follow": 0.6,
+    "fail-safe": 0.5,
+    "flare": 4.66,
+    "hover-land": 3.6,
+    "perched": 15.66
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    },
+    {
+     "t": 0.6,
+     "type": "tailwindAbort",
+     "severity": "warning",
+     "en": "Tailwind >5 m/s: the airspeed window closes; turn away from the track and land to wait (+1 action to collect)"
+    },
+    {
+     "t": 5.76,
+     "type": "hoverland",
+     "severity": "info",
+     "en": "Hover descent, tail-first onto the snow"
+    },
+    {
+     "t": 9.36,
+     "type": "perched",
+     "severity": "info",
+     "en": "Perched upright in the snow: zero power, still filming the stopped rider"
+    }
+   ],
+   "validUntil": null
+  },
+  "gust": {
+   "name": "Crosswind 6 m/s + 7 m/s gust",
+   "expect": "A light glider rides the gusts: tracking error, stall, footage jitter.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 295,
+   "metrics": {
+    "avail": {
+     "value": 86.01,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 466.4,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.57,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.57,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.44,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 33.74,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 7.41,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "167 J / 23 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 53.56,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.3,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.95,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.14,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 86.01,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 466.4,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.57,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.57,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.44,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 33.74,
+     "pass": false
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.65,
+    "backgroundRms": 0.97
+   },
+   "extremes": {
+    "agl": [
+     1.3,
+     3.16
+    ],
+    "airspeed": [
+     8.97,
+     20.37
+    ],
+    "groundSpeed": [
+     10.73,
+     14.14
+    ],
+    "headDist": [
+     4.95,
+     11.23
+    ],
+    "keSnow": [
+     7.17,
+     12.44
+    ],
+    "pElec": [
+     -0.4,
+     35.34
+    ],
+    "energyWh": 0.062,
+    "regenJ": 23,
+    "motorJ": 166
+   },
+   "modeTime": {
+    "follow": 30.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "stop": {
+   "name": "Mid-run stop 14 s: upright perch and autonomous relaunch",
+   "expect": "Stop → back-transition → tail-first perch in the snow (0 W, still filming) → rider leaves → vertical hop and catch-up. Fail: tip-over, transition loss >2 m, no catch-up.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 550,
+   "metrics": {
+    "avail": {
+     "value": 61.32,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 411.79,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.62,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 80.24,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.49,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 44.26,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 5.12,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "205 J / 9 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 69.75,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 7.84,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 130.95,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.65,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 3.48,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.17,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "transLoss": {
+     "value": 0,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤2 m (I-03 kill line)"
+    },
+    "tipped": {
+     "value": "no",
+     "unit": "",
+     "pass": true,
+     "criterion": "no tip-over"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 61.32,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 411.79,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.62,
+     "pass": true
+    },
+    "azRange": {
+     "value": 80.24,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.49,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 44.26,
+     "pass": false
+    }
+   },
+   "std12Passed": 10,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.77,
+    "backgroundRms": 1.27
+   },
+   "extremes": {
+    "agl": [
+     0.16,
+     7.19
+    ],
+    "airspeed": [
+     0,
+     16.3
+    ],
+    "groundSpeed": [
+     0,
+     14.17
+    ],
+    "headDist": [
+     3.48,
+     21.06
+    ],
+    "keSnow": [
+     0,
+     12.49
+    ],
+    "pElec": [
+     0.12,
+     47.52
+    ],
+    "energyWh": 0.082,
+    "regenJ": 9,
+    "motorJ": 204
+   },
+   "modeTime": {
+    "follow": 25.98,
+    "flare": 4,
+    "hover-land": 1.9,
+    "perched": 6.2,
+    "takeoff": 1.24,
+    "transition": 0.7
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    },
+    {
+     "t": 14.76,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stop detected → stop behaviour"
+    },
+    {
+     "t": 14.76,
+     "type": "flare",
+     "severity": "info",
+     "en": "Back-transition to hover for an upright perch"
+    },
+    {
+     "t": 18.77,
+     "type": "hoverland",
+     "severity": "info",
+     "en": "Hover descent, tail-first onto the snow"
+    },
+    {
+     "t": 20.67,
+     "type": "perched",
+     "severity": "info",
+     "en": "Perched upright in the snow: zero power, still filming the stopped rider"
+    },
+    {
+     "t": 26.88,
+     "type": "move",
+     "severity": "info",
+     "en": "Rider moving again"
+    },
+    {
+     "t": 26.88,
+     "type": "takeoff",
+     "severity": "info",
+     "en": "Rider moving: vertical take-off, hovering until the rider has passed"
+    },
+    {
+     "t": 28.12,
+     "type": "transition",
+     "severity": "info",
+     "en": "Transition to wing-borne flight"
+    },
+    {
+     "t": 28.82,
+     "type": "wingborne",
+     "severity": "info",
+     "en": "Wing-borne (transition height loss 0.00 m)"
+    }
+   ],
+   "validUntil": null
+  },
+  "stop_windy": {
+   "name": "Mid-run stop in 8 m/s wind (perch unsafe)",
+   "expect": "Gust estimate exceeds the tip-over threshold: no perch; wind-hover into the wind or orbit.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 437,
+   "metrics": {
+    "avail": {
+     "value": 90.73,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 450.42,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.65,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 97.53,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.66,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 24.66,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 10.96,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "268 J / 11 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 37.03,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.57,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 3.58,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.27,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0.04,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "tipped": {
+     "value": "no",
+     "unit": "",
+     "pass": true,
+     "criterion": "no tip-over"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 90.73,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 450.42,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.65,
+     "pass": true
+    },
+    "azRange": {
+     "value": 97.53,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.66,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 24.66,
+     "pass": false
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.93,
+    "backgroundRms": 1.2
+   },
+   "extremes": {
+    "agl": [
+     1.57,
+     4.6
+    ],
+    "airspeed": [
+     7.16,
+     23.79
+    ],
+    "groundSpeed": [
+     0.44,
+     14.27
+    ],
+    "headDist": [
+     3.58,
+     13.73
+    ],
+    "keSnow": [
+     0.01,
+     12.66
+    ],
+    "pElec": [
+     -0.17,
+     31.23
+    ],
+    "energyWh": 0.1,
+    "regenJ": 11,
+    "motorJ": 268
+   },
+   "modeTime": {
+    "follow": 27.92,
+    "wind-hover": 12.1
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    },
+    {
+     "t": 14.76,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stop detected → stop behaviour"
+    },
+    {
+     "t": 14.76,
+     "type": "windhover",
+     "severity": "info",
+     "en": "Too windy to perch: wing-borne wind-hover into the wind"
+    },
+    {
+     "t": 26.88,
+     "type": "move",
+     "severity": "info",
+     "en": "Rider moving again"
+    }
+   ],
+   "validUntil": null
+  },
+  "stop_forceperch": {
+   "name": "Perch forced in 11 m/s gusty wind (comparison)",
+   "expect": "Comparison: does an upright perch blow over in 11 m/s gusty wind? (at 8 m/s it stands with the span aligned to the wind, but the policy refuses on a 2.5σ gust margin)",
+   "compare": true,
+   "fault": false,
+   "computeMs": 351,
+   "metrics": {
+    "avail": {
+     "value": 21.88,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 277.7,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.67,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 106.4,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": false,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 11.89,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 20.62,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 13.54,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "276 J / 1 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 19.89,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 8.28,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 112.97,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.28,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.81,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 13.83,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "tipped": {
+     "value": "yes",
+     "unit": "",
+     "pass": false,
+     "criterion": "no tip-over"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 21.88,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 277.7,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 0.67,
+     "pass": true
+    },
+    "azRange": {
+     "value": 106.4,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 3,
+     "pass": false
+    },
+    "keMax": {
+     "value": 11.89,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 20.62,
+     "pass": false
+    }
+   },
+   "std12Passed": 8,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.53,
+    "backgroundRms": 1.17
+   },
+   "extremes": {
+    "agl": [
+     0.17,
+     7.87
+    ],
+    "airspeed": [
+     0,
+     27.47
+    ],
+    "groundSpeed": [
+     0,
+     13.83
+    ],
+    "headDist": [
+     4.04,
+     144.54
+    ],
+    "keSnow": [
+     0,
+     11.89
+    ],
+    "pElec": [
+     0.19,
+     43.7
+    ],
+    "energyWh": 0.095,
+    "regenJ": 1,
+    "motorJ": 276
+   },
+   "modeTime": {
+    "follow": 14.78,
+    "flare": 6.14,
+    "hover-land": 2.14,
+    "perched": 1.98,
+    "tipped": 14.98
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    },
+    {
+     "t": 14.76,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stop detected → stop behaviour"
+    },
+    {
+     "t": 14.76,
+     "type": "flare",
+     "severity": "info",
+     "en": "Back-transition to hover for an upright perch"
+    },
+    {
+     "t": 20.9,
+     "type": "hoverland",
+     "severity": "info",
+     "en": "Hover descent, tail-first onto the snow"
+    },
+    {
+     "t": 23.06,
+     "type": "perched",
+     "severity": "info",
+     "en": "Perched upright in the snow: zero power, still filming the stopped rider"
+    },
+    {
+     "t": 25.03,
+     "type": "tipover",
+     "severity": "warning",
+     "en": "A gust blew the perched glider over: needs a manual pick-up (+1 action)"
+    },
+    {
+     "t": 26.88,
+     "type": "move",
+     "severity": "info",
+     "en": "Rider moving again"
+    }
+   ],
+   "validUntil": null
+  },
+  "fall": {
+   "name": "Rider fall at 12 m/s",
+   "expect": "Fall detected → zoom up and away → perch ≥4 m away and film. Must not strike the rider; KE ≤14.9 J.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 248,
+   "metrics": {
+    "avail": {
+     "value": 82,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 513.85,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.53,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.73,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.4,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 50.32,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 4.23,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "106 J / 5 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 72.9,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 6.3,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 81.01,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.11,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.12,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "tipped": {
+     "value": "no",
+     "unit": "",
+     "pass": true,
+     "criterion": "no tip-over"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 82,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 513.85,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.53,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.73,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.4,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 50.32,
+     "pass": true
+    }
+   },
+   "std12Passed": 12,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 1.03,
+    "backgroundRms": 1.32
+   },
+   "extremes": {
+    "agl": [
+     0.17,
+     2.78
+    ],
+    "airspeed": [
+     0,
+     14.23
+    ],
+    "groundSpeed": [
+     0,
+     14.12
+    ],
+    "headDist": [
+     4.97,
+     18.37
+    ],
+    "keSnow": [
+     0,
+     12.4
+    ],
+    "pElec": [
+     0.33,
+     22.53
+    ],
+    "energyWh": 0.045,
+    "regenJ": 5,
+    "motorJ": 105
+   },
+   "modeTime": {
+    "follow": 12.4,
+    "flare": 3.46,
+    "hover-land": 2.84,
+    "perched": 6.32
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    },
+    {
+     "t": 12.39,
+     "type": "stop",
+     "severity": "info",
+     "en": "Fall detected (tag IMU) → stop behaviour"
+    },
+    {
+     "t": 12.39,
+     "type": "flare",
+     "severity": "info",
+     "en": "Back-transition to hover for an upright perch"
+    },
+    {
+     "t": 15,
+     "type": "scope",
+     "severity": "invalid",
+     "en": "Rider tumbling/lying pose not modelled beyond this"
+    },
+    {
+     "t": 15.85,
+     "type": "hoverland",
+     "severity": "info",
+     "en": "Hover descent, tail-first onto the snow"
+    },
+    {
+     "t": 18.68,
+     "type": "perched",
+     "severity": "info",
+     "en": "Perched upright in the snow: zero power, still filming the stopped rider"
+    }
+   ],
+   "validUntil": 15
+  },
+  "trees": {
+   "name": "Narrow tree-lined run + a neighbour skier crossing",
+   "expect": "Rear-left station near the tree line; a neighbour crosses below. Forward ranging: ≥1.5 m from trees, ≥2 m from people.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 420,
+   "metrics": {
+    "avail": {
+     "value": 77.75,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 446.97,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.63,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 76.1,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.43,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 47.97,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 4.55,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "71 J / 13 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 73.42,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.91,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.14,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "treeMin": {
+     "value": 1.99,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "neighbourMin": {
+     "value": 2.49,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥2 m (ASSUMED)"
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 77.75,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 446.97,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.63,
+     "pass": true
+    },
+    "azRange": {
+     "value": 76.1,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.43,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 47.97,
+     "pass": true
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.74,
+    "backgroundRms": 1.38
+   },
+   "extremes": {
+    "agl": [
+     1.91,
+     3.09
+    ],
+    "airspeed": [
+     8.93,
+     15.4
+    ],
+    "groundSpeed": [
+     9.61,
+     14.14
+    ],
+    "headDist": [
+     4.97,
+     14.66
+    ],
+    "keSnow": [
+     5.74,
+     12.43
+    ],
+    "pElec": [
+     -0.18,
+     36.39
+    ],
+    "energyWh": 0.038,
+    "regenJ": 12,
+    "motorJ": 70
+   },
+   "modeTime": {
+    "follow": 30.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    },
+    {
+     "t": 7.01,
+     "type": "avoid",
+     "severity": "info",
+     "en": "Forward ranging sees an obstacle: avoiding"
+    }
+   ],
+   "validUntil": null
+  },
+  "linkloss": {
+   "name": "UWB/radio/visual lock lost together",
+   "expect": "Dead-reckon 1.5 s → turn away from the predicted track → flare → upright landing to wait. Fail: landing <5 m from the track or hard landing.",
+   "compare": false,
+   "fault": true,
+   "computeMs": 182,
+   "metrics": {
+    "avail": {
+     "value": 46.04,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 457.9,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.57,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 112.68,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": null,
+     "criterion": "≤1.5 kg (fault scenario: not judged)"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤5 % (fault scenario: not judged)"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤30 s (fault scenario: not judged)"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": null,
+     "criterion": "≤2 - (fault scenario: not judged)"
+    },
+    "keMax": {
+     "value": 12.4,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": null,
+     "criterion": "≤3 L (assumed) (fault scenario: not judged)"
+    },
+    "endurance": {
+     "value": 51.28,
+     "unit": "min",
+     "pass": null,
+     "criterion": "≥45 min (fault scenario: not judged)"
+    },
+    "pFollow": {
+     "value": 4.11,
+     "unit": "W",
+     "pass": null,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases) (fault scenario: not judged)"
+    },
+    "motorJ": {
+     "value": "104 J / 5 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 75.11,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 6.34,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 78.45,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.11,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 4.97,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.12,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "tipped": {
+     "value": "no",
+     "unit": "",
+     "pass": null,
+     "criterion": "no tip-over (fault scenario: not judged)"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "failsafeTrack": {
+     "value": 22.57,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥5 m (ASSUMED)"
+    },
+    "failsafeTime": {
+     "value": 8.39,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 46.04,
+     "pass": null
+    },
+    "pxMed": {
+     "value": 457.9,
+     "pass": null
+    },
+    "jitterRms": {
+     "value": 0.57,
+     "pass": null
+    },
+    "azRange": {
+     "value": 112.68,
+     "pass": null
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": null
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": null
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": null
+    },
+    "ops": {
+     "value": 3,
+     "pass": null
+    },
+    "keMax": {
+     "value": 12.4,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": null
+    },
+    "endurance": {
+     "value": 51.28,
+     "pass": null
+    }
+   },
+   "std12Passed": 2,
+   "std12Judged": 2,
+   "footageStability": {
+    "subjectRms": 0.74,
+    "backgroundRms": 0.98
+   },
+   "extremes": {
+    "agl": [
+     0.17,
+     2.78
+    ],
+    "airspeed": [
+     0,
+     14.71
+    ],
+    "groundSpeed": [
+     0,
+     14.12
+    ],
+    "headDist": [
+     4.97,
+     127.18
+    ],
+    "keSnow": [
+     0,
+     12.4
+    ],
+    "pElec": [
+     0.33,
+     29.05
+    ],
+    "energyWh": 0.045,
+    "regenJ": 5,
+    "motorJ": 103
+   },
+   "modeTime": {
+    "follow": 13.5,
+    "fail-safe": 0.56,
+    "flare": 3.62,
+    "hover-land": 2.72,
+    "perched": 4.62
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    },
+    {
+     "t": 12,
+     "type": "linkLost",
+     "severity": "warning",
+     "en": "UWB/radio link and visual lock lost together: dead-reckoning the rider track"
+    },
+    {
+     "t": 13.5,
+     "type": "failsafe",
+     "severity": "warning",
+     "en": "Link lost >1.5 s: turn away from the predicted track, flare and land upright on the snow to wait"
+    },
+    {
+     "t": 17.68,
+     "type": "hoverland",
+     "severity": "info",
+     "en": "Hover descent, tail-first onto the snow"
+    },
+    {
+     "t": 20.39,
+     "type": "perched",
+     "severity": "info",
+     "en": "Perched upright in the snow: zero power, still filming the stopped rider"
+    }
+   ],
+   "validUntil": null
+  },
+  "moguls": {
+   "name": "Moguls 24°, 4.5 m/s",
+   "expect": "Reference far below stall: S-turns (energy is plentiful). Jitter, availability, height above the bumps.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 243,
+   "metrics": {
+    "avail": {
+     "value": 66.19,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 539.12,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.17,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 129.19,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 6.68,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 66.56,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 2.66,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "15 J / 14 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 87.93,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.26,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 3.34,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 10.37,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 66.19,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 539.12,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.17,
+     "pass": true
+    },
+    "azRange": {
+     "value": 129.19,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 6.68,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 66.56,
+     "pass": true
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 1.76,
+    "backgroundRms": 3.95
+   },
+   "extremes": {
+    "agl": [
+     1.26,
+     4.81
+    ],
+    "airspeed": [
+     5.05,
+     9.21
+    ],
+    "groundSpeed": [
+     5.5,
+     10.37
+    ],
+    "headDist": [
+     3.34,
+     10.33
+    ],
+    "keSnow": [
+     1.88,
+     6.68
+    ],
+    "pElec": [
+     1.46,
+     18
+    ],
+    "energyWh": 0.018,
+    "regenJ": 14,
+    "motorJ": 15
+   },
+   "modeTime": {
+    "follow": 25.02
+   },
+   "events": [
+    {
+     "t": 0,
+     "type": "follow",
+     "severity": "info",
+     "en": "Already following (scenario starts in steady follow)"
+    }
+   ],
+   "validUntil": null
+  },
+  "cycle": {
+   "name": "Full run: plant at the top → auto take-off on push-off → follow → land beside you at the lift (2 m/s)",
+   "expect": "Harmonised standstill: plant 4 s + wait for touchdown + pick-up/stow 5 s ≤30 s; 2 actions.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 568,
+   "metrics": {
+    "avail": {
+     "value": 65.19,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 359.37,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.76,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 68.77,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 15.96,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.67,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 51.33,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 4.11,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "228 J / 13 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 75.47,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 9.76,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 173.51,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.35,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 1.82,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.27,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "transLoss": {
+     "value": 0,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤2 m (I-03 kill line)"
+    },
+    "tipped": {
+     "value": "no",
+     "unit": "",
+     "pass": true,
+     "criterion": "no tip-over"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "endWait": {
+     "value": 6.96,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤20 s"
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 65.19,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 359.37,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.76,
+     "pass": true
+    },
+    "azRange": {
+     "value": 68.77,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 15.96,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.67,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 51.33,
+     "pass": true
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 1.5,
+    "backgroundRms": 1.79
+   },
+   "extremes": {
+    "agl": [
+     0.16,
+     7.34
+    ],
+    "airspeed": [
+     0,
+     14.71
+    ],
+    "groundSpeed": [
+     0,
+     14.27
+    ],
+    "headDist": [
+     1.82,
+     20.34
+    ],
+    "keSnow": [
+     0,
+     12.67
+    ],
+    "pElec": [
+     0.3,
+     47.51
+    ],
+    "energyWh": 0.092,
+    "regenJ": 13,
+    "motorJ": 227
+   },
+   "modeTime": {
+    "stowed": 2.5,
+    "perched": 4.62,
+    "takeoff": 1.28,
+    "transition": 0.74,
+    "follow": 27.64,
+    "flare": 4.06,
+    "hover-land": 3.68,
+    "landed": 3.5
+   },
+   "events": [
+    {
+     "t": 2.5,
+     "type": "planted",
+     "severity": "info",
+     "en": "User plants the glider upright in the snow (action 1)"
+    },
+    {
+     "t": 6.88,
+     "type": "move",
+     "severity": "info",
+     "en": "Rider moving again"
+    },
+    {
+     "t": 7.12,
+     "type": "takeoff",
+     "severity": "info",
+     "en": "Rider moving: vertical take-off, hovering until the rider has passed"
+    },
+    {
+     "t": 8.39,
+     "type": "transition",
+     "severity": "info",
+     "en": "Transition to wing-borne flight"
+    },
+    {
+     "t": 9.12,
+     "type": "wingborne",
+     "severity": "info",
+     "en": "Wing-borne (transition height loss 0.00 m)"
+    },
+    {
+     "t": 36.77,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stopped inside the lift geofence → land beside the rider"
+    },
+    {
+     "t": 36.77,
+     "type": "flare",
+     "severity": "info",
+     "en": "Back-transition (recovery landing)"
+    },
+    {
+     "t": 40.84,
+     "type": "hoverland",
+     "severity": "info",
+     "en": "Hover descent, tail-first onto the snow"
+    },
+    {
+     "t": 44.52,
+     "type": "landed",
+     "severity": "info",
+     "en": "Landed upright beside the rider: waiting to be stowed (action 2)"
+    }
+   ],
+   "validUntil": null
+  },
+  "cycle_w5": {
+   "name": "Full run, 5 m/s gusty",
+   "expect": "As above, 5 m/s.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 445,
+   "metrics": {
+    "avail": {
+     "value": 71.12,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 437.76,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.75,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 78.63,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.08,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.67,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 49.33,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 4.36,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "245 J / 16 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 70.8,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 10.8,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 180.22,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.58,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 1.71,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.27,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "transLoss": {
+     "value": 0,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤2 m (I-03 kill line)"
+    },
+    "tipped": {
+     "value": "no",
+     "unit": "",
+     "pass": true,
+     "criterion": "no tip-over"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "endWait": {
+     "value": 8.08,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤20 s"
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 71.12,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 437.76,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.75,
+     "pass": true
+    },
+    "azRange": {
+     "value": 78.63,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17.08,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.67,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 49.33,
+     "pass": true
+    }
+   },
+   "std12Passed": 11,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 2.22,
+    "backgroundRms": 2.5
+   },
+   "extremes": {
+    "agl": [
+     0.16,
+     5.89
+    ],
+    "airspeed": [
+     0,
+     15.05
+    ],
+    "groundSpeed": [
+     0,
+     14.27
+    ],
+    "headDist": [
+     1.71,
+     16.7
+    ],
+    "keSnow": [
+     0,
+     12.67
+    ],
+    "pElec": [
+     0.03,
+     47.42
+    ],
+    "energyWh": 0.096,
+    "regenJ": 16,
+    "motorJ": 244
+   },
+   "modeTime": {
+    "stowed": 2.5,
+    "perched": 4.62,
+    "takeoff": 1.24,
+    "transition": 0.68,
+    "follow": 27.74,
+    "flare": 4.84,
+    "hover-land": 4.04,
+    "landed": 2.36
+   },
+   "events": [
+    {
+     "t": 2.5,
+     "type": "planted",
+     "severity": "info",
+     "en": "User plants the glider upright in the snow (action 1)"
+    },
+    {
+     "t": 6.88,
+     "type": "move",
+     "severity": "info",
+     "en": "Rider moving again"
+    },
+    {
+     "t": 7.12,
+     "type": "takeoff",
+     "severity": "info",
+     "en": "Rider moving: vertical take-off, hovering until the rider has passed"
+    },
+    {
+     "t": 8.36,
+     "type": "transition",
+     "severity": "info",
+     "en": "Transition to wing-borne flight"
+    },
+    {
+     "t": 9.03,
+     "type": "wingborne",
+     "severity": "info",
+     "en": "Wing-borne (transition height loss 0.00 m)"
+    },
+    {
+     "t": 36.77,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stopped inside the lift geofence → land beside the rider"
+    },
+    {
+     "t": 36.77,
+     "type": "flare",
+     "severity": "info",
+     "en": "Back-transition (recovery landing)"
+    },
+    {
+     "t": 41.61,
+     "type": "hoverland",
+     "severity": "info",
+     "en": "Hover descent, tail-first onto the snow"
+    },
+    {
+     "t": 45.64,
+     "type": "landed",
+     "severity": "info",
+     "en": "Landed upright beside the rider: waiting to be stowed (action 2)"
+    }
+   ],
+   "validUntil": null
+  },
+  "cycle_w9": {
+   "name": "Full run, 9 m/s gusty",
+   "expect": "Upper wind of the harmonised 90th percentile: take-off, transition, landing beside the rider.",
+   "compare": false,
+   "fault": false,
+   "computeMs": 534,
+   "metrics": {
+    "avail": {
+     "value": 53.98,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 307.83,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.62,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 77,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 13.19,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.56,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 18.63,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 15.22,
+     "unit": "W",
+     "pass": false,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "523 J / 3 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 17.46,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 9.36,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 142.84,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 1.56,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headLaunch": {
+     "value": 0.14,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.5 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 4.04,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 14.21,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0.1,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "transLoss": {
+     "value": 0,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤2 m (I-03 kill line)"
+    },
+    "tipped": {
+     "value": "no",
+     "unit": "",
+     "pass": true,
+     "criterion": "no tip-over"
+    },
+    "tipWind": {
+     "value": "8.2 / 11.7 m/s",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "endWait": {
+     "value": 4.19,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤20 s"
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": 53.98,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 307.83,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 0.62,
+     "pass": true
+    },
+    "azRange": {
+     "value": 77,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 13.19,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.56,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 18.63,
+     "pass": false
+    }
+   },
+   "std12Passed": 10,
+   "std12Judged": 12,
+   "footageStability": {
+    "subjectRms": 0.47,
+    "backgroundRms": 0.7
+   },
+   "extremes": {
+    "agl": [
+     0.17,
+     3.49
+    ],
+    "airspeed": [
+     0,
+     25.65
+    ],
+    "groundSpeed": [
+     0,
+     14.21
+    ],
+    "headDist": [
+     0.34,
+     17.85
+    ],
+    "keSnow": [
+     0,
+     12.56
+    ],
+    "pElec": [
+     -0.27,
+     41.85
+    ],
+    "energyWh": 0.177,
+    "regenJ": 3,
+    "motorJ": 523
+   },
+   "modeTime": {
+    "stowed": 2.5,
+    "takeoff": 4.38,
+    "follow": 29.9,
+    "flare": 2.6,
+    "hover-land": 2.38,
+    "landed": 6.26
+   },
+   "events": [
+    {
+     "t": 2.5,
+     "type": "palmLaunch",
+     "severity": "info",
+     "en": "Too windy to stand it up: palm launch (action 1), hover-hold until the rider leaves"
+    },
+    {
+     "t": 6.88,
+     "type": "move",
+     "severity": "info",
+     "en": "Rider moving again"
+    },
+    {
+     "t": 6.88,
+     "type": "transition",
+     "severity": "info",
+     "en": "Transition to wing-borne flight"
+    },
+    {
+     "t": 6.88,
+     "type": "wingborne",
+     "severity": "info",
+     "en": "Wing-borne (transition height loss 0.00 m)"
+    },
+    {
+     "t": 36.77,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stopped inside the lift geofence → land beside the rider"
+    },
+    {
+     "t": 36.77,
+     "type": "flare",
+     "severity": "info",
+     "en": "Back-transition (recovery landing)"
+    },
+    {
+     "t": 39.36,
+     "type": "hoverland",
+     "severity": "info",
+     "en": "Hover descent, tail-first onto the snow"
+    },
+    {
+     "t": 41.75,
+     "type": "landed",
+     "severity": "info",
+     "en": "Landed upright beside the rider: waiting to be stowed (action 2)"
+    }
+   ],
+   "validUntil": null
+  },
+  "dock_pack": {
+   "name": "Variant: hover-dock into a pack-side cradle (3 m/s)",
+   "expect": "S2-02 zero-action stow: props ≥0.5 m from the helmet? alignment ≤6 cm?",
+   "compare": true,
+   "fault": false,
+   "computeMs": 243,
+   "metrics": {
+    "avail": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pxMed": {
+     "value": "n/a",
+     "unit": "px",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "azRange": {
+     "value": "n/a",
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 0.07,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": "n/a",
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": "n/a",
+     "unit": "W",
+     "pass": null,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "240 J / 0 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 16.02,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 1.09,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "dockErr": {
+     "value": 0.15,
+     "unit": "cm",
+     "pass": true,
+     "criterion": "≤6 cm (funnel, ASSUMED)"
+    },
+    "dockHead": {
+     "value": 0.18,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.5 m (S2-02 kill line)"
+    },
+    "dockHand": {
+     "value": 0.5,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": "n/a",
+     "pass": null
+    },
+    "pxMed": {
+     "value": "n/a",
+     "pass": null
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "pass": null
+    },
+    "azRange": {
+     "value": "n/a",
+     "pass": null
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 0.07,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": "n/a",
+     "pass": null
+    }
+   },
+   "std12Passed": 7,
+   "std12Judged": 7,
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null
+   },
+   "extremes": {
+    "agl": [
+     1,
+     2
+    ],
+    "airspeed": [
+     2.32,
+     4.44
+    ],
+    "groundSpeed": [
+     0,
+     1.09
+    ],
+    "headDist": [
+     0.36,
+     3.29
+    ],
+    "keSnow": [
+     0,
+     0.07
+    ],
+    "pElec": [
+     3.03,
+     18.91
+    ],
+    "energyWh": 0.078,
+    "regenJ": 0,
+    "motorJ": 239
+   },
+   "modeTime": {
+    "pack-dock": 16.02
+   },
+   "events": [
+    {
+     "t": 0.8,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stop detected → stop behaviour"
+    },
+    {
+     "t": 9.67,
+     "type": "dockTouch",
+     "severity": "info",
+     "en": "Tail at cradle height, horizontal error 0 cm"
+    }
+   ],
+   "validUntil": null
+  },
+  "dock_pack_w9": {
+   "name": "Variant: pack-cradle dock (9 m/s)",
+   "expect": "As above, 9 m/s gusty.",
+   "compare": true,
+   "fault": false,
+   "computeMs": 288,
+   "metrics": {
+    "avail": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pxMed": {
+     "value": "n/a",
+     "unit": "px",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "azRange": {
+     "value": "n/a",
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 0.35,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": "n/a",
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    "pFollow": {
+     "value": "n/a",
+     "unit": "W",
+     "pass": null,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "239 J / 0 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 16.02,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 2.36,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "dockErr": {
+     "value": 92.96,
+     "unit": "cm",
+     "pass": false,
+     "criterion": "≤6 cm (funnel, ASSUMED)"
+    },
+    "dockHead": {
+     "value": -0.17,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.5 m (S2-02 kill line)"
+    },
+    "dockHand": {
+     "value": 0.29,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.3 m"
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": "n/a",
+     "pass": null
+    },
+    "pxMed": {
+     "value": "n/a",
+     "pass": null
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "pass": null
+    },
+    "azRange": {
+     "value": "n/a",
+     "pass": null
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 0.35,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": "n/a",
+     "pass": null
+    }
+   },
+   "std12Passed": 7,
+   "std12Judged": 7,
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null
+   },
+   "extremes": {
+    "agl": [
+     0.88,
+     2.01
+    ],
+    "airspeed": [
+     3.88,
+     12.81
+    ],
+    "groundSpeed": [
+     0.02,
+     2.36
+    ],
+    "headDist": [
+     0.11,
+     3.29
+    ],
+    "keSnow": [
+     0,
+     0.35
+    ],
+    "pElec": [
+     3.09,
+     29.69
+    ],
+    "energyWh": 0.078,
+    "regenJ": 0,
+    "motorJ": 239
+   },
+   "modeTime": {
+    "pack-dock": 16.02
+   },
+   "events": [
+    {
+     "t": 0.8,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stop detected → stop behaviour"
+    },
+    {
+     "t": 9.92,
+     "type": "dockTouch",
+     "severity": "info",
+     "en": "Tail at cradle height, horizontal error 93 cm"
+    }
+   ],
+   "validUntil": null
+  },
+  "droplaunch": {
+   "name": "Variant: release from the pack top while skiing (9 m/s, into the wake)",
+   "expect": "Zero-action launch idea: can it fly out of the rider’s wake without touching the head or the snow?",
+   "compare": true,
+   "fault": false,
+   "computeMs": 157,
+   "metrics": {
+    "avail": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": "n/a",
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": "n/a",
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.2,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 8.39,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.32,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 68.28,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "pFollow": {
+     "value": 2.54,
+     "unit": "W",
+     "pass": true,
+     "criterion": "≤5 W (ASSUMED: lets 8.5 Wh reach ≈45 min incl. hover phases)"
+    },
+    "motorJ": {
+     "value": "8 J / 5 J",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    "gravityShare": {
+     "value": 95.37,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverTime": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "hoverJ": {
+     "value": 0,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "aglMin": {
+     "value": 2.37,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "headMin": {
+     "value": 5.47,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "vMax": {
+     "value": 11.62,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤15.5 m/s"
+    },
+    "nearStall": {
+     "value": 0,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "dropFlew": {
+     "value": "yes",
+     "unit": "",
+     "pass": true,
+     "criterion": "yes"
+    },
+    "dropAGL": {
+     "value": 1.59,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1 m"
+    },
+    "dropHead": {
+     "value": 0.36,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.5 m"
+    }
+   },
+   "std12": {
+    "avail": {
+     "value": "n/a",
+     "pass": null
+    },
+    "pxMed": {
+     "value": "n/a",
+     "pass": null
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "pass": null
+    },
+    "azRange": {
+     "value": "n/a",
+     "pass": null
+    },
+    "addedMass": {
+     "value": 0.2,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 0,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 17,
+     "pass": true
+    },
+    "ops": {
+     "value": 2,
+     "pass": true
+    },
+    "keMax": {
+     "value": 8.39,
+     "pass": true
+    },
+    "packVol": {
+     "value": 2.32,
+     "pass": true
+    },
+    "endurance": {
+     "value": 68.28,
+     "pass": true
+    }
+   },
+   "std12Passed": 8,
+   "std12Judged": 8,
+   "footageStability": {
+    "subjectRms": 1.93,
+    "backgroundRms": 1.59
+   },
+   "extremes": {
+    "agl": [
+     1.59,
+     2.96
+    ],
+    "airspeed": [
+     7.91,
+     11.64
+    ],
+    "groundSpeed": [
+     7.61,
+     11.62
+    ],
+    "headDist": [
+     0.36,
+     6.62
+    ],
+    "keSnow": [
+     3.6,
+     8.39
+    ],
+    "pElec": [
+     1.43,
+     14
+    ],
+    "energyWh": 0.01,
+    "regenJ": 5,
+    "motorJ": 8
+   },
+   "modeTime": {
+    "drop-launch": 2.52,
+    "follow": 9.5
+   },
+   "events": [
+    {
+     "t": 2.5,
+     "type": "dropOK",
+     "severity": "info",
+     "en": "Released from the pack and climbed to the follow height"
+    }
+   ],
+   "validUntil": null
+  }
+ },
+ "measuredConstants": {
+  "setupTime_worst_s": 17.08,
+  "SETUP_SWEEP_inCode": 17,
+  "hoverJ_launch_worst": 77,
+  "hoverJ_endLanding_worst": 127,
+  "hoverJ_midPerchCycle": 131,
+  "HOVER_J_inCode": {
+   "launch": 77,
+   "perch": 130,
+   "end": 127
+  }
+ },
+ "variants": {
+  "v0.9_centreline": {
+   "note": "low-passed centre line, 7 m behind (first iteration)",
+   "over": {
+    "followMode": 0,
+    "stationD": 7,
+    "stationH": 3.5,
+    "cropHfov": 55,
+    "azAmp": 35,
+    "smoothTau": 1.6
+   },
+   "nominal": {
+    "avail": 20.79,
+    "pxMed": 192.55,
+    "jitterRms": 0.59,
+    "pFollow": 3.57,
+    "endurance": 56.12,
+    "keMax": 12,
+    "aglMin": 3.08
+   },
+   "short": {
+    "avail": 45.08,
+    "pxMed": 290.44,
+    "jitterRms": 0.67,
+    "pFollow": 2.46,
+    "endurance": 69.35,
+    "keMax": 7.43,
+    "aglMin": 3.22
+   },
+   "gust": {
+    "avail": 21.85,
+    "pxMed": 191.02,
+    "jitterRms": 0.61,
+    "pFollow": 5.05,
+    "endurance": 44.66,
+    "keMax": 12.15,
+    "aglMin": 2.23
+   }
+  },
+  "trail_k1": {
+   "note": "pure delayed own track",
+   "over": {
+    "trailK": 1
+   },
+   "nominal": {
+    "avail": 87.21,
+    "pxMed": 411.03,
+    "jitterRms": 0.53,
+    "pFollow": 4.69,
+    "endurance": 47.02,
+    "keMax": 12.59,
+    "aglMin": 1.83
+   },
+   "short": {
+    "avail": 73.3,
+    "pxMed": 515.93,
+    "jitterRms": 1.17,
+    "pFollow": 2.58,
+    "endurance": 67.59,
+    "keMax": 6.44,
+    "aglMin": 2.22
+   },
+   "gust": {
+    "avail": 71.82,
+    "pxMed": 379.63,
+    "jitterRms": 0.58,
+    "pFollow": 8.18,
+    "endurance": 31.26,
+    "keMax": 13.2,
+    "aglMin": 1.28
+   }
+  },
+  "trail_k0.5": {
+   "note": "half blend",
+   "over": {
+    "trailK": 0.5
+   },
+   "nominal": {
+    "avail": 73.95,
+    "pxMed": 458.05,
+    "jitterRms": 0.54,
+    "pFollow": 3.87,
+    "endurance": 53.36,
+    "keMax": 12.31,
+    "aglMin": 2.1
+   },
+   "short": {
+    "avail": 73.54,
+    "pxMed": 513.76,
+    "jitterRms": 1.14,
+    "pFollow": 2.52,
+    "endurance": 68.52,
+    "keMax": 6.44,
+    "aglMin": 2.26
+   },
+   "gust": {
+    "avail": 76.88,
+    "pxMed": 451.86,
+    "jitterRms": 0.58,
+    "pFollow": 5.98,
+    "endurance": 39.63,
+    "keMax": 12.36,
+    "aglMin": 1.32
+   }
+  },
+  "station_6m": {
+   "note": "farther station",
+   "over": {
+    "stationD": 6,
+    "stationH": 3
+   },
+   "nominal": {
+    "avail": 75.75,
+    "pxMed": 393.18,
+    "jitterRms": 0.52,
+    "pFollow": 4.27,
+    "endurance": 50.01,
+    "keMax": 12.64,
+    "aglMin": 2.55
+   },
+   "short": {
+    "avail": 77.38,
+    "pxMed": 466.96,
+    "jitterRms": 0.81,
+    "pFollow": 2.41,
+    "endurance": 70.05,
+    "keMax": 6.62,
+    "aglMin": 2.68
+   },
+   "gust": {
+    "avail": 74.22,
+    "pxMed": 388.99,
+    "jitterRms": 0.55,
+    "pFollow": 7.55,
+    "endurance": 33.27,
+    "keMax": 12.78,
+    "aglMin": 1.61
+   }
+  },
+  "station_4m": {
+   "note": "closer station",
+   "over": {
+    "stationD": 4,
+    "stationH": 2.4
+   },
+   "nominal": {
+    "avail": 87.28,
+    "pxMed": 502.18,
+    "jitterRms": 0.52,
+    "pFollow": 3.97,
+    "endurance": 52.44,
+    "keMax": 12.25,
+    "aglMin": 1.88
+   },
+   "short": {
+    "avail": 65.63,
+    "pxMed": 495.71,
+    "jitterRms": 1.35,
+    "pFollow": 2.68,
+    "endurance": 66.31,
+    "keMax": 6.47,
+    "aglMin": 2.01
+   },
+   "gust": {
+    "avail": 86.68,
+    "pxMed": 485.47,
+    "jitterRms": 0.58,
+    "pFollow": 7.29,
+    "endurance": 34.15,
+    "keMax": 12.55,
+    "aglMin": 1.13
+   }
+  },
+  "battery_6Wh": {
+   "note": "118 g airframe",
+   "over": {
+    "battWh": 6
+   },
+   "nominal": {
+    "avail": 85.08,
+    "pxMed": 474.33,
+    "jitterRms": 0.52,
+    "pFollow": 4.29,
+    "endurance": 35.24,
+    "keMax": 12.23,
+    "aglMin": 2.09
+   },
+   "short": {
+    "avail": 74.1,
+    "pxMed": 507.5,
+    "jitterRms": 1.13,
+    "pFollow": 2.55,
+    "endurance": 48.03,
+    "keMax": 6.07,
+    "aglMin": 2.25
+   },
+   "gust": {
+    "avail": 84.28,
+    "pxMed": 468.81,
+    "jitterRms": 0.58,
+    "pFollow": 7.44,
+    "endurance": 23.75,
+    "keMax": 12.22,
+    "aglMin": 1.27
+   }
+  },
+  "battery_10Wh": {
+   "note": "128 g airframe",
+   "over": {
+    "battWh": 10
+   },
+   "nominal": {
+    "avail": 85.08,
+    "pxMed": 466.64,
+    "jitterRms": 0.53,
+    "pFollow": 4.1,
+    "endurance": 60.44,
+    "keMax": 12.43,
+    "aglMin": 2.11
+   },
+   "short": {
+    "avail": 73.14,
+    "pxMed": 516.7,
+    "jitterRms": 1.2,
+    "pFollow": 2.61,
+    "endurance": 79.06,
+    "keMax": 6.66,
+    "aglMin": 2.24
+   },
+   "gust": {
+    "avail": 86.01,
+    "pxMed": 460.66,
+    "jitterRms": 0.57,
+    "pFollow": 7.34,
+    "endurance": 40,
+    "keMax": 12.59,
+    "aglMin": 1.33
+   }
+  },
+  "fixed_wing": {
+   "note": "no sweep morphing",
+   "over": {
+    "sweepOn": 0
+   },
+   "nominal": {
+    "avail": 85.74,
+    "pxMed": 471.64,
+    "jitterRms": 0.52,
+    "pFollow": 6.25,
+    "endurance": 38.34,
+    "keMax": 12.36,
+    "aglMin": 2.17
+   },
+   "short": {
+    "avail": 73.38,
+    "pxMed": 513.75,
+    "jitterRms": 1.15,
+    "pFollow": 2.66,
+    "endurance": 66.57,
+    "keMax": 6.42,
+    "aglMin": 2.25
+   },
+   "gust": {
+    "avail": 84.01,
+    "pxMed": 453.29,
+    "jitterRms": 0.61,
+    "pFollow": 10.86,
+    "endurance": 24.85,
+    "keMax": 12.52,
+    "aglMin": 1.22
+   }
+  },
+  "LD_minus30": {
+   "note": "brief-mandated sensitivity",
+   "over": {
+    "dragScale": 1.43
+   },
+   "nominal": {
+    "avail": 86.48,
+    "pxMed": 467.53,
+    "jitterRms": 0.52,
+    "pFollow": 6.13,
+    "endurance": 38.92,
+    "keMax": 12.35,
+    "aglMin": 2.07
+   },
+   "short": {
+    "avail": 73.54,
+    "pxMed": 513.81,
+    "jitterRms": 1.15,
+    "pFollow": 3.15,
+    "endurance": 60.51,
+    "keMax": 6.49,
+    "aglMin": 2.27
+   },
+   "gust": {
+    "avail": 85.41,
+    "pxMed": 460.02,
+    "jitterRms": 0.57,
+    "pFollow": 9.86,
+    "endurance": 26.89,
+    "keMax": 12.48,
+    "aglMin": 1.3
+   }
+  },
+  "crop_55": {
+   "note": "wider crop (4K over 110° lens)",
+   "over": {
+    "cropHfov": 55
+   },
+   "nominal": {
+    "avail": 65.76,
+    "pxMed": 331.47,
+    "jitterRms": 0.52,
+    "pFollow": 4.21,
+    "endurance": 50.51,
+    "keMax": 12.4,
+    "aglMin": 2.11
+   },
+   "short": {
+    "avail": 68.35,
+    "pxMed": 403.43,
+    "jitterRms": 1.17,
+    "pFollow": 2.59,
+    "endurance": 67.55,
+    "keMax": 6.44,
+    "aglMin": 2.25
+   },
+   "gust": {
+    "avail": 59.83,
+    "pxMed": 327.82,
+    "jitterRms": 0.57,
+    "pFollow": 7.41,
+    "endurance": 33.74,
+    "keMax": 12.44,
+    "aglMin": 1.3
+   }
+  },
+  "stop_orbit": {
+   "note": "orbit the stopped rider instead of perching",
+   "stop": {
+    "avail": 43.76,
+    "energyWh": 0.022,
+    "pFollow": 4.37,
+    "hoverJ": 0,
+    "ops": 3
+   }
+  },
+  "stop_perch": {
+   "note": "default perch",
+   "stop": {
+    "avail": 61.32,
+    "energyWh": 0.082,
+    "pFollow": 5.12,
+    "hoverJ": 130.95,
+    "ops": 2
+   }
+  }
+ },
+ "demo": {
+  "duration": 60,
+  "events": [
+   {
+    "t": 3.6,
+    "type": "planted"
+   },
+   {
+    "t": 5.88,
+    "type": "move"
+   },
+   {
+    "t": 6.12,
+    "type": "takeoff"
+   },
+   {
+    "t": 7.39,
+    "type": "transition"
+   },
+   {
+    "t": 8.09,
+    "type": "wingborne"
+   },
+   {
+    "t": 26.7,
+    "type": "stop"
+   },
+   {
+    "t": 26.7,
+    "type": "flare"
+   },
+   {
+    "t": 30.58,
+    "type": "hoverland"
+   },
+   {
+    "t": 32.94,
+    "type": "perched"
+   },
+   {
+    "t": 37.88,
+    "type": "move"
+   },
+   {
+    "t": 37.88,
+    "type": "takeoff"
+   },
+   {
+    "t": 39.13,
+    "type": "transition"
+   },
+   {
+    "t": 39.65,
+    "type": "wingborne"
+   },
+   {
+    "t": 48.25,
+    "type": "stop"
+   },
+   {
+    "t": 48.25,
+    "type": "flare"
+   },
+   {
+    "t": 52.38,
+    "type": "hoverland"
+   },
+   {
+    "t": 55.29,
+    "type": "landed"
+   }
+  ],
+  "stages": [
+   {
+    "key": "carry",
+    "t0": 0,
+    "t1": 5,
+    "pending": true
+   },
+   {
+    "key": "launch",
+    "t0": 5,
+    "t1": 10,
+    "pending": false
+   },
+   {
+    "key": "follow",
+    "t0": 10,
+    "t1": 24,
+    "pending": false
+   },
+   {
+    "key": "stop",
+    "t0": 24,
+    "t1": 37,
+    "pending": false
+   },
+   {
+    "key": "relaunch",
+    "t0": 37,
+    "t1": 46,
+    "pending": false
+   },
+   {
+    "key": "land",
+    "t0": 46,
+    "t1": 55.5,
+    "pending": false
+   },
+   {
+    "key": "stow",
+    "t0": 55.5,
+    "t1": 60,
+    "pending": true
+   }
+  ]
+ }
+}

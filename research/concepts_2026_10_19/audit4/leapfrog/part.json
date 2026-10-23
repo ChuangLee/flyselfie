@@ -1,0 +1,1126 @@
+{
+ "conceptId": "leapfrog",
+ "modelVersion": "leapfrog@4.0.0",
+ "auditor": "audit4 (round 4)",
+ "generated": "2026-10-20",
+ "evidence": "numerical uncalibrated simulation re-run on a copy of sim/ + code reading; not physical verification (M-070 not_run, G-MATURE closed)",
+ "scripts": [
+  "audit4/leapfrog/recheck.mjs (r4 48, seeds 14–16 48, offgrid 21, tailseeds 24, 7 sensitivities on 48)",
+  "audit4/leapfrog/stallprobe.mjs",
+  "audit4/leapfrog/summarise.py",
+  "audit4/leapfrog/make_part.py",
+  "tracker variants on a patched copy (scratchpad copy_lfsens, analysis.js auditFFcomp/auditGnssHz)"
+ ],
+ "reproduction": {
+  "fullEnsembleRerun": {
+   "cases": 48,
+   "matchesClaimed": true,
+   "diffs": [],
+   "availDiffsOver0p5pp": [
+    {
+     "id": "head6_s11",
+     "own": 91.325,
+     "ownWithDevTiltRule": 89.224,
+     "dev": 89.251
+    },
+    {
+     "id": "crossL9_s13",
+     "own": 95.797,
+     "ownWithDevTiltRule": 94.262,
+     "dev": 94.289
+    },
+    {
+     "id": "tail5.5_s11",
+     "own": 98.545,
+     "ownWithDevTiltRule": 96.282,
+     "dev": 96.282
+    }
+   ],
+   "note": "dev fullrunInput+buildResult on the copy; auditor metrics from R.frame()/core columns; post-run index.js edit has no numerical effect"
+  }
+ },
+ "metrics13": {
+  "avail": {
+   "stat": "ensemble mean (48), availMask riding time shifted by tGo, no-fly = 0, own footage() bodyPx ≥300 native-capped",
+   "claimed": 82.344,
+   "recomputed": 82.462,
+   "verdict": "conditional",
+   "note": "reproduced (82.462 own vs 82.344 dev; dev additionally requires horizon tilt ≤5° → own 82.329). Margin 2.3 pp, p10 0 (6 no-fly). Extra seeds 14–16: 84.371 (still ≥80). Fragile to the morph hardware: mass +10 % → 67.695, mass +8 % (LisHawk-class morph servos) → 71.91, extended CLmax 1.1 → 78.016. No line/boom artefact (none in shot)."
+  },
+  "pxMed": {
+   "stat": "mean of case medians (bodyPx, native-capped) over flown cases",
+   "claimed": 498.298,
+   "recomputed": 497.43,
+   "verdict": "pass",
+   "note": "22° HFOV crop of a 4K sensor; native-row cap applied"
+  },
+  "jitterRms": {
+   "stat": "p90 footageStability(R).subjectRms over flown cases (LIVE tracker crop that R.frame outputs)",
+   "claimed": 1.635,
+   "recomputed": 1.635,
+   "verdict": "conditional",
+   "note": "reproduced exactly. Max 18.991 (tail6_s11, left behind). The live tracker is a noise model on the TRUE line of sight: latency compensation uses the true LOS increment and the GNSS feed-forward is the true LOS rate + σ0.3 m/s error at 50 Hz. Auditor variant (estimated latency compensation, 5 Hz GNSS) → p90 2.013; 1 Hz phone GNSS, σ0.5 → 3.43. Extra seeds p90 2.447."
+  },
+  "azRange": {
+   "stat": "mean of case p5–p95 (dev)",
+   "claimed": 88.931,
+   "recomputed": 88.931,
+   "verdict": "pass",
+   "note": "not independently recomputed (dev value; head-on lead gives a wide span)"
+  },
+  "addedMass": {
+   "stat": "design",
+   "claimed": 0.32,
+   "recomputed": 0.32,
+   "verdict": "pass",
+   "note": "glider 168.5 g + holster 50 g + 14 Wh bank 93 g + tag 8 g; large margin to 1.5 kg even if the airframe grows"
+  },
+  "bodyForcePeak": {
+   "stat": "max (holster inertia)",
+   "claimed": 3.426,
+   "recomputed": 3.426,
+   "verdict": "pass",
+   "note": "nothing tethered; holster 0.143 kg × peak lateral+2 g"
+  },
+  "handsBusy": {
+   "stat": "design",
+   "claimed": 0,
+   "recomputed": 0,
+   "verdict": "pass",
+   "note": "set-down/pick-up only at standstill"
+  },
+  "setupTime": {
+   "stat": "p90 (simulated: tGo incl. MODAPTS set-down + lift-off/lead wait, landing wait, skate/side-step, MODAPTS stow)",
+   "claimed": 24.72,
+   "recomputed": 24.72,
+   "verdict": "conditional",
+   "note": "reproduced exactly (max 32.288). MODAPTS gloved stow mean 5.2 s is optimistic for a bend-from-ski-boots pick-up + snap; auditor 13.5 s stow → p90 33.215 (FAIL). Seeds 14–16 p90 24.17."
+  },
+  "ops": {
+   "stat": "p90 (max)",
+   "claimed": 2,
+   "recomputed": 2,
+   "verdict": "pass",
+   "note": "p90 2, max 3 (tail6_s11: left behind, picked up next run); seeds 14–16 ops3 in tail6_s15, tail5.5_s15, tail6_s16"
+  },
+  "keMax": {
+   "stat": "ensemble max, ground frame when >1.5 m from every body point",
+   "claimed": 13.748,
+   "recomputed": 13.748,
+   "verdict": "conditional",
+   "note": "reproduced exactly on the 48 cases (13.748 J, tail5.5_s12). NOT robust: extra tail-band seeds cross 14.9 J in 4 runs (max 16.052 J); seed 15 (bias −0.92) tail5.5 → 15.034 J (>14.9), tail6_s15 14.09; bias ±2 m/s on the 48 → 17.919 J; off-grid max 14.266 J. KE ≤14.9 J holds robustly only for true tail ≲5 m/s."
+  },
+  "packVol": {
+   "stat": "design (ASSUMED holster envelope)",
+   "claimed": 2.504,
+   "recomputed": 2.504,
+   "verdict": "conditional",
+   "note": "0.32 × 0.091 × 0.086 m outer; folded span-morphing glider + gimbal + camera not CAD-checked; LisHawk-class servos (7.1 g, ~23 mm) would need re-layout"
+  },
+  "endurance": {
+   "stat": "shared enduranceMin(1.2 Wh + 14 Wh × 0.85, mean pTot of flown cases, heated)",
+   "claimed": 52.952,
+   "recomputed": 52.95,
+   "verdict": "pass",
+   "note": "mean flown pTot recomputed 7.645 W (dev 7.645) → same 52.95 min; NPU 0.8 W (not the shared 2.5 W board: 46.6 min, still pass)"
+  },
+  "headClear": {
+   "stat": "ensemble min, helmetAt(sk, t−tGo) to glider centre minus actual half-span 0.275+0.225·morph (prop inside), launch/lead/land/takeoff/slide",
+   "claimed": 2.012,
+   "recomputed": 2.012,
+   "verdict": "pass",
+   "note": "reproduced (min 2.012 m at take-off from the set-down spot); seeds 14–16 2.002, off-grid 2.002; no worn rigid members"
+  }
+ },
+ "claimedVsRecomputed": [
+  {
+   "metric": "avail",
+   "claimed": 82.344,
+   "recomputed": 82.462,
+   "verdict": "conditional"
+  },
+  {
+   "metric": "pxMed",
+   "claimed": 498.298,
+   "recomputed": 497.43,
+   "verdict": "pass"
+  },
+  {
+   "metric": "jitterRms",
+   "claimed": 1.635,
+   "recomputed": 1.635,
+   "verdict": "conditional"
+  },
+  {
+   "metric": "azRange",
+   "claimed": 88.931,
+   "recomputed": 88.931,
+   "verdict": "pass"
+  },
+  {
+   "metric": "addedMass",
+   "claimed": 0.32,
+   "recomputed": 0.32,
+   "verdict": "pass"
+  },
+  {
+   "metric": "bodyForcePeak",
+   "claimed": 3.426,
+   "recomputed": 3.426,
+   "verdict": "pass"
+  },
+  {
+   "metric": "handsBusy",
+   "claimed": 0,
+   "recomputed": 0,
+   "verdict": "pass"
+  },
+  {
+   "metric": "setupTime",
+   "claimed": 24.72,
+   "recomputed": 24.72,
+   "verdict": "conditional"
+  },
+  {
+   "metric": "ops",
+   "claimed": 2,
+   "recomputed": 2,
+   "verdict": "pass"
+  },
+  {
+   "metric": "keMax",
+   "claimed": 13.748,
+   "recomputed": 13.748,
+   "verdict": "conditional"
+  },
+  {
+   "metric": "packVol",
+   "claimed": 2.504,
+   "recomputed": 2.504,
+   "verdict": "conditional"
+  },
+  {
+   "metric": "endurance",
+   "claimed": 52.952,
+   "recomputed": 52.95,
+   "verdict": "pass"
+  },
+  {
+   "metric": "headClear",
+   "claimed": 2.012,
+   "recomputed": 2.012,
+   "verdict": "pass"
+  }
+ ],
+ "envelope": {
+  "def": "groomed piste, rider downhill progress ≲11–12 m/s, wind estimate ≤12.5 m/s, true tail ≲5 m/s (gate at ≈5.5–6 estimated), head ≤9 (62–98 %), cross ≤9; KE/C0 radius robust only for true tail ≲5 m/s (gate admits up to ≈6 estimated)",
+  "availRecomputedByDir": {
+   "calm": 96.552,
+   "head": 88.323,
+   "tail": 63.31,
+   "crossL": 95.582,
+   "crossR": 97.091
+  },
+  "tailBins": {
+   "tail3": 97.971,
+   "tail3.5": 98.357,
+   "tail4.5": 98.258,
+   "tail5.5": 65.661,
+   "tail6": 19.612,
+   "tail9": 0
+  },
+  "separation": "max 3-D distance glider↔pelvis while airborne: grid 39.898 m (dev 40.4 to mid-body+1 m), seeds 14–16 54.864 m (tail5.5_s15 >50 m C0 follow-me radius), off-grid 48.949 m"
+ },
+ "byWindAvail": {
+  "U0": {
+   "n": 3,
+   "recomputed": 96.552,
+   "noFly": 0,
+   "claimed": 96.552
+  },
+  "U3": {
+   "n": 12,
+   "recomputed": 96.765,
+   "noFly": 0,
+   "claimed": 96.781
+  },
+  "U3.5": {
+   "n": 3,
+   "recomputed": 98.357,
+   "noFly": 0,
+   "claimed": 98.285
+  },
+  "U4.5": {
+   "n": 3,
+   "recomputed": 98.258,
+   "noFly": 0,
+   "claimed": 98.267
+  },
+  "U5.5": {
+   "n": 3,
+   "recomputed": 65.661,
+   "noFly": 1,
+   "claimed": 64.88
+  },
+  "U6": {
+   "n": 12,
+   "recomputed": 77.207,
+   "noFly": 2,
+   "claimed": 77.02
+  },
+  "U9": {
+   "n": 12,
+   "recomputed": 66.171,
+   "noFly": 3,
+   "claimed": 66.078
+  }
+ },
+ "footageStability": {
+  "n": 42,
+  "p50": 1.061,
+  "p90": 1.635,
+  "max": 18.991,
+  "over3": 1
+ },
+ "massBudget": {
+  "claimed_kg": 0.32,
+  "flyingMass_g": 168.5,
+  "note": "BOM 146.5 g ×1.15: structure 51 (feathers 6 + guides 3), motor 11, avionics 10, 4 × 2.5 g servos (one = feather extension + wing fold), cam 16, gimbal 30, wiring 5, 1.2 Wh cell 8, NPU 4, preview 1.5. Morph mechanism IS budgeted but at micro-servo scale; LisHawk used 7.1 g servos."
+ },
+ "robustness": {
+  "tailSeeds17to22": {
+   "label": "tailseeds17-22",
+   "n": 24,
+   "noFly": 8,
+   "availMean": 59.393,
+   "availP10": 0,
+   "availP50": 94.908,
+   "availWithTilt": 58.843,
+   "pxMed": 447.81,
+   "jitterP90": 14.619,
+   "jitterMax": 30.607,
+   "keMax": 16.052,
+   "headClearMin": 2.058,
+   "sepMax": 50.538,
+   "setupP90": 25.793,
+   "setupMax": 27.392,
+   "opsP90": 3,
+   "opsMax": 3,
+   "ops3": [
+    "tail5_s17",
+    "tail6_s17",
+    "tail5.5_s20",
+    "tail6_s21"
+   ],
+   "pMeanFlown": 6.095,
+   "landNow": 1,
+   "giveUp": 0
+  },
+  "safetyLineCrossings": [
+   {
+    "id": "tail5.5_s15",
+    "gateW": [
+     5.07,
+     0.87,
+     0.11
+    ],
+    "keMax": 15.034,
+    "sepMax": 54.864,
+    "ops": 3
+   },
+   {
+    "id": "tail6_s17",
+    "gateW": [
+     5.76,
+     0.49,
+     -1.36
+    ],
+    "keMax": 16.052,
+    "sepMax": 38.368,
+    "ops": 3
+   },
+   {
+    "id": "tail5.5_s20",
+    "gateW": [
+     5.96,
+     1.35,
+     -0.09
+    ],
+    "keMax": 15.49,
+    "sepMax": 42.153,
+    "ops": 3
+   },
+   {
+    "id": "tail6_s21",
+    "gateW": [
+     4.91,
+     -2.65,
+     -0.47
+    ],
+    "keMax": 14.939,
+    "sepMax": 50.538,
+    "ops": 3
+   }
+  ],
+  "extraSeeds": {
+   "label": "seeds14-16",
+   "n": 48,
+   "noFly": 4,
+   "availMean": 84.371,
+   "availP10": 49.165,
+   "availP50": 96.956,
+   "availWithTilt": 84.15,
+   "pxMed": 480.72,
+   "jitterP90": 2.447,
+   "jitterMax": 5.86,
+   "keMax": 15.034,
+   "headClearMin": 2.002,
+   "sepMax": 54.864,
+   "setupP90": 24.17,
+   "setupMax": 34.993,
+   "opsP90": 2,
+   "opsMax": 3,
+   "ops3": [
+    "tail6_s15",
+    "tail5.5_s15",
+    "tail6_s16"
+   ],
+   "pMeanFlown": 7.504,
+   "landNow": 1,
+   "giveUp": 2
+  },
+  "extraSeedsRowsWorst": [
+   {
+    "id": "tail6_s15",
+    "avail": 31.708,
+    "keMax": 14.085,
+    "sepMax": 38.823,
+    "ops": 3
+   },
+   {
+    "id": "tail5.5_s15",
+    "avail": 49.165,
+    "keMax": 15.034,
+    "sepMax": 54.864,
+    "ops": 3
+   },
+   {
+    "id": "tail6_s16",
+    "avail": 63.847,
+    "keMax": 12.982,
+    "sepMax": 36.324,
+    "ops": 3
+   }
+  ],
+  "offGrid": {
+   "label": "offgrid",
+   "n": 21,
+   "noFly": 6,
+   "availMean": 63.637,
+   "availP10": 0,
+   "availP50": 94.747,
+   "availWithTilt": 63.156,
+   "pxMed": 493.88,
+   "jitterP90": 7.404,
+   "jitterMax": 18.991,
+   "keMax": 14.266,
+   "headClearMin": 2.002,
+   "sepMax": 48.949,
+   "setupP90": 24.72,
+   "setupMax": 27.23,
+   "opsP90": 2,
+   "opsMax": 3,
+   "ops3": [
+    "tail6_s11",
+    "crossR7.5_s13"
+   ],
+   "pMeanFlown": 7.83,
+   "landNow": 0,
+   "giveUp": 0
+  },
+  "offGridRows": [
+   {
+    "id": "tail5_s11",
+    "noFly": false,
+    "avail": 98.411,
+    "keMax": 12.774,
+    "headClear": 2.06,
+    "sepMax": 34.275,
+    "ops": 2
+   },
+   {
+    "id": "tail5.5_s11",
+    "noFly": false,
+    "avail": 98.545,
+    "keMax": 13.347,
+    "headClear": 2.06,
+    "sepMax": 34.083,
+    "ops": 2
+   },
+   {
+    "id": "tail6_s11",
+    "noFly": false,
+    "avail": 58.836,
+    "keMax": 13.212,
+    "headClear": 2.06,
+    "sepMax": 39.898,
+    "ops": 3
+   },
+   {
+    "id": "tail6.5_s11",
+    "noFly": false,
+    "avail": 59.779,
+    "keMax": 13.456,
+    "headClear": 2.06,
+    "sepMax": 48.383,
+    "ops": 2
+   },
+   {
+    "id": "head7.5_s11",
+    "noFly": false,
+    "avail": 98.249,
+    "keMax": 12.542,
+    "headClear": 2.002,
+    "sepMax": 29.958,
+    "ops": 2
+   },
+   {
+    "id": "crossL7.5_s11",
+    "noFly": false,
+    "avail": 96.686,
+    "keMax": 12.908,
+    "headClear": 2.054,
+    "sepMax": 34.695,
+    "ops": 2
+   },
+   {
+    "id": "crossR7.5_s11",
+    "noFly": false,
+    "avail": 96.74,
+    "keMax": 13.094,
+    "headClear": 2.053,
+    "sepMax": 31.496,
+    "ops": 2
+   },
+   {
+    "id": "tail5_s12",
+    "noFly": false,
+    "avail": 97.468,
+    "keMax": 13.183,
+    "headClear": 2.06,
+    "sepMax": 36.889,
+    "ops": 2
+   },
+   {
+    "id": "tail5.5_s12",
+    "noFly": false,
+    "avail": 98.438,
+    "keMax": 13.748,
+    "headClear": 2.06,
+    "sepMax": 36.529,
+    "ops": 2
+   },
+   {
+    "id": "tail6_s12",
+    "noFly": true,
+    "avail": 0,
+    "keMax": 0,
+    "headClear": null,
+    "sepMax": 0,
+    "ops": 1
+   },
+   {
+    "id": "tail6.5_s12",
+    "noFly": true,
+    "avail": 0,
+    "keMax": 0,
+    "headClear": null,
+    "sepMax": 0,
+    "ops": 1
+   },
+   {
+    "id": "head7.5_s12",
+    "noFly": false,
+    "avail": 94.747,
+    "keMax": 12.446,
+    "headClear": 2.026,
+    "sepMax": 32.406,
+    "ops": 2
+   },
+   {
+    "id": "crossL7.5_s12",
+    "noFly": false,
+    "avail": 98.438,
+    "keMax": 12.747,
+    "headClear": 2.053,
+    "sepMax": 36.298,
+    "ops": 2
+   },
+   {
+    "id": "crossR7.5_s12",
+    "noFly": false,
+    "avail": 96.471,
+    "keMax": 13.142,
+    "headClear": 2.053,
+    "sepMax": 36.772,
+    "ops": 2
+   },
+   {
+    "id": "tail5_s13",
+    "noFly": true,
+    "avail": 0,
+    "keMax": 0,
+    "headClear": null,
+    "sepMax": 0,
+    "ops": 1
+   },
+   {
+    "id": "tail5.5_s13",
+    "noFly": true,
+    "avail": 0,
+    "keMax": 0,
+    "headClear": null,
+    "sepMax": 0,
+    "ops": 1
+   },
+   {
+    "id": "tail6_s13",
+    "noFly": true,
+    "avail": 0,
+    "keMax": 0,
+    "headClear": null,
+    "sepMax": 0,
+    "ops": 1
+   },
+   {
+    "id": "tail6.5_s13",
+    "noFly": true,
+    "avail": 0,
+    "keMax": 0,
+    "headClear": null,
+    "sepMax": 0,
+    "ops": 1
+   },
+   {
+    "id": "head7.5_s13",
+    "noFly": false,
+    "avail": 95.717,
+    "keMax": 12.507,
+    "headClear": 2.013,
+    "sepMax": 34.402,
+    "ops": 2
+   },
+   {
+    "id": "crossL7.5_s13",
+    "noFly": false,
+    "avail": 93.588,
+    "keMax": 12.912,
+    "headClear": 2.054,
+    "sepMax": 32.905,
+    "ops": 2
+   },
+   {
+    "id": "crossR7.5_s13",
+    "noFly": false,
+    "avail": 54.256,
+    "keMax": 14.266,
+    "headClear": 2.054,
+    "sepMax": 48.949,
+    "ops": 3
+   }
+  ],
+  "sensitivities48": {
+   "mass10": {
+    "label": "mass10",
+    "n": 48,
+    "noFly": 10,
+    "availMean": 67.695,
+    "availP10": 0,
+    "availP50": 87.231,
+    "availWithTilt": 67.649,
+    "pxMed": 495.2,
+    "jitterP90": 1.164,
+    "jitterMax": 3.308,
+    "keMax": 13.787,
+    "headClearMin": 2.001,
+    "sepMax": 47.867,
+    "setupP90": 28.782,
+    "setupMax": 37.225,
+    "opsP90": 2,
+    "opsMax": 3,
+    "ops3": [
+     "calm_s12",
+     "head9_s11",
+     "head9_s13",
+     "crossL9_s12",
+     "tail3.5_s11"
+    ],
+    "pMeanFlown": 7.698,
+    "landNow": 0,
+    "giveUp": 3,
+    "over": {
+     "mass": 0.18535,
+     "vCapG": 11.98
+    }
+   },
+   "mass8": {
+    "label": "mass8",
+    "n": 48,
+    "noFly": 9,
+    "availMean": 71.91,
+    "availP10": 0,
+    "availP50": 94.881,
+    "availWithTilt": 71.89,
+    "pxMed": 490.2,
+    "jitterP90": 1.212,
+    "jitterMax": 2.684,
+    "keMax": 13.388,
+    "headClearMin": 2.001,
+    "sepMax": 58.364,
+    "setupP90": 28.794,
+    "setupMax": 37.689,
+    "opsP90": 2,
+    "opsMax": 3,
+    "ops3": [
+     "calm_s12",
+     "tail6_s11",
+     "head9_s11",
+     "crossL9_s11"
+    ],
+    "pMeanFlown": 7.681,
+    "landNow": 0,
+    "giveUp": 2,
+    "over": {
+     "mass": 0.182,
+     "vCapG": 12.1
+    }
+   },
+   "bias2": {
+    "label": "bias2",
+    "n": 48,
+    "noFly": 6,
+    "availMean": 75.338,
+    "availP10": 0,
+    "availP50": 94.1,
+    "availWithTilt": 74.882,
+    "pxMed": 487.46,
+    "jitterP90": 2.466,
+    "jitterMax": 13.708,
+    "keMax": 17.919,
+    "headClearMin": 1.021,
+    "sepMax": 58.793,
+    "setupP90": 27.264,
+    "setupMax": 33.015,
+    "opsP90": 2,
+    "opsMax": 3,
+    "ops3": [
+     "tail3_s12",
+     "tail6_s11",
+     "head9_s11",
+     "crossL9_s11",
+     "crossR9_s13"
+    ],
+    "pMeanFlown": 7.53,
+    "landNow": 0,
+    "giveUp": 1,
+    "over": {
+     "estBias": 2
+    }
+   },
+   "stow13p5": {
+    "label": "stow13p5",
+    "n": 48,
+    "noFly": 6,
+    "availMean": 82.462,
+    "availP10": 0,
+    "availP50": 96.579,
+    "availWithTilt": 82.329,
+    "pxMed": 497.43,
+    "jitterP90": 1.635,
+    "jitterMax": 18.991,
+    "keMax": 13.748,
+    "headClearMin": 2.012,
+    "sepMax": 39.898,
+    "setupP90": 33.215,
+    "setupMax": 40.968,
+    "opsP90": 2,
+    "opsMax": 3,
+    "ops3": [
+     "tail6_s11"
+    ],
+    "pMeanFlown": 7.645,
+    "landNow": 0,
+    "giveUp": 0,
+    "over": {
+     "handling": {
+      "stowConst": 13.5
+     }
+    }
+   },
+   "trackerEstComp5Hz": {
+    "label": "trackerEstComp5Hz",
+    "n": 48,
+    "noFly": 6,
+    "availMean": 82.092,
+    "availP10": 0,
+    "availP50": 96.579,
+    "availWithTilt": 81.968,
+    "pxMed": 497.4,
+    "jitterP90": 2.013,
+    "jitterMax": 19.044,
+    "keMax": 13.748,
+    "headClearMin": 2.012,
+    "sepMax": 39.898,
+    "setupP90": 24.72,
+    "setupMax": 32.288,
+    "opsP90": 2,
+    "opsMax": 3,
+    "ops3": [
+     "tail6_s11"
+    ],
+    "pMeanFlown": 7.645,
+    "landNow": 0,
+    "giveUp": 0,
+    "over": {
+     "auditFFcomp": 1,
+     "auditGnssHz": 5
+    }
+   },
+   "trackerGnss1Hz": {
+    "label": "trackerGnss1Hz",
+    "n": 48,
+    "noFly": 6,
+    "availMean": 64.611,
+    "availP10": 0,
+    "availP50": 74.973,
+    "availWithTilt": 64.493,
+    "pxMed": 506.2,
+    "jitterP90": 3.43,
+    "jitterMax": 19.178,
+    "keMax": 13.748,
+    "headClearMin": 2.012,
+    "sepMax": 39.898,
+    "setupP90": 24.72,
+    "setupMax": 32.288,
+    "opsP90": 2,
+    "opsMax": 3,
+    "ops3": [
+     "tail6_s11"
+    ],
+    "pMeanFlown": 7.645,
+    "landNow": 0,
+    "giveUp": 0,
+    "over": {
+     "auditFFcomp": 1,
+     "auditGnssHz": 1,
+     "ffSigV": 0.5
+    }
+   },
+   "clmax1p1": {
+    "label": "clmax1p1",
+    "n": 48,
+    "noFly": 8,
+    "availMean": 78.016,
+    "availP10": 0,
+    "availP50": 96.552,
+    "availWithTilt": 77.899,
+    "pxMed": 491.99,
+    "jitterP90": 1.548,
+    "jitterMax": 3.591,
+    "keMax": 13.251,
+    "headClearMin": 2.01,
+    "sepMax": 49.913,
+    "setupP90": 25.829,
+    "setupMax": 32.288,
+    "opsP90": 2,
+    "opsMax": 3,
+    "ops3": [
+     "tail6_s11"
+    ],
+    "pMeanFlown": 7.726,
+    "landNow": 0,
+    "giveUp": 0,
+    "over": {
+     "clmaxX": 1.1
+    }
+   }
+  },
+  "stallProbe": [
+   {
+    "id": "calm_s11",
+    "noFly": false,
+    "airS": 71.1,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0,
+    "minVaOverVstall": 1.14,
+    "below1p1Pct": 0
+   },
+   {
+    "id": "tail3_s12",
+    "noFly": false,
+    "airS": 70.6,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0.48,
+    "minVaOverVstall": 1.128,
+    "below1p1Pct": 0
+   },
+   {
+    "id": "crossR6_s12",
+    "noFly": false,
+    "airS": 71.7,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0.28,
+    "minVaOverVstall": 0.986,
+    "below1p1Pct": 0.45
+   },
+   {
+    "id": "head9_s12",
+    "noFly": false,
+    "airS": 79.5,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0,
+    "minVaOverVstall": 1.112,
+    "below1p1Pct": 0
+   },
+   {
+    "id": "tail4.5_s12",
+    "noFly": false,
+    "airS": 68.2,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0.62,
+    "minVaOverVstall": 1.076,
+    "below1p1Pct": 0.53
+   },
+   {
+    "id": "tail5.5_s11",
+    "noFly": false,
+    "airS": 73.9,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0.54,
+    "minVaOverVstall": 1.081,
+    "below1p1Pct": 1.14
+   },
+   {
+    "id": "tail5.5_s12",
+    "noFly": false,
+    "airS": 68.6,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0.5,
+    "minVaOverVstall": 1.063,
+    "below1p1Pct": 0.7
+   },
+   {
+    "id": "tail6_s11",
+    "noFly": false,
+    "airS": 41.8,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0.33,
+    "minVaOverVstall": 1.071,
+    "below1p1Pct": 2.34
+   },
+   {
+    "id": "tail6.5_s11",
+    "noFly": false,
+    "airS": 80.3,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 1.62,
+    "minVaOverVstall": 1.024,
+    "below1p1Pct": 5.75
+   },
+   {
+    "id": "tail5.5_s15",
+    "noFly": false,
+    "airS": 41.4,
+    "clAtMaxPct": 4.98,
+    "clAbove95Pct": 9.86,
+    "minVaOverVstall": 0.954,
+    "below1p1Pct": 11.6
+   },
+   {
+    "id": "tail6_s15",
+    "noFly": false,
+    "airS": 29.2,
+    "clAtMaxPct": 7.73,
+    "clAbove95Pct": 17.86,
+    "minVaOverVstall": 0.958,
+    "below1p1Pct": 9.51
+   },
+   {
+    "id": "tail5.5_s16",
+    "noFly": false,
+    "airS": 68.8,
+    "clAtMaxPct": 0,
+    "clAbove95Pct": 0,
+    "minVaOverVstall": 1.092,
+    "below1p1Pct": 0.38
+   }
+  ]
+ },
+ "physics": [
+  {
+   "assumption": "Feathered span-morphing wing 0.05→0.10 m², CLmax 1.25 extended (v_stall 5.1 m/s)",
+   "devClaim": "LisHawk-style (Ajanic 2020)",
+   "evidence": "cited paper: +41 % wing area by sweep, 4.0 m/s with thrust; Re ≈34 k here",
+   "verdict": "unverified, beyond cited data; load-bearing for tail envelope, avail and C0 radius",
+   "killTest": "tow/wind-tunnel test of the 168 g feathered wing at 4–8 m/s: kill if CLmax(ext) <1.1 or extension under load/snow/−10 °C fails"
+  },
+  {
+   "assumption": "Flying mass 168.5 g incl. 15 % margin with one 2.5 g morph servo",
+   "devClaim": "held by NPU and 1.2 Wh cell",
+   "evidence": "every +10 % mass → avail ≈66–70 %",
+   "verdict": "optimistic",
+   "killTest": "weigh a built airframe; kill if >180 g"
+  },
+  {
+   "assumption": "Launch gate at ≈6 m/s estimated tail wind keeps KE ≤14.9 J",
+   "devClaim": "gate robust box ±1 cross / +0.4 downslope; KE robust",
+   "evidence": "4 of 24 extra flown tail-band runs exceed 14.9 J (max 16.05) and 2 exceed 50 m",
+   "verdict": "refuted beyond the 3 grid bias draws",
+   "killTest": "tow/flight test in 5–6 m/s tailwind on a 15° slope with the feather air brake: kill if GNSS ground speed >12.6 m/s (KE >14.9 J); gate estimate vs reference anemometer"
+  },
+  {
+   "assumption": "Live tracker (NPU 15 Hz + GNSS FF)",
+   "devClaim": "jitter p90 1.64",
+   "evidence": "truth-based latency compensation; auditor variants in sensitivities48",
+   "verdict": "plausible, partly idealised",
+   "killTest": "record a carving skier from a moving 22° camera; p90 subject jitter ≤3 °/s"
+  },
+  {
+   "assumption": "MODAPTS gloved handling 3.1 s set-down / 5.2 s stow",
+   "devClaim": "simulated",
+   "evidence": "stow 13.5 s → setup p90 fail",
+   "verdict": "optimistic",
+   "killTest": "timed gloved trials on skis, 20 reps"
+  }
+ ],
+ "definitionChecks": [
+  {
+   "metric": "avail",
+   "issue": "dev adds a horizon-tilt ≤5° rule (stricter); own without it 82.46",
+   "favours": "neutral"
+  },
+  {
+   "metric": "headClear",
+   "issue": "helmetAt used; half-span grows with morph; PERCH excluded (stationary on snow)",
+   "favours": "neutral"
+  },
+  {
+   "metric": "ensemble",
+   "issue": "bias of windEstimate is seeded by the case seed → only 3 bias draws in 48 cases; safety maxima depend on that draw",
+   "favours": "leapfrog (and every gate-dependent concept)"
+  },
+  {
+   "metric": "gates",
+   "issue": "windEstimate() with ≥5 s history in every case; no oracle wind in gates",
+   "favours": "neutral"
+  }
+ ],
+ "findings": [
+  {
+   "id": "A4-LF-01",
+   "severity": "major",
+   "title": "Thin pass breaks on new seeds: KE >14.9 J in 4 and separation >50 m in 2 of the extra tail-band runs (worst 16.05 J, 54.9 m)",
+   "detail": "The 48-case grid uses only three wind-estimate bias draws (bias seeded by the case seed: s11 +0.82, s12 −0.55, s13 +0.18 m/s downslope). Seed 15 draws −0.92 m/s (tail wind under-estimated): tail5.5_s15 is launched (estimate 5.07), CL saturates at CLmax 4.98 % of the airborne time, KE 15.034 J, separation 54.9 m, ops 3, avail 49 %; tail6_s15 KE 14.09 J, ops 3. Seeds 14–16 ensemble: avail 84.371 %, jitter p90 2.447, setup p90 24.17 — the means survive, the safety maxima do not. Bias ±2 m/s on the 48 grid → KE 17.919 J. Tail 4.5–6 × seeds 17–22 (six more bias draws): KE 16.052 J max, 8/24 refused, ops 3 in 4. Over all extra tail-band flown runs (n=24) the KE/C0 lines are crossed in: tail5.5_s15 15.034 J / 54.864 m, tail6_s17 16.052 J / 38.368 m, tail5.5_s20 15.49 J / 42.153 m, tail6_s21 14.939 J / 50.538 m. Mechanism: the gate admits estimated downslope wind up to ≈6 m/s, i.e. true tail 5.5–6 m/s in turbulence (σ 0.15–0.2 U) — at the physical limit w_max ≈6.1 m/s of the extended wing — and in those runs the limiter/air brake/land-now do not hold 14.9 J. Not only under-reading: s17 under-reads 0.24 (tail6, 16.05 J), s20 OVER-reads (tail5.5, est. 5.96, 15.49 J). All four are 'left behind' runs (ops 3). On the judged grid the same band gave ≤13.75 J only because of the three bias draws.",
+   "evidence": "audit4/leapfrog/out_seeds_0_48.json, out_tailseeds_0_24.json, out_r4_bias2_0_48.json, out_stallprobe.json"
+  },
+  {
+   "id": "A4-LF-02",
+   "severity": "major",
+   "title": "'LisHawk-style' morph exceeds the cited data: +100 % wing area / +82 % span vs Ajanic 2020 +41 % wing (+60 % wing+tail) by sweep, and one 2.5 g servo vs LisHawk's 7.1 g servos",
+   "detail": "Ajanic et al. 2020 (Sci. Robot. 5:eabc2897, Tab. 1): wing 0.117→0.165 m² (+41 %) by wrist SWEEP (feathers fan), tail 0.014→0.044 m²; 284 g; three BMS-306 servos 7.1 g / 2.0 kg·cm (one per wing side + tail). The 4.0 m/s minimum is a trim optimisation from static wind-tunnel data INCLUDING thrust at α>20° (implied CL ≈1.6 on 0.179 m² at ρ 1.2, ≈1.4 on 0.209 m²), not a demonstrated glide; tucked 7.6 m/s is a trim limit (CL≈0.6). leapfrog: 0.05→0.10 m² (+100 %) by spanwise sliding feathers (0.55→1.0 m), a different mechanism, CLmax 1.25 ASSUMED at Re ≈34 k (extended chord 0.10 m at 5.1–5.7 m/s, ν 1.67e-5) — optimistic but not impossible for a cambered thin wing; 3-D AR-10 feathered wing with gaps unproven. One 2.5 g micro servo extends the feathers under load AND folds the wings. LisHawk-class actuation (+2×7.1 g −2.5 g, ×1.15) ≈ +13.5 g → 182 g; mass is the most sensitive parameter (KE cap). Dev sensitivities: Sx 0.085 → separation 53.7 m; CLmax 1.1 → 50.4 m.",
+   "evidence": "arXiv 2002.02421 (Ajanic et al.) Tab. 1, wind-tunnel and morphing-optimisation sections; model.js BOM_R4/PDEF; audit4 out_r4_mass8/mass10/clmax1p1"
+  },
+  {
+   "id": "A4-LF-03",
+   "severity": "major",
+   "title": "avail margin (2.3 pp) depends on mass and CLmax: +8–10 % mass or CLmax 1.1 fails",
+   "detail": "Full 48-case re-runs (auditor): mass +10 % (0.185 kg, cap re-derived) → avail 67.695 %, KE 13.787, sep 47.867; mass 0.182 kg → 71.91 %; extended CLmax 1.1 → 78.016 %, sep 49.913 m. Mass 0.182 kg also breaks the C0 radius (58.364 m). The KE cap (√(2·14.9/m)) ≈ the rider's straight-line speed, so every gram costs footage.",
+   "evidence": "audit4/leapfrog/out_r4_mass10_0_48.json, out_r4_mass8_0_48.json, out_r4_clmax1p1_0_48.json"
+  },
+  {
+   "id": "A4-LF-04",
+   "severity": "major",
+   "title": "Live tracker: latency compensation and feed-forward use the true LOS; with a 1 Hz GNSS velocity link jitter p90 3.43 °/s and avail 64.6 % fail",
+   "detail": "analysis.js: detections = true LOS rotated by 3 % box noise + 3 % pose bias (15 Hz, 80 ms) — acceptable error model; but the latency compensation adds the TRUE LOS increment (los[i]−los[j]) and the feed-forward is the true LOS rate 0.1 s old + σ0.3 m/s GM velocity error every 20 ms (no GNSS update rate, no phone/tag GNSS latency beyond 0.1 s). Auditor variants on a copy: estimated latency compensation + 5 Hz GNSS → jitter p90 2.013, avail 82.092; 1 Hz GNSS σ0.5 m/s → p90 3.43, avail 64.611. Turret pointing in model.js likewise = true rider mid + Gauss–Markov UWB/GNSS/vision error with TRUE rider velocity for prediction. The vision detection test uses the true subject position (probability 0.9).",
+   "evidence": "sim/js/concepts/leapfrog/analysis.js L100–135; model.js L905–945; audit4 out_r4_tracker*.json (patched copy copy_lfsens)"
+  },
+  {
+   "id": "A4-LF-05",
+   "severity": "minor",
+   "title": "Guidance and airspeed control use true rider state and true airspeed; point-mass model cannot stall",
+   "detail": "runCore guidance (gap, sepNow, lane, vsx, separation give-up/land) uses the TRUE rider position/velocity (GNSS rel. error σ1.5 m not applied to guidance); the airspeed floor/CL command uses the TRUE air vector (pitot noise only enters the gust interlock); CL is clamped at CLmax — no stall break, no lift loss, no departure. Stall probe: judged-grid min Va/v_stall 0.99–1.14 with ≤0.6 % of airborne time above 95 % CLmax; seed-15 tail cases spend 5–8 % of airborne time at the CL clamp with Va < v_stall. The in-flight air-data wind is true local wind + the shared bias, 2 s low-pass (no airspeed/sideslip error). Wind gates do use windEstimate() with ≥5 s history (verified gateHist 5.0 in every case).",
+   "evidence": "model.js L346–600, out_stallprobe.json"
+  },
+  {
+   "id": "A4-LF-06",
+   "severity": "minor",
+   "title": "Claimed sensitivity numbers do not match the files",
+   "detail": "Reported 'mass +10 % → 69.7 %, bias ±2 → KE 17.65 J, stow 13.5 s → 33.1 s'; results.json variants (18-case subset) say 65.6 %, 17.92 J, 33.4 s. Auditor full 48: mass +10 % 67.695 %, bias ±2 KE 17.919 J, stow 13.5 s setup p90 33.215 s. Direction and verdicts agree; the quoted figures are not traceable.",
+   "evidence": "dev/leapfrog/results.json variants; audit4 out_r4_*"
+  },
+  {
+   "id": "A4-LF-07",
+   "severity": "minor",
+   "title": "Reproduction exact despite the post-run index.js edit",
+   "detail": "index.js mtime 09:51 vs results 08:04; own re-run on a copy reproduces keMax/headClear/setup/ops/jitter for 48/48 cases (diffs > 0.01: 0); own avail differs from dev by the dev's extra horizon-tilt rule only (own 82.46, own+tilt 82.33, dev 82.34).",
+   "evidence": "audit4/leapfrog/out_r4_0_48.json"
+  },
+  {
+   "id": "A4-LF-08",
+   "severity": "minor",
+   "title": "Off-grid sweep: safe but thin at tail 6.5 / cross 7.5",
+   "detail": "tail 5–6.5 and head/cross 7.5 × seeds 11–13: KE max 14.266 J (crossR7.5_s13), headClear ≥2.002 m, separation max 48.949 m (crossR7.5_s13 48.9, tail6.5_s11 48.4 — 1–2 m inside 50 m), ops 3 in tail6_s11, crossR7.5_s13; jitter up to 18.991 in left-behind runs.",
+   "evidence": "audit4/leapfrog/out_offgrid_0_21.json"
+  }
+ ],
+ "auditResponseCheck": [
+  {
+   "id": "A3-LF-01",
+   "claim": "fixed",
+   "audit": "avail 82.3–82.5 on 48 reproduced; holds on seeds 14–16 (84.4) but fragile to mass/CLmax"
+  },
+  {
+   "id": "A3-LF-02",
+   "claim": "fixed (live tracker)",
+   "audit": "partly: live crop modelled but latency compensation/FF from truth (A4-LF-04)"
+  },
+  {
+   "id": "A3-LF-03",
+   "claim": "improved (40.4 m)",
+   "audit": "grid yes; seed 15 tail5.5 54.9 m >50 m (A4-LF-01)"
+  },
+  {
+   "id": "A3-LF-04",
+   "claim": "fixed",
+   "audit": "true-wind init removed; gate history 5 s confirmed; air-data wind still truth+bias"
+  },
+  {
+   "id": "A3-LF-05",
+   "claim": "fixed (MODAPTS)",
+   "audit": "simulated but optimistic; 13.5 s stow fails"
+  },
+  {
+   "id": "A3-LF-06",
+   "claim": "fixed (2.50 L)",
+   "audit": "ASSUMED envelope, not CAD"
+  },
+  {
+   "id": "A3-LF-07",
+   "claim": "answered",
+   "audit": "accepted; shared board sensitivity still passes"
+  },
+  {
+   "id": "A3-LF-08",
+   "claim": "reported",
+   "audit": "unchanged, unjudged"
+  }
+ ],
+ "safetyRegulatory": [
+  "EU C0 follow-me 50 m: grid max 39.9 m, but 54.9 m on seed 15 tail5.5 (bias-dependent)",
+  "KE ≤14.9 J not robust for true tail 5.5–6 m/s (16.05 J tail6_s17, 15.49 tail5.5_s20, 15.03 tail5.5_s15, 14.94 tail6_s21); robust for true tail ≲5 m/s",
+  "Free-flying 168 g aircraft over a piste: resort permission and bystander exposure (0.15–1.5 near passes per run after avoidance, ASSUMED densities)",
+  "No tether, no worn boom: headClear ≥2.0 m robust"
+ ],
+ "credibleEnvelope": "Simulation-credible on groomed, low-traffic pistes in calm/cross/head wind ≤9 m/s and true tail wind ≲5 m/s, rider downhill progress ≲11 m/s, and only if: the feathered wing reaches CLmax ≥1.2 at +100 % area, the airframe stays ≤≈172 g, the launch gate is tightened to ≈5 m/s estimated downslope wind (costing tail-band avail; not re-judged), and the rider tag provides ≥5 Hz GNSS velocity to the framing tracker.",
+ "verdict": "Reproduces exactly (48/48) and passes all 13 metrics as modelled (avail 82.462, jitter p90 1.635, setup p90 24.72, ops p90 2, KE 13.748 J, headClear 2.012 m, endurance 52.95 min, 2.50 L). The pass is thin: new seeds keep the means but break the safety maxima (KE up to 16.05 J in 4 extra tail-band runs, 54.9 m > C0 50 m); avail fails at +8–10 % mass or CLmax 1.1; the enabling morphing wing goes beyond the cited LisHawk data. Verdict: conditional pass — most credible 'usable in simulation' candidate inside a light-tailwind envelope, not demonstrated."
+}

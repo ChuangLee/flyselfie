@@ -1,0 +1,33 @@
+{
+  "version": "3.0.0",
+  "query": "不限制风筝或载体形态，从第一性原理探索拍摄视角极佳、方便的自主跟拍产品，以滑雪为主要压力场景。",
+  "mode": "standard",
+  "started_at": "2026-10-15T06:01:44.817907+00:00",
+  "finished_at": "2026-10-15T06:45:05.962527+00:00",
+  "assumptions": [
+    "滑雪是首要压力场景；不限制风筝/飞行/高位俯拍形态",
+    "机械和电子均可比较；当前授权为广泛研究",
+    "优先真实记录；合成视角单独标识",
+    "用户未确认画质、重量、预算等数值门槛"
+  ],
+  "provider_config": {
+    "primary": "web.run",
+    "reason": "search-cli and firecrawl CLI unavailable"
+  },
+  "report_dir": "/root/ai-workspace/flySelfie/research/open_form_2026_10_14",
+  "artifact_paths": {
+    "sources": "sources.jsonl",
+    "evidence": "evidence.jsonl",
+    "claims": "claims.jsonl",
+    "report": "../../docs/18-open-form-product-research-zh.md",
+    "geometry": "geometry-results.json",
+    "html": "../../output/research/open-form-product-research.html",
+    "pdf": "../../output/research/open-form-product-research.pdf",
+    "concepts": "concepts.json",
+    "hypotheses": "hypotheses.jsonl"
+  },
+  "continuation": null,
+  "source_count": 23,
+  "claim_count": 55,
+  "report_sha256": "624d32df2a1e2efdea4089b4705cd65782ce3ace619411bcdbc7f8a6a086fa4d"
+}

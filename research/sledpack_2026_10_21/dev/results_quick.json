@@ -1,0 +1,3218 @@
+{
+ "conceptId": "sledpack",
+ "modelVersion": "sledpack@0.2.0",
+ "generated": "2026-10-22",
+ "evidence": "numerical-uncalibrated simulation (sim/js/concepts/sledpack); NOT a physical test; parameters ASSUMED unless cited (design.js)",
+ "fileHashes": {
+  "model.js": "8622fc8b735af8ee",
+  "analysis.js": "9f67272c8696e97d",
+  "design.js": "c0d42aa692d28377",
+  "detect.js": "95d2c65e0e49e489",
+  "index.js": "a740a1cc6dc9109a"
+ },
+ "defaults": {
+  "areaScale": 0.667,
+  "tail": 1,
+  "tailScale": 1,
+  "Lfilm": 6,
+  "Tset": 12,
+  "aMarginDeg": 14,
+  "vGate": 5.5,
+  "vGateOff": 4.5,
+  "cropFc": 1.2,
+  "stow": 1,
+  "Lsched": 1,
+  "Lk": 0.75,
+  "vRef": 12,
+  "LmaxS": 14,
+  "LminS": 5,
+  "wake": 1,
+  "twMax": 7,
+  "twStop": 1,
+  "driftLP": 0,
+  "Lstream": 3,
+  "vLaunch": 2,
+  "vRet": 3.5,
+  "swivel": 1,
+  "massScale": 1,
+  "cd0Scale": 1,
+  "clmaxScale": 1,
+  "wBias": 0,
+  "noise": 1,
+  "capScale": 1
+ },
+ "design": {
+  "kite": {
+   "sailG": 15.621,
+   "podG": 46,
+   "g": 61.621,
+   "gWithMargin": 70.864,
+   "kg": 0.071,
+   "W": 3.3
+  },
+  "geo": {
+   "S": 0.2,
+   "span": 0.588,
+   "chord": 0.457,
+   "AR": 1.728,
+   "CLa": 2.34,
+   "CLmax": 1,
+   "CD0": 0.12,
+   "e": 0.7,
+   "bridle": 0.327,
+   "podCdA": 0.001,
+   "deltaPowerDeg": -8,
+   "deltaDepowerDeg": 45,
+   "depowerStroke": 0.16,
+   "colAlphaDeg": 6,
+   "colBetaDeg": 40,
+   "colQ": 1.2,
+   "colT": 0.15,
+   "infAlphaLoDeg": 10,
+   "infAlphaHiDeg": 85,
+   "infBetaDeg": 25,
+   "infQ": 3,
+   "infT": 0.4,
+   "colCD": 0.35,
+   "colSfrac": 0.6,
+   "yawTau": 0.25,
+   "src": "Helmbold low-AR lift slope; Torres & Mueller 2004 (AIAA J 42(5)) low-AR plates CLmax 1.0–1.2; Hoerner flat plate; CD0, collapse and yaw lag ASSUMED"
+  },
+  "ldMax": 2.814,
+  "worn": {
+   "back": {
+    "reelMotorBeltDrum": 58,
+    "depowerDrumMotor": 12,
+    "brakeClutch": 10,
+    "driver": 8,
+    "tensionSensorEyelet": 14,
+    "mcuImuGnssBaroRadio": 12,
+    "battery2S": 120,
+    "heaterInsulation": 12,
+    "cutterWeakLink": 8,
+    "lines": 2.9,
+    "backSeatsMagnetsGuide": 22,
+    "harnessBackPanel": 25,
+    "dockContactsCharger": 6,
+    "enclosureHarness": 165
+   },
+   "backG": 474.9,
+   "backWithMarginG": 546.135,
+   "kiteG": 70.864,
+   "kg": 0.617,
+   "batteryWh": 18,
+   "podCellWh": 0.6
+  },
+  "packVol": {
+   "envelope": 29.276,
+   "folded": 2.49,
+   "lumbar": 1.052,
+   "total": 29.276,
+   "dims_m": [
+    0.72,
+    0.56,
+    0.07
+   ]
+  },
+  "line": {
+   "d": 0,
+   "dDep": 0,
+   "lambda": 0,
+   "EA": 2300,
+   "Cd": 1.1,
+   "zeta": 0.3,
+   "Ldrum": 25,
+   "kShock": 150,
+   "strokeShock": 0.1,
+   "weakLinkN": 38,
+   "clutchN": 35,
+   "src": "UHMWPE braid catalogue class (PowerPro/Spiderwire 30 lb 0.30 mm); EA by area from activetether design.js; shock spring and slip clutch as activetether (ASSUMED); weak link 38 N at the sleeve mouth (below the 40 N body-force rule)"
+  },
+  "reel": {
+   "Fmax": 30,
+   "vNL": 5.3,
+   "mEff": 0.18,
+   "fric": 0.25,
+   "eff": 0.65,
+   "runW": 1.5,
+   "kv": 1400,
+   "gear": 3,
+   "rDrum": 0.015,
+   "depRate": 0.45,
+   "depW": 0.3,
+   "massG": 58,
+   "src": "2204-class outrunner + 3:1 belt + Ø30 mm drum (catalogue class), spring brake, slip clutch; numbers derived above, reflected mass and losses ASSUMED"
+  },
+  "geom": {
+   "exitF": -0.17,
+   "exitU": -0.12,
+   "axisBackDeg": 35,
+   "swivelDeg": 80,
+   "sleeveLen": 0.65,
+   "sleeveD": 0.055,
+   "funnelD": 0.12,
+   "stowU": 0.3
+  }
+ },
+ "ensemble": {
+  "judgedUser": {
+   "headClearUser_min": {
+    "value": 0.494,
+    "pass": true,
+    "criterion": ">=0.25 m"
+   },
+   "headEpisodeMax_s": {
+    "value": 1.26,
+    "pass": true,
+    "criterion": "<=2 s per episode"
+   },
+   "headNearShareMax_pct": {
+    "value": 21.255,
+    "pass": false,
+    "criterion": "<=5 % of riding"
+   },
+   "headNearShare_dist": {
+    "mean": 6.93,
+    "p50": 1.67,
+    "p90": 19.423
+   },
+   "headEpisodeMax_dist": {
+    "p50": 0.74,
+    "p90": 1.14
+   },
+   "avail_all48_mean": 35.408,
+   "availUser_mean": 35.993,
+   "noLiftShare_mean": 12.464,
+   "packVolUser": {
+    "rule": "stowed open on the back, no pole, nothing above the helmet",
+    "pass": true,
+    "stowedEnvelope_L": 19.877,
+    "foldIntoPack_L_bonus": 2.49
+   },
+   "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+  },
+  "definition": "shared simulateRun plan (38 s ride, 20 s rest, 33 s ride, final hold 25 s) × FULLRUN_CASES_R4; round-4 rules (avail on bodyPx ≥300 over col.riding, artefact overlap AND ≥2 px, jitter p90 of footageStability subjectRms over flown cases, headClear via helmetAt incl. line, only ≤3 s capture window excluded, KE ground frame beyond 1.5 m, gates on windEstimate)",
+  "judged": {
+   "avail": {
+    "stat": "mean",
+    "value": 35.408,
+    "pass": false,
+    "criterion": ">=80"
+   },
+   "pxMed": {
+    "stat": "p50",
+    "value": 389.901,
+    "pass": true,
+    "criterion": ">=300"
+   },
+   "jitterRms": {
+    "stat": "p90",
+    "value": 6.426,
+    "pass": false,
+    "criterion": "<=3"
+   },
+   "azRange": {
+    "stat": "p50",
+    "value": 0,
+    "pass": false,
+    "criterion": ">=45"
+   },
+   "addedMass": {
+    "stat": "max",
+    "value": 0.617,
+    "pass": true,
+    "criterion": "<=1.5"
+   },
+   "bodyForcePeak": {
+    "stat": "max",
+    "value": 33.41,
+    "pass": true,
+    "criterion": "<=40"
+   },
+   "handsBusy": {
+    "stat": "max",
+    "value": 0,
+    "pass": true,
+    "criterion": "<=5"
+   },
+   "setupTime": {
+    "stat": "p90",
+    "value": 25.55,
+    "pass": true,
+    "criterion": "<=30"
+   },
+   "ops": {
+    "stat": "p90",
+    "value": 1,
+    "pass": true,
+    "criterion": "<=2"
+   },
+   "keMax": {
+    "stat": "max",
+    "value": 12.519,
+    "pass": true,
+    "criterion": "<=14.9"
+   },
+   "packVol": {
+    "stat": "max",
+    "value": 19.877,
+    "pass": false,
+    "criterion": "<=3"
+   },
+   "headClear": {
+    "stat": "min",
+    "value": 0.494,
+    "pass": false,
+    "criterion": ">=1"
+   },
+   "endurance": {
+    "stat": "min",
+    "value": 50.787,
+    "pass": true,
+    "criterion": ">=45"
+   }
+  },
+  "info": {
+   "headFlyerMin": 0.748,
+   "headFlyerP10": 0.858,
+   "headLineMin": 0.494,
+   "headLineP50": 0.939,
+   "clothesShareMean": 59.918,
+   "clothesShareMax": 94.469,
+   "thirdPartySmean": 79.208,
+   "dockFirstTryMean": 66.667,
+   "dockTimeP90": 9.51,
+   "launchTimeP50": 1.92,
+   "launchTimeP90": 2.73,
+   "launchSuccessMean": 100,
+   "collapseShareMean": 0,
+   "collapsesMean": 0,
+   "TmaxMax": 44.905,
+   "tensionMedP50": 12.895,
+   "elevMedP50": 54.657,
+   "keP90": 11.377,
+   "manualMean": 0,
+   "refuseWindSmean": 1.42,
+   "refuseTailSmean": 7.18,
+   "parksMean": 1.583,
+   "groundLaunchesMean": 0.833,
+   "parkedEndMean": 0.75,
+   "azWanderP50": 39.143,
+   "flagOutsMean": 4.25,
+   "twRetrievesMean": 0.083,
+   "artShareMean": 0.128,
+   "ridesNoLaunchMean": 0.167,
+   "broke": 0
+  },
+  "stats": {
+   "avail": {
+    "mean": 35.408,
+    "p10": 3.772,
+    "p50": 45.447,
+    "p90": 60.399,
+    "min": 0,
+    "max": 60.426,
+    "n": 12
+   },
+   "pxMed": {
+    "mean": 398.715,
+    "p10": 348.377,
+    "p50": 389.901,
+    "p90": 461.331,
+    "min": 306.505,
+    "max": 469.646,
+    "n": 11
+   },
+   "jitterRms": {
+    "mean": 5.981,
+    "p10": 5.653,
+    "p50": 5.844,
+    "p90": 6.426,
+    "min": 5.61,
+    "max": 7.009,
+    "n": 11
+   },
+   "azRange": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 12
+   },
+   "addedMass": {
+    "mean": 0.617,
+    "p10": 0.617,
+    "p50": 0.617,
+    "p90": 0.617,
+    "min": 0.617,
+    "max": 0.617,
+    "n": 12
+   },
+   "bodyForcePeak": {
+    "mean": 22.451,
+    "p10": 17.832,
+    "p50": 23.299,
+    "p90": 33.293,
+    "min": 0,
+    "max": 33.41,
+    "n": 12
+   },
+   "handsBusy": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 12
+   },
+   "setupTime": {
+    "mean": 18.303,
+    "p10": 7.36,
+    "p50": 20.22,
+    "p90": 25.55,
+    "min": 0,
+    "max": 29.68,
+    "n": 12
+   },
+   "ops": {
+    "mean": 0.75,
+    "p10": 0,
+    "p50": 1,
+    "p90": 1,
+    "min": 0,
+    "max": 1,
+    "n": 12
+   },
+   "keMax": {
+    "mean": 9.948,
+    "p10": 8.202,
+    "p50": 10.117,
+    "p90": 11.377,
+    "min": 8.115,
+    "max": 12.519,
+    "n": 11
+   },
+   "packVol": {
+    "mean": 19.877,
+    "p10": 19.877,
+    "p50": 19.877,
+    "p90": 19.877,
+    "min": 19.877,
+    "max": 19.877,
+    "n": 12
+   },
+   "headClear": {
+    "mean": 0.85,
+    "p10": 0.524,
+    "p50": 0.939,
+    "p90": 1.04,
+    "min": 0.494,
+    "max": 1.06,
+    "n": 11
+   },
+   "endurance": {
+    "mean": 83.347,
+    "p10": 66.385,
+    "p50": 90.667,
+    "p90": 97.017,
+    "min": 50.787,
+    "max": 107.787,
+    "n": 12
+   },
+   "headFlyer": {
+    "mean": 1.042,
+    "p10": 0.858,
+    "p50": 1.113,
+    "p90": 1.115,
+    "min": 0.748,
+    "max": 1.121,
+    "n": 11
+   },
+   "headLine": {
+    "mean": 0.85,
+    "p10": 0.524,
+    "p50": 0.939,
+    "p90": 1.04,
+    "min": 0.494,
+    "max": 1.06,
+    "n": 11
+   },
+   "parks": {
+    "mean": 1.583,
+    "p10": 0,
+    "p50": 2,
+    "p90": 2,
+    "min": 0,
+    "max": 2,
+    "n": 12
+   },
+   "groundLaunches": {
+    "mean": 0.833,
+    "p10": 0,
+    "p50": 1,
+    "p90": 1,
+    "min": 0,
+    "max": 1,
+    "n": 12
+   },
+   "parkedEnd": {
+    "mean": 0.75,
+    "p10": 0,
+    "p50": 1,
+    "p90": 1,
+    "min": 0,
+    "max": 1,
+    "n": 12
+   },
+   "availUser": {
+    "mean": 35.993,
+    "p10": 5.816,
+    "p50": 45.447,
+    "p90": 60.984,
+    "min": 0,
+    "max": 61.576,
+    "n": 12
+   },
+   "noLiftShare": {
+    "mean": 12.464,
+    "p10": 0,
+    "p50": 1.913,
+    "p90": 35.156,
+    "min": 0,
+    "max": 97.899,
+    "n": 12
+   },
+   "headNearShare": {
+    "mean": 6.93,
+    "p10": 0,
+    "p50": 1.67,
+    "p90": 19.423,
+    "min": 0,
+    "max": 21.255,
+    "n": 12
+   },
+   "headEpMax": {
+    "mean": 0.57,
+    "p10": 0,
+    "p50": 0.74,
+    "p90": 1.14,
+    "min": 0,
+    "max": 1.26,
+    "n": 12
+   },
+   "headEpN": {
+    "mean": 7.75,
+    "p10": 0,
+    "p50": 3,
+    "p90": 21,
+    "min": 0,
+    "max": 21,
+    "n": 12
+   },
+   "packFolded": {
+    "mean": 2.49,
+    "p10": 2.49,
+    "p50": 2.49,
+    "p90": 2.49,
+    "min": 2.49,
+    "max": 2.49,
+    "n": 12
+   },
+   "azWander": {
+    "mean": 50.965,
+    "p10": 17.799,
+    "p50": 39.143,
+    "p90": 93.88,
+    "min": 14.883,
+    "max": 102.738,
+    "n": 11
+   },
+   "refuseTailS": {
+    "mean": 7.18,
+    "p10": 0,
+    "p50": 0,
+    "p90": 17.53,
+    "min": 0,
+    "max": 68.63,
+    "n": 12
+   },
+   "flagOuts": {
+    "mean": 4.25,
+    "p10": 0,
+    "p50": 0,
+    "p90": 22,
+    "min": 0,
+    "max": 28,
+    "n": 12
+   },
+   "twRetrieves": {
+    "mean": 0.083,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 1,
+    "n": 12
+   },
+   "artShare": {
+    "mean": 0.128,
+    "p10": 0,
+    "p50": 0.093,
+    "p90": 0.284,
+    "min": 0,
+    "max": 0.478,
+    "n": 11
+   },
+   "filmShare": {
+    "mean": 71.006,
+    "p10": 28.206,
+    "p50": 85.345,
+    "p90": 87.554,
+    "min": 0,
+    "max": 88.066,
+    "n": 12
+   },
+   "launchSuccess": {
+    "mean": 100,
+    "p10": 100,
+    "p50": 100,
+    "p90": 100,
+    "min": 100,
+    "max": 100,
+    "n": 11
+   },
+   "dockFirstTry": {
+    "mean": 66.667,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 3
+   },
+   "lowLineShare": {
+    "mean": 94.972,
+    "p10": 89.665,
+    "p50": 96.483,
+    "p90": 99.258,
+    "min": 80.765,
+    "max": 99.367,
+    "n": 11
+   },
+   "clothesShare": {
+    "mean": 59.918,
+    "p10": 28.99,
+    "p50": 71.366,
+    "p90": 88.167,
+    "min": 21.889,
+    "max": 94.469,
+    "n": 11
+   },
+   "thirdPartyS": {
+    "mean": 79.208,
+    "p10": 45.48,
+    "p50": 86.4,
+    "p90": 116.16,
+    "min": 0,
+    "max": 117.56,
+    "n": 12
+   },
+   "crashes": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 12
+   },
+   "collapses": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 12
+   },
+   "collapseShare": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 11
+   },
+   "Tmax": {
+    "mean": 24.833,
+    "p10": 18.472,
+    "p50": 25.126,
+    "p90": 34.501,
+    "min": 0,
+    "max": 44.905,
+    "n": 12
+   },
+   "reelPeakW": {
+    "mean": 100.354,
+    "p10": 54.678,
+    "p50": 121.998,
+    "p90": 137.715,
+    "min": 0,
+    "max": 142.312,
+    "n": 12
+   },
+   "reelWh": {
+    "mean": 0.077,
+    "p10": 0.024,
+    "p50": 0.042,
+    "p90": 0.136,
+    "min": 0,
+    "max": 0.245,
+    "n": 12
+   },
+   "meanW": {
+    "mean": 7.1,
+    "p10": 5.515,
+    "p50": 6.055,
+    "p90": 8.899,
+    "min": 4.782,
+    "max": 12.19,
+    "n": 12
+   },
+   "elevMed": {
+    "mean": 54.436,
+    "p10": 52.943,
+    "p50": 54.657,
+    "p90": 56.441,
+    "min": 50.017,
+    "max": 57.098,
+    "n": 11
+   },
+   "tensionMed": {
+    "mean": 15.931,
+    "p10": 12.114,
+    "p50": 12.895,
+    "p90": 21.909,
+    "min": 11.88,
+    "max": 29.183,
+    "n": 11
+   },
+   "manual": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 12
+   },
+   "refuseWindS": {
+    "mean": 1.42,
+    "p10": 0,
+    "p50": 0.52,
+    "p90": 4.47,
+    "min": 0,
+    "max": 4.69,
+    "n": 12
+   },
+   "refuseDetectS": {
+    "mean": 2.085,
+    "p10": 1.73,
+    "p50": 1.81,
+    "p90": 1.91,
+    "min": 1.73,
+    "max": 5.13,
+    "n": 12
+   },
+   "refuseStraightS": {
+    "mean": 3.598,
+    "p10": 1.18,
+    "p50": 1.22,
+    "p90": 8.12,
+    "min": 0.47,
+    "max": 12.11,
+    "n": 12
+   },
+   "refuseLockS": {
+    "mean": 0,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 0,
+    "n": 12
+   },
+   "ridesNoLaunch": {
+    "mean": 0.167,
+    "p10": 0,
+    "p50": 0,
+    "p90": 0,
+    "min": 0,
+    "max": 2,
+    "n": 12
+   },
+   "dockTime": {
+    "p50": 9.29,
+    "p90": 9.51,
+    "max": 9.51,
+    "n": 4
+   },
+   "launchTime": {
+    "p50": 1.92,
+    "p90": 2.73,
+    "max": 2.89,
+    "n": 23
+   }
+  },
+  "counts": {
+   "cases": 12,
+   "flown": 11,
+   "broke": 0
+  },
+  "rows": [
+   {
+    "id": "calm_s11",
+    "U": 0,
+    "dir": "calm",
+    "seed": 11,
+    "availUser": 61.576,
+    "noLiftShare": 1.913,
+    "headNearShare": 0.754,
+    "headEpMax": 0.3,
+    "headEpN": 3,
+    "avail": 60.399,
+    "pxMed": 409.992,
+    "azRange": 0,
+    "azWander": 41.655,
+    "addedMass": 0.617,
+    "bodyForcePeak": 20.043,
+    "handsBusy": 0,
+    "setupTime": 21.06,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 8.9,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 0.98,
+    "headFlyer": 1.115,
+    "headLine": 0.98,
+    "endurance": 90.368,
+    "meanW": 6.055,
+    "artShare": 0.032,
+    "filmShare": 85.022,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": 96.483,
+    "clothesShare": 71.448,
+    "thirdPartyS": 71.6,
+    "lineH1p10": 0.442,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 21.313,
+    "reelPeakW": 123.578,
+    "reelWh": 0.042,
+    "broke": false,
+    "refuseWindS": 1.16,
+    "refuseTailS": 0,
+    "flagOuts": 0,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.73,
+    "refuseStraightS": 1.22,
+    "refuseLockS": 0,
+    "hcAt": "63.8:FLY:line",
+    "hfAt": "2.0:LAUNCH",
+    "keAt": "92.8:RETRIEVE",
+    "elevMed": 55.594,
+    "tensionMed": 12.62,
+    "jitterRms": 5.61,
+    "flown": true,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [
+     2.3,
+     1.49
+    ],
+    "events": []
+   },
+   {
+    "id": "head3_s12",
+    "U": 3,
+    "dir": "head",
+    "seed": 12,
+    "availUser": 60.984,
+    "noLiftShare": 0.916,
+    "headNearShare": 0,
+    "headEpMax": 0,
+    "headEpN": 0,
+    "avail": 60.426,
+    "pxMed": 362.909,
+    "azRange": 0,
+    "azWander": 17.799,
+    "addedMass": 0.617,
+    "bodyForcePeak": 24.363,
+    "handsBusy": 0,
+    "setupTime": 24.71,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 8.202,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 1.027,
+    "headFlyer": 1.113,
+    "headLine": 1.027,
+    "endurance": 91.481,
+    "meanW": 5.959,
+    "artShare": 0.093,
+    "filmShare": 87.338,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": 99.367,
+    "clothesShare": 94.469,
+    "thirdPartyS": 116.16,
+    "lineH1p10": 0.188,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 25.126,
+    "reelPeakW": 54.678,
+    "reelWh": 0.039,
+    "broke": false,
+    "refuseWindS": 0,
+    "refuseTailS": 0,
+    "flagOuts": 0,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.81,
+    "refuseStraightS": 1.18,
+    "refuseLockS": 0,
+    "hcAt": "4.1:FLY:line",
+    "hfAt": "1.6:LAUNCH",
+    "keAt": "37.9:FLY",
+    "elevMed": 52.943,
+    "tensionMed": 15.889,
+    "jitterRms": 5.653,
+    "flown": true,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [
+     1.91,
+     1.29
+    ],
+    "events": []
+   },
+   {
+    "id": "tail3_s13",
+    "U": 3,
+    "dir": "tail",
+    "seed": 13,
+    "availUser": 23.077,
+    "noLiftShare": 3.691,
+    "headNearShare": 16.622,
+    "headEpMax": 0.84,
+    "headEpN": 20,
+    "avail": 22.225,
+    "pxMed": 461.331,
+    "azRange": 0,
+    "azWander": 77.307,
+    "addedMass": 0.617,
+    "bodyForcePeak": 20.471,
+    "handsBusy": 0,
+    "setupTime": 20.22,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 10.147,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 0.68,
+    "headFlyer": 1.121,
+    "headLine": 0.68,
+    "endurance": 96.478,
+    "meanW": 5.556,
+    "artShare": 0.037,
+    "filmShare": 72.656,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": 93.308,
+    "clothesShare": 30.915,
+    "thirdPartyS": 65.7,
+    "lineH1p10": 0.282,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 21.816,
+    "reelPeakW": 121.998,
+    "reelWh": 0.026,
+    "broke": false,
+    "refuseWindS": 3.21,
+    "refuseTailS": 0,
+    "flagOuts": 0,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.91,
+    "refuseStraightS": 8.12,
+    "refuseLockS": 0,
+    "hcAt": "93.0:RETRIEVE:line",
+    "hfAt": "6.7:LAUNCH",
+    "keAt": "67.7:FLY",
+    "elevMed": 56.441,
+    "tensionMed": 12.247,
+    "jitterRms": 6.126,
+    "flown": true,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [
+     2.54,
+     1.29
+    ],
+    "events": []
+   },
+   {
+    "id": "crossR3_s11",
+    "U": 3,
+    "dir": "crossR",
+    "seed": 11,
+    "availUser": 55.295,
+    "noLiftShare": 1.293,
+    "headNearShare": 1.67,
+    "headEpMax": 0.62,
+    "headEpN": 3,
+    "avail": 54.58,
+    "pxMed": 389.901,
+    "azRange": 0,
+    "azWander": 39.143,
+    "addedMass": 0.617,
+    "bodyForcePeak": 23.299,
+    "handsBusy": 0,
+    "setupTime": 22.6,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 8.764,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 0.939,
+    "headFlyer": 1.084,
+    "headLine": 0.939,
+    "endurance": 74.428,
+    "meanW": 7.741,
+    "artShare": 0.094,
+    "filmShare": 85.938,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": 99.036,
+    "clothesShare": 78.414,
+    "thirdPartyS": 117.56,
+    "lineH1p10": 0.219,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 24.272,
+    "reelPeakW": 118.584,
+    "reelWh": 0.098,
+    "broke": false,
+    "refuseWindS": 0.52,
+    "refuseTailS": 0,
+    "flagOuts": 0,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.73,
+    "refuseStraightS": 1.26,
+    "refuseLockS": 0,
+    "hcAt": "63.9:FLY:line",
+    "hfAt": "1.6:LAUNCH",
+    "keAt": "90.0:FLY",
+    "elevMed": 54.431,
+    "tensionMed": 12.895,
+    "jitterRms": 5.689,
+    "flown": true,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [
+     2.16,
+     1.56
+    ],
+    "events": []
+   },
+   {
+    "id": "head6_s12",
+    "U": 6,
+    "dir": "head",
+    "seed": 12,
+    "availUser": 55.583,
+    "noLiftShare": 0.593,
+    "headNearShare": 0,
+    "headEpMax": 0,
+    "headEpN": 0,
+    "avail": 55.253,
+    "pxMed": 348.377,
+    "azRange": 0,
+    "azWander": 14.883,
+    "addedMass": 0.617,
+    "bodyForcePeak": 31.789,
+    "handsBusy": 0,
+    "setupTime": 25.55,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 8.115,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 1.06,
+    "headFlyer": 1.112,
+    "headLine": 1.06,
+    "endurance": 72.081,
+    "meanW": 8.052,
+    "artShare": 0.184,
+    "filmShare": 88.066,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": 98.817,
+    "clothesShare": 86.351,
+    "thirdPartyS": 111.32,
+    "lineH1p10": 0.192,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 31.984,
+    "reelPeakW": 73.767,
+    "reelWh": 0.108,
+    "broke": false,
+    "refuseWindS": 0,
+    "refuseTailS": 0,
+    "flagOuts": 1,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.81,
+    "refuseStraightS": 1.18,
+    "refuseLockS": 0,
+    "hcAt": "71.9:FLY:line",
+    "hfAt": "1.6:LAUNCH",
+    "keAt": "31.1:FLY",
+    "elevMed": 53.025,
+    "tensionMed": 21.909,
+    "jitterRms": 5.849,
+    "flown": true,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [
+     1.62,
+     1.05
+    ],
+    "events": []
+   },
+   {
+    "id": "tail6_s13",
+    "U": 6,
+    "dir": "tail",
+    "seed": 13,
+    "availUser": 5.816,
+    "noLiftShare": 35.156,
+    "headNearShare": 12.177,
+    "headEpMax": 1.14,
+    "headEpN": 12,
+    "avail": 3.772,
+    "pxMed": 436.354,
+    "azRange": 0,
+    "azWander": 102.738,
+    "addedMass": 0.617,
+    "bodyForcePeak": 20.451,
+    "handsBusy": 0,
+    "setupTime": 20.14,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 12.519,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 0.524,
+    "headFlyer": 0.748,
+    "headLine": 0.524,
+    "endurance": 90.667,
+    "meanW": 6.029,
+    "artShare": 0.478,
+    "filmShare": 28.206,
+    "launches": 3,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 1,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 80.765,
+    "clothesShare": 46.157,
+    "thirdPartyS": 45.48,
+    "lineH1p10": 0.184,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 28.597,
+    "reelPeakW": 142.312,
+    "reelWh": 0.041,
+    "broke": false,
+    "refuseWindS": 4.47,
+    "refuseTailS": 17.53,
+    "flagOuts": 0,
+    "twRetrieves": 1,
+    "refuseDetectS": 1.91,
+    "refuseStraightS": 12.11,
+    "refuseLockS": 0,
+    "hcAt": "93.1:RETRIEVE:line",
+    "hfAt": "20.7:LAUNCH",
+    "keAt": "73.6:FLY",
+    "elevMed": 53.616,
+    "tensionMed": 11.88,
+    "jitterRms": 7.009,
+    "flown": true,
+    "dockTimes": [
+     6.7
+    ],
+    "capVrel": [
+     0.358
+    ],
+    "launchTimes": [
+     2.89,
+     2.8,
+     1.66
+    ],
+    "events": []
+   },
+   {
+    "id": "crossR6_s11",
+    "U": 6,
+    "dir": "crossR",
+    "seed": 11,
+    "availUser": 49.569,
+    "noLiftShare": 0,
+    "headNearShare": 1.212,
+    "headEpMax": 0.74,
+    "headEpN": 2,
+    "avail": 49.569,
+    "pxMed": 371.866,
+    "azRange": 0,
+    "azWander": 35.895,
+    "addedMass": 0.617,
+    "bodyForcePeak": 26.295,
+    "handsBusy": 0,
+    "setupTime": 7.36,
+    "ops": 0,
+    "parks": 1,
+    "groundLaunches": 1,
+    "parkedEnd": 0,
+    "keMax": 11.377,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 0.956,
+    "headFlyer": 0.97,
+    "headLine": 0.956,
+    "endurance": 66.927,
+    "meanW": 8.812,
+    "artShare": 0.062,
+    "filmShare": 87.554,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 1,
+    "dockFirstTry": 0,
+    "manual": 0,
+    "lowLineShare": 99.258,
+    "clothesShare": 71.366,
+    "thirdPartyS": 98.42,
+    "lineH1p10": 0.285,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 27.464,
+    "reelPeakW": 137.715,
+    "reelWh": 0.133,
+    "broke": false,
+    "refuseWindS": 0,
+    "refuseTailS": 0,
+    "flagOuts": 0,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.73,
+    "refuseStraightS": 1.18,
+    "refuseLockS": 0,
+    "hcAt": "83.2:FLY:line",
+    "hfAt": "1.6:LAUNCH",
+    "keAt": "78.3:FLY",
+    "elevMed": 54.657,
+    "tensionMed": 14.841,
+    "jitterRms": 5.844,
+    "flown": true,
+    "dockTimes": [
+     8.92
+    ],
+    "capVrel": [
+     0.363,
+     0.369,
+     0.35,
+     0.36
+    ],
+    "launchTimes": [
+     1.92,
+     1.2
+    ],
+    "events": [
+     "43.83:capfail",
+     "98.53:capfail"
+    ]
+   },
+   {
+    "id": "head9_s12",
+    "U": 9,
+    "dir": "head",
+    "seed": 12,
+    "availUser": 42.93,
+    "noLiftShare": 0.162,
+    "headNearShare": 0,
+    "headEpMax": 0,
+    "headEpN": 0,
+    "avail": 42.861,
+    "pxMed": 306.505,
+    "azRange": 0,
+    "azWander": 21.805,
+    "addedMass": 0.617,
+    "bodyForcePeak": 33.293,
+    "handsBusy": 0,
+    "setupTime": 29.68,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 9.185,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 1.04,
+    "headFlyer": 1.113,
+    "headLine": 1.04,
+    "endurance": 50.787,
+    "meanW": 12.19,
+    "artShare": 0,
+    "filmShare": 86.449,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": 98.569,
+    "clothesShare": 88.167,
+    "thirdPartyS": 109.08,
+    "lineH1p10": 0.193,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 44.905,
+    "reelPeakW": 114.542,
+    "reelWh": 0.245,
+    "broke": false,
+    "refuseWindS": 0,
+    "refuseTailS": 0,
+    "flagOuts": 22,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.81,
+    "refuseStraightS": 1.18,
+    "refuseLockS": 0,
+    "hcAt": "35.2:FLY:line",
+    "hfAt": "1.6:LAUNCH",
+    "keAt": "21.1:FLY",
+    "elevMed": 50.017,
+    "tensionMed": 29.183,
+    "jitterRms": 5.733,
+    "flown": true,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [
+     1.76,
+     2.11
+    ],
+    "events": []
+   },
+   {
+    "id": "tail9_s13",
+    "U": 9,
+    "dir": "tail",
+    "seed": 13,
+    "availUser": 0,
+    "noLiftShare": 97.899,
+    "headNearShare": 0,
+    "headEpMax": 0,
+    "headEpN": 0,
+    "avail": 0,
+    "pxMed": null,
+    "azRange": 0,
+    "azWander": null,
+    "addedMass": 0.617,
+    "bodyForcePeak": 0,
+    "handsBusy": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "parks": 0,
+    "groundLaunches": 0,
+    "parkedEnd": 0,
+    "keMax": null,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": null,
+    "headFlyer": null,
+    "headLine": null,
+    "endurance": 107.787,
+    "meanW": 4.782,
+    "artShare": null,
+    "filmShare": 0,
+    "launches": 0,
+    "launchFails": 0,
+    "launchSuccess": null,
+    "ridesNoLaunch": 2,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": null,
+    "clothesShare": null,
+    "thirdPartyS": 0,
+    "lineH1p10": null,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": null,
+    "Tmax": 0,
+    "reelPeakW": 0,
+    "reelWh": 0,
+    "broke": false,
+    "refuseWindS": 0,
+    "refuseTailS": 68.63,
+    "flagOuts": 0,
+    "twRetrieves": 0,
+    "refuseDetectS": 5.13,
+    "refuseStraightS": 0.47,
+    "refuseLockS": 0,
+    "hcAt": null,
+    "hfAt": null,
+    "keAt": null,
+    "elevMed": null,
+    "tensionMed": null,
+    "jitterRms": null,
+    "flown": false,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [],
+    "events": []
+   },
+   {
+    "id": "crossR9_s11",
+    "U": 9,
+    "dir": "crossR",
+    "seed": 11,
+    "availUser": 45.447,
+    "noLiftShare": 0,
+    "headNearShare": 10.048,
+    "headEpMax": 1.26,
+    "headEpN": 11,
+    "avail": 45.447,
+    "pxMed": 370.463,
+    "azRange": 0,
+    "azWander": 31.059,
+    "addedMass": 0.617,
+    "bodyForcePeak": 33.41,
+    "handsBusy": 0,
+    "setupTime": 7.95,
+    "ops": 0,
+    "parks": 0,
+    "groundLaunches": 0,
+    "parkedEnd": 0,
+    "keMax": 11.187,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 0.846,
+    "headFlyer": 0.858,
+    "headLine": 0.846,
+    "endurance": 66.385,
+    "meanW": 8.899,
+    "artShare": 0.284,
+    "filmShare": 85.345,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 2,
+    "dockFirstTry": 100,
+    "manual": 0,
+    "lowLineShare": 96.187,
+    "clothesShare": 40.931,
+    "thirdPartyS": 86.4,
+    "lineH1p10": 0.434,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 34.501,
+    "reelPeakW": 60.104,
+    "reelWh": 0.136,
+    "broke": false,
+    "refuseWindS": 0,
+    "refuseTailS": 0,
+    "flagOuts": 28,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.73,
+    "refuseStraightS": 1.18,
+    "refuseLockS": 0,
+    "hcAt": "77.2:FLY:line",
+    "hfAt": "1.7:LAUNCH",
+    "keAt": "13.6:FLY",
+    "elevMed": 55.99,
+    "tensionMed": 18.843,
+    "jitterRms": 5.812,
+    "flown": true,
+    "dockTimes": [
+     9.29,
+     9.51
+    ],
+    "capVrel": [
+     0.344,
+     0.347
+    ],
+    "launchTimes": [
+     2.28,
+     2.47
+    ],
+    "events": []
+   },
+   {
+    "id": "tail3.5_s12",
+    "U": 3.5,
+    "dir": "tail",
+    "seed": 12,
+    "availUser": 13.991,
+    "noLiftShare": 3.529,
+    "headNearShare": 19.423,
+    "headEpMax": 0.94,
+    "headEpN": 21,
+    "avail": 13.497,
+    "pxMed": 458.516,
+    "azRange": 0,
+    "azWander": 84.45,
+    "addedMass": 0.617,
+    "bodyForcePeak": 17.832,
+    "handsBusy": 0,
+    "setupTime": 20.14,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 10.117,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 0.803,
+    "headFlyer": 1.113,
+    "headLine": 0.803,
+    "endurance": 95.756,
+    "meanW": 5.612,
+    "artShare": 0.147,
+    "filmShare": 73.141,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": 93.239,
+    "clothesShare": 21.889,
+    "thirdPartyS": 63.62,
+    "lineH1p10": 0.557,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 18.472,
+    "reelPeakW": 126.719,
+    "reelWh": 0.027,
+    "broke": false,
+    "refuseWindS": 2.99,
+    "refuseTailS": 0,
+    "flagOuts": 0,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.81,
+    "refuseStraightS": 7.46,
+    "refuseLockS": 0,
+    "hcAt": "29.7:FLY:line",
+    "hfAt": "9.6:LAUNCH",
+    "keAt": "90.9:FLY",
+    "elevMed": 57.098,
+    "tensionMed": 12.819,
+    "jitterRms": 6.043,
+    "flown": true,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [
+     2.56,
+     1.92
+    ],
+    "events": []
+   },
+   {
+    "id": "tail4.5_s13",
+    "U": 4.5,
+    "dir": "tail",
+    "seed": 13,
+    "availUser": 17.644,
+    "noLiftShare": 4.418,
+    "headNearShare": 21.255,
+    "headEpMax": 1,
+    "headEpN": 21,
+    "avail": 16.864,
+    "pxMed": 469.646,
+    "azRange": 0,
+    "azWander": 93.88,
+    "addedMass": 0.617,
+    "bodyForcePeak": 18.161,
+    "handsBusy": 0,
+    "setupTime": 20.22,
+    "ops": 1,
+    "parks": 2,
+    "groundLaunches": 1,
+    "parkedEnd": 1,
+    "keMax": 10.912,
+    "packVol": 19.877,
+    "packFolded": 2.49,
+    "headClear": 0.494,
+    "headFlyer": 1.115,
+    "headLine": 0.494,
+    "endurance": 97.017,
+    "meanW": 5.515,
+    "artShare": 0,
+    "filmShare": 72.36,
+    "launches": 2,
+    "launchFails": 0,
+    "launchSuccess": 100,
+    "ridesNoLaunch": 0,
+    "docks": 0,
+    "dockFirstTry": null,
+    "manual": 0,
+    "lowLineShare": 89.665,
+    "clothesShare": 28.99,
+    "thirdPartyS": 65.16,
+    "lineH1p10": 0.317,
+    "crashes": 0,
+    "collapses": 0,
+    "collapseShare": 0,
+    "Tmax": 19.551,
+    "reelPeakW": 130.245,
+    "reelWh": 0.024,
+    "broke": false,
+    "refuseWindS": 4.69,
+    "refuseTailS": 0,
+    "flagOuts": 0,
+    "twRetrieves": 0,
+    "refuseDetectS": 1.91,
+    "refuseStraightS": 6.64,
+    "refuseLockS": 0,
+    "hcAt": "93.1:RETRIEVE:line",
+    "hfAt": "6.7:LAUNCH",
+    "keAt": "13.3:FLY",
+    "elevMed": 54.981,
+    "tensionMed": 12.114,
+    "jitterRms": 6.426,
+    "flown": true,
+    "dockTimes": [],
+    "capVrel": [],
+    "launchTimes": [
+     2.73,
+     1.33
+    ],
+    "events": []
+   }
+  ],
+  "seconds": 21.49,
+  "byDir": {
+   "calm": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 60.399,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 409.992,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 5.61,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 20.043,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 21.06,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 8.9,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.98,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 90.368,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.98,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 0.3,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 0.754,
+      "pass": true,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 0.754,
+      "p50": 0.754,
+      "p90": 0.754
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0.3,
+      "p90": 0.3
+     },
+     "avail_all48_mean": 60.399,
+     "availUser_mean": 61.576,
+     "noLiftShare_mean": 1.913,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 1.115,
+     "headFlyerP10": 1.115,
+     "headLineMin": 0.98,
+     "headLineP50": 0.98,
+     "clothesShareMean": 71.448,
+     "clothesShareMax": 71.448,
+     "thirdPartySmean": 71.6,
+     "dockFirstTryMean": null,
+     "dockTimeP90": null,
+     "launchTimeP50": 2.3,
+     "launchTimeP90": 2.3,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 21.313,
+     "tensionMedP50": 12.62,
+     "elevMedP50": 55.594,
+     "keP90": 8.9,
+     "manualMean": 0,
+     "refuseWindSmean": 1.16,
+     "refuseTailSmean": 0,
+     "parksMean": 2,
+     "groundLaunchesMean": 1,
+     "parkedEndMean": 1,
+     "azWanderP50": 41.655,
+     "flagOutsMean": 0,
+     "twRetrievesMean": 0,
+     "artShareMean": 0.032,
+     "ridesNoLaunchMean": 0,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 1,
+     "flown": 1,
+     "broke": 0
+    }
+   },
+   "head": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 52.847,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 348.377,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 5.849,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 33.293,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 29.68,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 9.185,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 1.027,
+      "pass": true,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 50.787,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 1.027,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 0,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 0,
+      "p50": 0,
+      "p90": 0
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0,
+      "p90": 0
+     },
+     "avail_all48_mean": 52.847,
+     "availUser_mean": 53.166,
+     "noLiftShare_mean": 0.557,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 1.112,
+     "headFlyerP10": 1.112,
+     "headLineMin": 1.027,
+     "headLineP50": 1.04,
+     "clothesShareMean": 89.662,
+     "clothesShareMax": 94.469,
+     "thirdPartySmean": 112.187,
+     "dockFirstTryMean": null,
+     "dockTimeP90": null,
+     "launchTimeP50": 1.76,
+     "launchTimeP90": 2.11,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 44.905,
+     "tensionMedP50": 21.909,
+     "elevMedP50": 52.943,
+     "keP90": 9.185,
+     "manualMean": 0,
+     "refuseWindSmean": 0,
+     "refuseTailSmean": 0,
+     "parksMean": 2,
+     "groundLaunchesMean": 1,
+     "parkedEndMean": 1,
+     "azWanderP50": 17.799,
+     "flagOutsMean": 7.667,
+     "twRetrievesMean": 0,
+     "artShareMean": 0.092,
+     "ridesNoLaunchMean": 0,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 3,
+     "flown": 3,
+     "broke": 0
+    }
+   },
+   "tail": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 11.272,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 461.331,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 7.009,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 20.471,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 20.22,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 12.519,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.494,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 90.667,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.494,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 1.14,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 21.255,
+      "pass": false,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 13.895,
+      "p50": 16.622,
+      "p90": 21.255
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0.94,
+      "p90": 1.14
+     },
+     "avail_all48_mean": 11.272,
+     "availUser_mean": 12.106,
+     "noLiftShare_mean": 28.939,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 0.748,
+     "headFlyerP10": 0.748,
+     "headLineMin": 0.494,
+     "headLineP50": 0.68,
+     "clothesShareMean": 31.988,
+     "clothesShareMax": 46.157,
+     "thirdPartySmean": 47.992,
+     "dockFirstTryMean": 100,
+     "dockTimeP90": 6.7,
+     "launchTimeP50": 2.54,
+     "launchTimeP90": 2.8,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 28.597,
+     "tensionMedP50": 12.247,
+     "elevMedP50": 56.441,
+     "keP90": 12.519,
+     "manualMean": 0,
+     "refuseWindSmean": 3.072,
+     "refuseTailSmean": 17.232,
+     "parksMean": 1.6,
+     "groundLaunchesMean": 0.8,
+     "parkedEndMean": 0.8,
+     "azWanderP50": 93.88,
+     "flagOutsMean": 0,
+     "twRetrievesMean": 0.2,
+     "artShareMean": 0.166,
+     "ridesNoLaunchMean": 0.4,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 5,
+     "flown": 4,
+     "broke": 0
+    }
+   },
+   "crossL": null,
+   "crossR": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 49.865,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 371.866,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 5.844,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 33.41,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 22.6,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 11.377,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.846,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 66.385,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.846,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 1.26,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 10.048,
+      "pass": false,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 4.31,
+      "p50": 1.67,
+      "p90": 10.048
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0.74,
+      "p90": 1.26
+     },
+     "avail_all48_mean": 49.865,
+     "availUser_mean": 50.104,
+     "noLiftShare_mean": 0.431,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 0.858,
+     "headFlyerP10": 0.858,
+     "headLineMin": 0.846,
+     "headLineP50": 0.939,
+     "clothesShareMean": 63.57,
+     "clothesShareMax": 78.414,
+     "thirdPartySmean": 100.793,
+     "dockFirstTryMean": 50,
+     "dockTimeP90": 9.51,
+     "launchTimeP50": 2.16,
+     "launchTimeP90": 2.47,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 34.501,
+     "tensionMedP50": 14.841,
+     "elevMedP50": 54.657,
+     "keP90": 11.377,
+     "manualMean": 0,
+     "refuseWindSmean": 0.173,
+     "refuseTailSmean": 0,
+     "parksMean": 1,
+     "groundLaunchesMean": 0.667,
+     "parkedEndMean": 0.333,
+     "azWanderP50": 35.895,
+     "flagOutsMean": 9.333,
+     "twRetrievesMean": 0,
+     "artShareMean": 0.147,
+     "ridesNoLaunchMean": 0,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 3,
+     "flown": 3,
+     "broke": 0
+    }
+   }
+  },
+  "bySpeed": {
+   "U0": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 60.399,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 409.992,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 5.61,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 20.043,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 21.06,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 8.9,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.98,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 90.368,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.98,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 0.3,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 0.754,
+      "pass": true,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 0.754,
+      "p50": 0.754,
+      "p90": 0.754
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0.3,
+      "p90": 0.3
+     },
+     "avail_all48_mean": 60.399,
+     "availUser_mean": 61.576,
+     "noLiftShare_mean": 1.913,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 1.115,
+     "headFlyerP10": 1.115,
+     "headLineMin": 0.98,
+     "headLineP50": 0.98,
+     "clothesShareMean": 71.448,
+     "clothesShareMax": 71.448,
+     "thirdPartySmean": 71.6,
+     "dockFirstTryMean": null,
+     "dockTimeP90": null,
+     "launchTimeP50": 2.3,
+     "launchTimeP90": 2.3,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 21.313,
+     "tensionMedP50": 12.62,
+     "elevMedP50": 55.594,
+     "keP90": 8.9,
+     "manualMean": 0,
+     "refuseWindSmean": 1.16,
+     "refuseTailSmean": 0,
+     "parksMean": 2,
+     "groundLaunchesMean": 1,
+     "parkedEndMean": 1,
+     "azWanderP50": 41.655,
+     "flagOutsMean": 0,
+     "twRetrievesMean": 0,
+     "artShareMean": 0.032,
+     "ridesNoLaunchMean": 0,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 1,
+     "flown": 1,
+     "broke": 0
+    }
+   },
+   "U3": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 45.744,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 389.901,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 6.126,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 24.363,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 24.71,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 10.147,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.68,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 74.428,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.68,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 0.84,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 16.622,
+      "pass": false,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 6.097,
+      "p50": 1.67,
+      "p90": 16.622
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0.62,
+      "p90": 0.84
+     },
+     "avail_all48_mean": 45.744,
+     "availUser_mean": 46.452,
+     "noLiftShare_mean": 1.967,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 1.084,
+     "headFlyerP10": 1.084,
+     "headLineMin": 0.68,
+     "headLineP50": 0.939,
+     "clothesShareMean": 67.933,
+     "clothesShareMax": 94.469,
+     "thirdPartySmean": 99.807,
+     "dockFirstTryMean": null,
+     "dockTimeP90": null,
+     "launchTimeP50": 1.91,
+     "launchTimeP90": 2.54,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 25.126,
+     "tensionMedP50": 12.895,
+     "elevMedP50": 54.431,
+     "keP90": 10.147,
+     "manualMean": 0,
+     "refuseWindSmean": 1.243,
+     "refuseTailSmean": 0,
+     "parksMean": 2,
+     "groundLaunchesMean": 1,
+     "parkedEndMean": 1,
+     "azWanderP50": 39.143,
+     "flagOutsMean": 0,
+     "twRetrievesMean": 0,
+     "artShareMean": 0.075,
+     "ridesNoLaunchMean": 0,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 3,
+     "flown": 3,
+     "broke": 0
+    }
+   },
+   "U3.5": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 13.497,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 458.516,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 6.043,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 17.832,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 20.14,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 10.117,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.803,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 95.756,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.803,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 0.94,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 19.423,
+      "pass": false,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 19.423,
+      "p50": 19.423,
+      "p90": 19.423
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0.94,
+      "p90": 0.94
+     },
+     "avail_all48_mean": 13.497,
+     "availUser_mean": 13.991,
+     "noLiftShare_mean": 3.529,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 1.113,
+     "headFlyerP10": 1.113,
+     "headLineMin": 0.803,
+     "headLineP50": 0.803,
+     "clothesShareMean": 21.889,
+     "clothesShareMax": 21.889,
+     "thirdPartySmean": 63.62,
+     "dockFirstTryMean": null,
+     "dockTimeP90": null,
+     "launchTimeP50": 2.56,
+     "launchTimeP90": 2.56,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 18.472,
+     "tensionMedP50": 12.819,
+     "elevMedP50": 57.098,
+     "keP90": 10.117,
+     "manualMean": 0,
+     "refuseWindSmean": 2.99,
+     "refuseTailSmean": 0,
+     "parksMean": 2,
+     "groundLaunchesMean": 1,
+     "parkedEndMean": 1,
+     "azWanderP50": 84.45,
+     "flagOutsMean": 0,
+     "twRetrievesMean": 0,
+     "artShareMean": 0.147,
+     "ridesNoLaunchMean": 0,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 1,
+     "flown": 1,
+     "broke": 0
+    }
+   },
+   "U4.5": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 16.864,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 469.646,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 6.426,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 18.161,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 20.22,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 10.912,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.494,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 97.017,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.494,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 21.255,
+      "pass": false,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 21.255,
+      "p50": 21.255,
+      "p90": 21.255
+     },
+     "headEpisodeMax_dist": {
+      "p50": 1,
+      "p90": 1
+     },
+     "avail_all48_mean": 16.864,
+     "availUser_mean": 17.644,
+     "noLiftShare_mean": 4.418,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 1.115,
+     "headFlyerP10": 1.115,
+     "headLineMin": 0.494,
+     "headLineP50": 0.494,
+     "clothesShareMean": 28.99,
+     "clothesShareMax": 28.99,
+     "thirdPartySmean": 65.16,
+     "dockFirstTryMean": null,
+     "dockTimeP90": null,
+     "launchTimeP50": 2.73,
+     "launchTimeP90": 2.73,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 19.551,
+     "tensionMedP50": 12.114,
+     "elevMedP50": 54.981,
+     "keP90": 10.912,
+     "manualMean": 0,
+     "refuseWindSmean": 4.69,
+     "refuseTailSmean": 0,
+     "parksMean": 2,
+     "groundLaunchesMean": 1,
+     "parkedEndMean": 1,
+     "azWanderP50": 93.88,
+     "flagOutsMean": 0,
+     "twRetrievesMean": 0,
+     "artShareMean": 0,
+     "ridesNoLaunchMean": 0,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 1,
+     "flown": 1,
+     "broke": 0
+    }
+   },
+   "U5.5": null,
+   "U6": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 36.198,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 371.866,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 7.009,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 31.789,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 25.55,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 12.519,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.524,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 66.927,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.524,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 1.14,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 12.177,
+      "pass": false,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 4.463,
+      "p50": 1.212,
+      "p90": 12.177
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0.74,
+      "p90": 1.14
+     },
+     "avail_all48_mean": 36.198,
+     "availUser_mean": 36.989,
+     "noLiftShare_mean": 11.916,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 0.748,
+     "headFlyerP10": 0.748,
+     "headLineMin": 0.524,
+     "headLineP50": 0.956,
+     "clothesShareMean": 67.958,
+     "clothesShareMax": 86.351,
+     "thirdPartySmean": 85.073,
+     "dockFirstTryMean": 50,
+     "dockTimeP90": 8.92,
+     "launchTimeP50": 1.66,
+     "launchTimeP90": 2.8,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 31.984,
+     "tensionMedP50": 14.841,
+     "elevMedP50": 53.616,
+     "keP90": 12.519,
+     "manualMean": 0,
+     "refuseWindSmean": 1.49,
+     "refuseTailSmean": 5.843,
+     "parksMean": 1.667,
+     "groundLaunchesMean": 1,
+     "parkedEndMean": 0.667,
+     "azWanderP50": 35.895,
+     "flagOutsMean": 0.333,
+     "twRetrievesMean": 0.333,
+     "artShareMean": 0.241,
+     "ridesNoLaunchMean": 0,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 3,
+     "flown": 3,
+     "broke": 0
+    }
+   },
+   "U9": {
+    "judged": {
+     "avail": {
+      "stat": "mean",
+      "value": 29.436,
+      "pass": false,
+      "criterion": ">=80"
+     },
+     "pxMed": {
+      "stat": "p50",
+      "value": 370.463,
+      "pass": true,
+      "criterion": ">=300"
+     },
+     "jitterRms": {
+      "stat": "p90",
+      "value": 5.812,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "azRange": {
+      "stat": "p50",
+      "value": 0,
+      "pass": false,
+      "criterion": ">=45"
+     },
+     "addedMass": {
+      "stat": "max",
+      "value": 0.617,
+      "pass": true,
+      "criterion": "<=1.5"
+     },
+     "bodyForcePeak": {
+      "stat": "max",
+      "value": 33.41,
+      "pass": true,
+      "criterion": "<=40"
+     },
+     "handsBusy": {
+      "stat": "max",
+      "value": 0,
+      "pass": true,
+      "criterion": "<=5"
+     },
+     "setupTime": {
+      "stat": "p90",
+      "value": 29.68,
+      "pass": true,
+      "criterion": "<=30"
+     },
+     "ops": {
+      "stat": "p90",
+      "value": 1,
+      "pass": true,
+      "criterion": "<=2"
+     },
+     "keMax": {
+      "stat": "max",
+      "value": 11.187,
+      "pass": true,
+      "criterion": "<=14.9"
+     },
+     "packVol": {
+      "stat": "max",
+      "value": 19.877,
+      "pass": false,
+      "criterion": "<=3"
+     },
+     "headClear": {
+      "stat": "min",
+      "value": 0.846,
+      "pass": false,
+      "criterion": ">=1"
+     },
+     "endurance": {
+      "stat": "min",
+      "value": 50.787,
+      "pass": true,
+      "criterion": ">=45"
+     }
+    },
+    "judgedUser": {
+     "headClearUser_min": {
+      "value": 0.846,
+      "pass": true,
+      "criterion": ">=0.25 m"
+     },
+     "headEpisodeMax_s": {
+      "value": 1.26,
+      "pass": true,
+      "criterion": "<=2 s per episode"
+     },
+     "headNearShareMax_pct": {
+      "value": 10.048,
+      "pass": false,
+      "criterion": "<=5 % of riding"
+     },
+     "headNearShare_dist": {
+      "mean": 3.349,
+      "p50": 0,
+      "p90": 10.048
+     },
+     "headEpisodeMax_dist": {
+      "p50": 0,
+      "p90": 1.26
+     },
+     "avail_all48_mean": 29.436,
+     "availUser_mean": 29.459,
+     "noLiftShare_mean": 32.687,
+     "packVolUser": {
+      "rule": "stowed open on the back, no pole, nothing above the helmet",
+      "pass": true,
+      "stowedEnvelope_L": 19.877,
+      "foldIntoPack_L_bonus": 2.49
+     },
+     "azRangeUser": "fixed angle accepted by the user; commandable span 0° (no steering adopted)"
+    },
+    "info": {
+     "headFlyerMin": 0.858,
+     "headFlyerP10": 0.858,
+     "headLineMin": 0.846,
+     "headLineP50": 1.04,
+     "clothesShareMean": 64.549,
+     "clothesShareMax": 88.167,
+     "thirdPartySmean": 65.16,
+     "dockFirstTryMean": 100,
+     "dockTimeP90": 9.51,
+     "launchTimeP50": 2.28,
+     "launchTimeP90": 2.47,
+     "launchSuccessMean": 100,
+     "collapseShareMean": 0,
+     "collapsesMean": 0,
+     "TmaxMax": 44.905,
+     "tensionMedP50": 29.183,
+     "elevMedP50": 55.99,
+     "keP90": 11.187,
+     "manualMean": 0,
+     "refuseWindSmean": 0,
+     "refuseTailSmean": 22.877,
+     "parksMean": 0.667,
+     "groundLaunchesMean": 0.333,
+     "parkedEndMean": 0.333,
+     "azWanderP50": 31.059,
+     "flagOutsMean": 16.667,
+     "twRetrievesMean": 0,
+     "artShareMean": 0.142,
+     "ridesNoLaunchMean": 0.667,
+     "broke": 0
+    },
+    "counts": {
+     "cases": 3,
+     "flown": 2,
+     "broke": 0
+    }
+   }
+  }
+ }
+}

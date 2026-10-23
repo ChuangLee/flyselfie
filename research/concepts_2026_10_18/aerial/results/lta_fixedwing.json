@@ -1,0 +1,28 @@
+{
+  "A10_sphere_for_200g_payload": {
+    "net_lift_kg_m3": 0.907,
+    "volume_m3": 0.392,
+    "diameter_m": 0.91,
+    "envelope_g": 155.0,
+    "frontal_m2": 0.648
+  },
+  "A10_drag_N_V5": 4.0,
+  "A10_drag_N_V12": 23.1,
+  "A10_drag_N_V20": 64.1,
+  "A10_helium_cost_note": "~0.4 m3 He per fill; cylinders not carriable by a skier (assumed)",
+  "A10_assist_30L_net_lift_g": 8.5,
+  "A10_assist_30L_drag_N_V12": 4.16,
+  "A10_quad_192g_weight_N": 1.89,
+  "A11_stall_m_s": 6.7,
+  "A11_min_loiter_speed_m_s": 8.7,
+  "A11_cruise_power_W_V10": 8.4,
+  "A11_cruise_power_W_V15": 12.6,
+  "A11_cruise_power_W_V20": 16.8,
+  "A11_endurance_min_cold_80g_pack_V12": 58.0,
+  "A11_loiter_radius_m_bank30": 13.3,
+  "A11_loiter_radius_m_bank45": 7.7,
+  "A11_subject_px_4K_d15_hfov70": 320.0,
+  "A11_subject_px_4K_d25_hfov70": 192.0,
+  "A11_KE_J_at_20": 60.0,
+  "A11_KE_J_at_25_gust": 93.8
+}

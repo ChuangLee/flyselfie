@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {
+      "id": "ROOT01",
+      "source_url": "https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/",
+      "title": "6.0 Structures, Materials, and Mechanisms",
+      "authors": "NASA Small Spacecraft Systems Virtual Institute",
+      "year": 2026,
+      "access_depth": "Official HTML, section 6.3.2 Deployable Structures, lines 512–528",
+      "source_type": "government technical review of adjacent-domain structures",
+      "claim": "NASA列举折叠、套筒、桁架、充气和可卷复合材料支撑结构，可为紧凑收纳摄影臂提供机构启发。",
+      "evidence_quote": "folding, sleeve, truss, and inflatable",
+      "locator": "6.3.2 Deployable Structures, lines 512–528; updated Aug 4, 2026",
+      "limits": "航天部署条件不是人体穿戴、低温结冰、摔倒冲击或反复收放验证；原页面也声明部分厂商性能未经独立验证。不能移植其可靠性或材料优越性数值。"
+    }
+  ]
+}

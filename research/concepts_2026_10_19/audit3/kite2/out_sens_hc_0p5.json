@@ -1,0 +1,24 @@
+{
+ "generated": "2026-10-20T12:15:24.733Z",
+ "name": "hc_0p5",
+ "over": {
+  "hc": 0.5
+ },
+ "avail": {
+  "mean": 80.04,
+  "p10": 67.08,
+  "p90": 89.98,
+  "min": 20.82,
+  "max": 91.16,
+  "n": 39
+ },
+ "jitterP90": 1.72,
+ "setupP90": 4.63,
+ "opsP90": 1,
+ "opsMax": 1,
+ "F50max": 27.53,
+ "keMax": 13.08,
+ "endurance": 59.3,
+ "headClearMin": 1.1,
+ "judgedPass": true
+}

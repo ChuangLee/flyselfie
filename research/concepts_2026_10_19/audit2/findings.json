@@ -1,0 +1,379 @@
+{
+ "generated": "2026-10-20",
+ "evidence": "independent re-audit of numerical-uncalibrated simulations; not a physical test",
+ "counts": {
+  "kite2": {
+   "fatal": 0,
+   "major": 5,
+   "minor": 4
+  },
+  "towglider": {
+   "fatal": 0,
+   "major": 5,
+   "minor": 3
+  },
+  "leapfrog": {
+   "fatal": 0,
+   "major": 3,
+   "minor": 5
+  },
+  "descentglider": {
+   "fatal": 0,
+   "major": 5,
+   "minor": 2
+  },
+  "cross": {
+   "fatal": 0,
+   "major": 3,
+   "minor": 7
+  }
+ },
+ "findings": [
+  {
+   "id": "A2-K2-01",
+   "severity": "major",
+   "title": "Pass threshold on canopy L/D is ≥1.0, not ≥≈0.9 as claimed",
+   "detail": "Auditor full ensembles: gMaxR 0.90 → KE 16.6 J, 0.95 → 15.6 J (FAIL); default 1.0 → 14.73 J (margin 0.17 J). Combined with reefed-glide retention 70 % (ASSUMED) and mass ≤86 g, the pass is knife-edge on three unmeasured numbers; the documented small-canopy evidence (MC1-1C) is 0.75.",
+   "evidence": "audit2/kite2/out_recheck_sens.json; dev results.json sensitivity",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-K2-02",
+   "severity": "major",
+   "title": "Dock-funnel acceptance of 120° off-axis is load-bearing for setupTime and ops",
+   "detail": "90° acceptance → setup p90 37.7 s and ops p90 3 (FAIL); 60° → 52 s. Soft-canopy docking into a funnel has no precedent at this scale; wet/iced canopy and line twist not modelled.",
+   "evidence": "out_recheck_sens.json funnelAcc_60/90",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-K2-03",
+   "severity": "major",
+   "title": "Canopy lands and is dragged over the snow at rider speed, then re-inflates unreefed (snatch)",
+   "detail": "10/39 runs, 30 landings and 15 relifts (incl. all calm cases); sub-sample line snatches 56–68 N in 12/39 runs, reported as ≤27 N by the 0.4×Tmax rule. A canopy and line on the snow behind a 13 m/s skier is also a tripping/snag hazard for others. Fix: reef before launch/relift, never relift on snow (dock or give up) — then re-run avail.",
+   "evidence": "out_recheck_all.json casesRawOver40N, landedEventsTotal",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-K2-04",
+   "severity": "major",
+   "title": "Line 0.9–1.5 m above snow 1 m behind the rider in every ensemble run (own gate ≥2.0 m)",
+   "detail": "Clothesline hazard to following/crossing skiers; forced contact 16.6 N (gate ≤10 N). Not fixable by mast length (developer K2-04). Restricts use to empty pistes.",
+   "evidence": "dev results.json ensemble lineH1min mean 1.25, min 0.91; crosspole neighbourForce 16.6 N",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-K2-05",
+   "severity": "major",
+   "title": "Continuous actuated reefing + glide while reefed has no precedent",
+   "detail": "Every filming sample sits at reef ≈0.29 with 70 % of the slot glide retained (ASSUMED). Existing devices are passive; reefGloss 0.6 already fails KE (17.5 J).",
+   "evidence": "dev sensitivity reefGloss_0.6; patents US 5,248,117, US 7,416,158",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-K2-06",
+   "severity": "minor",
+   "title": "avail denominator excludes the first 2 s and v≤2 m/s (+2.8 pp)",
+   "detail": "Recomputed over fullrun riding time: 85.2 % (claimed 88.0 %); still ≥80 %.",
+   "evidence": "out_recheck_all.json",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-K2-07",
+   "severity": "minor",
+   "title": "ops max 3 (3/39 runs) and setup max 38.8 s",
+   "detail": "Tail-wind 3–6 m/s cases need two manual push-ins; passes on p90 only.",
+   "evidence": "ensemble rows tail3_s12, tail6_s12, tail6_s13",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-K2-08",
+   "severity": "minor",
+   "title": "Footage quality depends on an ASSUMED custom 60° optic",
+   "detail": "90° HFOV → avail 53–63 % per case.",
+   "evidence": "auditor lens check (5 cases)",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-K2-09",
+   "severity": "minor",
+   "title": "Endurance includes winch regeneration credit",
+   "detail": "85.4 → 79.5 min without it; passes.",
+   "evidence": "out_recheck_all.json",
+   "concept": "kite2"
+  },
+  {
+   "id": "A2-TG-01",
+   "severity": "major",
+   "title": "avail fails in every wind bin, not only by the tailwind gate",
+   "detail": "Launched-run mean 72.5 % (calm 71.9, 3 m/s 72.9, 6 m/s 73.6, 9 m/s 71.1); ensemble mean 61.4 %. The ceiling is set by launch-to-station, early stop drops and relaunch, so relaxing the gate cannot reach 80 %. The developer's own audit_response says so; the \"FAIL (tailwind gate)\" summary misattributes it.",
+   "evidence": "out_recheck.json fullEnsembleRerun.byWindNotGated",
+   "concept": "towglider"
+  },
+  {
+   "id": "A2-TG-02",
+   "severity": "major",
+   "title": "Unsafe flight inside the claimed envelope: slow rider + light tailwind",
+   "detail": "With a 3 m/s tailwind (below the 5 m/s gate) and a 6–8 m/s rider the glider stalls (airMin 0.68–0.84 Vs), touches the snow (0.035 m) and passes 0.78 m from the helmet; jitter 70–130 °/s. Ensemble calm_s11/s13 reach 0.85/0.90 m (concept gate ≥1.0 m). The gate must use the airspeed margin, not the tailwind alone; and it uses oracle wind knowledge.",
+   "evidence": "dev results.json envelope v6_tail3/v8_tail3, ensemble rows headMin, model.js plan.tailKnown",
+   "concept": "towglider"
+  },
+  {
+   "id": "A2-TG-03",
+   "severity": "major",
+   "title": "Footage stability fails on the integrator metric and rests on an 8 % EIS residual",
+   "detail": "footageStability subject p90 3.4 °/s (>3) over 33 flown cases, 5 cases >3; developer jitter p90 2.28. Airframe body rate 47–74 °/s RMS; blur p95 2.7 px > own 2 px gate. EIS residual 25 % → 4.6 °/s.",
+   "evidence": "out_fs_all.json, out_recheck.json sensitivities",
+   "concept": "towglider"
+  },
+  {
+   "id": "A2-TG-04",
+   "severity": "major",
+   "title": "packVol 2.91 L assumes an 80 mm holster tube that cannot hold the 97 mm wing chord",
+   "detail": "span 0.775 m, chord 0.097 m; with a ≥100 mm tube the packed envelope is ≈4.2 L > 3 L. The holster is also the snow-pull capture funnel, so it cannot be a soft pocket.",
+   "evidence": "design.js packVolume, PDEF S/AR",
+   "concept": "towglider"
+  },
+  {
+   "id": "A2-TG-05",
+   "severity": "major",
+   "title": "Rider-speed envelope is narrow",
+   "detail": "Follow-segment avail on 15°: 100/94/87/78/56/4 % at 6/8/10/12/14/16 m/s; expert 20° at 13 m/s 54 %; 24–28° at 14–15 m/s hook release. The ensemble (12 m/s preset) sits at the edge; faster riders are not served.",
+   "evidence": "dev results.json envelope",
+   "concept": "towglider"
+  },
+  {
+   "id": "A2-TG-06",
+   "severity": "minor",
+   "title": "Leash resistance 1.8 Ω/m per conductor is optimistic for tinsel in 0.45 mm OD",
+   "detail": "Endurance 53.6 → 50.2 / 47.2 / 42.2 min at 3.6 / 5.4 / 9 Ω/m; fails below 45 min above ≈7 Ω/m. Mass 0.27 g/m is arithmetically consistent.",
+   "evidence": "out_sens_line.json, out_recheck.json arithmetic.line",
+   "concept": "towglider"
+  },
+  {
+   "id": "A2-TG-07",
+   "severity": "minor",
+   "title": "Labels inconsistent with the default design",
+   "detail": "index.js header, about, tagline, demo stages and the cam_panEIS scenario still say \"121 g, 120° fisheye on a 1-axis servo pan\"; defaults are 128.8 g, 90° fisheye on a 3-servo mount. The 90° fisheye is not the stock Thumb 2 lens (≈150°).",
+   "evidence": "sim/js/concepts/towglider/index.js lines 1–12, 95, 436–457",
+   "concept": "towglider"
+  },
+  {
+   "id": "A2-TG-08",
+   "severity": "minor",
+   "title": "30 s final hold and gated-run accounting are declared and neutral",
+   "detail": "Unmodified FULLRUN_PLAN: same avail 61.4 %, setup p90 10.9 s, ops p90 1 (max 3). Setup p90 without gated runs 11.4 s.",
+   "evidence": "out_recheck.json sharedPlanRerun, gatedAccounting",
+   "concept": "towglider"
+  },
+  {
+   "id": "A2-LF-01",
+   "severity": "major",
+   "title": "Judged avail fails (64.6 %); passes only inside a self-defined wind envelope",
+   "detail": "Reproduced exactly. 9/39 runs are refused by the launch gate (all tail ≥6, 2/3 head9, 1/3 crossR9) and head9_s12 gives up (6 %). Inside U≤6 without tail6: 88.3 %; 3 m/s tail already 81.9–85.3 %.",
+   "evidence": "recheck_out.json ensemble.byWind; dev results.json",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A2-LF-02",
+   "severity": "major",
+   "title": "KE and 50 m follow-me compliance rely on an oracle launch gate",
+   "detail": "Gate uses the 10 s mean of the true wind field. Launching anyway in tail6 gives KE 16.4–18.9 J and separation 72–141 m; tail9 40.8 J. Judged keMax 14.616 J has 0.3 J margin; mass +10 % with re-derived cap → 15.5 J.",
+   "evidence": "extras_out.json gateBypass, massPlus10_capRederived",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A2-LF-03",
+   "severity": "major",
+   "title": "Pointing assumption 1.2° is ~4× better than UWB PDoA specs",
+   "detail": "DW3000-class AoA is specified at ±5°. With 5°: avail 78.4 % on the dev 6-case subset (inside the envelope) vs 89.2 %; with live framing 10.5 %. Envelope avail ≥80 % is therefore conditional on a pointing source better than UWB alone (e.g. vision tracking on board, which the design removed to save 7 g/1.9 W).",
+   "evidence": "recheck_out.json sensitivity",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A2-LF-04",
+   "severity": "minor",
+   "title": "Touchdown KE 8.2 J / slide 8.5 m in 3 m/s tailwind fails the concept’s own ≤5 J line",
+   "detail": "tdKE is not a harmonised metric and the glider is far from the rider, but it is reported as passing in the fullrun scenario only (crossR6_s12, 3.6 J).",
+   "evidence": "dev results.json ensemble.summary.tdKE max 8.241 (tail3_s11)",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A2-LF-05",
+   "severity": "minor",
+   "title": "setupTime is a constant, retrieval ride not counted",
+   "detail": "4 + 10 s ASSUMED in every flown case; charging the 30–40 m end retrieval glide gives p90 25.3 s (passes). Skate-back from beyond the lift entrance unmodelled.",
+   "evidence": "recheck_out.json setupTime",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A2-LF-06",
+   "severity": "minor",
+   "title": "Camera module 3840×2880 at 20 g has no catalogue part",
+   "detail": "Not load-bearing (16:9 2160 rows: −0.2 pp avail). The 30° lens on a GM2-class gimbal is unverified (no payload spec).",
+   "evidence": "web sources in physics[]",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A2-LF-07",
+   "severity": "minor",
+   "title": "Heater energy during lift charging not charged to the budget",
+   "detail": "Shared helper adds 0.6 W only while filming; with the heater running for a 6 min lift ride per run endurance falls 63.6 → 51.2 min (still ≥45). Applies to every concept that charges a cell below 0 °C.",
+   "evidence": "extras_out.json heaterOnLift",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A2-LF-08",
+   "severity": "minor",
+   "title": "Independent footageStability exceeds 3 °/s in one flown case",
+   "detail": "crossL9_s12 subject 3.54 / background 3.68 °/s; all other flown spot cases 0.54–1.01 °/s.",
+   "evidence": "recheck_out.json spot",
+   "concept": "leapfrog"
+  },
+  {
+   "id": "A2-DG-01",
+   "severity": "major",
+   "title": "Near-miss passes and landings next to the rider inside the claimed envelope",
+   "detail": "In-flight distance to the head <1.5 m in head3_s13 (1.34), tail3_s12 (0.98; 0.93 m from the body at t 24.3 s while following), tail3_s13 (0.98); end landing within <2.5 m of the rider in 4/17 flown runs (min 0.85 m). The dev's own gates fail but are not judged on the ensemble.",
+   "evidence": "fs_all_out.json headMinBelow1_5 / landMinBelow2_5; recheck_out.json tail3_s12 minBodyDistInFlight 0.85",
+   "concept": "descentglider"
+  },
+  {
+   "id": "A2-DG-02",
+   "severity": "major",
+   "title": "KE governor and 50 m geofence both fail in a 6 m/s tail-wind run",
+   "detail": "tail6_s11: interlock not tripped, follow at 17 m/s → 18.0 J and 69.8 m range, no fail-safe event.",
+   "evidence": "recheck_out.json tail6_s11 keAt; dev results rangeMax 69.8",
+   "concept": "descentglider"
+  },
+  {
+   "id": "A2-DG-03",
+   "severity": "major",
+   "title": "Snow strikes in 3/17 flown runs (2 on the end-of-run go-around at 3 m/s headwind)",
+   "detail": "head3_s11/s12: go-around then snow strike at 11–12 J; tail6_s12: strike 13.6 s after the throw. Airframe survival of 30 g structure not modelled; a damaged glider ends the day.",
+   "evidence": "dev results events; recheck crashKE 12.33 / 5.85",
+   "concept": "descentglider"
+  },
+  {
+   "id": "A2-DG-04",
+   "severity": "major",
+   "title": "ops p90 is 3, not 2, with consistent recovery counting",
+   "detail": "head9_s11, crossR9_s12: glider never at rest in the 40 s window (dev charges the 30 s recovery walk but no action) → 6/39 runs with 3 actions.",
+   "evidence": "recheck_all_out.json",
+   "concept": "descentglider"
+  },
+  {
+   "id": "A2-DG-05",
+   "severity": "major",
+   "title": "Shared footageStability fails at p90 over flown runs",
+   "detail": "subject 18.1 °/s p90, 110.6 °/s max (tail6_s11) vs dev masked jitter 1.39 °/s p90; calm/cross-3 cases 1.1–1.4 °/s.",
+   "evidence": "fs_all_out.json",
+   "concept": "descentglider"
+  },
+  {
+   "id": "A2-DG-06",
+   "severity": "minor",
+   "title": "results.json scenario metrics show stale ensemble constants",
+   "detail": "fullrun scenario jitterRms 24.0 FAIL / avail 29.25 / ensRange 99.1 m vs regenerated ensemble.js 1.39 / 29.89 / 69.8.",
+   "evidence": "re-run diff",
+   "concept": "descentglider"
+  },
+  {
+   "id": "A2-DG-07",
+   "severity": "minor",
+   "title": "Airframe 30 g and 0.6 W heated 1–1.6 C recharge are optimistic",
+   "detail": "+15 g already costs 10 pt avail; warm-cell charging needs more than shown.",
+   "evidence": "dev sensitivities mass_plus15g",
+   "concept": "descentglider"
+  },
+  {
+   "id": "A2-X-01",
+   "metric": "avail denominator",
+   "finding": "criteria.js: share of skiing time. Developers use different masks: kite2 excludes t<2 s and v≤2 m/s (+2.8 pp), towglider v>2 m/s (+0.7), descentglider v>2 m/s (+0.3/+0.8 flown), leapfrog speed>2 (+0.2). The matrix uses the auditor riding-mask (fullrun col.riding) value for all. Refused-launch/no-fly runs count 0 for all four (consistent).",
+   "favours": "kite2 most (still passes)",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "avail denominator"
+  },
+  {
+   "id": "A2-X-02",
+   "metric": "jitterRms",
+   "finding": "ITERATE_BRIEF does not fix the ensemble statistic for jitter; developers report p90 of their own jitter metric with different masks (descentglider drops lens-edge frames; towglider own metric vs integrator). The matrix uses p90 of the shared footageStability(R) subject RMS over all flown cases for every concept (kite2 39, towglider 33, leapfrog 30, descentglider 17). This flips towglider (2.28 → 3.40) and descentglider (1.39 → 18.1) to FAIL; kite2 1.01 and leapfrog 1.01 pass.",
+   "favours": "descentglider and towglider in the dev tables",
+   "concept": "cross",
+   "severity": "major",
+   "title": "jitterRms"
+  },
+  {
+   "id": "A2-X-03",
+   "metric": "ops",
+   "finding": "Brief says ops p90 AND max are reported; criteria judge ≤2 on p90. All four concepts have max 3 (kite2 7.7 %, towglider 1 run, leapfrog 1 run, descentglider 15 % → p90 3). If max were judged, all four fail equally. descentglider did not count the recovery action in non-resting runs (fixed by audit → p90 3).",
+   "favours": "descentglider (dev table)",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "ops"
+  },
+  {
+   "id": "A2-X-04",
+   "metric": "setupTime",
+   "finding": "kite2, towglider, descentglider simulate the standstill (dock/park/landing/walk); leapfrog uses an assumed constant 4 s + 10 s and does not charge the 30–40 m end retrieval ride (25.3 s with it; still passes). towglider extends the final hold to 30 s (declared; neutral — identical with the shared 10 s hold).",
+   "favours": "leapfrog (mildly)",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "setupTime"
+  },
+  {
+   "id": "A2-X-05",
+   "metric": "endurance",
+   "finding": "Bases differ: leapfrog uses flown cases only (conservative; 80.0 with all), descentglider includes no-fly cases, kite2 includes a winch-regeneration credit (79.5 without). The shared enduranceMin() adds the 0.6 W heater only to the filming load, not to time charging on the lift (leapfrog 51.2, descentglider 66.5 min if charged). All still pass ≥45 min; towglider (hip-pack power over the leash, no in-flight charging) is the only one whose margin depends on a conductor resistance (≥≈7 Ω/m → fail).",
+   "favours": "small, mixed; fix enduranceMin to charge heater over charging time",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "endurance"
+  },
+  {
+   "id": "A2-X-06",
+   "metric": "keMax",
+   "finding": "All judged on ensemble max in the ground frame beyond 1.5 m; consistent. towglider and leapfrog wind gates read the TRUE case mean wind (oracle); descentglider uses a measured wind and its interlock failed to trip in tail6_s11 (18 J) — the more realistic gate is penalised. With gate bypass leapfrog 16.4–40.8 J, towglider 14.6–19.2 J.",
+   "favours": "towglider and leapfrog vs descentglider",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "keMax"
+  },
+  {
+   "id": "A2-X-07",
+   "metric": "safety gates outside the 12 metrics",
+   "finding": "Proximity/line hazards are computed but not judged: kite2 line 0.9–1.5 m above snow 1 m behind the rider in every run (own gate ≥2.0 m) and canopy dragged on snow in 10/39 runs; towglider 0.78–0.90 m from the helmet (own limit 1.0 m) in calm and slow-rider tailwind; descentglider head pass <1.5 m in 3 and landing <2.5 m in 4 of 17 flown runs plus one 69.8 m geofence breach; leapfrog geofence breach only on gate bypass, landing ahead of the rider at every stop. The 12-metric table alone flatters kite2 most.",
+   "favours": "kite2 most, then descentglider, towglider",
+   "concept": "cross",
+   "severity": "major",
+   "title": "safety gates outside the 12 metrics"
+  },
+  {
+   "id": "A2-X-08",
+   "metric": "packVol",
+   "finding": "Design estimates only, none measured. towglider 2.91 L is geometrically inconsistent (97 mm chord in an 80 mm tube) → ≈4.2 L FAIL. Others plausible but unverified.",
+   "favours": "towglider (dev table)",
+   "concept": "cross",
+   "severity": "major",
+   "title": "packVol"
+  },
+  {
+   "id": "A2-X-09",
+   "metric": "mass budgets",
+   "finding": "All four reproduce arithmetically from components.js +15 % (kite2 86.3 g, towglider 128.8 g, leapfrog 168.5 g, descentglider 124 g; all <250 g C0). Deviations: leapfrog 20 g/3 W camera and 4 g NPU instead of the 11 g vision computer (176.5 g with the shared part → KE cap 13.0 m/s); kite2 omits ≈3 g of slot/reef/douse hardware (89.7 g → KE fail); descentglider 30 g airframe optimistic. Masses are knife-edge for kite2 and leapfrog KE.",
+   "favours": "kite2, leapfrog",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "mass budgets"
+  },
+  {
+   "id": "A2-X-10",
+   "metric": "envelope",
+   "finding": "Envelope avail is self-defined per concept (leapfrog: drops exactly the gate-refused cases; towglider: launched runs; descentglider: ≤3 m/s; kite2: none needed). Only the full 39-case mean is comparable; envelope figures are reported for context only.",
+   "favours": "leapfrog in envelope-only comparisons",
+   "concept": "cross",
+   "severity": "minor",
+   "title": "envelope"
+  }
+ ]
+}

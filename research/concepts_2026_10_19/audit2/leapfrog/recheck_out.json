@@ -1,0 +1,789 @@
+{
+ "generated": "2026-10-20",
+ "copyRoot": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/lfcopy",
+ "modelVersion": "leapfrog@2.0.0",
+ "evidence": "audit re-run of numerical-uncalibrated simulation on a copy; not a physical test",
+ "ensemble": {
+  "n": 39,
+  "avail": {
+   "theirMaskMean": 64.625,
+   "ridingMaskMean": 64.418,
+   "geomUpperBoundMean": 70.739,
+   "p10": 0
+  },
+  "availEnvelope_U6_noTail6": 88.31,
+  "availEnvelope_flownOnly": 84.012,
+  "byWind": {
+   "U0": {
+    "availTheirMask": 87.679,
+    "availRidingMask": 87.41,
+    "noFly": 0
+   },
+   "U3": {
+    "availTheirMask": 86.942,
+    "availRidingMask": 86.611,
+    "noFly": 0
+   },
+   "U6": {
+    "availTheirMask": 67.758,
+    "availRidingMask": 67.544,
+    "noFly": 3
+   },
+   "U9": {
+    "availTheirMask": 33.41,
+    "availRidingMask": 33.349,
+    "noFly": 6
+   }
+  },
+  "setupTime": {
+   "p90": 14,
+   "p90InclRetrievalRide": 25.283,
+   "max": 18
+  },
+  "ops": {
+   "p90": 2,
+   "max": 3
+  },
+  "keMax": {
+   "max": 14.616,
+   "groundAllPhasesMax": 14.616,
+   "tdKEmax": 8.241
+  },
+  "bodyForcePeak": {
+   "max": 3.426
+  },
+  "endurance": {
+   "flownCasesHeated": 63.562,
+   "allCasesHeated": 80.011,
+   "flownCasesAt200WhPerKgIrrelevant": "bank Wh is fixed at 14 Wh (93 g); 150 Wh/kg is the shared rule",
+   "onboardCellOnly": 8.351,
+   "pMeanFlown": 7.644,
+   "whEff": 13.7
+  }
+ },
+ "spot": [
+  {
+   "id": "calm_s11",
+   "U": 0,
+   "dir": "calm",
+   "noFly": false,
+   "claimed": {
+    "avail": 88.977,
+    "setupTime": 14,
+    "ops": 2,
+    "keMax": 12.776,
+    "bodyForcePeak": 3.347,
+    "pMean": 6.709,
+    "retrieveDist": 35.246
+   },
+   "recomputed": {
+    "availTheirMask": 88.977,
+    "availRidingMask": 88.685,
+    "availGeomUpperBoundRiding": 99.461,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 14,
+    "setupTimeInclRetrievalRide": 24.811,
+    "ops": 2,
+    "keMax": 12.776,
+    "keMaxGroundAllPhases": 12.776,
+    "tdKEmax": 2.508,
+    "bodyForcePeak": 3.347,
+    "pMean": 6.709,
+    "energyRunWh": 0.196,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 71.697,
+    "retrieveDist": 35.246,
+    "retrieveRide_s": 10.811,
+    "sepMaxFly": 34.69,
+    "events": {
+     "launch": 1,
+     "perch": 2,
+     "liftoff": 1,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.561,
+    "backgroundRms": 0.546,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "head3_s12",
+   "U": 3,
+   "dir": "head",
+   "noFly": false,
+   "claimed": {
+    "avail": 91.453,
+    "setupTime": 14,
+    "ops": 2,
+    "keMax": 12.499,
+    "bodyForcePeak": 3.426,
+    "pMean": 7.373,
+    "retrieveDist": 30.092
+   },
+   "recomputed": {
+    "availTheirMask": 91.453,
+    "availRidingMask": 91.191,
+    "availGeomUpperBoundRiding": 99.03,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 14,
+    "setupTimeInclRetrievalRide": 23.523,
+    "ops": 2,
+    "keMax": 12.499,
+    "keMaxGroundAllPhases": 12.499,
+    "tdKEmax": 2.366,
+    "bodyForcePeak": 3.426,
+    "pMean": 7.373,
+    "energyRunWh": 0.216,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 65.724,
+    "retrieveDist": 30.092,
+    "retrieveRide_s": 9.523,
+    "sepMaxFly": 33.26,
+    "events": {
+     "launch": 1,
+     "perch": 2,
+     "liftoff": 1,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.543,
+    "backgroundRms": 0.516,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "tail3_s12",
+   "U": 3,
+   "dir": "tail",
+   "noFly": false,
+   "claimed": {
+    "avail": 81.954,
+    "setupTime": 14,
+    "ops": 2,
+    "keMax": 14.357,
+    "bodyForcePeak": 3.426,
+    "pMean": 7.056,
+    "retrieveDist": 40.363
+   },
+   "recomputed": {
+    "availTheirMask": 81.954,
+    "availRidingMask": 81.466,
+    "availGeomUpperBoundRiding": 88.281,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 14,
+    "setupTimeInclRetrievalRide": 26.091,
+    "ops": 2,
+    "keMax": 14.357,
+    "keMaxGroundAllPhases": 14.357,
+    "tdKEmax": 6.576,
+    "bodyForcePeak": 3.426,
+    "pMean": 7.056,
+    "energyRunWh": 0.206,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 68.446,
+    "retrieveDist": 40.363,
+    "retrieveRide_s": 12.091,
+    "sepMaxFly": 44.258,
+    "events": {
+     "launch": 1,
+     "perch": 4,
+     "liftoff": 3,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.859,
+    "backgroundRms": 0.692,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "crossL3_s13",
+   "U": 3,
+   "dir": "crossL",
+   "noFly": false,
+   "claimed": {
+    "avail": 81.437,
+    "setupTime": 14,
+    "ops": 2,
+    "keMax": 12.807,
+    "bodyForcePeak": 3.416,
+    "pMean": 7.093,
+    "retrieveDist": 17.63
+   },
+   "recomputed": {
+    "availTheirMask": 81.437,
+    "availRidingMask": 81.223,
+    "availGeomUpperBoundRiding": 96.202,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 14,
+    "setupTimeInclRetrievalRide": 20.407,
+    "ops": 2,
+    "keMax": 12.807,
+    "keMaxGroundAllPhases": 12.807,
+    "tdKEmax": 2.906,
+    "bodyForcePeak": 3.416,
+    "pMean": 7.093,
+    "energyRunWh": 0.207,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 68.115,
+    "retrieveDist": 17.63,
+    "retrieveRide_s": 6.407,
+    "sepMaxFly": 36.076,
+    "events": {
+     "launch": 1,
+     "perch": 3,
+     "liftoff": 2,
+     "passabort": 1,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 1.007,
+    "backgroundRms": 0.898,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "head6_s11",
+   "U": 6,
+   "dir": "head",
+   "noFly": false,
+   "claimed": {
+    "avail": 98.53,
+    "setupTime": 14,
+    "ops": 2,
+    "keMax": 12.402,
+    "bodyForcePeak": 3.347,
+    "pMean": 10.506,
+    "retrieveDist": 29.234
+   },
+   "recomputed": {
+    "availTheirMask": 98.53,
+    "availRidingMask": 98.033,
+    "availGeomUpperBoundRiding": 99.596,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 14,
+    "setupTimeInclRetrievalRide": 23.309,
+    "ops": 2,
+    "keMax": 12.402,
+    "keMaxGroundAllPhases": 12.402,
+    "tdKEmax": 1.241,
+    "bodyForcePeak": 3.347,
+    "pMean": 10.506,
+    "energyRunWh": 0.307,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 47.184,
+    "retrieveDist": 29.234,
+    "retrieveRide_s": 9.309,
+    "sepMaxFly": 31.664,
+    "events": {
+     "launch": 1,
+     "kestrel": 2,
+     "perch": 2,
+     "liftoff": 1,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.644,
+    "backgroundRms": 0.607,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "tail6_s11",
+   "U": 6,
+   "dir": "tail",
+   "noFly": true,
+   "claimed": {
+    "avail": 0,
+    "setupTime": 8,
+    "ops": 2,
+    "keMax": 0,
+    "bodyForcePeak": 3.347,
+    "pMean": 0.3,
+    "retrieveDist": 0
+   },
+   "recomputed": {
+    "availTheirMask": 0,
+    "availRidingMask": 0,
+    "availGeomUpperBoundRiding": 0,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 8,
+    "setupTimeInclRetrievalRide": 8,
+    "ops": 2,
+    "keMax": 0,
+    "keMaxGroundAllPhases": 0,
+    "tdKEmax": null,
+    "bodyForcePeak": 3.347,
+    "pMean": 0.3,
+    "energyRunWh": 0.009,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 582.25,
+    "retrieveDist": 0,
+    "retrieveRide_s": 0,
+    "sepMaxFly": 0,
+    "events": {
+     "nofly": 1,
+     "endmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null,
+    "samples": 0
+   }
+  },
+  {
+   "id": "crossL6_s11",
+   "U": 6,
+   "dir": "crossL",
+   "noFly": false,
+   "claimed": {
+    "avail": 78.634,
+    "setupTime": 14,
+    "ops": 2,
+    "keMax": 13.075,
+    "bodyForcePeak": 3.347,
+    "pMean": 7.308,
+    "retrieveDist": 28.038
+   },
+   "recomputed": {
+    "availTheirMask": 78.634,
+    "availRidingMask": 78.448,
+    "availGeomUpperBoundRiding": 87.823,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 14,
+    "setupTimeInclRetrievalRide": 23.009,
+    "ops": 2,
+    "keMax": 13.075,
+    "keMaxGroundAllPhases": 13.075,
+    "tdKEmax": 2.529,
+    "bodyForcePeak": 3.347,
+    "pMean": 7.308,
+    "energyRunWh": 0.214,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 66.265,
+    "retrieveDist": 28.038,
+    "retrieveRide_s": 9.009,
+    "sepMaxFly": 42.527,
+    "events": {
+     "launch": 1,
+     "perch": 2,
+     "liftoff": 1,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.645,
+    "backgroundRms": 0.61,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "crossR6_s12",
+   "U": 6,
+   "dir": "crossR",
+   "noFly": false,
+   "claimed": {
+    "avail": 87.071,
+    "setupTime": 14,
+    "ops": 2,
+    "keMax": 13.012,
+    "bodyForcePeak": 3.426,
+    "pMean": 7.291,
+    "retrieveDist": 34.289
+   },
+   "recomputed": {
+    "availTheirMask": 87.071,
+    "availRidingMask": 86.853,
+    "availGeomUpperBoundRiding": 96.094,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 14,
+    "setupTimeInclRetrievalRide": 24.572,
+    "ops": 2,
+    "keMax": 13.012,
+    "keMaxGroundAllPhases": 13.012,
+    "tdKEmax": 3.583,
+    "bodyForcePeak": 3.426,
+    "pMean": 7.291,
+    "energyRunWh": 0.213,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 66.41,
+    "retrieveDist": 34.289,
+    "retrieveRide_s": 10.572,
+    "sepMaxFly": 35.958,
+    "events": {
+     "launch": 1,
+     "perch": 2,
+     "liftoff": 1,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.551,
+    "backgroundRms": 0.515,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "head9_s12",
+   "U": 9,
+   "dir": "head",
+   "noFly": false,
+   "claimed": {
+    "avail": 6.151,
+    "setupTime": 18,
+    "ops": 3,
+    "keMax": 5.819,
+    "bodyForcePeak": 3.426,
+    "pMean": 7.027,
+    "retrieveDist": 746.636
+   },
+   "recomputed": {
+    "availTheirMask": 6.151,
+    "availRidingMask": 6.088,
+    "availGeomUpperBoundRiding": 7.839,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 18,
+    "setupTimeInclRetrievalRide": 18,
+    "ops": 3,
+    "keMax": 5.819,
+    "keMaxGroundAllPhases": 5.819,
+    "tdKEmax": 0.547,
+    "bodyForcePeak": 3.426,
+    "pMean": 7.027,
+    "energyRunWh": 0.205,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 68.707,
+    "retrieveDist": 746.636,
+    "retrieveRide_s": 0,
+    "sepMaxFly": 45.007,
+    "events": {
+     "launch": 1,
+     "fallbehind": 1,
+     "giveup": 1,
+     "kestrel": 1,
+     "perch": 1,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 0.678,
+    "backgroundRms": 0.671,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "crossL9_s12",
+   "U": 9,
+   "dir": "crossL",
+   "noFly": false,
+   "claimed": {
+    "avail": 50.109,
+    "setupTime": 14,
+    "ops": 2,
+    "keMax": 13.12,
+    "bodyForcePeak": 3.426,
+    "pMean": 8.534,
+    "retrieveDist": 19.459
+   },
+   "recomputed": {
+    "availTheirMask": 50.109,
+    "availRidingMask": 50.269,
+    "availGeomUpperBoundRiding": 57.92,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 14,
+    "setupTimeInclRetrievalRide": 20.865,
+    "ops": 2,
+    "keMax": 13.12,
+    "keMaxGroundAllPhases": 13.12,
+    "tdKEmax": 0.255,
+    "bodyForcePeak": 3.426,
+    "pMean": 8.534,
+    "energyRunWh": 0.249,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 57.371,
+    "retrieveDist": 19.459,
+    "retrieveRide_s": 6.865,
+    "sepMaxFly": 34.513,
+    "events": {
+     "launch": 1,
+     "kestrel": 2,
+     "perch": 2,
+     "windhold": 1,
+     "liftoff": 1,
+     "fallbehind": 1,
+     "endmode": 1,
+     "pickupmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": 3.537,
+    "backgroundRms": 3.684,
+    "samples": 3574
+   }
+  },
+  {
+   "id": "crossR9_s11",
+   "U": 9,
+   "dir": "crossR",
+   "noFly": true,
+   "claimed": {
+    "avail": 0,
+    "setupTime": 8,
+    "ops": 2,
+    "keMax": 0,
+    "bodyForcePeak": 3.347,
+    "pMean": 0.3,
+    "retrieveDist": 0
+   },
+   "recomputed": {
+    "availTheirMask": 0,
+    "availRidingMask": 0,
+    "availGeomUpperBoundRiding": 0,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 8,
+    "setupTimeInclRetrievalRide": 8,
+    "ops": 2,
+    "keMax": 0,
+    "keMaxGroundAllPhases": 0,
+    "tdKEmax": null,
+    "bodyForcePeak": 3.347,
+    "pMean": 0.3,
+    "energyRunWh": 0.009,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 582.25,
+    "retrieveDist": 0,
+    "retrieveRide_s": 0,
+    "sepMaxFly": 0,
+    "events": {
+     "nofly": 1,
+     "endmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null,
+    "samples": 0
+   }
+  },
+  {
+   "id": "tail9_s13",
+   "U": 9,
+   "dir": "tail",
+   "noFly": true,
+   "claimed": {
+    "avail": 0,
+    "setupTime": 8,
+    "ops": 2,
+    "keMax": 0,
+    "bodyForcePeak": 3.416,
+    "pMean": 0.3,
+    "retrieveDist": 0
+   },
+   "recomputed": {
+    "availTheirMask": 0,
+    "availRidingMask": 0,
+    "availGeomUpperBoundRiding": 0,
+    "ridingS": 74.24,
+    "theirSkiingS": 73.48,
+    "setupTime": 8,
+    "setupTimeInclRetrievalRide": 8,
+    "ops": 2,
+    "keMax": 0,
+    "keMaxGroundAllPhases": 0,
+    "tdKEmax": null,
+    "bodyForcePeak": 3.416,
+    "pMean": 0.3,
+    "energyRunWh": 0.009,
+    "cellUsableColdWh": 1.147,
+    "enduranceCase": 582.25,
+    "retrieveDist": 0,
+    "retrieveRide_s": 0,
+    "sepMaxFly": 0,
+    "events": {
+     "nofly": 1,
+     "endmode": 1
+    }
+   },
+   "footageStability": {
+    "subjectRms": null,
+    "backgroundRms": null,
+    "samples": 0
+   }
+  }
+ ],
+ "sensitivity": {
+  "base": {
+   "over": {},
+   "availMean": 89.249,
+   "availMin": 81.954,
+   "keMax": 14.357,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 7.62
+  },
+  "uwbPointSig_5deg (DW3000-class PDoA AoA, live pointing)": {
+   "over": {
+    "pointSigDeg": 5
+   },
+   "availMean": 78.438,
+   "availMin": 70.577,
+   "keMax": 14.357,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 7.62
+  },
+  "uwbPointSig_5deg_liveFraming": {
+   "over": {
+    "pointSigDeg": 5,
+    "postFrame": 0
+   },
+   "availMean": 10.524,
+   "availMin": 9.145,
+   "keMax": 14.357,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 7.62
+  },
+  "eisRes_0.3_gimbal_4Hz": {
+   "over": {
+    "eisRes": 0.3,
+    "gimbalHz": 4
+   },
+   "availMean": 89.117,
+   "availMin": 82.063,
+   "keMax": 14.357,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 7.62
+  },
+  "camRows_2160_16x9 (shared cam4k)": {
+   "over": {
+    "camRows": 2160,
+    "camAspect": 1.7777777777777777
+   },
+   "availMean": 89.008,
+   "availMin": 81.573,
+   "keMax": 14.363,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 7.624
+  },
+  "cd0_0.055 (draggier folding wing)": {
+   "over": {
+    "cd0": 0.055
+   },
+   "availMean": 83.166,
+   "availMin": 55.389,
+   "keMax": 13.763,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 8.458
+  },
+  "T0_1.2N (thrust −25 %)": {
+   "over": {
+    "T0": 1.2
+   },
+   "availMean": 88.36,
+   "availMin": 80.675,
+   "keMax": 14.37,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 7.402
+  },
+  "anchorCap_1N_muClaw_0.5 (hard-pack)": {
+   "over": {
+    "anchorCap": 1,
+    "muClaw": 0.5
+   },
+   "availMean": 85.475,
+   "availMin": 65.705,
+   "keMax": 14.357,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 7.635
+  },
+  "mass_+10pct": {
+   "over": {
+    "mass": 0.1854
+   },
+   "availMean": 88.368,
+   "availMin": 79.232,
+   "keMax": 16.621,
+   "opsMax": 2,
+   "setupMax": 14,
+   "pMean": 7.553
+  }
+ },
+ "mass": {
+  "lines": [
+   [
+    "structure (dev ASSUMED)",
+    47
+   ],
+   [
+    "motorProp",
+    11
+   ],
+   [
+    "avionics",
+    10
+   ],
+   [
+    "servo×3",
+    7.5
+   ],
+   [
+    "camera 4K 4:3 (dev 20 g; shared cam4k 16 g)",
+    20
+   ],
+   [
+    "gimbal2ax",
+    30
+   ],
+   [
+    "npu (dev 4 g; shared visionCompute 11 g)",
+    4
+   ],
+   [
+    "wiring",
+    5
+   ],
+   [
+    "battery 1.8 Wh @150 Wh/kg",
+    12
+   ]
+  ],
+  "sum_g": 146.5,
+  "withMargin_g": 168.475,
+  "withSharedVisionCompute_g": 176.525,
+  "keCap_ms": 13.3,
+  "keCapWithVision_ms": 12.993,
+  "C0_250g": true
+ }
+}

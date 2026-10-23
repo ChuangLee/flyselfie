@@ -1,0 +1,42 @@
+{
+ "S2-03_skyhook": {
+  "relative_KE_J": {
+   "0.8": 0.03,
+   "1.5": 0.11,
+   "2.5": 0.3
+  },
+  "p_capture_single_pass": 0.987,
+  "p_capture_3_passes": 1.0,
+  "hook_load_N_shockcord_0p3m": 1.29,
+  "abort_if_skier_stops": {
+   "time_to_cover_3m_at_12": 0.25,
+   "climb_gain_m_2g_0p25s": 0.61,
+   "KE_ground_frame_at_12": 6.8
+  },
+  "after_capture": "glider hangs on 1.5 m line as a tiny kite (L/D ~6 -> line elevation ~80 deg) and a 3 s reel pulls it into the dorsal quiver",
+  "verdict": "CONDITIONAL add-on: relative KE 0.03-0.3 J and ~0.98 single-pass capture on paper, but the approach volume is 2-3 m behind the head; needs proof that turbulent wake behind a skier (0.5-1 m) does not upset the glider."
+ },
+ "S2-04_crosswind_kite": {
+  "kite_stall": 4.73,
+  "airspeed_target": 5.91,
+  "min_skier_speed": [
+   {
+    "cos_beta": 0.6,
+    "skier_speed_min": 2.24
+   },
+   {
+    "cos_beta": 0.8,
+    "skier_speed_min": 1.68
+   }
+  ],
+  "tension_at_min_N": 3.8,
+  "frac_airborne_intermediate_passive": 0.846,
+  "frac_airborne_intermediate_crosswind": 0.993,
+  "figure8_lateral_m": 4.0,
+  "camera_az_sweep_deg": 60,
+  "period_s": 8.9,
+  "elevation_centre_deg": "can be held ~35-50 (crosswind window) vs ~74 parked",
+  "stops": "still lands at standstill (no wind) -> needs glide-down to a backpack line-cradle; same as round-1",
+  "verdict": "CONDITIONAL, hand to kite2 team: active figure-8 extends airborne fraction and lowers the view, at the cost of a periodic +-30 deg orbit in the footage and an autopilot on the kite."
+ }
+}

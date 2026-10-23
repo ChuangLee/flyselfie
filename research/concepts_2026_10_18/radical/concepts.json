@@ -1,0 +1,1401 @@
+[
+ {
+  "id": "R00",
+  "name_zh": "头盔/胸前相机（什么都不做的基准）",
+  "name_en": "Helmet / chest cam baseline",
+  "lens": "radical",
+  "one_liner": "现有第一人称相机：零负担，但拍不到全身外部视角。",
+  "principle": "相机刚性固定于头/胸，光心在身体内侧，只观测前方地形、手和板头。",
+  "architecture": {
+   "carrier": "头盔或胸带",
+   "support": "刚性夹具",
+   "energy": "相机内置电池",
+   "sensing": "陀螺 EIS",
+   "imaging": "单目广角或 360",
+   "use_flow": "出门前开机；全程录制；回家取片"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "front (FPV)",
+    "elevation_deg": -20,
+    "distance_m": 0,
+    "notes": "第一人称；身体可见面积≈0（calc_multiview_coverage：头顶 360 对后上方视点可见身体面观测 0%）"
+   }
+  ],
+  "key_numbers": {
+   "body_surface_observed_vs_rear_high_view": {
+    "value": 0.0,
+    "unit": "%",
+    "source": "calc",
+    "ref": "calc_multiview_coverage.py helmet only"
+   },
+   "added_mass": {
+    "value": 0.15,
+    "unit": "kg",
+    "source": "assumed",
+    "ref": "头盔相机 120–200 g"
+   },
+   "setup_time": {
+    "value": 5,
+    "unit": "s",
+    "source": "assumed",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 1,
+    "why": "无第三人称全身；只有速度感"
+   },
+   "interference": {
+    "score": 5,
+    "why": "<0.2 kg，不占手"
+   },
+   "convenience": {
+    "score": 5,
+    "why": "开机即走"
+   },
+   "safety": {
+    "score": 4,
+    "why": "头盔凸起物在摔倒/树枝时有勾挂"
+   },
+   "simplicity": {
+    "score": 5,
+    "why": "单件"
+   }
+  },
+  "bold_hypothesis": "多数用户事后最常看的仍是 FPV；外部视角的增量价值需要用盲评证明，而不是假设。",
+  "falsification_test": "同一天 FPV 与外部视角素材做盲评；若外部视角偏好率 <60%，所有复杂方案的价值前提动摇。",
+  "kill_criteria": [
+   "作为‘外部跟拍’方案本身即不满足目标（只做比较锚点）"
+  ],
+  "sim_plan": {
+   "what_to_model": "头盔光心随头部运动的 FPV 视锥",
+   "states": [
+    "头部位姿"
+   ],
+   "scenarios": [
+    "中速大回转",
+    "蘑菇道"
+   ],
+   "metrics": [
+    "身体可见比例",
+    "角速度 RMS"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "Insta360 X5 Ski Bundle (8K 360, invisible stick, ski pole mount)",
+    "url": "https://www.photospecialist.ie/insta360-x5-ski-bundle",
+    "relevance": "手持/雪杖 360 隐形杆基准"
+   }
+  ]
+ },
+ {
+  "id": "R01",
+  "name_zh": "手持 360 隐形杆",
+  "name_en": "Handheld 360 invisible stick",
+  "lens": "radical",
+  "one_liner": "1 m 隐形杆 + 360 相机，后期任意取景；最便宜的真实外部视点。",
+  "principle": "把光心移出身体 ~1 m；360 拼接把杆隐去；后期在同一光心重取景。",
+  "architecture": {
+   "carrier": "一只手",
+   "support": "0.28–1.0 m 碳/铝伸缩杆 124 g",
+   "energy": "相机电池 ~3 h（零售商数据）",
+   "sensing": "6 轴 EIS",
+   "imaging": "8K 360（7680 px 赤道）",
+   "use_flow": "单手持杆滑行；另一手持杖或不持杖"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "side/front-side (arm position)",
+    "elevation_deg": 15,
+    "distance_m": 1.0,
+    "notes": "身体张角 ~50°，1076 源像素"
+   }
+  ],
+  "key_numbers": {
+   "body_angular_span": {
+    "value": 50.4,
+    "unit": "deg",
+    "source": "calc",
+    "ref": "calc_framing_boom.py"
+   },
+   "source_px_on_body": {
+    "value": 1076,
+    "unit": "px",
+    "source": "calc",
+    "ref": ""
+   },
+   "wrist_moment_static_1m": {
+    "value": 2.57,
+    "unit": "N m",
+    "source": "calc",
+    "ref": ""
+   },
+   "wrist_moment_2g": {
+    "value": 5.1,
+    "unit": "N m",
+    "source": "calc",
+    "ref": ""
+   },
+   "stick_mass": {
+    "value": 124.3,
+    "unit": "g",
+    "source": "lit",
+    "ref": "Insta360 stick retailer"
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 3,
+    "why": "真实外部近距视点，有环境；但近距透视夸张，构图受手臂姿态支配"
+   },
+   "interference": {
+    "score": 2,
+    "why": "占用一只手，该侧无法点杖；腕部 2.6–5 N·m"
+   },
+   "convenience": {
+    "score": 4,
+    "why": "展开 5 s"
+   },
+   "safety": {
+    "score": 3,
+    "why": "摔倒时刚性杆可能撞脸/卡手"
+   },
+   "simplicity": {
+    "score": 5,
+    "why": "两件"
+   }
+  },
+  "bold_hypothesis": "对大多数休闲滑雪者，这已是‘足够好’的外部视角；新产品必须在不占手的条件下超越它。",
+  "falsification_test": "10 名滑雪者手持杖 vs 手持杆滑同一路段，测回转对称性（IMU）与主观干扰；若差异不可察，‘不占手’卖点失效。",
+  "kill_criteria": [
+   "作为基准不淘汰；若用户接受占手，则后续复杂方案的需求缩小"
+  ],
+  "sim_plan": {
+   "what_to_model": "手臂末端光心轨迹与身体张角",
+   "states": [
+    "手臂相对躯干位姿",
+    "躯干位姿"
+   ],
+   "scenarios": [
+    "大回转",
+    "短回转"
+   ],
+   "metrics": [
+    "身体高度占比",
+    "光心平移抖动",
+    "遮挡"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "Insta360 X5 Ski Bundle (8K 360, invisible stick, ski pole mount)",
+    "url": "https://www.photospecialist.ie/insta360-x5-ski-bundle",
+    "relevance": "手持/雪杖 360 隐形杆基准"
+   },
+   {
+    "name": "Insta360 Action Invisible Selfie Stick 28–100 cm, 124.3 g (retailer)",
+    "url": "https://malrs-malcolmrathmellsports.dc02.gob2b.com/Catalogue/INSTA360-Camera/Insta360-Action-Invisible-Selfie-Stick-28cm-to-100cm-INCINSAAVV",
+    "relevance": "杆质量来源（零售商数据，非官方）"
+   }
+  ]
+ },
+ {
+  "id": "R02",
+  "name_zh": "背负 360 短尾杆 + AI 重取景",
+  "name_en": "Backpack 360 boom + AI reframing",
+  "lens": "radical",
+  "one_liner": "背包伸出 1.2–2 m 碳杆，杆端 360 相机，后期自动取景成‘伪航拍’。",
+  "principle": "机械约束光心在身后上方；360 去掉瞄准；所有像素都是真实光线（同一光心重投影）。",
+  "architecture": {
+   "carrier": "背包/腰带",
+   "support": "1.2–2 m 碳管悬臂（Insta360 背包支架已有）",
+   "energy": "相机电池",
+   "sensing": "相机陀螺 + 后期人体检测",
+   "imaging": "8K 360",
+   "use_flow": "缆车下展开 → 滑行 → 上缆车前收起（必须）"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "rear",
+    "elevation_deg": 35,
+    "distance_m": 1.2,
+    "notes": "身体张角 28.7°，612 源像素；1080p 70% 填充需上采样 0.81"
+   },
+   {
+    "azimuth": "rear",
+    "elevation_deg": 30,
+    "distance_m": 2.0,
+    "notes": "张角 22.7°，484 源像素"
+   }
+  ],
+  "key_numbers": {
+   "body_span_1p2m": {
+    "value": 28.7,
+    "unit": "deg",
+    "source": "calc",
+    "ref": "calc_framing_boom.py"
+   },
+   "src_px_ratio_1080p_1p2m": {
+    "value": 0.81,
+    "unit": "-",
+    "source": "calc",
+    "ref": ""
+   },
+   "boom_f1_1p2m": {
+    "value": 6.1,
+    "unit": "Hz",
+    "source": "calc",
+    "ref": ""
+   },
+   "boom_f1_2m": {
+    "value": 3.8,
+    "unit": "Hz",
+    "source": "calc",
+    "ref": ""
+   },
+   "tip_defl_3g_2m": {
+    "value": 53,
+    "unit": "mm",
+    "source": "calc",
+    "ref": ""
+   },
+   "root_moment_3g_2m": {
+    "value": 18.7,
+    "unit": "N m",
+    "source": "calc",
+    "ref": ""
+   },
+   "added_yaw_inertia_2m": {
+    "value": 0.8,
+    "unit": "kg m2",
+    "source": "calc",
+    "ref": ""
+   },
+   "rear_view_body_surface_observed": {
+    "value": 80,
+    "unit": "%",
+    "source": "calc",
+    "ref": "boom 360 vs 3m-back/2m-up virtual"
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 3,
+    "why": "真实、连续、全身+环境；但距离 1–2 m，不像 5–10 m 跟拍，透视近大远小"
+   },
+   "interference": {
+    "score": 3,
+    "why": "0.3–0.55 kg；2 m 杆偏航惯量 +0.8 kg·m²（躯干量级的数十 %），3 g 冲击根部 19 N·m"
+   },
+   "convenience": {
+    "score": 4,
+    "why": "展开/收回 15–30 s，上缆车必须收"
+   },
+   "safety": {
+    "score": 3,
+    "why": "缆车/树枝勾挂、后摔压杆、旁人碰撞"
+   },
+   "simplicity": {
+    "score": 4,
+    "why": "无主动控制"
+   }
+  },
+  "bold_hypothesis": "经过选点和隔振的尾杆 + 自动导演可拿到无人机 70% 的观感价值，而无飞行法规问题。",
+  "falsification_test": "同路段同时用 2 m 尾杆与 HOVER/Neo 跟随拍摄，盲评；若尾杆偏好 <30% 且干扰评分不优，否决。",
+  "kill_criteria": [
+   "杆端平移抖动 > 3 cm RMS 且不可后期去除",
+   "用户报告转身/平衡受影响（>30% 受试者）",
+   "缆车/雪场禁止背负长杆"
+  ],
+  "sim_plan": {
+   "what_to_model": "背负悬臂一阶弯曲模态 + 躯干 6DoF 激励下的杆端位姿",
+   "states": [
+    "躯干位姿/速度",
+    "杆端弯曲位移与速度"
+   ],
+   "scenarios": [
+    "大回转 10 m/s",
+    "蘑菇道 3 g 冲击",
+    "短回转快速转身"
+   ],
+   "metrics": [
+    "杆端平移 RMS",
+    "角抖动 °/s",
+    "身体高度占比",
+    "根部力矩",
+    "附加偏航惯量"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "Insta360 Third-Person Backpack Mount",
+    "url": "https://store.insta360.com/no/product/third_person_backpack_mount",
+    "relevance": "现成背包+碳杆第三人称支架，R02 的直接基准"
+   },
+   {
+    "name": "Insta360 X5 Ski Bundle (8K 360, invisible stick, ski pole mount)",
+    "url": "https://www.photospecialist.ie/insta360-x5-ski-bundle",
+    "relevance": "手持/雪杖 360 隐形杆基准"
+   }
+  ]
+ },
+ {
+  "id": "R03",
+  "name_zh": "身体多相机阵列 + 神经渲染合成第三人称",
+  "name_en": "Body-worn multi-cam array + neural third-person synthesis",
+  "lens": "radical",
+  "one_liner": "头/胸/手腕/板头/板尾 6–8 台相机，离线重建并渲染 3 m 后上方视角。",
+  "principle": "多视几何 + 动态 NeRF/高斯；问题在于目标视点看到的表面大多从未被任何身体相机观测。",
+  "architecture": {
+   "carrier": "全身",
+   "support": "夹具",
+   "energy": "6–8 块电池",
+   "sensing": "同步（需 <2 ms）+ IMU",
+   "imaging": "多台广角/360",
+   "use_flow": "穿戴同步 → 滑行 → 上传 → 云端 10–60 GPU·min/30 s 片段"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "rear (virtual)",
+    "elevation_deg": 34,
+    "distance_m": 3.6,
+    "notes": "合成视点；可见身体面仅 ≤47% 被观测"
+   }
+  ],
+  "key_numbers": {
+   "observed_frac_rear_high_all_body": {
+    "value": 46.7,
+    "unit": "%",
+    "source": "calc",
+    "ref": "calc_multiview_coverage.py, omni cams, upper bound"
+   },
+   "observed_frac_rear_high_helmet_only": {
+    "value": 0.0,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   },
+   "observed_frac_side": {
+    "value": 49.8,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   },
+   "median_reprojection_angle": {
+    "value": 64,
+    "unit": "deg",
+    "source": "calc",
+    "ref": ""
+   },
+   "env_parallax_at_10m": {
+    "value": 20.7,
+    "unit": "deg",
+    "source": "calc",
+    "ref": ""
+   },
+   "data_rate": {
+    "value": 270,
+    "unit": "GB/h",
+    "source": "calc",
+    "ref": "6x100 Mbps"
+   },
+   "sync_needed": {
+    "value": 2,
+    "unit": "ms",
+    "source": "calc",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 2,
+    "why": "作为‘真实视点’：一半以上身体面和近景雪面需生成；中位 64° 跨角度重投影，光照/布料皱褶为猜测"
+   },
+   "interference": {
+    "score": 3,
+    "why": "多点小质量，板头/腕部相机有冲击"
+   },
+   "convenience": {
+    "score": 1,
+    "why": "6–8 台充电、同步、270 GB/h、云端等待"
+   },
+   "safety": {
+    "score": 4,
+    "why": "无飞行物"
+   },
+   "simplicity": {
+    "score": 1,
+    "why": "同步、标定、重建链极长"
+   }
+  },
+  "bold_hypothesis": "随数据先验增强，生成画面‘看起来真’；但本项目不允许把生成视点当真实机位——这条路线最多作为明确标注的‘重建动画’。",
+  "falsification_test": "用外部真值相机同时拍摄，计算合成视点在‘未观测掩码’内与真值的 LPIPS/姿态误差；若未观测区错误不可感知仍不能改变其‘生成’属性——只测已观测区是否达标。",
+  "kill_criteria": [
+   "作为真实跟拍：几何上已否决（观测比例 ≤47%）",
+   "已观测区 PSNR/LPIPS 不及 360 尾杆原片"
+  ],
+  "sim_plan": {
+   "what_to_model": "可见性/覆盖率射线投射（已在 calc 中静态完成）扩展到动画序列的时间累积覆盖",
+   "states": [
+    "人体关节位姿时间序列",
+    "各相机位姿"
+   ],
+   "scenarios": [
+    "大回转 20 s",
+    "跳台"
+   ],
+   "metrics": [
+    "目标视点可见面中被观测比例（时间累积）",
+    "重投影角",
+    "视差空洞比例"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "EgoEgo: Ego-Body Pose Estimation via Ego-Head Pose (CVPR 2023)",
+    "url": "https://arxiv.org/abs/2212.04636",
+    "relevance": "头戴相机→全身姿态，用扩散模型生成‘合理’而非观测到的身体运动"
+   },
+   {
+    "name": "UnrealEgo / UnrealEgo2 egocentric stereo pose",
+    "url": "https://arxiv.org/abs/2208.01633",
+    "relevance": "眼镜鱼眼立体相机估计全身姿态；姿态≠外观"
+   },
+   {
+    "name": "UnrealEgo2 project page",
+    "url": "https://4dqv.mpi-inf.mpg.de/UnrealEgo2/",
+    "relevance": "复杂姿态仍易失败（作者自述）"
+   },
+   {
+    "name": "From Third Person to First Person: Dataset and Baselines (arXiv 1812.00104)",
+    "url": "https://arxiv.org/abs/1812.00104",
+    "relevance": "反方向（外→内）合成；说明视角转换依赖学习先验"
+   },
+   {
+    "name": "DyCheck (Gao et al., NeurIPS 2022) monocular dynamic NVS reality check",
+    "url": "https://hangg7.com/dycheck/",
+    "relevance": "有效多视角不足时动态重建失真；共可见掩码评价（docs/18 已引用）"
+   },
+   {
+    "name": "Nerfies (deformable NeRF)",
+    "url": "https://nerfies.github.io/",
+    "relevance": "动态新视点，需要受控多视采集"
+   }
+  ]
+ },
+ {
+  "id": "R04",
+  "name_zh": "身体 IMU 动捕 + 环境重建 → 化身重渲染（明确标注为动画）",
+  "name_en": "IMU mocap + terrain capture avatar replay (labelled synthetic)",
+  "lens": "radical",
+  "one_liner": "6 点 IMU + GNSS + 头盔 360 SLAM，生成任意机位的滑雪动画，诚实标为‘重建动画’。",
+  "principle": "测得的是运动，不是影像；渲染出的每个像素都是合成的，但动作数据是真实测量。",
+  "architecture": {
+   "carrier": "身体绑带/雪鞋",
+   "support": "无",
+   "energy": "小电池 ×6",
+   "sensing": "IMU ×6–17 + GNSS（RTK 才够脚-雪接触）",
+   "imaging": "头盔 360 用于地形与纹理",
+   "use_flow": "穿戴 2 min → 滑行 → App 生成动画 + 与真实 FPV 并排"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "any (synthetic)",
+    "elevation_deg": 0,
+    "distance_m": 0,
+    "notes": "任意机位，但 0% 为该视点真实观测"
+   }
+  ],
+  "key_numbers": {
+   "real_pixels_from_viewpoint": {
+    "value": 0,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   },
+   "sensor_mass_consumer": {
+    "value": 48,
+    "unit": "g",
+    "source": "calc",
+    "ref": "6x~8 g"
+   },
+   "gnss_error_phone": {
+    "value": 3,
+    "unit": "m",
+    "source": "assumed",
+    "ref": ""
+   },
+   "gnss_error_rtk": {
+    "value": 0.03,
+    "unit": "m",
+    "source": "assumed",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 1,
+    "why": "作为跟拍画面不合格（全部合成）；作为技术分析可视化可达 3–4"
+   },
+   "interference": {
+    "score": 4,
+    "why": "<0.1 kg 分布"
+   },
+   "convenience": {
+    "score": 3,
+    "why": "穿戴 2 min，需充电 6 件"
+   },
+   "safety": {
+    "score": 5,
+    "why": "无外部动能"
+   },
+   "simplicity": {
+    "score": 3,
+    "why": "传感+渲染链中等"
+   }
+  },
+  "bold_hypothesis": "对进阶滑雪者，‘可从任意角度回看的真实动作数据’比 1–2 m 外的视频更有用；它是互补产品，不是跟拍替代。",
+  "falsification_test": "与外部真值视频比较关节角误差（目标 <5°）和地面接触一致性；若误差大于教练可接受范围则无分析价值。",
+  "kill_criteria": [
+   "任何以真实视频名义展示的用法（项目规则禁止）",
+   "关节角误差 >8° 或脚-雪穿插明显"
+  ],
+  "sim_plan": {
+   "what_to_model": "IMU 噪声/漂移 + GNSS 误差注入的化身轨迹，与仿真真值对比",
+   "states": [
+    "关节姿态",
+    "根节点轨迹",
+    "传感器偏置"
+   ],
+   "scenarios": [
+    "大回转",
+    "摔倒"
+   ],
+   "metrics": [
+    "关节角 RMSE",
+    "根轨迹误差",
+    "脚-雪穿插深度"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "Xsens IMU suit in ski jumping (BioMed Eng OnLine 2023)",
+    "url": "https://biomedical-engineering-online.biomedcentral.com/articles/10.1186/s12938-023-01087-x",
+    "relevance": "17 传感器 IMU 动捕在雪上已有科研使用"
+   },
+   {
+    "name": "Sony mocopi 6-sensor mocap",
+    "url": "https://electronics.sony.com/more/mocopi",
+    "relevance": "消费级 6 点动捕（规格未在本轮抓取核实）"
+   },
+   {
+    "name": "Carv digital ski coach (insole sensors)",
+    "url": "https://getcarv.com",
+    "relevance": "滑雪专用可穿戴运动数据产品（未在本轮抓取核实）"
+   }
+  ]
+ },
+ {
+  "id": "R05",
+  "name_zh": "竖抛-接住相机球（滑行中）",
+  "name_en": "Vertical toss-and-catch pod while skiing",
+  "lens": "radical",
+  "one_liner": "滑行中竖直上抛相机球拍 2–3 s 俯视全景，再用手接住。",
+  "principle": "抛体在惯性系中继承滑行速度；只要滑行者匀速直线就会落回手中——但现实中不匀速也不直线。",
+  "architecture": {
+   "carrier": "手",
+   "support": "无",
+   "energy": "手臂",
+   "sensing": "球内 IMU 触发顶点拍摄",
+   "imaging": "多镜头球形 360",
+   "use_flow": "直滑段 → 上抛 → 抬头 → 接住"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "overhead",
+    "elevation_deg": 85,
+    "distance_m": 6,
+    "notes": "顶点 3–10 m，1.6–3 s，旋转中"
+   }
+  ],
+  "key_numbers": {
+   "miss_distance_range": {
+    "value": "0.2–10.5",
+    "unit": "m",
+    "source": "calc",
+    "ref": "calc_ballistic_pods.py, skier accel −1..+1.5 m/s2"
+   },
+   "catch_window": {
+    "value": 0.3,
+    "unit": "m",
+    "source": "assumed",
+    "ref": ""
+   },
+   "return_KE": {
+    "value": "7–17",
+    "unit": "J",
+    "source": "calc",
+    "ref": ""
+   },
+   "eyes_off_slope_distance": {
+    "value": "5–10",
+    "unit": "m",
+    "source": "calc",
+    "ref": ""
+   },
+   "lateral_drift_in_turn": {
+    "value": 10,
+    "unit": "m",
+    "source": "calc",
+    "ref": "R=20 m, 2 s"
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 2,
+    "why": "瞬时俯视，旋转，无连续"
+   },
+   "interference": {
+    "score": 1,
+    "why": "占手、抬头、打断节奏"
+   },
+   "convenience": {
+    "score": 2,
+    "why": "失败即找球"
+   },
+   "safety": {
+    "score": 1,
+    "why": "7–17 J 落体、视线离开雪道、砸到他人"
+   },
+   "simplicity": {
+    "score": 3,
+    "why": "无主动控制但失败率高"
+   }
+  },
+  "bold_hypothesis": "直滑段 3 m 低抛可行（偏差 0.6–1.2 m 已大于接住窗）。",
+  "falsification_test": "平地以 8 m/s 滑行重复 20 次 3 m 抛接（用软球），接住率 <80% 即否决。",
+  "kill_criteria": [
+   "接住率 <90%",
+   "任何弯中使用需求",
+   "雪场禁止抛物"
+  ],
+  "sim_plan": {
+   "what_to_model": "已在 calc 完成量级；无需进一步仿真",
+   "states": [
+    "球位置/速度",
+    "滑行者速度"
+   ],
+   "scenarios": [
+    "直滑匀速",
+    "直滑加速"
+   ],
+   "metrics": [
+    "落点偏差",
+    "动能"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "Panono throwable panoramic ball camera (Pfeil, 2011; later commercial)",
+    "url": "https://en.wikipedia.org/wiki/Panono",
+    "relevance": "抛投拍顶点全景的先例（本轮未抓取）"
+   }
+  ]
+ },
+ {
+  "id": "R06",
+  "name_zh": "前抛雪面相机（停稳抛出、滑过时拾起）",
+  "name_en": "Throw-ahead self-righting snow pod",
+  "lens": "radical",
+  "one_liner": "停稳后把自扶正相机球抛到下方 12–20 m，拍自己迎面滑来，到达时停下拾起。",
+  "principle": "把‘环境机位’变成可瞬时自布、自回收的随身件；得到真正的迎面低机位。",
+  "architecture": {
+   "carrier": "口袋/背包",
+   "support": "雪面",
+   "energy": "手臂",
+   "sensing": "自扶正配重 + 彩带/BLE 信标",
+   "imaging": "鱼眼/360",
+   "use_flow": "停 → 抛 → 滑近 4–5 s → 停 → 拾起（总 ~20 s）"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "front",
+    "elevation_deg": -5,
+    "distance_m": "20→0",
+    "notes": "迎面低角度，4–5 s"
+   }
+  ],
+  "key_numbers": {
+   "throw_range": {
+    "value": "12–21",
+    "unit": "m",
+    "source": "calc",
+    "ref": ""
+   },
+   "approach_shot": {
+    "value": "3.9–4.9",
+    "unit": "s",
+    "source": "calc",
+    "ref": ""
+   },
+   "impact_KE": {
+    "value": "7.6–12.3",
+    "unit": "J",
+    "source": "calc",
+    "ref": ""
+   },
+   "overhead_per_shot": {
+    "value": 20,
+    "unit": "s",
+    "source": "assumed",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 3,
+    "why": "真实迎面视角，但低、短、可能歪斜"
+   },
+   "interference": {
+    "score": 3,
+    "why": "两次停顿"
+   },
+   "convenience": {
+    "score": 2,
+    "why": "粉雪掩埋、找球"
+   },
+   "safety": {
+    "score": 2,
+    "why": "雪道上抛物击中他人"
+   },
+   "simplicity": {
+    "score": 4,
+    "why": "被动件"
+   }
+  },
+  "bold_hypothesis": "迎面镜头是所有身体固定方案拍不到的；一个 100 g 球可能是最便宜的‘第二真实机位’。",
+  "falsification_test": "压雪与粉雪各 30 次抛投：回收率、自扶正率、画面可用率；任一 <90% 否决。",
+  "kill_criteria": [
+   "docs/19 将本人预放相机列为环境机位——若评审认定瞬时自抛也属此类，则出范围",
+   "回收率 <95%"
+  ],
+  "sim_plan": {
+   "what_to_model": "抛体+雪面滑移+相机视锥中滑行者轨迹",
+   "states": [
+    "球位姿",
+    "滑行者位置"
+   ],
+   "scenarios": [
+    "压雪道",
+    "粉雪"
+   ],
+   "metrics": [
+    "可用镜头时长",
+    "身体高度占比"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "Panono throwable panoramic ball camera (Pfeil, 2011; later commercial)",
+    "url": "https://en.wikipedia.org/wiki/Panono",
+    "relevance": "抛投拍顶点全景的先例（本轮未抓取）"
+   }
+  ]
+ },
+ {
+  "id": "R07",
+  "name_zh": "背包弹射 + 系绳导回相机（爆发式俯拍）",
+  "name_en": "Tether-guided catapult burst pod",
+  "lens": "radical",
+  "one_liner": "停稳时背包弹射 80 g 相机至 10–18 m，带小阻力伞下降，卷绳收回；系绳把‘接住’问题变为‘卷回’。",
+  "principle": "储能弹射替代持续升力；系绳约束最大偏移与回收路径；伞把落速降到 ~7 m/s。",
+  "architecture": {
+   "carrier": "背包",
+   "support": "15 m Dyneema 系绳 + 卷线器",
+   "energy": "弹性储能 16–30 J",
+   "sensing": "IMU 顶点触发",
+   "imaging": "小型 360",
+   "use_flow": "停 → 按钮 → 3–6 s 俯拍 → 卷回 10 s"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "overhead",
+    "elevation_deg": 85,
+    "distance_m": "10–18",
+    "notes": "仅静止或极慢；揭示式镜头"
+   }
+  ],
+  "key_numbers": {
+   "apex": {
+    "value": "10.7–17.6",
+    "unit": "m",
+    "source": "calc",
+    "ref": ""
+   },
+   "flight_time": {
+    "value": "2.7–3.6",
+    "unit": "s",
+    "source": "calc",
+    "ref": ""
+   },
+   "elastic_energy": {
+    "value": "16–30",
+    "unit": "J",
+    "source": "calc",
+    "ref": ""
+   },
+   "fall_KE_with_chute": {
+    "value": 2.1,
+    "unit": "J",
+    "source": "calc",
+    "ref": ""
+   },
+   "reel_time": {
+    "value": 10,
+    "unit": "s",
+    "source": "assumed",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 2,
+    "why": "短、俯视、非连续跟拍"
+   },
+   "interference": {
+    "score": 4,
+    "why": "收起时 ~0.3 kg"
+   },
+   "convenience": {
+    "score": 3,
+    "why": "每次 ~20 s"
+   },
+   "safety": {
+    "score": 3,
+    "why": "系绳缠绕、带伞落体 2 J"
+   },
+   "simplicity": {
+    "score": 3,
+    "why": "弹射+卷线机构"
+   }
+  },
+  "bold_hypothesis": "比无人机合法且省事的‘出发前揭示镜头’。",
+  "falsification_test": "5 m/s 风下 50 次发射：绳缠、旋转速率（<1 rev/s）与可用帧比例。",
+  "kill_criteria": [
+   "只能静止使用→不满足连续跟拍，只作补充",
+   "缠绳率 >5%"
+  ],
+  "sim_plan": {
+   "what_to_model": "带阻力的弹道 + 系绳约束 + 风",
+   "states": [
+    "球位置/速度",
+    "绳长"
+   ],
+   "scenarios": [
+    "无风",
+    "5 m/s 侧风"
+   ],
+   "metrics": [
+    "顶点",
+    "可用帧时长",
+    "落点"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "Panono throwable panoramic ball camera (Pfeil, 2011; later commercial)",
+    "url": "https://en.wikipedia.org/wiki/Panono",
+    "relevance": "抛投拍顶点全景的先例（本轮未抓取）"
+   },
+   {
+    "name": "Fotokite tethered drone",
+    "url": "https://fotokite.com",
+    "relevance": "系留有界飞行相机先例（本轮未抓取）"
+   }
+  ]
+ },
+ {
+  "id": "R08",
+  "name_zh": "背包停靠式微型跟拍无人机（高光短片）",
+  "name_en": "Backpack-docking micro-drone for highlight shots",
+  "lens": "radical",
+  "one_liner": "150 g 涵道无人机平时收在背包肩部仓（保温、充电），停稳时一键起飞拍 30 s，停下后自动回仓。",
+  "principle": "把现成‘回掌降落’升级为‘回仓降落’：手套免操作、保温、充电；只在静止时停靠（移动停靠不可信）。",
+  "architecture": {
+   "carrier": "自由飞行",
+   "support": "背包肩部漏斗形磁吸仓",
+   "energy": "~10 Wh 电池，仓内保温/补电",
+   "sensing": "视觉跟随 + 仓位 UWB/标记",
+   "imaging": "4K 稳定相机",
+   "use_flow": "停 → 按胸前大按钮 → 起飞 → 跟拍 → 停 → 自动回仓 → 继续"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "rear/side/front-34",
+    "elevation_deg": 20,
+    "distance_m": "5–15",
+    "notes": "真实跟拍视点；速度 ≤12 m/s 且避障受限"
+   }
+  ],
+  "key_numbers": {
+   "hover_power": {
+    "value": "24–34",
+    "unit": "W",
+    "source": "calc",
+    "ref": "momentum theory, 151 g"
+   },
+   "airtime_cold": {
+    "value": 11,
+    "unit": "min",
+    "source": "calc",
+    "ref": ""
+   },
+   "energy_per_shot": {
+    "value": 0.4,
+    "unit": "Wh",
+    "source": "calc",
+    "ref": ""
+   },
+   "shots_per_battery": {
+    "value": 15,
+    "unit": "-",
+    "source": "calc",
+    "ref": ""
+   },
+   "cycle_overhead": {
+    "value": 35,
+    "unit": "s",
+    "source": "calc",
+    "ref": ""
+   },
+   "dock_capture_radius_needed": {
+    "value": "≥6",
+    "unit": "cm",
+    "source": "calc",
+    "ref": ""
+   },
+   "moving_dock_error": {
+    "value": "8–15",
+    "unit": "cm",
+    "source": "calc",
+    "ref": ""
+   },
+   "KE_12mps": {
+    "value": 10.9,
+    "unit": "J",
+    "source": "calc",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 5,
+    "why": "真正的外部 5–15 m 视角"
+   },
+   "interference": {
+    "score": 4,
+    "why": "~0.3 kg 含仓"
+   },
+   "convenience": {
+    "score": 3,
+    "why": "每镜头额外 35 s 停顿"
+   },
+   "safety": {
+    "score": 2,
+    "why": "旋翼、10.9 J、雪场普遍禁飞"
+   },
+   "simplicity": {
+    "score": 2,
+    "why": "自主飞行+停靠"
+   }
+  },
+  "bold_hypothesis": "‘回仓’比‘回掌’显著减少手套操作和冻电池问题，让每天 20+ 镜头成为可能。",
+  "falsification_test": "用现成 Neo 2/HOVER 回掌流程测完整周期时间与失败率作为对照；原型仓若不能把周期压到 <25 s 额外开销或失败率 >5%，否决。",
+  "kill_criteria": [
+   "目标雪场禁飞（Vail Resorts 已禁）",
+   "静止停靠成功率 <95%",
+   "旋翼与头部距离 <0.3 m 时的接触事件"
+  ],
+  "sim_plan": {
+   "what_to_model": "无人机跟随 + 停稳后返回停靠的点质量/姿态模型，含风扰与人体晃动",
+   "states": [
+    "无人机位姿/速度",
+    "电池 SOC",
+    "仓口位姿"
+   ],
+   "scenarios": [
+    "停稳停靠，3 m/s 阵风",
+    "跟随大回转 10 m/s",
+    "低温 −10 °C"
+   ],
+   "metrics": [
+    "停靠误差分布",
+    "周期时间",
+    "Wh/镜头",
+    "跟随中构图误差"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "DJI Neo 2 review/specs (151 g, Return-to-Palm, follow 12 m/s)",
+    "url": "https://www.heliguy.com/blogs/posts/dji-neo-2-review-top-10-features/",
+    "relevance": "掌上起降与回掌，停靠无人机的现成下限"
+   },
+   {
+    "name": "HOVERAir X1 PRO/PROMAX Ski Mode",
+    "url": "https://hoverair.com/blogs/news/hoverair-x1-pro-promax-ski-mode-is-now-live",
+    "relevance": "滑雪专用跟随模式，静止 3 s 后回到用户"
+   },
+   {
+    "name": "DroneDJ: HoverAir X1 Pro Max firmware (Follow Position, Ski Environment)",
+    "url": "https://dronedj.com/2026/02/03/hoverair-x1-pro-max-firmware-2/",
+    "relevance": "滑雪跟随位置选项"
+   },
+   {
+    "name": "Vail Resorts drone policy",
+    "url": "https://www.vail.com/the-mountain/about-the-mountain/safety/drones.aspx",
+    "relevance": "娱乐无人机在 Vail Resorts 雪场禁止"
+   },
+   {
+    "name": "Ski Utah resort drone policies",
+    "url": "https://www.skiutah.com/blog/utah-resort-drone-policies",
+    "relevance": "多数雪场需书面许可，个别允许"
+   }
+  ]
+ },
+ {
+  "id": "R09",
+  "name_zh": "双设备 + 自动导演（常驻 360 + 机会式飞行器）",
+  "name_en": "Dual-device auto-director",
+  "lens": "radical",
+  "one_liner": "尾杆/头盔 360 全程真实记录，自动导演根据地形与动作在少数片段调度飞行器，成片只用真实素材。",
+  "principle": "连续性由身体相机保证，镜头多样性由飞行器提供；导演只选择/剪辑，不生成视点。",
+  "architecture": {
+   "carrier": "身体 + 飞行器",
+   "support": "尾杆或头盔",
+   "energy": "两套电池",
+   "sensing": "GNSS+地图预测高光段，IMU 动作分段",
+   "imaging": "360 + 4K",
+   "use_flow": "开机 → 滑行（导演提示‘下段适合飞’）→ 停 → 起飞 → 剪辑自动完成"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "rear (boom)",
+    "elevation_deg": 35,
+    "distance_m": 1.2,
+    "notes": "连续"
+   },
+   {
+    "azimuth": "side/front (drone)",
+    "elevation_deg": 20,
+    "distance_m": 8,
+    "notes": "17–33% 下滑时间"
+   }
+  ],
+  "key_numbers": {
+   "aerial_coverage_1_shot_per_run": {
+    "value": 17,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   },
+   "aerial_coverage_2_shots": {
+    "value": 33,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   },
+   "added_stop_overhead_2_shots": {
+    "value": 39,
+    "unit": "% of descent time",
+    "source": "calc",
+    "ref": ""
+   },
+   "real_pixel_fraction": {
+    "value": 100,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 4,
+    "why": "连续 + 若干高价值外部镜头"
+   },
+   "interference": {
+    "score": 3,
+    "why": "尾杆负担 + 停顿"
+   },
+   "convenience": {
+    "score": 3,
+    "why": "两套设备"
+   },
+   "safety": {
+    "score": 2,
+    "why": "继承无人机法规与旋翼风险"
+   },
+   "simplicity": {
+    "score": 2,
+    "why": "软件+两硬件"
+   }
+  },
+  "bold_hypothesis": "用户愿意为每段 30 s 好镜头停 35 s；导演的‘提示何时飞’比更强的飞行器更提升成片率。",
+  "falsification_test": "离线：用已有同步双机素材，比较导演成片与随机/全量剪辑盲评；在线：记录用户实际接受提示的比例（<40% 则调度无价值）。",
+  "kill_criteria": [
+   "成片盲评不优于单 360 尾杆",
+   "用户接受起飞提示 <40%"
+  ],
+  "sim_plan": {
+   "what_to_model": "一整天的事件仿真：滑行段、地形高光点、电池、停顿与镜头库存",
+   "states": [
+    "滑行者位置",
+    "设备电量",
+    "镜头库存"
+   ],
+   "scenarios": [
+    "12 趟×3 min",
+    "禁飞区",
+    "低温"
+   ],
+   "metrics": [
+    "外部视角占比",
+    "额外停顿时间",
+    "可用镜头/天"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "HOVERAir X1 PRO/PROMAX Ski Mode",
+    "url": "https://hoverair.com/blogs/news/hoverair-x1-pro-promax-ski-mode-is-now-live",
+    "relevance": "滑雪专用跟随模式，静止 3 s 后回到用户"
+   },
+   {
+    "name": "DJI Neo 2 review/specs (151 g, Return-to-Palm, follow 12 m/s)",
+    "url": "https://www.heliguy.com/blogs/posts/dji-neo-2-review-top-10-features/",
+    "relevance": "掌上起降与回掌，停靠无人机的现成下限"
+   },
+   {
+    "name": "Insta360 Third-Person Backpack Mount",
+    "url": "https://store.insta360.com/no/product/third_person_backpack_mount",
+    "relevance": "现成背包+碳杆第三人称支架，R02 的直接基准"
+   }
+  ]
+ },
+ {
+  "id": "R10",
+  "name_zh": "板载低机位相机 + 头盔 360 配对",
+  "name_en": "Ski-mounted low cam + helmet 360 pairing",
+  "lens": "radical",
+  "one_liner": "板头朝后的小相机拍极低仰视全身，配头盔 360，两个真实视点交替剪辑。",
+  "principle": "雪板是身体外 0.8–0.9 m 的刚性平台，提供身体固定方案中唯一的前方仰视。",
+  "architecture": {
+   "carrier": "雪板",
+   "support": "板头/板尾胶座",
+   "energy": "小相机电池",
+   "sensing": "陀螺 EIS",
+   "imaging": "超广角 ~110°",
+   "use_flow": "上板前装好；全程录"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "front-low",
+    "elevation_deg": -60,
+    "distance_m": 0.9,
+    "notes": "身体张角 64.5°，极端透视；震颤 20–200 Hz"
+   }
+  ],
+  "key_numbers": {
+   "body_span": {
+    "value": 64.5,
+    "unit": "deg",
+    "source": "calc",
+    "ref": ""
+   },
+   "swing_weight_increase_60g": {
+    "value": 9,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   },
+   "swing_weight_increase_120g": {
+    "value": 19,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 2,
+    "why": "真实但极端仰视透视、雪粉、果冻效应"
+   },
+   "interference": {
+    "score": 4,
+    "why": "60 g 时 +9% 板摆动惯量"
+   },
+   "convenience": {
+    "score": 4,
+    "why": "一次装好"
+   },
+   "safety": {
+    "score": 4,
+    "why": "摔倒时脱落/划伤"
+   },
+   "simplicity": {
+    "score": 4,
+    "why": "被动"
+   }
+  },
+  "bold_hypothesis": "两只极端但真实的视点经导演剪辑，比一只中庸视点更有观感。",
+  "falsification_test": "振动台 + 实滑：EIS 后残余高频抖动与雪粉遮挡帧比例；>30% 不可用帧否决。",
+  "kill_criteria": [
+   "不可用帧 >30%",
+   "板摆动惯量增加被用户感知"
+  ],
+  "sim_plan": {
+   "what_to_model": "雪板刚体 + 高频震颤激励下的相机视锥",
+   "states": [
+    "板姿态",
+    "震颤"
+   ],
+   "scenarios": [
+    "压雪",
+    "冰面颤振"
+   ],
+   "metrics": [
+    "身体高度占比",
+    "高频角抖动"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "Insta360 X5 Ski Bundle (8K 360, invisible stick, ski pole mount)",
+    "url": "https://www.photospecialist.ie/insta360-x5-ski-bundle",
+    "relevance": "手持/雪杖 360 隐形杆基准"
+   }
+  ]
+ },
+ {
+  "id": "R11",
+  "name_zh": "尾杆立体相机 + 有界真实新视点（含抖动修正）",
+  "name_en": "Boom stereo pair + bounded novel view (honest NVS)",
+  "lens": "radical",
+  "one_liner": "尾杆端 0.3 m 基线双相机：只在真实观测的凸包内插值视点（±10°），用来消除杆端平移抖动和做小幅推轨，空洞全部标注。",
+  "principle": "插值而非外推：目标视点在真实相机基线内时，后上方视角身体可见面 98% 被观测；同时修正 EIS 不能去除的杆端平移晃动（20–53 mm）。",
+  "architecture": {
+   "carrier": "背包",
+   "support": "R02 尾杆 + 横向 0.3 m 支架",
+   "energy": "两台相机或一台双目",
+   "sensing": "同步 + 杆端 IMU",
+   "imaging": "双 360 或双广角",
+   "use_flow": "同 R02；后期一键‘稳定+推轨’，输出附置信度掩码"
+  },
+  "viewpoints": [
+   {
+    "azimuth": "rear ±10° (bounded)",
+    "elevation_deg": 35,
+    "distance_m": 1.3,
+    "notes": "仅在真实基线内"
+   }
+  ],
+  "key_numbers": {
+   "observed_frac_near_boom_+10deg": {
+    "value": 98.4,
+    "unit": "%",
+    "source": "calc",
+    "ref": "calc_multiview_coverage.py boom stereo"
+   },
+   "observed_frac_rear_high_stereo": {
+    "value": 92.9,
+    "unit": "%",
+    "source": "calc",
+    "ref": ""
+   },
+   "observed_frac_side_view_stereo": {
+    "value": 27.2,
+    "unit": "%",
+    "source": "calc",
+    "ref": "外推到侧面即失败"
+   },
+   "boom_tip_translation_3g": {
+    "value": "20–53",
+    "unit": "mm",
+    "source": "calc",
+    "ref": "calc_framing_boom.py"
+   },
+   "added_mass_vs_R02": {
+    "value": 0.1,
+    "unit": "kg",
+    "source": "assumed",
+    "ref": ""
+   }
+  },
+  "scores": {
+   "footage": {
+    "score": 4,
+    "why": "真实为主、更稳、可小幅运镜；仍是 1–2 m 距离"
+   },
+   "interference": {
+    "score": 3,
+    "why": "同 R02 再 +0.1 kg"
+   },
+   "convenience": {
+    "score": 4,
+    "why": "同 R02"
+   },
+   "safety": {
+    "score": 3,
+    "why": "同 R02"
+   },
+   "simplicity": {
+    "score": 3,
+    "why": "同步/标定 + 后期"
+   }
+  },
+  "bold_hypothesis": "诚实的有界新视点是这条计算路线唯一可产品化的部分：它修复机械臂最大的弱点（平移晃动）且不越过‘生成’红线。",
+  "falsification_test": "真值实验：第三台相机放在基线中点，比较插值输出与真值的 PSNR/LPIPS；未观测掩码 >5% 或已观测区 LPIPS 劣于原片阈值则否决。",
+  "kill_criteria": [
+   "插值区未观测掩码 >5%",
+   "需要 >±10° 才有观感收益（即必须外推）",
+   "同步/标定在野外每天需人工重做"
+  ],
+  "sim_plan": {
+   "what_to_model": "R02 杆端动力学 + 双相机覆盖/视差空洞随时间的统计，模拟平移抖动修正后的残余",
+   "states": [
+    "杆端位姿",
+    "人体姿态",
+    "双相机光心"
+   ],
+   "scenarios": [
+    "蘑菇道冲击",
+    "大回转"
+   ],
+   "metrics": [
+    "修正后平移抖动 RMS",
+    "未观测掩码面积比",
+    "身体覆盖率"
+   ]
+  },
+  "prior_art": [
+   {
+    "name": "DyCheck (Gao et al., NeurIPS 2022) monocular dynamic NVS reality check",
+    "url": "https://hangg7.com/dycheck/",
+    "relevance": "有效多视角不足时动态重建失真；共可见掩码评价（docs/18 已引用）"
+   },
+   {
+    "name": "Nerfies (deformable NeRF)",
+    "url": "https://nerfies.github.io/",
+    "relevance": "动态新视点，需要受控多视采集"
+   },
+   {
+    "name": "Insta360 Third-Person Backpack Mount",
+    "url": "https://store.insta360.com/no/product/third_person_backpack_mount",
+    "relevance": "现成背包+碳杆第三人称支架，R02 的直接基准"
+   }
+  ]
+ }
+]

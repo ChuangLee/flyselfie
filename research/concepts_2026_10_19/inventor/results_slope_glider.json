@@ -1,0 +1,221 @@
+{
+ "I-01 rigid": {
+  "mass_kg": 0.125,
+  "S_m2": 0.06,
+  "span_m": 0.73,
+  "chord_m": 0.082,
+  "wing_loading_N_m2": 20.4,
+  "v_stall": 6.39,
+  "LDmax": 12.71,
+  "v_LDmax": 6.76,
+  "min_sink": 0.53,
+  "v_min_sink": 6.71,
+  "LD_at": {
+   "6": 0.0,
+   "8": 12.04,
+   "10": 9.64,
+   "12": 7.36,
+   "14": 5.65,
+   "16": 4.42
+  },
+  "LD_airbrake_at_12": 1.19,
+  "Re_at_12": 65319,
+  "v_max_KE_14.9J": 15.44,
+  "min_slope_deg_for_gravity_follow": {
+   "v8_wind-5": 5.6,
+   "v8_wind+0": 5.6,
+   "v8_wind+5": 13.3,
+   "v11_wind-5": 4.1,
+   "v11_wind+0": 5.5,
+   "v11_wind+5": 16.5,
+   "v14_wind-5": 3.2,
+   "v14_wind+0": 7.7,
+   "v14_wind+5": 20.9
+  },
+  "time_fractions_wind0": {
+   "deficit": 0.1,
+   "deficit_short": 0.033,
+   "follow": 0.847,
+   "lag_KE": 0.02
+  },
+  "time_fractions_headwind5": {
+   "deficit": 0.598,
+   "deficit_short": 0.062,
+   "follow": 0.321,
+   "lag_KE": 0.02
+  },
+  "time_fractions_tailwind5": {
+   "deficit": 0.027,
+   "deficit_short": 0.035,
+   "follow": 0.918,
+   "lag_KE": 0.02
+  },
+  "max_slope_deg_airbrake_no_weave_v11": 31.6,
+  "deficit_buffer_distance_m_4deg_v9": 177.0,
+  "deficit_buffer_distance_m_8deg_v9": 0.0
+ },
+ "I-03 tailsitter": {
+  "mass_kg": 0.175,
+  "S_m2": 0.06,
+  "span_m": 0.73,
+  "chord_m": 0.082,
+  "wing_loading_N_m2": 28.6,
+  "v_stall": 7.56,
+  "LDmax": 11.15,
+  "v_LDmax": 7.94,
+  "min_sink": 0.71,
+  "v_min_sink": 7.94,
+  "LD_at": {
+   "6": 0.0,
+   "8": 11.13,
+   "10": 9.62,
+   "12": 7.64,
+   "14": 5.99,
+   "16": 4.74
+  },
+  "LD_airbrake_at_12": 1.58,
+  "Re_at_12": 65319,
+  "v_max_KE_14.9J": 13.05,
+  "min_slope_deg_for_gravity_follow": {
+   "v8_wind-5": 7.9,
+   "v8_wind+0": 7.9,
+   "v8_wind+5": 12.8,
+   "v11_wind-5": 5.7,
+   "v11_wind+0": 5.7,
+   "v11_wind+5": 15.5,
+   "v14_wind-5": 4.5,
+   "v14_wind+0": 7.4,
+   "v14_wind+5": 19.4
+  },
+  "time_fractions_wind0": {
+   "deficit": 0.115,
+   "follow": 0.78,
+   "lag_KE": 0.105
+  },
+  "time_fractions_headwind5": {
+   "deficit": 0.445,
+   "deficit_short": 0.106,
+   "follow": 0.344,
+   "lag_KE": 0.105
+  },
+  "time_fractions_tailwind5": {
+   "deficit": 0.094,
+   "deficit_short": 0.021,
+   "follow": 0.78,
+   "lag_KE": 0.105
+  },
+  "max_slope_deg_airbrake_no_weave_v11": 23.8,
+  "deficit_buffer_distance_m_4deg_v9": 58.0,
+  "deficit_buffer_distance_m_8deg_v9": 0.0
+ },
+ "view": {
+  "behind_m": 7.0,
+  "height_above_snow_m": 4.5,
+  "range_m": 7.83,
+  "elevation_deg": 26.6,
+  "px_4K_hfov90_at_range": 429,
+  "px_at_10m": 336,
+  "px_at_14m": 240,
+  "range_for_300px_m": 11.2
+ },
+ "gust_jitter_deg_s": {
+  "I-01 rigid_wind3": {
+   "jitter_bg": 0.71,
+   "ustar": 0.13,
+   "heave_bandwidth_Hz": 1.61
+  },
+  "I-01 rigid_wind6": {
+   "jitter_bg": 1.43,
+   "ustar": 0.26,
+   "heave_bandwidth_Hz": 1.61
+  },
+  "I-01 rigid_wind9": {
+   "jitter_bg": 2.14,
+   "ustar": 0.39,
+   "heave_bandwidth_Hz": 1.61
+  },
+  "I-03 tailsitter_wind3": {
+   "jitter_bg": 0.59,
+   "ustar": 0.13,
+   "heave_bandwidth_Hz": 1.15
+  },
+  "I-03 tailsitter_wind6": {
+   "jitter_bg": 1.18,
+   "ustar": 0.26,
+   "heave_bandwidth_Hz": 1.15
+  },
+  "I-03 tailsitter_wind9": {
+   "jitter_bg": 1.77,
+   "ustar": 0.39,
+   "heave_bandwidth_Hz": 1.15
+  }
+ },
+ "gust_jitter_note": "background LOS rate from follower translation only; add round-3 ideal-chase subject term 0.1-0.3 deg/s carving, 1.6-3.0 deg/s short turns in quadrature (docs/20 s6.2). ASSUMED turbulence model.",
+ "I-01 energy": {
+  "avionics_W": 2.9,
+  "battery_Wh": 3.7,
+  "usable_cold_Wh": 2.5,
+  "filming_min_per_charge": 52.0,
+  "gravity_power_available_W_at_11ms_16deg": 3.2,
+  "aero_power_needed_W_at_9.35ms": 1.1,
+  "quad_follow_power_W_ref": "30-40 W for 150 g quad at 12 m/s (round-1 calc_rotor_follow.py)"
+ },
+ "I-01 stop": {
+  "touchdown_v_flare": 7.03,
+  "touchdown_KE_J": 3.09,
+  "deep_stall_descent_v": 5.84,
+  "landing_point_past_skier_m": 3.6,
+  "frac_time_skier_faster_than_KE_cap": 0.02
+ },
+ "I-03 hover": {
+  "P_hover_W": 27.1,
+  "E_per_run_Wh": 0.83,
+  "runs_per_charge": 5.1,
+  "filming_min_per_charge": 26.0,
+  "pure_hover_quad_equiv_min": 9.4,
+  "v_max_KE": 13.05,
+  "frac_time_skier_faster_than_KE_cap": 0.107
+ },
+ "I-04 parafoil": {
+  "canopy_S_m2": 0.032,
+  "canopy_span_m_AR3": 0.31,
+  "LD_assumed": 3.0,
+  "speed_window_m_s": [
+   8.2,
+   13.8
+  ],
+  "min_slope_deg_still_air": 19.5,
+  "time_fractions": {
+   "deficit": 0.783,
+   "lag_speed_or_KE": 0.05,
+   "follow": 0.167
+  },
+  "KE_at_vmax_J": 10.4
+ },
+ "I-06 ground_effect_v10": {
+  "h0.1": {
+   "phi": 0.826,
+   "LD_free": 9.64,
+   "LD_ground": 9.95,
+   "gain_pct": 3.1
+  },
+  "h0.2": {
+   "phi": 0.95,
+   "LD_free": 9.64,
+   "LD_ground": 9.73,
+   "gain_pct": 0.9
+  },
+  "h0.4": {
+   "phi": 0.987,
+   "LD_free": 9.64,
+   "LD_ground": 9.67,
+   "gain_pct": 0.2
+  },
+  "h0.8": {
+   "phi": 0.997,
+   "LD_free": 9.64,
+   "LD_ground": 9.65,
+   "gain_pct": 0.1
+  }
+ }
+}

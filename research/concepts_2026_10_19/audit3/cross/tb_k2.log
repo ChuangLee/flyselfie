@@ -1,0 +1,15 @@
+{"id":"tail3.5_s11","avail":80.523,"keMax":12.355,"headClear":1.195,"ops":1,"setup":4.196,"F50":17.79,"jit":0.85,"launches":2}
+{"id":"tail3.5_s12","avail":79.472,"keMax":12.375,"headClear":1.205,"ops":1,"setup":4.174,"F50":18.67,"jit":0.838,"launches":2}
+{"id":"tail3.5_s13","avail":79.741,"keMax":12.503,"headClear":1.177,"ops":1,"setup":4.202,"F50":18.44,"jit":0.887,"launches":2}
+{"id":"tail4_s11","avail":79.984,"keMax":12.562,"headClear":1.162,"ops":1,"setup":4.214,"F50":17.672,"jit":0.93,"launches":2}
+{"id":"tail4_s12","avail":78.637,"keMax":12.52,"headClear":1.221,"ops":1,"setup":4.17,"F50":19.07,"jit":0.955,"launches":2}
+{"id":"tail4_s13","avail":80.119,"keMax":12.523,"headClear":1.166,"ops":1,"setup":4.204,"F50":18.71,"jit":0.891,"launches":2}
+{"id":"tail4.5_s11","avail":81.169,"keMax":12.654,"headClear":1.136,"ops":1,"setup":4.188,"F50":18.754,"jit":0.916,"launches":2}
+{"id":"tail4.5_s12","avail":79.122,"keMax":12.424,"headClear":1.164,"ops":1,"setup":4.13,"F50":17.791,"jit":0.884,"launches":2}
+{"id":"tail4.5_s13","avail":80.038,"keMax":12.467,"headClear":1.197,"ops":1,"setup":4.202,"F50":18.421,"jit":1.033,"launches":2}
+{"id":"tail5_s11","avail":81.708,"keMax":12.521,"headClear":1.148,"ops":1,"setup":4.24,"F50":18.2,"jit":1.034,"launches":2}
+{"id":"tail5_s12","avail":79.688,"keMax":12.554,"headClear":1.149,"ops":1,"setup":4.138,"F50":19.029,"jit":1.066,"launches":2}
+{"id":"tail5_s13","avail":79.957,"keMax":12.65,"headClear":1.209,"ops":1,"setup":4.216,"F50":19.04,"jit":1.293,"launches":2}
+{"id":"tail5.5_s11","avail":80.9,"keMax":12.645,"headClear":1.187,"ops":1,"setup":4.198,"F50":18.297,"jit":1.137,"launches":2}
+{"id":"tail5.5_s12","avail":72.306,"keMax":12.433,"headClear":1.168,"ops":1,"setup":4.06,"F50":17.679,"jit":1.611,"launches":3}
+{"id":"tail5.5_s13","avail":75.458,"keMax":12.745,"headClear":1.154,"ops":1,"setup":4.236,"F50":18.083,"jit":1.482,"launches":2}

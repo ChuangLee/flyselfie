@@ -1,0 +1,228 @@
+{
+ "cases": 39,
+ "flown": 32,
+ "noFly": [
+  {
+   "id": "tail3_s13",
+   "why": "progress",
+   "wEst": [
+    4.44,
+    0.27,
+    0.3
+   ],
+   "vProg": -2.96
+  },
+  {
+   "id": "tail6_s11",
+   "why": "progress",
+   "wEst": [
+    5.62,
+    -2.34,
+    0.67
+   ],
+   "vProg": -0.83
+  },
+  {
+   "id": "tail6_s12",
+   "why": "progress",
+   "wEst": [
+    7.59,
+    -0.57,
+    -0.17
+   ],
+   "vProg": 0.19
+  },
+  {
+   "id": "tail6_s13",
+   "why": "progress",
+   "wEst": [
+    9.93,
+    -0.03,
+    0.68
+   ],
+   "vProg": 2.32
+  },
+  {
+   "id": "tail9_s11",
+   "why": "progress",
+   "wEst": [
+    7.99,
+    -3.02,
+    1.07
+   ],
+   "vProg": 1.95
+  },
+  {
+   "id": "tail9_s12",
+   "why": "progress",
+   "wEst": [
+    11.55,
+    -0.69,
+    -0.38
+   ],
+   "vProg": 4.14
+  },
+  {
+   "id": "tail9_s13",
+   "why": "wind",
+   "wEst": [
+    15.03,
+    -0.22,
+    0.87
+   ],
+   "vProg": 7.62
+  }
+ ],
+ "avail": {
+  "mean": 75.216,
+  "p10": 0,
+  "meanNoLossFlags": 76.558,
+  "flownMean": 91.67,
+  "devMean": 75.218,
+  "fromFlightPct": 97.24
+ },
+ "byWind": {
+  "U0": {
+   "own": 97.396,
+   "dev": 97.396
+  },
+  "U3": {
+   "own": 88.663,
+   "dev": 88.667
+  },
+  "U6": {
+   "own": 73.563,
+   "dev": 73.563
+  },
+  "U9": {
+   "own": 57.878,
+   "dev": 57.878
+  }
+ },
+ "byDir": {
+  "calm": 97.396,
+  "head": 79.798,
+  "tail": 21.193,
+  "crossL": 96.471,
+  "crossR": 96.01
+ },
+ "jitter": {
+  "n": 32,
+  "p50": 0.981,
+  "p90": 2.216,
+  "max": 3.468,
+  "over3": [
+   "tail3_s12",
+   "head9_s12"
+  ]
+ },
+ "keMax": 13.592,
+ "keMaxCase": "tail3_s12",
+ "headClear": {
+  "movingMin": 1.88,
+  "inclPerchMin": 1.88,
+  "where": "skid-run take-off from the set-down point ≈1.5 m beside the standing rider (t≈2.5–2.9 s); helmet = skier.pos + 1.61 m, glider sphere r 0.38 m",
+  "dev": 1.89
+ },
+ "rangeMax": 48.614,
+ "rangeMaxCase": "crossR6_s13",
+ "setup": {
+  "p90": 24.528,
+  "max": 32.104,
+  "devP90": 24.528
+ },
+ "ops": {
+  "p90": 2,
+  "max": 3,
+  "casesAbove2": [
+   "head9_s12",
+   "head9_s13"
+  ]
+ },
+ "endurance": {
+  "pMeanFlown": 7.769,
+  "value": 54.661,
+  "whEff": 13.700000000000001
+ },
+ "pxMedMean": 457.374,
+ "azRangeMean": 79.113,
+ "bodyFMax": 3.426,
+ "addedMass": 0.315,
+ "reproduction": {
+  "maxAbsDiff": 0,
+  "diffs": [],
+  "keys": [
+   "avail",
+   "keMax",
+   "headClear",
+   "setupTime",
+   "ops",
+   "fsSubject",
+   "sepMaxFly",
+   "pMean"
+  ]
+ },
+ "bypass": {
+  "rows": [
+   {
+    "id": "tail3_s13",
+    "avail": 87.473,
+    "keMax": 13.429,
+    "rangeMax": 42.965,
+    "ops": 2,
+    "nextRun": false
+   },
+   {
+    "id": "tail6_s11",
+    "avail": 2.452,
+    "keMax": 8.355,
+    "rangeMax": 43.936,
+    "ops": 3,
+    "nextRun": true
+   },
+   {
+    "id": "tail6_s12",
+    "avail": 2.155,
+    "keMax": 9.259,
+    "rangeMax": 36.463,
+    "ops": 3,
+    "nextRun": true
+   },
+   {
+    "id": "tail6_s13",
+    "avail": 2.909,
+    "keMax": 8.169,
+    "rangeMax": 39.914,
+    "ops": 3,
+    "nextRun": true
+   },
+   {
+    "id": "tail9_s11",
+    "avail": 2.317,
+    "keMax": 9.498,
+    "rangeMax": 33.791,
+    "ops": 3,
+    "nextRun": true
+   },
+   {
+    "id": "tail9_s12",
+    "avail": 2.155,
+    "keMax": 0,
+    "rangeMax": 0,
+    "ops": 3,
+    "nextRun": true
+   },
+   {
+    "id": "tail9_s13",
+    "avail": 2.263,
+    "keMax": 0,
+    "rangeMax": 0,
+    "ops": 3,
+    "nextRun": true
+   }
+  ],
+  "keMax": 13.429,
+  "rangeMax": 43.936,
+  "availMean": 14.532
+ }
+}

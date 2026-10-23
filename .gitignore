@@ -1,0 +1,25 @@
+# local / agent scratch
+tmp/
+.tmp-msg-attachments/
+project/.plan.lock
+project/plan.json.tmp
+*.lock
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# dependencies / caches
+node_modules/
+__pycache__/
+*.pyc
+
+# third-party copyrighted downloads (product manuals etc.) must not be published
+research/**/raw-flight/
+*.pdf
+!docs/**/*.pdf
+
+# generated media: films go to GitHub Releases; screenshots/frames are regenerable
+output/video/*.mp4
+*.png
+!docs/**/*.png

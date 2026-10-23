@@ -1,0 +1,113 @@
+{
+ "note": "launch+lead phases; CL clamp = model cannot stall",
+ "rows": [
+  {
+   "id": "calm_s11",
+   "noFly": false,
+   "airS": 71.1,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0,
+   "minVaOverVstall": 1.14,
+   "below1p1Pct": 0
+  },
+  {
+   "id": "tail3_s12",
+   "noFly": false,
+   "airS": 70.6,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0.48,
+   "minVaOverVstall": 1.128,
+   "below1p1Pct": 0
+  },
+  {
+   "id": "crossR6_s12",
+   "noFly": false,
+   "airS": 71.7,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0.28,
+   "minVaOverVstall": 0.986,
+   "below1p1Pct": 0.45
+  },
+  {
+   "id": "head9_s12",
+   "noFly": false,
+   "airS": 79.5,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0,
+   "minVaOverVstall": 1.112,
+   "below1p1Pct": 0
+  },
+  {
+   "id": "tail4.5_s12",
+   "noFly": false,
+   "airS": 68.2,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0.62,
+   "minVaOverVstall": 1.076,
+   "below1p1Pct": 0.53
+  },
+  {
+   "id": "tail5.5_s11",
+   "noFly": false,
+   "airS": 73.9,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0.54,
+   "minVaOverVstall": 1.081,
+   "below1p1Pct": 1.14
+  },
+  {
+   "id": "tail5.5_s12",
+   "noFly": false,
+   "airS": 68.6,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0.5,
+   "minVaOverVstall": 1.063,
+   "below1p1Pct": 0.7
+  },
+  {
+   "id": "tail6_s11",
+   "noFly": false,
+   "airS": 41.8,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0.33,
+   "minVaOverVstall": 1.071,
+   "below1p1Pct": 2.34
+  },
+  {
+   "id": "tail6.5_s11",
+   "noFly": false,
+   "airS": 80.3,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 1.62,
+   "minVaOverVstall": 1.024,
+   "below1p1Pct": 5.75
+  },
+  {
+   "id": "tail5.5_s15",
+   "noFly": false,
+   "airS": 41.4,
+   "clAtMaxPct": 4.98,
+   "clAbove95Pct": 9.86,
+   "minVaOverVstall": 0.954,
+   "below1p1Pct": 11.6
+  },
+  {
+   "id": "tail6_s15",
+   "noFly": false,
+   "airS": 29.2,
+   "clAtMaxPct": 7.73,
+   "clAbove95Pct": 17.86,
+   "minVaOverVstall": 0.958,
+   "below1p1Pct": 9.51
+  },
+  {
+   "id": "tail5.5_s16",
+   "noFly": false,
+   "airS": 68.8,
+   "clAtMaxPct": 0,
+   "clAbove95Pct": 0,
+   "minVaOverVstall": 1.092,
+   "below1p1Pct": 0.38
+  }
+ ]
+}

@@ -1,0 +1,698 @@
+{
+ "generated": "2026-10-21",
+ "evidence": "numerical, synthetic sensor + activity models; NOT physical verification",
+ "days": 40,
+ "variants": {
+  "full": {
+   "params": {},
+   "ski": {
+    "runs": 60,
+    "startLat": {
+     "p50": 0.88,
+     "p90": 0.98,
+     "max": 3.68,
+     "n": 120
+    },
+    "stopLat": {
+     "p50": 0.46,
+     "p90": 2.24,
+     "max": 2.24,
+     "n": 108
+    },
+    "fallLat": {
+     "p50": 0.6,
+     "p90": 0.62,
+     "max": 0.62,
+     "n": 12
+    },
+    "missedStart": 0,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "lazyStart": {
+    "runs": 12,
+    "startLat": {
+     "p50": 3.44,
+     "p90": 4.72,
+     "max": 5.22,
+     "n": 11
+    },
+    "stopLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "fallLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "missedStart": 1,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "falseLaunchPerDay": {
+    "mean": 0,
+    "p90": 0,
+    "max": 0
+   },
+   "perActivity": {
+    "queue": {
+     "n": 600,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 26.261538888888886
+    },
+    "chairlift": {
+     "n": 438,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 46.437738888888866
+    },
+    "surfaceLift": {
+     "n": 162,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 13.09907777777778
+    },
+    "walk": {
+     "n": 80,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 10.613772222222225
+    },
+    "gondolaUp": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.75095
+    },
+    "catTrack": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.026561111111111
+    },
+    "sitDown": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 1.0839722222222223
+    },
+    "gondolaDown": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.519505555555555
+    }
+   },
+   "busDescentFalseStartsPerTrip": 1
+  },
+  "noBaro": {
+   "params": {
+    "useBaro": false
+   },
+   "ski": {
+    "runs": 60,
+    "startLat": {
+     "p50": 0.88,
+     "p90": 0.98,
+     "max": 3.62,
+     "n": 120
+    },
+    "stopLat": {
+     "p50": 0.44,
+     "p90": 2.22,
+     "max": 2.24,
+     "n": 108
+    },
+    "fallLat": {
+     "p50": 0.6,
+     "p90": 0.62,
+     "max": 0.62,
+     "n": 12
+    },
+    "missedStart": 0,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "lazyStart": {
+    "runs": 12,
+    "startLat": {
+     "p50": 3.06,
+     "p90": 4.78,
+     "max": 4.98,
+     "n": 11
+    },
+    "stopLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "fallLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "missedStart": 1,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "falseLaunchPerDay": {
+    "mean": 0.025,
+    "p90": 0,
+    "max": 1
+   },
+   "perActivity": {
+    "queue": {
+     "n": 600,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 26.261538888888886
+    },
+    "chairlift": {
+     "n": 438,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 46.437738888888866
+    },
+    "surfaceLift": {
+     "n": 162,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 13.09907777777778
+    },
+    "walk": {
+     "n": 80,
+     "falseStart": 1,
+     "falseFall": 0,
+     "hours": 10.613772222222225
+    },
+    "gondolaUp": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.75095
+    },
+    "catTrack": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.026561111111111
+    },
+    "sitDown": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 1.0839722222222223
+    },
+    "gondolaDown": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.519505555555555
+    }
+   },
+   "busDescentFalseStartsPerTrip": 1
+  },
+  "imuOnly": {
+   "params": {
+    "useGnss": false
+   },
+   "ski": {
+    "runs": 60,
+    "startLat": {
+     "p50": 0.86,
+     "p90": 0.96,
+     "max": 1.08,
+     "n": 120
+    },
+    "stopLat": {
+     "p50": 0.44,
+     "p90": 2.16,
+     "max": 2.44,
+     "n": 100
+    },
+    "fallLat": {
+     "p50": 0.62,
+     "p90": 0.64,
+     "max": 0.64,
+     "n": 12
+    },
+    "missedStart": 0,
+    "falseStart": 0,
+    "missedStop": 8,
+    "falseStop": 8,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "lazyStart": {
+    "runs": 12,
+    "startLat": {
+     "p50": 3.6,
+     "p90": 4.48,
+     "max": 4.8,
+     "n": 12
+    },
+    "stopLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "fallLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "missedStart": 0,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 1,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "falseLaunchPerDay": {
+    "mean": 0.125,
+    "p90": 1,
+    "max": 1
+   },
+   "perActivity": {
+    "queue": {
+     "n": 600,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 26.261538888888886
+    },
+    "chairlift": {
+     "n": 438,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 46.437738888888866
+    },
+    "surfaceLift": {
+     "n": 162,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 13.09907777777778
+    },
+    "walk": {
+     "n": 80,
+     "falseStart": 5,
+     "falseFall": 0,
+     "hours": 10.613772222222225
+    },
+    "gondolaUp": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.75095
+    },
+    "catTrack": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.026561111111111
+    },
+    "sitDown": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 1.0839722222222223
+    },
+    "gondolaDown": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.519505555555555
+    }
+   },
+   "busDescentFalseStartsPerTrip": 2.33
+  },
+  "imuOnlyNoBaro": {
+   "params": {
+    "useGnss": false,
+    "useBaro": false
+   },
+   "ski": {
+    "runs": 60,
+    "startLat": {
+     "p50": 0.88,
+     "p90": 1.04,
+     "max": 1.94,
+     "n": 102
+    },
+    "stopLat": {
+     "p50": 0.44,
+     "p90": 2.2,
+     "max": 2.66,
+     "n": 87
+    },
+    "fallLat": {
+     "p50": 0.6,
+     "p90": 0.62,
+     "max": 0.64,
+     "n": 12
+    },
+    "missedStart": 18,
+    "falseStart": 0,
+    "missedStop": 21,
+    "falseStop": 6,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "lazyStart": {
+    "runs": 12,
+    "startLat": {
+     "p50": 3.26,
+     "p90": 4.8,
+     "max": 5.22,
+     "n": 8
+    },
+    "stopLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "fallLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "missedStart": 4,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "falseLaunchPerDay": {
+    "mean": 3.9,
+    "p90": 7,
+    "max": 13
+   },
+   "perActivity": {
+    "queue": {
+     "n": 600,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 26.261538888888886
+    },
+    "chairlift": {
+     "n": 438,
+     "falseStart": 11,
+     "falseFall": 0,
+     "hours": 46.437738888888866
+    },
+    "surfaceLift": {
+     "n": 162,
+     "falseStart": 64,
+     "falseFall": 0,
+     "hours": 13.09907777777778
+    },
+    "walk": {
+     "n": 80,
+     "falseStart": 81,
+     "falseFall": 0,
+     "hours": 10.613772222222225
+    },
+    "gondolaUp": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.75095
+    },
+    "catTrack": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.026561111111111
+    },
+    "sitDown": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 1.0839722222222223
+    },
+    "gondolaDown": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.519505555555555
+    }
+   },
+   "busDescentFalseStartsPerTrip": 1.7
+  },
+  "noLockout": {
+   "params": {
+    "lockoutM": 0
+   },
+   "ski": {
+    "runs": 60,
+    "startLat": {
+     "p50": 0.88,
+     "p90": 0.98,
+     "max": 3.68,
+     "n": 120
+    },
+    "stopLat": {
+     "p50": 0.46,
+     "p90": 2.24,
+     "max": 2.24,
+     "n": 108
+    },
+    "fallLat": {
+     "p50": 0.6,
+     "p90": 0.62,
+     "max": 0.62,
+     "n": 12
+    },
+    "missedStart": 0,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "lazyStart": {
+    "runs": 12,
+    "startLat": {
+     "p50": 3.44,
+     "p90": 4.72,
+     "max": 5.22,
+     "n": 11
+    },
+    "stopLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "fallLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "missedStart": 1,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "falseLaunchPerDay": {
+    "mean": 1.95,
+    "p90": 4,
+    "max": 5
+   },
+   "perActivity": {
+    "queue": {
+     "n": 600,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 26.261538888888886
+    },
+    "chairlift": {
+     "n": 438,
+     "falseStart": 78,
+     "falseFall": 0,
+     "hours": 46.437738888888866
+    },
+    "surfaceLift": {
+     "n": 162,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 13.09907777777778
+    },
+    "walk": {
+     "n": 80,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 10.613772222222225
+    },
+    "gondolaUp": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.75095
+    },
+    "catTrack": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.026561111111111
+    },
+    "sitDown": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 1.0839722222222223
+    },
+    "gondolaDown": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.519505555555555
+    }
+   },
+   "busDescentFalseStartsPerTrip": 1
+  },
+  "fastStart": {
+   "params": {
+    "tOn": 0.15,
+    "vOn": 1.6,
+    "chatOn": 0.2
+   },
+   "ski": {
+    "runs": 60,
+    "startLat": {
+     "p50": 0.64,
+     "p90": 0.74,
+     "max": 3.54,
+     "n": 120
+    },
+    "stopLat": {
+     "p50": 0.46,
+     "p90": 2.24,
+     "max": 2.24,
+     "n": 108
+    },
+    "fallLat": {
+     "p50": 0.6,
+     "p90": 0.62,
+     "max": 0.62,
+     "n": 12
+    },
+    "missedStart": 0,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "lazyStart": {
+    "runs": 12,
+    "startLat": {
+     "p50": 2.3,
+     "p90": 3.02,
+     "max": 3.36,
+     "n": 11
+    },
+    "stopLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "fallLat": {
+     "p50": null,
+     "p90": null,
+     "max": null,
+     "n": 0
+    },
+    "missedStart": 1,
+    "falseStart": 0,
+    "missedStop": 0,
+    "falseStop": 0,
+    "missedFall": 0,
+    "falseFall": 0
+   },
+   "falseLaunchPerDay": {
+    "mean": 0.5,
+    "p90": 1,
+    "max": 3
+   },
+   "perActivity": {
+    "queue": {
+     "n": 600,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 26.261538888888886
+    },
+    "chairlift": {
+     "n": 438,
+     "falseStart": 20,
+     "falseFall": 0,
+     "hours": 46.437738888888866
+    },
+    "surfaceLift": {
+     "n": 162,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 13.09907777777778
+    },
+    "walk": {
+     "n": 80,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 10.613772222222225
+    },
+    "gondolaUp": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.75095
+    },
+    "catTrack": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.026561111111111
+    },
+    "sitDown": {
+     "n": 120,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 1.0839722222222223
+    },
+    "gondolaDown": {
+     "n": 20,
+     "falseStart": 0,
+     "falseFall": 0,
+     "hours": 2.519505555555555
+    }
+   },
+   "busDescentFalseStartsPerTrip": 1
+  }
+ }
+}

@@ -1,0 +1,89 @@
+/* SledPack concept film — typography layer (rendered transparent over the 3D frames) */
+html, body { margin: 0; background: transparent; overflow: hidden; }
+#stage { position: relative; width: 1920px; height: 1080px; font-family: "Noto Sans CJK SC", "Noto Sans", sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+body.zh #stage { letter-spacing: 0.02em; }
+#tag { z-index: 10; position: absolute; left: 56px; top: 54px; font-size: 17px; font-weight: 400; color: rgba(255, 214, 140, 0.92); letter-spacing: 0.08em; }
+body.zh #tag { letter-spacing: 0.12em; }
+#tag::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ffc062; margin-right: 12px; vertical-align: 3px; }
+#mark { position: absolute; right: 56px; top: 54px; font-size: 16px; font-weight: 500; letter-spacing: 0.32em; color: rgba(255,255,255,0.78); }
+#mark span { color: rgba(255,255,255,0.45); font-weight: 300; }
+#hero { position: absolute; left: 0; right: 0; top: 380px; text-align: center; opacity: 0; }
+#hero h1 { margin: 0; font-size: 132px; font-weight: 200; letter-spacing: 0.16em; text-shadow: 0 6px 40px rgba(0,0,0,0.35); }
+#hero p { margin: 14px 0 0; font-size: 30px; font-weight: 300; letter-spacing: 0.08em; color: rgba(255,255,255,0.92); text-shadow: 0 2px 18px rgba(0,0,0,0.45); }
+body.zh #hero p { letter-spacing: 0.3em; }
+#lower { position: absolute; left: 0; right: 0; top: 950px; text-align: center; opacity: 0; }
+#lower h2 { margin: 0; font-size: 34px; font-weight: 500; letter-spacing: 0.04em; }
+body.zh #lower h2 { letter-spacing: 0.14em; }
+#lower p { max-width: 1560px; margin: 8px auto 0; line-height: 1.4; font-size: 20px; font-weight: 300; color: rgba(255,255,255,0.78); letter-spacing: 0.02em; }
+#callouts { position: absolute; left: 0; top: 0; }
+#callouts line { stroke: rgba(255,255,255,0.9); stroke-width: 1.4; }
+#callouts circle.dot { fill: #fff; }
+#callouts circle.ring { fill: none; stroke: rgba(255,255,255,0.7); stroke-width: 1.2; }
+#labels .lab { position: absolute; font-size: 21px; font-weight: 400; padding: 7px 14px; background: rgba(12,16,22,0.5); border-left: 2px solid #ff5a1f; backdrop-filter: blur(6px); white-space: nowrap; }
+#hud { position: absolute; right: 64px; top: 230px; width: 400px; padding: 22px 26px 18px; background: rgba(10,14,20,0.42); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; opacity: 0; }
+#hud .modes { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+#hud .modes span { font-size: 13px; letter-spacing: 0.14em; padding: 5px 9px; border-radius: 4px; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.14); }
+#hud .modes span.on { color: #0b0e12; background: #ffffff; border-color: #fff; }
+#hud .modes span.on.go { background: #ff5a1f; color: #fff; border-color: #ff5a1f; }
+#hud .modes span.on.amber { background: #ffc062; border-color: #ffc062; }
+#hud .modes span.on.blue { background: #6fb6ff; border-color: #6fb6ff; }
+#hud .row { position: relative; display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+#hud .k { font-size: 14px; letter-spacing: 0.16em; color: rgba(255,255,255,0.62); }
+#hud .v b { font-size: 38px; font-weight: 300; font-variant-numeric: tabular-nums; }
+#hud .v i { font-style: normal; font-size: 15px; color: rgba(255,255,255,0.6); margin-left: 6px; }
+#hud .bar { position: absolute; left: 0; right: 0; bottom: 2px; height: 3px; background: rgba(255,255,255,0.12); }
+#hud .bar span { position: absolute; left: 0; top: 0; bottom: 0; background: #ffffff; }
+#hud .bar em { position: absolute; top: -4px; width: 2px; height: 11px; background: #ffc062; left: 40%; }
+#hud .note { margin-top: 10px; font-size: 12px; color: rgba(255,214,140,0.8); letter-spacing: 0.06em; }
+#onboard { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; opacity: 0; }
+#onboard .lab { position: absolute; left: 100px; top: 180px; font-size: 19px; letter-spacing: 0.06em; color: #ffd68c; background: rgba(8,10,14,0.5); padding: 7px 14px; }
+#onboard .rec { position: absolute; left: 76px; top: 191px; width: 11px; height: 11px; border-radius: 50%; background: #ff3b30; }
+#onboard .c { position: absolute; width: 42px; height: 42px; border: 0 solid rgba(255,255,255,0.75); }
+#onboard .tl { left: 60px; top: 164px; border-left-width: 2px; border-top-width: 2px; }
+#onboard .tr { right: 60px; top: 164px; border-right-width: 2px; border-top-width: 2px; }
+#onboard .bl { left: 60px; bottom: 164px; border-left-width: 2px; border-bottom-width: 2px; }
+#onboard .br { right: 60px; bottom: 164px; border-right-width: 2px; border-bottom-width: 2px; }
+#facts { position: absolute; left: 0; top: 138px; width: 1920px; height: 804px; opacity: 0; background: linear-gradient(90deg, rgba(6,9,13,0.86) 0%, rgba(6,9,13,0.74) 60%, rgba(6,9,13,0.5) 100%); }
+#facts h3 { position: absolute; left: 120px; top: 48px; margin: 0; font-size: 40px; font-weight: 300; letter-spacing: 0.04em; }
+body.zh #facts h3 { letter-spacing: 0.14em; }
+#facts .grid { position: absolute; left: 120px; top: 125px; width: 1640px; display: grid; grid-template-columns: repeat(4, 1fr); row-gap: 26px; column-gap: 40px; }
+#facts .it { border-top: 1px solid rgba(255,255,255,0.28); padding-top: 14px; opacity: 0; }
+#facts .it .val { font-size: 52px; font-weight: 200; font-variant-numeric: tabular-nums; }
+#facts .it .val i { font-style: normal; font-size: 22px; font-weight: 300; margin-left: 8px; color: rgba(255,255,255,0.7); }
+#facts .it .lb { font-size: 17px; line-height: 1.35; color: rgba(255,255,255,0.8); margin-top: 4px; }
+#facts .it .sim.asm { color: #ffb3a1; border-color: rgba(255,179,161,0.5); }
+#facts .it .sim.est { color: #bcd3ff; border-color: rgba(188,211,255,0.5); }
+#facts .it .sim { display: inline-block; margin-top: 8px; font-size: 12px; letter-spacing: 0.16em; color: #ffd68c; border: 1px solid rgba(255,214,140,0.5); padding: 2px 7px; border-radius: 3px; }
+#facts .foot { position: absolute; left: 120px; top: 492px; margin: 0; font-size: 16px; color: rgba(255,255,255,0.62); }
+#facts .dev { position: absolute; left: 120px; top: 532px; width: 1680px; opacity: 0; }
+#facts .dev h4 { margin: 0 0 8px; font-size: 18px; font-weight: 500; letter-spacing: 0.16em; color: #ffc062; }
+#facts .dev ul { margin: 0; padding-left: 20px; font-size: 17px; line-height: 1.5; columns: 2; column-gap: 56px; color: rgba(255,255,255,0.86); }
+#end { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; text-align: center; opacity: 0; background: rgba(4,6,9,0.0); }
+#end h1 { position: absolute; left: 0; right: 0; top: 360px; margin: 0; font-size: 120px; font-weight: 200; letter-spacing: 0.18em; }
+#end .sub { position: absolute; left: 0; right: 0; top: 540px; margin: 0; font-size: 30px; font-weight: 300; letter-spacing: 0.06em; }
+body.zh #end .sub { letter-spacing: 0.24em; }
+#end .disc { position: absolute; left: 330px; right: 330px; top: 680px; margin: 0; font-size: 18px; line-height: 1.7; color: rgba(255,214,140,0.92); }
+#law { margin-top: 10px; opacity: 0; }
+#law svg text { fill: rgba(255,255,255,0.65); font-size: 12px; letter-spacing: 0.06em; }
+/* v2: example line + "not just for skiing" montage (overlay only) */
+#hero p.ex { margin-top: 26px; font-size: 20px; letter-spacing: 0.08em; color: rgba(255, 214, 140, 0.95); opacity: 0; }
+#uses { position: absolute; left: 0; top: 138px; width: 1920px; height: 804px; opacity: 0; background: radial-gradient(ellipse at 50% 40%, rgba(16,22,30,0.93) 0%, rgba(6,9,13,0.97) 75%); }
+#uses h3 { position: absolute; left: 0; right: 0; top: 70px; margin: 0; text-align: center; font-size: 54px; font-weight: 200; letter-spacing: 0.12em; }
+body.zh #uses h3 { letter-spacing: 0.3em; }
+#uses .grid { position: absolute; left: 80px; right: 80px; top: 190px; display: flex; justify-content: space-between; }
+#uses .tile { width: 330px; text-align: center; opacity: 0; }
+#uses .tile svg { overflow: visible; }
+#uses .tile .lb { margin-top: 14px; font-size: 21px; font-weight: 400; color: rgba(255,255,255,0.88); }
+#uses .ic path, #uses .ic circle { fill: none; stroke: #e9edf2; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+#uses .gnd { fill: none; stroke: rgba(255,255,255,0.35); stroke-width: 2; }
+#uses .line { fill: none; stroke: #ff2fa0; stroke-width: 1.6; }
+#uses .kite { fill: #ff5a1f; stroke: #ffd2b8; stroke-width: 1; }
+#uses .spar { stroke: #12161c; stroke-width: 1.4; }
+#uses .foot { position: absolute; left: 0; right: 0; top: 600px; text-align: center; font-size: 18px; color: rgba(255,214,140,0.92); letter-spacing: 0.04em; }
+#uses .foot .tag::after { content: "  ·  "; color: rgba(255,255,255,0.4); }
+/* v2 facts layout: longer caveat labels */
+body.v2 #facts .grid { top: 112px; row-gap: 18px; }
+body.v2 #facts .it .lb { font-size: 15.5px; }
+body.v2 #facts .foot { top: 536px; font-size: 15px; }
+body.v2 #facts .dev { top: 570px; }
+body.v2 #facts .dev ul { font-size: 15.5px; line-height: 1.42; }

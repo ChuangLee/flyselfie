@@ -1,0 +1,75 @@
+{
+ "generated": "2026-10-20",
+ "round": 3,
+ "evidence": "independent audit3 of numerical, uncalibrated simulations; not physical verification",
+ "checks": [
+  {
+   "id": "A3-X-01",
+   "severity": "major",
+   "metric": "avail artefact tolerance",
+   "finding": "criteria.js says \"no product artefact ≥1 px over the subject\". kite2 tolerates a line/boom artefact up to 3 % of subject height (≈15 px at 520 px; boom stub ≈4.5 px wide over the rider in 100 % of filming frames → literal rule gives avail 0 %); towglider counts a frame bad only when ≥3 px of ≥1 px-wide leash lies over the subject; leapfrog has no tether (airframe occlusion only). The tolerances differ in kind and size.",
+   "favours": "kite2 (avail passes only under its 3 % tolerance); towglider mildly",
+   "action": "integrator: fix one artefact tolerance in criteria.js (px or % of subject) and apply to all"
+  },
+  {
+   "id": "A3-X-02",
+   "severity": "major",
+   "metric": "off-grid tailwind band 3.5–5.5 m/s",
+   "finding": "FULLRUN_CASES has no wind between 3 and 6 m/s, where every tail gate sits. Auditor off-grid runs (same seeds): towglider tail3.5–4 → KE 21–22 J, headClear 0.36 m, ops 3 (audit3/towglider/out_tail_edge*.json); leapfrog launches in 4/15 band runs and is left behind → ops 3, avail 0–72 %, KE ≤14.303 J, headClear ≥1.97 m (safe but fails ops); kite2 robust: avail 72–82 %, KE ≤12.745 J, headClear ≥1.136 m, ops 1.",
+   "favours": "towglider and leapfrog in grid-only tables",
+   "action": "integrator: add tail 4 and 5 m/s (or a gate-bracketing band) to FULLRUN_CASES",
+   "evidence": "audit3/cross/tailband.mjs, out_tailband_kite2.json, out_tailband_leapfrog.json"
+  },
+  {
+   "id": "A3-X-03",
+   "severity": "major",
+   "metric": "headClear helmet definition",
+   "finding": "Brief approximation (skier.pos + 1.75·0.92 m vertical) vs concept body-model head (includes carving lean). kite2 dev 1.105 m (body head) vs 0.17 m with the vertical approximation (boom/line pass near the vertical point when the rider leans 45°); towglider 1.011 (own) vs 0.859 (vertical, 9/39 runs <1.0); leapfrog 1.89 vs 1.88. Also: kite2 excludes the worn 1.2 m boom (passes 0.42 m from the helmet centre) because the definition covers only airborne parts.",
+   "favours": "kite2 and towglider",
+   "action": "integrator: define the helmet point from bodyPoints() head in criteria.js and decide whether worn deployable booms count"
+  },
+  {
+   "id": "A3-X-04",
+   "severity": "minor",
+   "metric": "subjectPx definition",
+   "finding": "env.footage() subjectPx is the full bounding box incl. ski tips, not feet→head as criteria.js words it. Strict feet→head: towglider avail 72 → 52 %, pxMed 535 → 373. Applies to every concept using env.footage (not re-run for kite2/leapfrog).",
+   "favours": "all concepts using env.footage",
+   "action": "integrator: align wording or code"
+  },
+  {
+   "id": "A3-X-05",
+   "severity": "minor",
+   "metric": "oracle wind",
+   "finding": "Round-2 oracle gates are removed: all three use windEstimate() for launch/park/no-fly gates. Remaining idealisations: kite2 tip-pitot/in-flight control on noise-free local wind; leapfrog in-flight estimate initialised with true wind and noise-free gust interlock; towglider estimate has no history at t=0.5 s (false refusal in 2 cross9 runs — penalises towglider).",
+   "favours": "small, mixed"
+  },
+  {
+   "id": "A3-X-06",
+   "severity": "minor",
+   "metric": "endurance",
+   "finding": "All use enduranceMin(..., {heated}) with the heater over the whole day. Idle electronics on the lift are not charged by any concept; towglider most sensitive (57.8 → 39 min if the hip unit stays on). kite2 includes a winch-regeneration credit (48.5 min without).",
+   "favours": "towglider, kite2"
+  },
+  {
+   "id": "A3-X-07",
+   "severity": "minor",
+   "metric": "constants vs simulated quantities",
+   "finding": "Setup is simulated for all three; residual constants: kite2 2 s arm tap; leapfrog 8 s pick-up/fold and 2.5 s no-fly handling (≥13.5 s fold → p90 >30 s); towglider none found. Mass budgets: leapfrog 4 g NPU instead of the shared 11 g vision computer (172 g → avail 69.3 %, endurance 49.3 on a subset).",
+   "favours": "leapfrog (mildly)"
+  },
+  {
+   "id": "A3-X-08",
+   "severity": "major",
+   "metric": "idealised actuators/estimators carrying passes",
+   "finding": "kite2: zero-lag heave-compensating winch beyond its own motor constants (needs 6–8 m/s reel-in, 93–166 W) and a boom gimbal sized for 0.13 N·m vs 0.35–1 N·m simulated load (passive boom → avail 42.9 %); towglider: 8 % EIS residual (15 % → jitter p90 2.99, 25 % → 4.65); leapfrog: perfect offline subject tracking (live framing 7.1, UWB-only pointing 4.2 °/s).",
+   "favours": "each concept in its own table"
+  },
+  {
+   "id": "A3-X-09",
+   "severity": "minor",
+   "metric": "reproduction",
+   "finding": "All three developer ensembles reproduce exactly from a copy of sim/ (max abs diff 0–0.002 on judged columns); auditor-own recomputations agree (towglider body force 5.3 vs 4.3 N, avail 72.01 vs 72.10 — immaterial).",
+   "favours": "neutral"
+  }
+ ]
+}

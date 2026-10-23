@@ -1,0 +1,12 @@
+{
+  "name": "flyskiselfie-sim",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SIM-010 frontend design simulation environment (no build step, no runtime dependencies)",
+  "scripts": {
+    "start": "node tools/serve.mjs 8080",
+    "test": "node --test tests/*.test.mjs",
+    "gen-reference": "node tools/gen-reference.mjs"
+  }
+}

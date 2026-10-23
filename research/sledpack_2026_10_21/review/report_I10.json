@@ -1,0 +1,266 @@
+{
+ "task": "SIM-034 independent follow-up review of SledPack I10 (sledpack@0.2.0)",
+ "date": "2026-10-21",
+ "evidence": "Code diff + numerical-uncalibrated re-runs of all 48 FULLRUN_CASES_R4 cases on a scratch COPY of sim/ (repo sim/ untouched; no plan.json write, no deploy, no commit). Simulation is not physical verification; M-070 not_run; G-MATURE closed. User-revised thresholds are integrator quantifications (ASSUMED).",
+ "reproduction": "Default I10 ensemble reproduced exactly (avail 44.828, KE 14.426, headClear 0.494, body force 35.895, standstill p90 26.32, endurance 50.394, within-1 m share max 21.255 %, episode max 3.14 s, 28/48 cases meet both 'brief' rules). Runner: review/scripts/rev2_ens.mjs; variants: review/scripts/run_I10.sh -> review/I10_variants.jsonl; geometry: review/scripts/eyelet_geometry.py -> review/eyelet_geometry.out.txt.",
+ "verdicts": {
+  "shared13": "8/13 confirmed (fails avail 44.8 %, jitter 6.29 deg/s, azRange 0 deg, packVol 19.9 L flat envelope, headClear 0.49 m). No flip from a model correction. KE 14.43 J and body force 35.9 N pass only thinly and both depend on assumptions (below).",
+  "userRevised": "Confirmed as reported: no-contact proxy passes (min 0.49 m >= 0.25 m); 'each episode <= 2 s' FAILS (max 3.14 s); 'share <= 5 %' FAILS (max 21.3 %); 28/48 cases meet both. Counting all time incl. stops instead of riding only: 30/48 (share is lower because the denominator grows; within-1 m time is 90 % in FLY: 4.67 of 5.2 s per run). No cheap lever tested brings the longest episode to <= 2 s (3.1-3.4 s in every variant).",
+  "flipsUnderReview": [
+   {
+    "item": "bodyForcePeak (shared, pass)",
+    "flip": "-> 38.4 N without the ASSUMED wake model, above the 38 N weak link (would release; still <= 40 N criterion)",
+    "severity": "medium"
+   },
+   {
+    "item": "headClear user no-contact (pass)",
+    "flip": "none in model; but the real release starts with the stowed sail nose 0.57 m from the helmet (not modelled) and the I10 brake-then-retrieve sensitivity gave 0.007 m, wind-bias -2 0.36 m — pass is margin-thin and model-dependent",
+    "severity": "medium"
+   },
+   {
+    "item": "endurance (pass 50.4 min)",
+    "flip": "-> FAIL 37.9 min if tail drag is raised x1.5 (lever study) — tail drag is not a free lever",
+    "severity": "info"
+   }
+  ]
+ },
+ "findings": [
+  {
+   "id": "R2-01",
+   "severity": "high",
+   "area": "launch-from-back modelling (optimistic)",
+   "evidence": "model.js LAUNCH with stow: the kite starts as a point mass at the hip-belt eyelet (0.02 m up, 0.05 m back), sail already open (collapsed=false, openT=t-1), with the sail outline drawn behind along the line. In the design the open sail lies on the back, nose up between the shoulder blades in magnetic seats on the shoulder straps. Stowed sail nose to helmet centre = 0.57 m, tips 0.65 m (eyelet_geometry.out.txt). The peel-off from the back, the flip through the separated wake, seat release and the bridle/three lines running from the shoulders down to the hip ring are not modelled; the wake is a smooth mean deficit (no turbulence or shedding).",
+   "numbers": {
+    "modelledLaunchFlyerMin_m": 0.753,
+    "stowedSailNoseToHelmet_m": 0.57,
+    "launchSuccessModel_pct": 100
+   },
+   "verdict": "Optimistic: each launch from the back is likely an extra within-1 m episode (est. 0.3-1 s, nose passing ~0.5-0.6 m from the helmet) not counted; launch success 100 % is an upper bound (wake turbulence, sail wrapping on the helmet/shoulders/poles). Fix: start the kite at the stowed sail pose and model the peel-off (sail outline from the shoulder seats), or count a fixed release episode; label launch success as 'assumed release model'."
+  },
+  {
+   "id": "R2-02",
+   "severity": "medium",
+   "area": "wake model is load-bearing",
+   "evidence": "Wake = 70 % velocity deficit at the back, 1.2 m e-folding, ±0.45 m, centred 0.4 m above the exit (ASSUMED, cyclist-drafting class). Re-run with wake=0: body force 35.9 -> 38.4 N (above the 38 N weak link), headClear min 0.494 -> 0.407 m (at launch), avail 44.8 -> 43.8 %, within-1 m share max 21.9 %.",
+   "verdict": "The wake helps the force and clearance numbers (a calm bubble at release); a real wake also carries high turbulence that the model omits. Both directions exist; the passes of body force and of the no-contact proxy should be reported as wake-model-dependent. Physical kill test: release from the back on a moving rider at 6-15 m/s."
+  },
+  {
+   "id": "R2-03",
+   "severity": "medium",
+   "area": "park-on-snow / ground relaunch (optimistic, safety gap)",
+   "evidence": "PARK: the flagged kite lies ≈2.5 m behind on the snow; relaunch needs q > 2·infQ on snow (μ 0.3 point mass). Parks 1.54/run, ground relaunches 0.75/run, all counted successful. Not modelled: snow in the sled pockets/wet sail, the line lying across the rider's own ski tails at push-off (eyelet only ~0.5 m above snow), the kite and a 2.5 m line on the snow uphill of a stopped rider being skied over by others, relaunch from a sail that landed face-down or inverted.",
+   "verdict": "Relaunch success and the 26.3 s standstill p90 are upper bounds; the parked kite/line uphill is a new third-party trip/ski-over hazard not in thirdPartyS (counts line <2 m while airborne only marginally during PARK). Also, the auto-dock the user asked for is mostly gone (≈1 dock per 10 stops); that is honestly disclosed."
+  },
+  {
+   "id": "R2-04",
+   "severity": "medium",
+   "area": "rear hip-belt eyelet geometry",
+   "evidence": "eyelet_geometry.py (shared bodyPoints): |eyelet-helmet| 1.24-1.26 m; eyelet 0.43-0.56 m above snow. Clearance straight behind (az 0): >= 1.0 m up to 60-62 deg elevation (1.07 at 55, 1.02 at 60) — claim CONFIRMED for a kite directly behind. Off-axis it is not: az 30 deg -> 1.0 m only to ~57 deg; az 60 -> ~52 deg (0.97 at 55); az 90 (kite to the side) -> 0.83 m at 55 deg, 0.95 at 45; az 120 (swung past the side) -> 0.63 m at 55. Kite overhead -> 0.52 m.",
+   "verdict": "The '>= 1.0 m at <= 55-60 deg' claim holds only for azimuth within ~±30 deg of straight behind. The within-1 m episodes are exactly the tail/cross cases where the kite swings to ±60-120 deg (90 % of within-1 m time is in FLY). Copy/docs should state 'when the kite is behind you'."
+  },
+  {
+   "id": "R2-05",
+   "severity": "medium",
+   "area": "eyelet fall / sitting risk (not simulated)",
+   "evidence": "The tab puts a stiff ring ~0.30 m behind the pelvis point, i.e. ≈0.15-0.18 m proud of the buttock surface (pelvis point ≈ hip-joint centre; buttock surface ≈0.12-0.15 m behind it, ASSUMED anthropometry), at coccyx/sacrum height, carrying up to 38 N line load.",
+   "verdict": "Backward falls and sitting down on the snow (beginners, lift queues, children) load a stiff tab into the coccyx/sacrum — a credible tailbone-contusion/fracture mechanism; on a backward slide the line from a low ring runs under/along the body and the skis. Must-fix (design, not simulated): breakaway or fold-flat tab (e.g. <= 50-80 N lateral/axial release, soft collar), padding, and a test of backward falls and sitting. Not a pole, but not free of the pole's hazard class either."
+  },
+  {
+   "id": "R2-06",
+   "severity": "medium",
+   "area": "line-length schedule",
+   "evidence": "L = clamp(6 + 0.75 (v_app,est,2s - 12), 5, 12) m, reel 0.5 m/s toward target. 12 m reached at ≈20.7 m/s apparent (head 9). Re-run with the cap at 9 m: avail 44.8 -> 45.3 %, KE 14.43 -> 14.30 J, pxMed 384 -> 388, user metrics unchanged (they are set in tail/cross cases where the line is short). Team: fixed 6 m gives 48.1 % vs 44.8 %.",
+   "verdict": "Implemented as the user asked and computed correctly. Above ~9 m it costs footage (bodyPx falls ~1/distance: ≈200-250 px at 12 m) for no safety gain; a 9 m cap (or a narrower lens) keeps the 'higher and farther' behaviour with less px loss. 'Higher' comes only from length at fixed ~55 deg — honest wording is 'farther, and therefore higher'. The schedule is driven by the estimated apparent wind, which is dominated by rider speed (GNSS) — the 10 s wind mean + ±1 m/s bias makes the wind part slow; acceptable."
+  },
+  {
+   "id": "R2-07",
+   "severity": "low",
+   "area": "user-metric computation",
+   "evidence": "Recomputed independently from A.headClear (helmetAt kite+line, capture ≤3 s excluded): matches index.js exactly. index.js does not close an episode across a non-riding gap — splitting at gaps changes nothing in the 48 cases. Riding-only vs all-time: all-time share max 13.2 % (mean 4.4), episode max 3.14 s, 30/48 pass. avail_user denominator also removes the startup gate time in calm/head/cross runs (noLift 0-2 % there), not only tailwind no-lift — inflates availUser by ≈0.5-1 pt in those cases.",
+   "verdict": "Correct as defined. Recommend reporting the all-time variant beside the riding one, and restricting 'noLift' to tailwind/low-wind refusals (exclude normal push-off acceleration). Capture-window exclusion also applies to captures that end in a PARK rather than a dock — minor."
+  },
+  {
+   "id": "R2-08",
+   "severity": "medium",
+   "area": "cheap levers for swing episodes and low-line exposure (simulated on copy)",
+   "evidence": "Variants (48 cases each): tailwind limit 5 m/s: avail 42.8 %, cases meeting 'brief' 31/48 (riding), share mean 5.8 %, epMax 3.14 s. Tailwind limit 4.5: 40.7 %, 34/48, mean 4.6 %, epMax 3.16 s. Tail drag ×1.5: 44.9 %, 30/48, KE 12.97 J, but endurance FAILS 37.9 min and low line 56.8 -> 75.5 %. 9 m cap: no effect on the user metrics. Combined (tail ×1.5 + limit 4.5 + 9 m): 40.5 %, 36/48, share mean 2.8 %, epMax 3.36 s, endurance 38.1 FAIL, low line 80.7 %.",
+   "verdict": "No cheap tested lever reaches 'each episode <= 2 s'. The tailwind limit is the best single trade (each 0.5 m/s ≈ +3 cases, -2 pt avail) and is user-accepted ('tailwind limitation OK'). Tail drag lowers the kite (more clothesline) and costs endurance — reject. Hypotheses not simulated: (a) swing guard — when the measured line azimuth leaves ±40 deg of the course and elevation > 50 deg, depower to drop elevation (clearance at az 90: 0.83 -> 0.95 m going 55 -> 45 deg) or pull in briefly; (b) crosswind-side limit (est. crosswind > 6-7 m/s -> stay on the back), mirroring the tailwind limit, since cross 9 cases fail; (c) heading-referenced launch gate (launch only while the rider is in a long traverse)."
+  },
+  {
+   "id": "R2-09",
+   "severity": "medium",
+   "area": "low-line (clothesline) exposure 57 %",
+   "evidence": "Geometry: from a 0.51 m eyelet, a 55 deg line on a 15 deg slope is 40 deg above the snow and reaches 2 m height only 1.78 m behind (60 deg: 1.49 m; 45 deg: 2.58 m). The metric (line < 2 m more than 1 m behind the exit) can only be met at ≳71 deg elevation, which breaks head clearance. Lowering the eyelet (I10) raised exposure from ~42 % (sacrum) to 57 %.",
+   "verdict": "Structural: without a pole, head clearance and clothesline trade directly through the exit height. Cheap mitigations (not reducing the share, reducing harm): hi-vis line sleeve/pennant on the first 2 m, a low-force third-party breakaway at the eyelet separate from the 38 N body weak link, 'no launch with people close behind' only if a cheap rear sensor exists, and an operating rule (open/quiet pistes). Do not claim it is solved."
+  },
+  {
+   "id": "R2-10",
+   "severity": "low",
+   "area": "steering",
+   "evidence": "Not adopted (estimate +25-30 g, ~+15-20 USD parts, four lines through one eyelet). azRange reported as 0 deg commandable; swing reported as azWander (info).",
+   "verdict": "Honest. Note the HUD in copy_v2 still contains a 'NUDGE / 微调方位' mode (see copy audit)."
+  }
+ ],
+ "leversSummary": [
+  {
+   "lever": "tailwind limit 6 -> 5 m/s",
+   "status": "simulated",
+   "avail": 42.8,
+   "briefCases": "31/48",
+   "KE": 14.43,
+   "endurance": 50.4
+  },
+  {
+   "lever": "tailwind limit 6 -> 4.5 m/s",
+   "status": "simulated",
+   "avail": 40.7,
+   "briefCases": "34/48",
+   "KE": 14.62,
+   "endurance": 50.4
+  },
+  {
+   "lever": "tail drag x1.5",
+   "status": "simulated",
+   "avail": 44.9,
+   "briefCases": "30/48",
+   "KE": 12.97,
+   "endurance": 37.9,
+   "lowLine_pct": 75.5,
+   "note": "reject"
+  },
+  {
+   "lever": "line cap 9 m",
+   "status": "simulated",
+   "avail": 45.3,
+   "briefCases": "28/48",
+   "KE": 14.3
+  },
+  {
+   "lever": "combined (tail x1.5, limit 4.5, cap 9 m)",
+   "status": "simulated",
+   "avail": 40.5,
+   "briefCases": "36/48",
+   "KE": 13.59,
+   "endurance": 38.1,
+   "lowLine_pct": 80.7
+  },
+  {
+   "lever": "swing guard (depower/pull-in when line azimuth > ±40 deg)",
+   "status": "hypothesis",
+   "expected": "targets the 90 % of within-1 m time that is in FLY; at az 90 going 55 -> 45 deg raises clearance 0.83 -> 0.95 m"
+  },
+  {
+   "lever": "crosswind limit (est. cross > 6-7 m/s -> stay on back)",
+   "status": "hypothesis",
+   "expected": "removes the 6 cross-9 failing cases at ≈-2 pt avail (estimate from their 44-52 % avail × 6/48)"
+  },
+  {
+   "lever": "breakaway/fold-flat eyelet tab",
+   "status": "design recommendation",
+   "expected": "removes the tailbone hazard; no sim effect"
+  }
+ ],
+ "copyAudit": {
+  "file": "research/sledpack_2026_10_21/video/copy_v2.json",
+  "state": "IN PROGRESS during this review: size 13843 -> 13820 -> 15276 bytes between 22:03 and 22:32; audited text as of md5 07f9973f2de82731b11de47915160c67 (22:32). video/copy.json is still the I8 (sleeve) copy dated 14:11 — must not be used for the v2 film.",
+  "overall": "Much improved: global tag, design-goal phrasing, honest dock/park disclosure, 8/13 in the disclaimer, failing items listed. Remaining issues: a HUD mode for a feature that was not adopted; launch success 100 % and 0.49 m presented as clean simulation passes although both rest on the assumed release/wake models; the 0.49 m 'no contact' fact sits in the passing block while both 'brief' rules fail; the eyelet claim lacks its condition; stop sub-line promises 'does not drift over your head' as a fact; the zh/en launch titles differ in meaning; park section omits the third-party hazard.",
+  "fixes": [
+   {
+    "key": "sections.sense.hud.modes.NUDGE",
+    "action": "DELETE the mode (steering not adopted; how.sub says so)",
+    "zh_old": "微调方位",
+    "en_old": "NUDGE"
+   },
+   {
+    "key": "sections.launch.title",
+    "zh_old": "设计设想：一个动作就起飞",
+    "zh_new": "设计设想：直接从背上放飞",
+    "en_old": "Concept: launches straight off your back",
+    "en_new": "Concept: launches straight off your back",
+    "why": "zh said 'one action' — launch is automatic (0 actions) and zh/en must match"
+   },
+   {
+    "key": "sections.launch.sub",
+    "zh_new": "磁扣松开，风筝先落进身后尾流，放线进入干净气流后爬升（仿真中约 2 s 开始拍；从背上脱离和尾流为假设模型）",
+    "en_new": "The seats release, the kite drops into the wake behind you and climbs once paid out into clean air (filming after ≈2 s in simulation; release from the back and the wake are assumed models)",
+    "why": "R2-01, R2-02"
+   },
+   {
+    "key": "sections.fast.title",
+    "zh_old": "滑得越快、风越大，飞得越高越远",
+    "zh_new": "滑得越快、风越大，放得越远（因此越高）",
+    "en_old": "Faster and windier: higher and farther",
+    "en_new": "Faster and windier: farther out, and so higher",
+    "why": "height comes only from line length at a fixed ≈55°"
+   },
+   {
+    "key": "sections.stop.sub",
+    "zh_old": "帆像旗一样塌下，趁人还在滑立即拉低，不让它飘过头顶",
+    "zh_new": "帆像旗一样塌下，趁人还在滑立即拉低，设计上避免它飘过头顶（仿真最近 0.49 m）",
+    "en_old": "The sail flags and is pulled down while you still slide, so it does not drift over your head",
+    "en_new": "The sail flags and is pulled down while you still slide, designed to keep it from drifting over your head (closest 0.49 m in simulation)",
+    "why": "untested behaviour stated as fact"
+   },
+   {
+    "key": "sections.onback.callouts.mouth",
+    "zh_old": "出线环在臀后的短硬片上（不是杆）",
+    "zh_new": "出线环在臀后约 15 cm 的短硬片上（不是杆；摔倒/坐下时的风险待评估）",
+    "en_old": "Line eyelet on a short stiff hip-belt tab (not a pole)",
+    "en_new": "Line eyelet on a ≈15 cm stiff hip-belt tab (not a pole; fall/sitting risk not yet assessed)",
+    "why": "R2-05"
+   },
+   {
+    "key": "sections.facts.items[2] (launch success 100 %)",
+    "zh_new": "放飞成功率（假设的背上脱离与尾流模型）",
+    "en_new": "Launch success (assumed release-from-back and wake models)",
+    "why": "R2-01/R2-02; or move to an 'assumed model' tag instead of 'SIMULATED'"
+   },
+   {
+    "key": "sections.facts.items[4] (0.49 m)",
+    "zh_old": "线/风筝离头部最近（不接触）",
+    "zh_new": "线/风筝离头盔中心最近（仿真 0.49 m；起飞时帆离开背部的过程未建模）",
+    "en_old": "Closest line/kite to the head (no contact)",
+    "en_new": "Closest line/kite to the helmet centre (0.49 m in simulation; the sail leaving the back is not modelled)",
+    "why": "'no contact' is an assumed 0.25 m proxy; sensitivities reach 0.36 m (wind bias −2) and 0.41 m (no wake)"
+   },
+   {
+    "key": "sections.facts.dev.items[1]",
+    "zh_new": "顺风或强侧风时风筝每个弯都会摆到侧面，线在头部 1 m 以内：单次最长约 3 s、最多约占滑行的 21%；48 种风况中 20 种不满足“偶尔、短暂”",
+    "en_new": "In tailwinds or strong crosswinds the kite swings to the side each turn and the line comes within 1 m of the head: up to ≈3 s at a time and up to ≈21% of riding; 20 of 48 wind cases miss the 'brief, now and then' target",
+    "why": "episode length (3.14 s > 2 s) was not disclosed"
+   },
+   {
+    "key": "sections.facts.dev.items (add)",
+    "zh_new": "风筝在身后雪面待机时，线和风筝可能被后方滑雪者压到或绊到；雪面再起飞未经验证",
+    "en_new": "While parked on the snow behind you, the kite and line can be skied over or tripped on by others; relaunching from the snow is unverified",
+    "why": "R2-03"
+   },
+   {
+    "key": "sections.facts.dev.items (add)",
+    "zh_new": "共同指标里的收纳体积按展开平放在背上计算为约 20 L（用户已接受不折叠）",
+    "en_new": "Packed volume on the shared rule is ≈20 L as carried open and flat (the user accepted not folding it)",
+    "why": "packVol is one of the 5 failing criteria; the copy lists the others"
+   },
+   {
+    "key": "sections.facts.items[6] (endurance)",
+    "zh_new": "−10 °C 拍摄续航（中级滑雪者；高手速度约 37 min）",
+    "en_new": "Filming at −10 °C (intermediate rider; ≈37 min at expert speeds)",
+    "why": "expert 15 m/s 36.6 min fails"
+   },
+   {
+    "key": "sections.park.sub",
+    "zh_new": "通常在身后约 2.5 m 的雪面待机，下次蹬出时设计上从雪面再起飞（未验证）",
+    "en_new": "Usually it parks ≈2.5 m behind on the snow and is designed to relaunch from there when you push off (unverified)",
+    "why": "R2-03"
+   },
+   {
+    "key": "sections.light.title",
+    "zh_old": "风小或顺风：更近、更低",
+    "zh_new": "风小或顺风：更近、更低；顺风大时不飞",
+    "en_old": "Light air or tailwind: closer and lower",
+    "en_new": "Light air or tailwind: closer and lower — or not at all",
+    "why": "user-accepted limitation; avail 25 % in tailwinds"
+   }
+  ]
+ }
+}

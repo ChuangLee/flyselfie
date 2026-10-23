@@ -1,0 +1,368 @@
+{
+  "evidence": "Uncalibrated model diagnostics and analytic estimates; no physical testing",
+  "sourceSha256": {
+    "sim/js/model/solver.js": "3d31eaaac63e8e228e94183125f6e270f50cdf331116477d18331aa456566df8",
+    "sim/js/model/config.js": "db2cf6f2ffb97131c09d4fe78416675161ffdc122ec2d808d99004524215ff6d",
+    "sim/js/model/scenarios.js": "b667ceffa088e68b5cac71d2d883e386f79f0f850e1ef2748b16cdc8ff755b83",
+    "sim/js/app.js": "effa8eef62996c8510dd0b0f45bb2a41904e63e5bc165994cef248d87235bd0a",
+    "sim/tests/browser_check.py": "90b66d87f561e3269c1251e5c12e820cb443744da8214e9392bdb0991a65ed5d"
+  },
+  "defaults": {
+    "skierSpeed": 8,
+    "slopeDeg": 15,
+    "turnAmplitude": 3,
+    "turnPeriod": 6,
+    "windSpeed": 3,
+    "windFromDeg": 0,
+    "gustIntensity": 0.5,
+    "seed": 1,
+    "airDensity": 1.1,
+    "airborneMass": 0.3,
+    "wingArea": 0.25,
+    "CL": 0.8,
+    "CD": 0.18,
+    "rollStability": 0.7,
+    "minAirspeed": 3,
+    "tetherMax": 2.5,
+    "prePayout": 0.8,
+    "anchorHeight": 1.35,
+    "cameraDrop": 0.15,
+    "cameraFovDeg": 180,
+    "payoutRate": 0.8,
+    "retrievalRate": 0.5,
+    "operatorPower": 40,
+    "crankRatio": 0.3
+  },
+  "defaultScenarios": [
+    {
+      "scenario": "launch",
+      "validUntil": null,
+      "scopeEnd": null,
+      "invalid": [],
+      "peakTValid": 43.533311
+    },
+    {
+      "scenario": "film_turns",
+      "validUntil": null,
+      "scopeEnd": null,
+      "invalid": [],
+      "peakTValid": 16.431116
+    },
+    {
+      "scenario": "retrieval_headwind",
+      "validUntil": 7.762,
+      "scopeEnd": null,
+      "invalid": [
+        {
+          "t": 7.762,
+          "type": "body_contact"
+        }
+      ],
+      "peakTValid": 19.969822
+    },
+    {
+      "scenario": "retrieval_calm",
+      "validUntil": 7.187,
+      "scopeEnd": null,
+      "invalid": [
+        {
+          "t": 7.187,
+          "type": "low_airspeed"
+        },
+        {
+          "t": 7.21,
+          "type": "body_contact"
+        }
+      ],
+      "peakTValid": 13.548366
+    },
+    {
+      "scenario": "retrieval_crosswind",
+      "validUntil": null,
+      "scopeEnd": 8.299,
+      "invalid": [],
+      "peakTValid": 15.459975
+    },
+    {
+      "scenario": "wind_loss",
+      "validUntil": 11.516,
+      "scopeEnd": null,
+      "invalid": [
+        {
+          "t": 11.516,
+          "type": "low_airspeed"
+        },
+        {
+          "t": 11.7,
+          "type": "ground_contact"
+        }
+      ],
+      "peakTValid": 11.757618
+    },
+    {
+      "scenario": "abrupt_stop",
+      "validUntil": 6.845,
+      "scopeEnd": null,
+      "invalid": [
+        {
+          "t": 6.845,
+          "type": "ground_contact"
+        }
+      ],
+      "peakTValid": 16.431116
+    },
+    {
+      "scenario": "slack_overpayout",
+      "validUntil": 3.299,
+      "scopeEnd": null,
+      "invalid": [
+        {
+          "t": 3.299,
+          "type": "slack"
+        }
+      ],
+      "peakTValid": 5.42872
+    },
+    {
+      "scenario": "reel_jam",
+      "validUntil": 8.285,
+      "scopeEnd": null,
+      "invalid": [
+        {
+          "t": 8.285,
+          "type": "slack"
+        },
+        {
+          "t": 8.52,
+          "type": "low_airspeed"
+        },
+        {
+          "t": 8.886,
+          "type": "ground_contact"
+        }
+      ],
+      "peakTValid": 41.54189
+    }
+  ],
+  "rollSensitivity": [
+    {
+      "beta": 0,
+      "scenario": "film_turns",
+      "validUntil": 0,
+      "scopeEnd": null,
+      "invalid": [
+        {
+          "t": 0,
+          "type": "prerun_unsettled"
+        }
+      ],
+      "peakTValid": 0
+    },
+    {
+      "beta": 0.25,
+      "scenario": "film_turns",
+      "validUntil": null,
+      "scopeEnd": null,
+      "invalid": [],
+      "peakTValid": 20.238558
+    },
+    {
+      "beta": 0.5,
+      "scenario": "film_turns",
+      "validUntil": null,
+      "scopeEnd": null,
+      "invalid": [],
+      "peakTValid": 16.949958
+    },
+    {
+      "beta": 0.7,
+      "scenario": "film_turns",
+      "validUntil": null,
+      "scopeEnd": null,
+      "invalid": [],
+      "peakTValid": 16.431116
+    },
+    {
+      "beta": 1,
+      "scenario": "film_turns",
+      "validUntil": null,
+      "scopeEnd": null,
+      "invalid": [],
+      "peakTValid": 16.701128
+    }
+  ],
+  "speedDefinition": {
+    "displayed": 8,
+    "actualMin": 8.282275,
+    "actualMax": 8.857943,
+    "legalExtremeMax": 26.462231,
+    "legalExtremeLateralAcceleration": 78.956835
+  },
+  "hashCollision": {
+    "sameIdDifferentSchedule": true,
+    "originalSampleSkierSpeed": 8,
+    "changedSampleSkierSpeed": 4,
+    "changedConstantSameHash": true
+  },
+  "importValidation": {
+    "noChecksumAccepted": true,
+    "shortColumnAccepted": true,
+    "foreignModelAccepted": true,
+    "nonMonotonicTimeAccepted": true
+  },
+  "validDockBodyIntersections": [
+    {
+      "scenario": "retrieval_crosswind",
+      "anchorHeight": 0.8,
+      "t": 8.18,
+      "distanceToAnchor": 0.413817,
+      "centreClearance": -0.015728,
+      "validUntil": null,
+      "scopeEnd": 8.299
+    },
+    {
+      "scenario": "retrieval_crosswind",
+      "anchorHeight": 1,
+      "t": 8.18,
+      "distanceToAnchor": 0.413817,
+      "centreClearance": -0.015728,
+      "validUntil": null,
+      "scopeEnd": 8.299
+    },
+    {
+      "scenario": "retrieval_crosswind",
+      "anchorHeight": 1.2,
+      "t": 8.18,
+      "distanceToAnchor": 0.413817,
+      "centreClearance": -0.015728,
+      "validUntil": null,
+      "scopeEnd": 8.299
+    },
+    {
+      "scenario": "retrieval_crosswind",
+      "anchorHeight": 1.35,
+      "t": 8.18,
+      "distanceToAnchor": 0.413817,
+      "centreClearance": -0.015728,
+      "validUntil": null,
+      "scopeEnd": 8.299
+    },
+    {
+      "scenario": "retrieval_crosswind",
+      "anchorHeight": 1.6,
+      "t": 8.18,
+      "distanceToAnchor": 0.413817,
+      "centreClearance": -0.015728,
+      "validUntil": null,
+      "scopeEnd": 8.299
+    },
+    {
+      "scenario": "retrieval_crosswind",
+      "anchorHeight": 1.8,
+      "t": 8.18,
+      "distanceToAnchor": 0.413817,
+      "centreClearance": -0.015728,
+      "validUntil": null,
+      "scopeEnd": 8.299
+    }
+  ],
+  "analytic": {
+    "assumptions": {
+      "rho": 1.1,
+      "CL": 0.8,
+      "CD": 0.18,
+      "m": 0.3,
+      "g": 9.81,
+      "area": 0.25,
+      "thetaDeg": 50,
+      "anchorHeight": 1.35,
+      "tether": 2.5,
+      "cameraDrop": 0.15
+    },
+    "liftEqualsWeightSpeed": 5.17248,
+    "elevation50Speed": 6.04625,
+    "areaAtSpeedFor50": [
+      {
+        "V": 4,
+        "area": 0.571205
+      },
+      {
+        "V": 5,
+        "area": 0.365571
+      },
+      {
+        "V": 6,
+        "area": 0.253869
+      },
+      {
+        "V": 8,
+        "area": 0.142801
+      }
+    ],
+    "steadyAtSpeed": [
+      {
+        "V": 6,
+        "lift": 3.96,
+        "drag": 0.891,
+        "thetaDeg": 48.778198,
+        "tension": 1.352098,
+        "cameraHeight": 3.080411,
+        "horizontalBehindAnchor": 1.647439
+      },
+      {
+        "V": 8,
+        "lift": 7.04,
+        "drag": 1.584,
+        "thetaDeg": 68.862284,
+        "tension": 4.392547,
+        "cameraHeight": 3.531791,
+        "horizontalBehindAnchor": 0.901527
+      },
+      {
+        "V": 11,
+        "lift": 13.31,
+        "drag": 2.99475,
+        "thetaDeg": 73.887404,
+        "tension": 10.790886,
+        "cameraHeight": 3.601795,
+        "horizontalBehindAnchor": 0.693815
+      }
+    ],
+    "massReduction": {
+      "from": 0.3,
+      "to": 0.18,
+      "thresholdSpeedRatio": 0.774597
+    },
+    "retrievalExample": {
+      "assumedTensionN": 10,
+      "strokeM": 2.15,
+      "efficiency": 0.6,
+      "outputWorkJ": 21.5,
+      "inputWorkJ": 35.833333,
+      "reelRadiusM": 0.02,
+      "crankRadiusM": 0.08,
+      "handleForceN": 4.166667,
+      "rateMps": 0.5,
+      "crankRpm": 238.732415
+    },
+    "boomExample": {
+      "payloadKg": 0.18,
+      "reachM": 2,
+      "gravityMomentNm": 3.5316,
+      "assumedEI_Nm2": 100,
+      "tipDeflectionM": 0.047088
+    },
+    "rotorIdealHover": {
+      "massKg": 0.3,
+      "totalDiskAreaM2": 0.05,
+      "powerW": 15.222608
+    },
+    "buoyancyIdeal": {
+      "payloadKg": 0.3,
+      "assumedAirDensity": 1.1,
+      "assumedHeliumDensity": 0.15,
+      "minVolumeM3": 0.315789,
+      "sphereDiameterM": 0.844889
+    }
+  }
+}

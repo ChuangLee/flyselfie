@@ -1,0 +1,111 @@
+# Builds report.json from data/out_*.json (science & engineering review board, SIM-032 AT-1). Simulation is not verification.
+import json, os, statistics as st
+H = os.path.dirname(os.path.abspath(__file__)); L = lambda f: json.load(open(os.path.join(H, 'data', f)))
+ref = {r['id']: r for r in json.load(open(os.path.join(H, '../../dev/results.json')))['ensemble']['rows']}
+def pct(v, q):
+    v = sorted(v); k = (len(v) - 1) * q; f = int(k); c = min(f + 1, len(v) - 1); return v[f] + (v[c] - v[f]) * (k - f)
+def summ(rows):
+    ke = [r['keMax'] for r in rows if r.get('keMax') is not None]; hc = [r['headClear'] for r in rows if r.get('headClear') is not None]
+    hc3 = [r['hc3'] for r in rows if r.get('hc3') is not None]
+    jit = [r['jitter'] for r in rows if r.get('jitter') is not None and r['launches'] - r['launchFails'] > 0]
+    px = [r['pxMed'] for r in rows if r.get('pxMed') is not None]
+    return dict(n=len(rows), availMean=round(st.mean(r['avail'] for r in rows), 2), pxP50=round(pct(px, .5), 1) if px else None, jitterP90=round(pct(jit, .9), 2) if jit else None,
+                keMax=round(max(ke), 1) if ke else None, keP50=round(pct(ke, .5), 1) if ke else None, casesKEover14_9=sum(x > 14.9 for x in ke),
+                headClearMin_asImplemented=round(min(hc), 3) if hc else None, headClearMin_3sRule=round(min(hc3), 3) if hc3 else None, casesHeadUnder1_3sRule=sum(x < 1 for x in hc3),
+                neverFlown=sum(r['launches'] - r['launchFails'] <= 0 for r in rows), lossShares_pctOfRiding={k: round(st.mean(r['cat'][k] for r in rows), 2) for k in rows[0]['cat']})
+base = L('out_all.json'); rep = L('out_repro.json')
+repro = [dict(id=o['id'], avail=[round(o['avail'], 3), ref[o['id']]['avail']], keMax=[o['keMax'] and round(o['keMax'], 3), ref[o['id']]['keMax']], headClear=[o['headClear'] and round(o['headClear'], 3), ref[o['id']]['headClear']],
+              jitter=[o['jitter'] and round(o['jitter'], 3), ref[o['id']]['jitterRms']], pxMed=[o['pxMed'] and round(o['pxMed'], 2), ref[o['id']]['pxMed']], match=all(abs((a or 0) - (b or 0)) < 2e-3 * max(1, abs(b or 0)) for a, b in [(o['avail'], ref[o['id']]['avail']), (o['keMax'], ref[o['id']]['keMax']), (o['headClear'], ref[o['id']]['headClear'])])) for o in rep]
+nf = [r for r in base if r['launches'] - r['launchFails'] <= 0]; fl = [r for r in base if r not in nf]
+dec = {'neverFlownCases_15_of_48': round(sum(100 - r['avail'] for r in nf) / 48, 2)}
+for k in ['notAirborne', 'launch', 'brakeRetrieve', 'flyNotInFrame', 'flyPxLow', 'flyArt', 'flyFit']: dec['flownCases_' + k] = round(sum(r['cat'][k] for r in fl) / 48, 2)
+dec['availDelivered'] = round(sum(r['avail'] for r in base) / 48, 2)
+exps = {}
+for f in ['out_cam.json', 'out_mass.json', 'out_r1.json', 'out_r2.json']:
+    rows = L(f)
+    for t in dict.fromkeys(r['tag'] for r in rows):
+        rr = [r for r in rows if r['tag'] == t and not r.get('error')]
+        exps[t] = dict(over=rr[0].get('over'), cases=[r['id'] for r in rr] if len(rr) < 12 else 'SUB12', **summ(rr))
+kePk = {}
+for r in base:
+    p = r['kePeak']
+    if p and p['ke'] > 14.9:
+        k = 'hockeyStopExitWhip(vExit>14.5)' if p['vExit'] > 14.5 else f"flyerWhip_{p['mode']}"; kePk[k] = kePk.get(k, 0) + 1
+hcEv = {}
+for r in base:
+    h = r['headMin']
+    if r.get('hc3') is not None and r['hc3'] < 1 and h:
+        k = f"{h['mode']}/{h['what']}/{'riderStopped' if h['riderV'] < 0.5 else 'riding'}"; hcEv[k] = hcEv.get(k, 0) + 1
+fk = [r['fly']['ke'] for r in fl]
+report = {
+ 'id': 'SIM-032 AT-1 science & engineering review board', 'date': '2026-10-20', 'role': 'independent science & engineering review (not the build team)',
+ 'evidence': 'Numerical-uncalibrated simulation on a scratchpad copy of sim/ (AT-1 activetether@0.1.0, unmodified for reproduction; patched copy only for the rescue experiments, see scripts/scratch_model.patch). NOTHING was built, flown or measured. Simulation is not verification; M-070 not_run; G-MATURE closed. No plan.json writes, no deploy.',
+ 'howToReproduce': 'cp -r sim <scratch>/sim; apply scripts/scratch_model.patch to the copy (only needed for kFF/stopPay/sideAll/furlK and rider vTarget experiments; defaults are byte-identical in behaviour); put scripts/ beside it as <scratch>/scripts; python3 mk.py \'[["base",{},"ALL"]]\' jobs.json && node par.mjs jobs.json out.json && python3 summ.py out.json. Raw outputs in data/.',
+ 'verdict': {
+  'summary': 'AT-1 is reproduced exactly and its physics is broadly sound, but it fails 5 of 13 judged criteria and 3 of those failures are FUNDAMENTAL to a body-tethered lifting flyer on the R4 rider/plan, not tunable: (1) KE ≤14.9 J max — ground-frame floor ½·m·v_rider² is already 10.1 J at 116 g/13.2 m/s and any crosswind excursion of a tethered wing adds speed of order (L/D_eff)·V_apparent (observed whips to 2–2.5× rider speed); even a 58 g flyer with a 13 m line, 45° elevation and riders capped at ≈11 m/s still exceeds the cap in 2/12 cases (max 25.9 J); (2) headClear ≥1 m — the exit/dock is 1.24 m from the helmet, so any line forward of ~95° body azimuth or any flyer in the last ≈1.5 m of retrieval violates 1 m; hockey stops turn the body ~80° so the course-behind flyer becomes body-lateral, and tail/crosswind at stops pushes it forward; with the rule applied as written (≤3 s capture exclusion) min headClear is 0.014 m and 22/48 cases fail; no stop-procedure variant tried got min above 0.33 m; (3) avail ≥80 % ensemble mean — per-ride launch/recovery overhead (~8 s on 33–38 s rides) caps flown cases near ≈75–80 % even with perfect framing, and tail ≥6 m/s cases (apparent wind ≈4–7 m/s ≈ stall-speed band) cannot be flown safely; with best-case camera fixes the flown 12-case subset reaches 44.6 %, i.e. ≈31 % ensemble-equivalent once the never-flown tail cases are counted; the architecture ceiling on R4 is ≈30–45 %. bodyPx and jitter are camera-chain problems that partially flip: bodyPx p50 ≥300 flips with a better tracker + 0.25 m camera offset (p50 383 px); jitter ≤3 °/s does NOT flip with any realistic electronic chain tried (best 6–7 °/s) — only truth aim + zero EIS residual reached 1.8 °/s, i.e. it needs a mechanically stabilised gimbal whose mass worsens KE.',
+  'directionCapped': True,
+  'recommendation': 'Do not iterate AT-1 parameters further. The direction (worn reel + lifting flyer at 40–60° on a 10 m line behind a carving skier) is capped on KE, headClear and availability by geometry and tethered-wing physics. Any continuation needs a different envelope (riders ≤10–11 m/s, flyer ≤50 g with no onboard camera-pointing hardware, exit ≥1.6–2 m from the helmet e.g. a boom/pole, and dock/retrieve procedures that end with the flyer on the snow ≥1 m from the head) — and even then KE whips and headClear at stops remain open. Kill tests if anyone continues: tethered-wing whip speed vs L/D on a towed rig; retrieval in 9 m/s crosswind; capture at −10 °C.'},
+ 'reproduction': {'cases': len(repro), 'allMatch': all(x['match'] for x in repro), 'note': 'own diag script (scripts/diag.mjs) on an unmodified copy; values [review, AT-1 results.json]; deterministic — bitwise-equal to 3 dp. Full 48-case rerun also reproduces avail 16.75, pxMed 279.1, KE max 57.1, headClear min 0.25, 15 never flown (jitter p90 10.35 vs 10.52 is only a percentile-interpolation difference).', 'table': repro, 'full48': summ(base)},
+ 'physicsAudit': [
+  {'item': 'tether swing / pendulum', 'finding': '3-DOF point-mass flyer, line = elastic segments EA/L 3308 N + 150 N/m series spring, distributed weight/drag lumped to ends, parabolic sag; no line waves. Adequate for swing at 0.17 Hz carving forcing and the observed whips. Tethered-wing natural lateral frequency ≈sqrt(T/(mL)) ≈2.6 rad/s (T 8 N, 116 g, 10 m) vs carving forcing 1.08 rad/s (5.8 s full-turn period) → quasi-static following with ≈20 % overshoot — consistent with the simulated vRel p50 ≈2 m/s.', 'ok': True},
+  {'item': 'apparent wind', 'finding': 'v_a = v_flyer − wind(at flyer), Dryden-like field Lu 28 m sampled at 100 Hz. Correct. Gates use windEstimate() (shared, biased) blended with flyer air-data wind; compliant.', 'ok': True},
+  {'item': 'glide-ratio / airbrake command', 'finding': 'Feed-forward L/D_eff = tan(elev − slope) = tan(35°) ≈0.70 for 50° on a 15° slope: independently derived (line angle above the down-apparent-wind axis = 50°−15°). Correct. Implication: the 5.9 L/D wing is flown at ≈12 % of its L/D — the latent crosswind power is what produces the whips when the brake/roll loops lose the window edge.', 'ok': True},
+  {'item': 'stall / polar', 'finding': 'Linear to CLmax 1.0 then flat-plate blend; CLmax 1.0 and CD0 0.075 for a folding umbrella delta are ASSUMED and optimistic for Re≈1–2·10^5 (sensitivity CLmax×0.8 → KE max 65.8 J, headClear 0.07). Disclosed; not verified.', 'ok': 'assumed'},
+  {'item': 'motor / reel', 'finding': 'MN3110 700 Kv: Kt 0.0136 N·m/A, Imax 22 A, 2:1, drum r 15–22 mm → stall line pull ≈27 N, no-load line speed ≈9 m/s at 12.5 V; V/I limits, two inertias, slip clutch 35 N, regen clamp. Physically consistent. Reel is not a limiting element in any failure (cold-bus sensitivities identical).', 'ok': True},
+  {'item': 'capture model', 'finding': 'ASSUMED 0.958·f(v)·f(angle), outcome drawn from TRUE relative speed and line angle (correct for a judge-side outcome). Disclosed; first-try 80 % is model output, not evidence.', 'ok': 'assumed'},
+  {'item': 'integration convergence', 'finding': 'AT-1 own dt check: crossL3_s13 KE 19.4→32.4 J and headClear 0.98→0.54 m between dt 2 ms and 1 ms; per-case extremes are chaotic (whip timing), so max/min judged metrics on 48 cases are not converged statistics. Seeds 11–16 already gave KE 78 J / headClear 0.058 m.', 'ok': False},
+ ],
+ 'estimatorHonesty': [
+  {'severity': 'ok', 'finding': 'Controllers/mode machine read only estimates (tension with scale/bias/noise/latency, exit angle + AHRS errors, metered length, UWB range, pitot/vane, GNSS velocity, shared windEstimate). Truth reads below the "sensors" line are confined to sensor models and judge code.'},
+  {'severity': 'low', 'finding': 'Flyer-relative velocity est.vrel = truth(v_flyer − v_exit) + white 0.15 m/s, 30 ms — no bias/drift (idealised relative GNSS/IMU fusion). Used in rate damping, capture hold, cutter.'},
+  {'severity': 'low', 'finding': 'Air-flow direction est.uE = truth airflow rotated by a fixed 3° attitude error + 1° noise: implies a sideslip measurement that a single AoA vane does not provide.'},
+  {'severity': 'low', 'finding': 'CAPTURE quiver yaw alignment uses the true rider heading (no AHRS yaw error); tracker subject offset uses the true body-centre-minus-exit vector rotated by AHRS error (rider lean/crouch effectively known).'},
+  {'severity': 'high', 'finding': 'headClear exclusion: analysis.js excludes the WHOLE CAPTURE mode (capWin) from headClear, but the rule and the build text say "only the ≤3 s capture window". Measured capture windows: 100 % exceed 3 s, p50 4.2 s, max 38.8 s. Applying the 3 s rule (last 3 s of each window excluded): headClear min 0.25 → 0.014 m, cases <1 m 19 → 22/48 (head3_s12 1.06→0.45, head3_s13 1.08→0.52, crossL9_s11 0.25→0.014, crossR9_s12 0.81→0.30).'},
+  {'severity': 'medium', 'finding': 'Tracker switches hard between vision bearing and the geometry estimate (several-degree bias) on vision drop-outs; no bias-aligned fusion → step jumps in the aim feed jitter. A modelling choice that makes jitter pessimistic, but even with drop-outs = 0 jitter stays ≈7 °/s.'},
+ ],
+ 'rootCause': {
+  'availabilityLossDecomposition_ppOfEnsembleRidingTime': dec,
+  'availabilityNotes': [
+   'Total loss 83.25 pp. 31.25 pp = 15 never-flown cases (13 never launched (tail-gate ≤3 m/s on windEstimate: tail3.5_s11, tail 4.5/5.5/6/9 ×3), 2 launched but every launch failed (tail3_s13, tail3.5_s13)).',
+   'In flown cases (33/48, mean avail 24.4 %): pre-launch stowed/deploy/gate wait 14.1 %, launch phase 9.0 %, brake/retrieve/fly-in while still riding 12.9 % → flight-time share 64 % only; inside FLY: bodyPx<300 29.1 %, subject out of frame 4.5 %, line artefact 4.1 %, crop not fitting 2.0 %.',
+   'FUNDAMENTAL part: per-ride launch (detect 0.8 s + deploy 1.3 s + speed-up to the 1.35·Vstall gate + ≤2 m/s pay-out to 6 m) and stop-side recovery ≈8 s per 33–38 s ride → flown-case ceiling ≈75–80 % even with perfect framing; tail 9 m/s gives ≈4 m/s apparent wind < Vstall 4.9 m/s (116 g) → not flyable; tail 6 is flyable only by dropping the tail gate, which the experiments show destroys headClear/KE (tail_gate9 runs: launches fail or headClear 0.06–0.4 m). Ensemble mean ≥80 % is therefore unreachable on R4 for this architecture.',
+   'DESIGN part: bodyPx and artefacts (≈26 pp of flown riding time) are mostly tracker lag (1.5 Hz smoother vs LOS rates of tens of °/s from the ±8 m carving swing) and the 0.10 m camera-below-tow-point offset (line within ≈1 m of the lens ≥2 px over the subject).'],
+  'keDecomposition': {
+   'floor': 'In steady FLY the flyer KE median is 10.1 J (p50 over flown cases) = ½·0.116·13.2² — i.e. the ground-frame floor at the R4 rider speed (13.2 m/s, the shared skier overshoots vTarget 12). Cap 14.9 J ⇒ |v_flyer| ≤16.0 m/s ⇒ only +2.8 m/s margin over the rider for swing, gusts and transients.',
+   'flyFlightKE_p50_p90_max_overFlownCases': [round(pct([x[0] for x in fk], .5), 2), round(pct([x[1] for x in fk], .5), 2), round(max(x[2] for x in fk), 1)],
+   'peakEventCauses_casesOver14_9': kePk,
+   'mechanisms': ['hockey-stop exit whip: the rigid lumbar quiver (exit 0.66 m behind the pelvis) swings with the ~80° skid rotation; exit speed 16–16.8 m/s at a 12 m/s rider, line jerk 10–13 N, flyer 15–20 m/s → 16–24 J (16 cases). Partly a shared-skier artefact (pelvis takes the full ski yaw), partly real (hips do rotate). Conflict: exit far behind the pelvis is needed for headClear but raises the whip radius.',
+                  'crosswind whip at the window edge: carving swings the exit ±8 m laterally (5.8 s full-turn period) on a 10 m line → azimuth ±40–65°, elevation collapses to ≈13°, the braked wing is pulled across the window and accelerates to 25–31 m/s (head9_s11: 57 J). This is the crosswind-kite effect (v ≈ (L/D_eff)·V_a during the sweep); it scales with apparent wind, not with mass, so lighter flyers whip faster (58 g reached 25–34 m/s).',
+                  'retrieve/fly-in transients in crosswind 9 (up to 49 J).']},
+  'headClearDecomposition': {
+   'geometry': 'exit→helmet vector ≈(0.87 fwd, 0.88 up), |h| 1.24 m (1.22–1.27 riding/stopped). A line from the exit keeps ≥1 m only if its direction is ≥54° from h: safe max elevation 81° straight behind, 78° at 45° azimuth, 56° at 90° (side), 22° at 120° azimuth; any forward line fails. At a hockey stop the body turns ~77–90°, so a flyer still behind on the course sits at ≈90° body azimuth where 50° elevation is just at the limit; tail/cross wind then carries it forward.',
+   'eventsUnder1m_3sRule_byPhase': hcEv,
+   'fundamental': 'The dock is the exit, 1.24 m from the helmet: the final ≈1.5 m of every retrieval brings the flyer/line within 1 m of the head unless it arrives low and straight behind; in 9 m/s crosswind the flagged wing lifts off the snow at L<2.5 m (crossL9_s11: height 1.6 m at L 1.8 m → 0.014 m). Only a longer exit offset (≥≈1.6–2 m, i.e. a boom) or a dock away from the body changes this.'},
+  'jitterDecomposition': 'Shared metric = HP(1 Hz) of subject LOS rate in frame. LOS rotates tens of °/s as the flyer lags the carving exit. Contributions measured on the 12-case subset: baseline 11.1; noise-free sensors 9.3 (AT-1 sensitivity); truth aim through the 1.5 Hz smoother 9.3; truth aim + 6 Hz 6.3; truth aim + 8 Hz with realistic EIS residual 6.1; truth aim + no EIS residual + 10 Hz 1.8. ⇒ two independent floors: aim bandwidth/latency and the electronic-stabilisation residual on a flyer whose body rates are high.',
+ },
+ 'rescueExperiments': {
+  'subset': 'SUB12 = calm_s11, calm_s13, head3_s12, head6_s12, head9_s11, tail3_s12, crossL3_s12, crossL6_s13, crossL9_s11, crossR3_s11, crossR6_s12, crossR9_s13 (all flown at baseline; baseline subset avail 24.0, px 271, jitter p90 11.1, KE max 57.1, 12/12 KE>14.9)',
+  'results': exps,
+  'conclusions': [
+   {'hypothesis': '(a) ultralight 40–70 g flyer + rider speed envelope ≤11–12 m/s', 'flips': 'KE partially (never fully)', 'numbers': 'm 58 g @R4 speed: KE max 33.4, 5/12 over; 70 g @≈11 m/s: 23.8, 3/12; 58 g @≈9.8 m/s: 19.1, 1/12; 58 g + 13 m line + 45° @≈11 m/s: 25.9, 2/12. KE p50 halves (≈10→3.5 J in flight) but whips remain. headClear unchanged or worse (min 0.02–0.1 m), jitter worse (13–18 °/s: lighter wing is more gust-responsive), avail unchanged (16–25 %).', 'cost': 'camera-only pod ≈10 g forces a 4K-class (not 48 MP) sensor → bodyPx −50 px (AT-1 camera_4K sensitivity: avail 9.2 %, px 222); no pointing servos; structure+avionics+cell in ≈40 g is beyond the engineering budget (30 g structure alone). Speed envelope ≤10–11 m/s refuses most recreational carvers (shared skier 13.2 m/s).'},
+   {'hypothesis': '(b) swing suppression: phase-led roll feed-forward from pack turn detection; line length', 'flips': 'nothing', 'numbers': 'kFF 1.0: KE max 47.2 (12/12 over), avail 19.7, headClear min 0.39; kFF 0.6 lead 0.6 s: KE 43.4, headClear 0.06; 13 m line + 45°: KE max 26.3 but p50 20.8 (12/12 over), hc3 min 0.29; adding a 15° bank limit made it worse (KE 84.6). Following the exit costs the ½mv_rider² floor anyway; not following means ±40–65° azimuth swings and window-edge whips.', 'cost': 'n/a'},
+   {'hypothesis': '(c) camera pointing / EIS bandwidth for jitter ≤3 °/s', 'flips': 'bodyPx yes; jitter no', 'numbers': 'vision σ0.1°/60 Hz/30 ms + EIS residual ×0.25 + 4 Hz reframing: px 346, jitter 9.6, avail 28.7 (art 11 %); + camera 0.25 m below the tow point: avail 37.4, art 0.1 %; σ0.05°/120 Hz/15 ms + EIS ×0.1 + 8 Hz + 0.25 m offset: avail 44.6 (subset), px 383, jitter 7.6 (7.1 with zero drop-outs). Only truth aim + zero EIS residual reaches 1.8 °/s.', 'cost': 'pxMed flip needs a better-than-assumed vision tracker (ASSUMED numbers) + a 0.25 m camera drop/boom; jitter ≤3 needs a mechanically stabilised 3-axis gimbal (≈25–40 g) → KE worse; still not proven.'},
+   {'hypothesis': '(d) stop procedure keeping headClear ≥1 m (side landing in all winds, pay-out at the stop, furled wing for tow-in)', 'flips': 'no', 'numbers': 'stopPay 1.5 m/s + side-drop always + aero ×0.1 when retrieving: hc3 min 0.33 (baseline subset 0.014), 8/12 still <1 m; KE max 48.6. The residual events are launch in crosswind, fly-in while riding and the last 1.5 m of the retrieval next to the 1.24 m dock.', 'cost': 'n/a'},
+   {'hypothesis': '(e1) drop the tail gate so tail 3.5–9 cases fly', 'flips': 'no', 'numbers': '116 g: 5/6 tail cases still never fly (launch fails), headClear 0.39; kite 139 g/0.30 m²: flies 5/6 but avail 0–12 %, KE 66 J, headClear 0.03; 58 g: flies 5/6, avail 0–15 %, headClear 0.06. The tail gate exists for a real reason.', 'cost': 'n/a'},
+   {'hypothesis': '(e2) honest rule application (≤3 s capture exclusion)', 'flips': 'makes headClear worse', 'numbers': 'min 0.014 m, 22/48 < 1 m.', 'cost': 'n/a'},
+  ]},
+ 'findings': [
+  {'id': 'SE-01', 'severity': 'critical', 'title': 'KE cap is fundamentally violated', 'detail': 'Floor ½mv_rider² = 10.1 J at 116 g/13.2 m/s; tethered-wing whips at the window edge and at hockey stops reach 16–57 J; 35/48 cases >14.9 J. No tried mass/speed/line/steering combination brings the 12-case max under 14.9 J (best 19.1 J at 58 g with riders ≈9.8 m/s).'},
+  {'id': 'SE-02', 'severity': 'critical', 'title': 'headClear: dock/exit 1.24 m from the helmet is geometrically incompatible with a 1.0 m criterion through stops, crosswind launch and the final retrieval', 'detail': 'Safe-cone analysis + 22/48 failures with the 3 s rule; no stop procedure tried lifted min above 0.33 m.'},
+  {'id': 'SE-03', 'severity': 'high', 'title': 'headClear exclusion window not limited to 3 s (judge bug)', 'detail': 'analysis.js uses the entire CAPTURE mode (p50 4.2 s, up to 38.8 s). Reported min 0.25 m should read 0.014 m.'},
+  {'id': 'SE-04', 'severity': 'critical', 'title': 'Availability ≥80 % unreachable on R4', 'detail': 'Decomposition above; per-ride overhead + unflyable tail winds cap the ensemble mean at ≈30–45 % even with a much better camera chain (measured 44.6 % on flown subset ≈31 % ensemble-equivalent).'},
+  {'id': 'SE-05', 'severity': 'high', 'title': 'Jitter ≤3 °/s needs a mechanical gimbal', 'detail': 'Best realistic electronic chain 7.1–7.6 °/s; floor set by EIS residual on a high-rate flyer body and aim bandwidth.'},
+  {'id': 'SE-06', 'severity': 'medium', 'title': 'bodyPx and line artefact are design-fixable', 'detail': 'Better tracker + 0.25 m camera offset: px p50 383, art 0.1 % (ASSUMED sensor numbers).'},
+  {'id': 'SE-07', 'severity': 'medium', 'title': 'Judged extremes not converged', 'detail': 'dt 2→1 ms and seed changes move per-case KE/headClear by 50–100 %; report max/min with seed/dt bands.'},
+  {'id': 'SE-08', 'severity': 'low', 'title': 'Shared skier puts the full skid yaw on the pelvis at hockey stops', 'detail': 'Creates the 16–16.8 m/s exit spike for a rear-mounted exit; affects every concept with a body-offset exit; flag to the integrator (common/skier.js), not an AT-1 error.'},
+  {'id': 'SE-09', 'severity': 'low', 'title': 'Idealised flyer-relative velocity and sideslip estimates', 'detail': 'See estimatorHonesty; does not change any verdict (noise ×0 and ×2 sensitivities bracket it).'},
+ ],
+ 'limitations': ['Same simulator as the build (shared skier, wind, rules); no independent physics engine.', 'Rescue experiments are quick controller/parameter patches, not optimised designs; a better controller could reduce whips, but the floors (½mv², 1.24 m dock geometry, per-ride overhead, tail-wind apparent wind) do not depend on the controller.', 'All camera/sensor improvements are ASSUMED numbers.'],
+}
+json.dump(report, open(os.path.join(H, 'report.json'), 'w'), indent=1, ensure_ascii=False)
+print(json.dumps(report['rootCause']['availabilityLossDecomposition_ppOfEnsembleRidingTime']), report['reproduction']['allMatch'], kePk, hcEv, report['rootCause']['keDecomposition']['flyFlightKE_p50_p90_max_overFlownCases'])

@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "sources": 23,
+  "source_claims": 55,
+  "hypotheses": 28,
+  "pdf_visual_review": "all 11 pages overview; table page inspected at detail after column-width correction",
+  "structure": "passed; Chinese summary triggers whitespace word-count warning, manually reviewed",
+  "html": "CJK-aware verifier passed; original verifier Unicode emoji range incorrectly included Chinese, correction documented in validate_export.py",
+  "urls": "21/23 HEAD checks; Veo 2 return 403, full text previously read through web tool",
+  "physical_testing": "NOT_RUN",
+  "summary_cjk_characters": 542
+}

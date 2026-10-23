@@ -1,0 +1,1855 @@
+{
+ "conceptId": "leapfrog",
+ "title": {
+  "en": "Leapfrog lead-glider: the head-on view (iteration 3)",
+  "zh": "跃蛙前导滑翔相机：迎面视角（迭代 3）"
+ },
+ "date": "2026-10-20",
+ "modelVersion": "leapfrog@4.0.0",
+ "evidence": "Numerical-uncalibrated simulation plus engineering illustration. Nothing was built, flown or physically tested. Hardware values not tagged LIT/CALC are ASSUMED.",
+ "scopeArgument": {
+  "docs19": "docs/19 excludes cameras placed along the route in advance or depending on dedicated perch facilities, even if the user places them; it keeps flying/snow devices carried by the user that accompany them autonomously.",
+  "facts": "Carried in the holster before/after each run and on the lift; it places itself only during the run, autonomously, on plain snow (no facility); in flight it stays ≤48 m (hard limit); for 12–13 m/s riders it perches only when the rider stops (perched share of skiing time 3.2 % ensemble mean) and for slow riders up to ~20 % of skiing time.",
+  "reading": "In scope as an autonomous accompanying flying camera (audit LF-12 agrees). R06 differs because it is hand-placed and static. Caveat: a glider left behind (soft snow, motor failure, strong headwind give-up) becomes an object the user must recover; this is counted as +1 recovery action."
+ },
+ "chosenArchitecture": {
+  "bom": [
+   {
+    "id": "structure",
+    "g": 47,
+    "W": 0,
+    "src": "ASSUMED build-up (audit LF-03 airframe ≈48 g)"
+   },
+   {
+    "id": "motorProp",
+    "g": 11,
+    "W": 0,
+    "src": "audit LF-03"
+   },
+   {
+    "id": "avionics",
+    "g": 10,
+    "W": 1,
+    "src": "audit LF-03 (ASSUMED)"
+   },
+   {
+    "id": "servo",
+    "g": 7.5,
+    "W": 0.30000000000000004,
+    "src": "ASSUMED"
+   },
+   {
+    "id": "cam4k",
+    "g": 16,
+    "W": 2.5,
+    "src": "https://www.getfpv.com/runcam-thumb-pro-4k-hd-action-camera.html"
+   },
+   {
+    "id": "gimbal2ax",
+    "g": 30,
+    "W": 1,
+    "src": "https://rotorama.com/product/gm2 (power ASSUMED)"
+   },
+   {
+    "id": "wiring",
+    "g": 5,
+    "W": 0,
+    "src": "audit TG-02"
+   },
+   {
+    "id": "battery",
+    "g": 12,
+    "W": 0,
+    "src": "shared 150 Wh/kg pack level → 1.8 Wh"
+   },
+   {
+    "id": "npu",
+    "g": 4,
+    "W": 0.6,
+    "src": "ASSUMED (STM32N6-class); iteration-2 choice, kept as the no-vision variant"
+   }
+  ],
+  "sum_g": 142.5,
+  "withMargin_g": 163.9,
+  "keSpeedCap_ms": 13.484,
+  "vCapG": 12.78,
+  "limiterTarget3D": 12.18,
+  "camera": {
+   "rows": 2160,
+   "hfov": 22,
+   "sensorVfov": 12.48,
+   "pxPerRad": 9916.781,
+   "range300pxUpright_m": 52.889,
+   "range300pxApex50deg_m": 33.997
+  },
+  "pointing": {
+   "uwbSigDeg": 5,
+   "uwbTau": 0.5,
+   "gnssRelM": 1.5,
+   "gnssTau": 20,
+   "hErrM": 0.5,
+   "vision": 0,
+   "visSigDeg": 0.4,
+   "visPxMin": 32,
+   "previewDiv": 6,
+   "pDet": 0.9
+  }
+ },
+ "userSequence": [
+  {
+   "step": "morning: clip holster (14 Wh bank) to the hip belt and the UWB tag to the right wrist",
+   "where": "base",
+   "time_s": 20,
+   "actions": 1,
+   "note": "per day, not per run"
+  },
+  {
+   "step": "lift ride: holster charges the heated glider cell (heater energy counted)",
+   "where": "lift",
+   "time_s": 0,
+   "actions": 0
+  },
+  {
+   "step": "top: draw (wings spring open), hold ~2 s (wind check: LED green/red), toss down the fall line, push off",
+   "where": "top",
+   "time_s": 4,
+   "actions": 1
+  },
+  {
+   "step": "run: it leads ahead and films head-on; nothing to do",
+   "where": "piste",
+   "time_s": 0,
+   "actions": 0
+  },
+  {
+   "step": "rest stop: it lands ahead and keeps filming; at the push-off it takes off on its own",
+   "where": "piste",
+   "time_s": 0,
+   "actions": 0
+  },
+  {
+   "step": "end (lift approach): glide up to the perched glider (ensemble p90 11.3 s riding, p90 38.3 m) and stop beside it; it folds itself",
+   "where": "run-out",
+   "time_s": 0,
+   "actions": 0
+  },
+  {
+   "step": "pick it up and holster it (gloved, ASSUMED 10 s)",
+   "where": "run-out",
+   "time_s": 10,
+   "actions": 1
+  },
+  {
+   "step": "end of day: USB-C charge holster and glider",
+   "where": "base",
+   "time_s": 30,
+   "actions": 1,
+   "note": "per day"
+  }
+ ],
+ "perRun": {
+  "standstillP90_s": 24.528,
+  "standstillMax_s": 32.104,
+  "components": "launch stand (set-down + lead wait, mean 5.4 s) + landing wait + simulated move to the glider (mean 5.5 s) + 8 s pick-up/holster (ASSUMED)",
+  "actionsPerRun": 2,
+  "opsP90": 2,
+  "opsMax": 3,
+  "opsMaxCases": "head9_s12/s13: the 2 s launch estimate saw a lull, the glider could not keep pace and was left behind (+1 recovery)",
+  "handsWhileMoving_s": 0
+ },
+ "ensemble": {
+  "definition": "39 full runs (common/fullrun.js), shared re-audit rules (see iteration3Summary)",
+  "judged": {
+   "avail": {
+    "stat": "mean of 39 (col.riding)",
+    "value": 75.218,
+    "pass": false
+   },
+   "jitterRms": {
+    "stat": "p90 of footageStability subjectRms over flown cases",
+    "value": 2.216,
+    "pass": true
+   },
+   "setupTime": {
+    "stat": "p90 (simulated)",
+    "value": 24.528,
+    "max": 32.104,
+    "pass": true
+   },
+   "ops": {
+    "stat": "p90 / max",
+    "value": 2,
+    "max": 3,
+    "pass": true,
+    "passMax": false
+   },
+   "bodyForcePeak": {
+    "stat": "max",
+    "value": 3.426,
+    "pass": true
+   },
+   "keMax": {
+    "stat": "max",
+    "value": 13.592,
+    "pass": true
+   },
+   "headClear": {
+    "stat": "min",
+    "value": 1.89,
+    "pass": true
+   },
+   "endurance": {
+    "stat": "mean power of flown cases",
+    "value": 54.661,
+    "pass": true
+   },
+   "pxMed": {
+    "stat": "mean of case medians",
+    "value": 457.374,
+    "pass": true
+   },
+   "azRange": {
+    "stat": "mean",
+    "value": 79.113,
+    "pass": true
+   }
+  },
+  "availStats": {
+   "mean": 75.218,
+   "p10": 0,
+   "p50": 97.171,
+   "p90": 98.626,
+   "min": 0,
+   "max": 99.542,
+   "n": 39
+  },
+  "availFlown": {
+   "mean": 91.671,
+   "p10": 82.57,
+   "p50": 97.71,
+   "p90": 98.653,
+   "min": 18.561,
+   "max": 99.542,
+   "n": 32
+  },
+  "byWind": {
+   "0": {
+    "avail": {
+     "mean": 97.396,
+     "p10": 96.606,
+     "p50": 97.602,
+     "p90": 97.98,
+     "min": 96.606,
+     "max": 97.98,
+     "n": 3
+    },
+    "noFly": 0,
+    "footageFromFlight_pct": 96.976,
+    "footageFromPerch_pct": 3.024,
+    "keMax": 12.779,
+    "sepMaxFly": 43.266,
+    "setupP90": 20.135,
+    "opsMax": 2
+   },
+   "3": {
+    "avail": {
+     "mean": 88.667,
+     "p10": 92.134,
+     "p50": 97.818,
+     "p90": 98.572,
+     "min": 0,
+     "max": 98.626,
+     "n": 12
+    },
+    "noFly": 1,
+    "footageFromFlight_pct": 96.199,
+    "footageFromPerch_pct": 3.801,
+    "keMax": 13.592,
+    "sepMaxFly": 42.757,
+    "setupP90": 25.058,
+    "opsMax": 2
+   },
+   "6": {
+    "avail": {
+     "mean": 73.563,
+     "p10": 0,
+     "p50": 97.953,
+     "p90": 99.515,
+     "min": 0,
+     "max": 99.542,
+     "n": 12
+    },
+    "noFly": 3,
+    "footageFromFlight_pct": 98.217,
+    "footageFromPerch_pct": 1.783,
+    "keMax": 13.277,
+    "sepMaxFly": 48.62,
+    "setupP90": 22.314,
+    "opsMax": 2
+   },
+   "9": {
+    "avail": {
+     "mean": 57.878,
+     "p10": 0,
+     "p50": 82.57,
+     "p90": 97.71,
+     "min": 0,
+     "max": 98.572,
+     "n": 12
+    },
+    "noFly": 3,
+    "footageFromFlight_pct": 97.615,
+    "footageFromPerch_pct": 2.385,
+    "keMax": 13.495,
+    "sepMaxFly": 42.887,
+    "setupP90": 25.58,
+    "opsMax": 3
+   }
+  },
+  "byWindDir": [
+   {
+    "U": 3,
+    "dir": "head",
+    "availMean": 97.459,
+    "availMin": 96.686,
+    "keMax": 12.531,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   },
+   {
+    "U": 3,
+    "dir": "tail",
+    "availMean": 63.587,
+    "availMin": 0,
+    "keMax": 13.592,
+    "noFly": 1,
+    "gate": "fly/fly/progress"
+   },
+   {
+    "U": 3,
+    "dir": "crossL",
+    "availMean": 96.049,
+    "availMin": 92.726,
+    "keMax": 12.795,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   },
+   {
+    "U": 3,
+    "dir": "crossR",
+    "availMean": 97.575,
+    "availMin": 96.148,
+    "keMax": 12.791,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   },
+   {
+    "U": 6,
+    "dir": "head",
+    "availMean": 99.452,
+    "availMin": 99.3,
+    "keMax": 12.314,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   },
+   {
+    "U": 6,
+    "dir": "tail",
+    "availMean": 0,
+    "availMin": 0,
+    "keMax": 0,
+    "noFly": 3,
+    "gate": "progress/progress/progress"
+   },
+   {
+    "U": 6,
+    "dir": "crossL",
+    "availMean": 96.965,
+    "availMin": 95.016,
+    "keMax": 13.112,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   },
+   {
+    "U": 6,
+    "dir": "crossR",
+    "availMean": 97.836,
+    "availMin": 96.902,
+    "keMax": 13.277,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   },
+   {
+    "U": 9,
+    "dir": "head",
+    "availMean": 42.493,
+    "availMin": 18.561,
+    "keMax": 11.983,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   },
+   {
+    "U": 9,
+    "dir": "tail",
+    "availMean": 0,
+    "availMin": 0,
+    "keMax": 0,
+    "noFly": 3,
+    "gate": "progress/progress/wind"
+   },
+   {
+    "U": 9,
+    "dir": "crossL",
+    "availMean": 96.417,
+    "availMin": 93.023,
+    "keMax": 13.221,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   },
+   {
+    "U": 9,
+    "dir": "crossR",
+    "availMean": 92.601,
+    "availMin": 82.57,
+    "keMax": 13.495,
+    "noFly": 0,
+    "gate": "fly/fly/fly"
+   }
+  ],
+  "footageSource": {
+   "fromFlight": 97.237,
+   "fromPerch": 2.763,
+   "note": "share of usable riding-time footage filmed while airborne vs from the snow (perch/slide/take-off run), mean over flown cases"
+  },
+  "gateBypass": {
+   "note": "cases the gate refused, flown anyway",
+   "rows": [
+    {
+     "id": "tail3_s13",
+     "avail": 87.473,
+     "keMax": 13.429,
+     "sepMaxFly": 42.775,
+     "ops": 2,
+     "landNow": 0,
+     "giveUp": false,
+     "nextRun": false
+    },
+    {
+     "id": "tail6_s11",
+     "avail": 2.452,
+     "keMax": 8.355,
+     "sepMaxFly": 43.961,
+     "ops": 3,
+     "landNow": 0,
+     "giveUp": false,
+     "nextRun": true
+    },
+    {
+     "id": "tail6_s12",
+     "avail": 2.155,
+     "keMax": 9.259,
+     "sepMaxFly": 36.275,
+     "ops": 3,
+     "landNow": 0,
+     "giveUp": false,
+     "nextRun": true
+    },
+    {
+     "id": "tail6_s13",
+     "avail": 2.909,
+     "keMax": 8.169,
+     "sepMaxFly": 40.027,
+     "ops": 3,
+     "landNow": 0,
+     "giveUp": false,
+     "nextRun": true
+    },
+    {
+     "id": "tail9_s11",
+     "avail": 2.317,
+     "keMax": 9.498,
+     "sepMaxFly": 33.546,
+     "ops": 3,
+     "landNow": 0,
+     "giveUp": false,
+     "nextRun": true
+    },
+    {
+     "id": "tail9_s12",
+     "avail": 2.155,
+     "keMax": 0,
+     "sepMaxFly": 0,
+     "ops": 3,
+     "landNow": 0,
+     "giveUp": false,
+     "nextRun": true
+    },
+    {
+     "id": "tail9_s13",
+     "avail": 2.263,
+     "keMax": 0,
+     "sepMaxFly": 0,
+     "ops": 3,
+     "landNow": 0,
+     "giveUp": false,
+     "nextRun": true
+    }
+   ],
+   "keMax": 13.429,
+   "sepMaxFly": 43.961,
+   "availMean": 14.532
+  }
+ },
+ "variants": {
+  "V0_chosen": {
+   "note": "iteration-3 design: 164 g (NPU), fused UWB AoA 5° + GNSS + height-geometry pointing",
+   "over": {},
+   "availMean": 74.43,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 97.98,
+    "calm_s12": 96.606,
+    "head3_s12": 96.686,
+    "tail3_s11": 98.626,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.171,
+    "crossL6_s11": 98.06,
+    "crossR6_s12": 96.902,
+    "head6_s13": 99.542,
+    "tail6_s12": 0,
+    "crossL9_s12": 93.023,
+    "head9_s12": 18.561
+   },
+   "noFly": 2,
+   "jitterP90": 2.069,
+   "keMax": 13.255,
+   "sepMaxFly": 43.266,
+   "setupP90": 24.4,
+   "opsMax": 3,
+   "pointRms": 2.951,
+   "pxMed": 414.024,
+   "endurance": 58.423
+  },
+  "V1_vision_172g": {
+   "note": "shared vision compute (11 g / 2.5 W) with on-board person detection locking the gimbal; 172 g → lower KE speed cap",
+   "over": {
+    "vision": 1,
+    "mass": 0.1719,
+    "vCapG": 12.47,
+    "pNpu": 2.5
+   },
+   "availMean": 69.302,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 98.114,
+    "calm_s12": 97.683,
+    "head3_s12": 97.575,
+    "tail3_s11": 25.862,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.818,
+    "crossL6_s11": 97.872,
+    "crossR6_s12": 97.953,
+    "head6_s13": 99.731,
+    "tail6_s12": 0,
+    "crossL9_s12": 99.973,
+    "head9_s12": 19.046
+   },
+   "noFly": 2,
+   "jitterP90": 1.601,
+   "keMax": 13.198,
+   "sepMaxFly": 43.906,
+   "setupP90": 24.42,
+   "opsMax": 3,
+   "pointRms": 2.118,
+   "pxMed": 397.421,
+   "endurance": 49.33
+  },
+  "V2_uwbOnly_tau2": {
+   "note": "UWB AoA only (σ 5°, τ 2 s as in audit2) for azimuth, height geometry for elevation, no GNSS",
+   "over": {
+    "gnssRelM": 1000,
+    "uwbTau": 2
+   },
+   "availMean": 72.122,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 95.178,
+    "calm_s12": 93.885,
+    "head3_s12": 94.289,
+    "tail3_s11": 93.777,
+    "tail3_s13": 0,
+    "crossL3_s13": 94.046,
+    "crossL6_s11": 95.07,
+    "crossR6_s12": 94.073,
+    "head6_s13": 96.74,
+    "tail6_s12": 0,
+    "crossL9_s12": 89.898,
+    "head9_s12": 18.508
+   },
+   "noFly": 2,
+   "jitterP90": 4.2,
+   "keMax": 13.255,
+   "sepMaxFly": 43.266,
+   "setupP90": 24.4,
+   "opsMax": 3,
+   "pointRms": 4.62,
+   "pxMed": 411.81,
+   "endurance": 58.423
+  },
+  "V3_uwbOnly_noHeight_tau2": {
+   "note": "UWB only, 5° in azimuth AND elevation (no height geometry), τ 2 s — audit2 style",
+   "over": {
+    "pointModel": "gm",
+    "pointSigDeg": 5,
+    "pointTau": 2
+   },
+   "availMean": 43.73,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 61.692,
+    "calm_s12": 62.392,
+    "head3_s12": 62.069,
+    "tail3_s11": 44.235,
+    "tail3_s13": 0,
+    "crossL3_s13": 60.776,
+    "crossL6_s11": 56.708,
+    "crossR6_s12": 60.075,
+    "head6_s13": 56.87,
+    "tail6_s12": 0,
+    "crossL9_s12": 54.014,
+    "head9_s12": 5.927
+   },
+   "noFly": 2,
+   "jitterP90": 9.788,
+   "keMax": 13.572,
+   "sepMaxFly": 43.328,
+   "setupP90": 24.4,
+   "opsMax": 3,
+   "pointRms": 0,
+   "pxMed": 400.862,
+   "endurance": 58.239
+  },
+  "V4_it2_oracle_1.2": {
+   "note": "iteration-2 pointing assumption (Gauss–Markov 1.2°)",
+   "over": {
+    "pointModel": "gm",
+    "pointSigDeg": 1.2,
+    "pointTau": 2
+   },
+   "availMean": 72.995,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 97.764,
+    "calm_s12": 95.797,
+    "head3_s12": 96.471,
+    "tail3_s11": 86.584,
+    "tail3_s13": 0,
+    "crossL3_s13": 96.794,
+    "crossL6_s11": 98.033,
+    "crossR6_s12": 96.148,
+    "head6_s13": 98.788,
+    "tail6_s12": 0,
+    "crossL9_s12": 92.699,
+    "head9_s12": 16.864
+   },
+   "noFly": 2,
+   "jitterP90": 1.75,
+   "keMax": 13.572,
+   "sepMaxFly": 43.328,
+   "setupP90": 24.4,
+   "opsMax": 3,
+   "pointRms": 0,
+   "pxMed": 416.266,
+   "endurance": 58.239
+  },
+  "V5_vision_pDet0.6": {
+   "note": "vision variant with detection probability 0.6 per frame",
+   "over": {
+    "vision": 1,
+    "mass": 0.1719,
+    "vCapG": 12.47,
+    "pNpu": 2.5,
+    "pDet": 0.6
+   },
+   "availMean": 69.237,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 98.114,
+    "calm_s12": 97.737,
+    "head3_s12": 97.522,
+    "tail3_s11": 25.862,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.495,
+    "crossL6_s11": 97.872,
+    "crossR6_s12": 97.953,
+    "head6_s13": 99.731,
+    "tail6_s12": 0,
+    "crossL9_s12": 99.515,
+    "head9_s12": 19.046
+   },
+   "noFly": 2,
+   "jitterP90": 1.316,
+   "keMax": 13.198,
+   "sepMaxFly": 43.906,
+   "setupP90": 24.42,
+   "opsMax": 3,
+   "pointRms": 2.14,
+   "pxMed": 397.281,
+   "endurance": 49.327
+  },
+  "V6_mass_plus10": {
+   "note": "mass +10 % with the KE cap re-derived",
+   "over": {
+    "mass": 0.18029,
+    "vCapG": 12.16
+   },
+   "availMean": 68.409,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 95.555,
+    "calm_s12": 98.168,
+    "head3_s12": 97.495,
+    "tail3_s11": 7.058,
+    "tail3_s13": 0,
+    "crossL3_s13": 95.501,
+    "crossL6_s11": 95.609,
+    "crossR6_s12": 98.949,
+    "head6_s13": 97.899,
+    "tail6_s12": 0,
+    "crossL9_s12": 65.652,
+    "head9_s12": 69.019
+   },
+   "noFly": 2,
+   "jitterP90": 2.112,
+   "keMax": 13.289,
+   "sepMaxFly": 42.466,
+   "setupP90": 26.92,
+   "opsMax": 3,
+   "pointRms": 3.045,
+   "pxMed": 466.298,
+   "endurance": 56.878
+  },
+  "V7_estBias_x2": {
+   "note": "wind-estimate bias ±2 m/s instead of ±1",
+   "over": {
+    "estBias": 2
+   },
+   "availMean": 65.405,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 92.645,
+    "calm_s12": 94.316,
+    "head3_s12": 93.077,
+    "tail3_s11": 12.365,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.953,
+    "crossL6_s11": 95.043,
+    "crossR6_s12": 88.039,
+    "head6_s13": 99.784,
+    "tail6_s12": 0,
+    "crossL9_s12": 80.711,
+    "head9_s12": 30.927
+   },
+   "noFly": 2,
+   "jitterP90": 3.326,
+   "keMax": 13.743,
+   "sepMaxFly": 43.799,
+   "setupP90": 24.308,
+   "opsMax": 3,
+   "pointRms": 2.962,
+   "pxMed": 402.725,
+   "endurance": 57.012
+  },
+  "V8_lead_closer": {
+   "note": "shorter lead: ≥360 px at the turn apex instead of 315",
+   "over": {
+    "pxGapK": 360
+   },
+   "availMean": 73.48,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 97.818,
+    "calm_s12": 97.899,
+    "head3_s12": 97.656,
+    "tail3_s11": 83.594,
+    "tail3_s13": 0,
+    "crossL3_s13": 98.114,
+    "crossL6_s11": 97.414,
+    "crossR6_s12": 98.087,
+    "head6_s13": 99.542,
+    "tail6_s12": 0,
+    "crossL9_s12": 93.077,
+    "head9_s12": 18.561
+   },
+   "noFly": 2,
+   "jitterP90": 3.468,
+   "keMax": 13.539,
+   "sepMaxFly": 42.4,
+   "setupP90": 24.4,
+   "opsMax": 3,
+   "pointRms": 3.018,
+   "pxMed": 427.546,
+   "endurance": 58.013
+  },
+  "V9_lead_longer": {
+   "note": "longer lead: ≥280 px at the turn apex",
+   "over": {
+    "pxGapK": 280
+   },
+   "availMean": 72.627,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 97.468,
+    "calm_s12": 90.894,
+    "head3_s12": 91.137,
+    "tail3_s11": 98.168,
+    "tail3_s13": 0,
+    "crossL3_s13": 93.939,
+    "crossL6_s11": 98.249,
+    "crossR6_s12": 90.544,
+    "head6_s13": 99.542,
+    "tail6_s12": 0,
+    "crossL9_s12": 93.023,
+    "head9_s12": 18.561
+   },
+   "noFly": 2,
+   "jitterP90": 2.069,
+   "keMax": 13.255,
+   "sepMaxFly": 43.951,
+   "setupP90": 24.4,
+   "opsMax": 3,
+   "pointRms": 2.969,
+   "pxMed": 414.882,
+   "endurance": 58.298
+  },
+  "V10_no_crab": {
+   "note": "no KE-feasible crab guidance (straight air vector + airbrake only)",
+   "over": {
+    "crab": 0
+   },
+   "availMean": 74.432,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 97.98,
+    "calm_s12": 96.606,
+    "head3_s12": 96.686,
+    "tail3_s11": 98.653,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.171,
+    "crossL6_s11": 98.06,
+    "crossR6_s12": 96.902,
+    "head6_s13": 99.542,
+    "tail6_s12": 0,
+    "crossL9_s12": 93.023,
+    "head9_s12": 18.561
+   },
+   "noFly": 2,
+   "jitterP90": 2.069,
+   "keMax": 13.331,
+   "sepMaxFly": 43.266,
+   "setupP90": 24.198,
+   "opsMax": 3,
+   "pointRms": 2.95,
+   "pxMed": 411.768,
+   "endurance": 58.427
+  },
+  "V11_no_gate": {
+   "note": "progress gate off (fly whenever |w̃| ≤ 11 m/s)",
+   "over": {
+    "gateMode": 0
+   },
+   "availMean": 82.597,
+   "availMin": 5.9,
+   "avail": {
+    "calm_s11": 97.98,
+    "calm_s12": 96.606,
+    "head3_s12": 96.686,
+    "tail3_s11": 98.626,
+    "tail3_s13": 92.107,
+    "crossL3_s13": 97.171,
+    "crossL6_s11": 98.06,
+    "crossR6_s12": 96.902,
+    "head6_s13": 99.542,
+    "tail6_s12": 5.9,
+    "crossL9_s12": 93.023,
+    "head9_s12": 18.561
+   },
+   "noFly": 0,
+   "jitterP90": 2.069,
+   "keMax": 13.42,
+   "sepMaxFly": 47.159,
+   "setupP90": 28.077,
+   "opsMax": 3,
+   "pointRms": 2.873,
+   "pxMed": 384.872,
+   "endurance": 59.863
+  },
+  "V12_ld_minus30": {
+   "note": "L/D −30 % (shared glider rule)",
+   "over": {
+    "ldScale": 0.7
+   },
+   "availMean": 71.154,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 97.791,
+    "calm_s12": 96.767,
+    "head3_s12": 97.36,
+    "tail3_s11": 64.601,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.252,
+    "crossL6_s11": 97.791,
+    "crossR6_s12": 96.498,
+    "head6_s13": 97.818,
+    "tail6_s12": 0,
+    "crossL9_s12": 98.734,
+    "head9_s12": 9.24
+   },
+   "noFly": 2,
+   "jitterP90": 1.841,
+   "keMax": 12.913,
+   "sepMaxFly": 56.216,
+   "setupP90": 24.8,
+   "opsMax": 3,
+   "pointRms": 2.88,
+   "pxMed": 412.931,
+   "endurance": 53
+  },
+  "V13_eis_0.25": {
+   "note": "EIS residual 25 %",
+   "over": {
+    "eisRes": 0.25
+   },
+   "availMean": 74.423,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 97.98,
+    "calm_s12": 96.606,
+    "head3_s12": 96.659,
+    "tail3_s11": 98.626,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.144,
+    "crossL6_s11": 98.06,
+    "crossR6_s12": 96.875,
+    "head6_s13": 99.542,
+    "tail6_s12": 0,
+    "crossL9_s12": 93.05,
+    "head9_s12": 18.534
+   },
+   "noFly": 2,
+   "jitterP90": 2.513,
+   "keMax": 13.255,
+   "sepMaxFly": 43.266,
+   "setupP90": 24.4,
+   "opsMax": 3,
+   "pointRms": 2.951,
+   "pxMed": 414.007,
+   "endurance": 58.423
+  },
+  "V14_live_framing": {
+   "note": "no post reframing (live gimbal framing)",
+   "over": {
+    "postFrame": 0
+   },
+   "availMean": 58.001,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 73.572,
+    "calm_s12": 78.852,
+    "head3_s12": 78.421,
+    "tail3_s11": 76.724,
+    "tail3_s13": 0,
+    "crossL3_s13": 76.751,
+    "crossL6_s11": 74.973,
+    "crossR6_s12": 79.688,
+    "head6_s13": 72.683,
+    "tail6_s12": 0,
+    "crossL9_s12": 69.073,
+    "head9_s12": 15.275
+   },
+   "noFly": 2,
+   "jitterP90": 7.077,
+   "keMax": 13.255,
+   "sepMaxFly": 43.266,
+   "setupP90": 24.4,
+   "opsMax": 3,
+   "pointRms": 2.951,
+   "pxMed": 409.423,
+   "endurance": 58.423
+  },
+  "V15_prop_it2": {
+   "note": "iteration-2 prop: 4″, T0 1.6 N, pitch speed 22 m/s",
+   "over": {
+    "Vp": 22,
+    "T0": 1.6
+   },
+   "availMean": 72.602,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 98.033,
+    "calm_s12": 96.633,
+    "head3_s12": 96.74,
+    "tail3_s11": 84.133,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.225,
+    "crossL6_s11": 98.276,
+    "crossR6_s12": 96.983,
+    "head6_s13": 99.327,
+    "tail6_s12": 0,
+    "crossL9_s12": 93.265,
+    "head9_s12": 10.614
+   },
+   "noFly": 2,
+   "jitterP90": 1.976,
+   "keMax": 13.463,
+   "sepMaxFly": 43.674,
+   "setupP90": 24.42,
+   "opsMax": 3,
+   "pointRms": 2.947,
+   "pxMed": 418.784,
+   "endurance": 59.536
+  },
+  "V16_prop_Vp28_T16": {
+   "note": "optimistic: pitch speed 28 m/s with the full 1.6 N static thrust",
+   "over": {
+    "Vp": 28,
+    "T0": 1.6
+   },
+   "availMean": 78.141,
+   "availMin": 0,
+   "avail": {
+    "calm_s11": 98.06,
+    "calm_s12": 96.659,
+    "head3_s12": 96.579,
+    "tail3_s11": 84.456,
+    "tail3_s13": 0,
+    "crossL3_s13": 97.225,
+    "crossL6_s11": 98.303,
+    "crossR6_s12": 96.929,
+    "head6_s13": 99.111,
+    "tail6_s12": 0,
+    "crossL9_s12": 81.492,
+    "head9_s12": 88.874
+   },
+   "noFly": 2,
+   "jitterP90": 3.541,
+   "keMax": 13.451,
+   "sepMaxFly": 43.753,
+   "setupP90": 24.027,
+   "opsMax": 2,
+   "pointRms": 3.033,
+   "pxMed": 469.983,
+   "endurance": 52.414
+  }
+ },
+ "envelope": {
+  "wind": "downslope component of the estimate ≲4 m/s (feasible progress drops to <0 above ≈4.4 m/s: 1.12 v_stall + tailwind > speed cap) → tail 6 and 9 m/s refused (0 %); headwind to 6 m/s full, 9 m/s 42 % mean with ops 3 in 2/3 (estimate lull); cross 9 m/s 92–96 %; total ≤12.5 m/s, gusts ≤15 m/s",
+  "byWindAvail": {
+   "0": 97.396,
+   "3": 88.667,
+   "6": 73.563,
+   "9": 57.878
+  },
+  "riderSpeed": "avail 64–79 % on the 6-case wind subset for vTarget 7–13; vTarget 14 refused",
+  "snow": "groomed only (powder strands it, ice slides 17+ m)",
+  "cannotPassHonestly": "Ensemble avail ≥80 % is not reachable with honest physics at 164 g and the 14.9 J line: the tail-6/9 m/s cases (6/39) are physically unfilmable for an 11 m/s-progress rider (floor airspeed + tailwind exceeds the KE speed cap; a hop-and-perch mode yields 2–3 % and leaves the glider >50 m behind). Without them the remaining 33 cases average 88.9 %."
+ },
+ "regulation": {
+  "class": "Unmanned aircraft even when gliding. 168.5 g < 250 g, ground speed ≤12.6 m/s < 19 m/s: designed for EU C0 (A1, operator registration because of the camera, never over assemblies). US: recreational sUAS < 250 g, TRUST, CBO rules, VLOS — a lead device in front of the rider is the most plausible VLOS layout.",
+  "vlos": "A lead device flies in front of the rider, inside their visual line of sight while they ski, unlike a chase drone behind them. The 50 m follow-me radius (SRC-43) is respected by design (sepMax ≤50 m in nominal).",
+  "resortRules": "Many resorts ban drones or require written permission (docs/20). A perched object on the piste edge also falls under resort and FIS-code rules on obstacles. Hi-vis colours, an LED and the take-off-away/landing-postponement logic reduce the risk, but resort approval is needed.",
+  "othersSafety": "KE in the ground frame ≤14.1 J by the speed cap (criteria line 14.9 J). Touchdown KE ≤3 J in light wind and up to 5.7 J in a 13 m/s gust. Other skiers are avoided by landing-site selection; a skier hitting a perched 125 g glider is not modelled.",
+  "geofence": "48 m separation hard limit in flight (ensemble max in flight 42.5 m p90); the follow-me derogation applies to flight; a perched glider is not flying.",
+  "resortGate": "Written resort permission is a gate (Vail-type bans). Not fixable by design."
+ },
+ "othersSafety": {
+  "keMaxEnsemble_J": 13.592,
+  "touchdownKE_J": {
+   "mean": 2.4,
+   "p10": 0.3,
+   "p90": 3.6
+  },
+  "exposurePerRun": {
+   "perRun": {
+    "perchedS": 5.375,
+    "flyingS": 72.542
+   },
+   "note": "expected other-skier passes per run, rate = density × 10 m/s × 2r × time; densities ASSUMED; detection 80 % ASSUMED for the on-board person detector",
+   "table": {
+    "low": {
+     "skiersPer1000m2": 0.1,
+     "perchPassesWithin3m": 0.032,
+     "flightPassesWithin5m": 0.725,
+     "afterAvoidance": 0.152
+    },
+    "medium": {
+     "skiersPer1000m2": 0.3,
+     "perchPassesWithin3m": 0.097,
+     "flightPassesWithin5m": 2.176,
+     "afterAvoidance": 0.455
+    },
+    "high": {
+     "skiersPer1000m2": 1,
+     "perchPassesWithin3m": 0.323,
+     "flightPassesWithin5m": 7.254,
+     "afterAvoidance": 1.515
+    }
+   }
+  },
+  "note": "Poisson estimate with ASSUMED densities: most exposure is the ~74 s of flight 3 m above the piste, not the perch. Medium density ≈2 flight passes within 5 m per run before avoidance. A skier hitting a perched or low-flying glider is not modelled."
+ },
+ "honestLimits": [
+  "Nothing is physically tested: perching flare, skid take-off, claw braking/anchoring, gimbal/EIS performance, pick-up time and the pointing accuracy of UWB angle-of-arrival are ASSUMED.",
+  "Forces are point-mass; the attitude model only drives the camera. Sub-span turbulence is absent from the shared wind field, so airframe shake may be under-estimated (sensitivity ×2 shows gimbal+EIS absorb it in the model).",
+  "Wind estimate at launch has only ≈2 s of data (shared windEstimate clamps at t=0): lulls let head9 runs launch and get left behind.",
+  "Rider-speed sensitivity: flight separation reaches 54 m (vTarget 11) and 50.5 m (vTarget 13) in 1 of 6 cases each; L/D −30 % variant reaches 56 m — the 48 m hard limit is not yet robust outside the nominal rider.",
+  "tdKE max 6.9 J > own 5 J line in tail 3 m/s (downwind flare); slide max 7.2 m."
+ ],
+ "physicalTestsNeeded": [
+  "set-down skid take-off on groomed/chalky/wind-packed snow at −10 °C incl. cross-slope and into-wind runs (≥20 trials, ≥95 %)",
+  "pointing: two-antenna UWB + GNSS + ToF height on the glider vs wrist tag at 15–45 m in motion; elevation error σ ≤0.5 m equivalent is load-bearing (5° elevation error → 44 % subset avail)",
+  "wind estimate at launch: holster/glider sensor bias and lull detection in 6–9 m/s headwind (head9 lull → ops 3)",
+  "KE protection flight log: 3-D ground speed ≤13.3 m/s with crab/trim/land-now in 3–6 m/s tailwind gusts",
+  "lift-geofence landing precision: within 10 m of the pick-up spot, never within 10 m of other people",
+  "perching flare/touchdown on snow (≥30 landings), claw anchor, perch hold to 15 m/s gusts",
+  "gloved pick-up/holster time (8 s ASSUMED) and set-down time (2.5 s ASSUMED)",
+  "22° M12 lens on a GM2-class gimbal: bandwidth/residual"
+ ],
+ "citedSources": [
+  {
+   "id": "SRC-27",
+   "what": "Insitu ScanEagle SkyHook rope capture",
+   "url": "https://en.wikipedia.org/wiki/Boeing_Insitu_MQ-27_ScanEagle",
+   "use": "hook/rope capture precedent; capture benchmark"
+  },
+  {
+   "id": "I-10 prior art",
+   "what": "Waco CG-4A glider snatch pick-up (WWII)",
+   "url": "https://www.historyofwar.org/Pictures/pictures_glider_pickup.html",
+   "use": "moving-vehicle snatch with an elastic line; our lanyard 10 N/m, 0.6 m"
+  },
+  {
+   "id": "Cory & Tedrake 2008",
+   "what": "R. Cory, R. Tedrake, \"Experiments in fixed-wing UAV perching\", AIAA GNC 2008 (cited from memory, not re-fetched this round)",
+   "url": null,
+   "use": "post-stall perching flare concept; our flat-plate CN = 1.8·sinα model is ASSUMED, not fitted to that paper"
+  },
+  {
+   "id": "SRC-04",
+   "what": "Stanford SNAG bird-inspired perching grasper",
+   "url": "https://techxplore.com/news/2021-12-stanford-bird-bots-perch.amp",
+   "use": "zero-power perched waiting as a design pattern"
+  },
+  {
+   "id": "SRC-01",
+   "what": "Switchblade 300 spring-unfolding wings from a tube",
+   "url": "https://en.wikipedia.org/wiki/AeroVironment_Switchblade",
+   "use": "folded-wing holster stow, spring-open on the draw"
+  },
+  {
+   "id": "SRC-33",
+   "what": "AER throwable foam GoPro glider (Kickstarter)",
+   "url": "https://newatlas.com/aer-throw-gopro/45737/",
+   "use": "prior art for a hand-thrown camera glider (passive, no guidance; it does not lead, perch or come back)"
+  },
+  {
+   "id": "SRC-10",
+   "what": "Self-heating all-climate Li-ion (embedded Ni foil)",
+   "url": "https://www.eenewseurope.com/en/self-heating-lithium-ion-battery-combats-freezing-tempatures/",
+   "use": "allows charging the 1S cell from the holster bank at −10 °C (ASSUMED integration)"
+  },
+  {
+   "id": "SRC-16/17",
+   "what": "UWB ranging ≈10–18 cm (DW3110, phone UWB)",
+   "url": "https://www.qorvo.com/products/p/DW3110",
+   "use": "rider tag for the lead/lane control and the wrist tag for the active hoop (σ 0.05 m fused with vision, ASSUMED)"
+  },
+  {
+   "id": "SRC-19",
+   "what": "ST VL53L8CX multizone ToF",
+   "url": "https://www.st.com/en/imaging-and-photonics-solutions/vl53l8cx.html",
+   "use": "height above snow for the flare (4 m range)"
+  },
+  {
+   "id": "SRC-21",
+   "what": "Gyroflow gyro-based stabilisation",
+   "url": "https://gyroflow.xyz/",
+   "use": "residual stabilisation after the 2-axis turret (0.5 °/s residual ASSUMED in jitter)"
+  },
+  {
+   "id": "SRC-43",
+   "what": "EU 2019/947 open category: VLOS except follow-me mode, follow-me ≤50 m",
+   "url": "https://gesetze.legal/eu/vo_eu_2019_947/anhang",
+   "use": "sepMax ≤50 m criterion; gapLand chosen 42 m to respect it"
+  },
+  {
+   "id": "SRC-44",
+   "what": "EU C0 class: <250 g, ≤19 m/s",
+   "url": "https://uas-betrieb.bund.de/homepage/en/information/categorizing-drone-operations/c-classified-drones",
+   "use": "125 g, 15 m/s cap fits C0"
+  },
+  {
+   "id": "SRC-45",
+   "what": "Stepan et al.: skier speeds at US areas, mean 34.9 ± 13.6 km/h (9.7 m/s), advanced 44.5 ± 11.7 km/h",
+   "url": "https://doaj.org/article/2b935686ece744eca0efec1d27afabe2",
+   "use": "the 12.5–13 m/s downhill-progress envelope covers the mean skier; advanced skiers are often outside it"
+  },
+  {
+   "id": "components.js",
+   "what": "shared component/battery table (integrator, 2026-10-19)",
+   "url": null,
+   "use": "masses, powers, 150 Wh/kg, cold 0.75, reserve 15 %, heater 0.6 W, keSpeedCap"
+  },
+  {
+   "id": "DJI Osmo Action 4",
+   "what": "action camera with a 4K 4:3 recording mode",
+   "url": "https://www.dji.com/osmo-action-4/specs",
+   "use": "existence proof that 4K 4:3 recording SoCs exist (module mass/power ASSUMED)"
+  },
+  {
+   "id": "Qorvo DW3000 PDoA",
+   "what": "UWB phase-difference angle of arrival",
+   "url": "https://www.qorvo.com/products/p/DW3110",
+   "use": "rider bearing for pointing (accuracy ASSUMED 1.2° filtered)"
+  },
+  {
+   "id": "STM32N6",
+   "what": "MCU with NPU for edge vision",
+   "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32n6-series.html",
+   "use": "person detection for other skiers (mass/power ASSUMED)"
+  }
+ ],
+ "iteration3Summary": [
+  "Shared judging rules: avail on col.riding (no-fly = 0), jitter = p90 of the shared footageStability over flown cases, simulated standstill (set-down + lead wait + landing wait + simulated glide/side-step to the glider + 8 s pick-up ASSUMED), every wind gate on windEstimate(), headClear judged.",
+  "Launch: no hand toss. The rider sets the opened glider on the snow 1.5 m beside the skis; it runs away from the rider on its skid and lifts off (headClear min 1.89 m; the iteration-2 toss gives 0.05 m and fails, scenario launch_toss). The rider pushes off when it leads by 15 m (30 m when the estimate says it cannot out-pace this rider).",
+  "Wind gates on the shared estimate: (1) |w̃| ≤ 12.5 m/s; (2) progress gate — the glider can fly a sustained track (≤2.5 m/s drift) downhill at least as fast as this rider (learned progress) with 3-D ground speed ≤ vCapG−0.3 and thrust+slope; (3) in flight: progress check → land ahead and film from the perch, never chase; (4) gust interlock (air-data peak or mean+2.5σ > 15 m/s → hold/land); (5) into-wind approach when a downwind landing would over-speed.",
+  "Independent speed protection (A2-LF-02): KE-feasible crab air heading (3-D incl. terrain-following descent), GNSS ground-speed trim and min crab angle, airbrake, altitude hold instead of terrain following when the airbrake saturates, GNSS land-now at KE cap − 0.4 m/s, skid-run abort at the limit, no lift-off outside the follow-me radius. Gate bypassed on all 7 refused cases: KE max 13.43 J, flight separation max 44.0 m.",
+  "Pointing (A2-LF-03): sourced fusion — UWB PDoA azimuth σ 5° (Qorvo DW3000 ±5°), GNSS relative position σ 1.5 m/axis (two M10-class receivers, 1.5 m CEP each), elevation from UWB range + own height (ToF) + slope, height error σ 0.5 m. Ensemble pointing RMS 4.7° (vs 1.2° assumed in it. 2). UWB-only azimuth (τ 2 s): subset avail 72.1 vs 74.4 %; 5° in elevation too (audit style): 43.7 % — the height geometry is load-bearing (kill test). Vision variant (shared 11 g / 2.5 W compute, person detection): better pointing but 172 g lowers the KE cap: 69.3 % → not chosen.",
+  "Camera: shared 4K 16:9 module (16 g / 2.5 W, A2-LF-06) behind a 22° lens (narrower than 30° because elevation no longer depends on UWB); mass 142.5 g × 1.15 = 163.9 g; KE cap 13.48 m/s; limiter target 12.18 m/s 3-D.",
+  "Lift geofence is positional (mapped entry ±4/3 m); it lands on a pick-up spot 5 m past and 4 m beside the entry; retrieval glide simulated. Coarser 4×3 prop (Vp 28 m/s, T0 1.3 N ASSUMED) for headwind lead flight. Shorter dwell trigger (gapGo 14 m) and a lane that widens to keep the rider ≥17 m when the lead is short (crop fits the 22° lens)."
+ ],
+ "modes": {
+  "lead": "normal: lead 20–35 m ahead, head-on footage (97 % of usable footage is from flight)",
+  "slowRider": "rider progress ≲8 m/s: leapfrog perches (perch share 10–30 %, rider-speed table)",
+  "hopAndPerch": "when the in-flight estimate says it cannot keep pace: lands ahead, films the approach from the perch, does not chase (follow-me radius); with the gate bypassed this gives only 2–3 % avail and the glider is left behind (+1 op) — so the launch gate refuses these runs instead",
+  "fastRider": "rider progress > ≈11.9 m/s (vTarget 14): refused by the progress gate (cannot lead under the KE cap)"
+ },
+ "riderSpeed": [
+  {
+   "vTarget": 7,
+   "availMean": 73.424,
+   "avail": {
+    "calm_s11": 85.291,
+    "head3_s13": 91.352,
+    "tail3_s11": 87.581,
+    "crossL6_s12": 80.28,
+    "tail6_s12": 0,
+    "head9_s12": 96.04
+   },
+   "noFly": 1,
+   "keMax": 13.335,
+   "sepMaxFly": 49.149,
+   "opsMax": 3,
+   "fromPerch": 29.538
+  },
+  {
+   "vTarget": 9,
+   "availMean": 77.537,
+   "avail": {
+    "calm_s11": 97.171,
+    "head3_s13": 96.202,
+    "tail3_s11": 89.224,
+    "crossL6_s12": 94.908,
+    "tail6_s12": 0,
+    "head9_s12": 87.716
+   },
+   "noFly": 1,
+   "keMax": 13.304,
+   "sepMaxFly": 48.082,
+   "opsMax": 2,
+   "fromPerch": 9.898
+  },
+  {
+   "vTarget": 11,
+   "availMean": 78.763,
+   "avail": {
+    "calm_s11": 98.06,
+    "head3_s13": 97.198,
+    "tail3_s11": 91.622,
+    "crossL6_s12": 90.383,
+    "tail6_s12": 0,
+    "head9_s12": 95.313
+   },
+   "noFly": 1,
+   "keMax": 13.265,
+   "sepMaxFly": 54.187,
+   "opsMax": 2,
+   "fromPerch": 5.234
+  },
+  {
+   "vTarget": 12,
+   "availMean": 68.009,
+   "avail": {
+    "calm_s11": 97.98,
+    "head3_s13": 97.872,
+    "tail3_s11": 98.626,
+    "crossL6_s12": 95.016,
+    "tail6_s12": 0,
+    "head9_s12": 18.561
+   },
+   "noFly": 1,
+   "keMax": 13.255,
+   "sepMaxFly": 41.471,
+   "opsMax": 3,
+   "fromPerch": 3.777
+  },
+  {
+   "vTarget": 13,
+   "availMean": 64.485,
+   "avail": {
+    "calm_s11": 95.959,
+    "head3_s13": 97.98,
+    "tail3_s11": 62.985,
+    "crossL6_s12": 95.905,
+    "tail6_s12": 0,
+    "head9_s12": 34.079
+   },
+   "noFly": 1,
+   "keMax": 13.598,
+   "sepMaxFly": 50.471,
+   "opsMax": 3,
+   "fromPerch": 2.821
+  },
+  {
+   "vTarget": 14,
+   "availMean": 0,
+   "avail": {
+    "calm_s11": 0,
+    "head3_s13": 0,
+    "tail3_s11": 0,
+    "crossL6_s12": 0,
+    "tail6_s12": 0,
+    "head9_s12": 0
+   },
+   "noFly": 6,
+   "keMax": 0,
+   "sepMaxFly": 0,
+   "opsMax": 1,
+   "fromPerch": null
+  }
+ ],
+ "envelope2D": {
+  "note": "gate: the glider can fly a sustained track (≤2.5 m/s drift across the piste) with downhill progress ≥ the rider's (thrust + slope gravity, 1.12 v_stall floor, ground speed ≤ vCapG − 0.3); downslope wind + = tail",
+  "riderProgress": {
+   "6": 6.402,
+   "8": 8.09,
+   "10": 9.767,
+   "12": 11.42,
+   "14": 13.046
+  },
+  "table": [
+   {
+    "downslopeWind": -9,
+    "vProgGlider": 11.878,
+    "vProgGliderVision": 11.568,
+    "fliesFor": {
+     "6": true,
+     "8": true,
+     "10": true,
+     "12": true,
+     "14": false
+    }
+   },
+   {
+    "downslopeWind": -6,
+    "vProgGlider": 11.878,
+    "vProgGliderVision": 11.568,
+    "fliesFor": {
+     "6": true,
+     "8": true,
+     "10": true,
+     "12": true,
+     "14": false
+    }
+   },
+   {
+    "downslopeWind": -3,
+    "vProgGlider": 11.878,
+    "vProgGliderVision": 11.568,
+    "fliesFor": {
+     "6": true,
+     "8": true,
+     "10": true,
+     "12": true,
+     "14": false
+    }
+   },
+   {
+    "downslopeWind": 0,
+    "vProgGlider": 11.878,
+    "vProgGliderVision": 11.568,
+    "fliesFor": {
+     "6": true,
+     "8": true,
+     "10": true,
+     "12": true,
+     "14": false
+    }
+   },
+   {
+    "downslopeWind": 3,
+    "vProgGlider": 11.878,
+    "vProgGliderVision": 11.568,
+    "fliesFor": {
+     "6": true,
+     "8": true,
+     "10": true,
+     "12": true,
+     "14": false
+    }
+   },
+   {
+    "downslopeWind": 4.5,
+    "vProgGlider": -3.109,
+    "vProgGliderVision": -3.293,
+    "fliesFor": {
+     "6": false,
+     "8": false,
+     "10": false,
+     "12": false,
+     "14": false
+    }
+   },
+   {
+    "downslopeWind": 6,
+    "vProgGlider": -1.609,
+    "vProgGliderVision": -1.793,
+    "fliesFor": {
+     "6": false,
+     "8": false,
+     "10": false,
+     "12": false,
+     "14": false
+    }
+   },
+   {
+    "downslopeWind": 9,
+    "vProgGlider": 1.391,
+    "vProgGliderVision": 1.207,
+    "fliesFor": {
+     "6": false,
+     "8": false,
+     "10": false,
+     "12": false,
+     "14": false
+    }
+   }
+  ]
+ },
+ "round4": {
+  "evidence": "numerical-uncalibrated simulation on the round-4 shared rules (48 cases, helmetAt, bodyPx, ARTEFACT_PX, no idealised actuators/estimators in judged runs); not physical verification; G-MATURE closed",
+  "firstPrinciples": {
+   "tailwindProblem": "Straight downwind lead: ground speed = w + V_air,min must stay under the KE cap √(2·14.9 J/m) (minus 1.0 m/s gate margins, ×1/cos15° for the terrain-following descent). So w_max = (√(29.8/m) − 1.0)·cos15° − 1.12·v_stall. Round 3: m 164 g, v_stall 7.03 → w_max 4.18 m/s. Both levers matter: lower v_stall (area, CLmax) and lower mass (raises the cap and v_stall drops with √m). Crabbing/S-turns do not beat it: the convex hull of feasible ground velocities gives mean progress ≤ (c² − V_a² + w²)/(2w) and the reversals through downwind exceed the cap unless w + V_a fits anyway; reversals through upwind cost ~2.6 s each at ≈w ground progress.",
+   "massConstraint": "Mass cannot rise: the rider's straight-line speed (≈13 m/s on the 15° run) already sits at the KE-capped limiter target (vCapG − 0.6). A first morphing build at 181 g (shared vision board, larger tucked wing) dropped calm avail from 98 to 90 % because the cap fell 0.6 m/s. Mass +10 % sensitivity: subset avail 65.6 vs 94.6.",
+   "chosen": "Feathered span-morphing wing (LisHawk, Ajanic et al. 2020 Sci. Robot. 5:eabc2897: wing 0.117→0.165 m², min speed 7.6→4.0 m/s): tucked 0.55 m / 0.05 m² (fast, headwind, compact, low perch wind load), extended 1.0 m / 0.10 m² CLmax 1.25 (ASSUMED) → v_stall 5.14 m/s, w_max 6.12 m/s (tucked only: 2.77). Mass held at 168.5 g by a smaller tucked panel, a 1.2 Wh cell and the 4 g NPU + 1.5 g preview sensor instead of the 11 g board. Spread feathers double as the air brake (Δcd 0.6) needed because terrain-following in a tailwind is a steep AIR path.",
+   "tail9": "Tail 9 m/s is physically out of reach for any 15° lead glider of this mass: the convex-hull progress bound with the extended wing is 10.5 m/s (< rider ≈10.9) and keeping pace would need v_stall ≤ 4.55 m/s at 168 g. Refused by the gate in all three seeds (honest envelope)."
+  },
+  "designChanges": [
+   "feathered span-morphing wing with a rate-limited servo (0.6 s full travel + 0.1 s lag), commanded from the wanted airspeed; spread at the KE cap as an air brake; tucked on the snow",
+   "anticipating ground-speed limiter (GNSS acceleration, 1 s look-ahead) for throttle cut and air brake",
+   "robust launch gate: evaluated after ≥5 s of shared estimate history (the glider sits on the snow measuring), worst case over a ±1 m/s cross-slope box and +0.4 m/s downslope; gust hold at launch = refusal (picked up again)",
+   "crab reversals through downwind only if that passage stays ≥0.5 m/s under the KE cap; give-up/stop landings in a tailwind go cross-wind (no backward drift out of the radius); no lift-off >34 m from a moving rider; separation-limit landings cannot be cancelled by a go-around",
+   "follow-me radius pull (lane drawn towards the rider above 30 m), chase-after-pass in non-tail wind, no voluntary mid-ride perches in a tailwind, in-flight model-only perch decision removed",
+   "live framing: causal tracker of the measured line of sight — NPU person detection (15 Hz, 80 ms, 3 % box noise + 3 % pose bias, dropouts → UWB/GNSS fallback) with GNSS relative-velocity feed-forward (σ 0.3 m/s, 0.1 s old); EIS residual vs a causal 1 Hz low-pass; causal min-hold zoom",
+   "avail/pxMed on bodyPx; headClear half-span envelope 0.275–0.5 m with morph; pitot noise on the gust interlock; air-data wind starts at the bias (no true-wind initialisation)",
+   "simulated handling (MODAPTS, glove ×1.3, boot ×1.2, seeded misses): set-down 3.1 s, pick-up/snap 5.2 s mean (p90 5.7); self-folding wings, magnetic snap holster; holster 0.32×0.091×0.086 m incl. walls = 2.50 L"
+  ],
+  "judged": {
+   "avail": {
+    "value": 82.344,
+    "pass": true,
+    "stat": "mean of 48 (col.riding, bodyPx)"
+   },
+   "pxMed": {
+    "value": 498.298,
+    "pass": true,
+    "stat": "mean of case medians (bodyPx)"
+   },
+   "jitterRms": {
+    "value": 1.635,
+    "pass": true,
+    "stat": "p90 of footageStability subjectRms over flown cases (live tracker crop)"
+   },
+   "azRange": {
+    "value": 88.931,
+    "pass": true,
+    "stat": "mean"
+   },
+   "addedMass": {
+    "value": 0.32,
+    "pass": true,
+    "stat": "design"
+   },
+   "bodyForcePeak": {
+    "value": 3.426,
+    "pass": true,
+    "stat": "max"
+   },
+   "handsBusy": {
+    "value": 0,
+    "pass": true,
+    "stat": "design"
+   },
+   "setupTime": {
+    "value": 24.72,
+    "pass": true,
+    "stat": "p90 (simulated)"
+   },
+   "ops": {
+    "value": 2,
+    "pass": true,
+    "stat": "p90 / max"
+   },
+   "keMax": {
+    "value": 13.748,
+    "pass": true,
+    "stat": "max"
+   },
+   "packVol": {
+    "value": 2.504,
+    "pass": true,
+    "stat": "design (ASSUMED envelope)"
+   },
+   "endurance": {
+    "value": 52.952,
+    "pass": true,
+    "stat": "mean power of flown cases"
+   },
+   "headClear": {
+    "value": 2.012,
+    "pass": true,
+    "stat": "min (own and helmetAt recompute)"
+   }
+  },
+  "byWind": {
+   "0": {
+    "avail": 96.552,
+    "noFly": 0,
+    "n": 3,
+    "keMax": 12.45,
+    "jitterP90": 1.206
+   },
+   "3": {
+    "avail": 96.781,
+    "noFly": 0,
+    "n": 12,
+    "keMax": 12.794,
+    "jitterP90": 1.349
+   },
+   "3.5": {
+    "avail": 98.285,
+    "noFly": 0,
+    "n": 3,
+    "keMax": 12.815,
+    "jitterP90": 1.61
+   },
+   "4.5": {
+    "avail": 98.267,
+    "noFly": 0,
+    "n": 3,
+    "keMax": 12.98,
+    "jitterP90": 1.146
+   },
+   "5.5": {
+    "avail": 64.88,
+    "noFly": 1,
+    "n": 3,
+    "keMax": 13.748,
+    "jitterP90": 2.852
+   },
+   "6": {
+    "avail": 77.02,
+    "noFly": 2,
+    "n": 12,
+    "keMax": 13.212,
+    "jitterP90": 1.635
+   },
+   "9": {
+    "avail": 66.078,
+    "noFly": 3,
+    "n": 12,
+    "keMax": 13.104,
+    "jitterP90": 1.462
+   }
+  },
+  "tailBand": {
+   "n": 18,
+   "availMean": 63.159,
+   "noFly": 6,
+   "ops3": [
+    "tail6_s11"
+   ],
+   "keMax": 13.748,
+   "sepMaxFly": 40.385
+  },
+  "envelope": "downslope (tail) wind estimate ≲5.8 m/s after the robust box (true ≈≤5.5–6 m/s); total ≤12.5 m/s, gusts ≤15 m/s; rider downhill progress ≲11–12 m/s (vTarget 14 m/s refused); groomed piste; 9 m/s headwind 62–92 %%. Tail 9 m/s refused (physics).",
+  "sensitivities": {
+   "V0_chosen": {
+    "note": "round-4 design (judged settings)",
+    "availSubset": 94.635,
+    "availTailSubset": 93.14,
+    "jitterP90": 1.621,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 24.72,
+    "ops3": 1
+   },
+   "V1_fixed_wing": {
+    "note": "feathers locked tucked (fixed 0.05 m² wing, same mass): what the morphing buys",
+    "availSubset": 53.751,
+    "availTailSubset": 0,
+    "jitterP90": 1.781,
+    "keMax": 13.434,
+    "sepMaxFly": 41.34,
+    "setupP90": 23.264,
+    "ops3": 0
+   },
+   "V2_clmaxX_1.1": {
+    "note": "extended CLmax 1.1 instead of 1.25 (stall 5.5 m/s)",
+    "availSubset": 82.802,
+    "availTailSubset": 66.4,
+    "jitterP90": 1.548,
+    "keMax": 13.251,
+    "sepMaxFly": 50.374,
+    "setupP90": 24.316,
+    "ops3": 1
+   },
+   "V3_clmaxX_1.4": {
+    "note": "extended CLmax 1.4 (LisHawk-like)",
+    "availSubset": 94.317,
+    "availTailSubset": 92.45,
+    "jitterP90": 2.274,
+    "keMax": 13.462,
+    "sepMaxFly": 38.964,
+    "setupP90": 24.584,
+    "ops3": 1
+   },
+   "V4_Sx_0.085": {
+    "note": "extended area only 0.085 m² (feathers +70 % instead of +100 %)",
+    "availSubset": 82.827,
+    "availTailSubset": 66.41,
+    "jitterP90": 1.712,
+    "keMax": 13.145,
+    "sepMaxFly": 53.707,
+    "setupP90": 25.083,
+    "ops3": 1
+   },
+   "V5_mass_plus10": {
+    "note": "mass +10 % with the KE cap re-derived",
+    "availSubset": 65.603,
+    "availTailSubset": 48.936,
+    "jitterP90": 1.358,
+    "keMax": 13.326,
+    "sepMaxFly": 48.403,
+    "setupP90": 28.607,
+    "ops3": 2
+   },
+   "V6_vision_board": {
+    "note": "shared 11 g / 2.5 W vision board instead of NPU + preview sensor (mass +7.4 g, cap re-derived, power +1.7 W)",
+    "availSubset": 85.652,
+    "availTailSubset": 74.512,
+    "jitterP90": 1.269,
+    "keMax": 13.654,
+    "sepMaxFly": 43.431,
+    "setupP90": 25.551,
+    "ops3": 2
+   },
+   "V7_ld_minus30": {
+    "note": "L/D −30 % (shared glider rule)",
+    "availSubset": 90.267,
+    "availTailSubset": 92.912,
+    "jitterP90": 4.062,
+    "keMax": 13.309,
+    "sepMaxFly": 49.866,
+    "setupP90": 25.21,
+    "ops3": 2
+   },
+   "V8_brakeX_0.3": {
+    "note": "extended-wing air brake only Δcd 0.3 instead of 0.6",
+    "availSubset": 89.399,
+    "availTailSubset": 81.125,
+    "jitterP90": 1.752,
+    "keMax": 14.53,
+    "sepMaxFly": 48.866,
+    "setupP90": 24.811,
+    "ops3": 2
+   },
+   "V9_morph_slow": {
+    "note": "morph servo 2× slower (1.2 s full travel)",
+    "availSubset": 94.365,
+    "availTailSubset": 92.474,
+    "jitterP90": 2.847,
+    "keMax": 13.48,
+    "sepMaxFly": 40.321,
+    "setupP90": 24.721,
+    "ops3": 1
+   },
+   "V10_estBias_x2": {
+    "note": "wind-estimate bias ±2 m/s instead of ±1 (gate still assumes ±1)",
+    "availSubset": 88.176,
+    "availTailSubset": 85.88,
+    "jitterP90": 2.839,
+    "keMax": 17.919,
+    "sepMaxFly": 53.365,
+    "setupP90": 24.58,
+    "ops3": 2
+   },
+   "V11_gateHist_2s": {
+    "note": "round-3 gate timing (2 s of estimate history)",
+    "availSubset": 82.995,
+    "availTailSubset": 79.533,
+    "jitterP90": 3.906,
+    "keMax": 13.765,
+    "sepMaxFly": 39.345,
+    "setupP90": 22.593,
+    "ops3": 1
+   },
+   "V12_no_gate_margin": {
+    "note": "gate on the bare estimate (no ±1 m/s cross-slope box, no +0.4 m/s)",
+    "availSubset": 94.635,
+    "availTailSubset": 93.14,
+    "jitterP90": 1.621,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 24.72,
+    "ops3": 1
+   },
+   "V13_det_noise_x2.7": {
+    "note": "detector noise 8 % + pose bias 6 % at 8 Hz (vs 3 % + 3 % at 15 Hz)",
+    "availSubset": 94.521,
+    "availTailSubset": 93.046,
+    "jitterP90": 2.074,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 24.72,
+    "ops3": 1
+   },
+   "V14_ff_sigV_0.8": {
+    "note": "GNSS relative-velocity error 0.8 m/s (vs 0.3) in the framing feed-forward",
+    "availSubset": 89.823,
+    "availTailSubset": 89.339,
+    "jitterP90": 1.884,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 24.72,
+    "ops3": 1
+   },
+   "V15_no_ff": {
+    "note": "live framing without the velocity feed-forward (detections only, 0.6 Hz 2nd-order tracker)",
+    "availSubset": 94.772,
+    "availTailSubset": 92.709,
+    "jitterP90": 2.966,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 24.72,
+    "ops3": 1
+   },
+   "V16_IDEAL_offline_truth": {
+    "note": "IDEALISED (not judged): round-3 offline crop on the true line of sight",
+    "availSubset": 95.573,
+    "availTailSubset": 93.312,
+    "jitterP90": 1.256,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 24.72,
+    "ops3": 1
+   },
+   "V17_live_sensor_centre": {
+    "note": "sensor centre as output (no reframing)",
+    "availSubset": 92.551,
+    "availTailSubset": 90.457,
+    "jitterP90": 4.867,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 24.72,
+    "ops3": 1
+   },
+   "V18_no_vision": {
+    "note": "no detector at all (UWB/GNSS/height pointing and framing only)",
+    "availSubset": 73.913,
+    "availTailSubset": 72.286,
+    "jitterP90": 5.26,
+    "keMax": 13.456,
+    "sepMaxFly": 42.48,
+    "setupP90": 24.821,
+    "ops3": 1
+   },
+   "V19_eis_0.25": {
+    "note": "EIS residual 25 %",
+    "availSubset": 94.682,
+    "availTailSubset": 93.05,
+    "jitterP90": 1.775,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 24.72,
+    "ops3": 1
+   },
+   "V20_glove_2.0": {
+    "note": "glove factor 2.0 on every hand element (vs 1.3)",
+    "availSubset": 94.872,
+    "availTailSubset": 92.972,
+    "jitterP90": 1.673,
+    "keMax": 13.747,
+    "sepMaxFly": 40.295,
+    "setupP90": 25.731,
+    "ops3": 1
+   },
+   "V21_stow_13.5s": {
+    "note": "auditor stress: pick-up/stow 13.5 s constant",
+    "availSubset": 94.635,
+    "availTailSubset": 93.14,
+    "jitterP90": 1.621,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 33.4,
+    "ops3": 1
+   },
+   "V22_stow_8s_r3": {
+    "note": "round-3 constant 8 s pick-up/stow",
+    "availSubset": 94.635,
+    "availTailSubset": 93.14,
+    "jitterP90": 1.621,
+    "keMax": 13.748,
+    "sepMaxFly": 40.385,
+    "setupP90": 27.9,
+    "ops3": 1
+   },
+   "V23_no_chase_radius_pull": {
+    "note": "round-3 lane (no follow-me radius pull) and no chase",
+    "availSubset": 94.778,
+    "availTailSubset": 93.585,
+    "jitterP90": 1.392,
+    "keMax": 13.647,
+    "sepMaxFly": 40.307,
+    "setupP90": 24.06,
+    "ops3": 1
+   }
+  },
+  "gateBypass": {
+   "keMax": 14.54,
+   "sepMaxFly": 46.792,
+   "availMean": 40.733,
+   "note": "refused cases flown anyway: KE stays under 14.9 J; all are left behind (ops 3) — the gate is load-bearing for ops, not for KE"
+  },
+  "wornRigidMembers": "none: no boom/mast is worn; the holster sits at the right hip (≈0.9 m from the helmet centre); headClear covers the airborne glider only",
+  "artefacts": "no tether/line/boom in the shot; airframe self-occlusion handled by the 125° rear cone (counted as unusable), so artefactCounts never triggers",
+  "killTests": [
+   "feathered span-morphing wing at 168 g: CLmax extended ≥1.2 and stable slow flight at 5.8 m/s in gusty air (wind tunnel / tow-test); extension under load in −10 °C, snow, icing",
+   "tailwind 5–6 m/s on a 15° slope: GNSS ground speed stays ≤12.6 m/s (KE ≤14.9 J) with the feather air brake; crab reversals",
+   "live framing: record a carving skier from a moving 22° camera with the NPU detector + GNSS feed-forward; measure p90 subject jitter ≤3 °/s and detector dropout share",
+   "gloved set-down and snap-holster timing on skis (MODAPTS prediction 3.1 s + 5.2 s)",
+   "wind-estimate after 5 s on the snow: bias vs a reference anemometer; gate misclassification 5.5 vs 6 m/s",
+   "mass build-up: 168 g incl. 15 % margin with feathers, NPU, preview sensor (every +10 % costs ≈29 pp avail)"
+  ]
+ }
+}

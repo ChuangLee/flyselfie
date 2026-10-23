@@ -1,0 +1,956 @@
+{
+ "conceptId": "kite2",
+ "modelVersion": "kite2@4.0.0",
+ "date": "2026-10-20",
+ "evidence": "numerical-uncalibrated simulation + literature; not a physical test",
+ "findings": [
+  {
+   "id": "K2-01",
+   "status": "fixed (redesign); residual risk = scaled glide/reefing, disclosed",
+   "changed": "Aero rebuilt on ONE coupled polar per canopy (model.js polar/makePolarTable). Soft wing anchored to NASA TN D-4182/D-4672 (L/D ≤1 only at CR ≥0.8, collapse <22.5°, no inflation >75°); it is kept only as comparison design 4. K2-R uses a statically stable slotted round canopy (L/D = Gmax·u, CD0 0.80) with pull set by skirt reefing (drag area 1→0.25, Knacke/Ares data) and a gust-absorbing winch; collapse on slack line / wing α boundaries modelled.",
+   "numbers": {
+    "nominalFilmLD": 0.716,
+    "nominalFilmCR": 0.866,
+    "nominalReef": 0.296,
+    "nominalPullN": 8.016,
+    "ensembleBodyForceMaxN": 30.35,
+    "noReefingEnsembleBodyForceMaxN": 181.98,
+    "softWingEnsembleAvail": 65.05,
+    "sensitivity": {
+     "gMaxR_0.75 (MC-1-1C glide)": {
+      "avail": 85.61,
+      "keMax": 19.71,
+      "F": 30.2,
+      "pass": false
+     },
+     "gMaxR_0.85": {
+      "avail": 87.54,
+      "keMax": 19.38,
+      "F": 29.95,
+      "pass": false
+     },
+     "gMaxR_1.2 (MC-6 upper)": {
+      "avail": 88.4,
+      "keMax": 14.7,
+      "F": 30.53,
+      "pass": true
+     },
+     "cd0r_0.65": {
+      "avail": 87.44,
+      "keMax": 16.14,
+      "F": 29.24,
+      "pass": false
+     },
+     "cd0r_0.95": {
+      "avail": 88.55,
+      "keMax": 14.44,
+      "F": 30.56,
+      "pass": true
+     },
+     "reefGloss_0 (glide kept when reefed)": {
+      "avail": 87.41,
+      "keMax": 14.71,
+      "F": 30.68,
+      "pass": false
+     },
+     "reefGloss_0.6 (reefed canopy barely glides)": {
+      "avail": 82.25,
+      "keMax": 17.5,
+      "F": 29.88,
+      "pass": false
+     },
+     "rMin_0.4 (shallower reefing)": {
+      "avail": 86.66,
+      "keMax": 14.89,
+      "F": 52.11,
+      "pass": false
+     },
+     "design3_no_reefing": {
+      "avail": 61.9,
+      "keMax": 17.11,
+      "F": 181.98,
+      "pass": false
+     },
+     "design4_soft_wing_active": {
+      "avail": 65.05,
+      "keMax": 22.36,
+      "F": 32.03,
+      "pass": false
+     },
+     "mass_+15pct (0.099 kg)": {
+      "avail": 86.97,
+      "keMax": 17.25,
+      "F": 30.33,
+      "pass": false
+     },
+     "mass_iteration1_claim (0.062 kg)": {
+      "avail": 88.83,
+      "keMax": 10.47,
+      "F": 30.39,
+      "pass": true
+     }
+    }
+   },
+   "remaining": "Passes only if the 0.7 m canopy with pod glides at ≥≈0.9–1.0 (MC-6 range) and keeps ≥40 % of its glide when reefed; at MC-1-1C's 0.75 the ensemble fails KE (19.7 J). Tow-test polar (glide vs slot opening × reef) is the decisive gate."
+  },
+  {
+   "id": "K2-02",
+   "status": "fixed",
+   "changed": "Flying mass built with components.js budget() + canopy at Skytex 27 g/m² ×1.3 + 15 % margin (kiteBudget), 4 g servos (shared 2.5 g class is too weak), 1.2 Wh cell; worn mass recomputed; KE gate enforced by a dock-above-14.6 m/s rule.",
+   "numbers": {
+    "flyingMass_g": 86.3,
+    "budget": [
+     [
+      "camera 4K (RunCam Thumb Pro class)",
+      16,
+      "https://www.getfpv.com/runcam-thumb-pro-4k-hd-action-camera.html"
+     ],
+     [
+      "avionics FC/IMU/GNSS/radio",
+      10,
+      "audit LF-03 (ASSUMED)"
+     ],
+     [
+      "3 × servo-winch (trim, reef, steer)",
+      12,
+      "ASSUMED (4–5 g digital micro servo class); shared 2.5 g servo is too weak for 20–40 % of a 6–25 N line load (audit K2-02)"
+     ],
+     [
+      "wiring/boost/SD",
+      5,
+      "audit TG-02"
+     ],
+     [
+      "cell 1.2 Wh @ 150 Wh/kg",
+      8,
+      "components.js BATTERY"
+     ],
+     [
+      "canopy 0.4 m² nominal × 1.3 × 27 g/m²",
+      14,
+      "Porcher Skytex 27 (27 g/m²) + hems/tapes/slot frames (ASSUMED ×1.3)"
+     ],
+     [
+      "KCU shell, 0.2 m carbon camera arm, funnel seat cone",
+      6,
+      "ASSUMED"
+     ],
+     [
+      "8 suspension lines 0.7 m, reefing line + rings, slot/flag lines",
+      4,
+      "ASSUMED (Dyneema 0.5–0.8 mm)"
+     ]
+    ],
+    "ensembleKeMaxJ": 14.73,
+    "fastScenarioKeJ": 16.8,
+    "mass+15%KeJ": 17.25
+   },
+   "remaining": "KE margin 0.2 J in the ensemble; the auto-dock transient while accelerating to 18 m/s reaches 16.8 J (fail, disclosed); filming envelope rider ≤14.6 m/s."
+  },
+  {
+   "id": "K2-03",
+   "status": "fixed (model) / sensor ASSUMED",
+   "changed": "Launch interlock: armed AND descending >0.3 m/s AND on-snow vibration signature AND rider speed window; any 3 m climb auto-disarms (so the arm tap at the top is the 1 action per run). Scenarios chairlift (5 m/s up) and chairdown (5 m/s down) added.",
+   "numbers": {
+    "chairliftLaunches": 0,
+    "chairdownLaunches": 0,
+    "ensembleOpsP90": 2,
+    "ensembleOpsMax": 3
+   },
+   "remaining": "Down-riding chairlift is stopped only by the vibration signature (needs field data); add a lift-line geofence."
+  },
+  {
+   "id": "K2-04",
+   "status": "partly",
+   "changed": "0.35 m folding exit mast (line exit ≈1.9 m upright), hi-vis sheath, line-contact detection (60 ms) → 1.5 N free-spool and flag; snag → free-spool → pack release; new crosspole scenario (forced contact at 2.3 m).",
+   "numbers": {
+    "lineH1m_ensembleMinMean": 1.25,
+    "lineH1m_worst": 0.91,
+    "lineH2m_p5_ensembleMean": 1.81,
+    "cross_helmet_contact": "no",
+    "crosspole_neighbourForceN": 16.616,
+    "snagBodyForceN": 12.001
+   },
+   "remaining": "At carved-turn apex the body (and mast) lean puts the line 0.9–1.5 m above snow 1 m behind; not fixable by mast length. Forced contact still 16.6 N for ≈60 ms (target ≤10 N). Envelope: nobody within ~5 m behind, low-traffic runs."
+  },
+  {
+   "id": "K2-05",
+   "status": "not fixable (gate)",
+   "changed": "Documented as a gate in modelLimits/design_notes; exposure minimised (auto-dock at every stop, never launches on lifts, dock above 14.6 m/s).",
+   "numbers": {},
+   "remaining": "Written resort permission; permitted/private terrain only."
+  },
+  {
+   "id": "K2-06",
+   "status": "partly",
+   "changed": "Mast-tip line-aligned trumpet (accepts ≤120°), approach planner with 0.25 m helmet keep-out, wind-aware slow reel (1.5 m/s), ≤3 retries then safe flag-and-land; every manual push-in/pick-up counts +1 action and +15 s.",
+   "numbers": {
+    "ensembleManualMean": 0.38,
+    "ensembleManualMax": 2,
+    "setupTimeP90_s": 23.91,
+    "setupTimeMax_s": 38.81,
+    "byBinSetupP90": {
+     "calm": 6.83,
+     "3ms_head": 8.75,
+     "3ms_tail": 38.81,
+     "3ms_crossL": 23.79,
+     "3ms_crossR": 23.45,
+     "6ms_head": 8.94,
+     "6ms_tail": 38.81,
+     "6ms_crossL": 23.79,
+     "6ms_crossR": 23.91,
+     "9ms_head": 8.96,
+     "9ms_tail": 23.95,
+     "9ms_crossL": 8.93,
+     "9ms_crossR": 9.02
+    }
+   },
+   "remaining": "Light tail/cross winds (3–6 m/s) still need a manual push-in in some seeds; physical douse into the sleeve untested (≥500-cycle test)."
+  },
+  {
+   "id": "K2-07",
+   "status": "fixed for ≤6 m/s; 9 m/s tail is the envelope edge",
+   "changed": "Round canopy glides in any direction about its axis (vector steering below the wind axis), unreefed v_min 2.9 m/s, landed canopy towed at speed re-inflates (relift); shorttail scenario added.",
+   "numbers": {
+    "shorttailAvail": 97.22,
+    "tail6Avail": 81.44,
+    "tail9Avail_mean_p10": [
+     70.33,
+     53.22
+    ]
+   },
+   "remaining": "Envelope: tailwind ≤6 m/s at 12 m/s riding (≈0.5 × rider speed)."
+  },
+  {
+   "id": "K2-08",
+   "status": "fixed",
+   "changed": "Shared full-run ensemble is the headline (39 cases).",
+   "numbers": {
+    "availMean": 87.98,
+    "availP10": 83.47,
+    "availP90": 94.88,
+    "stopstartAvail": 74.116
+   },
+   "remaining": "Short calm stop-start rides 74 %."
+  },
+  {
+   "id": "K2-09",
+   "status": "not fixed (envelope)",
+   "changed": "View gate relaxed to ≤55° (higher overhead is the user's original framing).",
+   "numbers": {
+    "mogulsViewElev": 56.732,
+    "ensembleViewElevMean": 42.63
+   },
+   "remaining": "Moguls 57° > 55°."
+  },
+  {
+   "id": "K2-10",
+   "status": "partly",
+   "changed": "Mast lifts the KCU ≈0.35 m above the pack, out of the head/torso wake; launch accepted within ±60° apparent wind.",
+   "numbers": {},
+   "remaining": "Wake still not modelled."
+  },
+  {
+   "id": "K2-11",
+   "status": "fixed",
+   "changed": "Shared battery rules: 150 Wh/kg, cold 0.75, 15 % reserve, dock charging only in a heated holster (+0.6 W counted), everything worn, mean full-run power.",
+   "numbers": {
+    "enduranceMean_min": 85.42,
+    "enduranceMin_min": 60.03,
+    "kiteSortie_min": 10.456,
+    "packWh": 12,
+    "kiteCellWh": 1.2
+   },
+   "remaining": "Dock charging contacts not designed."
+  },
+  {
+   "id": "K2-12",
+   "status": "fixed (reporting)",
+   "changed": "Fault scenarios report ops (+1 pick-up / lost) and avail; snag leaves the line/kite at the tree (leftOnObstacle fails).",
+   "numbers": {
+    "snagAvail": 40.46,
+    "snagOps": 3,
+    "cutOps": 3
+   },
+   "remaining": "—"
+  },
+  {
+   "id": "X-01",
+   "status": "fixed",
+   "changed": "components.js BATTERY/ATMOS/COMPONENTS imported; camera 2.5 W via 0.85 boost.",
+   "numbers": {}
+  },
+  {
+   "id": "X-02",
+   "status": "fixed",
+   "changed": "see K2-02",
+   "numbers": {
+    "flyingMass_g": 86.3
+   }
+  },
+  {
+   "id": "X-03",
+   "status": "fixed",
+   "changed": "see K2-11",
+   "numbers": {
+    "enduranceMean_min": 85.42
+   }
+  },
+  {
+   "id": "X-04",
+   "status": "fixed",
+   "changed": "fullrun scenario + 39-case ensemble in run_all.mjs; ens* metrics on the fullrun scenario; ensemble_summary.js generated",
+   "numbers": {
+    "avail": {
+     "mean": 87.98,
+     "p10": 83.47,
+     "p90": 94.88,
+     "min": 53.22,
+     "max": 95.99,
+     "n": 39
+    },
+    "setupTime": {
+     "mean": 14.16,
+     "p10": 6.83,
+     "p90": 23.91,
+     "min": 6.83,
+     "max": 38.81,
+     "n": 39
+    },
+    "ops": {
+     "mean": 1.38,
+     "p10": 1,
+     "p90": 2,
+     "min": 1,
+     "max": 3,
+     "n": 39
+    },
+    "bodyForcePeak": {
+     "mean": 21.38,
+     "p10": 15.29,
+     "p90": 27.3,
+     "min": 14.58,
+     "max": 30.35,
+     "n": 39
+    },
+    "keMax": {
+     "mean": 12.76,
+     "p10": 11.48,
+     "p90": 13.8,
+     "min": 11.18,
+     "max": 14.73,
+     "n": 39
+    },
+    "endurance": {
+     "mean": 85.42,
+     "p10": 75.28,
+     "p90": 96.14,
+     "min": 60.03,
+     "max": 103.38,
+     "n": 39
+    }
+   }
+  },
+  {
+   "id": "X-05",
+   "status": "n/a for the kite / partly",
+   "changed": "Kite camera hangs on the line: pod 2nd-order pendulum + flutter model kept; jitter normalised by crop FOV now reported.",
+   "numbers": {
+    "nominalSubjectPctFramePerS": 0.833,
+    "fullrunBackgroundPctFramePerS": 5.072,
+    "ensembleJitterMean": 0.85
+   }
+  },
+  {
+   "id": "X-06",
+   "status": "fixed",
+   "changed": "results.json regenerated after the shared env.js change; stamped with commonHash",
+   "numbers": {
+    "commonHash": "6160c0b831dd"
+   }
+  },
+  {
+   "id": "X-07",
+   "status": "not fixable (gate) / exposure minimised",
+   "changed": "see K2-04/K2-05; not aviation-regulated below 25 kg (EU) / 5 lb (FAA Part 101) but an autonomously steered KCU may be argued to be UAS — legal opinion needed.",
+   "numbers": {}
+  }
+ ],
+ "audit2": {
+  "date": "2026-10-20",
+  "modelVersion": "kite2@3.0.0",
+  "basis": "shared re-audit rules (common/fullrun.js availMask, footageStability jitter p90, simulated setup, ops p90 + max, windEstimate gates; criteria.js headClear); 39-case ensemble regenerated; independent recompute from raw columns on 6 spot cases (results.json independent)",
+  "summary": "All 13 judged metrics pass on the shared basis at the documented L/D 0.75 with half the glide kept when reefed: avail 81.52 % (p10 76.02), jitter p90 1.66 °/s, setup p90 4.7 s, ops p90 1 (max 1), body force 28.14 N (raw 50 ms), KE 12.92 J, endurance 56.94 min (48.46 without regeneration credit), headClear ≥1.1 m, azRange 58.14°. KE, body force and head clearance no longer depend on L/D, reefed glide or mass (sensitivities); avail does (tailwind envelope). Line/boom height behind the rider is NOT fixed.",
+  "findings": [
+   {
+    "id": "A2-K2-01",
+    "status": "fixed (mechanism changed; dependence removed)",
+    "changed": "Root cause measured: the KE peaks were body-roll yanks of the exit in hockey stops (exit 8–9 m/s relative to the CoM → kite 17–18.5 m/s) and, at L/D 0.75, crosswind azimuth blow-out. Now: heave-compensating winch + KE governor (soft clutch above √(2·12.5 J/m) of the actual mass, reel-in capped by the KE limit), fast reel-in on braking, glide default 0.75 (MC-1-1C).",
+    "numbers": {
+     "keMaxDefault_LD0.75": 12.92,
+     "keMax_LD0.60": 12.94,
+     "keMax_LD0.90": 12.89,
+     "keMax_reefKeep0.3": 12.98,
+     "keMax_mass+15": 12.93,
+     "keMax_worstCombined": 12.96,
+     "ablation_noHeaveComp": 13,
+     "ablation_noGovernor": 21.9,
+     "ablation_both_off": 22.72
+    }
+   },
+   {
+    "id": "A2-K2-02",
+    "status": "fixed by geometry + procedure (residual: trumpet capture untested)",
+    "changed": "The boom is pointed at the kite (line-aligned), so the KCU arrives on the boom axis whenever the line is inside the gimbal cone; the tip trumpet only takes the residual (45°). Retrieval starts at hockey-stop detection and reels in fast while the apparent wind is still from ahead, so the kite docks before the rider stops. Standing stows: face the wind (kite behind); wrong facing → head interlock snaps it onto the tip, +1 hand action.",
+    "numbers": {
+     "dockResidualMax_deg": 30.76,
+     "manualMax": 0,
+     "setupP90_s": 4.7,
+     "setupMax_s": 10.32,
+     "funnel30_setupP90": 4.7,
+     "funnel30_opsMax": 2,
+     "dock_w6_setup_s": 9.196,
+     "dock_w9_setup_s": 9.22,
+     "wrongFacing_ops": 3,
+     "wrongFacing_headClear": 1.042
+    }
+   },
+   {
+    "id": "A2-K2-03",
+    "status": "fixed",
+    "changed": "Never re-inflated on snow (reeled in and docked or hand-stowed), launch released reefed (≤4 N steady) from the extended boom with a 6·D0 filling time and a 1.8 opening-shock factor, body force judged on the raw 50 ms mean at the integration step.",
+    "numbers": {
+     "reliftEvents": 0,
+     "landedPerRunMean": 0,
+     "landedWhileRidingMax_s": 0,
+     "bodyForce50msMax_N": 28.14,
+     "instantaneousTensionMax_N": 52.56
+    }
+   },
+   {
+    "id": "A2-K2-04",
+    "status": "NOT fixed — mitigated and bounded; envelope limit",
+    "changed": "Line now leaves a 1.2 m hi-vis boom (exit 0.7 m above the pack); rear proximity radar softens the clutch (1.5 N) and climbs the kite; line contact force and boom contact impulse reported. Carving inclination keeps the boom/line 0.8–1.3 m above the snow 1 m behind the rider; the boom itself is now the obstacle nearest the body.",
+    "numbers": {
+     "h1m_min": 0.82,
+     "h1m_p10_of_case_mins": 0.85,
+     "h1m_mean_of_case_p10": 1.16,
+     "h2m_min": 0.8,
+     "h2m_p10_of_case_mins": 0.91,
+     "h2m_mean_of_case_p10": 1.41,
+     "neighbourLineForceN_crosspole": 4.526,
+     "boomImpulseNs_crossing": 1.718,
+     "boomMeanForceN_50ms": 34.364,
+     "helmetHeightCrossingContact": "no"
+    }
+   },
+   {
+    "id": "A2-K2-05",
+    "status": "dependence removed for safety metrics; bounded for avail",
+    "changed": "Default retention 0.5 (no literature found for gliding reefed rounds); the reef loop opens to 14 N when the kite is low or off azimuth (restores glide); elevation target capped at what the polar reaches.",
+    "numbers": {
+     "reefKeep0.3": {
+      "avail": 80.78,
+      "keMax": 12.98,
+      "headClearMin": 1.1,
+      "pass": true,
+      "failing": []
+     },
+     "reefKeep0.7": {
+      "avail": 79.55,
+      "keMax": 13.01,
+      "pass": false
+     }
+    }
+   },
+   {
+    "id": "A2-K2-06",
+    "status": "fixed",
+    "changed": "avail on fullrun col.riding from push-off (availMask), no settle.",
+    "numbers": {
+     "avail": 81.52
+    }
+   },
+   {
+    "id": "A2-K2-07",
+    "status": "fixed",
+    "changed": "No hand stows in the ensemble; setup simulated.",
+    "numbers": {
+     "opsP90": 1,
+     "opsMax": 1,
+     "setupMax": 10.32
+    }
+   },
+   {
+    "id": "A2-K2-08",
+    "status": "open (part sourcing)",
+    "changed": "Still a custom 55–65° HFOV 4K M12 optic (ASSUMED part).",
+    "numbers": {
+     "pxMedMean": 522.6
+    }
+   },
+   {
+    "id": "A2-K2-09",
+    "status": "reported",
+    "changed": "Endurance with and without the regeneration credit; heave compensation pumps the line (winch 4.4 W before regeneration) and the boom gimbal adds ≈1 W.",
+    "numbers": {
+     "mean": 56.94,
+     "noRegenMean": 48.46,
+     "noRegenMin": 33.86,
+     "winchMeanW": 2.71,
+     "winchMeanW_noRegen": 4.411,
+     "gimbalMeanW": 1.006
+    }
+   },
+   {
+    "id": "A2-X-01..X-10",
+    "status": "adopted",
+    "changed": "availMask; jitter = p90 of footageStability subjectRms (all flown cases); ops p90 + max; setup simulated (reel-in over snow and walk to a rag at 1 m/s simulated; hand time 8 s ASSUMED); windEstimate for launch/stop/park gates (in-flight control on the KCU pitot); headClear judged; heater over the whole day; mass incl. omitted hardware.",
+    "numbers": {}
+   },
+   {
+    "id": "NEW-K2-10",
+    "status": "disclosed (own finding)",
+    "changed": "Iteration 2 did not count its 0.35 m mast as footage artefact; a rigid exit near the rider is always in the shot from the line end. Passive (line-aligned) boom → art >3 % in ≈45–55 % of frames; only active pointing at the camera keeps it end-on.",
+    "numbers": {
+     "passiveBoomEnsembleAvail": 42.88,
+     "noBoomEnsembleHeadClearMin": 0.46,
+     "noBoomAvail": 0
+    }
+   },
+   {
+    "id": "NEW-K2-11",
+    "status": "disclosed",
+    "changed": "Envelope results: below ≈7 m/s apparent wind the kite does not launch (shorttail: 0 % avail); a rider accelerating past ≈16 m/s outruns the KE-capped dock (fast: KE transient); winch-motor failure at a stop leaves the line within 0.8 m of the helmet; the boom is hit at shoulder height by a skier crossing 0.35 m behind.",
+    "numbers": {
+     "shorttailAvail": 0,
+     "fastKE": 18.559,
+     "winchFailHeadClear": 0.815,
+     "boomImpulseNs": 1.718,
+     "boomForceN": 34.364,
+     "tailAvailByBin": {
+      "3ms_tail": 80.74,
+      "6ms_tail": 74.45,
+      "9ms_tail": 39.18
+     }
+    }
+   }
+  ],
+  "killTests": [
+   "Tow/car-top test of the 0.40 m² slotted round + KCU at 6–15 m/s: L/D vs slot opening unreefed (kill if <0.6: avail 73.02 % at 0.6) and at reef 0.25/0.35/0.5 (kill if retention <0.3 or coning >10°).",
+   "Heave-compensation winch bench: replay the measured hockey-stop exit motion (8–9 m/s, 0.4 s) on a moving anchor with a 90 g dummy: kill if the dummy ground speed exceeds √(2·14.9 J/m) or the winch lag >30 ms.",
+   "Governor: 2 N soft clutch at 7 m line; drogue deceleration on the soft line within 0.3 s.",
+   "Boom: 1.2 m telescopic on a 2-axis gimbal pointing at a moving target with ≤0.5° error at 20 Hz under carving vibration, 0.13 N·m gravity load; real footage artefact <3 % of subject height.",
+   "Dock: 500 seats onto the boom-tip trumpet at ≤45° residual (wet/iced, 0–9 m/s); snuff + retract ≤2.5 s.",
+   "Reefed launch from the boom tip at 7–14 m/s: success ≥98 %, 50 ms pull ≤20 N, never within 1.3 m of the helmet.",
+   "Clothesline / bystander: written resort permission; boom breakaway and crossing-skier tests (impulse ≤2 N·s).",
+   "Optic: ≤20 g 4K M12 module with 55–65° HFOV."
+  ],
+  "envelope": {
+   "credible": "Rider 7–16 m/s, apparent wind ≥7 m/s to launch and ≥4.2 m/s to keep flying; wind 0–9 m/s head/cross and calm (avail 85–90 %), tailwinds degrade (tail-3 ≈80 %, tail-6 ≈55–80 %, tail-9 ≈20–40 %); low-traffic pistes with written permission only (line/boom 0.8–1.3 m above the snow 1 m behind a carving rider); stow while standing only facing the wind.",
+   "requires": "L/D ≥≈0.7 unreefed for avail ≥80 % (KE/force/head clearance hold down to 0.6); flying mass ≤≈100 g for avail; active boom pointing ≤≈0.5°; heave-compensating winch ≥7 m/s with ≤30 ms lag."
+  }
+ },
+ "audit3": {
+  "date": "2026-10-20",
+  "modelVersion": "kite2@4.0.0",
+  "basis": "48-case FULLRUN_CASES_R4 on the round-4 shared rules; independent raw-column recompute on 6 spot cases max abs diff 0.04 (setup 2 s rounding)",
+  "summary": "All four audit3 majors are addressed by design change, not tolerance: no boom artefact (3 mm passive boom, shared ≥2 px rule), no gimbal motor at all, a real motor envelope with zero violations and passive drag pay-out instead of the ideal heave-compensating winch, noisy sensing. Under the tightened rules avail falls to 72.30 % (FAIL; tailwind band 53.7 %, others 83.5 %) and the clothesline gate still FAILS; the other 12 metrics pass, KE by only 0.62 J.",
+  "findings": [
+   {
+    "id": "A3-K2-01",
+    "status": "not fixed (envelope limit, quantified)",
+    "changed": "line/boom height now reported 1, 2 and 3 m behind (min 0.84/0.81/0.74 m; median of case-p10 1.18/1.45/1.70 m; below 1.8 m in 90.2 % of airborne riding samples). Crossing skier: boom 0.20 N·s / 4.0 N (was 1.7 N·s / ≈34 N) thanks to the 25 g free-pivot boom; raised-pole line contact 9.1 N (≤10 N) via radar drag release + 60 ms contact free-spool.",
+    "numbers": {
+     "metric": "height above the snow of the boom + line 1, 2 and 3 m (horizontal) behind the boom pivot, every airborne riding sample; lowShare = % of those samples with the lowest of the three below 1.8 m",
+     "target": "≥1.8 m everywhere 1–3 m behind (adult neck/face height, ASSUMED gate from the brief)",
+     "h1": {
+      "min": 0.842,
+      "p10OfCaseMin": 0.865,
+      "medianOfCaseP10": 1.183
+     },
+     "h2": {
+      "min": 0.805,
+      "p10OfCaseMin": 0.941,
+      "medianOfCaseP10": 1.446
+     },
+     "h3": {
+      "min": 0.744,
+      "p10OfCaseMin": 0.992,
+      "medianOfCaseP10": 1.695
+     },
+     "lowShareMeanPct": 90.166,
+     "lowShareMaxPct": 99.118,
+     "medianLowestHeight_m": 1.514,
+     "verdict": "FAIL: the line/boom is below 1.8 m within 3 m behind the rider for most of the filming time; no exit geometry can hold a ≥1.8 m line near the rider without a rigid member that resists T·Δh (8–14 N·m) and is then ≥2 px wide in the shot",
+     "crossingSkier": {
+      "scenario": "neighbour crosses 0.35 m behind at 8 m/s (cross: helmet top 1.9 m; crosspole: pole raised to 2.3 m)",
+      "boomImpulse_Ns": 0.2,
+      "boomMeanForce_N": 4,
+      "lineForcePole_N": 9.079,
+      "lineContactPole": "yes",
+      "mechanism": "rear radar (4 m, 0.2 s) drops the reel drag to 1.5 N and the kite climbs; a line contact is detected in 60 ms and the solenoid holds free-spool; the 25 g boom is on a free pivot with a 5 N magnetic breakaway (effective struck mass ≤25 g)"
+     }
+    }
+   },
+   {
+    "id": "A3-K2-02",
+    "status": "fixed (artefact) — but avail now fails for other reasons",
+    "changed": "boom 3.0→2.5 mm (<2 px); boom_4.5mm sensitivity → avail 2.62 % shows the rule bites. avail 72.30 % on 48 cases with bodyPx; hfov 60 → 67.70 %; L/D 0.6 → 67.62 %; mass +15 % → 68.01 %.",
+    "numbers": {
+     "avail": {
+      "mean": 72.3,
+      "p10": 54.74,
+      "p90": 88.17,
+      "min": 0,
+      "max": 90.84,
+      "n": 48
+     },
+     "byBin": {
+      "calm": 77.73,
+      "3ms_head": 86.77,
+      "3ms_tail": 68.7,
+      "3ms_crossL": 81.43,
+      "3ms_crossR": 81.45,
+      "6ms_head": 88.58,
+      "6ms_tail": 44.5,
+      "6ms_crossL": 83.61,
+      "6ms_crossR": 84.14,
+      "9ms_head": 90.22,
+      "9ms_tail": 24.07,
+      "9ms_crossL": 81,
+      "9ms_crossR": 79.58,
+      "3.5ms_tail": 66.47,
+      "4.5ms_tail": 61.16,
+      "5.5ms_tail": 57.44
+     }
+    }
+   },
+   {
+    "id": "A3-K2-03",
+    "status": "fixed (actuator removed)",
+    "changed": "passive free-pivot boom, no motors (pGimbal 0, 40 g); inertial bending ≤0.008 N·m in spot runs; the boom carries tension only while taut.",
+    "numbers": {
+     "calm_s11": {
+      "boomRateP99": 1.112,
+      "bendNm": 0.004
+     },
+     "head9_s12": {
+      "boomRateP99": 1.07,
+      "bendNm": 0.004
+     },
+     "crossL9_s12": {
+      "boomRateP99": 1.494,
+      "bendNm": 0.007
+     },
+     "tail4.5_s12": {
+      "boomRateP99": 1.205,
+      "bendNm": 0.005
+     },
+     "tail9_s11": {
+      "boomRateP99": 1.547,
+      "bendNm": 0.008
+     }
+    }
+   },
+   {
+    "id": "A3-K2-04",
+    "status": "fixed",
+    "changed": "motorised reel with a real 2205-class envelope (Kv, R, 25 A, 10.8 V, rotor inertia); 0 envelope violations in spot runs; current hits 25 A in short reel-in bursts (peak 120–165 W electrical, motor on 5–11 s per run); pay-out is the passive drag (slip ≤7.9 m/s); no regeneration credit; endurance 69.81 min. motor 15 A / 9.6 V → avail 72.32, KE 14.27.",
+    "numbers": {
+     "motor": {
+      "Kv": 2300,
+      "Kt_NmPerA": 0.004,
+      "Rm": 0.08,
+      "Imax": 25,
+      "Vbat": 10.8,
+      "gear": 5,
+      "rDrum": 0.012,
+      "lineNperA": 1.47,
+      "noLoadLineSpeed_ms": 6.243,
+      "stallLineForce_N": 36.761,
+      "reflectedMass_kg": 0.444
+     },
+     "drag": {
+      "tauDrag": 0.08,
+      "dragRate": 120,
+      "tauRelease": 0.02,
+      "muRatio": 1.15,
+      "Fslip": 30,
+      "Fgov": 2
+     },
+     "boom": {
+      "passive": true,
+      "mass_kg": 0.025,
+      "length_m": 1.45,
+      "dBase_mm": 3,
+      "dTip_mm": 2.5
+     },
+     "spot": {
+      "calm_s11": {
+       "motorCurrentMax_A": 20.619,
+       "reelInShaftMax_ms": 5.5,
+       "dragSlipMax_ms": 5.712,
+       "winchElecPeak_W": 165.296,
+       "motorOnTime_s": 6.24,
+       "envelopeViolations": 0,
+       "dragRange_N": [
+        1.695,
+        30
+       ],
+       "lineTensionInstMax_N": 39.551,
+       "boomRateP99_rad_s": 1.112,
+       "boomInertialBending_Nm": 0.004,
+       "boomBendStress_MPa": 2.156
+      },
+      "head9_s12": {
+       "motorCurrentMax_A": 22.235,
+       "reelInShaftMax_ms": 5.498,
+       "dragSlipMax_ms": 7.892,
+       "winchElecPeak_W": 120.19,
+       "motorOnTime_s": 7.36,
+       "envelopeViolations": 0,
+       "dragRange_N": [
+        4.809,
+        30
+       ],
+       "lineTensionInstMax_N": 30.031,
+       "boomRateP99_rad_s": 1.07,
+       "boomInertialBending_Nm": 0.004,
+       "boomBendStress_MPa": 1.995
+      },
+      "crossL9_s12": {
+       "motorCurrentMax_A": 25,
+       "reelInShaftMax_ms": 5.5,
+       "dragSlipMax_ms": 6.897,
+       "winchElecPeak_W": 150.675,
+       "motorOnTime_s": 10.68,
+       "envelopeViolations": 0,
+       "dragRange_N": [
+        2.037,
+        30
+       ],
+       "lineTensionInstMax_N": 32.051,
+       "boomRateP99_rad_s": 1.494,
+       "boomInertialBending_Nm": 0.007,
+       "boomBendStress_MPa": 3.89
+      },
+      "tail4.5_s12": {
+       "motorCurrentMax_A": 25,
+       "reelInShaftMax_ms": 5.537,
+       "dragSlipMax_ms": 5.243,
+       "winchElecPeak_W": 162.128,
+       "motorOnTime_s": 5.34,
+       "envelopeViolations": 0,
+       "dragRange_N": [
+        0.647,
+        30
+       ],
+       "lineTensionInstMax_N": 50.732,
+       "boomRateP99_rad_s": 1.205,
+       "boomInertialBending_Nm": 0.005,
+       "boomBendStress_MPa": 2.534
+      },
+      "tail9_s11": {
+       "motorCurrentMax_A": 25,
+       "reelInShaftMax_ms": 5.5,
+       "dragSlipMax_ms": 5.884,
+       "winchElecPeak_W": 124.376,
+       "motorOnTime_s": 9.04,
+       "envelopeViolations": 0,
+       "dragRange_N": [
+        0.49,
+        30
+       ],
+       "lineTensionInstMax_N": 50.015,
+       "boomRateP99_rad_s": 1.547,
+       "boomInertialBending_Nm": 0.008,
+       "boomBendStress_MPa": 4.171
+      }
+     }
+    }
+   },
+   {
+    "id": "A3-K2-05",
+    "status": "re-evaluated",
+    "changed": "headClear vs helmetAt(raw run) = 1.07 m min (boom lengthened 1.2→1.45 m: at 1.2 m it is 0.84 m). Worn boom to helmet centre 0.33 m min (segment) — passive, 25 g, 3 mm, 5 N breakaway; justified as a worn flexible part, not airborne. Fault case winch_fail 0.97 m (rag lying beside a standing rider).",
+    "numbers": {
+     "headClearMin": 1.07,
+     "boomHeadMin": 0.33
+    }
+   },
+   {
+    "id": "A3-K2-06",
+    "status": "fixed",
+    "changed": "controller/launch pitot/governor on coloured-noise sensors; noise ×2 → avail 73.25, KE 14.31; noise-free (IDEALISED, not judged) → KE 15.40."
+   },
+   {
+    "id": "A3-K2-07",
+    "status": "disclosed",
+    "changed": "L/D 0.6 now also breaks KE (17.26 J) — the governor margin is thin; worst combination avail 40.18, KE 20.45, F 55.87.",
+    "numbers": {
+     "LD_0.60": {
+      "label": "L/D 0.6 (below MC-1-1C)",
+      "avail": 67.62,
+      "keMax": 17.26,
+      "bodyForceMax": 29.82,
+      "headClearMin": 1.07,
+      "setupP90": 4.89,
+      "opsP90": 1,
+      "enduranceMean": 75.83
+     },
+     "LD_0.90": {
+      "label": "L/D 0.9 (MC-6 lower, non-archival)",
+      "avail": 71.7,
+      "keMax": 14.44,
+      "bodyForceMax": 29.84,
+      "headClearMin": 0.98,
+      "setupP90": 4.58,
+      "opsP90": 1,
+      "enduranceMean": 66.18
+     },
+     "reefKeep_0.3": {
+      "label": "30 % of the glide kept at full reef",
+      "avail": 73.93,
+      "keMax": 14.27,
+      "bodyForceMax": 29.79,
+      "headClearMin": 1.08,
+      "setupP90": 4.54,
+      "opsP90": 1,
+      "enduranceMean": 69.21
+     },
+     "reefKeep_0.7": {
+      "label": "70 % kept",
+      "avail": 70.62,
+      "keMax": 14.73,
+      "bodyForceMax": 29.86,
+      "headClearMin": 1.08,
+      "setupP90": 4.74,
+      "opsP90": 1,
+      "enduranceMean": 68.73
+     },
+     "mass_+15pct": {
+      "label": "flying mass +15 %",
+      "avail": 68.01,
+      "keMax": 16.95,
+      "bodyForceMax": 30.92,
+      "headClearMin": 1.12,
+      "setupP90": 5.06,
+      "opsP90": 1,
+      "enduranceMean": 73.26
+     },
+     "worst_LD0.6_keep0.3_mass+15": {
+      "label": "all three adverse at once",
+      "avail": 40.18,
+      "keMax": 20.45,
+      "bodyForceMax": 55.87,
+      "headClearMin": 1.13,
+      "setupP90": 21.98,
+      "opsP90": 3,
+      "enduranceMean": 104.74
+     },
+     "sensorNoise_x2": {
+      "label": "in-flight sensor / heave-estimate noise doubled",
+      "avail": 73.25,
+      "keMax": 14.31,
+      "bodyForceMax": 29.84,
+      "headClearMin": 1.07,
+      "setupP90": 4.62,
+      "opsP90": 1,
+      "enduranceMean": 68.14
+     },
+     "IDEALISED_sensors": {
+      "label": "IDEALISED (not judged): noise-free sensing, no estimator lag",
+      "avail": 72.92,
+      "keMax": 15.4,
+      "bodyForceMax": 29.83,
+      "headClearMin": 1.08,
+      "setupP90": 4.67,
+      "opsP90": 1,
+      "enduranceMean": 69.53
+     },
+     "motor_weak_15A_9V6": {
+      "label": "reel motor 15 A limit and 9.6 V sag",
+      "avail": 72.32,
+      "keMax": 14.27,
+      "bodyForceMax": 29.83,
+      "headClearMin": 1.07,
+      "setupP90": 4.56,
+      "opsP90": 1,
+      "enduranceMean": 70.22
+     },
+     "drag_stickSlip_1.3": {
+      "label": "drag static/dynamic friction 1.3 (more stick-slip)",
+      "avail": 72.43,
+      "keMax": 14.85,
+      "bodyForceMax": 29.83,
+      "headClearMin": 1.08,
+      "setupP90": 4.64,
+      "opsP90": 1,
+      "enduranceMean": 70.84
+     },
+     "no_reelFeedForward": {
+      "label": "ablation: reel-in heave feed-forward off",
+      "avail": 72.36,
+      "keMax": 14.51,
+      "bodyForceMax": 29.83,
+      "headClearMin": 1.08,
+      "setupP90": 4.63,
+      "opsP90": 1,
+      "enduranceMean": 69.19
+     },
+     "no_governor": {
+      "label": "ablation: KE governor (solenoid drag release) off",
+      "avail": 72.39,
+      "keMax": 16.05,
+      "bodyForceMax": 29.83,
+      "headClearMin": 1.06,
+      "setupP90": 4.46,
+      "opsP90": 1,
+      "enduranceMean": 70.68
+     },
+     "boom_4.5mm": {
+      "label": "boom 4.5→3.5 mm (stiffer tube) — artefact rule",
+      "avail": 2.62,
+      "keMax": 14.28,
+      "bodyForceMax": 29.83,
+      "headClearMin": 1.07,
+      "setupP90": 4.64,
+      "opsP90": 1,
+      "enduranceMean": 69.81
+     },
+     "boom_1.2m": {
+      "label": "round-3 boom length 1.2 m",
+      "avail": 73.48,
+      "keMax": 14.96,
+      "bodyForceMax": 29.83,
+      "headClearMin": 0.84,
+      "setupP90": 4.64,
+      "opsP90": 1,
+      "enduranceMean": 67.78
+     },
+     "hfov_60": {
+      "label": "round-3 lens 60° HFOV",
+      "avail": 67.7,
+      "keMax": 14.28,
+      "bodyForceMax": 29.83,
+      "headClearMin": 1.07,
+      "setupP90": 4.64,
+      "opsP90": 1,
+      "enduranceMean": 69.81
+     },
+     "Lst_6": {
+      "label": "filming line 6 m",
+      "avail": 72.81,
+      "keMax": 14.85,
+      "bodyForceMax": 29.82,
+      "headClearMin": 1.08,
+      "setupP90": 4.87,
+      "opsP90": 1,
+      "enduranceMean": 67.86
+     }
+    }
+   }
+  ]
+ }
+}

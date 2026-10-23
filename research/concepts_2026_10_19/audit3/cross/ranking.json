@@ -1,0 +1,37 @@
+{
+ "question": "usable solo follow-cam (self-operated, full run, real winds, minimal set-up)",
+ "noConceptQualifies": true,
+ "summary": "No concept is a usable solo follow-cam as specified. kite2 is the only one passing all 13 metrics as modelled (4 conditional) and is the most robust across winds incl. the off-grid tail band, but its pass rests on idealised actuators and a 3 % artefact tolerance, and the line/boom 0.8 m above snow behind the rider is an unfixed clothesline hazard. leapfrog and towglider fail the judged avail honestly (tail-wind refusals). Ranking is by credible usable envelope × evidence × safety, not by count of passes.",
+ "order": [
+  {
+   "rank": 1,
+   "id": "leapfrog",
+   "label": "most credible light-wind follow-cam; fails all-weather avail",
+   "rationale": "Reproduces exactly; fails only avail (75.2 %; flown 91.7 %, calm/cross 96–97 %) because it honestly refuses tailwinds ≥≈4.5 m/s estimated. KE 13.6 J (gate-bypass 13.4 J), headClear 1.88 m, no tether, ops p90 2. Conditions: perfect offline tracking for jitter (2.22 °/s), 8 s gloved fold, 2.72 L tight holster, 48.6 m vs 50 m C0 follow-me limit, 3.5–4.5 m/s tail band → launched and left behind (ops 3). Conventional technology, no line hazard."
+  },
+  {
+   "rank": 2,
+   "id": "kite2",
+   "label": "only all-13 pass as modelled; highest upside, unproven actuators, unfixed clothesline",
+   "rationale": "All 13 reproduced and pass (avail 81.5, jitter 1.66, setup 4.7 s, ops 1, F 28 N, KE 12.9 J, headClear 1.10, endurance 56.9, packVol 2.86), KE now robust to L/D/mass, robust in the 3.5–5.5 m/s tail band. But avail margin 1.5 pp rests on a 3 % artefact tolerance (literal ≥1 px rule → 0 %), an active 1.2 m boom whose gimbal is undersized for its simulated torque (passive → 42.9 %) and a zero-lag winch beyond its motor model (no heave comp → 79.7 %); L/D 0.6 → 73 %. Line/boom 0.80–0.82 m above snow 1–2 m behind the rider in 39/39 runs: resort permission unlikely. Would move to rank 1 if bench tests confirm boom/winch and a clothesline mitigation exists."
+  },
+  {
+   "rank": 3,
+   "id": "towglider",
+   "label": "lowest burden but unsafe in the off-grid tail band; fails avail",
+   "rationale": "ops 1, setup 12 s, 0.46 kg, 2.8 L (fold now geometrically consistent). Fails avail 72 % (6 tail runs refused, 2 cross9 false refusals). KE 14.0 and headClear 1.01 pass only at the grid winds: tail 3.5–4 m/s → 21–22 J and 0.36 m head pass; vertical-helmet headClear 0.86 m. Jitter rests on an 8 % EIS residual; endurance 39 min if lift idle is charged. Safety is the binding issue."
+  },
+  {
+   "rank": 4,
+   "id": "descentglider",
+   "label": "frozen negative result (round-2 row unchanged)",
+   "rationale": "Round-2 audit: fails avail 29.6 %, setup 60 s, ops p90 3, KE 18 J, harmonised jitter p90 18 °/s. Not re-run in round 3."
+  }
+ ],
+ "nextKillTests": [
+  "kite2: tow test L/D vs slot/reef (kill <0.7 or <30 % reefed glide); boom gimbal bench under 0.4–1 N·m with seated KCU; winch hockey-stop replay (kill lag >30 ms); real-footage artefact <3 % of subject height; clothesline mitigation + resort permission",
+  "leapfrog: UWB/GNSS bearing error to a carving skier at 20–45 m; real post-tracker jitter on moving 22° footage; snow take-off at −10 °C; timed gloved fold; folded-wing glide polar (C0 50 m margin)",
+  "towglider: tail 3–6 m/s in 0.25 m/s steps with the real belt estimate; drop tests with head-height marker; EIS/mount residual in gusts; 50 holster captures at up to 18 m/s; reel flex life and Ω/m",
+  "all: resort written permission; G-MATURE closed; M-070 not_run"
+ ]
+}

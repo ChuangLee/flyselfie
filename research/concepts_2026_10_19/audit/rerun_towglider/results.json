@@ -1,0 +1,6639 @@
+{
+ "conceptId": "towglider",
+ "modelVersion": "towglider@0.2.0",
+ "generated": "2026-10-20",
+ "evidence": "numerical-uncalibrated simulation (sim/js/concepts/towglider); not a physical test. Parameters ASSUMED unless cited.",
+ "defaults": {
+  "design": 2,
+  "mass": 0.095,
+  "S": 0.055,
+  "AR": 8,
+  "cd0": 0.04,
+  "CLmax": 1,
+  "ldFactor": 1,
+  "sweep": 0,
+  "brakeCD": 0.2,
+  "Dback": 6.5,
+  "Hsnow": 3.5,
+  "stationTau": 1.4,
+  "dLine": 0.17,
+  "EA": 1500,
+  "Tmin": 0.12,
+  "TtowMax": 2,
+  "Fclutch": 3,
+  "hookRelease": 2.4,
+  "Tlaunch": 1.6,
+  "cam": 2,
+  "dockMode": 0,
+  "shotPlan": 1
+ },
+ "polar": {
+  "LD_at_6": 11.197,
+  "LD_at_8": 9.816,
+  "LD_at_10": 7.414,
+  "LD_at_12": 5.504,
+  "LD_at_14": 4.168,
+  "LD_at_16": 3.239,
+  "LD_at_18": 2.58
+ },
+ "vStall_ms": 5.821,
+ "scenarios": {
+  "nominal": {
+   "en": "Nominal: 12 m/s carving, 15°, light wind (with shot plan)",
+   "expect": "Gravity-glide follow on a smoothed path; leash near its minimum tension; no ≥1 px line artefact; KE ≤14.9 J. Fail: height loss, stall, line over the rider.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 652,
+   "metrics": {
+    "avail": {
+     "value": 88.491,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 459.883,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.523,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 89.281,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 1.007,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 11.279,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 102.177,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.169,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.52,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 1.2,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 34.252,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.837,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 2.158,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 26.148,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.533,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.144,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 10.715,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 88.491,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.082,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.607,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.43,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [],
+   "extremes": {
+    "hipTensionMax_N": 1.873,
+    "keSnowMax_J": 11.279,
+    "lagMax_m": 10.715,
+    "reelLineMax_m": 10.851,
+    "airspeedMax_ms": 16.813,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 0.965,
+    "backgroundRms_degs": 1.123
+   },
+   "validUntil": null
+  },
+  "nominal_v1": {
+   "en": "Nominal (I-05 original: 125 g, fixed camera)",
+   "expect": "Original design: does a near-zero-tension leash bow, and can a fixed camera keep a turning rider in the window?",
+   "fault": false,
+   "stow": false,
+   "compare": true,
+   "computeMs": 656,
+   "metrics": {
+    "avail": {
+     "value": 10.269,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 260.44,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 19.581,
+     "unit": "°/s",
+     "pass": false,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 27.759,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.385,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0.905,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 14.155,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.489,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 115.422,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.088,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.735,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.926,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 38.663,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 3.725,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 2.433,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 25.729,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.577,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 4.152,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 11.189,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 10.269,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.081,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.589,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 7.85,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.489,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 125,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [],
+   "extremes": {
+    "hipTensionMax_N": 1.766,
+    "keSnowMax_J": 14.155,
+    "lagMax_m": 11.189,
+    "reelLineMax_m": 12.033,
+    "airspeedMax_ms": 16.613,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 19.343,
+    "backgroundRms_degs": 19.335
+   },
+   "validUntil": null
+  },
+  "nominal_ld70": {
+   "en": "Sensitivity: L/D −30 %",
+   "expect": "How much tow the leash must add if the low-Re polar is 30 % worse.",
+   "fault": false,
+   "stow": false,
+   "compare": true,
+   "computeMs": 630,
+   "metrics": {
+    "avail": {
+     "value": 88.422,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 459.637,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.523,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 89.195,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0.985,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 11.279,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 100.498,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.203,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.615,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 1.144,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 47.829,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.836,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 2.696,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 21.243,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.507,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.15,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 10.738,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 88.422,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.082,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.609,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.57,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [],
+   "extremes": {
+    "hipTensionMax_N": 1.878,
+    "keSnowMax_J": 11.279,
+    "lagMax_m": 10.738,
+    "reelLineMax_m": 10.867,
+    "airspeedMax_ms": 16.81,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 0.966,
+    "backgroundRms_degs": 1.122
+   },
+   "validUntil": null
+  },
+  "launch": {
+   "en": "Launch from standstill: arm → push off → sled tow → winch launch",
+   "expect": "Automatic launch after one tap; time to station, winch tension and body force. Fail: no lift-off within 8 s or line/glider striking the rider.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 522,
+   "metrics": {
+    "avail": {
+     "value": 82.741,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 458.314,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.524,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.619,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.826,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 10.481,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 101.884,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.166,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.402,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 1.534,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 37.928,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.653,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 3.092,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 32.803,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.598,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.178,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 9.448,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0.172,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 82.91,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.082,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.614,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": 0.694,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.5 m (ASSUMED: unpowered, ≤2 m/s relative)"
+    },
+    "headMin": {
+     "value": 5.093,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "launchTime": {
+     "value": 4.34,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤10 s (ASSUMED)"
+    },
+    "liftoff": {
+     "value": 3.92,
+     "unit": "s",
+     "pass": null,
+     "criterion": null
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 0.6,
+     "type": "arm",
+     "severity": "info",
+     "en": "Arm tap (one action, while standing)"
+    },
+    {
+     "t": 2.24,
+     "type": "drop",
+     "severity": "info",
+     "en": "After push-off the glider slides out of the hip quiver onto the snow and its wings spring open; reel pays out freely"
+    },
+    {
+     "t": 4.98,
+     "type": "sled",
+     "severity": "info",
+     "en": "Reel brakes after 6.5 m: glider is sled-towed over the snow"
+    },
+    {
+     "t": 4.98,
+     "type": "winch",
+     "severity": "info",
+     "en": "Rider ≥4.5 m/s: reel winch launch (sailplane-style)"
+    },
+    {
+     "t": 5.92,
+     "type": "liftoff",
+     "severity": "info",
+     "en": "Lift-off"
+    },
+    {
+     "t": 6.34,
+     "type": "follow",
+     "severity": "info",
+     "en": "On station: gravity-glide follow"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 6.699,
+    "keSnowMax_J": 10.481,
+    "lagMax_m": 9.448,
+    "reelLineMax_m": 9.935,
+    "airspeedMax_ms": 14.698,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 0.936,
+    "backgroundRms_degs": 0.776
+   },
+   "validUntil": null
+  },
+  "dock": {
+   "en": "In-motion dock: tap, straight glide-out at 12 m/s, then stop",
+   "expect": "The reel draws the glider down the line through the skier wake into the hip funnel: entry ≤2 m/s relative, wing tips clear, seated before the stop (≈0 s standstill).",
+   "fault": false,
+   "stow": true,
+   "compare": false,
+   "computeMs": 335,
+   "metrics": {
+    "avail": {
+     "value": 34.161,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (stow scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 617.663,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (stow scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.505,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (stow scenario: not judged)"
+    },
+    "azRange": {
+     "value": 0.704,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (stow scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.41,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 1,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.632,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 105.398,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.125,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.167,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.174,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 3.258,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.61,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 17.448,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 2.109,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.385,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 6.924,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤2 % (I-05 kill line) (stow scenario: not judged)"
+    },
+    "availGeom": {
+     "value": 34.161,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.344,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.729,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.966,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": 0.732,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.5 m (ASSUMED: unpowered, ≤2 m/s relative)"
+    },
+    "headMin": {
+     "value": 6.381,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "dockTime": {
+     "value": -4.64,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤6 s (I-05 target)"
+    },
+    "touchKE": {
+     "value": "n/a",
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "captureV": {
+     "value": 1.292,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤2 m/s (ASSUMED)"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 6.5,
+     "type": "dockcmd",
+     "severity": "info",
+     "en": "Dock command while skiing (tap or lift-base geofence): the reel draws the glider down the line into the hip funnel"
+    },
+    {
+     "t": 12.14,
+     "type": "capture",
+     "severity": "info",
+     "en": "Nose enters the hip funnel (relative speed 1.3 m/s); wings fold into the quiver"
+    },
+    {
+     "t": 12.96,
+     "type": "docked",
+     "severity": "info",
+     "en": "Seated and latched; charging"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 2.552,
+    "keSnowMax_J": 13.632,
+    "lagMax_m": 6.926,
+    "reelLineMax_m": 7.927,
+    "airspeedMax_ms": 16.337,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.75,
+    "backgroundRms_degs": 0.175
+   },
+   "validUntil": null
+  },
+  "dock_wind": {
+   "en": "In-motion dock in 9 m/s gusty crosswind",
+   "expect": "Harmonised: 90th-percentile standstill over 0–9 m/s wind ≤30 s; funnel capture in crosswind.",
+   "fault": false,
+   "stow": true,
+   "compare": false,
+   "computeMs": 279,
+   "metrics": {
+    "avail": {
+     "value": 34.161,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (stow scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 618.974,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (stow scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.509,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (stow scenario: not judged)"
+    },
+    "azRange": {
+     "value": 0.577,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (stow scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.73,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 1,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 14.186,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 104.826,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.251,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.466,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.473,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 70.545,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 3.268,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 3.327,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 5.234,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 2.58,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.345,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 6.99,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤2 % (I-05 kill line) (stow scenario: not judged)"
+    },
+    "availGeom": {
+     "value": 34.161,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.361,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.721,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.956,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": 0.607,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.5 m (ASSUMED: unpowered, ≤2 m/s relative)"
+    },
+    "headMin": {
+     "value": 6.426,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "dockTime": {
+     "value": -4.46,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤6 s (I-05 target)"
+    },
+    "touchKE": {
+     "value": "n/a",
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "captureV": {
+     "value": 0.865,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤2 m/s (ASSUMED)"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 6.5,
+     "type": "dockcmd",
+     "severity": "info",
+     "en": "Dock command while skiing (tap or lift-base geofence): the reel draws the glider down the line into the hip funnel"
+    },
+    {
+     "t": 12.34,
+     "type": "capture",
+     "severity": "info",
+     "en": "Nose enters the hip funnel (relative speed 0.9 m/s); wings fold into the quiver"
+    },
+    {
+     "t": 13.14,
+     "type": "docked",
+     "severity": "info",
+     "en": "Seated and latched; charging"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 3.083,
+    "keSnowMax_J": 14.186,
+    "lagMax_m": 6.997,
+    "reelLineMax_m": 8.014,
+    "airspeedMax_ms": 20.222,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.759,
+    "backgroundRms_degs": 0.317
+   },
+   "validUntil": null
+  },
+  "dock_carve": {
+   "en": "Dock variant: dock tap during carved turns",
+   "expect": "The hip funnel swings ±9 m with the turns: can the glider follow it in?",
+   "fault": false,
+   "stow": true,
+   "compare": true,
+   "computeMs": 324,
+   "metrics": {
+    "avail": {
+     "value": 40.378,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (stow scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 504.79,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (stow scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.53,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (stow scenario: not judged)"
+    },
+    "azRange": {
+     "value": 67.563,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (stow scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 3.517,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 2.04,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.22,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 93.831,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.167,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.383,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.427,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 37.75,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.821,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.988,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 27.22,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.697,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.251,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 10.035,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤2 % (I-05 kill line) (stow scenario: not judged)"
+    },
+    "availGeom": {
+     "value": 40.378,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": -0.083,
+     "unit": "m",
+     "pass": false,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.03,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.12,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": 0.806,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.5 m (ASSUMED: unpowered, ≤2 m/s relative)"
+    },
+    "headMin": {
+     "value": 6.898,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "dockTime": {
+     "value": 1.04,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤6 s (I-05 target)"
+    },
+    "touchKE": {
+     "value": "n/a",
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "captureV": {
+     "value": 1.835,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤2 m/s (ASSUMED)"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 9,
+     "type": "dockcmd",
+     "severity": "info",
+     "en": "Dock command while skiing (tap or lift-base geofence): the reel draws the glider down the line into the hip funnel"
+    },
+    {
+     "t": 14.9,
+     "type": "reelinFail",
+     "severity": "warning",
+     "en": "Glider stalls in the wake and drops to the snow during reel-in: falls back to the snow pull"
+    },
+    {
+     "t": 19.7,
+     "type": "capture",
+     "severity": "info",
+     "en": "Nose enters the hip funnel (relative speed 1.8 m/s); wings fold into the quiver"
+    },
+    {
+     "t": 20.5,
+     "type": "docked",
+     "severity": "info",
+     "en": "Seated and latched; charging"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 4.414,
+    "keSnowMax_J": 14.562,
+    "lagMax_m": 10.035,
+    "reelLineMax_m": 10.427,
+    "airspeedMax_ms": 18.354,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.819,
+    "backgroundRms_degs": 2.022
+   },
+   "validUntil": null
+  },
+  "stop": {
+   "en": "Unplanned hockey stop: land beside + snow pull",
+   "expect": "A glider cannot hover: it zooms, turns away, lands; the reel drags it into the holster; report standstill, touchdown KE, clearance to the skis.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 446,
+   "metrics": {
+    "avail": {
+     "value": 88.08,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 450.911,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.524,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 126.771,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.738,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 15.48,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 10.311,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 85.837,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.154,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.388,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 1.124,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 30.211,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.804,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.688,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 31.879,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.489,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.141,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 10.035,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 88.08,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.086,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.214,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.698,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.076,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "dockTime": {
+     "value": 14.48,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤6 s (I-05 target)"
+    },
+    "touchKE": {
+     "value": 3.088,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "captureV": {
+     "value": 1.133,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤2 m/s (ASSUMED)"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 14.24,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stop detected: glider brakes, lands on the snow behind-beside, reel drags it to the hip quiver"
+    },
+    {
+     "t": 17.24,
+     "type": "landed",
+     "severity": "info",
+     "en": "Glider down on the snow (touchdown 8.1 m/s)"
+    },
+    {
+     "t": 31.12,
+     "type": "capture",
+     "severity": "info",
+     "en": "Nose enters the hip funnel (relative speed 1.1 m/s); wings fold into the quiver"
+    },
+    {
+     "t": 31.92,
+     "type": "docked",
+     "severity": "info",
+     "en": "Seated and latched; charging"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 3.29,
+    "keSnowMax_J": 10.311,
+    "lagMax_m": 17.512,
+    "reelLineMax_m": 17.699,
+    "airspeedMax_ms": 15.035,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.308,
+    "backgroundRms_degs": 1.512
+   },
+   "validUntil": null
+  },
+  "stop_wind": {
+   "en": "Unplanned stop in 9 m/s gusty wind",
+   "expect": "Harmonised: 90th-percentile standstill over 0–9 m/s wind ≤30 s (incl. land + snow pull).",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 445,
+   "metrics": {
+    "avail": {
+     "value": 85.947,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 460.659,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.423,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 151.603,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 3.308,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.86,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 10.855,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 77.743,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.138,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.349,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 1.31,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 19.184,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.836,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.556,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 54.388,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 0.877,
+     "unit": "×Vs",
+     "pass": false,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 1.776,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 9.038,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 85.947,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.007,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": -0.015,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.568,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 2.617,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "dockTime": {
+     "value": 16.86,
+     "unit": "s",
+     "pass": false,
+     "criterion": "≤6 s (I-05 target)"
+    },
+    "touchKE": {
+     "value": 4.508,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "captureV": {
+     "value": 0.814,
+     "unit": "m/s",
+     "pass": true,
+     "criterion": "≤2 m/s (ASSUMED)"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 14.24,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stop detected: glider brakes, lands on the snow behind-beside, reel drags it to the hip quiver"
+    },
+    {
+     "t": 17.5,
+     "type": "landed",
+     "severity": "info",
+     "en": "Glider down on the snow (touchdown 9.7 m/s)"
+    },
+    {
+     "t": 33.5,
+     "type": "capture",
+     "severity": "info",
+     "en": "Nose enters the hip funnel (relative speed 0.8 m/s); wings fold into the quiver"
+    },
+    {
+     "t": 34.3,
+     "type": "docked",
+     "severity": "info",
+     "en": "Seated and latched; charging"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 4.132,
+    "keSnowMax_J": 10.855,
+    "lagMax_m": 20.526,
+    "reelLineMax_m": 20.879,
+    "airspeedMax_ms": 15.384,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 2.08,
+    "backgroundRms_degs": 3.407
+   },
+   "validUntil": null
+  },
+  "short": {
+   "en": "Short turns (1.04 s/turn)",
+   "expect": "Fast edge changes: smoothed path, jitter ≤3 °/s, line–pole clearance.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 341,
+   "metrics": {
+    "avail": {
+     "value": 87.843,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 447.573,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.658,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 68.354,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0.93,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 6.139,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 105.585,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.143,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.417,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.932,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 29.309,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.157,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.367,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 54.078,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.37,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.344,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 8.762,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 87.843,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.083,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.638,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 6.175,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [],
+   "extremes": {
+    "hipTensionMax_N": 1.404,
+    "keSnowMax_J": 6.139,
+    "lagMax_m": 8.762,
+    "reelLineMax_m": 9.702,
+    "airspeedMax_ms": 11.914,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 0.912,
+    "backgroundRms_degs": 1.877
+   },
+   "validUntil": null
+  },
+  "fast": {
+   "en": "High speed 18 m/s",
+   "expect": "Can it keep up under the KE cap; how far it lags and how much tow the leash adds.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 295,
+   "metrics": {
+    "avail": {
+     "value": 16.819,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 138.429,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.501,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 34.067,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0.256,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": false,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.777,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 99.489,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.239,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.249,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.258,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 0.167,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 3.863,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 0.94,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 2.459,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 2.535,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.41,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 89.863,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 16.819,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.09,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.46,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.722,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 9.046,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 7.1,
+     "type": "release",
+     "severity": "warning",
+     "en": "Leash nearly used up (23.0 m, rider faster than the KE-cap speed): tow hook releases, glider free-glides and lands for pick-up"
+    },
+    {
+     "t": 15,
+     "type": "lineHome",
+     "severity": "info",
+     "en": "Empty line fully retracted"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 2.562,
+    "keSnowMax_J": 17.323,
+    "lagMax_m": 89.863,
+    "reelLineMax_m": 23.045,
+    "airspeedMax_ms": 18.668,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 0.397,
+    "backgroundRms_degs": 0.192
+   },
+   "validUntil": null
+  },
+  "headwind": {
+   "en": "Headwind 5 m/s",
+   "expect": "High airspeed, low L/D → gravity short, the leash tows; report tension.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 263,
+   "metrics": {
+    "avail": {
+     "value": 84.097,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 463.432,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.549,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 92.034,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 1.528,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 11.996,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 89.395,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.34,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 1.084,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 1.746,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 67.777,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.826,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 4.363,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 8.323,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 2.334,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.301,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 10.579,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 84.097,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.081,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.589,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.982,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [],
+   "extremes": {
+    "hipTensionMax_N": 1.919,
+    "keSnowMax_J": 11.996,
+    "lagMax_m": 10.579,
+    "reelLineMax_m": 10.935,
+    "airspeedMax_ms": 21.346,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.032,
+    "backgroundRms_degs": 1.225
+   },
+   "validUntil": null
+  },
+  "tailwind": {
+   "en": "Tailwind 5 m/s",
+   "expect": "Airspeed may fall below stall: automatic S-weave lengthens the path; report minimum airspeed.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 259,
+   "metrics": {
+    "avail": {
+     "value": 86.261,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 456.279,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.736,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 87.438,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 1.778,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 12.565,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 100.839,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.093,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.342,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 1.81,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 12.157,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.825,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.431,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 84.928,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.025,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 1.962,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 10.371,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 86.261,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.083,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.635,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 2.336,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [],
+   "extremes": {
+    "hipTensionMax_N": 1.91,
+    "keSnowMax_J": 12.565,
+    "lagMax_m": 10.371,
+    "reelLineMax_m": 10.249,
+    "airspeedMax_ms": 11.196,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.212,
+    "backgroundRms_degs": 2.351
+   },
+   "validUntil": null
+  },
+  "gust": {
+   "en": "Gusty crosswind 4 m/s + 6 m/s gust",
+   "expect": "Large crab angle: does the camera window keep the rider; position error and tension peaks.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 493,
+   "metrics": {
+    "avail": {
+     "value": 88.491,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 459.499,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.53,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 88.946,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0.826,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 11.211,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 101.388,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.18,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.617,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.855,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 37.836,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.843,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 2.412,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 27.938,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.633,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.164,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 10.789,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 88.491,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.082,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.609,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.728,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [],
+   "extremes": {
+    "hipTensionMax_N": 2.016,
+    "keSnowMax_J": 11.211,
+    "lagMax_m": 10.789,
+    "reelLineMax_m": 10.95,
+    "airspeedMax_ms": 18.031,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 0.973,
+    "backgroundRms_degs": 1.114
+   },
+   "validUntil": null
+  },
+  "flat": {
+   "en": "Flat cat-track 3° with 3 m/s headwind (gravity insufficient)",
+   "expect": "The leash aerotows the glider: report tow tension and body force.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 371,
+   "metrics": {
+    "avail": {
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 559.602,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.528,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 60.511,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 0.707,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 6.239,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 112.195,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.235,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.421,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.708,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 75.187,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 0.452,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.919,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 7.631,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.841,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.434,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 7.624,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.324,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.691,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.92,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.995,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [],
+   "extremes": {
+    "hipTensionMax_N": 1.191,
+    "keSnowMax_J": 6.239,
+    "lagMax_m": 7.624,
+    "reelLineMax_m": 7.967,
+    "airspeedMax_ms": 14.49,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 0.727,
+    "backgroundRms_degs": 0.287
+   },
+   "validUntil": null
+  },
+  "fall": {
+   "en": "Rider fall (12 m/s² stop)",
+   "expect": "Reel free-spools; glider zooms, turns away and lands clear; relative KE and closest approach.",
+   "fault": false,
+   "stow": false,
+   "compare": false,
+   "computeMs": 220,
+   "metrics": {
+    "avail": {
+     "value": 91.333,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 477.208,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.529,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 71.206,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.111,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 9.086,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": true,
+     "criterion": "≤3 L (assumed)"
+    },
+    "endurance": {
+     "value": 102.605,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "tensionP50": {
+     "value": 0.152,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.383,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+    },
+    "tensionMax": {
+     "value": 0.427,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 26.711,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.861,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.734,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 26.85,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.697,
+     "unit": "×Vs",
+     "pass": true,
+     "criterion": "≥1.0"
+    },
+    "heightMin": {
+     "value": 3.266,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.5 m (ASSUMED)"
+    },
+    "lagMax": {
+     "value": 10.035,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤2 % (I-05 kill line)"
+    },
+    "availGeom": {
+     "value": 91.333,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.098,
+     "unit": "m",
+     "pass": true,
+     "criterion": ">0 m (no contact)"
+    },
+    "clearPole": {
+     "value": 0.479,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "clearSki": {
+     "value": 0.777,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.1 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 6.898,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 10.06,
+     "type": "fall",
+     "severity": "warning",
+     "en": "Fall detected (hip IMU decel > 8 m/s²): reel free-spools; glider zooms, turns away and lands on the snow clear of the rider"
+    },
+    {
+     "t": 12.5,
+     "type": "scope",
+     "severity": "invalid",
+     "en": "Beyond this the rider’s lying pose is not modelled; leash–body clearance not credible"
+    },
+    {
+     "t": 14.7,
+     "type": "landed",
+     "severity": "info",
+     "en": "Glider down on the snow (touchdown 7.3 m/s)"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 5.096,
+    "keSnowMax_J": 9.906,
+    "lagMax_m": 23.052,
+    "reelLineMax_m": 22.861,
+    "airspeedMax_ms": 14.37,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.718,
+    "backgroundRms_degs": 1.911
+   },
+   "validUntil": 12.5
+  },
+  "crossing": {
+   "en": "Neighbour skier crosses and catches the leash (0.9 m behind, 7 m/s, line held by an arm/pole for 1.5 s)",
+   "expect": "Worst case: the line is caught and dragged. Line-strike force (3 N clutch cap), free pay-out, tow-hook release; forces on the crosser and the rider.",
+   "fault": true,
+   "stow": false,
+   "compare": false,
+   "computeMs": 252,
+   "metrics": {
+    "avail": {
+     "value": 82.755,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 453.181,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.538,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 88.141,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": null,
+     "criterion": "≤1.5 kg (fault scenario: not judged)"
+    },
+    "bodyForcePeak": {
+     "value": 3.053,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤5 % (fault scenario: not judged)"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤30 s (fault scenario: not judged)"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": null,
+     "criterion": "≤2 - (fault scenario: not judged)"
+    },
+    "keMax": {
+     "value": 9.737,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": "≤3 L (assumed) (fault scenario: not judged)"
+    },
+    "endurance": {
+     "value": 102.352,
+     "unit": "min",
+     "pass": null,
+     "criterion": "≥45 min (fault scenario: not judged)"
+    },
+    "tensionP50": {
+     "value": 0.153,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.388,
+     "unit": "N",
+     "pass": null,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite) (fault scenario: not judged)"
+    },
+    "tensionMax": {
+     "value": 3.118,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 12.723,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.778,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.048,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 18.563,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.697,
+     "unit": "×Vs",
+     "pass": null,
+     "criterion": "≥1.0 (fault scenario: not judged)"
+    },
+    "heightMin": {
+     "value": 3.266,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥1.5 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "lagMax": {
+     "value": 11.245,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤2 % (I-05 kill line) (fault scenario: not judged)"
+    },
+    "availGeom": {
+     "value": 82.755,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.098,
+     "unit": "m",
+     "pass": null,
+     "criterion": ">0 m (no contact) (fault scenario: not judged)"
+    },
+    "clearPole": {
+     "value": 0.479,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.1 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "clearSki": {
+     "value": 0.709,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.1 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "headMin": {
+     "value": 6.685,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "strikeForce": {
+     "value": 1.852,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤8 N (ASSUMED: two legs capped by the 3 N clutch)"
+    },
+    "leftOnObstacle": {
+     "value": "nothing (empty line pulled through and retracted; glider free-follows, lands for pick-up)",
+     "unit": "",
+     "pass": true,
+     "criterion": "nothing"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 9.96,
+     "type": "strike",
+     "severity": "warning",
+     "en": "A crossing skier runs into the leash 0.66 m above the snow"
+    },
+    {
+     "t": 10.1,
+     "type": "release",
+     "severity": "warning",
+     "en": "Glider tow-hook releases (hook force 3.1 N, 10° off-axis): it free-glides on and keeps filming; the reel retracts the empty line"
+    },
+    {
+     "t": 10.46,
+     "type": "unhooked",
+     "severity": "info",
+     "en": "The empty line end pulls through past the obstacle: nothing left behind"
+    },
+    {
+     "t": 13.14,
+     "type": "lineHome",
+     "severity": "info",
+     "en": "Empty line fully retracted"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 3.118,
+    "keSnowMax_J": 9.906,
+    "lagMax_m": 11.245,
+    "reelLineMax_m": 10.427,
+    "airspeedMax_ms": 14.455,
+    "crossForceMax_N": 1.852
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.192,
+    "backgroundRms_degs": 1.369
+   },
+   "validUntil": null
+  },
+  "crossing_slip": {
+   "en": "Neighbour skier crosses the leash (line free to slide)",
+   "expect": "Frictionless assumption: the line rides up and over the crosser’s head as the rider pulls away.",
+   "fault": true,
+   "stow": false,
+   "compare": true,
+   "computeMs": 255,
+   "metrics": {
+    "avail": {
+     "value": 86.33,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 455.978,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.535,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 92.498,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": null,
+     "criterion": "≤1.5 kg (fault scenario: not judged)"
+    },
+    "bodyForcePeak": {
+     "value": 1.48,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤5 % (fault scenario: not judged)"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤30 s (fault scenario: not judged)"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": null,
+     "criterion": "≤2 - (fault scenario: not judged)"
+    },
+    "keMax": {
+     "value": 10.39,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": "≤3 L (assumed) (fault scenario: not judged)"
+    },
+    "endurance": {
+     "value": 99.356,
+     "unit": "min",
+     "pass": null,
+     "criterion": "≥45 min (fault scenario: not judged)"
+    },
+    "tensionP50": {
+     "value": 0.171,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.464,
+     "unit": "N",
+     "pass": null,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite) (fault scenario: not judged)"
+    },
+    "tensionMax": {
+     "value": 1.539,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 38.381,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.793,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 2.155,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 27.768,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.678,
+     "unit": "×Vs",
+     "pass": null,
+     "criterion": "≥1.0 (fault scenario: not judged)"
+    },
+    "heightMin": {
+     "value": 3.211,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥1.5 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "lagMax": {
+     "value": 11.34,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤2 % (I-05 kill line) (fault scenario: not judged)"
+    },
+    "availGeom": {
+     "value": 86.33,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.081,
+     "unit": "m",
+     "pass": null,
+     "criterion": ">0 m (no contact) (fault scenario: not judged)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.1 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "clearSki": {
+     "value": 0.589,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.1 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "headMin": {
+     "value": 5.937,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "strikeForce": {
+     "value": 0.596,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤8 N (ASSUMED: two legs capped by the 3 N clutch)"
+    },
+    "leftOnObstacle": {
+     "value": "nothing (empty line pulled through and retracted; glider free-follows, lands for pick-up)",
+     "unit": "",
+     "pass": true,
+     "criterion": "nothing"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 9.96,
+     "type": "strike",
+     "severity": "warning",
+     "en": "A crossing skier runs into the leash 0.66 m above the snow"
+    },
+    {
+     "t": 10.14,
+     "type": "slipoff",
+     "severity": "info",
+     "en": "Leash slides off over the crosser's head"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 1.873,
+    "keSnowMax_J": 10.39,
+    "lagMax_m": 11.34,
+    "reelLineMax_m": 11.583,
+    "airspeedMax_ms": 16.045,
+    "crossForceMax_N": 0.596
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.192,
+    "backgroundRms_degs": 1.389
+   },
+   "validUntil": null
+  },
+  "snag": {
+   "en": "Tree branch snags the leash (3 m above the snow)",
+   "expect": "Snag → tow-hook release → glider free-follows → empty line pulls through and retracts; body force and what is left in the tree.",
+   "fault": true,
+   "stow": false,
+   "compare": false,
+   "computeMs": 356,
+   "metrics": {
+    "avail": {
+     "value": 84.776,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 455.533,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.722,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 84.301,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": null,
+     "criterion": "≤1.5 kg (fault scenario: not judged)"
+    },
+    "bodyForcePeak": {
+     "value": 5.157,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤5 % (fault scenario: not judged)"
+    },
+    "setupTime": {
+     "value": 17.9,
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤30 s (fault scenario: not judged)"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": null,
+     "criterion": "≤2 - (fault scenario: not judged)"
+    },
+    "keMax": {
+     "value": 10.135,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": "≤3 L (assumed) (fault scenario: not judged)"
+    },
+    "endurance": {
+     "value": 95.663,
+     "unit": "min",
+     "pass": null,
+     "criterion": "≥45 min (fault scenario: not judged)"
+    },
+    "tensionP50": {
+     "value": 0.177,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.385,
+     "unit": "N",
+     "pass": null,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite) (fault scenario: not judged)"
+    },
+    "tensionMax": {
+     "value": 6.124,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 14.462,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.797,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 0.927,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 16.791,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.697,
+     "unit": "×Vs",
+     "pass": null,
+     "criterion": "≥1.0 (fault scenario: not judged)"
+    },
+    "heightMin": {
+     "value": 3.205,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥1.5 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "lagMax": {
+     "value": 12.529,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤2 % (I-05 kill line) (fault scenario: not judged)"
+    },
+    "availGeom": {
+     "value": 84.776,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.092,
+     "unit": "m",
+     "pass": null,
+     "criterion": ">0 m (no contact) (fault scenario: not judged)"
+    },
+    "clearPole": {
+     "value": 0.464,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.1 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "clearSki": {
+     "value": 0.772,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.1 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "headMin": {
+     "value": 6.898,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "branchMin": {
+     "value": 0.302,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "leftOnObstacle": {
+     "value": "nothing (empty line pulled through and retracted; glider free-follows, lands for pick-up)",
+     "unit": "",
+     "pass": true,
+     "criterion": "nothing"
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 10.48,
+     "type": "snag",
+     "severity": "warning",
+     "en": "Leash caught on a branch 3 m above the snow"
+    },
+    {
+     "t": 10.62,
+     "type": "release",
+     "severity": "warning",
+     "en": "Glider tow-hook releases (hook force 4.8 N, 94° off-axis): it free-glides on and keeps filming; the reel retracts the empty line"
+    },
+    {
+     "t": 10.82,
+     "type": "unhooked",
+     "severity": "info",
+     "en": "The empty line end pulls through past the obstacle: nothing left behind"
+    },
+    {
+     "t": 14.44,
+     "type": "lineHome",
+     "severity": "info",
+     "en": "Empty line fully retracted"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 6.124,
+    "keSnowMax_J": 10.135,
+    "lagMax_m": 12.529,
+    "reelLineMax_m": 10.862,
+    "airspeedMax_ms": 14.37,
+    "crossForceMax_N": 9.708
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.226,
+    "backgroundRms_degs": 1.496
+   },
+   "validUntil": null
+  },
+  "reelfail": {
+   "en": "Reel motor/controller failure, then a stop",
+   "expect": "No tow, no recovery: the glider keeps gravity-following, lands to the side at the stop, manual pick-up.",
+   "fault": true,
+   "stow": false,
+   "compare": false,
+   "computeMs": 359,
+   "metrics": {
+    "avail": {
+     "value": 90.191,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 456.99,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.521,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 78.881,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 0.355,
+     "unit": "kg",
+     "pass": null,
+     "criterion": "≤1.5 kg (fault scenario: not judged)"
+    },
+    "bodyForcePeak": {
+     "value": 3.192,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0.417,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤5 % (fault scenario: not judged)"
+    },
+    "setupTime": {
+     "value": 21,
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤30 s (fault scenario: not judged)"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": null,
+     "criterion": "≤2 - (fault scenario: not judged)"
+    },
+    "keMax": {
+     "value": 9.497,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "packVol": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": "≤3 L (assumed) (fault scenario: not judged)"
+    },
+    "endurance": {
+     "value": 107.556,
+     "unit": "min",
+     "pass": null,
+     "criterion": "≥45 min (fault scenario: not judged)"
+    },
+    "tensionP50": {
+     "value": 0.059,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "tensionP95": {
+     "value": 0.347,
+     "unit": "N",
+     "pass": null,
+     "criterion": "≤3 N (I-05 kill line: above that it is a kite) (fault scenario: not judged)"
+    },
+    "tensionMax": {
+     "value": 2.861,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "towShare": {
+     "value": 71.622,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pGravMean": {
+     "value": 2.809,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pTowMean": {
+     "value": 1.132,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "brakeMean": {
+     "value": 20.351,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "airMin": {
+     "value": 1.536,
+     "unit": "×Vs",
+     "pass": null,
+     "criterion": "≥1.0 (fault scenario: not judged)"
+    },
+    "heightMin": {
+     "value": 3.156,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥1.5 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "lagMax": {
+     "value": 10.724,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "artFrames": {
+     "value": 0.272,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤2 % (I-05 kill line) (fault scenario: not judged)"
+    },
+    "availGeom": {
+     "value": 90.463,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "clearBody": {
+     "value": 0.081,
+     "unit": "m",
+     "pass": null,
+     "criterion": ">0 m (no contact) (fault scenario: not judged)"
+    },
+    "clearPole": {
+     "value": 0.457,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.1 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "clearSki": {
+     "value": 0.524,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.1 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "headMin": {
+     "value": 5.554,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "dockTime": {
+     "value": "n/a",
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤6 s (I-05 target) (fault scenario: not judged)"
+    },
+    "touchKE": {
+     "value": 1.524,
+     "unit": "J",
+     "pass": null,
+     "criterion": null
+    },
+    "packVolDetail": {
+     "value": 2.58,
+     "unit": "L",
+     "pass": null,
+     "criterion": null
+    },
+    "regClass": {
+     "value": 95,
+     "unit": "g",
+     "pass": true,
+     "criterion": "<250 g"
+    }
+   },
+   "events": [
+    {
+     "t": 8,
+     "type": "reelfail",
+     "severity": "warning",
+     "en": "Reel motor/controller fails: drum falls back to a passive 0.25 N drag brake (pay-out only); the glider loses tow and recovery"
+    },
+    {
+     "t": 20.24,
+     "type": "stop",
+     "severity": "info",
+     "en": "Stop detected: no leash recovery, glider lands on the snow to the side"
+    },
+    {
+     "t": 24.5,
+     "type": "landed",
+     "severity": "info",
+     "en": "Glider down on the snow (touchdown 5.7 m/s)"
+    }
+   ],
+   "extremes": {
+    "hipTensionMax_N": 5.406,
+    "keSnowMax_J": 9.906,
+    "lagMax_m": 20.041,
+    "reelLineMax_m": 19.73,
+    "airspeedMax_ms": 14.876,
+    "crossForceMax_N": 0
+   },
+   "footageStability": {
+    "subjectRms_degs": 1.113,
+    "backgroundRms_degs": 1.297
+   },
+   "validUntil": null
+  }
+ },
+ "demo": {
+  "duration": 56,
+  "stages": [
+   {
+    "key": "carry",
+    "t0": 0,
+    "t1": 4,
+    "pending": false,
+    "en": "Standing at the top: the 95 g folded glider sits in a holster behind the left hip; reel and 10 Wh cell on the belt. One tap on the belt button arms it."
+   },
+   {
+    "key": "launch",
+    "t0": 4,
+    "t1": 12,
+    "pending": true,
+    "en": "Push-off: the glider slides out onto the snow and its wings spring open; the reel pays out ~6.5 m, then sled-tows it; at ≥4.5 m/s the reel winches it up to station. Ejection and wing-deploy hardware are illustrative."
+   },
+   {
+    "key": "follow",
+    "t0": 12,
+    "t1": 24,
+    "pending": false,
+    "en": "Carved turns: the glider flies the smoothed line on slope gravity; the leash holds only ~0.1–0.3 N; the station moves from behind to rear-left."
+   },
+   {
+    "key": "gust",
+    "t0": 24,
+    "t1": 31,
+    "pending": false,
+    "en": "Highlight: a 6 m/s side gust; the glider crabs, the gimbal keeps the rider framed, the reel absorbs the tension peak."
+   },
+   {
+    "key": "rear",
+    "t0": 31,
+    "t1": 38,
+    "pending": false,
+    "en": "Station moves to rear-right, then back behind."
+   },
+   {
+    "key": "dock",
+    "t0": 38,
+    "t1": 48,
+    "pending": true,
+    "en": "Near the lift: a tap (or the lift-base geofence) starts the dock. The rider keeps skiing; the reel draws the glider down the line through the wake into the hip funnel, whose lip folds the wings aft. Seating reliability pending hardware tests."
+   },
+   {
+    "key": "stow",
+    "t0": 48,
+    "t1": 56,
+    "pending": false,
+    "en": "Stop: the glider is already seated and charging — zero standstill; queue for the lift hands-free."
+   }
+  ],
+  "metrics": {
+   "avail": {
+    "value": 62.692,
+    "unit": "%",
+    "pass": false,
+    "criterion": "≥80 %"
+   },
+   "pxMed": {
+    "value": 478.417,
+    "unit": "px",
+    "pass": true,
+    "criterion": "≥300 px"
+   },
+   "jitterRms": {
+    "value": 0.523,
+    "unit": "°/s",
+    "pass": true,
+    "criterion": "≤3 °/s (assumed)"
+   },
+   "azRange": {
+    "value": 82.945,
+    "unit": "°",
+    "pass": true,
+    "criterion": "≥45 °"
+   },
+   "addedMass": {
+    "value": 0.355,
+    "unit": "kg",
+    "pass": true,
+    "criterion": "≤1.5 kg"
+   },
+   "bodyForcePeak": {
+    "value": 3.059,
+    "unit": "N",
+    "pass": true,
+    "criterion": "≤40 N (assumed)"
+   },
+   "handsBusy": {
+    "value": 0.417,
+    "unit": "%",
+    "pass": true,
+    "criterion": "≤5 %"
+   },
+   "setupTime": {
+    "value": 17.9,
+    "unit": "s",
+    "pass": true,
+    "criterion": "≤30 s"
+   },
+   "ops": {
+    "value": 2,
+    "unit": "-",
+    "pass": true,
+    "criterion": "≤2 -"
+   },
+   "keMax": {
+    "value": 12.986,
+    "unit": "J",
+    "pass": true,
+    "criterion": "≤14.9 J"
+   },
+   "packVol": {
+    "value": 2.58,
+    "unit": "L",
+    "pass": true,
+    "criterion": "≤3 L (assumed)"
+   },
+   "endurance": {
+    "value": 100.603,
+    "unit": "min",
+    "pass": true,
+    "criterion": "≥45 min"
+   },
+   "tensionP50": {
+    "value": 0.172,
+    "unit": "N",
+    "pass": null,
+    "criterion": null
+   },
+   "tensionP95": {
+    "value": 0.563,
+    "unit": "N",
+    "pass": true,
+    "criterion": "≤3 N (I-05 kill line: above that it is a kite)"
+   },
+   "tensionMax": {
+    "value": 1.546,
+    "unit": "N",
+    "pass": null,
+    "criterion": null
+   },
+   "towShare": {
+    "value": 41.165,
+    "unit": "%",
+    "pass": null,
+    "criterion": null
+   },
+   "pGravMean": {
+    "value": 2.771,
+    "unit": "W",
+    "pass": null,
+    "criterion": null
+   },
+   "pTowMean": {
+    "value": 2.936,
+    "unit": "W",
+    "pass": null,
+    "criterion": null
+   },
+   "brakeMean": {
+    "value": 27.897,
+    "unit": "%",
+    "pass": null,
+    "criterion": null
+   },
+   "airMin": {
+    "value": 1.624,
+    "unit": "×Vs",
+    "pass": true,
+    "criterion": "≥1.0"
+   },
+   "heightMin": {
+    "value": 3.216,
+    "unit": "m",
+    "pass": true,
+    "criterion": "≥1.5 m (ASSUMED)"
+   },
+   "lagMax": {
+    "value": 10.018,
+    "unit": "m",
+    "pass": null,
+    "criterion": null
+   },
+   "artFrames": {
+    "value": 0.179,
+    "unit": "%",
+    "pass": true,
+    "criterion": "≤2 % (I-05 kill line)"
+   },
+   "availGeom": {
+    "value": 62.777,
+    "unit": "%",
+    "pass": null,
+    "criterion": null
+   },
+   "clearBody": {
+    "value": 0.083,
+    "unit": "m",
+    "pass": true,
+    "criterion": ">0 m (no contact)"
+   },
+   "clearPole": {
+    "value": 0.457,
+    "unit": "m",
+    "pass": true,
+    "criterion": "≥0.1 m (ASSUMED)"
+   },
+   "clearSki": {
+    "value": 0.626,
+    "unit": "m",
+    "pass": true,
+    "criterion": "≥0.1 m (ASSUMED)"
+   },
+   "headLaunch": {
+    "value": 0.292,
+    "unit": "m",
+    "pass": false,
+    "criterion": "≥0.5 m (ASSUMED: unpowered, ≤2 m/s relative)"
+   },
+   "headMin": {
+    "value": 5.317,
+    "unit": "m",
+    "pass": true,
+    "criterion": "≥1.0 m"
+   },
+   "launchTime": {
+    "value": 8.52,
+    "unit": "s",
+    "pass": true,
+    "criterion": "≤10 s (ASSUMED)"
+   },
+   "liftoff": {
+    "value": 8.1,
+    "unit": "s",
+    "pass": null,
+    "criterion": null
+   },
+   "packVolDetail": {
+    "value": 2.58,
+    "unit": "L",
+    "pass": null,
+    "criterion": null
+   },
+   "regClass": {
+    "value": 95,
+    "unit": "g",
+    "pass": true,
+    "criterion": "<250 g"
+   }
+  },
+  "events": [
+   {
+    "t": 2,
+    "type": "arm",
+    "severity": "info",
+    "en": "Arm tap (one action, while standing)"
+   },
+   {
+    "t": 4.44,
+    "type": "drop",
+    "severity": "info",
+    "en": "After push-off the glider slides out of the hip quiver onto the snow and its wings spring open; reel pays out freely"
+   },
+   {
+    "t": 7.16,
+    "type": "sled",
+    "severity": "info",
+    "en": "Reel brakes after 6.5 m: glider is sled-towed over the snow"
+   },
+   {
+    "t": 7.16,
+    "type": "winch",
+    "severity": "info",
+    "en": "Rider ≥4.5 m/s: reel winch launch (sailplane-style)"
+   },
+   {
+    "t": 8.1,
+    "type": "liftoff",
+    "severity": "info",
+    "en": "Lift-off"
+   },
+   {
+    "t": 8.52,
+    "type": "follow",
+    "severity": "info",
+    "en": "On station: gravity-glide follow"
+   },
+   {
+    "t": 38.4,
+    "type": "dockcmd",
+    "severity": "info",
+    "en": "Dock command while skiing (tap or lift-base geofence): the reel draws the glider down the line into the hip funnel"
+   },
+   {
+    "t": 45.92,
+    "type": "capture",
+    "severity": "info",
+    "en": "Nose enters the hip funnel (relative speed 1.0 m/s); wings fold into the quiver"
+   },
+   {
+    "t": 46.74,
+    "type": "docked",
+    "severity": "info",
+    "en": "Seated and latched; charging"
+   }
+  ],
+  "extremes": {
+   "hipTensionMax_N": 6.575,
+   "keSnowMax_J": 12.986,
+   "lagMax_m": 10.018,
+   "reelLineMax_m": 10.266,
+   "airspeedMax_ms": 16.776,
+   "crossForceMax_N": 0
+  },
+  "footageStability": {
+   "subjectRms_degs": 0.856,
+   "backgroundRms_degs": 0.602
+  },
+  "validUntil": null
+ },
+ "variants": [
+  {
+   "id": "chosen",
+   "over": {},
+   "why": "chosen architecture (defaults)",
+   "results": {
+    "nominal": {
+     "avail": 88.491,
+     "pxMed": 459.883,
+     "jitterRms": 0.523,
+     "keMax": 11.279,
+     "tensionP50": 0.169,
+     "tensionP95": 0.52,
+     "towShare": 34.252,
+     "brakeMean": 26.148,
+     "artFrames": 0,
+     "lagMax": 10.715,
+     "heightMin": 3.144,
+     "airMin": 1.533,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.965,
+     "fsBackground": 1.123
+    },
+    "short": {
+     "avail": 87.843,
+     "pxMed": 447.573,
+     "jitterRms": 0.658,
+     "keMax": 6.139,
+     "tensionP50": 0.143,
+     "tensionP95": 0.417,
+     "towShare": 29.309,
+     "brakeMean": 54.078,
+     "artFrames": 0,
+     "lagMax": 8.762,
+     "heightMin": 3.344,
+     "airMin": 1.37,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.912,
+     "fsBackground": 1.877
+    },
+    "fast": {
+     "avail": 16.819,
+     "pxMed": 138.429,
+     "jitterRms": 0.501,
+     "keMax": 13.777,
+     "tensionP50": 0.239,
+     "tensionP95": 0.249,
+     "towShare": 0.167,
+     "brakeMean": 2.459,
+     "artFrames": 0,
+     "lagMax": 89.863,
+     "heightMin": 3.41,
+     "airMin": 2.535,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.397,
+     "fsBackground": 0.192
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 559.602,
+     "jitterRms": 0.528,
+     "keMax": 6.239,
+     "tensionP50": 0.235,
+     "tensionP95": 0.421,
+     "towShare": 75.187,
+     "brakeMean": 7.631,
+     "artFrames": 0,
+     "lagMax": 7.624,
+     "heightMin": 3.434,
+     "airMin": 1.841,
+     "clearPole": 0.691,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.727,
+     "fsBackground": 0.287
+    },
+    "gust": {
+     "avail": 88.491,
+     "pxMed": 459.499,
+     "jitterRms": 0.53,
+     "keMax": 11.211,
+     "tensionP50": 0.18,
+     "tensionP95": 0.617,
+     "towShare": 37.836,
+     "brakeMean": 27.938,
+     "artFrames": 0,
+     "lagMax": 10.789,
+     "heightMin": 3.164,
+     "airMin": 1.633,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.973,
+     "fsBackground": 1.114
+    }
+   }
+  },
+  {
+   "id": "I05_original",
+   "over": {
+    "design": 1
+   },
+   "why": "inventor I-05 numbers: 125 g, S 0.06, AR 9, cd0 0.035, fixed 90° camera, light smoothing, 7 m / 4.5 m",
+   "results": {
+    "nominal": {
+     "avail": 10.269,
+     "pxMed": 260.44,
+     "jitterRms": 19.581,
+     "keMax": 14.155,
+     "tensionP50": 0.088,
+     "tensionP95": 0.735,
+     "towShare": 38.663,
+     "brakeMean": 25.729,
+     "artFrames": 0,
+     "lagMax": 11.189,
+     "heightMin": 4.152,
+     "airMin": 1.577,
+     "clearPole": 0.457,
+     "addedMass": 0.385,
+     "packVol": 2.489,
+     "fsSubject": 19.343,
+     "fsBackground": 19.335
+    },
+    "short": {
+     "avail": 28.476,
+     "pxMed": 238.267,
+     "jitterRms": 32.772,
+     "keMax": 6.13,
+     "tensionP50": 0.085,
+     "tensionP95": 0.323,
+     "towShare": 36.636,
+     "brakeMean": 56.153,
+     "artFrames": 0,
+     "lagMax": 8.226,
+     "heightMin": 4.351,
+     "airMin": 1.279,
+     "clearPole": 0.457,
+     "addedMass": 0.385,
+     "packVol": 2.489,
+     "fsSubject": 32.303,
+     "fsBackground": 32.304
+    },
+    "fast": {
+     "avail": 0,
+     "pxMed": 50.938,
+     "jitterRms": 8.38,
+     "keMax": 13.892,
+     "tensionP50": 0.248,
+     "tensionP95": 0.256,
+     "towShare": 0.083,
+     "brakeMean": 8.026,
+     "artFrames": 0,
+     "lagMax": 110.313,
+     "heightMin": 4.377,
+     "airMin": 2.213,
+     "clearPole": 0.466,
+     "addedMass": 0.385,
+     "packVol": 2.489,
+     "fsSubject": 8.206,
+     "fsBackground": 8.214
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 430.953,
+     "jitterRms": 0.745,
+     "keMax": 7.193,
+     "tensionP50": 0.227,
+     "tensionP95": 0.38,
+     "towShare": 93.339,
+     "brakeMean": 8.459,
+     "artFrames": 0,
+     "lagMax": 7.754,
+     "heightMin": 4.427,
+     "airMin": 1.679,
+     "clearPole": 0.75,
+     "addedMass": 0.385,
+     "packVol": 2.489,
+     "fsSubject": 1.558,
+     "fsBackground": 1.338
+    },
+    "gust": {
+     "avail": 9.855,
+     "pxMed": 257.194,
+     "jitterRms": 22.795,
+     "keMax": 14.385,
+     "tensionP50": 0.111,
+     "tensionP95": 0.928,
+     "towShare": 39.766,
+     "brakeMean": 29.865,
+     "artFrames": 0,
+     "lagMax": 11.272,
+     "heightMin": 4.144,
+     "airMin": 1.605,
+     "clearPole": 0.457,
+     "addedMass": 0.385,
+     "packVol": 2.489,
+     "fsSubject": 22.482,
+     "fsBackground": 22.452
+    }
+   }
+  },
+  {
+   "id": "cam_fixed90",
+   "over": {
+    "cam": 0
+   },
+   "why": "no gimbal: body-fixed 4K 90° + EIS reframe",
+   "results": {
+    "nominal": {
+     "avail": 45.624,
+     "pxMed": 307.714,
+     "jitterRms": 11.91,
+     "keMax": 11.279,
+     "tensionP50": 0.169,
+     "tensionP95": 0.52,
+     "towShare": 34.252,
+     "brakeMean": 26.148,
+     "artFrames": 0,
+     "lagMax": 10.715,
+     "heightMin": 3.144,
+     "airMin": 1.533,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 11.764,
+     "fsBackground": 11.74
+    },
+    "short": {
+     "avail": 33.056,
+     "pxMed": 294.448,
+     "jitterRms": 36.377,
+     "keMax": 6.139,
+     "tensionP50": 0.143,
+     "tensionP95": 0.417,
+     "towShare": 29.309,
+     "brakeMean": 54.078,
+     "artFrames": 0,
+     "lagMax": 8.762,
+     "heightMin": 3.344,
+     "airMin": 1.37,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 35.707,
+     "fsBackground": 35.495
+    },
+    "fast": {
+     "avail": 3.997,
+     "pxMed": 82.48,
+     "jitterRms": 5.018,
+     "keMax": 13.777,
+     "tensionP50": 0.239,
+     "tensionP95": 0.249,
+     "towShare": 0.167,
+     "brakeMean": 2.459,
+     "artFrames": 0,
+     "lagMax": 89.863,
+     "heightMin": 3.41,
+     "airMin": 2.535,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 4.905,
+     "fsBackground": 4.877
+    },
+    "flat": {
+     "avail": 98.085,
+     "pxMed": 489.08,
+     "jitterRms": 8.609,
+     "keMax": 6.239,
+     "tensionP50": 0.235,
+     "tensionP95": 0.421,
+     "towShare": 75.187,
+     "brakeMean": 7.631,
+     "artFrames": 0,
+     "lagMax": 7.624,
+     "heightMin": 3.434,
+     "airMin": 1.841,
+     "clearPole": 0.691,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 8.443,
+     "fsBackground": 8.333
+    },
+    "gust": {
+     "avail": 45.141,
+     "pxMed": 323.473,
+     "jitterRms": 13.371,
+     "keMax": 11.211,
+     "tensionP50": 0.18,
+     "tensionP95": 0.617,
+     "towShare": 37.836,
+     "brakeMean": 27.938,
+     "artFrames": 0,
+     "lagMax": 10.789,
+     "heightMin": 3.164,
+     "airMin": 1.633,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 13.219,
+     "fsBackground": 13.19
+    }
+   }
+  },
+  {
+   "id": "cam_fixed120",
+   "over": {
+    "cam": 1
+   },
+   "why": "no gimbal: body-fixed 4K 120° + EIS reframe",
+   "results": {
+    "nominal": {
+     "avail": 0,
+     "pxMed": 177.325,
+     "jitterRms": 10.504,
+     "keMax": 11.279,
+     "tensionP50": 0.169,
+     "tensionP95": 0.52,
+     "towShare": 34.252,
+     "brakeMean": 26.148,
+     "artFrames": 0,
+     "lagMax": 10.715,
+     "heightMin": 3.144,
+     "airMin": 1.533,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 10.374,
+     "fsBackground": 10.344
+    },
+    "short": {
+     "avail": 1.166,
+     "pxMed": 176.94,
+     "jitterRms": 36.267,
+     "keMax": 6.139,
+     "tensionP50": 0.143,
+     "tensionP95": 0.417,
+     "towShare": 29.309,
+     "brakeMean": 54.078,
+     "artFrames": 0,
+     "lagMax": 8.762,
+     "heightMin": 3.344,
+     "airMin": 1.37,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 35.554,
+     "fsBackground": 35.347
+    },
+    "fast": {
+     "avail": 0,
+     "pxMed": 47.017,
+     "jitterRms": 5.075,
+     "keMax": 13.777,
+     "tensionP50": 0.239,
+     "tensionP95": 0.249,
+     "towShare": 0.167,
+     "brakeMean": 2.459,
+     "artFrames": 0,
+     "lagMax": 89.863,
+     "heightMin": 3.41,
+     "airMin": 2.535,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 4.961,
+     "fsBackground": 4.941
+    },
+    "flat": {
+     "avail": 7.66,
+     "pxMed": 282.999,
+     "jitterRms": 10.589,
+     "keMax": 6.239,
+     "tensionP50": 0.235,
+     "tensionP95": 0.421,
+     "towShare": 75.187,
+     "brakeMean": 7.631,
+     "artFrames": 0,
+     "lagMax": 7.624,
+     "heightMin": 3.434,
+     "airMin": 1.841,
+     "clearPole": 0.691,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 10.379,
+     "fsBackground": 10.274
+    },
+    "gust": {
+     "avail": 1.792,
+     "pxMed": 192.7,
+     "jitterRms": 11.763,
+     "keMax": 11.211,
+     "tensionP50": 0.18,
+     "tensionP95": 0.617,
+     "towShare": 37.836,
+     "brakeMean": 27.938,
+     "artFrames": 0,
+     "lagMax": 10.789,
+     "heightMin": 3.164,
+     "airMin": 1.633,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.301,
+     "fsSubject": 11.6,
+     "fsBackground": 11.57
+    }
+   }
+  },
+  {
+   "id": "mass_080",
+   "over": {
+    "mass": 0.08
+   },
+   "why": "lighter 80 g (KE cap 19 m/s; needs a lighter camera than budgeted)",
+   "results": {
+    "nominal": {
+     "avail": 88.56,
+     "pxMed": 459.811,
+     "jitterRms": 0.523,
+     "keMax": 9.446,
+     "tensionP50": 0.175,
+     "tensionP95": 0.498,
+     "towShare": 35.355,
+     "brakeMean": 21.3,
+     "artFrames": 0,
+     "lagMax": 10.704,
+     "heightMin": 3.182,
+     "airMin": 1.612,
+     "clearPole": 0.457,
+     "addedMass": 0.34,
+     "packVol": 2.58,
+     "fsSubject": 0.967,
+     "fsBackground": 1.124
+    },
+    "short": {
+     "avail": 88.093,
+     "pxMed": 446.339,
+     "jitterRms": 0.653,
+     "keMax": 5.312,
+     "tensionP50": 0.143,
+     "tensionP95": 0.376,
+     "towShare": 30.724,
+     "brakeMean": 47.747,
+     "artFrames": 0,
+     "lagMax": 8.831,
+     "heightMin": 3.348,
+     "airMin": 1.479,
+     "clearPole": 0.457,
+     "addedMass": 0.34,
+     "packVol": 2.58,
+     "fsSubject": 0.891,
+     "fsBackground": 1.84
+    },
+    "fast": {
+     "avail": 73.522,
+     "pxMed": 327.202,
+     "jitterRms": 0.502,
+     "keMax": 14.144,
+     "tensionP50": 0.26,
+     "tensionP95": 0.5,
+     "towShare": 42.881,
+     "brakeMean": 3.583,
+     "artFrames": 0,
+     "lagMax": 20.853,
+     "heightMin": 3.402,
+     "airMin": 3.315,
+     "clearPole": 0.459,
+     "addedMass": 0.34,
+     "packVol": 2.58,
+     "fsSubject": 0.798,
+     "fsBackground": 0.282
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 559.436,
+     "jitterRms": 0.528,
+     "keMax": 5.245,
+     "tensionP50": 0.231,
+     "tensionP95": 0.394,
+     "towShare": 75.687,
+     "brakeMean": 6.384,
+     "artFrames": 0,
+     "lagMax": 7.624,
+     "heightMin": 3.434,
+     "airMin": 2.006,
+     "clearPole": 0.692,
+     "addedMass": 0.34,
+     "packVol": 2.58,
+     "fsSubject": 0.727,
+     "fsBackground": 0.285
+    },
+    "gust": {
+     "avail": 88.491,
+     "pxMed": 459.315,
+     "jitterRms": 0.531,
+     "keMax": 9.344,
+     "tensionP50": 0.185,
+     "tensionP95": 0.568,
+     "towShare": 39.766,
+     "brakeMean": 23.008,
+     "artFrames": 0,
+     "lagMax": 10.807,
+     "heightMin": 3.228,
+     "airMin": 1.754,
+     "clearPole": 0.457,
+     "addedMass": 0.34,
+     "packVol": 2.58,
+     "fsSubject": 0.973,
+     "fsBackground": 1.113
+    }
+   }
+  },
+  {
+   "id": "mass_125",
+   "over": {
+    "mass": 0.125
+   },
+   "why": "I-05 mass 125 g with the chosen airframe",
+   "results": {
+    "nominal": {
+     "avail": 88.629,
+     "pxMed": 459.484,
+     "jitterRms": 0.521,
+     "keMax": 14.024,
+     "tensionP50": 0.156,
+     "tensionP95": 0.552,
+     "towShare": 32.805,
+     "brakeMean": 34.9,
+     "artFrames": 0,
+     "lagMax": 10.729,
+     "heightMin": 3.135,
+     "airMin": 1.369,
+     "clearPole": 0.457,
+     "addedMass": 0.385,
+     "packVol": 2.58,
+     "fsSubject": 0.966,
+     "fsBackground": 1.122
+    },
+    "short": {
+     "avail": 88.26,
+     "pxMed": 447.452,
+     "jitterRms": 0.678,
+     "keMax": 7.56,
+     "tensionP50": 0.135,
+     "tensionP95": 0.471,
+     "towShare": 25.062,
+     "brakeMean": 64.357,
+     "artFrames": 0,
+     "lagMax": 8.607,
+     "heightMin": 3.345,
+     "airMin": 1.235,
+     "clearPole": 0.653,
+     "addedMass": 0.385,
+     "packVol": 2.58,
+     "fsSubject": 0.987,
+     "fsBackground": 1.992
+    },
+    "fast": {
+     "avail": 8.326,
+     "pxMed": 89.61,
+     "jitterRms": 0.5,
+     "keMax": 13.9,
+     "tensionP50": 0.354,
+     "tensionP95": 0.36,
+     "towShare": 0.167,
+     "brakeMean": 8.862,
+     "artFrames": 0,
+     "lagMax": 107.156,
+     "heightMin": 3.397,
+     "airMin": 2.116,
+     "clearPole": 0.466,
+     "addedMass": 0.385,
+     "packVol": 2.58,
+     "fsSubject": 0.195,
+     "fsBackground": 0.18
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 560.075,
+     "jitterRms": 0.528,
+     "keMax": 8.231,
+     "tensionP50": 0.246,
+     "tensionP95": 0.474,
+     "towShare": 74.938,
+     "brakeMean": 10.124,
+     "artFrames": 0,
+     "lagMax": 7.626,
+     "heightMin": 3.433,
+     "airMin": 1.604,
+     "clearPole": 0.69,
+     "addedMass": 0.385,
+     "packVol": 2.58,
+     "fsSubject": 0.729,
+     "fsBackground": 0.29
+    },
+    "gust": {
+     "avail": 88.629,
+     "pxMed": 458.613,
+     "jitterRms": 0.528,
+     "keMax": 14.039,
+     "tensionP50": 0.16,
+     "tensionP95": 0.709,
+     "towShare": 34.045,
+     "brakeMean": 36.726,
+     "artFrames": 0,
+     "lagMax": 10.765,
+     "heightMin": 3.035,
+     "airMin": 1.493,
+     "clearPole": 0.457,
+     "addedMass": 0.385,
+     "packVol": 2.58,
+     "fsSubject": 0.971,
+     "fsBackground": 1.113
+    }
+   }
+  },
+  {
+   "id": "sweep_morph",
+   "over": {
+    "sweep": 1
+   },
+   "why": "LisHawk-style sweep morph (S2-01)",
+   "results": {
+    "nominal": {
+     "avail": 88.766,
+     "pxMed": 460.566,
+     "jitterRms": 0.521,
+     "keMax": 11.23,
+     "tensionP50": 0.156,
+     "tensionP95": 0.471,
+     "towShare": 30.806,
+     "brakeMean": 30.047,
+     "artFrames": 0,
+     "lagMax": 10.712,
+     "heightMin": 3.202,
+     "airMin": 1.528,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.967,
+     "fsBackground": 1.118
+    },
+    "short": {
+     "avail": 87.843,
+     "pxMed": 447.573,
+     "jitterRms": 0.658,
+     "keMax": 6.138,
+     "tensionP50": 0.143,
+     "tensionP95": 0.412,
+     "towShare": 29.226,
+     "brakeMean": 54.105,
+     "artFrames": 0,
+     "lagMax": 8.759,
+     "heightMin": 3.344,
+     "airMin": 1.37,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.912,
+     "fsBackground": 1.877
+    },
+    "fast": {
+     "avail": 16.903,
+     "pxMed": 159.232,
+     "jitterRms": 0.501,
+     "keMax": 13.801,
+     "tensionP50": 0.241,
+     "tensionP95": 0.25,
+     "towShare": 0.666,
+     "brakeMean": 7.473,
+     "artFrames": 0,
+     "lagMax": 55.859,
+     "heightMin": 3.383,
+     "airMin": 2.799,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.399,
+     "fsBackground": 0.177
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 560.078,
+     "jitterRms": 0.525,
+     "keMax": 6.282,
+     "tensionP50": 0.221,
+     "tensionP95": 0.415,
+     "towShare": 70.941,
+     "brakeMean": 8.329,
+     "artFrames": 0,
+     "lagMax": 7.618,
+     "heightMin": 3.456,
+     "airMin": 1.841,
+     "clearPole": 0.692,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.725,
+     "fsBackground": 0.271
+    },
+    "gust": {
+     "avail": 88.835,
+     "pxMed": 460.68,
+     "jitterRms": 0.527,
+     "keMax": 11.314,
+     "tensionP50": 0.155,
+     "tensionP95": 0.57,
+     "towShare": 32.185,
+     "brakeMean": 33.747,
+     "artFrames": 0,
+     "lagMax": 10.813,
+     "heightMin": 3.233,
+     "airMin": 1.62,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.981,
+     "fsBackground": 1.103
+    }
+   }
+  },
+  {
+   "id": "station_far",
+   "over": {
+    "Dback": 9,
+    "Hsnow": 4.5
+   },
+   "why": "farther station 9 m behind / 4.5 m up",
+   "results": {
+    "nominal": {
+     "avail": 76.912,
+     "pxMed": 391.419,
+     "jitterRms": 0.512,
+     "keMax": 13.029,
+     "tensionP50": 0.176,
+     "tensionP95": 0.688,
+     "towShare": 37.216,
+     "brakeMean": 28.158,
+     "artFrames": 0,
+     "lagMax": 13.253,
+     "heightMin": 4.083,
+     "airMin": 1.458,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.896,
+     "fsBackground": 0.929
+    },
+    "short": {
+     "avail": 73.938,
+     "pxMed": 401.871,
+     "jitterRms": 0.579,
+     "keMax": 6.83,
+     "tensionP50": 0.142,
+     "tensionP95": 0.502,
+     "towShare": 29.059,
+     "brakeMean": 54.824,
+     "artFrames": 0,
+     "lagMax": 11.336,
+     "heightMin": 4.295,
+     "airMin": 1.383,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.715,
+     "fsBackground": 1.335
+    },
+    "fast": {
+     "avail": 12.823,
+     "pxMed": 120.555,
+     "jitterRms": 0.501,
+     "keMax": 13.776,
+     "tensionP50": 0.246,
+     "tensionP95": 0.25,
+     "towShare": 0.083,
+     "brakeMean": 2.117,
+     "artFrames": 0,
+     "lagMax": 91.904,
+     "heightMin": 4.374,
+     "airMin": 2.552,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.35,
+     "fsBackground": 0.157
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 555.827,
+     "jitterRms": 0.516,
+     "keMax": 7.688,
+     "tensionP50": 0.244,
+     "tensionP95": 0.568,
+     "towShare": 75.77,
+     "brakeMean": 8.577,
+     "artFrames": 0,
+     "lagMax": 10.396,
+     "heightMin": 4.438,
+     "airMin": 1.814,
+     "clearPole": 0.473,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.543,
+     "fsBackground": 0.254
+    },
+    "gust": {
+     "avail": 77.05,
+     "pxMed": 392.528,
+     "jitterRms": 0.517,
+     "keMax": 12.955,
+     "tensionP50": 0.192,
+     "tensionP95": 0.751,
+     "towShare": 40.455,
+     "brakeMean": 28.1,
+     "artFrames": 0,
+     "lagMax": 13.317,
+     "heightMin": 4.157,
+     "airMin": 1.626,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.897,
+     "fsBackground": 0.924
+    }
+   }
+  },
+  {
+   "id": "station_close",
+   "over": {
+    "Dback": 5,
+    "Hsnow": 2.6
+   },
+   "why": "closer station 5 m behind / 2.6 m up",
+   "results": {
+    "nominal": {
+     "avail": 92.074,
+     "pxMed": 454.893,
+     "jitterRms": 0.552,
+     "keMax": 10.359,
+     "tensionP50": 0.173,
+     "tensionP95": 0.424,
+     "towShare": 35.01,
+     "brakeMean": 26.055,
+     "artFrames": 0,
+     "lagMax": 9.222,
+     "heightMin": 2.278,
+     "airMin": 1.52,
+     "clearPole": 0.637,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.891,
+     "fsBackground": 1.373
+    },
+    "short": {
+     "avail": 88.177,
+     "pxMed": 444.165,
+     "jitterRms": 0.783,
+     "keMax": 5.764,
+     "tensionP50": 0.146,
+     "tensionP95": 0.383,
+     "towShare": 30.142,
+     "brakeMean": 55.453,
+     "artFrames": 0,
+     "lagMax": 7.206,
+     "heightMin": 2.482,
+     "airMin": 1.332,
+     "clearPole": 0.621,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 1.072,
+     "fsBackground": 2.531
+    },
+    "fast": {
+     "avail": 21.565,
+     "pxMed": 150.967,
+     "jitterRms": 0.501,
+     "keMax": 13.793,
+     "tensionP50": 0.238,
+     "tensionP95": 0.251,
+     "towShare": 0.25,
+     "brakeMean": 2.84,
+     "artFrames": 0,
+     "lagMax": 91.037,
+     "heightMin": 2.544,
+     "airMin": 2.569,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.418,
+     "fsBackground": 0.225
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 558.208,
+     "jitterRms": 0.545,
+     "keMax": 5.537,
+     "tensionP50": 0.218,
+     "tensionP95": 0.355,
+     "towShare": 73.356,
+     "brakeMean": 7.286,
+     "artFrames": 0,
+     "lagMax": 5.951,
+     "heightMin": 2.535,
+     "airMin": 1.84,
+     "clearPole": 0.627,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.82,
+     "fsBackground": 0.327
+    },
+    "gust": {
+     "avail": 92.488,
+     "pxMed": 455.332,
+     "jitterRms": 0.563,
+     "keMax": 10.325,
+     "tensionP50": 0.176,
+     "tensionP95": 0.535,
+     "towShare": 36.733,
+     "brakeMean": 28.058,
+     "artFrames": 0,
+     "lagMax": 9.284,
+     "heightMin": 2.28,
+     "airMin": 1.602,
+     "clearPole": 0.533,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.914,
+     "fsBackground": 1.353
+    }
+   }
+  },
+  {
+   "id": "Tmin_005",
+   "over": {
+    "Tmin": 0.05
+   },
+   "why": "near-zero leash tension (I-05 median 0.01 N idea)",
+   "results": {
+    "nominal": {
+     "avail": 88.422,
+     "pxMed": 459.221,
+     "jitterRms": 0.522,
+     "keMax": 11.343,
+     "tensionP50": 0.122,
+     "tensionP95": 0.552,
+     "towShare": 46.657,
+     "brakeMean": 24.609,
+     "artFrames": 0,
+     "lagMax": 10.738,
+     "heightMin": 3.143,
+     "airMin": 1.532,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.962,
+     "fsBackground": 1.121
+    },
+    "short": {
+     "avail": 88.093,
+     "pxMed": 446.197,
+     "jitterRms": 0.652,
+     "keMax": 6.273,
+     "tensionP50": 0.093,
+     "tensionP95": 0.454,
+     "towShare": 41.715,
+     "brakeMean": 49.263,
+     "artFrames": 0,
+     "lagMax": 8.885,
+     "heightMin": 3.345,
+     "airMin": 1.352,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.883,
+     "fsBackground": 1.834
+    },
+    "fast": {
+     "avail": 16.819,
+     "pxMed": 138.753,
+     "jitterRms": 0.501,
+     "keMax": 13.785,
+     "tensionP50": 0.172,
+     "tensionP95": 0.186,
+     "towShare": 0.5,
+     "brakeMean": 1.365,
+     "artFrames": 0,
+     "lagMax": 89.717,
+     "heightMin": 3.409,
+     "airMin": 2.535,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.396,
+     "fsBackground": 0.193
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 558.668,
+     "jitterRms": 0.528,
+     "keMax": 6.276,
+     "tensionP50": 0.235,
+     "tensionP95": 0.476,
+     "towShare": 88.926,
+     "brakeMean": 7.364,
+     "artFrames": 0,
+     "lagMax": 7.651,
+     "heightMin": 3.433,
+     "airMin": 1.834,
+     "clearPole": 0.692,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.724,
+     "fsBackground": 0.29
+    },
+    "gust": {
+     "avail": 88.422,
+     "pxMed": 459.272,
+     "jitterRms": 0.529,
+     "keMax": 11.243,
+     "tensionP50": 0.148,
+     "tensionP95": 0.655,
+     "towShare": 46.313,
+     "brakeMean": 26.618,
+     "artFrames": 0,
+     "lagMax": 10.92,
+     "heightMin": 3.201,
+     "airMin": 1.615,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.965,
+     "fsBackground": 1.104
+    }
+   }
+  },
+  {
+   "id": "Tmin_030",
+   "over": {
+    "Tmin": 0.3
+   },
+   "why": "stiffer leash 0.3 N minimum",
+   "results": {
+    "nominal": {
+     "avail": 88.629,
+     "pxMed": 460.579,
+     "jitterRms": 0.521,
+     "keMax": 11.18,
+     "tensionP50": 0.32,
+     "tensionP95": 0.44,
+     "towShare": 11.303,
+     "brakeMean": 37.842,
+     "artFrames": 0,
+     "lagMax": 10.685,
+     "heightMin": 3.141,
+     "airMin": 1.533,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.983,
+     "fsBackground": 1.136
+    },
+    "short": {
+     "avail": 89.092,
+     "pxMed": 449.168,
+     "jitterRms": 0.685,
+     "keMax": 5.57,
+     "tensionP50": 0.301,
+     "tensionP95": 0.444,
+     "towShare": 8.243,
+     "brakeMean": 74.824,
+     "artFrames": 0,
+     "lagMax": 8.372,
+     "heightMin": 3.335,
+     "airMin": 1.476,
+     "clearPole": 0.637,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 1.085,
+     "fsBackground": 2.062
+    },
+    "fast": {
+     "avail": 16.903,
+     "pxMed": 137.436,
+     "jitterRms": 0.501,
+     "keMax": 13.802,
+     "tensionP50": 0.417,
+     "tensionP95": 0.422,
+     "towShare": 0.167,
+     "brakeMean": 5.412,
+     "artFrames": 0,
+     "lagMax": 90.392,
+     "heightMin": 3.416,
+     "airMin": 2.534,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.399,
+     "fsBackground": 0.193
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 562.361,
+     "jitterRms": 0.532,
+     "keMax": 6.073,
+     "tensionP50": 0.306,
+     "tensionP95": 0.409,
+     "towShare": 8.993,
+     "brakeMean": 14.993,
+     "artFrames": 0,
+     "lagMax": 7.51,
+     "heightMin": 3.424,
+     "airMin": 1.846,
+     "clearPole": 0.684,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.757,
+     "fsBackground": 0.309
+    },
+    "gust": {
+     "avail": 88.697,
+     "pxMed": 458.794,
+     "jitterRms": 0.53,
+     "keMax": 11.197,
+     "tensionP50": 0.323,
+     "tensionP95": 0.542,
+     "towShare": 18.332,
+     "brakeMean": 37.94,
+     "artFrames": 0,
+     "lagMax": 10.686,
+     "heightMin": 3.043,
+     "airMin": 1.726,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.99,
+     "fsBackground": 1.128
+    }
+   }
+  },
+  {
+   "id": "line_030",
+   "over": {
+    "dLine": 0.3
+   },
+   "why": "0.3 mm line (more visible to others, stronger)",
+   "results": {
+    "nominal": {
+     "avail": 88.697,
+     "pxMed": 460.181,
+     "jitterRms": 0.523,
+     "keMax": 11.318,
+     "tensionP50": 0.185,
+     "tensionP95": 0.552,
+     "towShare": 38.525,
+     "brakeMean": 26.866,
+     "artFrames": 0,
+     "lagMax": 10.695,
+     "heightMin": 3.137,
+     "airMin": 1.534,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.966,
+     "fsBackground": 1.123
+    },
+    "short": {
+     "avail": 87.927,
+     "pxMed": 447.127,
+     "jitterRms": 0.658,
+     "keMax": 6.216,
+     "tensionP50": 0.146,
+     "tensionP95": 0.426,
+     "towShare": 32.057,
+     "brakeMean": 54.553,
+     "artFrames": 0,
+     "lagMax": 8.744,
+     "heightMin": 3.341,
+     "airMin": 1.369,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.913,
+     "fsBackground": 1.874
+    },
+    "fast": {
+     "avail": 16.819,
+     "pxMed": 138.589,
+     "jitterRms": 0.501,
+     "keMax": 13.781,
+     "tensionP50": 0.25,
+     "tensionP95": 0.266,
+     "towShare": 0.333,
+     "brakeMean": 2.308,
+     "artFrames": 0,
+     "lagMax": 89.808,
+     "heightMin": 3.412,
+     "airMin": 2.535,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.396,
+     "fsBackground": 0.193
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 559.104,
+     "jitterRms": 0.528,
+     "keMax": 6.265,
+     "tensionP50": 0.241,
+     "tensionP95": 0.495,
+     "towShare": 75.187,
+     "brakeMean": 8.089,
+     "artFrames": 0,
+     "lagMax": 7.632,
+     "heightMin": 3.436,
+     "airMin": 1.844,
+     "clearPole": 0.695,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.726,
+     "fsBackground": 0.285
+    },
+    "gust": {
+     "avail": 88.491,
+     "pxMed": 460.035,
+     "jitterRms": 0.529,
+     "keMax": 11.261,
+     "tensionP50": 0.209,
+     "tensionP95": 0.676,
+     "towShare": 42.04,
+     "brakeMean": 28.834,
+     "artFrames": 0,
+     "lagMax": 10.891,
+     "heightMin": 3.172,
+     "airMin": 1.624,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.974,
+     "fsBackground": 1.114
+    }
+   }
+  },
+  {
+   "id": "smooth_short",
+   "over": {
+    "stationTau": 0.4
+   },
+   "why": "little path smoothing (glider tracks every turn)",
+   "results": {
+    "nominal": {
+     "avail": 95.245,
+     "pxMed": 449.524,
+     "jitterRms": 0.538,
+     "keMax": 14.411,
+     "tensionP50": 0.235,
+     "tensionP95": 0.847,
+     "towShare": 54.583,
+     "brakeMean": 25.076,
+     "artFrames": 0,
+     "lagMax": 14.382,
+     "heightMin": 3.233,
+     "airMin": 1.569,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.527,
+     "fsBackground": 0.901
+    },
+    "short": {
+     "avail": 83.264,
+     "pxMed": 439.595,
+     "jitterRms": 0.73,
+     "keMax": 5.931,
+     "tensionP50": 0.15,
+     "tensionP95": 0.427,
+     "towShare": 29.559,
+     "brakeMean": 53.473,
+     "artFrames": 0,
+     "lagMax": 9.006,
+     "heightMin": 3.38,
+     "airMin": 1.395,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.976,
+     "fsBackground": 2.364
+    },
+    "fast": {
+     "avail": 16.986,
+     "pxMed": 137.116,
+     "jitterRms": 0.501,
+     "keMax": 13.818,
+     "tensionP50": 0.243,
+     "tensionP95": 0.253,
+     "towShare": 0.5,
+     "brakeMean": 2.693,
+     "artFrames": 0,
+     "lagMax": 92.755,
+     "heightMin": 3.408,
+     "airMin": 2.53,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.31,
+     "fsBackground": 0.179
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 559.734,
+     "jitterRms": 0.528,
+     "keMax": 6.205,
+     "tensionP50": 0.235,
+     "tensionP95": 0.427,
+     "towShare": 75.187,
+     "brakeMean": 7.628,
+     "artFrames": 0,
+     "lagMax": 7.624,
+     "heightMin": 3.434,
+     "airMin": 1.84,
+     "clearPole": 0.691,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.728,
+     "fsBackground": 0.293
+    },
+    "gust": {
+     "avail": 95.038,
+     "pxMed": 448.98,
+     "jitterRms": 0.562,
+     "keMax": 14.287,
+     "tensionP50": 0.201,
+     "tensionP95": 0.997,
+     "towShare": 51.068,
+     "brakeMean": 25.921,
+     "artFrames": 0,
+     "lagMax": 14.593,
+     "heightMin": 3.225,
+     "airMin": 1.609,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.562,
+     "fsBackground": 0.955
+    }
+   }
+  },
+  {
+   "id": "ld_minus30",
+   "over": {
+    "ldFactor": 0.7
+   },
+   "why": "L/D −30 % sensitivity",
+   "results": {
+    "nominal": {
+     "avail": 88.422,
+     "pxMed": 459.637,
+     "jitterRms": 0.523,
+     "keMax": 11.279,
+     "tensionP50": 0.203,
+     "tensionP95": 0.615,
+     "towShare": 47.829,
+     "brakeMean": 21.243,
+     "artFrames": 0,
+     "lagMax": 10.738,
+     "heightMin": 3.15,
+     "airMin": 1.507,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.966,
+     "fsBackground": 1.122
+    },
+    "short": {
+     "avail": 88.093,
+     "pxMed": 446.95,
+     "jitterRms": 0.651,
+     "keMax": 6.167,
+     "tensionP50": 0.163,
+     "tensionP95": 0.488,
+     "towShare": 38.218,
+     "brakeMean": 48.256,
+     "artFrames": 0,
+     "lagMax": 8.852,
+     "heightMin": 3.347,
+     "airMin": 1.36,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.888,
+     "fsBackground": 1.835
+    },
+    "fast": {
+     "avail": 16.736,
+     "pxMed": 116.391,
+     "jitterRms": 0.501,
+     "keMax": 13.938,
+     "tensionP50": 0.246,
+     "tensionP95": 0.344,
+     "towShare": 2.998,
+     "brakeMean": 0.602,
+     "artFrames": 0,
+     "lagMax": 147.565,
+     "heightMin": 3.411,
+     "airMin": 2.304,
+     "clearPole": 0.46,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.395,
+     "fsBackground": 0.189
+    },
+    "flat": {
+     "avail": 100,
+     "pxMed": 560.084,
+     "jitterRms": 0.528,
+     "keMax": 6.223,
+     "tensionP50": 0.323,
+     "tensionP95": 0.505,
+     "towShare": 95.087,
+     "brakeMean": 6.724,
+     "artFrames": 0,
+     "lagMax": 7.625,
+     "heightMin": 3.43,
+     "airMin": 1.832,
+     "clearPole": 0.69,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.724,
+     "fsBackground": 0.288
+    },
+    "gust": {
+     "avail": 88.491,
+     "pxMed": 459.174,
+     "jitterRms": 0.532,
+     "keMax": 11.188,
+     "tensionP50": 0.219,
+     "tensionP95": 0.761,
+     "towShare": 52.929,
+     "brakeMean": 23.373,
+     "artFrames": 0,
+     "lagMax": 10.8,
+     "heightMin": 3.186,
+     "airMin": 1.619,
+     "clearPole": 0.457,
+     "addedMass": 0.355,
+     "packVol": 2.58,
+     "fsSubject": 0.974,
+     "fsBackground": 1.118
+    }
+   }
+  }
+ ],
+ "passTable": {
+  "nominal": {
+   "avail": "PASS 88.491",
+   "pxMed": "PASS 459.883",
+   "jitterRms": "PASS 0.523",
+   "azRange": "PASS 89.281",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 1.007",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 11.279",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 102.177"
+  },
+  "nominal_v1": {
+   "avail": "FAIL 10.269",
+   "pxMed": "FAIL 260.44",
+   "jitterRms": "FAIL 19.581",
+   "azRange": "FAIL 27.759",
+   "addedMass": "PASS 0.385",
+   "bodyForcePeak": "PASS 0.905",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 14.155",
+   "packVol": "PASS 2.489",
+   "endurance": "PASS 115.422"
+  },
+  "nominal_ld70": {
+   "avail": "PASS 88.422",
+   "pxMed": "PASS 459.637",
+   "jitterRms": "PASS 0.523",
+   "azRange": "PASS 89.195",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 0.985",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 11.279",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 100.498"
+  },
+  "launch": {
+   "avail": "PASS 82.741",
+   "pxMed": "PASS 458.314",
+   "jitterRms": "PASS 0.524",
+   "azRange": "PASS 59.619",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 2.826",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 10.481",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 101.884"
+  },
+  "dock": {
+   "avail": "n/j 34.161",
+   "pxMed": "n/j 617.663",
+   "jitterRms": "n/j 0.505",
+   "azRange": "n/j 0.704",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 2.41",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 1",
+   "ops": "PASS 2",
+   "keMax": "PASS 13.632",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 105.398"
+  },
+  "dock_wind": {
+   "avail": "n/j 34.161",
+   "pxMed": "n/j 618.974",
+   "jitterRms": "n/j 0.509",
+   "azRange": "n/j 0.577",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 2.73",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 1",
+   "ops": "PASS 2",
+   "keMax": "PASS 14.186",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 104.826"
+  },
+  "dock_carve": {
+   "avail": "n/j 40.378",
+   "pxMed": "n/j 504.79",
+   "jitterRms": "n/j 0.53",
+   "azRange": "n/j 67.563",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 3.517",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 2.04",
+   "ops": "PASS 2",
+   "keMax": "PASS 13.22",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 93.831"
+  },
+  "stop": {
+   "avail": "PASS 88.08",
+   "pxMed": "PASS 450.911",
+   "jitterRms": "PASS 0.524",
+   "azRange": "PASS 126.771",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 2.738",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 15.48",
+   "ops": "PASS 2",
+   "keMax": "PASS 10.311",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 85.837"
+  },
+  "stop_wind": {
+   "avail": "PASS 85.947",
+   "pxMed": "PASS 460.659",
+   "jitterRms": "PASS 1.423",
+   "azRange": "PASS 151.603",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 3.308",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.86",
+   "ops": "PASS 2",
+   "keMax": "PASS 10.855",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 77.743"
+  },
+  "short": {
+   "avail": "PASS 87.843",
+   "pxMed": "PASS 447.573",
+   "jitterRms": "PASS 0.658",
+   "azRange": "PASS 68.354",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 0.93",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 6.139",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 105.585"
+  },
+  "fast": {
+   "avail": "FAIL 16.819",
+   "pxMed": "FAIL 138.429",
+   "jitterRms": "PASS 0.501",
+   "azRange": "FAIL 34.067",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 0.256",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "FAIL 3",
+   "keMax": "PASS 13.777",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 99.489"
+  },
+  "headwind": {
+   "avail": "PASS 84.097",
+   "pxMed": "PASS 463.432",
+   "jitterRms": "PASS 0.549",
+   "azRange": "PASS 92.034",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 1.528",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 11.996",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 89.395"
+  },
+  "tailwind": {
+   "avail": "PASS 86.261",
+   "pxMed": "PASS 456.279",
+   "jitterRms": "PASS 0.736",
+   "azRange": "PASS 87.438",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 1.778",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 12.565",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 100.839"
+  },
+  "gust": {
+   "avail": "PASS 88.491",
+   "pxMed": "PASS 459.499",
+   "jitterRms": "PASS 0.53",
+   "azRange": "PASS 88.946",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 0.826",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 11.211",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 101.388"
+  },
+  "flat": {
+   "avail": "PASS 100",
+   "pxMed": "PASS 559.602",
+   "jitterRms": "PASS 0.528",
+   "azRange": "PASS 60.511",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 0.707",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 6.239",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 112.195"
+  },
+  "fall": {
+   "avail": "PASS 91.333",
+   "pxMed": "PASS 477.208",
+   "jitterRms": "PASS 0.529",
+   "azRange": "PASS 71.206",
+   "addedMass": "PASS 0.355",
+   "bodyForcePeak": "PASS 2.111",
+   "handsBusy": "PASS 0.417",
+   "setupTime": "PASS 17.9",
+   "ops": "PASS 2",
+   "keMax": "PASS 9.086",
+   "packVol": "PASS 2.58",
+   "endurance": "PASS 102.605"
+  },
+  "crossing": {
+   "avail": "n/j 82.755",
+   "pxMed": "n/j 453.181",
+   "jitterRms": "n/j 0.538",
+   "azRange": "n/j 88.141",
+   "addedMass": "n/j 0.355",
+   "bodyForcePeak": "PASS 3.053",
+   "handsBusy": "n/j 0.417",
+   "setupTime": "n/j 17.9",
+   "ops": "n/j 3",
+   "keMax": "PASS 9.737",
+   "packVol": "n/j 2.58",
+   "endurance": "n/j 102.352"
+  },
+  "crossing_slip": {
+   "avail": "n/j 86.33",
+   "pxMed": "n/j 455.978",
+   "jitterRms": "n/j 0.535",
+   "azRange": "n/j 92.498",
+   "addedMass": "n/j 0.355",
+   "bodyForcePeak": "PASS 1.48",
+   "handsBusy": "n/j 0.417",
+   "setupTime": "n/j 17.9",
+   "ops": "n/j 2",
+   "keMax": "PASS 10.39",
+   "packVol": "n/j 2.58",
+   "endurance": "n/j 99.356"
+  },
+  "snag": {
+   "avail": "n/j 84.776",
+   "pxMed": "n/j 455.533",
+   "jitterRms": "n/j 0.722",
+   "azRange": "n/j 84.301",
+   "addedMass": "n/j 0.355",
+   "bodyForcePeak": "PASS 5.157",
+   "handsBusy": "n/j 0.417",
+   "setupTime": "n/j 17.9",
+   "ops": "n/j 3",
+   "keMax": "PASS 10.135",
+   "packVol": "n/j 2.58",
+   "endurance": "n/j 95.663"
+  },
+  "reelfail": {
+   "avail": "n/j 90.191",
+   "pxMed": "n/j 456.99",
+   "jitterRms": "n/j 0.521",
+   "azRange": "n/j 78.881",
+   "addedMass": "n/j 0.355",
+   "bodyForcePeak": "PASS 3.192",
+   "handsBusy": "n/j 0.417",
+   "setupTime": "n/j 21",
+   "ops": "n/j 2",
+   "keMax": "PASS 9.497",
+   "packVol": "n/j 2.58",
+   "endurance": "n/j 107.556"
+  }
+ },
+ "setupSweep": {
+  "design1": {
+   "dock": 1,
+   "dock_wind": 1,
+   "stop": 17.94,
+   "stop_wind": 17.76,
+   "worst": 17.94
+  },
+  "design2": {
+   "dock": 1,
+   "dock_wind": 1,
+   "stop": 15.48,
+   "stop_wind": 17.86,
+   "worst": 17.86
+  }
+ }
+}

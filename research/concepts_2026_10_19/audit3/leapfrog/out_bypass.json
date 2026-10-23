@@ -1,0 +1,700 @@
+{
+ "generated": "2026-10-20T12:11:25.875Z",
+ "simCopy": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/copy3",
+ "modelVersion": "leapfrog@3.0.0",
+ "rows": [
+  {
+   "id": "tail3_s13",
+   "U": 3,
+   "dir": "tail",
+   "seed": 13,
+   "bypass": true,
+   "noFly": false,
+   "gate": {
+    "t": 2.5,
+    "w": [
+     4.44,
+     0.27,
+     0.3
+    ],
+    "vProg": -2.96,
+    "riderProg": 10.917990061651157,
+    "refused": false
+   },
+   "tGo": 3.5,
+   "ms": 3754,
+   "own": {
+    "avail": 87.473,
+    "availNoLossFlags": 88.039,
+    "fromFlightPct": 91.715,
+    "jitterSubject": 3.62,
+    "jitterBackground": 3.609,
+    "keMax": 13.429,
+    "keMaxAirborne": 13.429,
+    "headClearMoving": 1.952,
+    "headClearMovingT": 2.9,
+    "headClearMovingPhase": "takeoff",
+    "headClearInclPerch": 1.952,
+    "headClearInclPerchT": 2.5,
+    "rangeMax": 42.965,
+    "setup": 23.478,
+    "setupParts": {
+     "launchStand": 3.5,
+     "wait": 3.12,
+     "move": 8.858,
+     "stow": 8
+    },
+    "ops": 2,
+    "nextRun": false,
+    "stranded": false,
+    "pMean": 6.285,
+    "endurance": 64.667,
+    "liftoffs": 3,
+    "perches": 3,
+    "landNow": 0,
+    "giveUp": 0
+   },
+   "dev": {
+    "avail": 87.473,
+    "pxMed": 600.369,
+    "azRange": 96.793,
+    "bodyF": 3.416,
+    "addedMass": 0.315,
+    "keMax": 13.429,
+    "headClear": 1.97,
+    "setup": 23.478,
+    "ops": 2,
+    "sepMaxFly": 42.775,
+    "pointRms": 2.889
+   },
+   "repro": {
+    "avail": {
+     "dev": 0,
+     "rerun": 87.473
+    },
+    "keMax": {
+     "dev": 0,
+     "rerun": 13.429
+    },
+    "headClear": {
+     "dev": null,
+     "rerun": 1.97
+    },
+    "setupTime": {
+     "dev": 2.5,
+     "rerun": 23.478
+    },
+    "ops": {
+     "dev": 1,
+     "rerun": 2
+    },
+    "fsSubject": {
+     "dev": null,
+     "rerun": 3.62
+    },
+    "sepMaxFly": {
+     "dev": 0,
+     "rerun": 42.775
+    },
+    "pMean": {
+     "dev": 0.3,
+     "rerun": 6.285
+    }
+   }
+  },
+  {
+   "id": "tail6_s11",
+   "U": 6,
+   "dir": "tail",
+   "seed": 11,
+   "bypass": true,
+   "noFly": false,
+   "gate": {
+    "t": 2.5,
+    "w": [
+     5.62,
+     -2.34,
+     0.67
+    ],
+    "vProg": -0.83,
+    "riderProg": 10.944488541905342,
+    "refused": false
+   },
+   "tGo": 3.5,
+   "ms": 2746,
+   "own": {
+    "avail": 2.452,
+    "availNoLossFlags": 2.452,
+    "fromFlightPct": 98.901,
+    "jitterSubject": 1.405,
+    "jitterBackground": 1.353,
+    "keMax": 8.355,
+    "keMaxAirborne": 8.355,
+    "headClearMoving": 1.952,
+    "headClearMovingT": 2.9,
+    "headClearMovingPhase": "takeoff",
+    "headClearInclPerch": 1.952,
+    "headClearInclPerchT": 2.5,
+    "rangeMax": 43.936,
+    "setup": 21.5,
+    "setupParts": {
+     "launchStand": 3.5,
+     "wait": 0,
+     "move": 10,
+     "stow": 8
+    },
+    "ops": 3,
+    "nextRun": true,
+    "stranded": false,
+    "pMean": 5.554,
+    "endurance": 71.081,
+    "liftoffs": 1,
+    "perches": 1,
+    "landNow": 0,
+    "giveUp": 0
+   },
+   "dev": {
+    "avail": 2.452,
+    "pxMed": 36.371,
+    "azRange": 26.069,
+    "bodyF": 3.347,
+    "addedMass": 0.315,
+    "keMax": 8.355,
+    "headClear": 1.97,
+    "setup": 21.5,
+    "ops": 3,
+    "sepMaxFly": 43.961,
+    "pointRms": 2.151
+   },
+   "repro": {
+    "avail": {
+     "dev": 0,
+     "rerun": 2.452
+    },
+    "keMax": {
+     "dev": 0,
+     "rerun": 8.355
+    },
+    "headClear": {
+     "dev": null,
+     "rerun": 1.97
+    },
+    "setupTime": {
+     "dev": 2.5,
+     "rerun": 21.5
+    },
+    "ops": {
+     "dev": 1,
+     "rerun": 3
+    },
+    "fsSubject": {
+     "dev": null,
+     "rerun": 1.405
+    },
+    "sepMaxFly": {
+     "dev": 0,
+     "rerun": 43.961
+    },
+    "pMean": {
+     "dev": 0.3,
+     "rerun": 5.554
+    }
+   }
+  },
+  {
+   "id": "tail6_s12",
+   "U": 6,
+   "dir": "tail",
+   "seed": 12,
+   "bypass": true,
+   "noFly": false,
+   "gate": {
+    "t": 2.5,
+    "w": [
+     7.59,
+     -0.57,
+     -0.17
+    ],
+    "vProg": 0.19,
+    "riderProg": 10.86214284296428,
+    "refused": false
+   },
+   "tGo": 3.5,
+   "ms": 2298,
+   "own": {
+    "avail": 2.155,
+    "availNoLossFlags": 2.155,
+    "fromFlightPct": 86.25,
+    "jitterSubject": 1.623,
+    "jitterBackground": 1.547,
+    "keMax": 9.259,
+    "keMaxAirborne": 9.259,
+    "headClearMoving": 1.952,
+    "headClearMovingT": 2.9,
+    "headClearMovingPhase": "takeoff",
+    "headClearInclPerch": 1.952,
+    "headClearInclPerchT": 2.5,
+    "rangeMax": 36.463,
+    "setup": 21.5,
+    "setupParts": {
+     "launchStand": 3.5,
+     "wait": 0,
+     "move": 10,
+     "stow": 8
+    },
+    "ops": 3,
+    "nextRun": true,
+    "stranded": false,
+    "pMean": 5.522,
+    "endurance": 71.388,
+    "liftoffs": 1,
+    "perches": 1,
+    "landNow": 0,
+    "giveUp": 0
+   },
+   "dev": {
+    "avail": 2.155,
+    "pxMed": 36.284,
+    "azRange": 18.474,
+    "bodyF": 3.426,
+    "addedMass": 0.315,
+    "keMax": 9.259,
+    "headClear": 1.97,
+    "setup": 21.5,
+    "ops": 3,
+    "sepMaxFly": 36.275,
+    "pointRms": 2.157
+   },
+   "repro": {
+    "avail": {
+     "dev": 0,
+     "rerun": 2.155
+    },
+    "keMax": {
+     "dev": 0,
+     "rerun": 9.259
+    },
+    "headClear": {
+     "dev": null,
+     "rerun": 1.97
+    },
+    "setupTime": {
+     "dev": 2.5,
+     "rerun": 21.5
+    },
+    "ops": {
+     "dev": 1,
+     "rerun": 3
+    },
+    "fsSubject": {
+     "dev": null,
+     "rerun": 1.623
+    },
+    "sepMaxFly": {
+     "dev": 0,
+     "rerun": 36.275
+    },
+    "pMean": {
+     "dev": 0.3,
+     "rerun": 5.522
+    }
+   }
+  },
+  {
+   "id": "tail6_s13",
+   "U": 6,
+   "dir": "tail",
+   "seed": 13,
+   "bypass": true,
+   "noFly": false,
+   "gate": {
+    "t": 2.5,
+    "w": [
+     9.93,
+     -0.03,
+     0.68
+    ],
+    "vProg": 2.32,
+    "riderProg": 10.917990061651157,
+    "refused": false
+   },
+   "tGo": 3.5,
+   "ms": 2096,
+   "own": {
+    "avail": 2.909,
+    "availNoLossFlags": 2.909,
+    "fromFlightPct": 100,
+    "jitterSubject": 2.021,
+    "jitterBackground": 2.008,
+    "keMax": 8.169,
+    "keMaxAirborne": 8.169,
+    "headClearMoving": 1.952,
+    "headClearMovingT": 2.9,
+    "headClearMovingPhase": "takeoff",
+    "headClearInclPerch": 1.952,
+    "headClearInclPerchT": 2.5,
+    "rangeMax": 39.914,
+    "setup": 21.5,
+    "setupParts": {
+     "launchStand": 3.5,
+     "wait": 0,
+     "move": 10,
+     "stow": 8
+    },
+    "ops": 3,
+    "nextRun": true,
+    "stranded": false,
+    "pMean": 5.49,
+    "endurance": 71.706,
+    "liftoffs": 1,
+    "perches": 1,
+    "landNow": 0,
+    "giveUp": 0
+   },
+   "dev": {
+    "avail": 2.909,
+    "pxMed": 36.118,
+    "azRange": 31.164,
+    "bodyF": 3.416,
+    "addedMass": 0.315,
+    "keMax": 8.169,
+    "headClear": 1.97,
+    "setup": 21.5,
+    "ops": 3,
+    "sepMaxFly": 40.027,
+    "pointRms": 2.165
+   },
+   "repro": {
+    "avail": {
+     "dev": 0,
+     "rerun": 2.909
+    },
+    "keMax": {
+     "dev": 0,
+     "rerun": 8.169
+    },
+    "headClear": {
+     "dev": null,
+     "rerun": 1.97
+    },
+    "setupTime": {
+     "dev": 2.5,
+     "rerun": 21.5
+    },
+    "ops": {
+     "dev": 1,
+     "rerun": 3
+    },
+    "fsSubject": {
+     "dev": null,
+     "rerun": 2.021
+    },
+    "sepMaxFly": {
+     "dev": 0,
+     "rerun": 40.027
+    },
+    "pMean": {
+     "dev": 0.3,
+     "rerun": 5.49
+    }
+   }
+  },
+  {
+   "id": "tail9_s11",
+   "U": 9,
+   "dir": "tail",
+   "seed": 11,
+   "bypass": true,
+   "noFly": false,
+   "gate": {
+    "t": 2.5,
+    "w": [
+     7.99,
+     -3.02,
+     1.07
+    ],
+    "vProg": 1.95,
+    "riderProg": 10.944488541905342,
+    "refused": false
+   },
+   "tGo": 3.5,
+   "ms": 1919,
+   "own": {
+    "avail": 2.317,
+    "availNoLossFlags": 2.317,
+    "fromFlightPct": 63.953,
+    "jitterSubject": 1.589,
+    "jitterBackground": 1.527,
+    "keMax": 9.498,
+    "keMaxAirborne": 9.498,
+    "headClearMoving": 1.952,
+    "headClearMovingT": 2.9,
+    "headClearMovingPhase": "takeoff",
+    "headClearInclPerch": 1.952,
+    "headClearInclPerchT": 2.5,
+    "rangeMax": 33.791,
+    "setup": 21.5,
+    "setupParts": {
+     "launchStand": 3.5,
+     "wait": 0,
+     "move": 10,
+     "stow": 8
+    },
+    "ops": 3,
+    "nextRun": true,
+    "stranded": false,
+    "pMean": 5.697,
+    "endurance": 69.728,
+    "liftoffs": 1,
+    "perches": 1,
+    "landNow": 0,
+    "giveUp": 0
+   },
+   "dev": {
+    "avail": 2.317,
+    "pxMed": 36.459,
+    "azRange": 26.176,
+    "bodyF": 3.347,
+    "addedMass": 0.315,
+    "keMax": 9.498,
+    "headClear": 1.97,
+    "setup": 21.5,
+    "ops": 3,
+    "sepMaxFly": 33.546,
+    "pointRms": 2.148
+   },
+   "repro": {
+    "avail": {
+     "dev": 0,
+     "rerun": 2.317
+    },
+    "keMax": {
+     "dev": 0,
+     "rerun": 9.498
+    },
+    "headClear": {
+     "dev": null,
+     "rerun": 1.97
+    },
+    "setupTime": {
+     "dev": 2.5,
+     "rerun": 21.5
+    },
+    "ops": {
+     "dev": 1,
+     "rerun": 3
+    },
+    "fsSubject": {
+     "dev": null,
+     "rerun": 1.589
+    },
+    "sepMaxFly": {
+     "dev": 0,
+     "rerun": 33.546
+    },
+    "pMean": {
+     "dev": 0.3,
+     "rerun": 5.697
+    }
+   }
+  },
+  {
+   "id": "tail9_s12",
+   "U": 9,
+   "dir": "tail",
+   "seed": 12,
+   "bypass": true,
+   "noFly": false,
+   "gate": {
+    "t": 2.5,
+    "w": [
+     11.55,
+     -0.69,
+     -0.38
+    ],
+    "vProg": 4.14,
+    "riderProg": 10.86214284296428,
+    "refused": false
+   },
+   "tGo": 3.5,
+   "ms": 1433,
+   "own": {
+    "avail": 2.155,
+    "availNoLossFlags": 2.155,
+    "fromFlightPct": 0,
+    "jitterSubject": 3.348,
+    "jitterBackground": 3.327,
+    "keMax": 0,
+    "keMaxAirborne": 0,
+    "headClearMoving": null,
+    "headClearMovingT": null,
+    "headClearMovingPhase": null,
+    "headClearInclPerch": 1.76,
+    "headClearInclPerchT": 4.08,
+    "rangeMax": 0,
+    "setup": 21.5,
+    "setupParts": {
+     "launchStand": 3.5,
+     "wait": 0,
+     "move": 10,
+     "stow": 8
+    },
+    "ops": 3,
+    "nextRun": true,
+    "stranded": false,
+    "pMean": 5.15,
+    "endurance": 75.203,
+    "liftoffs": 0,
+    "perches": 0,
+    "landNow": 0,
+    "giveUp": 0
+   },
+   "dev": {
+    "avail": 2.155,
+    "pxMed": 35.784,
+    "azRange": 104.21,
+    "bodyF": 3.426,
+    "addedMass": 0.315,
+    "keMax": 0,
+    "headClear": null,
+    "setup": 21.5,
+    "ops": 3,
+    "sepMaxFly": 0,
+    "pointRms": 2.421
+   },
+   "repro": {
+    "avail": {
+     "dev": 0,
+     "rerun": 2.155
+    },
+    "keMax": {
+     "dev": 0,
+     "rerun": 0
+    },
+    "headClear": {
+     "dev": null,
+     "rerun": null
+    },
+    "setupTime": {
+     "dev": 2.5,
+     "rerun": 21.5
+    },
+    "ops": {
+     "dev": 1,
+     "rerun": 3
+    },
+    "fsSubject": {
+     "dev": null,
+     "rerun": 3.348
+    },
+    "sepMaxFly": {
+     "dev": 0,
+     "rerun": 0
+    },
+    "pMean": {
+     "dev": 0.3,
+     "rerun": 5.15
+    }
+   }
+  },
+  {
+   "id": "tail9_s13",
+   "U": 9,
+   "dir": "tail",
+   "seed": 13,
+   "bypass": true,
+   "noFly": false,
+   "gate": {
+    "t": 2.5,
+    "w": [
+     15.03,
+     -0.22,
+     0.87
+    ],
+    "vProg": 7.62,
+    "riderProg": 10.917990061651157,
+    "refused": false
+   },
+   "tGo": 3.5,
+   "ms": 1997,
+   "own": {
+    "avail": 2.263,
+    "availNoLossFlags": 2.263,
+    "fromFlightPct": 0,
+    "jitterSubject": 3.347,
+    "jitterBackground": 3.326,
+    "keMax": 0,
+    "keMaxAirborne": 0,
+    "headClearMoving": null,
+    "headClearMovingT": null,
+    "headClearMovingPhase": null,
+    "headClearInclPerch": 1.76,
+    "headClearInclPerchT": 4.08,
+    "rangeMax": 0,
+    "setup": 21.5,
+    "setupParts": {
+     "launchStand": 3.5,
+     "wait": 0,
+     "move": 10,
+     "stow": 8
+    },
+    "ops": 3,
+    "nextRun": true,
+    "stranded": false,
+    "pMean": 5.15,
+    "endurance": 75.203,
+    "liftoffs": 0,
+    "perches": 0,
+    "landNow": 0,
+    "giveUp": 0
+   },
+   "dev": {
+    "avail": 2.263,
+    "pxMed": 35.105,
+    "azRange": 86.326,
+    "bodyF": 3.416,
+    "addedMass": 0.315,
+    "keMax": 0,
+    "headClear": null,
+    "setup": 21.5,
+    "ops": 3,
+    "sepMaxFly": 0,
+    "pointRms": 2.42
+   },
+   "repro": {
+    "avail": {
+     "dev": 0,
+     "rerun": 2.263
+    },
+    "keMax": {
+     "dev": 0,
+     "rerun": 0
+    },
+    "headClear": {
+     "dev": null,
+     "rerun": null
+    },
+    "setupTime": {
+     "dev": 2.5,
+     "rerun": 21.5
+    },
+    "ops": {
+     "dev": 1,
+     "rerun": 3
+    },
+    "fsSubject": {
+     "dev": null,
+     "rerun": 3.347
+    },
+    "sepMaxFly": {
+     "dev": 0,
+     "rerun": 0
+    },
+    "pMean": {
+     "dev": 0.3,
+     "rerun": 5.15
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+full           start p50/p90 0.88 0.98 missed 0 | lazy p90 4.72 missed 1 | stop p90 2.24 missed 0 false 0 | fall p90 0.62 missed 0 false 0 | false/day 0 bus 1
+   per activity {"queue":[0,0],"chairlift":[0,0],"surfaceLift":[0,0],"walk":[0,0],"gondolaUp":[0,0],"catTrack":[0,0],"sitDown":[0,0],"gondolaDown":[0,0]}
+noBaro         start p50/p90 0.88 0.98 missed 0 | lazy p90 4.78 missed 1 | stop p90 2.22 missed 0 false 0 | fall p90 0.62 missed 0 false 0 | false/day 0.025 bus 1
+   per activity {"queue":[0,0],"chairlift":[0,0],"surfaceLift":[0,0],"walk":[1,0],"gondolaUp":[0,0],"catTrack":[0,0],"sitDown":[0,0],"gondolaDown":[0,0]}
+imuOnly        start p50/p90 0.86 0.96 missed 0 | lazy p90 4.48 missed 0 | stop p90 2.16 missed 8 false 8 | fall p90 0.64 missed 0 false 0 | false/day 0.125 bus 2.33
+   per activity {"queue":[0,0],"chairlift":[0,0],"surfaceLift":[0,0],"walk":[5,0],"gondolaUp":[0,0],"catTrack":[0,0],"sitDown":[0,0],"gondolaDown":[0,0]}
+imuOnlyNoBaro  start p50/p90 0.88 1.04 missed 18 | lazy p90 4.8 missed 4 | stop p90 2.2 missed 21 false 6 | fall p90 0.62 missed 0 false 0 | false/day 3.9 bus 1.7
+   per activity {"queue":[0,0],"chairlift":[11,0],"surfaceLift":[64,0],"walk":[81,0],"gondolaUp":[0,0],"catTrack":[0,0],"sitDown":[0,0],"gondolaDown":[0,0]}
+noLockout      start p50/p90 0.88 0.98 missed 0 | lazy p90 4.72 missed 1 | stop p90 2.24 missed 0 false 0 | fall p90 0.62 missed 0 false 0 | false/day 1.95 bus 1
+   per activity {"queue":[0,0],"chairlift":[78,0],"surfaceLift":[0,0],"walk":[0,0],"gondolaUp":[0,0],"catTrack":[0,0],"sitDown":[0,0],"gondolaDown":[0,0]}
+fastStart      start p50/p90 0.64 0.74 missed 0 | lazy p90 3.02 missed 1 | stop p90 2.24 missed 0 false 0 | fall p90 0.62 missed 0 false 0 | false/day 0.5 bus 1
+   per activity {"queue":[0,0],"chairlift":[20,0],"surfaceLift":[0,0],"walk":[0,0],"gondolaUp":[0,0],"catTrack":[0,0],"sitDown":[0,0],"gondolaDown":[0,0]}

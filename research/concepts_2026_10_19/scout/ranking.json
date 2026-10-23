@@ -1,0 +1,56 @@
+{
+ "meta": {
+  "method": "Weighted: originality x2, footage x2, safety x1.5, interference, convenience/stow, simplicity, technical risk (5=low risk) x1; killed concepts excluded; family overlap noted"
+ },
+ "ranking": [
+  {
+   "rank": 1,
+   "id": "S2-01",
+   "reason": "Only transfer whose energy source is new AND free: descent pays flight (propulsion ~1 Wh/day vs camera ~1.9 Wh), 95 g / <=14.9 J by design, nothing on the body but a 1.2 L quiver, 51 min per 4 Wh. Market and patent search found no fixed-wing/gravity ski follow-cam.",
+   "biggest_risk": "Low-Re glide polar of a folding+morphing 95 g airframe (L/D at 12 m/s swept must be >=4) and snow-landing pickup ops (3 strict)."
+  },
+  {
+   "rank": 2,
+   "id": "S2-02",
+   "reason": "Same energy insight, but hover at launch/land gives 2 ops and button-launch at standstill; Si-anode keeps it at 115 g.",
+   "biggest_risk": "Tail-sitter transition and cradle docking in gusts with props near the head; KE cap drops to 16.1 m/s."
+  },
+  {
+   "rank": 3,
+   "id": "S2-03",
+   "reason": "Turns S2-01 into a zero-standstill product: capture at 1-2 m/s closing speed (0.03-0.3 J).",
+   "biggest_risk": "Skier wake turbulence and line flutter during capture 2-3 m behind the head."
+  },
+  {
+   "rank": 4,
+   "id": "S2-04",
+   "reason": "Cheapest upgrade to the user-requested kite: crosswind figure-8 lowers minimum skier speed from 6.2 to ~2.2 m/s and the view from 74 deg to ~35-50 deg.",
+   "biggest_risk": "Periodic orbit in footage and tether sweep near a turning skier; still lands at stops."
+  }
+ ],
+ "merged": [
+  "S2-05 kestrel wind-hover (5 % of stops)",
+  "S2-06 solar skin (sunny-day unlimited endurance)",
+  "S2-11 Si-anode/self-heating/aerogel battery stack"
+ ],
+ "killed": [
+  "S2-07 laser beaming (~400x MPE)",
+  "S2-08 samara spin cam (too slow)",
+  "S2-09 leapfrog perch (KE/overtake)",
+  "S2-10 micro ski robot",
+  "S2-12 guided parafoil (glide 18 deg, 13 m miss)",
+  "S2-13 ground-effect skim",
+  "S2-14 tether trolley (geometry)",
+  "S2-15 micro swarm (10 m/s)",
+  "S2-16 boomerang"
+ ],
+ "breakthroughs_that_change_the_picture": [
+  "Si-anode cells 450 Wh/kg (Amprius 2025): makes a 4 Wh, 10 g day battery; also ~3x cold endurance for market quads (not original)",
+  "Bird-inspired sweep morphing (LisHawk 2020): cuts glider propulsion ~5x for fast skiers by covering 6-16 m/s",
+  "Loitering-munition folding wings + tube launch: 1.2 L stow and one-motion deploy",
+  "Regenerative soaring windprop (Velis, TU Delft): turns steep pitches into stop-orbit energy",
+  "UWB (10-15 cm) + 3 mW event/ToF sensors: precise close-range relative navigation for pursuit, landing and hook capture",
+  "Gyroflow-style gyro-log stabilisation + subject-locked reframing: removes the gimbal; residual background jitter 0.1-0.4 deg/s",
+  "EU 2019/947 follow-me exemption (<=50 m, A1, C0 <=19 m/s): a legal path for a 95 g follow-glider in the EU (resort rules still decide)"
+ ]
+}

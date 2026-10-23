@@ -1,0 +1,45 @@
+{
+ "total_area_m2": 2.3506582939139684,
+ "observed_fraction": {
+  "rear_high_3m_back_2m_up": {
+   "helmet only": 0.0,
+   "helmet+chest": 0.011,
+   "all body-worn (6 cams, no boom)": 0.467,
+   "boom 360 only": 0.8,
+   "boom stereo (2)": 0.929,
+   "all body-worn + boom": 0.914
+  },
+  "side_3m": {
+   "helmet only": 0.0,
+   "helmet+chest": 0.11,
+   "all body-worn (6 cams, no boom)": 0.498,
+   "boom 360 only": 0.22,
+   "boom stereo (2)": 0.272,
+   "all body-worn + boom": 0.62
+  },
+  "front34_4m": {
+   "helmet only": 0.0,
+   "helmet+chest": 0.274,
+   "all body-worn (6 cams, no boom)": 0.664,
+   "boom 360 only": 0.015,
+   "boom stereo (2)": 0.036,
+   "all body-worn + boom": 0.671
+  },
+  "rear34_3m": {
+   "helmet only": 0.0,
+   "helmet+chest": 0.003,
+   "all body-worn (6 cams, no boom)": 0.456,
+   "boom 360 only": 0.449,
+   "boom stereo (2)": 0.509,
+   "all body-worn + boom": 0.685
+  },
+  "near_boom_+10deg": {
+   "helmet only": 0.0,
+   "helmet+chest": 0.01,
+   "all body-worn (6 cams, no boom)": 0.436,
+   "boom 360 only": 0.887,
+   "boom stereo (2)": 0.984,
+   "all body-worn + boom": 0.944
+  }
+ }
+}

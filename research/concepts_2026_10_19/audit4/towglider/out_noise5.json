@@ -1,0 +1,261 @@
+{
+ "generated": "2026-10-20T17:21:11.055Z",
+ "simCopy": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/copy",
+ "modelVersion": "towglider@0.5.0",
+ "servoFs": 6,
+ "noiseFrac": 0.05,
+ "rows": [
+  {
+   "id": "calm_s11",
+   "U": 0,
+   "dir": "calm",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.433,
+   "fsBackground": 3.044,
+   "mountErrDeg": 2.609,
+   "dev": {
+    "avail": 83.944,
+    "pxMed": 476.37,
+    "setupTime": 12.1,
+    "ops": 1,
+    "bodyForcePeak": 2.66,
+    "keMax": 12.263,
+    "headClear": 1.343,
+    "endurance": 55.591,
+    "azRange": 65.351
+   }
+  },
+  {
+   "id": "calm_s12",
+   "U": 0,
+   "dir": "calm",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.482,
+   "fsBackground": 2.871,
+   "mountErrDeg": 2.575,
+   "dev": {
+    "avail": 81.492,
+    "pxMed": 472.796,
+    "setupTime": 11.6,
+    "ops": 1,
+    "bodyForcePeak": 2.675,
+    "keMax": 12.59,
+    "headClear": 1.361,
+    "endurance": 55.159,
+    "azRange": 66.996
+   }
+  },
+  {
+   "id": "head3_s12",
+   "U": 3,
+   "dir": "head",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.44,
+   "fsBackground": 2.801,
+   "mountErrDeg": 2.553,
+   "dev": {
+    "avail": 83.863,
+    "pxMed": 470.816,
+    "setupTime": 11.98,
+    "ops": 1,
+    "bodyForcePeak": 2.515,
+    "keMax": 12.572,
+    "headClear": 1.361,
+    "endurance": 54.465,
+    "azRange": 65.045
+   }
+  },
+  {
+   "id": "crossL3_s13",
+   "U": 3,
+   "dir": "crossL",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.727,
+   "fsBackground": 3.121,
+   "mountErrDeg": 2.511,
+   "dev": {
+    "avail": 82.92,
+    "pxMed": 473.425,
+    "setupTime": 10.38,
+    "ops": 1,
+    "bodyForcePeak": 2.549,
+    "keMax": 12.523,
+    "headClear": 1.361,
+    "endurance": 56.011,
+    "azRange": 61.092
+   }
+  },
+  {
+   "id": "crossR3_s12",
+   "U": 3,
+   "dir": "crossR",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.457,
+   "fsBackground": 2.825,
+   "mountErrDeg": 2.605,
+   "dev": {
+    "avail": 81.061,
+    "pxMed": 470.722,
+    "setupTime": 11.86,
+    "ops": 1,
+    "bodyForcePeak": 3.01,
+    "keMax": 12.561,
+    "headClear": 1.352,
+    "endurance": 53.261,
+    "azRange": 67.951
+   }
+  },
+  {
+   "id": "head6_s12",
+   "U": 6,
+   "dir": "head",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.415,
+   "fsBackground": 2.731,
+   "mountErrDeg": 2.386,
+   "dev": {
+    "avail": 83.863,
+    "pxMed": 461.035,
+    "setupTime": 10.96,
+    "ops": 1,
+    "bodyForcePeak": 2.635,
+    "keMax": 12.524,
+    "headClear": 1.361,
+    "endurance": 54.425,
+    "azRange": 59.799
+   }
+  },
+  {
+   "id": "crossL6_s11",
+   "U": 6,
+   "dir": "crossL",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.403,
+   "fsBackground": 2.905,
+   "mountErrDeg": 2.77,
+   "dev": {
+    "avail": 82.705,
+    "pxMed": 470.262,
+    "setupTime": 8.6,
+    "ops": 1,
+    "bodyForcePeak": 3.352,
+    "keMax": 12.361,
+    "headClear": 1.297,
+    "endurance": 56.346,
+    "azRange": 64.018
+   }
+  },
+  {
+   "id": "crossL6_s12",
+   "U": 6,
+   "dir": "crossL",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 2.812,
+   "fsBackground": 3.108,
+   "mountErrDeg": 2.513,
+   "dev": {
+    "avail": 81.439,
+    "pxMed": 464.455,
+    "setupTime": 6.98,
+    "ops": 1,
+    "bodyForcePeak": 3.284,
+    "keMax": 13.219,
+    "headClear": 1.187,
+    "endurance": 53.789,
+    "azRange": 70.564
+   }
+  },
+  {
+   "id": "crossR6_s13",
+   "U": 6,
+   "dir": "crossR",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 2.414,
+   "fsBackground": 3.023,
+   "mountErrDeg": 2.832,
+   "dev": {
+    "avail": 38.685,
+    "pxMed": 464.485,
+    "setupTime": 11.26,
+    "ops": 1,
+    "bodyForcePeak": 4.24,
+    "keMax": 12.228,
+    "headClear": 1.358,
+    "endurance": 45.318,
+    "azRange": 57.374
+   }
+  },
+  {
+   "id": "head9_s13",
+   "U": 9,
+   "dir": "head",
+   "seed": 13,
+   "gated": false,
+   "fsSubject": 1.904,
+   "fsBackground": 2.292,
+   "mountErrDeg": 2.121,
+   "dev": {
+    "avail": 84.025,
+    "pxMed": 445.623,
+    "setupTime": 14.98,
+    "ops": 1,
+    "bodyForcePeak": 3.571,
+    "keMax": 12.542,
+    "headClear": 1.361,
+    "endurance": 51.985,
+    "azRange": 51.842
+   }
+  },
+  {
+   "id": "crossL9_s12",
+   "U": 9,
+   "dir": "crossL",
+   "seed": 12,
+   "gated": false,
+   "fsSubject": 3.06,
+   "fsBackground": 3.267,
+   "mountErrDeg": 2.347,
+   "dev": {
+    "avail": 83.19,
+    "pxMed": 460.983,
+    "setupTime": 9.7,
+    "ops": 1,
+    "bodyForcePeak": 3.583,
+    "keMax": 12.819,
+    "headClear": 1.071,
+    "endurance": 52.156,
+    "azRange": 69.591
+   }
+  },
+  {
+   "id": "crossR9_s11",
+   "U": 9,
+   "dir": "crossR",
+   "seed": 11,
+   "gated": false,
+   "fsSubject": 2.51,
+   "fsBackground": 3.018,
+   "mountErrDeg": 2.558,
+   "dev": {
+    "avail": 84.348,
+    "pxMed": 461.309,
+    "setupTime": 12.18,
+    "ops": 1,
+    "bodyForcePeak": 4.004,
+    "keMax": 12.756,
+    "headClear": 1.358,
+    "endurance": 51.062,
+    "azRange": 57.82
+   }
+  }
+ ]
+}

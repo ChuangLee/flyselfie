@@ -1,0 +1,2071 @@
+{
+ "iterations": [
+  {
+   "id": "I0_sail030_notail",
+   "change": "first build: 0.30 m\u00b2 sled, no tail, Tset 12 N, alpha-beta tracker, brake-then-retrieve",
+   "over": {
+    "areaScale": 1,
+    "tail": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 41.382,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 360.294,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 10.287,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 99.748,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.576,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 37.619,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 20.03,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 26.125,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 57.764,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.359,
+    "headFlyerP10": 0.666,
+    "headLineMin": 0.014,
+    "headLineP50": 0.51,
+    "clothesShareMean": 15.628,
+    "clothesShareMax": 97.25,
+    "thirdPartySmean": 55.327,
+    "dockFirstTryMean": 87.681,
+    "dockTimeP90": 10.63,
+    "launchTimeP50": 4.21,
+    "launchTimeP90": 5.29,
+    "launchSuccessMean": 97.639,
+    "collapseShareMean": 3.118,
+    "collapsesMean": 3.854,
+    "TmaxMax": 40.12,
+    "tensionMedP50": 16.766,
+    "elevMedP50": 62.625,
+    "keP90": 20.402,
+    "manualMean": 0.104,
+    "refuseWindSmean": 1.123,
+    "ridesNoLaunchMean": 0.146,
+    "broke": 3
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 3
+   },
+   "seconds": 154.327
+  },
+  {
+   "id": "I1_sail020_tail",
+   "change": "0.20 m\u00b2 sail + 0.05 m\u00b2 drogue tail (lower flying angle for bodyPx, less pull)",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 37.351,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 306.118,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.792,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 37.077,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.908,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 26.72,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 17.674,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.015,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 45.108,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.198,
+    "headFlyerP10": 0.624,
+    "headLineMin": 0.015,
+    "headLineP50": 0.685,
+    "clothesShareMean": 39.838,
+    "clothesShareMax": 92.459,
+    "thirdPartySmean": 67.433,
+    "dockFirstTryMean": 88.889,
+    "dockTimeP90": 11.62,
+    "launchTimeP50": 3.56,
+    "launchTimeP90": 4.83,
+    "launchSuccessMean": 98.611,
+    "collapseShareMean": 0.072,
+    "collapsesMean": 0.063,
+    "TmaxMax": 62.198,
+    "tensionMedP50": 13.449,
+    "elevMedP50": 54.606,
+    "keP90": 15.279,
+    "manualMean": 0.208,
+    "refuseWindSmean": 0.995,
+    "ridesNoLaunchMean": 0.104,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 0
+   },
+   "seconds": 126.971
+  },
+  {
+   "id": "I2_gate6",
+   "change": "I1 + launch gate 6 m/s, abort below 5 m/s estimated apparent wind (carving lateral speed \u00b17 m/s swings a low-wind kite round the window and over the head)",
+   "over": {
+    "vGate": 6,
+    "vGateOff": 5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 35.707,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 308.418,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.78,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 37.175,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.908,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 26.72,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 16.518,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.021,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 45.108,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.083,
+    "headFlyerP10": 0.621,
+    "headLineMin": 0.021,
+    "headLineP50": 0.685,
+    "clothesShareMean": 39.97,
+    "clothesShareMax": 93.288,
+    "thirdPartySmean": 64.954,
+    "dockFirstTryMean": 89.583,
+    "dockTimeP90": 11.39,
+    "launchTimeP50": 3.34,
+    "launchTimeP90": 4.55,
+    "launchSuccessMean": 94.861,
+    "collapseShareMean": 0,
+    "collapsesMean": 0,
+    "TmaxMax": 62.198,
+    "tensionMedP50": 13.421,
+    "elevMedP50": 54.551,
+    "keP90": 14.858,
+    "manualMean": 0.208,
+    "refuseWindSmean": 2.611,
+    "ridesNoLaunchMean": 0.146,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 0
+   },
+   "seconds": 95.514
+  },
+  {
+   "id": "I3_gate6_L6",
+   "change": "I2 + 6 m filming line (camera closer, more px)",
+   "over": {
+    "vGate": 6,
+    "vGateOff": 5,
+    "Lfilm": 6
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 41.255,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 344.363,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.828,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 39.934,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.908,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 26.27,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 15.412,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.074,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 45.671,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.083,
+    "headFlyerP10": 0.62,
+    "headLineMin": 0.074,
+    "headLineP50": 0.662,
+    "clothesShareMean": 37.52,
+    "clothesShareMax": 92.137,
+    "thirdPartySmean": 63.968,
+    "dockFirstTryMean": 89.583,
+    "dockTimeP90": 11.32,
+    "launchTimeP50": 2.73,
+    "launchTimeP90": 3.56,
+    "launchSuccessMean": 94.861,
+    "collapseShareMean": 0,
+    "collapsesMean": 0,
+    "TmaxMax": 62.198,
+    "tensionMedP50": 13.619,
+    "elevMedP50": 54.974,
+    "keP90": 13.642,
+    "manualMean": 0.208,
+    "refuseWindSmean": 2.613,
+    "ridesNoLaunchMean": 0.146,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 0
+   },
+   "seconds": 100.406
+  },
+  {
+   "id": "I4_L6_gate55_tracker",
+   "change": "6 m line, gate 5.5/4.5 m/s, tracker aims at the detected body-box centre (follows the lean), alpha-beta reframing at 1.2 Hz with geometry-bias learning through vision drop-outs; attitude-drift model band-limited (see REPORT)",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 46.076,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 386.745,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 3.845,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 39.905,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.908,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 20.03,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 15.416,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.074,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 45.138,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.173,
+    "headFlyerP10": 0.625,
+    "headLineMin": 0.074,
+    "headLineP50": 0.695,
+    "clothesShareMean": 38.161,
+    "clothesShareMax": 97.197,
+    "thirdPartySmean": 63.895,
+    "dockFirstTryMean": 89.41,
+    "dockTimeP90": 9.87,
+    "launchTimeP50": 2.74,
+    "launchTimeP90": 3.56,
+    "launchSuccessMean": 95.486,
+    "collapseShareMean": 0.487,
+    "collapsesMean": 0,
+    "TmaxMax": 62.198,
+    "tensionMedP50": 13.654,
+    "elevMedP50": 55.02,
+    "keP90": 13.642,
+    "manualMean": 0.146,
+    "refuseWindSmean": 2.127,
+    "ridesNoLaunchMean": 0.146,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 0
+   },
+   "seconds": 102.011
+  },
+  {
+   "id": "I5_swivel80",
+   "change": "I4 + wider swivel funnel \u00b180\u00b0 (crosswind/headwind docks: the flagged sail streams sideways at mouth height)",
+   "over": {
+    "swivelDeg": 80
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 47.738,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 389.816,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 3.893,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 39.932,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.908,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 8.33,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 15.407,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.074,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 45.138,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.322,
+    "headFlyerP10": 0.703,
+    "headLineMin": 0.074,
+    "headLineP50": 0.662,
+    "clothesShareMean": 39.049,
+    "clothesShareMax": 97.197,
+    "thirdPartySmean": 66.403,
+    "dockFirstTryMean": 96.458,
+    "dockTimeP90": 9.87,
+    "launchTimeP50": 2.74,
+    "launchTimeP90": 3.56,
+    "launchSuccessMean": 95.104,
+    "collapseShareMean": 0.487,
+    "collapsesMean": 0,
+    "TmaxMax": 62.198,
+    "tensionMedP50": 13.654,
+    "elevMedP50": 55.164,
+    "keP90": 13.642,
+    "manualMean": 0,
+    "refuseWindSmean": 2.269,
+    "ridesNoLaunchMean": 0.063,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 0
+   },
+   "seconds": 89.101
+  },
+  {
+   "id": "I6_gate45",
+   "change": "I4 with launch gate 4.5 / abort 3.5 m/s (more tailwind flying, more window swings)",
+   "over": {
+    "vGate": 4.5,
+    "vGateOff": 3.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 47.253,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 386.745,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 3.845,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 39.932,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.908,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 20.03,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 16.597,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.015,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 45.138,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.374,
+    "headFlyerP10": 0.643,
+    "headLineMin": 0.015,
+    "headLineP50": 0.695,
+    "clothesShareMean": 38.141,
+    "clothesShareMax": 97.197,
+    "thirdPartySmean": 65.085,
+    "dockFirstTryMean": 88.889,
+    "dockTimeP90": 9.87,
+    "launchTimeP50": 2.82,
+    "launchTimeP90": 3.62,
+    "launchSuccessMean": 97.049,
+    "collapseShareMean": 0.487,
+    "collapsesMean": 0,
+    "TmaxMax": 62.198,
+    "tensionMedP50": 13.678,
+    "elevMedP50": 55.103,
+    "keP90": 13.642,
+    "manualMean": 0.146,
+    "refuseWindSmean": 1.453,
+    "ridesNoLaunchMean": 0.125,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 0
+   },
+   "seconds": 97.003
+  },
+  {
+   "id": "I5b_swivel80_default",
+   "change": "defaults after I5 adopted (\u00b180\u00b0 swivel funnel)",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 47.738,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 389.816,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 3.893,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 39.932,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.908,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 8.33,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 15.407,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.074,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 45.138,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.322,
+    "headFlyerP10": 0.703,
+    "headLineMin": 0.074,
+    "headLineP50": 0.662,
+    "clothesShareMean": 39.049,
+    "clothesShareMax": 97.197,
+    "thirdPartySmean": 66.403,
+    "dockFirstTryMean": 96.458,
+    "dockTimeP90": 9.87,
+    "launchTimeP50": 2.74,
+    "launchTimeP90": 3.56,
+    "launchSuccessMean": 95.104,
+    "collapseShareMean": 0.487,
+    "collapsesMean": 0,
+    "TmaxMax": 62.198,
+    "tensionMedP50": 13.654,
+    "elevMedP50": 55.164,
+    "keP90": 13.642,
+    "manualMean": 0,
+    "refuseWindSmean": 2.269,
+    "ridesNoLaunchMean": 0.063,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 0
+   },
+   "seconds": 117.677
+  },
+  {
+   "id": "I7_bigTail_L5",
+   "change": "I5 + drogue tail \u00d71.6 and 5 m line (lower, closer camera): helps calm/cross, hurts tailwinds",
+   "over": {
+    "tailScale": 1.6,
+    "Lfilm": 5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 48.972,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 399.204,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 3.958,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 27.129,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 37.851,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 7.83,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 17.198,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.736,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.025,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 32.24,
+     "pass": false,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.44,
+    "headFlyerP10": 0.636,
+    "headLineMin": 0.025,
+    "headLineP50": 0.741,
+    "clothesShareMean": 66.461,
+    "clothesShareMax": 98.458,
+    "thirdPartySmean": 67.626,
+    "dockFirstTryMean": 97.917,
+    "dockTimeP90": 9.62,
+    "launchTimeP50": 2.39,
+    "launchTimeP90": 2.94,
+    "launchSuccessMean": 96.354,
+    "collapseShareMean": 4.596,
+    "collapsesMean": 0.063,
+    "TmaxMax": 66.176,
+    "tensionMedP50": 14.775,
+    "elevMedP50": 49.762,
+    "keP90": 11.595,
+    "manualMean": 0,
+    "refuseWindSmean": 2.113,
+    "ridesNoLaunchMean": 0.063,
+    "broke": 1
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 1
+   },
+   "seconds": 89.018
+  },
+  {
+   "id": "I8_stream_sleeve050",
+   "change": "video-review fixes: 3 m flagged streaming phase before the sail is powered (opening/climb away from the head); sleeve shortened 0.60\u21920.50 m (0.46 m spars of the 0.20 m\u00b2 sail); judged on the full 48 cases (ensOnly run = results.json)",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 47.368,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 389.042,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 4.04,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 40.075,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.574,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.908,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 8.38,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 15.358,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.454,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.075,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 45.142,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.322,
+    "headFlyerP10": 0.708,
+    "headLineMin": 0.075,
+    "headLineP50": 0.663,
+    "clothesShareMean": 41.757,
+    "clothesShareMax": 97.197,
+    "thirdPartySmean": 66.135,
+    "dockFirstTryMean": 96.458,
+    "dockTimeP90": 9.91,
+    "launchTimeP50": 2.85,
+    "launchTimeP90": 3.99,
+    "launchSuccessMean": 95.278,
+    "collapseShareMean": 0.486,
+    "collapsesMean": 0,
+    "TmaxMax": 62.198,
+    "tensionMedP50": 13.59,
+    "elevMedP50": 55.036,
+    "keP90": 13.645,
+    "manualMean": 0,
+    "refuseWindSmean": 2.364,
+    "ridesNoLaunchMean": 0.063,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 48,
+    "broke": 0
+   }
+  },
+  {
+   "id": "I9a_review_fixes",
+   "change": "review fixes: 48 MP camera counted (+3 g, +0.5 W); pack battery +25 g; sleeve 0.65 m stow budget; tailwind envelope (no launch / early retrieve at est. along-course tailwind >6 m/s on the 5 s mean course); fast pull-down at every retrieve start incl. envelope retrieves; azRange = commandable 0\u00b0; jitter judged with the activetether raw-OU drift; folded-bundle outline while collapsed; real sensor-fit check",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 43.08,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 379.347,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 6.327,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 0,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.607,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.863,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 8.3,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 19.343,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.89,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.403,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 54.223,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.606,
+    "headFlyerP10": 0.736,
+    "headLineMin": 0.403,
+    "headLineP50": 0.657,
+    "clothesShareMean": 44.523,
+    "clothesShareMax": 97.168,
+    "thirdPartySmean": 60.269,
+    "dockFirstTryMean": 97.778,
+    "dockTimeP90": 9.84,
+    "launchTimeP50": 2.82,
+    "launchTimeP90": 3.73,
+    "launchSuccessMean": 98.148,
+    "collapseShareMean": 0.542,
+    "collapsesMean": 0,
+    "TmaxMax": 48.832,
+    "tensionMedP50": 14.128,
+    "elevMedP50": 55.466,
+    "keP90": 12.96,
+    "manualMean": 0,
+    "refuseWindSmean": 1.198,
+    "refuseTailSmean": 8.806,
+    "azWanderP50": 40.069,
+    "flagOutsMean": 11,
+    "twRetrievesMean": 0.063,
+    "artShareMean": 0.004,
+    "ridesNoLaunchMean": 0.208,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 45,
+    "broke": 0
+   },
+   "note": "fast pull-down during envelope retrieves at speed raised KE to 19.3 J (tail6_s11/tail5.5_s11 at 12 s) -> restricted to real stops in I9"
+  },
+  {
+   "id": "I9_final",
+   "change": "I9a with the fast pull-down limited to real stops (envelope retrieves while riding use the normal flag-and-reel); final defaults",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 43.103,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 379.347,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 6.418,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 0,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.607,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.863,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 8.3,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 14.428,
+     "pass": true,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.89,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.403,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 54.223,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "info": {
+    "headFlyerMin": 0.606,
+    "headFlyerP10": 0.736,
+    "headLineMin": 0.403,
+    "headLineP50": 0.656,
+    "clothesShareMean": 44.812,
+    "clothesShareMax": 97.168,
+    "thirdPartySmean": 60.45,
+    "dockFirstTryMean": 97.778,
+    "dockTimeP90": 9.84,
+    "launchTimeP50": 2.82,
+    "launchTimeP90": 3.68,
+    "launchSuccessMean": 98.889,
+    "collapseShareMean": 0.542,
+    "collapsesMean": 0,
+    "TmaxMax": 48.832,
+    "tensionMedP50": 14.128,
+    "elevMedP50": 55.348,
+    "keP90": 12.695,
+    "manualMean": 0,
+    "refuseWindSmean": 1.198,
+    "refuseTailSmean": 8.724,
+    "azWanderP50": 40.072,
+    "flagOutsMean": 11,
+    "twRetrievesMean": 0.063,
+    "artShareMean": 0.004,
+    "ridesNoLaunchMean": 0.208,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 45,
+    "broke": 0
+   }
+  },
+  {
+   "id": "I10_backstow_schedule",
+   "modelVersion": "sledpack@0.2.0",
+   "change": "SIM-034 user decisions: kite carried OPEN on the back (no sleeve; seats on the shoulder straps; launch = release into the rider wake (modelled) + pay-out; dock = reel down onto the back from behind (ASSUMED capture) else park on the snow \u22482.5 m behind and relaunch from the snow; final park = hand stow 20 s, 1 action); line eyelet on a rear hip-belt tab (0.30 m behind / 0.35 m below the pelvis point, no pole) so the line passes \u22651 m from the helmet at \u226455\u201360\u00b0; line length scheduled 5\u201312 m on the estimated apparent wind (farther/higher when fast and windy); lens tilted 8\u00b0 toward the upper body; tailwind limit 6 m/s (7 m/s tested: 15.6 J); elevation cap tested and rejected; steering not adopted (estimate only)",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 44.828,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 383.859,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 6.289,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 0,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.617,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.895,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 26.32,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 14.426,
+     "pass": true,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 19.877,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.494,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 50.394,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "judgedUser": {
+    "headClearUser_min": {
+     "value": 0.494,
+     "pass": true,
+     "criterion": ">=0.25 m"
+    },
+    "headEpisodeMax_s": {
+     "value": 3.14,
+     "pass": false,
+     "criterion": "<=2 s per episode"
+    },
+    "headNearShareMax_pct": {
+     "value": 21.255,
+     "pass": false,
+     "criterion": "<=5 % of riding"
+    },
+    "headNearShare_dist": {
+     "mean": 7.027,
+     "p50": 2.721,
+     "p90": 19.423
+    },
+    "headEpisodeMax_dist": {
+     "p50": 0.74,
+     "p90": 1.36
+    },
+    "avail_all48_mean": 44.828,
+    "availUser_mean": 46.592,
+    "noLiftShare_mean": 14.765,
+    "packVolUser": {
+     "rule": "stowed open on the back, no pole, nothing above the helmet",
+     "pass": true,
+     "stowedEnvelope_L": 19.877,
+     "foldIntoPack_L_bonus": 2.49
+    },
+    "azRangeUser": "fixed angle accepted by the user; commandable span 0\u00b0 (no steering adopted)"
+   },
+   "info": {
+    "headFlyerMin": 0.753,
+    "headFlyerP10": 0.869,
+    "headLineMin": 0.494,
+    "headLineP50": 0.878,
+    "clothesShareMean": 56.794,
+    "clothesShareMax": 97.444,
+    "thirdPartySmean": 72.012,
+    "dockFirstTryMean": 81.25,
+    "dockTimeP90": 10.26,
+    "launchTimeP50": 1.92,
+    "launchTimeP90": 2.64,
+    "launchSuccessMean": 100,
+    "collapseShareMean": 0.805,
+    "collapsesMean": 0,
+    "TmaxMax": 62.708,
+    "tensionMedP50": 13.837,
+    "elevMedP50": 54.981,
+    "keP90": 11.91,
+    "manualMean": 0,
+    "refuseWindSmean": 1.199,
+    "refuseTailSmean": 8.777,
+    "parksMean": 1.542,
+    "groundLaunchesMean": 0.75,
+    "parkedEndMean": 0.792,
+    "azWanderP50": 38.565,
+    "flagOutsMean": 9.104,
+    "twRetrievesMean": 0.063,
+    "artShareMean": 0.263,
+    "ridesNoLaunchMean": 0.188,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 45,
+    "broke": 0
+   }
+  },
+  {
+   "id": "I11a_cap9_tw5",
+   "change": "I10 + line cap 9 m + tailwind limit 5 m/s + modelled release (peel-off) episode + noLift restricted to refusals at speed",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 43.25,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 385.046,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 6.18,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 0,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.617,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.862,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 25.14,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 14.299,
+     "pass": true,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 19.877,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.493,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 50.027,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "judgedUser": {
+    "headClearUser_min": {
+     "value": 0.493,
+     "pass": true,
+     "criterion": ">=0.25 m"
+    },
+    "headEpisodeMax_s": {
+     "value": 3.14,
+     "pass": false,
+     "criterion": "<=2 s per episode"
+    },
+    "headNearShareMax_pct": {
+     "value": 21.202,
+     "pass": false,
+     "criterion": "<=5 % of riding"
+    },
+    "headNearShare_dist": {
+     "mean": 6.124,
+     "p50": 1.751,
+     "p90": 17.161
+    },
+    "headEpisodeMax_dist": {
+     "p50": 0.62,
+     "p90": 1.36
+    },
+    "allTime": {
+     "nearShareMax_pct": 13.202,
+     "nearShare_p50": 1.09,
+     "episodeMax_s": 3.14,
+     "casesMeetingBoth": 33
+    },
+    "casesMeetingBoth_riding": 29,
+    "avail_all48_mean": 43.25,
+    "availUser_mean": 44.455,
+    "noLiftShare_mean": 19.436,
+    "packVolUser": {
+     "rule": "stowed open on the back, no pole, nothing above the helmet",
+     "pass": true,
+     "stowedEnvelope_L": 19.877,
+     "foldIntoPack_L_bonus": 2.49
+    },
+    "azRangeUser": "fixed angle accepted by the user; commandable span 0\u00b0 (no steering adopted)"
+   },
+   "info": {
+    "headFlyerMin": 0.75,
+    "headFlyerP10": 0.822,
+    "headLineMin": 0.493,
+    "headLineP50": 0.903,
+    "clothesShareMean": 59.395,
+    "clothesShareMax": 97.472,
+    "thirdPartySmean": 68.083,
+    "dockFirstTryMean": 75,
+    "dockTimeP90": 10.04,
+    "launchTimeP50": 1.92,
+    "launchTimeP90": 2.56,
+    "launchSuccessMean": 100,
+    "collapseShareMean": 1.01,
+    "collapsesMean": 0,
+    "TmaxMax": 62.708,
+    "tensionMedP50": 14.007,
+    "elevMedP50": 55.186,
+    "keP90": 11.473,
+    "manualMean": 0,
+    "refuseWindSmean": 0.956,
+    "refuseTailSmean": 12.874,
+    "parksMean": 1.396,
+    "groundLaunchesMean": 0.688,
+    "parkedEndMean": 0.708,
+    "azWanderP50": 38.072,
+    "flagOutsMean": 10.417,
+    "twRetrievesMean": 0.042,
+    "artShareMean": 0.232,
+    "ridesNoLaunchMean": 0.354,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 41,
+    "broke": 0
+   },
+   "seconds": 97.584
+  },
+  {
+   "id": "I11b_swingGuard_reelIn",
+   "change": "I11a + swing guard: reel in 1 m/s while the measured line azimuth is >40\u00b0 off the mean course and elevation >45\u00b0",
+   "over": {
+    "swingGuard": 1
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 47.752,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 395.421,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 6.537,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 0,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.617,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.862,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 24.4,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 13.546,
+     "pass": true,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 19.877,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.493,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 48.768,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "judgedUser": {
+    "headClearUser_min": {
+     "value": 0.493,
+     "pass": true,
+     "criterion": ">=0.25 m"
+    },
+    "headEpisodeMax_s": {
+     "value": 1.94,
+     "pass": true,
+     "criterion": "<=2 s per episode"
+    },
+    "headNearShareMax_pct": {
+     "value": 21.202,
+     "pass": false,
+     "criterion": "<=5 % of riding"
+    },
+    "headNearShare_dist": {
+     "mean": 6.559,
+     "p50": 3.879,
+     "p90": 17.161
+    },
+    "headEpisodeMax_dist": {
+     "p50": 0.66,
+     "p90": 1.36
+    },
+    "allTime": {
+     "nearShareMax_pct": 13.202,
+     "nearShare_p50": 2.416,
+     "episodeMax_s": 1.94,
+     "casesMeetingBoth": 30
+    },
+    "casesMeetingBoth_riding": 26,
+    "avail_all48_mean": 47.752,
+    "availUser_mean": 48.966,
+    "noLiftShare_mean": 19.436,
+    "packVolUser": {
+     "rule": "stowed open on the back, no pole, nothing above the helmet",
+     "pass": true,
+     "stowedEnvelope_L": 19.877,
+     "foldIntoPack_L_bonus": 2.49
+    },
+    "azRangeUser": "fixed angle accepted by the user; commandable span 0\u00b0 (no steering adopted)"
+   },
+   "info": {
+    "headFlyerMin": 0.75,
+    "headFlyerP10": 0.822,
+    "headLineMin": 0.493,
+    "headLineP50": 0.878,
+    "clothesShareMean": 54.938,
+    "clothesShareMax": 97.472,
+    "thirdPartySmean": 66.801,
+    "dockFirstTryMean": 81.25,
+    "dockTimeP90": 9.67,
+    "launchTimeP50": 1.92,
+    "launchTimeP90": 2.56,
+    "launchSuccessMean": 100,
+    "collapseShareMean": 1.01,
+    "collapsesMean": 0,
+    "TmaxMax": 62.708,
+    "tensionMedP50": 14.276,
+    "elevMedP50": 56.113,
+    "keP90": 12.346,
+    "manualMean": 0,
+    "refuseWindSmean": 0.956,
+    "refuseTailSmean": 12.874,
+    "parksMean": 1.375,
+    "groundLaunchesMean": 0.688,
+    "parkedEndMean": 0.688,
+    "azWanderP50": 43.436,
+    "flagOutsMean": 14.938,
+    "twRetrievesMean": 0.042,
+    "artShareMean": 0.223,
+    "ridesNoLaunchMean": 0.354,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 41,
+    "broke": 0
+   },
+   "seconds": 89.109
+  },
+  {
+   "id": "I11_final",
+   "modelVersion": "sledpack@0.2.1",
+   "change": "I11b adopted: 9 m line cap, 5 m/s tailwind limit, modelled 0.8 s peel-off release episode from the stowed pose, swing guard (reel in while the line is >40\u00b0 off the course and >45\u00b0 up); crosswind limit tested (6/6.5 m/s) and not adopted (\u22128/\u221211 pt avail); hip tab fold-flat \u226450 N + ring breakaway \u226460 N (design note, not simulated)",
+   "over": {},
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 47.752,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 395.421,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 6.537,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 0,
+     "pass": false,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.617,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.862,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 24.4,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 13.546,
+     "pass": true,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 19.877,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.493,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 48.768,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "judgedUser": {
+    "headClearUser_min": {
+     "value": 0.493,
+     "pass": true,
+     "criterion": ">=0.25 m"
+    },
+    "headEpisodeMax_s": {
+     "value": 1.94,
+     "pass": true,
+     "criterion": "<=2 s per episode"
+    },
+    "headNearShareMax_pct": {
+     "value": 21.202,
+     "pass": false,
+     "criterion": "<=5 % of riding"
+    },
+    "headNearShare_dist": {
+     "mean": 6.559,
+     "p50": 3.879,
+     "p90": 17.161
+    },
+    "headEpisodeMax_dist": {
+     "p50": 0.66,
+     "p90": 1.36
+    },
+    "allTime": {
+     "nearShareMax_pct": 13.202,
+     "nearShare_p50": 2.416,
+     "episodeMax_s": 1.94,
+     "casesMeetingBoth": 30
+    },
+    "casesMeetingBoth_riding": 26,
+    "avail_all48_mean": 47.752,
+    "availUser_mean": 48.966,
+    "noLiftShare_mean": 19.436,
+    "packVolUser": {
+     "rule": "stowed open on the back, no pole, nothing above the helmet",
+     "pass": true,
+     "stowedEnvelope_L": 19.877,
+     "foldIntoPack_L_bonus": 2.49
+    },
+    "azRangeUser": "fixed angle accepted by the user; commandable span 0\u00b0 (no steering adopted)"
+   },
+   "info": {
+    "headFlyerMin": 0.75,
+    "headFlyerP10": 0.822,
+    "headLineMin": 0.493,
+    "headLineP50": 0.878,
+    "clothesShareMean": 54.938,
+    "clothesShareMax": 97.472,
+    "thirdPartySmean": 66.801,
+    "dockFirstTryMean": 81.25,
+    "dockTimeP90": 9.67,
+    "launchTimeP50": 1.92,
+    "launchTimeP90": 2.56,
+    "launchSuccessMean": 100,
+    "collapseShareMean": 1.01,
+    "collapsesMean": 0,
+    "TmaxMax": 62.708,
+    "tensionMedP50": 14.276,
+    "elevMedP50": 56.113,
+    "keP90": 12.346,
+    "manualMean": 0,
+    "refuseWindSmean": 0.956,
+    "refuseTailSmean": 12.874,
+    "parksMean": 1.375,
+    "groundLaunchesMean": 0.688,
+    "parkedEndMean": 0.688,
+    "azWanderP50": 43.436,
+    "flagOutsMean": 14.938,
+    "twRetrievesMean": 0.042,
+    "artShareMean": 0.223,
+    "ridesNoLaunchMean": 0.354,
+    "broke": 0
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 41,
+    "broke": 0
+   }
+  }
+ ],
+ "evidence": "numerical-uncalibrated simulation; NOT a physical test",
+ "modelVersion": "sledpack@0.2.1"
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlySkiSelfie 设计仿真环境 / Design Simulation</title>
+<link rel="icon" href="data:,">
+<script type="importmap">{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }</script>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1 data-i18n="appTitle"></h1>
+    <span class="sub" data-i18n="appSub"></span>
+  </div>
+  <nav class="modes" role="tablist" aria-label="mode">
+    <button role="tab" data-mode="geometry" data-i18n="modeGeometry"></button>
+    <button role="tab" data-mode="sim" data-i18n="modeSim"></button>
+    <button role="tab" data-mode="demo" data-i18n="modeDemo"></button>
+    <button role="tab" data-mode="compare" data-i18n="modeCompare"></button>
+  </nav>
+  <div class="prefs">
+    <label class="chk"><input type="checkbox" id="reducedMotion"> <span data-i18n="reducedMotion"></span></label>
+    <a href="concepts.html" class="navlink" style="color:var(--accent);font-size:13px;text-decoration:none">方案实验室 / Concept lab →</a>
+    <button id="langBtn" data-i18n="lang"></button>
+  </div>
+</header>
+
+<section id="banner" class="banner" aria-live="polite">
+  <div><b data-i18n="bannerEvidence"></b>: <span id="bnEvidence" class="ev-tag"></span></div>
+  <div><b data-i18n="bannerConfig"></b>: <span id="bnConfig"></span></div>
+  <div><b data-i18n="bannerModel"></b>: <span id="bnModel"></span></div>
+  <div><b data-i18n="bannerPending"></b>: <span id="bnPending"></span></div>
+  <div class="ph-note" data-i18n="placeholderNote"></div>
+</section>
+
+<div id="demoBanner" class="demo-banner" hidden>
+  <strong data-i18n="demoBanner"></strong>
+  <span data-i18n="demoBanner2"></span>
+</div>
+
+<main id="main">
+  <aside class="side" id="side">
+    <section id="scenarioPanel">
+      <h2 data-i18n="scenarios"></h2>
+      <ul id="scenarioList" class="scen-list"></ul>
+    </section>
+    <section id="paramPanel">
+      <h2 data-i18n="params"></h2>
+      <div class="run-row">
+        <button id="runBtn" class="primary" data-i18n="run"></button>
+        <button id="cancelBtn" data-i18n="cancel" disabled></button>
+        <button id="resetParams" data-i18n="reset"></button>
+      </div>
+      <label class="chk"><input type="checkbox" id="autoRun" checked> <span data-i18n="autoRun"></span></label>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <form id="paramForm" novalidate></form>
+      <details class="limits">
+        <summary data-i18n="modelLimits"></summary>
+        <ul id="limitsList"></ul>
+        <h3 data-i18n="constants"></h3>
+        <table id="constTable" class="mini"></table>
+      </details>
+    </section>
+    <section id="demoStages" hidden>
+      <h2 data-i18n="stages"></h2>
+      <ol id="demoStageList" class="stage-list"></ol>
+    </section>
+  </aside>
+
+  <section class="stage" id="stage">
+    <div class="views" id="views">
+      <figure class="view">
+        <figcaption><span data-i18n="view3d"></span> · <small data-i18n="orbitHelp"></small></figcaption>
+        <div class="gl-tools" id="glTools" hidden>
+          <label><span data-i18n="quality"></span>
+            <select id="qualitySel"><option value="low" data-i18n="qLow"></option><option value="high" data-i18n="qHigh"></option><option value="ultra" data-i18n="qUltra"></option></select>
+          </label>
+          <label class="chk" id="ovWrap"><input type="checkbox" id="ovChk" checked> <span data-i18n="overlays"></span></label>
+          <label class="chk" id="dirWrap"><input type="checkbox" id="dirChk" checked> <span data-i18n="director"></span></label>
+          <label class="chk" id="lbWrap"><input type="checkbox" id="lbChk" checked> <span data-i18n="letterbox"></span></label>
+          <button id="cinemaBtn" type="button" data-i18n="cinema"></button>
+          <button id="recBtn" type="button" data-i18n="record"></button>
+        </div>
+        <canvas id="c3d" tabindex="0" aria-label="3D view"></canvas>
+        <canvas id="gl3d" tabindex="0" aria-label="3D view (WebGL)" hidden></canvas>
+        <div id="overlayMsg" class="overlay" hidden></div>
+      </figure>
+      <figure class="view cam" id="camFigure">
+        <figcaption data-i18n="viewCam"></figcaption>
+        <canvas id="ccam" aria-label="camera view"></canvas>
+        <div class="cam-meta" id="camMeta"></div>
+        <small class="note" data-i18n="camNote"></small>
+      </figure>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <button id="playBtn" aria-pressed="false" data-i18n="play"></button>
+      <button id="resetTime" data-i18n="resetTime"></button>
+      <label class="speed"><span data-i18n="speed"></span>
+        <select id="speedSel" title="">
+          <option value="0.25">0.25×</option><option value="0.5">0.5×</option>
+          <option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option>
+        </select>
+      </label>
+      <input type="range" id="seek" min="0" max="1000" value="0" step="1" aria-label="timeline">
+      <output id="timeOut">0.00 s</output>
+      <div id="stageChips" class="chips"></div>
+      <small class="note" data-i18n="keysHelp"></small>
+    </div>
+
+    <div id="validityNote" class="validity" hidden></div>
+    <div class="plots" id="plots"></div>
+
+    <section id="comparePanel" class="compare" hidden>
+      <h2 data-i18n="compareTitle"></h2>
+      <p class="note" data-i18n="compareNote"></p>
+      <div class="table-wrap"><table id="compareTable"></table></div>
+    </section>
+  </section>
+
+  <aside class="right" id="right">
+    <section id="metricsPanel">
+      <h2 data-i18n="metrics"></h2>
+      <dl id="summary" class="summary"></dl>
+    </section>
+    <section id="eventsPanel">
+      <h2 data-i18n="events"></h2>
+      <ol id="eventList" class="events"></ol>
+    </section>
+    <section id="demoExplain" hidden>
+      <h2 data-i18n="demoStageExplain"></h2>
+      <p id="demoText"></p>
+    </section>
+    <section class="export" id="exportPanel">
+      <button id="expConfig" data-i18n="exportConfig"></button>
+      <button id="expResult" data-i18n="exportResult"></button>
+      <button id="expCSV" data-i18n="exportCSV"></button>
+      <label class="file-btn"><span data-i18n="importResult"></span><input type="file" id="impResult" accept="application/json,.json"></label>
+      <button id="snapBtn" data-i18n="snapshot"></button>
+    </section>
+  </aside>
+</main>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

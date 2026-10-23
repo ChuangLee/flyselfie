@@ -1,0 +1,118 @@
+{
+  "task": "RES-031",
+  "rule": "只考虑自助式，不考虑同伴或环境机位；允许本人手动展开与回收",
+  "concepts": [
+    {
+      "id": "O01",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O02",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O03",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O04",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O05",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O06",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O07",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O08",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O09",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O10",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O11",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O12",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O13",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O14",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O15",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O16",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O17",
+      "scope_status": "supplement_only"
+    },
+    {
+      "id": "O18",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O19",
+      "scope_status": "retained"
+    },
+    {
+      "id": "O20",
+      "scope_status": "excluded"
+    },
+    {
+      "id": "O21",
+      "scope_status": "excluded"
+    },
+    {
+      "id": "O22",
+      "scope_status": "excluded"
+    },
+    {
+      "id": "O23",
+      "scope_status": "excluded"
+    },
+    {
+      "id": "O24",
+      "scope_status": "excluded"
+    },
+    {
+      "id": "O25",
+      "scope_status": "excluded"
+    },
+    {
+      "id": "O26",
+      "scope_status": "conditional"
+    },
+    {
+      "id": "O27",
+      "scope_status": "conditional"
+    },
+    {
+      "id": "O28",
+      "scope_status": "conditional"
+    }
+  ]
+}

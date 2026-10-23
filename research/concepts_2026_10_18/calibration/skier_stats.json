@@ -1,0 +1,551 @@
+{
+ "default_carve": {
+  "opts": {
+   "style": "carve",
+   "slopeDeg": 15,
+   "vTarget": 12,
+   "turnPeriod": 4.5,
+   "turnAmpDeg": 32,
+   "mu": 0.05,
+   "CdA": 0.5,
+   "duration": 40
+  },
+  "speed_ms": {
+   "mean": 13.15,
+   "p05": 13.05,
+   "p95": 13.23,
+   "kmh_mean": 47.3
+  },
+  "turn_s": {
+   "mean": 4.45,
+   "min": 4.14,
+   "max": 4.78,
+   "turnsPerS": 0.225,
+   "fullCycleHz": 0.112,
+   "n": 7
+  },
+  "headingAmp_deg": {
+   "p95abs": 29.3
+  },
+  "apexLat_g": {
+   "mean": 0.54,
+   "max": 0.61
+  },
+  "apexRadius_m": {
+   "mean": 33.2,
+   "min": 29.3
+  },
+  "apexLean_deg": {
+   "mean": 27.8,
+   "max": 30.8
+  },
+  "latRms_g": 0.327,
+  "loadFactor_bw": {
+   "p95": 1.11,
+   "max": 1.14
+  },
+  "leanRate_degps": {
+   "p95": 20.5,
+   "max": 44.8
+  },
+  "leanDominantHz": 0.11,
+  "crouch": {
+   "min": 0.47,
+   "max": 0.61
+  },
+  "sampleAt5s": {
+   "speed": 13.21,
+   "lean_deg": -23.9,
+   "crouch": 0.58
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ },
+ "short_default": {
+  "opts": {
+   "style": "short",
+   "slopeDeg": 15,
+   "vTarget": 12,
+   "turnPeriod": 4.5,
+   "turnAmpDeg": 32,
+   "mu": 0.05,
+   "CdA": 0.5,
+   "duration": 40
+  },
+  "speed_ms": {
+   "mean": 13.17,
+   "p05": 13.12,
+   "p95": 13.21,
+   "kmh_mean": 47.4
+  },
+  "turn_s": {
+   "mean": 2.02,
+   "min": 1.8,
+   "max": 2.22,
+   "turnsPerS": 0.496,
+   "fullCycleHz": 0.248,
+   "n": 17
+  },
+  "headingAmp_deg": {
+   "p95abs": 26.3
+  },
+  "apexLat_g": {
+   "mean": 0.98,
+   "max": 1.07
+  },
+  "apexRadius_m": {
+   "mean": 18.2,
+   "min": 16.5
+  },
+  "apexLean_deg": {
+   "mean": 43.2,
+   "max": 45.9
+  },
+  "latRms_g": 0.655,
+  "loadFactor_bw": {
+   "p95": 1.37,
+   "max": 1.44
+  },
+  "leanRate_degps": {
+   "p95": 84.2,
+   "max": 95.6
+  },
+  "leanDominantHz": 0.25,
+  "crouch": {
+   "min": 0.51,
+   "max": 0.7
+  },
+  "sampleAt5s": {
+   "speed": 13.16,
+   "lean_deg": 16.2,
+   "crouch": 0.57
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ },
+ "boom_moguls_case": {
+  "opts": {
+   "style": "carve",
+   "slopeDeg": 15,
+   "vTarget": 9,
+   "turnPeriod": 3.4,
+   "turnAmpDeg": 20,
+   "mu": 0.05,
+   "CdA": 0.5,
+   "duration": 20
+  },
+  "speed_ms": {
+   "mean": 10.38,
+   "p05": 10.34,
+   "p95": 10.41,
+   "kmh_mean": 37.4
+  },
+  "turn_s": {
+   "mean": 3.55,
+   "min": 3.4,
+   "max": 3.72,
+   "turnsPerS": 0.282,
+   "fullCycleHz": 0.141,
+   "n": 3
+  },
+  "headingAmp_deg": {
+   "p95abs": 20.3
+  },
+  "apexLat_g": {
+   "mean": 0.34,
+   "max": 0.36
+  },
+  "apexRadius_m": {
+   "mean": 32.2,
+   "min": 30.5
+  },
+  "apexLean_deg": {
+   "mean": 18.7,
+   "max": 19.6
+  },
+  "latRms_g": 0.219,
+  "loadFactor_bw": {
+   "p95": 1.03,
+   "max": 1.03
+  },
+  "leanRate_degps": {
+   "p95": 18.2,
+   "max": 19.3
+  },
+  "leanDominantHz": 0.14,
+  "crouch": {
+   "min": 0.42,
+   "max": 0.49
+  },
+  "sampleAt5s": {
+   "speed": 10.35,
+   "lean_deg": -1.6,
+   "crouch": 0.43
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ },
+ "boom_demo_seg2": {
+  "opts": {
+   "style": "carve",
+   "slopeDeg": 15,
+   "vTarget": 12,
+   "turnPeriod": 4,
+   "turnAmpDeg": 30,
+   "mu": 0.05,
+   "CdA": 0.5,
+   "duration": 24.6
+  },
+  "speed_ms": {
+   "mean": 13.13,
+   "p05": 12.87,
+   "p95": 13.23,
+   "kmh_mean": 47.3
+  },
+  "turn_s": {
+   "mean": 4.03,
+   "min": 3.8,
+   "max": 4.22,
+   "turnsPerS": 0.248,
+   "fullCycleHz": 0.124,
+   "n": 4
+  },
+  "headingAmp_deg": {
+   "p95abs": 24.3
+  },
+  "apexLat_g": {
+   "mean": 0.47,
+   "max": 0.52
+  },
+  "apexRadius_m": {
+   "mean": 37.8,
+   "min": 34.1
+  },
+  "apexLean_deg": {
+   "mean": 24.6,
+   "max": 26.5
+  },
+  "latRms_g": 0.307,
+  "loadFactor_bw": {
+   "p95": 1.08,
+   "max": 1.11
+  },
+  "leanRate_degps": {
+   "p95": 23.8,
+   "max": 47.3
+  },
+  "leanDominantHz": 0.12,
+  "crouch": {
+   "min": 0.47,
+   "max": 0.59
+  },
+  "sampleAt5s": {
+   "speed": 12.86,
+   "lean_deg": -14.9,
+   "crouch": 0.51
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ },
+ "proposed_recreational_carve": {
+  "opts": {
+   "style": "carve",
+   "slopeDeg": 15,
+   "vTarget": 12,
+   "turnPeriod": 2.9,
+   "turnAmpDeg": 45,
+   "mu": 0.05,
+   "CdA": 0.5,
+   "duration": 40
+  },
+  "speed_ms": {
+   "mean": 13.01,
+   "p05": 12.84,
+   "p95": 13.14,
+   "kmh_mean": 46.8
+  },
+  "turn_s": {
+   "mean": 2.84,
+   "min": 2.58,
+   "max": 3.12,
+   "turnsPerS": 0.352,
+   "fullCycleHz": 0.176,
+   "n": 12
+  },
+  "headingAmp_deg": {
+   "p95abs": 42.9
+  },
+  "apexLat_g": {
+   "mean": 1.18,
+   "max": 1.29
+  },
+  "apexRadius_m": {
+   "mean": 14.9,
+   "min": 13.5
+  },
+  "apexLean_deg": {
+   "mean": 48.4,
+   "max": 51.1
+  },
+  "latRms_g": 0.752,
+  "loadFactor_bw": {
+   "p95": 1.51,
+   "max": 1.61
+  },
+  "leanRate_degps": {
+   "p95": 67.5,
+   "max": 77
+  },
+  "leanDominantHz": 0.18,
+  "crouch": {
+   "min": 0.5,
+   "max": 0.74
+  },
+  "sampleAt5s": {
+   "speed": 12.78,
+   "lean_deg": 35.8,
+   "crouch": 0.6
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ },
+ "proposed_expert_carve": {
+  "opts": {
+   "style": "carve",
+   "slopeDeg": 20,
+   "vTarget": 13,
+   "turnPeriod": 2.9,
+   "turnAmpDeg": 50,
+   "mu": 0.05,
+   "CdA": 0.5,
+   "duration": 40
+  },
+  "speed_ms": {
+   "mean": 14.42,
+   "p05": 14.14,
+   "p95": 14.64,
+   "kmh_mean": 51.9
+  },
+  "turn_s": {
+   "mean": 2.84,
+   "min": 2.62,
+   "max": 3.14,
+   "turnsPerS": 0.353,
+   "fullCycleHz": 0.176,
+   "n": 12
+  },
+  "headingAmp_deg": {
+   "p95abs": 48.4
+  },
+  "apexLat_g": {
+   "mean": 1.48,
+   "max": 1.59
+  },
+  "apexRadius_m": {
+   "mean": 14.7,
+   "min": 13.5
+  },
+  "apexLean_deg": {
+   "mean": 54.7,
+   "max": 56.8
+  },
+  "latRms_g": 0.941,
+  "loadFactor_bw": {
+   "p95": 1.74,
+   "max": 1.85
+  },
+  "leanRate_degps": {
+   "p95": 83.1,
+   "max": 93.6
+  },
+  "leanDominantHz": 0.18,
+  "crouch": {
+   "min": 0.54,
+   "max": 0.75
+  },
+  "sampleAt5s": {
+   "speed": 14.04,
+   "lean_deg": 41,
+   "crouch": 0.66
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ },
+ "proposed_short": {
+  "opts": {
+   "style": "short",
+   "slopeDeg": 15,
+   "vTarget": 8,
+   "turnPeriod": 2.3,
+   "turnAmpDeg": 40,
+   "mu": 0.05,
+   "CdA": 0.5,
+   "duration": 40
+  },
+  "speed_ms": {
+   "mean": 9.35,
+   "p05": 9.29,
+   "p95": 9.39,
+   "kmh_mean": 33.7
+  },
+  "turn_s": {
+   "mean": 1.04,
+   "min": 0.92,
+   "max": 1.16,
+   "turnsPerS": 0.964,
+   "fullCycleHz": 0.482,
+   "n": 34
+  },
+  "headingAmp_deg": {
+   "p95abs": 32.2
+  },
+  "apexLat_g": {
+   "mean": 1.56,
+   "max": 1.76
+  },
+  "apexRadius_m": {
+   "mean": 5.7,
+   "min": 5.1
+  },
+  "apexLean_deg": {
+   "mean": 52.6,
+   "max": 56.2
+  },
+  "latRms_g": 1.078,
+  "loadFactor_bw": {
+   "p95": 1.86,
+   "max": 2.01
+  },
+  "leanRate_degps": {
+   "p95": 225.1,
+   "max": 269
+  },
+  "leanDominantHz": 0.48,
+  "crouch": {
+   "min": 0.51,
+   "max": 0.71
+  },
+  "sampleAt5s": {
+   "speed": 9.3,
+   "lean_deg": 10,
+   "crouch": 0.57
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ },
+ "proposed_moguls": {
+  "opts": {
+   "style": "short",
+   "slopeDeg": 24,
+   "vTarget": 4.5,
+   "turnPeriod": 2.3,
+   "turnAmpDeg": 30,
+   "mu": 0.08,
+   "CdA": 0.5,
+   "duration": 40
+  },
+  "speed_ms": {
+   "mean": 6.97,
+   "p05": 6.93,
+   "p95": 7.01,
+   "kmh_mean": 25.1
+  },
+  "turn_s": {
+   "mean": 1.04,
+   "min": 0.92,
+   "max": 1.18,
+   "turnsPerS": 0.964,
+   "fullCycleHz": 0.482,
+   "n": 34
+  },
+  "headingAmp_deg": {
+   "p95abs": 24
+  },
+  "apexLat_g": {
+   "mean": 0.87,
+   "max": 0.98
+  },
+  "apexRadius_m": {
+   "mean": 5.8,
+   "min": 5.1
+  },
+  "apexLean_deg": {
+   "mean": 36.5,
+   "max": 40.2
+  },
+  "latRms_g": 0.598,
+  "loadFactor_bw": {
+   "p95": 1.27,
+   "max": 1.34
+  },
+  "leanRate_degps": {
+   "p95": 139.1,
+   "max": 163.9
+  },
+  "leanDominantHz": 0.48,
+  "crouch": {
+   "min": 0.41,
+   "max": 0.54
+  },
+  "sampleAt5s": {
+   "speed": 6.93,
+   "lean_deg": 7.5,
+   "crouch": 0.45
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ },
+ "proposed_gs_racer": {
+  "opts": {
+   "style": "carve",
+   "slopeDeg": 24,
+   "vTarget": 16.5,
+   "turnPeriod": 1.45,
+   "turnAmpDeg": 30,
+   "mu": 0.03,
+   "CdA": 0.35,
+   "duration": 40
+  },
+  "speed_ms": {
+   "mean": 18.76,
+   "p05": 18.69,
+   "p95": 18.83,
+   "kmh_mean": 67.6
+  },
+  "turn_s": {
+   "mean": 1.42,
+   "min": 1.28,
+   "max": 1.56,
+   "turnsPerS": 0.702,
+   "fullCycleHz": 0.351,
+   "n": 24
+  },
+  "headingAmp_deg": {
+   "p95abs": 29.1
+  },
+  "apexLat_g": {
+   "mean": 2.15,
+   "max": 2.46
+  },
+  "apexRadius_m": {
+   "mean": 16.8,
+   "min": 14.5
+  },
+  "apexLean_deg": {
+   "mean": 62.9,
+   "max": 65.8
+  },
+  "latRms_g": 1.449,
+  "loadFactor_bw": {
+   "p95": 2.33,
+   "max": 2.62
+  },
+  "leanRate_degps": {
+   "p95": 217.2,
+   "max": 262.6
+  },
+  "leanDominantHz": 0.35,
+  "crouch": {
+   "min": 0.68,
+   "max": 0.75
+  },
+  "sampleAt5s": {
+   "speed": 18.81,
+   "lean_deg": -56.9,
+   "crouch": 0.75
+  },
+  "note": "skierAt() has no trunk pitch/roll/yaw oscillation and no vertical snow excitation; lean is whole-body inclination atan(lat/g) with 0.12 s lag."
+ }
+}

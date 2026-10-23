@@ -1,0 +1,155 @@
+{
+  "task_id": "RES-030",
+  "actor": "academic-research",
+  "accessed_at": "2026-10-14T23:04:38-07:00",
+  "method": "原始论文、作者项目页和大学论文库定向检索；本机未找到 firecrawl CLI，使用 web 搜索与打开。只选读与产品假设有关的摘要、方法和限制，不声称全文精读或复现实验。",
+  "sources": [
+    {
+      "id": "AC01",
+      "source_url": "https://publications.ri.cmu.edu/autonomous-drone-cinematographer-using-artistic-principles-to-create-smooth-safe-occlusion-free-trajectories-for-aerial-filming",
+      "title": "Autonomous drone cinematographer: Using artistic principles to create smooth, safe, occlusion-free trajectories for aerial filming",
+      "authors": "Rogerio Bonatti; Yanfu Zhang; Sanjiban Choudhury; Wenshan Wang; Sebastian Scherer",
+      "year": 2018,
+      "access_depth": "CMU 原始论文库摘要及书目信息；未读取全文",
+      "source_type": "原始研究论文的作者机构摘要，ISER 2018",
+      "claim": "研究把构图规则、镜头平滑和遮挡作为联合轨迹优化目标，并报告对人物、车辆、自行车的实飞拍摄。可以把‘视角极佳’改写为可度量的画面任务，而不是单独追求飞得高。",
+      "evidence_quote": "trade off shot smoothness, occlusion, and cinematography guidelines",
+      "locator": "Abstract，网页第 27–28 行",
+      "limits": "摘要所报有限实飞不是滑雪、低温、强反射和跌倒场景验证；优化器输出不等于镜头审美已被所有用户认可；不会证明启动、回收和剪辑便利。",
+      "project_inference": "设计共享导演层：无论杆、索、无人机还是场地摄像机，都用主体完整度、脸/动作可读性、背景层次、地平线稳定和连续性评价候选视角。"
+    },
+    {
+      "id": "AC02",
+      "source_url": "https://arxiv.org/abs/2009.04234",
+      "title": "Optimal Trajectory Planning for Cinematography with Multiple Unmanned Aerial Vehicles",
+      "authors": "Alfonso Alcántara; Jesús Capitán; Rita Cunha; Aníbal Ollero",
+      "year": 2021,
+      "access_depth": "作者 arXiv v2 摘要、版本日期和期刊信息；未读取全文",
+      "source_type": "原始研究作者预印本；期刊 Robotics and Autonomous Systems 103778 (2021)，DOI 10.1016/j.robot.2021.103778",
+      "claim": "多机拍摄研究把机间碰撞、云台限制和互相入镜纳入在线协同规划，并报告室外移动目标的现场实验。这支持用系统分工取得多个真实视点，而不是要求一个载体同时完成所有镜头。",
+      "evidence_quote": "different types of shots filming a moving target outdoors",
+      "locator": "Abstract，第 16–20 行；v1 2020-09-09，v2 2021-04-05",
+      "limits": "多机增加充电、失效协调和管理复杂度；论文摘要不能证明普通用户无需飞手。研究硬件与雪场使用资格均未核查。",
+      "project_inference": "先研究异构双机位（身上低维护相机＋一个外部高位相机），不默认双无人机；真实切镜可直接利用原始视频，三维重建只是可选层。"
+    },
+    {
+      "id": "AC03",
+      "source_url": "https://nerfies.github.io/",
+      "title": "Nerfies: Deformable Neural Radiance Fields",
+      "authors": "Keunhong Park; Utkarsh Sinha; Jonathan T. Barron; Sofien Bouaziz; Dan B Goldman; Steven M. Seitz; Ricardo Martin-Brualla",
+      "year": 2021,
+      "access_depth": "作者项目页摘要、评价采集说明与再渲染段落；未独立核验视频和复现代码",
+      "source_type": "ICCV 2021 原始研究作者项目页",
+      "claim": "动态辐射场能从手机照片或视频重建部分非刚性场景，并从新视点再渲染；作者使用两部同步手机获取同一姿态的训练/验证视角。",
+      "evidence_quote": "two mobile phones that take time-synchronized photos",
+      "locator": "Abstract 第 12 行；Re-rendering the input video 第 44 行",
+      "limits": "网页的任意视角表述不能直接移植成任意真实视角保证；重建依赖采集覆盖、形变假设和优化。该项目页不支持滑雪高速全身、遮挡雪雾、单相机任意高空视角或消费设备实时运行。",
+      "project_inference": "把多机位素材的有限视点插值作为实验型增值功能，与原始实拍剪辑分开保存、标识。"
+    },
+    {
+      "id": "AC04",
+      "source_url": "https://kair-bair.github.io/dycheck/",
+      "paper_url": "https://papers.neurips.cc/paper_files/paper/2022/file/dab5a29f6614ec47ea0ca85c140226fd-Paper-Conference.pdf",
+      "title": "Monocular Dynamic View Synthesis: A Reality Check",
+      "authors": "Hang Gao; Ruilong Li; Shubham Tulsiani; Bryan Russell; Angjoo Kanazawa",
+      "year": 2022,
+      "access_depth": "作者项目页全文文字；会议论文搜索结果中的摘要/引言/第 3 节片段；没有完整读取论文 PDF",
+      "source_type": "NeurIPS 2022 原始研究作者项目页及会议论文",
+      "claim": "研究指出部分动态重建评测暗含相机跳位或近静态目标带来的多视角信息；真实单目复杂运动更难，建议只在共可见像素评价并加入几何对应误差。",
+      "evidence_quote": "Only evaluate co-visible pixels",
+      "locator": "项目页 Effective Multi-view、Towards better experimentation practice、Only evaluate co-visible pixels 三节；论文第 3 节",
+      "limits": "这是 2022 年方法与数据的检验，不是对 2026 年所有模型的性能结论；不能由旧基准断言新模型永远无用。反过来，生成合理的未观测细节也不是证明真实发生过。",
+      "project_inference": "从信息边界出发分四层：单个 360 相机裁切改变朝向/FOV，不改变光心位置；同步多机提供真实新观测；重建在观测支撑下插值；生成式补全对未观测内容作推断。产品必须区分后两者与真实录像。"
+    },
+    {
+      "id": "AC05",
+      "source_url": "https://rpg.ifi.uzh.ch/docs/RAL18_Falanga.pdf",
+      "title": "The Foldable Drone: A Morphing Quadrotor that can Squeeze and Fly",
+      "authors": "Davide Falanga; Kevin Kleber; Stefano Mintchev; Dario Floreano; Davide Scaramuzza",
+      "year": 2019,
+      "access_depth": "作者机构 8 页论文 PDF；选读摘要、贡献、机械设计、IV.A 实验平台和 IV.D 应用，未审计算法推导",
+      "source_type": "IEEE Robotics and Automation Letters 原始研究；作者版本 accepted November 2018；DOI 10.1109/LRA.2018.2885575",
+      "claim": "实物四旋翼可在飞行中折叠四个独立机臂，依靠机载视觉惯性估计与控制完成穿缝。实验平台 580 g，变形机构和电子件约 65 g（11%）。",
+      "evidence_quote": "the current design is not crash resilient",
+      "locator": "摘要；IV.A，PDF 第 5 页；IV.D.1，PDF 第 7 页",
+      "limits": "文中明确当前结构不耐撞；穿缝使用哪种形态事先设定。动态形态切换示例速度 2 m/s，不是滑雪高速验证。机构增加质量，收纳便利收益需超过效率、结构和可靠性成本。",
+      "project_inference": "优先比较‘着陆后机械折叠’和‘在飞行中折叠’；没有必要为了炫酷动作把移动折叠能力加入第一代产品。可把标准化收纳接口与拍摄载体解耦。"
+    },
+    {
+      "id": "AC06",
+      "source_url": "https://lentinklab.com/wp-content/uploads/2023/12/2021-bird-inspired-perching.pdf",
+      "title": "Bird-inspired dynamic grasping and perching in arboreal environments",
+      "authors": "William R. T. Roderick; Mark R. Cutkosky; David Lentink",
+      "year": 2021,
+      "access_depth": "实验室原论文 PDF；选读摘要、机构描述、森林应用与室外试验方法",
+      "source_type": "Science Robotics 6(61), eabj7562；DOI 10.1126/scirobotics.abj7562",
+      "claim": "SNAG 用腿部被动变形将接触冲击转为抓握力，提供快速贴合与锁止；实验展示在森林树枝上停栖。支持用接触顺应性降低捕获的几何精度要求。",
+      "evidence_quote": "the robot was manually flown by a remote pilot",
+      "locator": "Abstract；Application potential in forest environments（正文第 9 页）；Design of the outdoor perching and catching experiments（正文第 13 页）",
+      "limits": "室外由飞手遥控，接触后由实验者切油门和电机，起飞也人工操作；不能声称自动选枝、自动停栖、自动回背包已解决。人体附近、衣物和松雪接触完全未验证。",
+      "project_inference": "研究宽容软捕获接口＋停机后机械锁止，而不是让高速桨叶直接贴近身体；这仅是机构借鉴，不是已验证回收方案。"
+    }
+  ],
+  "original_hypotheses": [
+    {
+      "id": "AH01",
+      "name": "机会镜头伴飞器",
+      "idea": "把全程追逐改为只拍少量高价值片段：平时在固定基座或静止用户的收纳位休眠，选定安全窗口离开，完成侧前方/拉远镜头，再回固定基座；常驻身上相机补充连续记录。",
+      "first_principles": "成片价值取决于有效镜头，不必与全程飞行时长成正比。减少空中占空比可能比单纯增加电池更有效。",
+      "falsification": "在同一故事长度下比较有效镜头秒数、用户操作次数、漏拍率和总携带负担；若启停成本抵消节电或错过关键动作，则不成立。首轮不要求运动中回人体。",
+      "evidence_links": [
+        "AC01",
+        "AC06"
+      ],
+      "status": "原创研究假设，未验证"
+    },
+    {
+      "id": "AH02",
+      "name": "两人一组的互拍导演",
+      "idea": "一组运动者佩戴同步广角相机，由系统选择‘对方镜头里自己最好看’的片段，形成无需每人携带外部飞行器的真实多视点成片；间距引导只在停下时提示。",
+      "first_principles": "相机与被拍者不必在同一产品上；同伴现有运动轨迹可提供外部视点。",
+      "falsification": "真实滑行中统计双方完整入镜覆盖、互相遮挡、所需间距和为拍摄改变动作的负担；若需要持续协调或逼近危险距离，则便利性假设失败。",
+      "evidence_links": [
+        "AC02",
+        "AC04"
+      ],
+      "status": "原创研究假设，未验证；多人需求，不替代单人自助路线"
+    },
+    {
+      "id": "AH03",
+      "name": "真实机位优先的异构导演盒",
+      "idea": "把产品核心做成跨载体导演层：杆上全景、雪道固定高位相机、同伴相机或小飞行器接入同一时间轴，自动挑选主体可读、背景好且连续的真实镜头。",
+      "first_principles": "视点自由度可来自多个低成本专用机位，无需一个昂贵全能载体。",
+      "falsification": "在相同拍摄路段、相同携带重量或总设备预算下，与单一跟拍载体盲评成片并测操作时间；若同步、身份关联与素材整理增加负担且画面无改善，则放弃。",
+      "evidence_links": [
+        "AC01",
+        "AC02"
+      ],
+      "status": "原创研究假设，未验证"
+    },
+    {
+      "id": "AH04",
+      "name": "有限可信视点重建",
+      "idea": "利用两个实际同步镜头提供基线，只允许在有观测支持的视域小幅改变视点；超出覆盖直接回退到原始镜头，不静默生成身体、装备或障碍物。",
+      "first_principles": "多一个有效观测比更强的未观测猜测更能提高真实记录的可核验性。",
+      "falsification": "用第三个独立实拍视点作保留验证，比较脸、雪板边缘、肢体和遮挡恢复；错误区域、时序闪烁或有效覆盖不足时，不作为主成像路线。",
+      "evidence_links": [
+        "AC03",
+        "AC04"
+      ],
+      "status": "原创研究假设，未验证；明确区别于生成式特效"
+    },
+    {
+      "id": "AH05",
+      "name": "可停栖机动机位网络",
+      "idea": "服务型系统：相机飞到预设的固定停栖点，停桨后成为稳定长焦机位；按参与者路线少量换位。用户只带身份标记，成片由场地交付。",
+      "first_principles": "连续悬停不是保持好视角的唯一方式；固定支撑承担重力可省去多数保持位置能耗。",
+      "falsification": "与永久固定摄像机相比，机动换位必须产生足够新增有效视角，且停栖可靠性、维护与场地管理成本可接受；否则直接用固定相机更优。",
+      "evidence_links": [
+        "AC01",
+        "AC06"
+      ],
+      "status": "原创研究假设，未验证；需要场地合作，不能声称用户随处可用"
+    }
+  ]
+}

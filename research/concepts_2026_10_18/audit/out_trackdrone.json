@@ -1,0 +1,587 @@
+{
+ "concept": "trackdrone",
+ "generated": "2026-10-19",
+ "evidence": "audit re-computation on the uncalibrated model; not a physical test",
+ "power": {
+  "rho": 1.052,
+  "rhoCheck": 1.052,
+  "discArea": 0.018,
+  "idealHoverW": 19.066,
+  "modelHoverW": 53.674,
+  "hoverCheckW": 53.674,
+  "diskLoadingNm2": 132.452,
+  "trim": [
+   {
+    "V": 0,
+    "tiltDeg": 0,
+    "power": 53.674,
+    "feasible": true
+   },
+   {
+    "V": 6,
+    "tiltDeg": 11.468,
+    "power": 53.429,
+    "feasible": true
+   },
+   {
+    "V": 12,
+    "tiltDeg": 35.702,
+    "power": 80.069,
+    "feasible": true
+   },
+   {
+    "V": 18,
+    "tiltDeg": 59.136,
+    "power": 187.889,
+    "feasible": true
+   },
+   {
+    "V": 24,
+    "tiltDeg": 71.555,
+    "power": 411.756,
+    "feasible": false
+   }
+  ],
+  "benchmark": "DJI Avata (410 g, 4×~74 mm ducted) ≈ 18.6 Wh / ~18 min ⇒ ≈ 60 W mean; scaled to 245 g at equal disc area by W^1.5 ⇒ ≈ 28 W at sea level. Model hover 53.5 W at 2000 m/−10 °C (ρ≈1.05) with FoM 0.38: conservative by up to ~1.6× (FoM_eff of good ducted whoops ≈ 0.45–0.6)."
+ },
+ "scenarios": [
+  {
+   "id": "nominal",
+   "dt": {
+    "0.005": {
+     "avail": 100,
+     "pxMed": 473.957,
+     "jitterRms": 5.422,
+     "azRange": 22.305,
+     "keMax": 24.408,
+     "endurance": 6.257,
+     "energyRun": 4.97,
+     "minDistRider": 6.363,
+     "crossMax": 0.497,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.893,
+     "validUntil": null,
+     "ms": 717
+    },
+    "0.0025": {
+     "avail": 100,
+     "pxMed": 473.716,
+     "jitterRms": 5.483,
+     "azRange": 21.598,
+     "keMax": 23.974,
+     "endurance": 6.263,
+     "energyRun": 4.966,
+     "minDistRider": 6.428,
+     "crossMax": 0.501,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.893,
+     "validUntil": null,
+     "ms": 675
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 4.373,
+    "jitterResidModelRms": 4.14,
+    "jitterWithRateResid": 1.755,
+    "jitterLosHP": 1.677,
+    "jitterLosRaw": 10.965,
+    "jitterSharedFn": 5.422,
+    "jitterVectorFn": 7.034,
+    "keGround": 24.408,
+    "vGroundMax": 14.116,
+    "massForKE14_9AtVmax": 0.15,
+    "energyWhSampled": 0.804,
+    "meanPowerW": 96.462,
+    "peakPowerW": 131.221,
+    "meanTiltDeg": 51.361
+   },
+   "events": [
+    "0.585 saturation"
+   ]
+  },
+  {
+   "id": "highspeed",
+   "dt": {
+    "0.005": {
+     "avail": 3.597,
+     "pxMed": 28.844,
+     "jitterRms": 4.362,
+     "azRange": 5.771,
+     "keMax": 41.9,
+     "endurance": 3.213,
+     "energyRun": 9.254,
+     "minDistRider": 6.669,
+     "crossMax": 0.452,
+     "setupTime": 12.84,
+     "bodyForcePeak": 0.95,
+     "validUntil": null,
+     "ms": 586
+    },
+    "0.0025": {
+     "avail": 3.597,
+     "pxMed": 28.847,
+     "jitterRms": 4.481,
+     "azRange": 5.58,
+     "keMax": 42.235,
+     "endurance": 3.211,
+     "energyRun": 9.258,
+     "minDistRider": 6.714,
+     "crossMax": 0.429,
+     "setupTime": 12.84,
+     "bodyForcePeak": 0.95,
+     "validUntil": null,
+     "ms": 305
+    }
+   },
+   "harmonised": {
+    "avail": 3.597,
+    "jitter": 0.631,
+    "jitterResidModelRms": 1.135,
+    "jitterWithRateResid": 0.551,
+    "jitterLosHP": 0.232,
+    "jitterLosRaw": 4.191,
+    "jitterSharedFn": 4.362,
+    "jitterVectorFn": 5.532,
+    "keGround": 41.9,
+    "vGroundMax": 18.494,
+    "massForKE14_9AtVmax": 0.087,
+    "energyWhSampled": 1.264,
+    "meanPowerW": 181.876,
+    "peakPowerW": 312.631,
+    "meanTiltDeg": 64.724
+   },
+   "events": [
+    "0.55 saturation",
+    "3.555 saturation",
+    "6.56 saturation",
+    "9.565 saturation",
+    "12.57 saturation",
+    "15.575 saturation",
+    "18.58 saturation",
+    "21.585 saturation",
+    "24.59 saturation"
+   ]
+  },
+  {
+   "id": "short",
+   "dt": {
+    "0.005": {
+     "avail": 100,
+     "pxMed": 420.018,
+     "jitterRms": 9.912,
+     "azRange": 98.476,
+     "keMax": 18.711,
+     "endurance": 8.342,
+     "energyRun": 3.804,
+     "minDistRider": 3.596,
+     "crossMax": 0.754,
+     "setupTime": 12.65,
+     "bodyForcePeak": 1.47,
+     "validUntil": null,
+     "ms": 394
+    },
+    "0.0025": {
+     "avail": 100,
+     "pxMed": 420.031,
+     "jitterRms": 10.337,
+     "azRange": 99.585,
+     "keMax": 18.844,
+     "endurance": 8.356,
+     "energyRun": 3.798,
+     "minDistRider": 3.714,
+     "crossMax": 0.778,
+     "setupTime": 12.65,
+     "bodyForcePeak": 1.47,
+     "validUntil": null,
+     "ms": 768
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 9.587,
+    "jitterResidModelRms": 6.114,
+    "jitterWithRateResid": 7.528,
+    "jitterLosHP": 7.507,
+    "jitterLosRaw": 17.693,
+    "jitterSharedFn": 9.912,
+    "jitterVectorFn": 12.433,
+    "keGround": 18.711,
+    "vGroundMax": 12.359,
+    "massForKE14_9AtVmax": 0.195,
+    "energyWhSampled": 0.629,
+    "meanPowerW": 73.146,
+    "peakPowerW": 160.403,
+    "meanTiltDeg": 35.072
+   },
+   "events": [
+    "4.72 crossTrack",
+    "6.725 crossTrack",
+    "8.73 crossTrack",
+    "10.735 crossTrack",
+    "12.74 crossTrack",
+    "14.745 crossTrack",
+    "16.75 crossTrack",
+    "18.845 crossTrack",
+    "22.89 saturation"
+   ]
+  },
+  {
+   "id": "crosswind",
+   "dt": {
+    "0.005": {
+     "avail": 47.635,
+     "pxMed": 231.392,
+     "jitterRms": 4.463,
+     "azRange": 23.177,
+     "keMax": 49.896,
+     "endurance": 4.451,
+     "energyRun": 6.802,
+     "minDistRider": 6.261,
+     "crossMax": 0.602,
+     "setupTime": 12.68,
+     "bodyForcePeak": 0.87,
+     "validUntil": null,
+     "ms": 394
+    },
+    "0.0025": {
+     "avail": 47.901,
+     "pxMed": 238.607,
+     "jitterRms": 4.538,
+     "azRange": 22.428,
+     "keMax": 49.23,
+     "endurance": 4.446,
+     "energyRun": 6.809,
+     "minDistRider": 6.395,
+     "crossMax": 0.644,
+     "setupTime": 12.68,
+     "bodyForcePeak": 0.87,
+     "validUntil": null,
+     "ms": 546
+    }
+   },
+   "harmonised": {
+    "avail": 47.635,
+    "jitter": 2.54,
+    "jitterResidModelRms": 2.382,
+    "jitterWithRateResid": 1.348,
+    "jitterLosHP": 1.248,
+    "jitterLosRaw": 11.038,
+    "jitterSharedFn": 4.463,
+    "jitterVectorFn": 5.724,
+    "keGround": 49.896,
+    "vGroundMax": 20.182,
+    "massForKE14_9AtVmax": 0.073,
+    "energyWhSampled": 1.11,
+    "meanPowerW": 133.076,
+    "peakPowerW": 196.316,
+    "meanTiltDeg": 61.783
+   },
+   "events": [
+    "5.695 saturation",
+    "10.265 saturation",
+    "13.27 saturation",
+    "16.275 saturation",
+    "19.275 saturation",
+    "19.79 crossTrack",
+    "22.28 saturation",
+    "25.285 saturation",
+    "28.29 saturation"
+   ]
+  },
+  {
+   "id": "dropout",
+   "dt": {
+    "0.005": {
+     "avail": 60.426,
+     "pxMed": 441.553,
+     "jitterRms": 10.853,
+     "azRange": 18.431,
+     "keMax": 36.181,
+     "endurance": 5.432,
+     "energyRun": 5.648,
+     "minDistRider": 6.476,
+     "crossMax": 0.899,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.973,
+     "validUntil": null,
+     "ms": 355
+    }
+   },
+   "harmonised": {
+    "avail": 60.426,
+    "jitter": 3.494,
+    "jitterResidModelRms": 3.396,
+    "jitterWithRateResid": 1.328,
+    "jitterLosHP": 1.222,
+    "jitterLosRaw": 10.072,
+    "jitterSharedFn": 10.853,
+    "jitterVectorFn": 11.72,
+    "keGround": 36.181,
+    "vGroundMax": 17.186,
+    "massForKE14_9AtVmax": 0.101,
+    "energyWhSampled": 0.917,
+    "meanPowerW": 110.013,
+    "peakPowerW": 153.528,
+    "meanTiltDeg": 54.888
+   },
+   "events": [
+    "0.585 saturation",
+    "10.45 beaconLost",
+    "12.2 corridorGap",
+    "12.895 saturation",
+    "14.755 crossTrack",
+    "15.9 saturation",
+    "18.33 crossTrack",
+    "18.9 saturation",
+    "21.905 saturation",
+    "22.45 crossTrack"
+   ]
+  },
+  {
+   "id": "fall",
+   "dt": {
+    "0.005": {
+     "avail": 100,
+     "pxMed": 477.35,
+     "jitterRms": 9.269,
+     "azRange": 55.693,
+     "keMax": 24.408,
+     "endurance": 7.547,
+     "energyRun": 4.181,
+     "minDistRider": 4.441,
+     "crossMax": 0.49,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.935,
+     "validUntil": null,
+     "ms": 285
+    },
+    "0.0025": {
+     "avail": 100,
+     "pxMed": 476.486,
+     "jitterRms": 9.172,
+     "azRange": 56.896,
+     "keMax": 23.974,
+     "endurance": 7.536,
+     "energyRun": 4.187,
+     "minDistRider": 4.099,
+     "crossMax": 0.49,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.935,
+     "validUntil": null,
+     "ms": 340
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 4.375,
+    "jitterResidModelRms": 4.117,
+    "jitterWithRateResid": 1.952,
+    "jitterLosHP": 1.883,
+    "jitterLosRaw": 10.004,
+    "jitterSharedFn": 9.269,
+    "jitterVectorFn": 10.991,
+    "keGround": 24.408,
+    "vGroundMax": 14.116,
+    "massForKE14_9AtVmax": 0.15,
+    "energyWhSampled": 0.493,
+    "meanPowerW": 80.673,
+    "peakPowerW": 155.587,
+    "meanTiltDeg": 36.955
+   },
+   "events": [
+    "0.585 saturation",
+    "15.695 saturation"
+   ]
+  },
+  {
+   "id": "treeline",
+   "dt": {
+    "0.005": {
+     "avail": 100,
+     "pxMed": 475.185,
+     "jitterRms": 5.357,
+     "azRange": 19.338,
+     "keMax": 24.315,
+     "endurance": 6.033,
+     "energyRun": 5.137,
+     "minDistRider": 6.365,
+     "crossMax": 0.466,
+     "minClrTree": 0.551,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.823,
+     "validUntil": null,
+     "ms": 392
+    },
+    "0.0025": {
+     "avail": 100,
+     "pxMed": 476.353,
+     "jitterRms": 5.433,
+     "azRange": 19.253,
+     "keMax": 23.835,
+     "endurance": 6.035,
+     "energyRun": 5.135,
+     "minDistRider": 6.429,
+     "crossMax": 0.434,
+     "minClrTree": 0.505,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.823,
+     "validUntil": null,
+     "ms": 490
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 4.3,
+    "jitterResidModelRms": 4.188,
+    "jitterWithRateResid": 1.404,
+    "jitterLosHP": 1.305,
+    "jitterLosRaw": 9.782,
+    "jitterSharedFn": 5.357,
+    "jitterVectorFn": 6.9,
+    "keGround": 24.315,
+    "vGroundMax": 14.089,
+    "massForKE14_9AtVmax": 0.15,
+    "energyWhSampled": 0.832,
+    "meanPowerW": 99.801,
+    "peakPowerW": 156.159,
+    "meanTiltDeg": 51.897
+   },
+   "events": [
+    "0.585 saturation"
+   ]
+  },
+  {
+   "id": "overhang",
+   "dt": {
+    "0.005": {
+     "avail": 100,
+     "pxMed": 480.114,
+     "jitterRms": 7.384,
+     "azRange": 17.674,
+     "keMax": 24.315,
+     "endurance": 6.18,
+     "energyRun": 5.04,
+     "minDistRider": 6.365,
+     "crossMax": 0.407,
+     "minClrTree": 0.21,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.823,
+     "validUntil": 11.42,
+     "ms": 250
+    }
+   },
+   "harmonised": {
+    "avail": 99.825,
+    "jitter": 4.028,
+    "jitterResidModelRms": 4.244,
+    "jitterWithRateResid": 1.351,
+    "jitterLosHP": 1.248,
+    "jitterLosRaw": 8.864,
+    "jitterSharedFn": 7.384,
+    "jitterVectorFn": 9.134,
+    "keGround": 24.315,
+    "vGroundMax": 14.089,
+    "massForKE14_9AtVmax": 0.15,
+    "energyWhSampled": 0.31,
+    "meanPowerW": 97.858,
+    "peakPowerW": 135.453,
+    "meanTiltDeg": 51.375
+   },
+   "events": [
+    "0.585 saturation",
+    "11.42 treeStrike"
+   ]
+  },
+  {
+   "id": "crossing",
+   "dt": {
+    "0.005": {
+     "avail": 100,
+     "pxMed": 473.37,
+     "jitterRms": 5.844,
+     "azRange": 22.795,
+     "keMax": 24.408,
+     "endurance": 6.334,
+     "energyRun": 4.919,
+     "minDistRider": 6.384,
+     "crossMax": 0.497,
+     "setupTime": 12.65,
+     "bodyForcePeak": 0.893,
+     "validUntil": null,
+     "ms": 234
+    }
+   },
+   "harmonised": {
+    "avail": 100,
+    "jitter": 4.563,
+    "jitterResidModelRms": 4.281,
+    "jitterWithRateResid": 1.834,
+    "jitterLosHP": 1.759,
+    "jitterLosRaw": 10.745,
+    "jitterSharedFn": 5.844,
+    "jitterVectorFn": 7.535,
+    "keGround": 24.408,
+    "vGroundMax": 14.116,
+    "massForKE14_9AtVmax": 0.15,
+    "energyWhSampled": 0.637,
+    "meanPowerW": 95.448,
+    "peakPowerW": 131.221,
+    "meanTiltDeg": 51.047
+   },
+   "events": [
+    "0.585 saturation"
+   ]
+  },
+  {
+   "id": "dock",
+   "dt": {
+    "0.005": {
+     "avail": 100,
+     "pxMed": 521.087,
+     "jitterRms": 8.574,
+     "azRange": 2.538,
+     "keMax": 3.513,
+     "endurance": 10.306,
+     "energyRun": 3.138,
+     "minDistRider": 4.588,
+     "setupTime": 12.73,
+     "bodyForcePeak": 0,
+     "validUntil": null,
+     "ms": 993
+    }
+   },
+   "harmonised": {
+    "avail": 0,
+    "jitter": null,
+    "jitterResidModelRms": 0,
+    "jitterWithRateResid": null,
+    "jitterLosHP": null,
+    "jitterLosRaw": null,
+    "jitterSharedFn": 8.574,
+    "jitterVectorFn": 9.776,
+    "keGround": 1.698,
+    "vGroundMax": 3.723,
+    "massForKE14_9AtVmax": 2.15,
+    "energyWhSampled": 0.401,
+    "meanPowerW": 59.494,
+    "peakPowerW": 138.303,
+    "meanTiltDeg": 16.424
+   },
+   "events": [
+    "12.285 dockAbort"
+   ]
+  }
+ ],
+ "endurance": {
+  "whPerRun": 4.97,
+  "usableColdWh": 7.229,
+  "minutesPerBatteryCold": 4.497,
+  "batteriesFor45minCold": 10.007,
+  "batteriesFor45minWarmPocket": 7.374,
+  "podChargeAt1C_W": 13.5,
+  "podChargePerLift8min_Wh_at1C": 1.8,
+  "podChargeLimitNote": "Li-ion charging at ≤5 °C is normally limited to ≤0.3–0.5 C to avoid lithium plating; the model assumes 20 W (≈1.5 C) into a pod held at 5 °C",
+  "powerBankMassNotCounted": "POD_CHARGE_W assumes a pack power bank that is not included in addedMass"
+ }
+}

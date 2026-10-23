@@ -1,0 +1,974 @@
+{
+ "conceptId": "descentglider",
+ "modelVersion": "descentglider@2.0.0",
+ "auditor": "audit2 (round 2, iteration 2), independent re-audit",
+ "generated": "2026-10-20",
+ "evidence": "numerical-uncalibrated simulation re-run from a copy of sim/ plus literature/web checks; nothing built or flown; not a physical test",
+ "scripts": [
+  "recheck.mjs (12 spot cases + footageStability; ALL=1 → all 39 cases with auditor metric code)",
+  "fs_all.mjs (shared footageStability on all 17 flown cases, near-miss gates)",
+  "make_part.py"
+ ],
+ "reproduction": {
+  "fullEnsembleRerun": {
+   "matchesClaimed": true,
+   "diffs": "run_all.mjs re-run in a copy: all 39 ensemble rows, summary, byWind, sensitivities and dt table identical to dev/descentglider/results.json. Only difference: results.json scenarios.* show STALE ensemble constants (e.g. fullrun avail 29.25, jitterRms 24.0 FAIL, keMax 18.93, ensRange max 99.1) from an older ensemble.js; the regenerated ensemble.js (repo) gives 29.89 / 1.39 / 18.02 / 69.8. Reporting inconsistency only."
+  },
+  "spotCases": [
+   {
+    "id": "calm_s11",
+    "U": 0,
+    "dir": "calm",
+    "noFly": false,
+    "claimed": {
+     "avail": 88.1,
+     "setup": 33.8,
+     "ops": 2,
+     "keMax": 13.3,
+     "pMean": 8.07,
+     "jitter": 1.02,
+     "tdKE": 4.01,
+     "crashed": false,
+     "landMinRider": 3.49
+    },
+    "recomputed": {
+     "availRiding": 87.28,
+     "availSpeed2": 88.05,
+     "ridingS": 74.24,
+     "fullRideS": 70.2,
+     "setup": 33.85,
+     "top": 11.32,
+     "endWait": 11.7,
+     "walk": 5.82,
+     "restDist": 4.88,
+     "ops": 2,
+     "keMax": 13.3,
+     "keAt": {
+      "t": 20.66,
+      "mode": 3,
+      "distBody": 7.65,
+      "speed": 14.65
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 3.49,
+     "landMinRider": 3.49,
+     "tdKE": 4.01,
+     "pMean": 8.07,
+     "Ewh": 0.25612999999999997,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": 1.38,
+     "backgroundRms": 1.42,
+     "samples": 3574
+    }
+   },
+   {
+    "id": "head3_s11",
+    "U": 3,
+    "dir": "head",
+    "noFly": false,
+    "claimed": {
+     "avail": 79.3,
+     "setup": 47,
+     "ops": 3,
+     "keMax": 13.44,
+     "pMean": 8.05,
+     "jitter": 1.09,
+     "tdKE": null,
+     "crashed": true,
+     "landMinRider": 26.41
+    },
+    "recomputed": {
+     "availRiding": 78.53,
+     "availSpeed2": 79.34,
+     "ridingS": 74.24,
+     "fullRideS": 70.2,
+     "setup": 47.02,
+     "top": 12.02,
+     "endWait": 0,
+     "walk": 30,
+     "restDist": null,
+     "ops": 3,
+     "keMax": 13.44,
+     "keAt": {
+      "t": 75.14,
+      "mode": 3,
+      "distBody": 21.55,
+      "speed": 14.72
+     },
+     "crashKE": 12.33,
+     "minBodyDistInFlight": 4.05,
+     "landMinRider": 26.41,
+     "tdKE": null,
+     "pMean": 8.05,
+     "Ewh": 0.30682,
+     "crashed": true,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": 1.28,
+     "backgroundRms": 1.38,
+     "samples": 3574
+    }
+   },
+   {
+    "id": "tail3_s12",
+    "U": 3,
+    "dir": "tail",
+    "noFly": false,
+    "claimed": {
+     "avail": 51.8,
+     "setup": 55.9,
+     "ops": 2,
+     "keMax": 13.68,
+     "pMean": 7.99,
+     "jitter": 1.39,
+     "tdKE": 1.36,
+     "crashed": false,
+     "landMinRider": 7.19
+    },
+    "recomputed": {
+     "availRiding": 51.24,
+     "availSpeed2": 51.77,
+     "ridingS": 74.24,
+     "fullRideS": 70.2,
+     "setup": 55.87,
+     "top": 9.76,
+     "endWait": 11.11,
+     "walk": 30,
+     "restDist": 12,
+     "ops": 2,
+     "keMax": 13.68,
+     "keAt": {
+      "t": 80.5,
+      "mode": 3,
+      "distBody": 12.53,
+      "speed": 14.86
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 0.85,
+     "landMinRider": 7.19,
+     "tdKE": 1.36,
+     "pMean": 7.99,
+     "Ewh": 0.24861000000000003,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": 18.13,
+     "backgroundRms": 20.61,
+     "samples": 3574
+    }
+   },
+   {
+    "id": "crossL3_s13",
+    "U": 3,
+    "dir": "crossL",
+    "noFly": false,
+    "claimed": {
+     "avail": 77.8,
+     "setup": 33.7,
+     "ops": 2,
+     "keMax": 13.51,
+     "pMean": 8.93,
+     "jitter": 0.93,
+     "tdKE": 1.43,
+     "crashed": false,
+     "landMinRider": 3.12
+    },
+    "recomputed": {
+     "availRiding": 76.97,
+     "availSpeed2": 77.76,
+     "ridingS": 74.24,
+     "fullRideS": 70.2,
+     "setup": 33.72,
+     "top": 10.6,
+     "endWait": 14,
+     "walk": 4.12,
+     "restDist": 3.75,
+     "ops": 2,
+     "keMax": 13.51,
+     "keAt": {
+      "t": 81.18,
+      "mode": 3,
+      "distBody": 11.54,
+      "speed": 14.76
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 3.15,
+     "landMinRider": 3.12,
+     "tdKE": 1.43,
+     "pMean": 8.93,
+     "Ewh": 0.28716,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": 1.41,
+     "backgroundRms": 1.62,
+     "samples": 3574
+    }
+   },
+   {
+    "id": "crossR3_s12",
+    "U": 3,
+    "dir": "crossR",
+    "noFly": false,
+    "claimed": {
+     "avail": 81.8,
+     "setup": 38.1,
+     "ops": 2,
+     "keMax": 13.46,
+     "pMean": 8.95,
+     "jitter": 0.92,
+     "tdKE": 2.26,
+     "crashed": false,
+     "landMinRider": 6.24
+    },
+    "recomputed": {
+     "availRiding": 80.93,
+     "availSpeed2": 81.76,
+     "ridingS": 74.24,
+     "fullRideS": 70.2,
+     "setup": 38.15,
+     "top": 10.62,
+     "endWait": 13.57,
+     "walk": 8.96,
+     "restDist": 6.97,
+     "ops": 2,
+     "keMax": 13.46,
+     "keAt": {
+      "t": 74.18,
+      "mode": 3,
+      "distBody": 16.64,
+      "speed": 14.74
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 2.07,
+     "landMinRider": 6.24,
+     "tdKE": 2.26,
+     "pMean": 8.95,
+     "Ewh": 0.28697,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": 1.14,
+     "backgroundRms": 1.55,
+     "samples": 3574
+    }
+   },
+   {
+    "id": "head6_s11",
+    "U": 6,
+    "dir": "head",
+    "noFly": true,
+    "claimed": {
+     "avail": 0,
+     "setup": 56,
+     "ops": 2,
+     "keMax": 6.24,
+     "pMean": 5.6,
+     "jitter": null,
+     "tdKE": 1.45,
+     "crashed": false,
+     "landMinRider": 17.43
+    },
+    "recomputed": {
+     "availRiding": 0,
+     "availSpeed2": 0,
+     "ridingS": 0,
+     "fullRideS": 70.2,
+     "setup": 56.03,
+     "top": 3,
+     "endWait": 18.03,
+     "walk": 30,
+     "restDist": 46.85,
+     "ops": 2,
+     "keMax": 6.24,
+     "keAt": {
+      "t": 3.02,
+      "mode": 1,
+      "distBody": 0.83,
+      "speed": 10.04
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 5.15,
+     "landMinRider": 17.43,
+     "tdKE": 1.45,
+     "pMean": 5.6,
+     "Ewh": 0.028030000000000003,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null,
+     "samples": 0
+    }
+   },
+   {
+    "id": "tail6_s11",
+    "U": 6,
+    "dir": "tail",
+    "noFly": false,
+    "claimed": {
+     "avail": 24.8,
+     "setup": 48.1,
+     "ops": 3,
+     "keMax": 18.02,
+     "pMean": 11.09,
+     "jitter": 1.19,
+     "tdKE": null,
+     "crashed": false,
+     "landMinRider": 3.47
+    },
+    "recomputed": {
+     "availRiding": 24.57,
+     "availSpeed2": 24.82,
+     "ridingS": 74.24,
+     "fullRideS": 70.2,
+     "setup": 48.12,
+     "top": 13.12,
+     "endWait": 0,
+     "walk": 30,
+     "restDist": null,
+     "ops": 3,
+     "keMax": 18.02,
+     "keAt": {
+      "t": 45.2,
+      "mode": 3,
+      "distBody": 13.38,
+      "speed": 17.05
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 2.25,
+     "landMinRider": 3.47,
+     "tdKE": null,
+     "pMean": 11.09,
+     "Ewh": 0.42616000000000004,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": 110.62,
+     "backgroundRms": 110.75,
+     "samples": 3574
+    }
+   },
+   {
+    "id": "tail6_s12",
+    "U": 6,
+    "dir": "tail",
+    "noFly": false,
+    "claimed": {
+     "avail": 0,
+     "setup": 45.8,
+     "ops": 3,
+     "keMax": 6.24,
+     "pMean": 1.47,
+     "jitter": null,
+     "tdKE": null,
+     "crashed": true,
+     "landMinRider": null
+    },
+    "recomputed": {
+     "availRiding": 0,
+     "availSpeed2": 0,
+     "ridingS": 74.24,
+     "fullRideS": 70.2,
+     "setup": 45.76,
+     "top": 10.76,
+     "endWait": 0,
+     "walk": 30,
+     "restDist": null,
+     "ops": 3,
+     "keMax": 6.24,
+     "keAt": {
+      "t": 3,
+      "mode": 1,
+      "distBody": 0.56,
+      "speed": 10.03
+     },
+     "crashKE": 5.85,
+     "minBodyDistInFlight": 5.3,
+     "landMinRider": null,
+     "tdKE": null,
+     "pMean": 1.47,
+     "Ewh": 0.05543,
+     "crashed": true,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": 71.08,
+     "backgroundRms": 70.99,
+     "samples": 75
+    }
+   },
+   {
+    "id": "crossR6_s12",
+    "U": 6,
+    "dir": "crossR",
+    "noFly": true,
+    "claimed": {
+     "avail": 0,
+     "setup": 52.4,
+     "ops": 2,
+     "keMax": 6.24,
+     "pMean": 7.16,
+     "jitter": null,
+     "tdKE": 0.52,
+     "crashed": false,
+     "landMinRider": 22.28
+    },
+    "recomputed": {
+     "availRiding": 0,
+     "availSpeed2": 0,
+     "ridingS": 0,
+     "fullRideS": 70.2,
+     "setup": 52.35,
+     "top": 3,
+     "endWait": 14.35,
+     "walk": 30,
+     "restDist": 34.95,
+     "ops": 2,
+     "keMax": 6.24,
+     "keAt": {
+      "t": 3,
+      "mode": 1,
+      "distBody": 0.56,
+      "speed": 10.03
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 5.05,
+     "landMinRider": 22.28,
+     "tdKE": 0.52,
+     "pMean": 7.16,
+     "Ewh": 0.02856,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null,
+     "samples": 0
+    }
+   },
+   {
+    "id": "head9_s12",
+    "U": 9,
+    "dir": "head",
+    "noFly": true,
+    "claimed": {
+     "avail": 0,
+     "setup": 18.1,
+     "ops": 2,
+     "keMax": 6.41,
+     "pMean": 4.3,
+     "jitter": null,
+     "tdKE": 0.14,
+     "crashed": false,
+     "landMinRider": 2.35
+    },
+    "recomputed": {
+     "availRiding": 0,
+     "availSpeed2": 0,
+     "ridingS": 0,
+     "fullRideS": 70.2,
+     "setup": 18.11,
+     "top": 3,
+     "endWait": 8.08,
+     "walk": 2.03,
+     "restDist": 2.35,
+     "ops": 2,
+     "keMax": 6.41,
+     "keAt": {
+      "t": 3.08,
+      "mode": 1,
+      "distBody": 1.43,
+      "speed": 10.17
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 2.42,
+     "landMinRider": 2.35,
+     "tdKE": 0.14,
+     "pMean": 4.3,
+     "Ewh": 0.00966,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null,
+     "samples": 0
+    }
+   },
+   {
+    "id": "tail9_s12",
+    "U": 9,
+    "dir": "tail",
+    "noFly": true,
+    "claimed": {
+     "avail": 0,
+     "setup": 54.5,
+     "ops": 2,
+     "keMax": 6.35,
+     "pMean": 15.16,
+     "jitter": null,
+     "tdKE": 0.65,
+     "crashed": false,
+     "landMinRider": 12.9
+    },
+    "recomputed": {
+     "availRiding": 0,
+     "availSpeed2": 0,
+     "ridingS": 0,
+     "fullRideS": 70.2,
+     "setup": 54.46,
+     "top": 3,
+     "endWait": 16.46,
+     "walk": 30,
+     "restDist": 14.61,
+     "ops": 2,
+     "keMax": 6.35,
+     "keAt": {
+      "t": 3.14,
+      "mode": 1,
+      "distBody": 1.96,
+      "speed": 10.12
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 5.37,
+     "landMinRider": 12.9,
+     "tdKE": 0.65,
+     "pMean": 15.16,
+     "Ewh": 0.06931,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null,
+     "samples": 0
+    }
+   },
+   {
+    "id": "crossR9_s12",
+    "U": 9,
+    "dir": "crossR",
+    "noFly": true,
+    "claimed": {
+     "avail": 0,
+     "setup": 78,
+     "ops": 2,
+     "keMax": 6.24,
+     "pMean": 10.23,
+     "jitter": null,
+     "tdKE": null,
+     "crashed": false,
+     "landMinRider": 18.56
+    },
+    "recomputed": {
+     "availRiding": 0,
+     "availSpeed2": 0,
+     "ridingS": 0,
+     "fullRideS": 70.2,
+     "setup": 78,
+     "top": 3,
+     "endWait": 40,
+     "walk": 30,
+     "restDist": null,
+     "ops": 3,
+     "keMax": 6.24,
+     "keAt": {
+      "t": 3,
+      "mode": 1,
+      "distBody": 0.56,
+      "speed": 10.03
+     },
+     "crashKE": null,
+     "minBodyDistInFlight": 4.93,
+     "landMinRider": 18.56,
+     "tdKE": null,
+     "pMean": 10.23,
+     "Ewh": 0.11370999999999999,
+     "crashed": false,
+     "failsafe": false
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null,
+     "samples": 0
+    }
+   }
+  ],
+  "allCasesAuditorMetrics": {
+   "avail_mean": 29.59,
+   "avail_p10": 0,
+   "setup_p90": 60.41,
+   "ops_p90": 3,
+   "ops_max": 3,
+   "opsMismatches": [
+    [
+     "head9_s11",
+     2,
+     3
+    ],
+    [
+     "crossR9_s12",
+     2,
+     3
+    ]
+   ],
+   "keMax_max": 18.02,
+   "setup_p90_flownOnly": 48.68
+  }
+ },
+ "metrics12": {
+  "avail": {
+   "stat": "ensemble mean (39 cases, no-fly = 0)",
+   "claimed": 29.89,
+   "recomputed": 29.59,
+   "pass": false,
+   "note": "auditor denominator = fullrun col.riding (dev: rider speed >2 m/s); −0.8 pt in flown cases. 22/39 runs are wind-interlock no-fly (all 6 m/s except tail6_s11/s12, all 9 m/s)."
+  },
+  "pxMed": {
+   "stat": "mean over flown cases",
+   "claimed": 401.53,
+   "recomputed": 401.53,
+   "pass": true,
+   "note": "not independently recomputed (analysis.js geometry reused); p10 304 px, min 134 px (tail6_s11). Conditional on 80° lens + 3-servo cradle."
+  },
+  "jitterRms": {
+   "stat": "p90 over flown cases",
+   "claimed": 1.39,
+   "recomputed": {
+    "devMaskedP90": 1.39,
+    "footageStabilitySubjectP90": 18.13,
+    "footageStabilitySubjectP50": 1.41,
+    "footageStabilitySubjectMax": 110.62
+   },
+   "pass": "conditional",
+   "note": "dev jitter masks frames where the crop is clamped (lensOK≠1); the shared footageStability(R) does not and gives 18.1 °/s at p90 (tail3_s12) and 110 °/s (tail6_s11) — rider overtaking a close glider / losing it. Calm & cross-3 cases 1.1–1.4 °/s (pass). Pass only inside the calm/cross ≤3 m/s envelope."
+  },
+  "azRange": {
+   "stat": "mean over flown cases",
+   "claimed": 84.18,
+   "recomputed": 84.18,
+   "pass": true,
+   "note": "not independently recomputed"
+  },
+  "addedMass": {
+   "stat": "design",
+   "claimed": 0.316,
+   "recomputed": 0.316,
+   "pass": true,
+   "note": "glider 124 g + heated sleeve 60 g + tag 12 g + 18.5 Wh bank 120 g"
+  },
+  "bodyForcePeak": {
+   "stat": "hard-coded",
+   "claimed": 0,
+   "recomputed": 0,
+   "pass": true,
+   "note": "no tether; sleeve/bank are static weight (excluded by definition); hand throw is a user action. Acceptable."
+  },
+  "handsBusy": {
+   "stat": "design",
+   "claimed": 0,
+   "recomputed": 0,
+   "pass": true,
+   "note": "throw and pick-up only while stopped"
+  },
+  "setupTime": {
+   "stat": "ensemble p90",
+   "claimed": 60.4,
+   "recomputed": 60.41,
+   "pass": false,
+   "note": "fails even in calm (33.4–35.1 s: draw 3 s + climb to ready cue ≈8 s + landing wait ≈12 s + side-step + 5 s stow). Flown-only p90 48.7 s. No-fly runs are charged ≈50 s (throw, interlock landing, 30 s walk) — a real user would not throw in 6–9 m/s, slightly disfavouring the concept but not changing the verdict."
+  },
+  "ops": {
+   "stat": "ensemble p90 (and max)",
+   "claimed": {
+    "p90": 2,
+    "max": 3
+   },
+   "recomputed": {
+    "p90": 3,
+    "max": 3
+   },
+   "pass": false,
+   "note": "auditor adds +1 recovery action in no-fly runs where the glider never came to rest (head9_s11, crossR9_s12: dev already charges the 30 s recovery walk there but no action) → 6/39 runs with 3 actions = 15 % > 10 % → p90 = 3. Borderline: a 1-case change flips it."
+  },
+  "keMax": {
+   "stat": "ensemble max",
+   "claimed": 18.02,
+   "recomputed": 18.02,
+   "pass": false,
+   "note": "tail6_s11: interlock did not trip (measured wind < 5.5 m/s), follow at 17.0 m/s ground speed → 18.0 J, 13 m from the body. Auditor body-segment distance (feet→head) instead of head distance changes nothing. Inside ≤3 m/s: max 13.7 J (pass, 1.2 J margin)."
+  },
+  "packVol": {
+   "stat": "design",
+   "claimed": 2.775,
+   "recomputed": 2.775,
+   "pass": true,
+   "note": "35×12.5×6 cm folded sleeve (2.63 L) + bank 0.15 L; 66 cm span scissor-fold to 35 cm plausible but unbuilt"
+  },
+  "endurance": {
+   "stat": "from mean full-run power",
+   "claimed": 79.3,
+   "recomputed": {
+    "devMethod": 79.3,
+    "perRunAccounting_filmingMin": 66.54
+   },
+   "pass": true,
+   "note": "per-run accounting (flight energy throw→rest + 0.6 W heater over the whole 6 min lift; only riding minutes count as filming) gives 66.5 min — still ≥45. Flying cell 2 Wh → ≈9 runs at the mean, recharge 1.1–1.6 C on the lift needs a warm (>10 °C) cell, more than the 0.6 W heater budget is shown to deliver (unverified)."
+  }
+ },
+ "envelope": {
+  "def": "mean wind ≤3 m/s, all directions (dev text: calm–3 m/s, 9–13 m/s riders)",
+  "availClaimed": 76.07,
+  "availRecomputed": 75.3,
+  "availNoTailClaimed": 81.83,
+  "availNoTailRecomputed": 81.0,
+  "setupP90Recomputed": 55.87,
+  "note": "no envelope passes all judged metrics: setupTime fails in every wind bin (calm p90 35 s); 3 m/s tail wind avail 46–61 %; near-miss gates (head <1.5 m or landing <2.5 m) fail in 6/15 runs ≤3 m/s"
+ },
+ "byWindAvail": {
+  "U0": {
+   "claimed": 88.13,
+   "recomputed": 87.28
+  },
+  "U3": {
+   "claimed": 73.05,
+   "recomputed": 72.3
+  },
+  "U6": {
+   "claimed": 2.07,
+   "recomputed": 2.05
+  },
+  "U9": {
+   "claimed": 0,
+   "recomputed": 0.0
+  }
+ },
+ "massBudget": {
+  "claimed_g": 124.0,
+  "rebuilt_g": 107.8,
+  "withMargin_g": 124.0,
+  "note": "components.js: cam4k 16 + avionics 10 + 5 servos 12.5 + motorProp 11 + wiring 5 = 54.5 g shared items; explicit ASSUMED ToF 5 g, cradle 5 g, airframe 30 g, 2 Wh cell 13.3 g (150 Wh/kg) → 107.8 g ×1.15 = 124.0 g — arithmetic reproduced, <250 g (C0 mass OK). Airframe 30 g for a 0.065 m² folding wing with pod, hinge and spiked skid that must survive belly landings and 6–12 J snow strikes is optimistic; at 40 g airframe → 135.5 g, KE-cap speed 14.8 m/s; dev sensitivity +15 g → light-wind avail 75→65 %."
+ },
+ "physics": [
+  {
+   "assumption": "Loiter at 40° bank ≈2.1 W drag power, ≈10.5 W electrical incl. 4.8 W avionics",
+   "devClaim": "Va 9.9 m/s, R 12 m, CL 0.50, CD 0.064",
+   "evidence": "auditor hand check: W/S 18.7 N/m², n 1.31, CL 0.50, AR 6.7, e 0.85 → CD 0.064, D 0.20 N, P 2.0 W, R 12.0 m — reproduced. Propulsive 5.7 W electrical for 2.0 W drag implies η≈0.36: plausible for a 3.5″ prop at low thrust. Real micro wings (Flite Test 600 mm, 200 g AUW) fly 7–10 min on ≈6 Wh in sport flying (≈35–50 W) — not a cruise datum; no measured cruise datum for a 120 g wing found.",
+   "sources": [
+    "https://flitetest.com/articles/tinywing"
+   ],
+   "verdict": "optimistic",
+   "killTest": "wattmeter log of a 120–135 g, 0.065 m² wing orbiting at 40° bank, 10 m/s, −10 °C: electrical ≤12 W incl. avionics"
+  },
+  {
+   "assumption": "Hand throw at 10 m/s from the shoulder succeeds every time; pusher starts after 0.5 s ≥4.8 m from the helmet",
+   "devClaim": "deterministic throw, 0 launch failures in 39 cases",
+   "evidence": "hand-launched pusher wings are routine for hobbyists, but a gloved skier on skis at a slope top, throwing across/into gusty wind, is an untested population; tip-stall and pusher-prop hand strikes are known hand-launch failure modes. No failure rate is modelled.",
+   "sources": [],
+   "verdict": "unknown",
+   "killTest": "50 throws by ≥5 gloved skiers standing on skis at 0–5 m/s wind: ≥95 % clean climb-out, 0 prop contacts"
+  },
+  {
+   "assumption": "Catch-up after a mid-run stop from the loiter",
+   "devClaim": "no catch-up at the top; after the mid-run stop ≈11 s to be within 10 m at 3 m/s",
+   "evidence": "reproduced in the run rows (catchUp[1] 7.7–17 s at 3 m/s); costs avail and is honestly counted. KE cap (14.7 m/s) leaves ≈1–1.7 m/s closing speed vs a 13 m/s rider.",
+   "sources": [],
+   "verdict": "credible",
+   "killTest": "n/a (model consequence); flight test: time to station after restart ≤10 s in 3 m/s"
+  },
+  {
+   "assumption": "Terrain-following slope flow w_z = −tanθ·w_x",
+   "devClaim": "up-slope wind gives slope lift, down-slope wind sinks",
+   "evidence": "reasonable first-order near-surface approximation on a uniform slope; ignores separation/lee rotors on convex terrain and tree edges. Not load-bearing: switching it off gives light-wind avail 77.6 vs 75.4 %.",
+   "sources": [],
+   "verdict": "credible",
+   "killTest": "not needed for the verdict"
+  },
+  {
+   "assumption": "End-of-run belly landing ≈3.5 m beside the stopped rider at the lift approach, μk 0.35 spiked skid",
+   "devClaim": "landing point 3.5 m beside, slide 0–6 m",
+   "evidence": "ensemble: landMinRider <2.5 m in 4/17 flown runs (min 0.85 m, head3_s13), 2/12 runs at 3 m/s headwind end in a go-around followed by a snow strike (11–12 J); the lift approach is the most crowded place on the piste and other skiers are not modelled there.",
+   "sources": [],
+   "verdict": "not credible",
+   "killTest": "30 autonomous landings beside a standing dummy in a roped area, 0–5 m/s: 100 % ≥2.5 m from the dummy, ≥90 % at rest within 8 m, 0 airframe damage"
+  },
+  {
+   "assumption": "Wind interlock 5.5 m/s + KE governor keep KE ≤14.9 J and range ≤50 m",
+   "devClaim": "interlock blocks follow above 5.5 m/s",
+   "evidence": "tail6_s11: measured wind stayed <5.5 m/s, glider followed at 17 m/s (18.0 J) and reached 69.8 m range with no fail-safe — both the KE governor and the 50 m geofence failed in the same run.",
+   "sources": [
+    "https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-unmanned-aircraft-systems?page=19"
+   ],
+   "verdict": "not credible",
+   "killTest": "software-in-the-loop: 100 tail-wind runs 4–7 m/s: KE ≤14.9 J and range ≤50 m in all"
+  },
+  {
+   "assumption": "3-servo cradle (τ 0.08 s) + gyro EIS residual 10 %",
+   "devClaim": "avail 75 % light wind vs 25.6 % without cradle",
+   "evidence": "eisRho 0.3 → jitter mean 2.72 °/s (still ≤3), avail 71 %; 2.5 g servos slewing 6 rad/s with a 16 g camera at −10 °C is unverified (cold servo torque/backlash).",
+   "sources": [],
+   "verdict": "optimistic",
+   "killTest": "bench: cradle + camera on a rate table at −10 °C, residual after Gyroflow ≤10 % above 0.5 Hz"
+  }
+ ],
+ "dominanceVsTowglider": {
+  "claim": "dominated by towglider except a no-line niche",
+  "numbers": {
+   "avail_mean": {
+    "descentglider": 29.89,
+    "towglider": 61.37
+   },
+   "avail_byWind": {
+    "U0": [
+     88.1,
+     71.9
+    ],
+    "U3": [
+     73.1,
+     72.9
+    ],
+    "U6": [
+     2.1,
+     55.2
+    ],
+    "U9": [
+     0.0,
+     53.4
+    ]
+   },
+   "setupTime_p90": [
+    60.4,
+    10.9
+   ],
+   "ops_p90": [
+    2,
+    1
+   ],
+   "keMax": [
+    18.02,
+    12.9
+   ],
+   "mass_g": [
+    124,
+    128.8
+   ],
+   "endurance": [
+    79.3,
+    "see towglider audit"
+   ]
+  },
+  "verdict": "confirmed on the ensemble (setup, ops, KE, avail at ≥6 m/s). Exception beyond the no-line niche: in calm descentglider has higher avail (88 vs 72 %), at 3 m/s they tie — but it pays 33–35 s standstill and a landing near people every run, so towglider still dominates for a usable product. (Towglider numbers taken from dev/towglider/results.json, not re-audited here.)"
+ },
+ "definitionChecks": [
+  {
+   "metric": "avail",
+   "issue": "denominator = rider speed >2 m/s (not fullrun col.riding); −0.8 pt in flown runs",
+   "favours": "neutral (negligible)"
+  },
+  {
+   "metric": "jitterRms",
+   "issue": "frames with the crop clamped at the lens edge (lensOK≠1) are masked out; the shared footageStability includes them → p90 18 °/s vs 1.39 °/s",
+   "favours": "descentglider (in tail-wind runs)"
+  },
+  {
+   "metric": "ops",
+   "issue": "no-fly runs never adding a recovery action even when the glider is not at rest (30 s walk charged but no action)",
+   "favours": "descentglider (flips p90 2→3)"
+  },
+  {
+   "metric": "setupTime / ops in no-fly runs",
+   "issue": "refused runs still charge throw + interlock landing + walk (≈50 s, 2 ops); a user would skip throwing in 6–9 m/s",
+   "favours": "against descentglider (does not change pass/fail: calm p90 already 35 s)"
+  },
+  {
+   "metric": "endurance",
+   "issue": "mean power includes no-fly runs (leapfrog excludes them) and charges the heater only during flight, not during the lift-ride charging it is for",
+   "favours": "small, either way (79.3 vs 66.5 min, both pass) — cross-concept inconsistency to note"
+  },
+  {
+   "metric": "keMax",
+   "issue": "distance to the HEAD (not body) decides ground vs rider frame; conservative",
+   "favours": "against descentglider (negligible here)"
+  },
+  {
+   "metric": "safety gates",
+   "issue": "per-run headMin ≥1.5 m, landMinRider ≥2.5 m and 50 m geofence are computed but not aggregated over the ensemble; failures only visible in rows",
+   "favours": "descentglider (hides 3+4 near-miss runs and one geofence breach)"
+  },
+  {
+   "metric": "stat choices",
+   "issue": "pct() nearest-rank as shared fullrun.js; mean/p90/max as ITERATE_BRIEF; pxMed/azRange/jitter over flown cases only (no-fly runs have no footage) — acceptable",
+   "favours": "neutral"
+  }
+ ],
+ "findings": [
+  {
+   "id": "A2-DG-01",
+   "severity": "major",
+   "title": "Near-miss passes and landings next to the rider inside the claimed envelope",
+   "detail": "In-flight distance to the head <1.5 m in head3_s13 (1.34), tail3_s12 (0.98; 0.93 m from the body at t 24.3 s while following), tail3_s13 (0.98); end landing within <2.5 m of the rider in 4/17 flown runs (min 0.85 m). The dev's own gates fail but are not judged on the ensemble.",
+   "evidence": "fs_all_out.json headMinBelow1_5 / landMinBelow2_5; recheck_out.json tail3_s12 minBodyDistInFlight 0.85"
+  },
+  {
+   "id": "A2-DG-02",
+   "severity": "major",
+   "title": "KE governor and 50 m geofence both fail in a 6 m/s tail-wind run",
+   "detail": "tail6_s11: interlock not tripped, follow at 17 m/s → 18.0 J and 69.8 m range, no fail-safe event.",
+   "evidence": "recheck_out.json tail6_s11 keAt; dev results rangeMax 69.8"
+  },
+  {
+   "id": "A2-DG-03",
+   "severity": "major",
+   "title": "Snow strikes in 3/17 flown runs (2 on the end-of-run go-around at 3 m/s headwind)",
+   "detail": "head3_s11/s12: go-around then snow strike at 11–12 J; tail6_s12: strike 13.6 s after the throw. Airframe survival of 30 g structure not modelled; a damaged glider ends the day.",
+   "evidence": "dev results events; recheck crashKE 12.33 / 5.85"
+  },
+  {
+   "id": "A2-DG-04",
+   "severity": "major",
+   "title": "ops p90 is 3, not 2, with consistent recovery counting",
+   "detail": "head9_s11, crossR9_s12: glider never at rest in the 40 s window (dev charges the 30 s recovery walk but no action) → 6/39 runs with 3 actions.",
+   "evidence": "recheck_all_out.json"
+  },
+  {
+   "id": "A2-DG-05",
+   "severity": "major",
+   "title": "Shared footageStability fails at p90 over flown runs",
+   "detail": "subject 18.1 °/s p90, 110.6 °/s max (tail6_s11) vs dev masked jitter 1.39 °/s p90; calm/cross-3 cases 1.1–1.4 °/s.",
+   "evidence": "fs_all_out.json"
+  },
+  {
+   "id": "A2-DG-06",
+   "severity": "minor",
+   "title": "results.json scenario metrics show stale ensemble constants",
+   "detail": "fullrun scenario jitterRms 24.0 FAIL / avail 29.25 / ensRange 99.1 m vs regenerated ensemble.js 1.39 / 29.89 / 69.8.",
+   "evidence": "re-run diff"
+  },
+  {
+   "id": "A2-DG-07",
+   "severity": "minor",
+   "title": "Airframe 30 g and 0.6 W heated 1–1.6 C recharge are optimistic",
+   "detail": "+15 g already costs 10 pt avail; warm-cell charging needs more than shown.",
+   "evidence": "dev sensitivities mass_plus15g"
+  }
+ ],
+ "safetyRegulatory": [
+  "EU: 124 g (<250 g) can be C0-class; C0 follow-me must stay ≤50 m from the remote pilot (2019/945 Part 1) — breached once (69.8 m) in the ensemble; A1 follow-me height ≤50 m.",
+  "US: Part 107/recreational rules require VLOS by the operator or a visual observer; a skier facing downhill cannot watch a glider behind them — no legal US solo operation without a waiver.",
+  "Resort written permission (gate for every concept); many resorts ban drones outright.",
+  "Landing at the lift approach (the most crowded spot) every run; no bystander detection in the landing logic beyond the rider.",
+  "Pusher prop near the hand at throw; snow strikes at 6–12 J."
+ ],
+ "credibleEnvelope": "calm to 3 m/s non-tail wind, groomed piste, 9–13 m/s riders: avail ≈81 % (recomputed), KE ≤13.7 J — but setupTime 33–49 s fails everywhere, and near-miss/landing-proximity events occur in that envelope. No envelope passes all judged metrics.",
+ "verdict": "FAIL. Developer's self-assessment (fails; dominated by towglider) is honest and reproduced exactly; the audit adds ops p90 = 3, a footageStability fail and unjudged near-miss/geofence/crash events that make it worse. Not a usable solo follow-cam; keep only as a calm-day, no-line research niche."
+}

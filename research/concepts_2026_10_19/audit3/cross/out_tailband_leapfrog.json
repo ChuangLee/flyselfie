@@ -1,0 +1,127 @@
+{
+ "generated": "2026-10-20T12:23:03.020Z",
+ "who": "leapfrog",
+ "note": "avail here is the concept-reported per-case value (dev mask), used only to see the trend; keMax/headClear are the safety screens",
+ "rows": [
+  {
+   "id": "tail3.5_s11",
+   "avail": 28.583,
+   "keMax": 13.527,
+   "headClear": 1.97,
+   "ops": 3,
+   "setup": 24.88
+  },
+  {
+   "id": "tail3.5_s12",
+   "avail": 72.117,
+   "keMax": 13.684,
+   "headClear": 1.97,
+   "ops": 3,
+   "setup": 24.62
+  },
+  {
+   "id": "tail3.5_s13",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail4_s11",
+   "avail": 14.009,
+   "keMax": 13.125,
+   "headClear": 1.97,
+   "ops": 3,
+   "setup": 24.98
+  },
+  {
+   "id": "tail4_s12",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail4_s13",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail4.5_s11",
+   "avail": 17.134,
+   "keMax": 14.303,
+   "headClear": 1.97,
+   "ops": 3,
+   "setup": 24.96
+  },
+  {
+   "id": "tail4.5_s12",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail4.5_s13",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail5_s11",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail5_s12",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail5_s13",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail5.5_s11",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail5.5_s12",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  },
+  {
+   "id": "tail5.5_s13",
+   "avail": 0,
+   "keMax": 0,
+   "headClear": "n/a",
+   "ops": 1,
+   "setup": 2.5
+  }
+ ]
+}

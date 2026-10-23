@@ -1,0 +1,33 @@
+{
+ "note": "seed-12 flown cases (11); endurance = usable hip Wh / mean run energy × mean filming s (developer formula, shared cold/reserve rules)",
+ "rows": [
+  {
+   "ohmPerMperConductor": 1.8,
+   "lossPct": 10.3,
+   "dropV": 5.5,
+   "hipInW": 6.79,
+   "enduranceMin": 53.6
+  },
+  {
+   "ohmPerMperConductor": 3.6,
+   "lossPct": 18.6,
+   "dropV": 11,
+   "hipInW": 7.43,
+   "enduranceMin": 50.2
+  },
+  {
+   "ohmPerMperConductor": 5.4,
+   "lossPct": 25.6,
+   "dropV": 16.5,
+   "hipInW": 8.07,
+   "enduranceMin": 47.2
+  },
+  {
+   "ohmPerMperConductor": 9,
+   "lossPct": 36.4,
+   "dropV": 27.5,
+   "hipInW": 9.34,
+   "enduranceMin": 42.2
+  }
+ ]
+}

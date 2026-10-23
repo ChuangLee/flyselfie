@@ -1,0 +1,187 @@
+{
+ "generated": "2026-10-20T07:46:55.778Z",
+ "simCopy": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/k2copy",
+ "modelVersion": "kite2@2.0.0",
+ "rerun": {
+  "cases": 39,
+  "maxAbsDiff": 0,
+  "diffs": [],
+  "metrics": {
+   "avail": {
+    "mean": 87.98,
+    "p10": 83.47,
+    "p90": 94.88,
+    "min": 53.21,
+    "max": 95.99,
+    "n": 39
+   },
+   "setupTime": {
+    "mean": 14.16,
+    "p10": 6.83,
+    "p90": 23.91,
+    "min": 6.83,
+    "max": 38.81,
+    "n": 39
+   },
+   "ops": {
+    "mean": 1.38,
+    "p10": 1,
+    "p90": 2,
+    "min": 1,
+    "max": 3,
+    "n": 39
+   },
+   "bodyForcePeak": {
+    "mean": 21.38,
+    "p10": 15.29,
+    "p90": 27.3,
+    "min": 14.58,
+    "max": 30.35,
+    "n": 39
+   },
+   "keMax": {
+    "mean": 12.76,
+    "p10": 11.48,
+    "p90": 13.8,
+    "min": 11.18,
+    "max": 14.73,
+    "n": 39
+   },
+   "endurance": {
+    "mean": 85.42,
+    "p10": 75.28,
+    "p90": 96.14,
+    "min": 60.03,
+    "max": 103.38,
+    "n": 39
+   },
+   "pxMed": {
+    "mean": 511.7,
+    "p10": 502.09,
+    "p90": 521.32,
+    "min": 497.71,
+    "max": 526.14,
+    "n": 39
+   },
+   "jitterRms": {
+    "mean": 0.85,
+    "p10": 0.67,
+    "p90": 1.11,
+    "min": 0.63,
+    "max": 1.62,
+    "n": 39
+   },
+   "viewElev": {
+    "mean": 42.63,
+    "p10": 40.16,
+    "p90": 44.91,
+    "min": 37.84,
+    "max": 47.88,
+    "n": 39
+   },
+   "lineH1min": {
+    "mean": 1.25,
+    "p10": 0.95,
+    "p90": 1.47,
+    "min": 0.91,
+    "max": 1.52,
+    "n": 39
+   },
+   "collapses": {
+    "mean": 0.69,
+    "p10": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 7,
+    "n": 39
+   },
+   "manual": {
+    "mean": 0.38,
+    "p10": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 2,
+    "n": 39
+   }
+  }
+ },
+ "spot": [],
+ "sens": {
+  "gMaxR_0.90": {
+   "over": {
+    "gMaxR": 0.9
+   },
+   "avail": 87.42,
+   "availP10": 78.01,
+   "setupP90": 23.91,
+   "opsP90": 2,
+   "opsMax": 3,
+   "Fmax": 29.94,
+   "keMax": 16.62,
+   "endurance": 86.11,
+   "viewElevMean": 40.8,
+   "judgedPass": false
+  },
+  "gMaxR_0.95": {
+   "over": {
+    "gMaxR": 0.95
+   },
+   "avail": 87.98,
+   "availP10": 84,
+   "setupP90": 23.91,
+   "opsP90": 2,
+   "opsMax": 3,
+   "Fmax": 30.23,
+   "keMax": 15.63,
+   "endurance": 85.56,
+   "viewElevMean": 41.8,
+   "judgedPass": false
+  },
+  "funnelAcc_60": {
+   "over": {
+    "funnelAcc": 60
+   },
+   "avail": 86.89,
+   "availP10": 80.77,
+   "setupP90": 51.98,
+   "opsP90": 3,
+   "opsMax": 3,
+   "Fmax": 30.35,
+   "keMax": 14.73,
+   "endurance": 81.41,
+   "viewElevMean": 42.71,
+   "judgedPass": false
+  },
+  "funnelAcc_90": {
+   "over": {
+    "funnelAcc": 90
+   },
+   "avail": 87.98,
+   "availP10": 83.47,
+   "setupP90": 37.67,
+   "opsP90": 3,
+   "opsMax": 3,
+   "Fmax": 30.35,
+   "keMax": 14.73,
+   "endurance": 84.55,
+   "viewElevMean": 42.63,
+   "judgedPass": false
+  },
+  "gMaxR_0.9_mass_+15pct": {
+   "over": {
+    "gMaxR": 0.9,
+    "mass": 0.0992
+   },
+   "avail": 86.88,
+   "availP10": 77.98,
+   "setupP90": 23.92,
+   "opsP90": 2,
+   "opsMax": 3,
+   "Fmax": 30.69,
+   "keMax": 19.82,
+   "endurance": 86.55,
+   "viewElevMean": 40.5,
+   "judgedPass": false
+  }
+ }
+}

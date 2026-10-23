@@ -1,0 +1,378 @@
+[
+ {
+  "id": "SRC-01",
+  "field": "aerospace/military",
+  "what": "Switchblade 300: tube-launched loitering munition, spring-loaded wings fold inside the tube and flip out on release",
+  "year": 2020,
+  "url": "https://en.wikipedia.org/wiki/AeroVironment_Switchblade",
+  "key_number": "2.5 kg, 49.5 cm, folded-wing tube stow"
+ },
+ {
+  "id": "SRC-02",
+  "field": "aerospace/military",
+  "what": "UVision Hero-30: pneumatic canister launch, cruciform wings fold out on launch",
+  "year": 2020,
+  "url": "https://www.army-technology.com/projects/hero-family-of-loitering-munition-systems/",
+  "key_number": "~3 kg munition, 5 kg canister, deploy within minutes"
+ },
+ {
+  "id": "SRC-03",
+  "field": "bio-inspired flight",
+  "what": "LisHawk: goshawk-inspired synergistic wing+tail morphing; spread for slow high-lift flight, retract for fast efficient flight",
+  "year": 2020,
+  "url": "https://arxiv.org/pdf/2002.02421",
+  "key_number": "Science Robotics 2020; morphing extends speed range and power efficiency"
+ },
+ {
+  "id": "SRC-04",
+  "field": "bio-inspired perching",
+  "what": "Stanford SNAG falcon-leg grasper lets a quadcopter perch on branches and catch objects",
+  "year": 2021,
+  "url": "https://techxplore.com/news/2021-12-stanford-bird-bots-perch.amp",
+  "key_number": "perched in Oregon forests; zero-power waiting"
+ },
+ {
+  "id": "SRC-05",
+  "field": "bio-inspired / soaring",
+  "what": "TU Delft orographic wind-hovering fixed-wing MAV (AOSOAR, IROS 2023) and ICRA 2023 soaring controller",
+  "year": 2023,
+  "url": "https://arxiv.org/pdf/2510.23084v1",
+  "key_number": "0 % throttle hover >30 min (wind tunnel); outdoor no-thrust soaring"
+ },
+ {
+  "id": "SRC-06",
+  "field": "energy / regenerative soaring",
+  "what": "Regenerative soaring windprop feasibility (Barnes)",
+  "year": 2006,
+  "url": "https://saemobilus.sae.org/papers/flight-without-fuel-regenerative-soaring-feasibility-study-2006-01-2422",
+  "key_number": "dual-role prop/windmill feasible"
+ },
+ {
+  "id": "SRC-07",
+  "field": "energy / regenerative soaring",
+  "what": "DGLR 2022 design challenges of regenerative prop; Pipistrel Velis regen during descent",
+  "year": 2022,
+  "url": "https://publikationen.dglr.de/publikationen/2022/530100.pdf",
+  "key_number": "Velis regen cut net energy ~19 %; windmill efficiency is the weak point"
+ },
+ {
+  "id": "SRC-08",
+  "field": "energy / regenerative soaring",
+  "what": "TU Delft (Gossye) regenerative wind-hovering UAV drivetrain",
+  "year": 2022,
+  "url": "https://repository.tudelft.nl/file/File_58af8e47-8f2e-4b29-b54a-9d4b54e4df68?preview=1",
+  "key_number": "test regenerative drivetrain, promising conversion efficiency"
+ },
+ {
+  "id": "SRC-09",
+  "field": "materials/batteries",
+  "what": "Amprius SiCore silicon-anode cells shipped to drone makers (450 Wh/kg to AALTO HAPS)",
+  "year": 2025,
+  "url": "https://www.businesswire.com/news/home/20250722309461/en",
+  "key_number": "450 Wh/kg cell level"
+ },
+ {
+  "id": "SRC-10",
+  "field": "materials/batteries",
+  "what": "Self-heating all-climate Li-ion (embedded Ni foil), Penn State/EC Power (older, still relevant)",
+  "year": 2016,
+  "url": "https://www.eenewseurope.com/en/self-heating-lithium-ion-battery-combats-freezing-tempatures/",
+  "key_number": "-20 -> 0 C in 20 s using 3.8 % of capacity"
+ },
+ {
+  "id": "SRC-11",
+  "field": "materials/insulation",
+  "what": "Flexible aerogel blankets for battery thermal insulation (Aspen patents/review)",
+  "year": 2023,
+  "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12564297/",
+  "key_number": "12-25 mW/m/K at 1-2 mm"
+ },
+ {
+  "id": "SRC-12",
+  "field": "materials/solar",
+  "what": "Flexible InGaP/GaAs and ultrathin GaAs cells; perovskite 44 W/g (JKU)",
+  "year": 2023,
+  "url": "https://www.jku.at/en/cdl-vasics/news-events/detail/news/jku-forschung-solarbetriebene-drohnen-ermoeglichen-nachhaltige-luftfahrt/",
+  "key_number": "~5 W/g GaAs lab, 44 W/g perovskite lab"
+ },
+ {
+  "id": "SRC-13",
+  "field": "aerospace / HAPS",
+  "what": "Airbus/AALTO Zephyr 8 stratospheric solar UAV",
+  "year": 2022,
+  "url": "https://www.army.mil/article/259542/apntspace_cft_concludes_high_altitude_experimentation",
+  "key_number": "64 days aloft"
+ },
+ {
+  "id": "SRC-14",
+  "field": "wireless power",
+  "what": "DARPA POWER optical power beaming record",
+  "year": 2025,
+  "url": "https://www.theregister.com/2025/05/19/darpa_energy_beaming_record",
+  "key_number": ">800 W over 8.6 km for 30 s"
+ },
+ {
+  "id": "SRC-15",
+  "field": "wireless power / safety",
+  "what": "Direct-beam hazard of large-diameter power beams (NJIT)",
+  "year": 2023,
+  "url": "https://researchwith.njit.edu/en/publications/direct-beam-hazard-analysis-of-large-beam-diameters-for-laser-pow/",
+  "key_number": "skin-safe minimum beam diameter 28 cm at 1050-1400 nm"
+ },
+ {
+  "id": "SRC-16",
+  "field": "sensing / UWB",
+  "what": "Smartphone UWB ranging accuracy vs DW3000",
+  "year": 2023,
+  "url": "https://arxiv.org/pdf/2303.11220",
+  "key_number": "RMSE ~15-18 cm"
+ },
+ {
+  "id": "SRC-17",
+  "field": "sensing / UWB",
+  "what": "Qorvo DW3110 UWB transceiver",
+  "year": 2022,
+  "url": "https://www.qorvo.com/products/p/DW3110",
+  "key_number": "10 cm ranging, +-5 deg AoA (two chips)"
+ },
+ {
+  "id": "SRC-18",
+  "field": "sensing / event camera",
+  "what": "Prophesee GenX320 event sensor",
+  "year": 2023,
+  "url": "https://www.prophesee.ai/event-based-sensor/",
+  "key_number": "3 mW typical, 36 uW low-power mode, 3x4 mm"
+ },
+ {
+  "id": "SRC-19",
+  "field": "sensing / SPAD ToF",
+  "what": "ST VL53L8CX 8x8 multizone ToF",
+  "year": 2023,
+  "url": "https://www.st.com/en/imaging-and-photonics-solutions/vl53l8cx.html",
+  "key_number": "4 m range, 60 Hz, 65 deg FoV (terrain/landing sensing)"
+ },
+ {
+  "id": "SRC-20",
+  "field": "imaging",
+  "what": "Sony a9 III first full-frame global-shutter camera",
+  "year": 2023,
+  "url": "https://www.popphoto.com/news/sony-a9-iii-camera-specs-details/",
+  "key_number": "no rolling-shutter skew, 1/80000 s"
+ },
+ {
+  "id": "SRC-21",
+  "field": "imaging",
+  "what": "Gyroflow open-source gyro-log stabilisation with rolling-shutter correction and horizon lock",
+  "year": 2022,
+  "url": "https://gyroflow.xyz/",
+  "key_number": "gimbal-like results from gyro logs, no gimbal mass"
+ },
+ {
+  "id": "SRC-22",
+  "field": "imaging",
+  "what": "RunCam Thumb 2: 4K60 micro action camera with gyro log for Gyroflow",
+  "year": 2024,
+  "url": "https://oscarliang.com/runcam-thumb-2",
+  "key_number": "27.8 g (Thumb Pro 16 g)"
+ },
+ {
+  "id": "SRC-23",
+  "field": "imaging",
+  "what": "Insta360 GO Ultra",
+  "year": 2025,
+  "url": "https://www.techradar.com/cameras/action-cameras/insta-360-go-ultra-review",
+  "key_number": "53 g, 4K60, 1/1.28 in"
+ },
+ {
+  "id": "SRC-24",
+  "field": "sports broadcasting",
+  "what": "OBS FPV drones at Milano Cortina 2026 chasing downhill racers",
+  "year": 2026,
+  "url": "https://www.sportsvideo.org/2026/02/09/how-obs-uses-fpv-drones-360-degree-replay-to-enhance-storytelling/",
+  "key_number": "243-250 g, up to 140-160 km/h, piloted"
+ },
+ {
+  "id": "SRC-25",
+  "field": "sports broadcasting",
+  "what": "Spidercam 3 cable camera",
+  "year": 2023,
+  "url": "https://www.gravitymedia.com/product/spidercam/",
+  "key_number": "5 m/s (PRO cut sheet 9 m/s); needs pre-installed cables"
+ },
+ {
+  "id": "SRC-26",
+  "field": "entertainment",
+  "what": "Drone light-show records (DAMODA 10,518 drones Vietnam 2025) and RTK swarm positioning",
+  "year": 2025,
+  "url": "https://insidegnss.com/two-thousand-simultaneous-drones-position-themselves-with-gps-and-glonass-rtk/",
+  "key_number": "RTK ~1-2 cm absolute"
+ },
+ {
+  "id": "SRC-27",
+  "field": "military / recovery",
+  "what": "Insitu ScanEagle SkyHook: wingtip hook catches a hanging rope, DGPS-guided",
+  "year": 2004,
+  "url": "https://en.wikipedia.org/wiki/Boeing_Insitu_MQ-27_ScanEagle",
+  "key_number": "rope on 15 m pole, shock cord; FLARES quad-held rope concept"
+ },
+ {
+  "id": "SRC-28",
+  "field": "airborne wind energy",
+  "what": "SkySails automatic launch/landing mast; Kitemill KM1 autonomous landing (EU project 2024-25)",
+  "year": 2025,
+  "url": "https://cordis.europa.eu/project/id/101189207/reporting/es",
+  "key_number": "autonomous kite landing tested under VLOS"
+ },
+ {
+  "id": "SRC-29",
+  "field": "guided airdrop",
+  "what": "Small guided parafoil with bleed-air spoilers (Georgia Tech)",
+  "year": 2015,
+  "url": "https://www.camm.gatech.edu/images/8/8e/Scheuermann_2015_LateralLongitudinalControl.pdf",
+  "key_number": "median miss ~13 m"
+ },
+ {
+  "id": "SRC-30",
+  "field": "aerospace / inflatable",
+  "what": "UKY/ILC Dover inflatable-rigidizable UAV wings (BIG BLUE)",
+  "year": 2004,
+  "url": "https://scholars.uky.edu/en/publications/flying-on-air-uav-flight-testing-with-inflatable-wing-technology/",
+  "key_number": "stow in fuselage, UV-rigidize <10 min"
+ },
+ {
+  "id": "SRC-31",
+  "field": "aerospace / deployables",
+  "what": "Bistable ultrathin CFRP CubeSat booms (Illinois/NASA LaRC); NASA rollable booms",
+  "year": 2024,
+  "url": "https://arxiv.org/pdf/2408.08491",
+  "key_number": "~16-16.5 g/m, 1.22 m boom coils to ~70 mm"
+ },
+ {
+  "id": "SRC-32",
+  "field": "medical",
+  "what": "PillCam SB3 capsule camera",
+  "year": 2020,
+  "url": "https://www.medtronic.com/covidien/en-nz/products/capsule-endoscopy/pillcam-sb-3-system.html",
+  "key_number": "3.0 g, 2-6 fps, >=8 h"
+ },
+ {
+  "id": "SRC-33",
+  "field": "toys/entertainment",
+  "what": "AER throwable foam GoPro glider (Kickstarter)",
+  "year": 2016,
+  "url": "https://newatlas.com/aer-throw-gopro/45737/",
+  "key_number": "passive, no guidance; ~EUR 119k raised"
+ },
+ {
+  "id": "SRC-34",
+  "field": "entertainment robotics",
+  "what": "Disney Stuntronics autonomous flipping stunt figure",
+  "year": 2018,
+  "url": "https://www.slashfilm.com/disney-stunt-robots",
+  "key_number": "pose control through ballistic flight (older)"
+ },
+ {
+  "id": "SRC-35",
+  "field": "robotics",
+  "what": "Ski Robot Challenge, Hoengseong (humanoid ski robots)",
+  "year": 2018,
+  "url": "https://spectrum.ieee.org/ski-robot-challenge",
+  "key_number": "80 m slalom, most robots fell"
+ },
+ {
+  "id": "SRC-36",
+  "field": "military nano-UAS",
+  "what": "Teledyne FLIR Black Hornet 4",
+  "year": 2023,
+  "url": "https://www.thedefensepost.com/2023/10/11/teledyne-advanced-black-hornet-drone/",
+  "key_number": "70 g, 10 m/s, 25 kn wind, >30 min"
+ },
+ {
+  "id": "SRC-37",
+  "field": "bio-inspired flight",
+  "what": "SUTD samara monocopters (SAM, foldable F-SAM)",
+  "year": 2025,
+  "url": "https://www.sutd.edu.sg/technical-release-listing/small-but-mighty-a-biomimetic-idea-takes-flight/",
+  "key_number": "32 g hovers 26 min; 60-69 g variants"
+ },
+ {
+  "id": "SRC-38",
+  "field": "soft robotics",
+  "what": "Flying HASEL electrostatic gripper",
+  "year": 2022,
+  "url": "https://arxiv.org/pdf/2205.13011",
+  "key_number": "high power density, light actuation"
+ },
+ {
+  "id": "SRC-39",
+  "field": "soft robotics",
+  "what": "Untethered electroadhesive perching of a micro quadrotor (lightweight HV generator)",
+  "year": 2020,
+  "url": "https://superlab.stanford.edu/publication/2020-06-10-HV-Untethered-Perching_Park/index.html",
+  "key_number": ">1 kV needed; onboard HV generator"
+ },
+ {
+  "id": "SRC-40",
+  "field": "space robotics",
+  "what": "Ingenuity Mars helicopter final flight",
+  "year": 2024,
+  "url": "https://nasaspaceflight.com/2024/01/ingenuity-final-flight",
+  "key_number": "72 flights, 1.8 kg, ended by landing blade strike on featureless sand (nav lesson for featureless snow)"
+ },
+ {
+  "id": "SRC-41",
+  "field": "sailing",
+  "what": "SailGP F50 wingsail with camber/twist flap control",
+  "year": 2023,
+  "url": "https://eprints.soton.ac.uk/469573/1/CSYS_Paper_Tomlinson_Turnock_Prince.pdf",
+  "key_number": "push-button camber/twist; morphing lifting surface on demand"
+ },
+ {
+  "id": "SRC-42",
+  "field": "consumer drones (baseline)",
+  "what": "HoverAir X1 PRO/PROMAX Thermo battery",
+  "year": 2025,
+  "url": "https://hoverair.com/blogs/tech/cold-weather-power-system",
+  "key_number": "16 min spec (2 m/s, no wind), to -20 C; 64 g battery"
+ },
+ {
+  "id": "SRC-43",
+  "field": "regulation",
+  "what": "EU 2019/947 open category: VLOS except follow-me mode; follow-me up to 50 m from pilot and 50 m height in A1",
+  "year": 2019,
+  "url": "https://gesetze.legal/eu/vo_eu_2019_947/anhang",
+  "key_number": "follow-me <=50 m"
+ },
+ {
+  "id": "SRC-44",
+  "field": "regulation",
+  "what": "EU C0 class: <250 g, <=19 m/s",
+  "year": 2024,
+  "url": "https://uas-betrieb.bund.de/homepage/en/information/categorizing-drone-operations/c-classified-drones",
+  "key_number": "19 m/s cap"
+ },
+ {
+  "id": "SRC-45",
+  "field": "sport science",
+  "what": "Stepan et al. skier/snowboarder speeds at US areas (JSAMS Plus)",
+  "year": 2023,
+  "url": "https://doaj.org/article/2b935686ece744eca0efec1d27afabe2",
+  "key_number": "mean 34.9+-13.6 km/h; advanced 44.5+-11.7"
+ },
+ {
+  "id": "SRC-46",
+  "field": "novelty check",
+  "what": "Fixed-wing UAV tracking unpredictable ground targets (Quintero & Hespanha), flight-tested",
+  "year": 2020,
+  "url": "https://www.icb.ucsb.edu/publications/2020",
+  "key_number": "research only; no skier/consumer product found"
+ },
+ {
+  "id": "SRC-47",
+  "field": "novelty check",
+  "what": "ArduPlane follow mode via scripting (forum, 2025)",
+  "year": 2025,
+  "url": "https://discuss.ardupilot.org/t/setup-plane-follow-in-arduplane/141794",
+  "key_number": "experimental; Copter has native follow"
+ }
+]

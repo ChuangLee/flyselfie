@@ -1,0 +1,292 @@
+{
+ "conceptId": "towglider",
+ "modelVersion": "towglider@0.5.0",
+ "date": "2026-10-20",
+ "evidence": "numerical-uncalibrated simulation; numbers from results.json (39-case full-run ensemble, scenarios, envelope, variants). No physical test.",
+ "responses": [
+  {
+   "id": "TG-01",
+   "status": "fixed (model)",
+   "change": "Stops no longer turn away and land downwind: track a point 5 m behind the decelerating rider, then full-flap descent and a post-stall 'parachute' drop stepping away from the rider (dive into the wind instead when a plate would kite); hook opens before any hip cut; clutch-slip rule opens the hook; 15 m spool.",
+   "numbers": "Same airframe, calm + all 9 m/s cases: round-1 stop handling 9/15 releases or cuts, standstill p90 668 s (walk-up counted); round 2 1/15 release, 0 cuts, p90 11.9 s. Whole ensemble: 0 cuts, 1 release in 39 (crossR9_s12)."
+  },
+  {
+   "id": "TG-02",
+   "status": "fixed",
+   "change": "Mass built from the shared component table + 15 % margin; the 12 g gimbal is gone. Chosen camera: 4K gyro-EIS camera on a 3-servo pointing mount (no gimbal); 2-axis gimbal kept as a variant. Wing 0.075 m², Re-dependent CLmax.",
+   "numbers": "128.8 g (gimbal option 138.6 g); clean Vs 6.2 m/s, flap Vs 5.3 m/s; KE-cap speed 15.2 m/s, governor 14.0 m/s. Slow 6 m/s beginner in light wind: avail 100 %, airMin 1.08, height ≥2.3 m (audit at 117 g: snow contact)."
+  },
+  {
+   "id": "TG-03",
+   "status": "fixed (architecture), physical flex life open",
+   "change": "Power over the leash: 48 V on two tinsel conductors; no lithium cell on the glider (5 F supercap for a release landing); worn 15 Wh pack only discharges in the cold. Alternatives quantified in design: heated holster 79 min (audit), 3 Wh glider cell ≈24 min, solar wing <3 W only in sun.",
+   "numbers": "Line: 0.45 mm, 0.27 g/m, loop 54 Ω, loss 0.56 W (10 %); hip input 6.8 W while flying. Endurance (ensemble mean full-run energy, −10 °C, 15 % reserve) 55 min ≥45."
+  },
+  {
+   "id": "TG-04",
+   "status": "partly",
+   "change": "Expert-carve, steep, moguls and a rider-speed sweep added; envelope stated.",
+   "numbers": "15°: avail 100/94/87/78/56/4 % at 6/8/10/12/14/16 m/s; expert 20° 13 m/s 54 %; 24–28° at 14–15 m/s outside (hook release, KE stays ≤12.4 J). Tailwind ≥5 m/s gated."
+  },
+  {
+   "id": "TG-05",
+   "status": "fixed",
+   "change": "Rest stops: drop → park on 3 m of line → auto-relaunch at push-off (armed state survives); lift-base geofence ends the run with a snow pull into the holster.",
+   "numbers": "Ensemble ops p90 1 (max 3 with the release); setupTime p90 10.9 s, mean 23 s (incl. one 571 s walk-up); final stow standstill 8.1–12 s."
+  },
+  {
+   "id": "TG-06",
+   "status": "not fixable by design (gate)",
+   "change": "EU A1/C0 <250 g with operator registration; 15 m leash = physical geofence (≤50 m follow-me); released glider deep-stall lands within ~10 m. US VLOS and resort permission remain gates.",
+   "numbers": "128.8 g."
+  },
+  {
+   "id": "TG-07",
+   "status": "partly",
+   "change": "0.45 mm hi-vis jacketed line (more visible, less cutting than 0.17 mm); strike rule opens the hook in 40 ms and cuts 48 V; lateral sweep limited (station 60 % of hip swing, ±5 m soft limit); parked line only 3 m; release before cut.",
+   "numbers": "Glider lateral offset p95 4.3 m (ensemble); crossing (caught line) force on the crosser ≤8 N, KE 14.5 J; laceration of skin by a sliding line still not assessed."
+  },
+  {
+   "id": "TG-08",
+   "status": "not fixed (unverified)",
+   "change": "In-motion dock demoted to an option; baseline stow = drop + snow pull, capture modelled as line in to 0.2 m with contact damping.",
+   "numbers": "Snow-pull stow standstill 8–12 s; in-motion dock option 6.3 s in the representative run. Capture reliability needs a bench/tow test."
+  },
+  {
+   "id": "TG-09",
+   "status": "fixed (model)",
+   "change": "attitude.js: 2nd-order short-period/Dutch-roll response to gusts incl. a von Kármán sub-grid tail, MIL-F-8785C rolling gusts, roll mode + bank hold; gimbal (8 Hz HP + 3 %) and EIS (8 %) residuals; jitter also as %/s of crop height; blur estimate.",
+   "numbers": "Airframe rate RMS 47–74 °/s (maneuvering + gusts); picture jitter p90 2.3 °/s = 8.2 %/s of frame (ensemble); gimbal option 4.4 °/s; fixed 150° fisheye 25 °/s."
+  },
+  {
+   "id": "TG-10",
+   "status": "fixed",
+   "change": "Substeps scale with subFactor (KS = max(6·k, …)); controller step configurable; test at 2× substeps and 10 ms control.",
+   "numbers": "Track RMS difference 0.018 m (substeps ×2), 0.062 m (control 20→10 ms)."
+  },
+  {
+   "id": "TG-11",
+   "status": "fixed",
+   "change": "results.json regenerated in one run with SHA-256 hashes of model and shared files.",
+   "numbers": "fileHashes in results.json."
+  },
+  {
+   "id": "TG-12",
+   "status": "fixed",
+   "change": "KE judged over the whole run (no settle window in run scenarios); initial speed set under the governor; predictive governor at 0.92 of the cap.",
+   "numbers": "Ensemble keMax max 12.9 J; fast 18 m/s ≤14.9 J."
+  },
+  {
+   "id": "TG-13",
+   "status": "fixed (shared + concept)",
+   "change": "Shared env.js now has oblique wavefronts; the concept adds encounter-frame sub-grid gusts for attitude.",
+   "numbers": "—"
+  },
+  {
+   "id": "TG-14",
+   "status": "partly (design only)",
+   "change": "Holster rotatable to the back for lifts (stated), magnetic pogo hook with gloved loop, belly skid + lens cover; packVol 2.91 L.",
+   "numbers": "Not modelled."
+  },
+  {
+   "id": "TG-15",
+   "status": "fixed",
+   "change": "Re-dependent CLmax (0.85 at 30 k → 1.0 at 80 k) and cd0 ∝ Re^−0.2; split-flap ΔCLmax 0.35 (ASSUMED).",
+   "numbers": "L/D 4.7 at 12 m/s, 9.1 at 7 m/s; L/D −30 % still passes the follow segment (avail 81 %)."
+  },
+  {
+   "id": "X-01",
+   "status": "fixed",
+   "change": "Shared BATTERY/ATMOS/COMPONENTS used (150 Wh/kg, cold 0.75, reserve 15 %, ρ 1.0, camera powers).",
+   "numbers": "—"
+  },
+  {
+   "id": "X-02",
+   "status": "fixed",
+   "change": "Mass from the shared table with 15 % margin; envelope re-run at that mass.",
+   "numbers": "128.8 g."
+  },
+  {
+   "id": "X-03",
+   "status": "fixed",
+   "change": "Endurance = everything worn, −10 °C, 15 % reserve, from mean full-run energy; no cold charging needed.",
+   "numbers": "55 min."
+  },
+  {
+   "id": "X-04",
+   "status": "fixed",
+   "change": "fullrun scenario + 39-case ensemble, judged mean/p10/p90, by wind bin and direction.",
+   "numbers": "See results.json ensemble."
+  },
+  {
+   "id": "X-05",
+   "status": "fixed",
+   "change": "Attitude dynamics + stabilisation residual (TG-09).",
+   "numbers": "jitter p90 2.3 °/s."
+  },
+  {
+   "id": "X-06",
+   "status": "fixed",
+   "change": "Regenerated after the shared-model changes, hashes stamped.",
+   "numbers": "—"
+  },
+  {
+   "id": "X-07",
+   "status": "not fixable (gate)",
+   "change": "See TG-06.",
+   "numbers": "—"
+  }
+ ],
+ "harmonised_ensemble": {
+  "avail": "FAIL 61.4 % mean (72.5 % over launched runs; p10 0 because 6 runs are gated)",
+  "pxMed": "PASS 446",
+  "jitterRms": "PASS 2.3 °/s p90",
+  "azRange": "PASS 85°",
+  "addedMass": "PASS 0.45 kg",
+  "bodyForcePeak": "PASS 10.6 N max",
+  "handsBusy": "PASS 0 %",
+  "setupTime": "PASS 10.9 s p90",
+  "ops": "PASS 1 p90 (max 3)",
+  "keMax": "PASS 12.9 J max",
+  "packVol": "PASS 2.91 L",
+  "endurance": "PASS 55 min"
+ },
+ "audit2": {
+  "date": "2026-10-20",
+  "basis": "results.json (towglider@0.4.0), shared rules: availMask, footageStability p90, simulated setup, windEstimate gates, headClear",
+  "responses": [
+   {
+    "id": "A2-TG-01",
+    "status": "partly fixed (envelope)",
+    "change": "Diagnosed the 28 %: px<300 (90° fisheye) 14–18 %, launch 9–10 %, stop 1–2 %. Narrow 66° lens on 4K 4:3 + stabilised servo mount + post reframing, hip-line station, 4.5 m launch line with footage from 0.8 m, parked-glider filming, zoom stop.",
+    "numbers": "Launched runs 85.2 % (calm 87.7, 3 m/s 87.5); 39-case mean 72.1 % FAIL only because 6 tailwind runs (≥4.5 m/s est.) cannot launch."
+   },
+   {
+    "id": "A2-TG-02",
+    "status": "fixed",
+    "change": "Gate on the shared windEstimate at every push-off + airspeed-margin rule (rider − est. tailwind ≥5.8 m/s) for winch launch and in flight (drop and wait on the snow).",
+    "numbers": "7 m/s beginner in 3 m/s tailwind: no stall, KE 8–9.5 J, head ≥0.98 m (no footage); ensemble headClear min 1.01 m."
+   },
+   {
+    "id": "A2-TG-03",
+    "status": "fixed (conditional)",
+    "change": "Closed-loop servo mount (4 Hz), post EIS + zero-phase reframing, judged on the shared footageStability.",
+    "numbers": "p90 1.92 °/s, max 2.02; EIS 15 % → 2.99, 25 % → 4.65; deadband 0.5° → 3.57 (kill test)."
+   },
+   {
+    "id": "A2-TG-04",
+    "status": "fixed (design, unmeasured)",
+    "change": "Chord fold at 55 % + aft swing + telescoping boom; honest section geometry.",
+    "numbers": "80 mm OD × 0.46 m holster 2.30 L, total 2.80 L; without chord fold 110 mm / 4.9 L."
+   },
+   {
+    "id": "A2-TG-05",
+    "status": "partly",
+    "change": "Avail drop above 11 m/s was pixels, not KE; narrow lens + station fixed it to 13 m/s; fast-rider path straightening above 13.3 m/s.",
+    "numbers": "15°: 100/100/98/89/84/64/6/5 % at 6/8/10/12/13/14/15/16 m/s; ≥15 m/s outside (KE governor 13.8 m/s at 132 g)."
+   },
+   {
+    "id": "A2-TG-06",
+    "status": "fixed (spec), flex life open",
+    "change": "2 × 7/44 AWG Cu litz, 0.60 mm OD, 0.40 g/m, 1.3 Ω/m.",
+    "numbers": "Endurance 57.8 min; 2.6/5.2/7/10 Ω/m → 54.9/49.8/46.9/42.6 min (fails >≈7.5 Ω/m, 5.8× margin)."
+   },
+   {
+    "id": "A2-TG-07",
+    "status": "fixed",
+    "change": "Labels, header, about, stages and cam scenarios updated (132 g, 66° lens, stabilised mount); round-2 camera kept as cam_panEIS comparison.",
+    "numbers": "—"
+   },
+   {
+    "id": "A2-TG-08",
+    "status": "noted",
+    "change": "Final hold still 30 s (declared); setup p90 12.4 s.",
+    "numbers": "ops p90 1, max 1; 0 releases, 0 cuts."
+   },
+   {
+    "id": "A2-X-02",
+    "status": "adopted",
+    "change": "Ensemble jitter = p90 of footageStability(R).subjectRms over flown cases (own metric reported as jitterOwn).",
+    "numbers": "1.92 °/s"
+   },
+   {
+    "id": "A2-X-06",
+    "status": "fixed",
+    "change": "No oracle wind: windEstimate() gate; forced-launch proof.",
+    "numbers": "tail6/9 forced: KE 14.7–18.2 J, releases, head 0.07–0.78 m."
+   },
+   {
+    "id": "A2-X-07",
+    "status": "partly",
+    "change": "headClear judged (glider + line to helmet centre); line height reported.",
+    "numbers": "headClear min 1.01 m PASS; line 1 m behind rider p10 0.26 m, min 0.12 m (hazard, documented)."
+   }
+  ],
+  "harmonised_ensemble": {
+   "avail": "FAIL 72.104",
+   "pxMed": "PASS 535.614",
+   "jitterRms": "PASS 1.918",
+   "azRange": "PASS 63.885",
+   "addedMass": "PASS 0.457",
+   "bodyForcePeak": "PASS 4.291",
+   "handsBusy": "PASS 0",
+   "setupTime": "PASS 12.36",
+   "ops": "PASS 1",
+   "keMax": "PASS 14.006",
+   "packVol": "PASS 2.8",
+   "headClear": "PASS 1.011",
+   "endurance": "PASS 57.79"
+  }
+ },
+ "audit3": {
+  "date": "2026-10-20",
+  "basis": "results.json (towglider@0.5.0); round-4 shared rules",
+  "responses": [
+   {
+    "id": "A3-TG-01",
+    "status": "fixed in the judged 48; off-grid bounded by the new gate",
+    "change": "reel KE governor; pre-emptive rest-stop stow; fast pull at a refused push-off; gate 3.0 m/s; zoom-assisted governor; line-guide wand",
+    "numbers": "KE max 13.219 J and headClear min 1.061 m over 48 (tail 3.5–5.5 now refused); refused-relaunch case tail3.5_s11 with the old 4.5 gate: 21.8 → ≤14.9 J (test); off-grid tail 2–6 m/s × 6 seeds with the gate on: worst []"
+   },
+   {
+    "id": "A3-TG-02",
+    "status": "fixed on the shared helmetAt",
+    "change": "leash exit moved 0.30 m aft on a glass-fibre wand (exit–helmet 1.36 m); side-step logic unchanged (a locked side was tested and rejected)",
+    "numbers": "headClear min 1.061 m (48), p10 1.187; round-3 holster on the subset 1.051 m"
+   },
+   {
+    "id": "A3-TG-03",
+    "status": "NOT fixed — avail fails",
+    "change": "deferred launch ≤6 m/s; bodyPx framing; 50° lens",
+    "numbers": "avail 49.409 % (48), launched 76.504 %; 17/48 never launch (all tail ≥3.5, 2 of 3 tail3); the cross 6/9 s13 cases still lose the first ride to the 1 s-old estimate (deferral above 6 m/s was unsafe). Requested from the integrator: let windEstimate use pre-run history (the belt is on during the lift ride)."
+   },
+   {
+    "id": "A3-TG-04",
+    "status": "replaced the assumption by a component model; conditional on servo bandwidth",
+    "change": "per-axis servo (dead band, backlash, 750 °/s slew, 333 Hz PWM, FC latency) and EIS residual (sync, RS, scale, gyro noise)",
+    "numbers": "p90 2.451 °/s (48); subset: dead band 1° → 2.94, backlash 1° → 2.906, bandwidth 3 Hz → 6.297, sync 5 ms → 3.418, all pessimistic → 7.656"
+   },
+   {
+    "id": "A3-TG-05",
+    "status": "fixed (sleep mode modelled, ASSUMED 0.05 W)",
+    "numbers": "endurance 53.09 min with sleep; 38.259 min if the hip unit idles on the lift (FAIL)"
+   },
+   {
+    "id": "A3-TG-06",
+    "status": "quantified, partly mitigated",
+    "change": "0.8 N reel floor (less sag), no sled tow behind a fast rider, trip profile 0.5–3 m behind the feet in every run",
+    "numbers": "line height p10 at 1/2/3 m behind the feet (mean of cases) 0.466/0.454/0.77 m; ≥5 cm of line below 0.3 m 1–3 m behind: 20.299 % of riding-with-line time (round-3 settings: 27.107 %; round-3 holster: 7.402 % — the wand trades trip exposure for head clearance)"
+   },
+   {
+    "id": "A3-TG-07",
+    "status": "envelope narrower",
+    "numbers": "see results.json envelope/runEnvelope: tailwind ≤3 m/s estimated, rider 8–13 m/s on ≤20°"
+   },
+   {
+    "id": "A3-X-01/X-03/X-04/X-08",
+    "status": "adopted",
+    "change": "artefactCounts(overlap, width ≥2 px); helmetAt; bodyPx; physical actuators"
+   }
+  ]
+ }
+}

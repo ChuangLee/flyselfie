@@ -1,0 +1,100 @@
+{
+  "evidence": "analytic illustration with assumed geometry",
+  "assumptions": {
+    "body_height_m": 1.75,
+    "ground": "level",
+    "subject": "upright zero-width vertical segment",
+    "camera_height_above_head": true
+  },
+  "formula": "angle=atan2(z,r)-atan2(z-H,r)",
+  "max_angle_offset_at_z_3_5_m": 2.475,
+  "points": [
+    {
+      "horizontal_offset_m": 0,
+      "camera_height_m": 2.5,
+      "upright_body_angle_deg": 0.0
+    },
+    {
+      "horizontal_offset_m": 0.8,
+      "camera_height_m": 2.5,
+      "upright_body_angle_deg": 29.103
+    },
+    {
+      "horizontal_offset_m": 2.5,
+      "camera_height_m": 2.5,
+      "upright_body_angle_deg": 28.301
+    },
+    {
+      "horizontal_offset_m": 5,
+      "camera_height_m": 2.5,
+      "upright_body_angle_deg": 18.034
+    },
+    {
+      "horizontal_offset_m": 10,
+      "camera_height_m": 2.5,
+      "upright_body_angle_deg": 9.747
+    },
+    {
+      "horizontal_offset_m": 0,
+      "camera_height_m": 3.5,
+      "upright_body_angle_deg": 0.0
+    },
+    {
+      "horizontal_offset_m": 0.8,
+      "camera_height_m": 3.5,
+      "upright_body_angle_deg": 11.692
+    },
+    {
+      "horizontal_offset_m": 2.5,
+      "camera_height_m": 3.5,
+      "upright_body_angle_deg": 19.47
+    },
+    {
+      "horizontal_offset_m": 5,
+      "camera_height_m": 3.5,
+      "upright_body_angle_deg": 15.702
+    },
+    {
+      "horizontal_offset_m": 10,
+      "camera_height_m": 3.5,
+      "upright_body_angle_deg": 9.364
+    },
+    {
+      "horizontal_offset_m": 0,
+      "camera_height_m": 5,
+      "upright_body_angle_deg": 0.0
+    },
+    {
+      "horizontal_offset_m": 0.8,
+      "camera_height_m": 5,
+      "upright_body_angle_deg": 4.738
+    },
+    {
+      "horizontal_offset_m": 2.5,
+      "camera_height_m": 5,
+      "upright_body_angle_deg": 11.004
+    },
+    {
+      "horizontal_offset_m": 5,
+      "camera_height_m": 5,
+      "upright_body_angle_deg": 11.976
+    },
+    {
+      "horizontal_offset_m": 10,
+      "camera_height_m": 5,
+      "upright_body_angle_deg": 8.561
+    }
+  ],
+  "equirectangular_example": {
+    "assumed_panorama_width_px": 7680,
+    "azimuth_sector_deg": 90,
+    "source_columns_in_sector": 1920,
+    "limit": "angular sample budget only; rectilinear projection, sensor detail, compression and stitching differ"
+  },
+  "duty_cycle_example": {
+    "assumed_flight_power_W": 60,
+    "flight_seconds": 30,
+    "ideal_flight_energy_Wh": 0.5,
+    "limit": "not a motor specification; excludes launch, reserve, transit, losses and dock energy"
+  }
+}

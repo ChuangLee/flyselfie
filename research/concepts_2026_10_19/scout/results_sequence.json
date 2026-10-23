@@ -1,0 +1,159 @@
+{
+ "S2-01": {
+  "steps": [
+   {
+    "step": "day start: clip 1.2 L shoulder-strap quiver, glider inside (power-on by removal)",
+    "t": 0,
+    "moving": false,
+    "action": false,
+    "once": true
+   },
+   {
+    "step": "push off; at >=7 m/s draw glider from quiver and release overhead (wings spring out, apparent wind = launch speed)",
+    "t": 2,
+    "moving": true,
+    "action": true
+   },
+   {
+    "step": "ride: autonomous follow 6-10 m behind/above via UWB tag + vision; regen on steep pitches",
+    "t": 0,
+    "moving": true,
+    "action": false
+   },
+   {
+    "step": "mid-run stop: glider orbits r~10 m at 2.4 W (orbit shot), rejoins on restart; no user input",
+    "t": 0,
+    "moving": false,
+    "action": false
+   },
+   {
+    "step": "end of run: glider belly-lands 3-5 m to the downhill side; skier slides to it and picks it up",
+    "t": 6,
+    "moving": false,
+    "action": true
+   },
+   {
+    "step": "insert tail-first in quiver (wings fold on the tube mouth), board lift",
+    "t": 3,
+    "moving": false,
+    "action": true
+   },
+   {
+    "step": "end of day: USB-C charge quiver+glider",
+    "t": 0,
+    "moving": false,
+    "action": false,
+    "once": true
+   }
+  ],
+  "standstill_s_per_run": 9,
+  "ops_per_run": 3,
+  "hands_busy_pct": 0.67,
+  "pass_standstill": true,
+  "pass_ops": false,
+  "pass_hands": true,
+  "note": "3 ops/run by the strict definition (launch, pick-up, insert); 2 if pick-and-insert counts as one recovery. S2-03 is the fix (1-2 ops, 0 s standstill)."
+ },
+ "S2-02": {
+  "steps": [
+   {
+    "step": "stopped at top: press shoulder-cradle button; glider climbs vertically to 4 m, transitions to wing-borne",
+    "t": 4,
+    "moving": false,
+    "action": true
+   },
+   {
+    "step": "ride: wing-borne follow; hover only for transitions",
+    "t": 0,
+    "moving": true,
+    "action": false
+   },
+   {
+    "step": "end of run: stop; glider transitions to hover and lands in the shoulder cradle funnel (auto on standstill >3 s)",
+    "t": 10,
+    "moving": false,
+    "action": false
+   },
+   {
+    "step": "cradle latch confirms; board lift",
+    "t": 1,
+    "moving": false,
+    "action": true
+   }
+  ],
+  "standstill_s_per_run": 15,
+  "ops_per_run": 2,
+  "hands_busy_pct": 0.0,
+  "pass_standstill": true,
+  "pass_ops": true,
+  "pass_hands": true
+ },
+ "S2-03": {
+  "steps": [
+   {
+    "step": "push off; release glider overhead at >=7 m/s",
+    "t": 2,
+    "moving": true,
+    "action": true
+   },
+   {
+    "step": "ride: follow",
+    "t": 0,
+    "moving": true,
+    "action": false
+   },
+   {
+    "step": "last 100 m: tap strap button (or automatic on lift-approach geofence); 1.5 m tag line streams from a 1.2 m pack whip",
+    "t": 1,
+    "moving": true,
+    "action": true
+   },
+   {
+    "step": "glider hooks the line at 1-2 m/s closing speed; reel draws it into the dorsal quiver in ~3 s",
+    "t": 0,
+    "moving": true,
+    "action": false
+   },
+   {
+    "step": "stop at lift: nothing to do",
+    "t": 0,
+    "moving": false,
+    "action": false
+   }
+  ],
+  "standstill_s_per_run": 0,
+  "ops_per_run": 2,
+  "hands_busy_pct": 1.33,
+  "pass_standstill": true,
+  "pass_ops": true,
+  "pass_hands": true
+ },
+ "S2-04": {
+  "steps": [
+   {
+    "step": "push off; pack boom releases kite above ~3 m/s skier speed",
+    "t": 0,
+    "moving": true,
+    "action": true
+   },
+   {
+    "step": "ride: parked at 35-50 deg elevation when fast; flies figure-8s when slow (down to ~2.2 m/s)",
+    "t": 0,
+    "moving": true,
+    "action": false
+   },
+   {
+    "step": "stop: kite glides down behind; reel retrieves into boom cradle",
+    "t": 8,
+    "moving": false,
+    "action": true
+   }
+  ],
+  "standstill_s_per_run": 8,
+  "ops_per_run": 2,
+  "hands_busy_pct": 0.67,
+  "pass_standstill": true,
+  "pass_ops": true,
+  "pass_hands": true
+ }
+}

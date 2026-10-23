@@ -1,0 +1,1199 @@
+{
+ "id": "SIM-032/product",
+ "role": "product manager",
+ "date": "2026-10-20",
+ "brief": "research/active_tether_2026_10_20/BRIEF.md",
+ "evidenceBoundary": "Desk research and derived requirements only. No physical test, user test, purchase, outreach or legal opinion was performed. All targets are product proposals (ASSUMED unless a source is given); simulation results referenced are uncalibrated. M-070 NOT_RUN, G-MATURE closed. This file does not write project/plan.json; the integrator registers SIM-032 actions.",
+ "summary": [
+  "Prior art: every building block exists separately - KAP rigs and motorised kite winders (manual), tension-regulated reels (US 4,058,010, 1977, reel reverses to retract when wind is weak), AWE automatic launch/landing with winch reel-in (Kitepower step-tow, SkySails mast docking, TwingTec/Kitemill VTOL), consumer tethered camera drones (Fotokite Phi 2015-16, ski follow mode, $249), backpack-powered tethered quad (Falconer 2019) and free follow drones with ski modes (HoverAir X1 Pro/Max 191.5 g, DJI Neo 2 151 g). We found no product or patent combining: person-worn auto reel + IMU motion-triggered payout of an UNPOWERED flyer + reel-pumping to keep it aloft behind a moving skier + auto-dock back onto the wearer. Web search only, not a freedom-to-operate opinion.",
+  "Regulation: the decisive line is onboard power. FAA (2016 Part 107 preamble): any small unmanned aircraft 'that uses powered systems for actions such as propulsion or steering is not a ... kite subject to part 101'. So a flyer with servos or an onboard reel is a small UAS in the US (recreational under 49 USC 44809 if <250 g: TRUST, no registration; commercial = Part 107). A flyer whose only actuation is the backpack reel and line can argue 'kite' status (kite <5 lb: only §101.7 'no hazard'). EU: Basic Regulation 2018/1139 Annex I §2 excludes tethered aircraft <=1 kg outright, and unpowered tethered aircraft <25 kg on a tether <=50 m, so an 80-250 g tethered flyer is outside EASA drone rules; national kite rules apply (DE LuftVO §20: >100 m line needs permit; UK ANO art. 92: kite/tether >60 m AGL needs permission). China 2024 Interim Regulations: micro UA = <0.25 kg empty, <=50 m true height, <=40 km/h max level speed (a powered flyer following a skier >11 m/s would not qualify as micro).",
+  "Ski resorts are the binding constraint, not aviation law: Vail Resorts (all properties) bans drones without written permission, as do most US resorts surveyed; Niseko bans snow kites on its terrain; Telluride requires a written agreement for paragliding. Resort policies do not define 'drone' vs 'kite', so we must assume the product needs resort permission or a resort-approved category; go-to-market should start with backcountry/touring and partner resorts. No outreach performed.",
+  "Design implications: hard mechanical line cap 50 m (operating 5-15 m because full-body >=300 px needs d <=9 m at 40° VFOV, <=16 m at 22° VFOV); flyer <=150 g so ground-frame KE <=14.9 J up to 14 m/s rider speed; prefer no onboard propulsion and, if achievable, no onboard powered steering (all actuation in the backpack) to keep kite status in the US; weak link + flyaway-safe flyer; hi-vis line held steep (>=60° elevation keeps the line above 2 m beyond 0.35 m behind the anchor) against the clothesline hazard.",
+  "Product requirements: zero false launches on lifts (hard interlock), <=0.2 unintended launches/day elsewhere, >=95 % launch success in envelope, >=98 % first-attempt auto-dock, dock p90 <=10 s, time-to-first-flight <=15 min out of box, daily gear-up <=2 min, price class USD 399-599 (between DJI Neo 2 and Insta360 X5/HoverAir X1 Pro). Five personas and 18 test scenarios are defined for the user-tester team."
+ ],
+ "priorArt": {
+  "method": "Web search (2026-10-20) of products, academic work and patents (Google Patents / USPTO / EPO index pages via search engine). Not exhaustive; not a freedom-to-operate (FTO) search. Earlier team scans reused: research/concepts_2026_10_19/inventor, docs/18, docs/20.",
+  "categories": [
+   {
+    "category": "Kite aerial photography (KAP)",
+    "whatExists": "A person stands still and flies a single-line kite carrying a camera rig; line handled by hand or hand/capstan winders. KAP adapts traditional single-line kite flying.",
+    "automation": "none for launch/flight; manual reel; rig-level shutter/pan automation only",
+    "examples": [
+     {
+      "name": "KAP basics (parafoil + small camera)",
+      "url": "https://benlo.com/kap"
+     },
+     {
+      "name": "Kite control systems (KAP)",
+      "url": "https://en.wikipedia.org/wiki/Kite_control_systems"
+     },
+     {
+      "name": "Capstan kite winder with slip clutch (DIY)",
+      "url": "https://makezine.com/projects/capstan-kite-winder/"
+     }
+    ],
+    "differenceFromUs": "Static operator, large kite, manual line work, needs real wind; no follow, no docking."
+   },
+   {
+    "category": "Motorised / automatic kite reels",
+    "whatExists": "Battery winders driven by a button (consumer), kite-fishing electric reel with line counter auto-stop (PENN Fathom Electric), Chinese utility model for an electric kite winder, NASA two-stage winch for kites/tethered balloons. Tension-regulated reels are old: US 4,058,010 (1977, airport wind-shear kite sensor) regulates reel speed to hold a set line tension and reverses to retract when wind is too weak; US 11,542,037 keeps tether tension in a threshold range while a kite lifts a UAV.",
+    "automation": "button or set-point tension control; no motion-triggered launch, no docking",
+    "examples": [
+     {
+      "name": "PENN Fathom Electric (kite fishing)",
+      "url": "https://pennfishing.com/blogs/stories/kite-fishing-w-fathom-quinton-ali"
+     },
+     {
+      "name": "CN205170075U electric kite coiler",
+      "url": "https://patents.google.com/patent/CN205170075U/en"
+     },
+     {
+      "name": "NASA two-stage winch for kites/tethered balloons",
+      "url": "https://ntrs.nasa.gov/citations/20120000827"
+     },
+     {
+      "name": "US 4,058,010 tension-regulated kite reel (expired)",
+      "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4058010"
+     },
+     {
+      "name": "US 11,542,037 kite-deployed UAV with tether tensioner",
+      "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11542037"
+     }
+    ],
+    "differenceFromUs": "Fixed ground station; tension control is prior art (expired 1977 patent) and cannot be claimed as our invention. Novelty must lie in the wearable, motion-triggered, docking, camera-framing combination."
+   },
+   {
+    "category": "Airborne wind energy (AWE) launch/landing automation",
+    "whatExists": "Automatic launch and landing is an acknowledged hard problem. Kitepower: launch from a tower top in enough wind, step-tow launch where the winch reels in repeatedly to make the kite rise, landing by winch, kite clamped and rolled up. SkySails: kite docks to a launch/landing mast, air intakes/brakes change profile during start and landing. TwingTec and Kitemill: rigid wings with VTOL rotors take off/land on a platform. TU Delft/AWESCO: multicopter-assisted launch, winch-only landing. Rail/catapult concepts for rigid wings.",
+    "automation": "fully automatic cycles on fixed ground stations, kg-to-100-kg scale",
+    "examples": [
+     {
+      "name": "Kitepower automatic launch & relaunch (jury summary)",
+      "url": "https://filelist.tudelft.nl/News/2023/06_June/LR/20_LLSKitePowerSystem_JurySummary.pdf"
+     },
+     {
+      "name": "SkySails Power technology",
+      "url": "https://skysails-power.com/technology.html"
+     },
+     {
+      "name": "TU Delft launch/landing review",
+      "url": "https://pure.tudelft.nl/ws/portalfiles/portal/51772186/1.g003535.pdf"
+     },
+     {
+      "name": "Autonomous take-off and landing of a tethered aircraft (rail)",
+      "url": "https://ar5iv.arxiv.org/html/1510.01088"
+     },
+     {
+      "name": "AWESCO ESR02 multicopter launch, winch landing",
+      "url": "https://awesco.eu/project/esr02/"
+     },
+     {
+      "name": "TwingTec VTOL energy drone",
+      "url": "https://www.moneycab.com/dossiers/schweizer-startup-twingtec-schafft-weltweiten-durchbruch-in-der-entwicklung-von-energiedrohnen/amp/"
+     },
+     {
+      "name": "Kitemill 2021 presentation",
+      "url": "https://www.uib.no/sites/w3.uib.no/files/attachments/kitemill_-_presentation_bergen_2021.pdf"
+     }
+    ],
+    "differenceFromUs": "Reel-in to gain apparent wind ('step-tow', pumping) and winch landing onto a dock are proven ideas at large scale on fixed stations. Our transfer is to a 0.1-0.25 kg flyer on a moving, turning, falling human anchor with a <=3 L dock. Reuse their state-machine lessons; do not claim the principle as new."
+   },
+   {
+    "category": "Tethered camera drones (consumer / personal)",
+    "whatExists": "Fotokite Phi (Indiegogo 2015-16, ~USD 249 reported, carries a GoPro): powered quadcopter on a leash; tether is kept taut, used as position reference and command input; had a ski/hike 'follow' use case; core algorithms (Lupashin, ETH) under patent application. Fotokite Sigma (public safety, 'actively tethered UAS', 150 ft tether). Falconer (Nith & Rekimoto, IEEE VR 2019): tethered quad with battery in the user's backpack.",
+    "automation": "powered hover; leash reel; follow user via tether angle",
+    "examples": [
+     {
+      "name": "Fotokite Phi Indiegogo",
+      "url": "https://indiegogo.com/projects/fotokite-phi-aerial-videos-made-easy"
+     },
+     {
+      "name": "Fotokite Phi (New Atlas)",
+      "url": "https://newatlas.com/fotokite-phi-tethered-drone/46692"
+     },
+     {
+      "name": "Fotokite Phi patent-pending algorithms (Robohub)",
+      "url": "https://robohub.org/fotokite-phi-gopro-carrying-quadcopter-friendly-compact-light-and-affordable/"
+     },
+     {
+      "name": "Fotokite: flies relative to the user (Knight Center)",
+      "url": "https://knightcenter.jrn.msu.edu/?p=2243"
+     },
+     {
+      "name": "Falconer tethered aerial companion",
+      "url": "https://hdi.famnit.upr.si/HDI_2019_paper_3.pdf"
+     },
+     {
+      "name": "Fotokite regulations per region",
+      "url": "https://manual.fotokite.com/operational-guidelines/regulations-per-region"
+     }
+    ],
+    "differenceFromUs": "Closest product precedent. It is propeller-driven (battery-limited, rotor hazard, drone classification). Ours is unpowered and draws flight energy from rider motion, wind and reel work; the reel does the energy work and docking. Fotokite Phi apparently did not persist in the consumer market (no current product found); a lesson that a leash alone is not enough value - footage quality and zero-effort use must be decisive (ASSUMED interpretation)."
+   },
+   {
+    "category": "Free-flying follow drones with ski modes",
+    "whatExists": "HoverAir X1 Pro / Pro Max: 191.5 / 192.5 g, ski mode, tracking up to 26 mph (11.6 m/s) with short bursts to 37 mph, ~GBP 459. DJI Neo 2: 151 g, ActiveTrack up to 12 m/s, EUR 239 drone only, not officially sold in the US. Timberline Lodge offered drone-follow filming as a service.",
+    "automation": "palm launch/land, vision tracking, obstacle sensing",
+    "examples": [
+     {
+      "name": "HoverAir winter sports",
+      "url": "https://hoverair.com/pages/winter-sports"
+     },
+     {
+      "name": "HoverAir X1 PRO/PROMAX store",
+      "url": "https://uk.hoverair.com/products/hoverair-x1-pro-promax"
+     },
+     {
+      "name": "HoverAir tracking speeds (PB Tech)",
+      "url": "https://www.pbtech.co.nz/product/DROHVAP06H006/HOVERAir-SP06H013-X1-PRO-Combo"
+     },
+     {
+      "name": "DJI Neo 2 announcement",
+      "url": "https://www.dji.com/gr/media-center/announcements/dji-release-neo-2"
+     },
+     {
+      "name": "DJI Neo 2 prices",
+      "url": "https://camerajabber.com/photography-news/dji-neo-2-price-specifications-and-release-date-announced"
+     },
+     {
+      "name": "DJI Neo 2 US availability",
+      "url": "https://amateurphotographer.com/latest/photo-news/dji-neo-2-announced-but-will-you-ever-be-able-to-buy-it-in-the-us/"
+     }
+    ],
+    "differenceFromUs": "Main competitor for the same job. Their weaknesses for skiing: speed ceiling ~12 m/s vs carving 10-18 m/s, battery minutes in cold, rotor-drone resort bans, manual relaunch each run. Our product must beat them on 'zero-effort every run', speed range and resort acceptability, otherwise there is no reason to exist."
+   },
+   {
+    "category": "Body-mounted / thrown cameras",
+    "whatExists": "Insta360 X5 360° camera with 'invisible selfie stick' (USD 549.99, 200 g) gives a fake third-person view; backpack camera boom patent (EP 2729843 'Camera mount for a skier'); GoPro with AER foam wings thrown by a skier; Nixie wrist drone concept (2014) that launches from the wrist and returns to the user.",
+    "examples": [
+     {
+      "name": "Insta360 X5",
+      "url": "https://store.insta360.com/product/x5"
+     },
+     {
+      "name": "Insta360 X5 launch",
+      "url": "https://aol.com/insta360-coming-gopro-x5-8k-130000643.html"
+     },
+     {
+      "name": "EP 2729843 camera mount for a skier",
+      "url": "https://data.epo.org/gpi/EP2729843A1"
+     },
+     {
+      "name": "GoPro AER wings throw",
+      "url": "https://laughingsquid.com/skier-throws-gopro-camera-up-into-air/"
+     },
+     {
+      "name": "Nixie wearable drone",
+      "url": "https://petapixel.com/2014/09/27/nixie-tiny-flying-camera-drone-wear-wrist"
+     }
+    ],
+    "differenceFromUs": "Insta360 X5 is the price/convenience benchmark: zero launch, zero regulation, but limited height and distance (pole shot). Our footage must look clearly better (higher, farther, environment) to justify more complexity."
+   },
+   {
+    "category": "Towed / cable cameras and body-attached kites (patents)",
+    "whatExists": "CA 2037387 cable camera that tracks a skier; US 5,190,256 boat camera tracking a towed water skier via the tow rope; US 8,646,719 marine-towable aerovehicle with automated tow-line release (positive tether tension while reeled in); US 7,775,483 launch and recovery system for tethered airborne elements; US 6,260,803 kite tether control attached to the body; US 5,366,182 Kiteski; US 10,207,820 tethered UAV deployed/docked from a vehicle housing with winch; US 10,191,497 / US 10,370,122 family 'wearable drones' with docking/launch from attire; US 10,365,663 tether-orientation sensor for positioning a tethered aircraft; US 11,713,118 constant-tension tether management; US 9,367,067 digital tethering for tracking; EP 3882143 drone reel with two winding radii.",
+    "examples": [
+     {
+      "name": "CA2037387",
+      "url": "https://brevets-patents.ic.gc.ca/opic-cipo/cpd/eng/patent/2037387/summary.html"
+     },
+     {
+      "name": "US5190256",
+      "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/5190256"
+     },
+     {
+      "name": "US8646719",
+      "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8646719"
+     },
+     {
+      "name": "US7775483",
+      "url": "https://patents.google.com/patent/US7775483"
+     },
+     {
+      "name": "US6260803",
+      "url": "https://patents.google.com/patent/US6260803"
+     },
+     {
+      "name": "US5366182",
+      "url": "https://patents.google.com/patent/US5366182"
+     },
+     {
+      "name": "US10207820",
+      "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10207820"
+     },
+     {
+      "name": "US10191497",
+      "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10191497"
+     },
+     {
+      "name": "US10370122",
+      "url": "https://patents.justia.com/patent/10370122"
+     },
+     {
+      "name": "US10365663",
+      "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10365663"
+     },
+     {
+      "name": "US11713118",
+      "url": "https://patents.google.com/patent/US11713118"
+     },
+     {
+      "name": "US9367067",
+      "url": "https://patents.google.com/patent/US9367067"
+     },
+     {
+      "name": "EP3882143",
+      "url": "https://data.epo.org/gpi/EP3882143B1"
+     }
+    ],
+    "differenceFromUs": "No hit combines a skier-worn reel with an unpowered camera flyer. FTO watch-list (claims not read): wearable-drone docking family (US10191497/US10370122), tether-orientation positioning (US10365663), constant-tension tether management (US11713118), vehicle winch dock (US10207820)."
+   }
+  ],
+  "noveltyStatement": {
+   "existsAlready": [
+    "a camera lifted by a kite (KAP)",
+    "a reel that holds line tension and retracts when wind drops (US 4,058,010, expired)",
+    "reel-in to launch/climb ('step-tow') and automatic winch landing/docking (AWE, fixed stations)",
+    "tethered camera drone following a skier with a leash (Fotokite Phi, powered)",
+    "free follow drones with ski modes, palm launch/land (HoverAir, DJI Neo 2)",
+    "drones that launch from and dock to wearable attire (patent family US10191497/US10370122, powered)"
+   ],
+   "candidateOriginalContributions": [
+    "unpowered (no-propeller) camera flyer kept aloft behind a moving skier only by rider motion, wind and backpack-reel work (active reel-pumping on a moving anchor)",
+    "IMU/barometer intent detection on the wearer that pays out on push-off and retracts on stop, with a hard chairlift interlock",
+    "docking the flyer back onto the wearer's back hands-free, in a <=3 L stowed volume",
+    "framing control through line length/elevation (the reel is the camera dolly)",
+    "kite-class regulatory positioning for a personal follow-cam (no onboard propulsion; optionally no onboard powered steering)"
+   ],
+   "caveat": "Each candidate needs a professional patent search (CPC B64U tethered-UAV groups, B64C 31/06 kites, B66D 1/50 winch control, H04N 23/695 camera tracking, A45F backpacks) before any claim of originality is published. No search professional was contacted."
+  }
+ },
+ "regulations": {
+  "disclaimer": "Desk reading of primary texts where retrieved; not legal advice. Items marked 'unverified' were not confirmed against primary text.",
+  "classificationKey": "Whether the flyer carries any powered system for propulsion OR steering decides kite vs drone in the US; in the EU the <=1 kg tethered exclusion makes it out of scope either way, but national kite/drone rules and resort rules still apply.",
+  "jurisdictions": [
+   {
+    "region": "USA (FAA)",
+    "findings": [
+     {
+      "rule": "14 CFR 1.1 'kite' (quoted in Part 107 preamble): a framework ... flown at the end of a rope or cable, 'having as its only support the force of the wind moving past its surfaces'.",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2016-06-28/html/2016-15079.htm"
+     },
+     {
+      "rule": "Part 107 final rule preamble (81 FR 42064, 2016) §III.C.5: 'a small unmanned aircraft that uses powered systems for actions such as propulsion or steering is not a balloon or kite subject to part 101.'",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2016-06-28/html/2016-15079.htm"
+     },
+     {
+      "rule": "14 CFR 101.1(a)(2): Part 101 covers kites weighing more than 5 lb; lighter kites only by the §101.7 hazard rule.",
+      "url": "https://www.law.cornell.edu/cfr/text/14/101.1"
+     },
+     {
+      "rule": "14 CFR 101.13 (kites >5 lb): not more than 500 ft AGL, not within 5 statute miles of an airport boundary, not where ground visibility < 3 miles, not < 500 ft from cloud base.",
+      "url": "https://www.law.cornell.edu/cfr/text/14/101.13"
+     },
+     {
+      "rule": "14 CFR 107.1(b): Part 107 does not apply to aircraft operated under 49 USC 44809 (limited recreational operations).",
+      "url": "https://www.law.cornell.edu/cfr/text/14/107.1"
+     },
+     {
+      "rule": "49 USC 44809 / FAA recreational flyers: fly for recreation only, pass TRUST, follow a recognised community-based organisation's safety guidelines, <=400 ft in uncontrolled airspace; registration (and Remote ID) is required only above 250 g for recreational flyers (FAA page; ASSUMED current).",
+      "url": "https://www.faa.gov/uas/recreational_flyers"
+     },
+     {
+      "rule": "Operations over people, Category 1: small UA <=0.55 lb (~250 g) including everything attached, no exposed rotating parts that would lacerate skin; no FAA means of compliance needed.",
+      "url": "https://www.federalregister.gov/documents/2021/01/15/2020-28947/operation-of-small-unmanned-aircraft-systems-over-people"
+     },
+     {
+      "rule": "Actively tethered UAS (49 USC 44801/44806 as amended 2024, per Fotokite manual): public-safety operators only; up to 150 ft AGL. Not available to consumers.",
+      "url": "https://manual.fotokite.com/operational-guidelines/regulations-per-region"
+     }
+    ],
+    "classificationForUs": {
+     "A_passiveFlyer_backpackReelOnly": "Arguably a kite (<5 lb): only §101.7 'no hazard to persons/property' applies; no pilot certificate, no registration. Risk: the reel is powered and the system is autonomous - FAA has not ruled on a powered ground winch making a kite a UAS (open item OI-REG-01).",
+     "B_flyerWithServosOrOnboardReel": "Small unmanned aircraft. Recreational use: 44809 (TRUST, CBO guidelines, <=400 ft); <250 g avoids registration/Remote ID. Commercial use (instructors, guides, rental): Part 107 certificate, registration, Remote ID; Category 1 over-people eligibility if <=0.55 lb and no exposed rotating parts (none - no propeller)."
+    }
+   },
+   {
+    "region": "European Union (EASA)",
+    "findings": [
+     {
+      "rule": "Basic Regulation (EU) 2018/1139 Annex I point 2: the Regulation 'shall not apply to (a) tethered aircraft with no propulsion system, where the maximum length of the tether is 50 m, and where the MTOM ... is less than 25 kg ...; (b) tethered aircraft with a MTOM of no more than 1 kg.' (text read from the UK-retained copy; EU original identical per EASA FAQ, re-check on EUR-Lex)",
+      "url": "https://www.legislation.gov.uk/eur/2018/1139/annex/I"
+     },
+     {
+      "rule": "EASA FAQ 132034: the UAS Regulation applies to tethered UAS heavier than 1 kg with a propulsion system; tethered free-flight aircraft such as kites only above 25 kg (fetch rate-limited today; content per search snippet).",
+      "url": "https://www.easa.europa.eu/en/faq/132034"
+     },
+     {
+      "rule": "Delegated Regulation (EU) 2019/945 Annex, class C2/C3 requirements: 'in the case of a tethered UA, have a tensile length of the tether that is less than 50 m and a mechanical strength ... no less than 10 times the weight of the aerodyne at maximum mass' (read from UK CAA consolidated copy, Part 3 item 5). Not binding on us if excluded, but a good design rule.",
+      "url": "https://regulatorylibrary.caa.co.uk/2019-945-pdf/PDF.pdf"
+     },
+     {
+      "rule": "Counter-example: Kitepower's large AWE kite (>1 kg, long tether) was treated as a drone in the specific category (SORA).",
+      "url": "https://thekitepower.com/airspace-regulation-to-operate-a-kitepower-system/"
+     }
+    ],
+    "classificationForUs": "An 80-250 g tethered flyer is outside the EU drone regulation regardless of propulsion (<=1 kg exclusion). Keeping the tether <=50 m and having no propulsion also satisfies the second exclusion, which protects us if the mass ever grows above 1 kg. National kite rules and local/resort rules then govern."
+   },
+   {
+    "region": "Germany (national)",
+    "findings": [
+     {
+      "rule": "LuftVO §20(1) no. 1: flying kites on a line longer than 100 m needs a permit from the Land aviation authority; line must be flagged every 100 m. §19: no kites within 1.5 km of aerodromes (per search summary, unverified section number).",
+      "url": "https://www.gesetze-im-internet.de/luftvo_2015/__20.html"
+     }
+    ],
+    "classificationForUs": "<=50 m line: no permit needed (verify §19 aerodrome distance)."
+   },
+   {
+    "region": "United Kingdom (CAA)",
+    "findings": [
+     {
+      "rule": "ANO 2016 art. 92: without CAA permission no kite (or its tether) may extend more than 60 m above ground level, nor be flown in controlled/notified airspace or hazardously.",
+      "url": "https://www.legislation.gov.uk/uksi/2016/765/article/92"
+     },
+     {
+      "rule": "CAA kite permissions >60 m AGL.",
+      "url": "https://www.caa.co.uk/general-aviation/displays-events-and-activities/kites"
+     }
+    ],
+    "classificationForUs": "<=50 m line keeps any part below 60 m AGL on flat ground; on steep slopes 'above ground level' is measured to terrain - stays <60 m with a 50 m line."
+   },
+   {
+    "region": "Switzerland",
+    "findings": [
+     {
+      "rule": "BAZL applies EASA drone rules; Air Zermatt states prior authorisation is needed for drones within 5 km of landing fields/heliports (covers most of Zermatt). Swiss kite rules not found.",
+      "url": "https://www.air-zermatt.ch/en/service/pilots--ppr--drones"
+     }
+    ],
+    "classificationForUs": "unverified - heliports are common in Alpine resorts; geofence needed."
+   },
+   {
+    "region": "Canada",
+    "findings": [
+     {
+      "rule": "Fotokite manual (citing TC AIM RPA 3.2.38): a drone tethered so that it cannot be manoeuvred or navigated is not an RPA; fly below 45 m or mark the tether.",
+      "url": "https://manual.fotokite.com/operational-guidelines/regulations-per-region"
+     },
+     {
+      "rule": "CARs 602.45 (2019-2024 version): no kite into cloud or in a manner hazardous to aviation.",
+      "url": "https://lois-laws.justice.gc.ca/eng/regulations/SOR-96-433/section-602.45-20190601.html"
+     }
+    ],
+    "classificationForUs": "unverified - an actively steered flyer may be an RPA; <250 g micro RPAS rules apply; 45 m guidance suggests a 45 m soft cap for Canada."
+   },
+   {
+    "region": "China (CAAC / State Council)",
+    "findings": [
+     {
+      "rule": "无人驾驶航空器飞行管理暂行条例 (2024-01-01) Art. 62: micro UA = empty mass <0.25 kg, max true height <=50 m, max level speed <=40 km/h, micro-power radio, human can intervene at any time. Art. 31: micro/light/small UA in suitable airspace need no flight application. No tethered-specific clause found in the text.",
+      "url": "https://www.gov.cn/zhengce/content/202306/content_6888799.htm"
+     }
+    ],
+    "classificationForUs": "A powered/steered flyer following a skier at >11 m/s exceeds the micro speed definition -> 'light' class (real-name registration, airspace-keeping capability). A passive kite falls outside the UA definition (unverified; local kite bans near airports exist). Open item OI-REG-04."
+   }
+  ],
+  "skiResortPolicies": [
+   {
+    "operator": "Vail Resorts (all properties incl. Whistler, Andermatt, Crans-Montana per ownership; policy page on Heavenly)",
+    "rule": "Drones prohibited over or on resort property, including those launched outside, unless written permission for limited licensed commercial purposes. 'Drone' not defined; kites not mentioned.",
+    "url": "https://www.skiheavenly.com/the-mountain/about-the-mountain/safety/drones/drone-policy"
+   },
+   {
+    "operator": "Utah resorts (Alta, Brian Head ...)",
+    "rule": "Prohibited without written permission; Brian Head: violations may cost access/season pass.",
+    "url": "https://www.skiutah.com/blog/utah-resort-drone-policies"
+   },
+   {
+    "operator": "Stratton, Grand Targhee (examples)",
+    "rule": "Prior written authorisation required for any drone use.",
+    "url": "https://www.stratton.com/the-mountain/drone-policy"
+   },
+   {
+    "operator": "Grand Targhee",
+    "rule": "Written drone policy requiring authorisation.",
+    "url": "https://www.GrandTarghee.com/sites/default/files/2022-11/GTR%20Drone%20Policy.pdf"
+   },
+   {
+    "operator": "Niseko (Grand Hirafu / Niseko United)",
+    "rule": "Snow kites (and sleds etc.) not allowed on the ski area; hang gliders/paragliders/balloons need special permission.",
+    "url": "https://www.niseko.ne.jp/en/?p=2497"
+   },
+   {
+    "operator": "Telluride",
+    "rule": "Paragliding/hang gliding prohibited without written agreement; drones need prior written authorisation.",
+    "url": "https://tellurideskiresort.com/?p=1098"
+   },
+   {
+    "operator": "General (snowkiting)",
+    "rule": "Resorts generally do not allow snow kites; kiters use ridgelines and frozen lakes (journalistic source).",
+    "url": "https://vault.sierraclub.org/sierra/200911/snowkiting.aspx"
+   }
+  ],
+  "implicationsForDesign": [
+   {
+    "id": "REG-D1",
+    "req": "Mechanical end stop on usable line length <=50 m (firmware soft cap per region: 45 m Canada); operating range 5-15 m.",
+    "basis": "EU 2018/1139 Annex I 2(a); 2019/945 tether <50 m; DE 100 m; UK 60 m AGL; China micro 50 m true height; imaging geometry (below)."
+   },
+   {
+    "id": "REG-D2",
+    "req": "No onboard propulsion (no propeller, no motor-driven thrust). Strongly prefer no onboard powered steering either (architecture A) - if engineering needs servos for stability/framing, accept US small-UAS status and keep <250 g.",
+    "basis": "FAA 2016 preamble (powered propulsion or steering => not a kite); EU exclusion 2(a); also removes rotor laceration hazard and keeps FAA Category 1 'no exposed rotating parts'."
+   },
+   {
+    "id": "REG-D3",
+    "req": "Flyer mass incl. camera and line attachment <250 g hard; target <=150 g.",
+    "basis": "FAA recreational registration threshold 250 g; Category 1 0.55 lb; China micro 0.25 kg; KE: m <= 2*14.9/v^2 -> 207 g at 12 m/s, 152 g at 14 m/s, 116 g at 16 m/s (criteria.js keMax 14.9 J)."
+   },
+   {
+    "id": "REG-D4",
+    "req": "Line + attachment strength >=10x flyer weight AND a calibrated weak link below the body-force limit (<=40 N at the harness) so a snag never drags the rider; on weak-link release the flyer must become a low-energy, non-flying object (automatic depower/spoiler or drag collapse) and carry a locator beacon.",
+    "basis": "2019/945 C2/C3 tether strength clause (good practice); criteria.js bodyForcePeak 40 N; §101.7 no-hazard rule."
+   },
+   {
+    "id": "REG-D5",
+    "req": "Hi-visibility line and flyer; line held steep (>=60° elevation during ride) so the line is below 2 m only within ~0.35 m behind a 1.4 m-high anchor (45°: 0.6 m; 30°: 1.0 m).",
+    "basis": "Clothesline hazard (docs/20 §8.3); geometry computed: dist = (2-1.4)/tan(elev)."
+   },
+   {
+    "id": "REG-D6",
+    "req": "Geofence/permission layer: airport/heliport proximity database (5 km heliport rule in Zermatt, 1.5 km DE aerodromes), and a 'resort mode' that can be locked to resort-approved settings; refuse to launch inside lift corridors.",
+    "basis": "Air Zermatt; LuftVO; resort policies."
+   },
+   {
+    "id": "REG-D7",
+    "req": "Marketing and manual must not claim 'not a drone' or 'legal everywhere'; ship a per-region legal card; the default market entry is backcountry/touring + partner resorts with written permission (no outreach done).",
+    "basis": "Resort policies ban drones without permission and do not define drones; kites banned at some resorts."
+   }
+  ],
+  "openItems": [
+   {
+    "id": "OI-REG-01",
+    "item": "Does a powered ground (wearer-side) winch that pumps an unpowered flyer keep 'kite' status under 14 CFR 1.1 ('only support the force of the wind')? Apparent wind from reel-in is still airflow, but FAA has not ruled. Needs FAA interpretation request or counsel (not contacted)."
+   },
+   {
+    "id": "OI-REG-02",
+    "item": "Is an autonomous kite flown by a moving person a hazard under §101.7 at a resort with other skiers? Practical risk higher than legal text."
+   },
+   {
+    "id": "OI-REG-03",
+    "item": "EU national rules for <=1 kg tethered aircraft in AT, FR, IT, CH (not retrieved)."
+   },
+   {
+    "id": "OI-REG-04",
+    "item": "China: status of tethered/kite-class flyers and local kite bans; 40 km/h micro speed limit applicability to an unpowered flyer."
+   },
+   {
+    "id": "OI-REG-05",
+    "item": "Resort acceptance: whether a 'kite-class, no-propeller, <=150 g, <=15 m line' device can get a blanket approval category. Requires user authorisation before any contact."
+   },
+   {
+    "id": "OI-REG-06",
+    "item": "Product liability/insurance for a device trailing a line on a public piste."
+   }
+  ]
+ },
+ "userJourney": [
+  {
+   "stage": "J1 Gear-up at car",
+   "user": "Charge confirmed the night before; put on pack (device integrated or clipped), power on, phone app optional.",
+   "system": "Self-test: battery %, line length/wear counter, dock lock, IMU calibration; single haptic/beep = ready. Region rules loaded.",
+   "targets": {
+    "dailyGearUp": "<=2 min (ASSUMED)",
+    "timeToFirstFlightOutOfBox": "<=15 min incl. pairing (ASSUMED)"
+   },
+   "risks": [
+    "forgotten charge",
+    "line iced from previous day",
+    "unclear status without screen"
+   ]
+  },
+  {
+   "stage": "J2 Lift ride (chairlift, gondola, T-bar, magic carpet)",
+   "user": "Nothing to do.",
+   "system": "Stowed and mechanically locked; launch inhibited by lift detection (barometric climb + low vibration + speed pattern + optional manual 'lift lock'); nothing dangles; pack profile safe against chair back and restraint bar.",
+   "targets": {
+    "falseLaunchOnLift": "0 (hard)",
+    "packVol": "<=3 L (criteria.js)"
+   },
+   "risks": [
+    "launch on chairlift = catastrophic (line in lift)",
+    "T-bar/drag lift looks like skiing to an IMU",
+    "dock hook snagging chair"
+   ]
+  },
+  {
+   "stage": "J3 Top / getting ready",
+   "user": "Clip in, adjust goggles; optionally one press 'arm' (or auto-arm).",
+   "system": "Wind estimate from flyer/pack sensors; refusal with clear audible reason if outside envelope; checks crowding behind (camera) if available.",
+   "targets": {
+    "ops": "<=2 per run (criteria.js)",
+    "handsBusy": "<=5 % while moving"
+   },
+   "risks": [
+    "unload ramp crowds",
+    "user does not understand refusal"
+   ]
+  },
+  {
+   "stage": "J4 Push-off / launch",
+   "user": "Ski away as normal.",
+   "system": "IMU detects intentional downhill start (speed, heading consistency, gravity-aligned acceleration); releases dock, pays out; uses rider speed + reel to build airspeed; stabilises at framing length.",
+   "targets": {
+    "launchSuccess": ">=95 % in envelope",
+    "timeToAirborneStable": "<=10 s (ASSUMED)",
+    "missedLaunch": "<=5 % of runs"
+   },
+   "risks": [
+    "slow beginners never reach launch airspeed",
+    "tailwind = no apparent wind (kite2/towglider failure)",
+    "flyer hits helmet on release (headClear >=1.0 m)"
+   ]
+  },
+  {
+   "stage": "J5 Ride / film",
+   "user": "Ski; nothing to do.",
+   "system": "Tension/elevation/vision control: let out with excess lift, reel in to regain lift; keep full-body framing; record automatically.",
+   "targets": {
+    "avail": ">=80 %",
+    "pxMed": ">=300 px",
+    "jitterRms": "<=3 °/s",
+    "azRange": ">=45°",
+    "bodyForcePeak": "<=40 N",
+    "keMax": "<=14.9 J"
+   },
+   "risks": [
+    "line in shot",
+    "line clothesline for others",
+    "turn-induced slack",
+    "jumps and drops"
+   ]
+  },
+  {
+   "stage": "J6 Stop (planned)",
+   "user": "Stop normally.",
+   "system": "Detect stop; decide hold-short vs full dock (short stop <10-15 s may hold at short line if wind allows); reel in and dock; lock.",
+   "targets": {
+    "autoDockFirstAttempt": ">=98 %",
+    "dockTimeP90": "<=10 s",
+    "setupTime": "<=30 s p90 (deploy+stow, criteria.js)",
+    "falseDocked": "0"
+   },
+   "risks": [
+    "flyer swings into rider or nearby skier at dock",
+    "dock in crosswind",
+    "stop in a crowd at lift entrance"
+   ]
+  },
+  {
+   "stage": "J7 Fall / crash",
+   "user": "Fall; possibly tumble, lose skis.",
+   "system": "Detect fall (impact + orientation + speed drop); immediately limit line force (clutch free or weak link) and keep flyer away from head; then retract when rider is static; hold if line tangled.",
+   "targets": {
+    "bodyForceDuringFall": "<=40 N",
+    "headClearDuringFall": ">=1.0 m except declared dock window",
+    "lineEntanglementOfRider": "0 in test set"
+   },
+   "risks": [
+    "line wraps around limbs/poles",
+    "flyer buried in powder",
+    "reel retracting into a tangled rider"
+   ]
+  },
+  {
+   "stage": "J8 Recover and go again",
+   "user": "Get up, ski on.",
+   "system": "Re-launch automatically when moving again (same as J4) or after manual 'go' if a fault was logged.",
+   "targets": {
+    "recoveryNoHands": ">=90 % of falls (ASSUMED)",
+    "manualFallbackStow": "<=30 s with gloves"
+   },
+   "risks": [
+    "repeated re-launch attempts in crowded spot"
+   ]
+  },
+  {
+   "stage": "J9 Walk / skate / queue / skin uphill",
+   "user": "Walk in boots, skate flats, shuffle in queue, skin uphill (touring).",
+   "system": "No launch (activity classification); allow manual 'film this' override only when speed and space allow.",
+   "targets": {
+    "unintendedLaunchPerDay": "<=0.2 (i.e. <=1 per 5 ski days, ASSUMED)"
+   },
+   "risks": [
+    "cat-track skating at 4-6 m/s looks like skiing"
+   ]
+  },
+  {
+   "stage": "J10 End of day",
+   "user": "Take pack off at car / lodge.",
+   "system": "Auto offload clips to phone; highlight reel; battery report; line wear count; drying reminder.",
+   "targets": {
+    "clipOnPhoneAfterRun": "<=5 min (nice-to-have)",
+    "endurance": ">=45 min filming at -10 °C (criteria.js)"
+   },
+   "risks": [
+    "wet line freezes in pack overnight",
+    "flash storage full"
+   ]
+  }
+ ],
+ "jobsToBeDone": [
+  {
+   "id": "JTBD-1",
+   "job": "When I ski a good run alone, I want third-person footage of my whole body and the scenery, so I can relive and share it - without a friend or a drone pilot.",
+   "type": "functional+social",
+   "priority": "core"
+  },
+  {
+   "id": "JTBD-2",
+   "job": "When I am working on technique, I want the same repeatable behind/above angle on every run, so I can compare turns and see progress.",
+   "type": "functional (coaching)",
+   "priority": "core"
+  },
+  {
+   "id": "JTBD-3",
+   "job": "When I ski, I don't want to think about the camera: no buttons, no extra stops, nothing on the lift.",
+   "type": "convenience",
+   "priority": "core (hire criterion)"
+  },
+  {
+   "id": "JTBD-4",
+   "job": "When there are other people around, I need to be sure the device can't hurt anyone or get me banned from the resort.",
+   "type": "emotional/safety",
+   "priority": "core (fire criterion)"
+  },
+  {
+   "id": "JTBD-5",
+   "job": "When I tour in the backcountry, I want epic wide shots of me in the landscape with minimal weight and no extra transition time.",
+   "type": "functional",
+   "priority": "segment"
+  },
+  {
+   "id": "JTBD-6",
+   "job": "When I ski with my kids, I want to capture us together without handling a phone on the slope.",
+   "type": "social",
+   "priority": "segment (out of solo scope if it requires filming others; test only)"
+  }
+ ],
+ "requirements": {
+  "mustHave": [
+   {
+    "id": "PM-M01",
+    "req": "Hands-free automatic launch on intentional push-off; no action while moving.",
+    "metric": "handsBusy <=5 %, ops <=2/run",
+    "source": "sim/js/concepts/common/criteria.js"
+   },
+   {
+    "id": "PM-M02",
+    "req": "Automatic retrieve and dock onto the pack on stop, with verified mechanical lock state (no false 'docked').",
+    "metric": "first-attempt dock >=98 %; dock p90 <=10 s; false-docked 0"
+   },
+   {
+    "id": "PM-M03",
+    "req": "Hard lift interlock: zero launch while on any lift; manual lift-lock available with gloves.",
+    "metric": "false launch on lift = 0 over >=500 logged lift rides"
+   },
+   {
+    "id": "PM-M04",
+    "req": "Line length mechanical cap 50 m; operating 5-15 m; no onboard propulsion.",
+    "metric": "REG-D1, REG-D2"
+   },
+   {
+    "id": "PM-M05",
+    "req": "Safety envelope: keMax <=14.9 J, headClear >=1.0 m, bodyForcePeak <=40 N incl. snags and falls; weak link; flyaway-safe flyer.",
+    "metric": "criteria.js; REG-D3/D4"
+   },
+   {
+    "id": "PM-M06",
+    "req": "Usable footage: avail >=80 %, pxMed >=300, jitter <=3 °/s, azRange >=45° over FULLRUN_CASES_R4.",
+    "metric": "criteria.js"
+   },
+   {
+    "id": "PM-M07",
+    "req": "Wearability: added mass <=1.5 kg (target <=0.9 kg), stowed <=3 L, compatible with avalanche pack/airbag and lift seat.",
+    "metric": "addedMass, packVol"
+   },
+   {
+    "id": "PM-M08",
+    "req": "Clear wind/terrain refusal with spoken/beep reason; never a silent failure.",
+    "metric": "user comprehension >=90 % in test T12"
+   },
+   {
+    "id": "PM-M09",
+    "req": "Fall detection and safe line response within 0.5 s.",
+    "metric": "T06/T07 pass"
+   },
+   {
+    "id": "PM-M10",
+    "req": "Glove-operable single control (stop/reel-in/lift-lock), reachable on the shoulder strap with either hand.",
+    "metric": "UX-01; T14"
+   },
+   {
+    "id": "PM-M11",
+    "req": "Cold endurance >=45 min filming at -10 °C per charge.",
+    "metric": "endurance"
+   },
+   {
+    "id": "PM-M12",
+    "req": "Automatic recording start/stop and footage offload to phone.",
+    "metric": "100 % of airborne time recorded"
+   },
+   {
+    "id": "PM-M13",
+    "req": "Manual fallback stow in <=30 s with gloves when auto-dock fails; locator beacon for lost flyer.",
+    "metric": "setupTime p90 <=30 s incl. retries"
+   },
+   {
+    "id": "PM-M14",
+    "req": "Region legal profile + geofence (airports/heliports) + resort mode.",
+    "metric": "REG-D6"
+   }
+  ],
+  "niceToHave": [
+   {
+    "id": "PM-N01",
+    "req": "Shot styles: behind-high, side-high, lead (if physics allows), selectable in app before the run."
+   },
+   {
+    "id": "PM-N02",
+    "req": "Auto-edited highlight reel and turn analysis (coach mode)."
+   },
+   {
+    "id": "PM-N03",
+    "req": "Live preview on phone at stops."
+   },
+   {
+    "id": "PM-N04",
+    "req": "Hold-at-short-line during short stops to film the stop/scenery (only if safe)."
+   },
+   {
+    "id": "PM-N05",
+    "req": "Speed/altitude overlays; GPS track sync."
+   },
+   {
+    "id": "PM-N06",
+    "req": "Voice commands ('film', 'land')."
+   },
+   {
+    "id": "PM-N07",
+    "req": "User-replaceable line cartridge; line wear indicator."
+   },
+   {
+    "id": "PM-N08",
+    "req": "-20 °C operation; 90 min endurance."
+   },
+   {
+    "id": "PM-N09",
+    "req": "Regenerative energy capture during payout (reel as generator)."
+   },
+   {
+    "id": "PM-N10",
+    "req": "Group/companion filming (out of solo scope; research only)."
+   }
+  ],
+  "explicitNonGoals": [
+   "filming third parties or children as subjects without the wearer",
+   "propeller/thrust on the flyer",
+   "lines longer than 50 m",
+   "operation in lift corridors or above other people deliberately"
+  ]
+ },
+ "successMetrics": {
+  "sharedCriteria": {
+   "source": "sim/js/concepts/common/criteria.js",
+   "use": "All 13 shared metrics apply unchanged with the same thresholds and definitions; product adds no relaxations.",
+   "list": {
+    "avail": ">=80 %",
+    "pxMed": ">=300 px",
+    "jitterRms": "<=3 °/s (assumed)",
+    "azRange": ">=45°",
+    "addedMass": "<=1.5 kg",
+    "bodyForcePeak": "<=40 N (assumed)",
+    "handsBusy": "<=5 %",
+    "setupTime": "<=30 s p90",
+    "ops": "<=2",
+    "keMax": "<=14.9 J",
+    "packVol": "<=3 L (assumed)",
+    "headClear": ">=1.0 m (assumed)",
+    "endurance": ">=45 min at -10 °C"
+   }
+  },
+  "productMetrics": [
+   {
+    "id": "falseLaunchLift",
+    "def": "payout started while on any lift",
+    "target": "0 per 500 lift rides",
+    "measure": "replay of logged lift IMU/baro traces (sim) then field logs (NOT_RUN)",
+    "status": "ASSUMED target"
+   },
+   {
+    "id": "unintendedLaunchPerDay",
+    "def": "payout when the user did not intend to film (queue, skating flats, walking, skinning, sitting)",
+    "target": "<=0.2 per ski day",
+    "measure": "day-long activity traces (~6 h, ~20 runs)",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "missedLaunchRate",
+    "def": "share of runs >=20 s at >=5 m/s with no airborne filming within 10 s of push-off (excluding declared wind refusals)",
+    "target": "<=5 %",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "launchSuccess",
+    "def": "launch attempts that reach stable framed flight without user action",
+    "target": ">=95 % in envelope",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "autoDockSuccess",
+    "def": "stops ending in locked dock without user action, first attempt",
+    "target": ">=98 % first attempt; >=99.5 % within 2 attempts",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "dockTimeP90",
+    "def": "stop detected -> locked",
+    "target": "<=10 s (inside the 30 s setupTime budget)",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "falseDocked",
+    "def": "system reports locked when not locked",
+    "target": "0",
+    "status": "hard"
+   },
+   {
+    "id": "refusalRate",
+    "def": "share of runs refused for wind/terrain in a typical season mix",
+    "target": "<=15 % (else product feels unreliable)",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "timeToFirstFlight",
+    "def": "unboxing to first filmed run, incl. charging excluded, app pairing included",
+    "target": "<=15 min",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "dailyGearUp",
+    "def": "car to ready-to-ride",
+    "target": "<=2 min",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "lostFlyerRate",
+    "def": "flyer not recovered after weak-link release or fly-away",
+    "target": "<=1 per 1000 flight-hours; 100 % located with beacon within 15 min",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "tangleRecoveryTime",
+    "def": "line tangle/snag to ready, no tools, gloves on",
+    "target": "<=2 min p90",
+    "status": "ASSUMED"
+   },
+   {
+    "id": "thirdPartyExposure",
+    "def": "seconds per run that any line segment below 2 m lies more than 0.5 m behind the rider",
+    "target": "0 s at elevation >=60°; report distribution",
+    "status": "ASSUMED, new sim metric proposal"
+   },
+   {
+    "id": "usableClipsPerDay",
+    "def": "runs yielding >=1 shareable 10 s clip (subjective panel)",
+    "target": ">=70 % of runs",
+    "status": "ASSUMED, viewer panel needed"
+   },
+   {
+    "id": "priceClass",
+    "def": "retail price target",
+    "target": "USD 399-599 (between DJI Neo 2 EUR 239 / Fotokite Phi ~USD 249 and Insta360 X5 USD 549.99 / HoverAir X1 Pro GBP 459); BOM <=USD 150 (ASSUMED 25-35 % of retail)",
+    "status": "ASSUMED; benchmarks cited in priorArt"
+   }
+  ],
+  "imagingGeometryNote": "Full body >=300 px in 1080p means the subject spans >=28 % of the vertical FOV: max distance ~5 m at 70° VFOV, ~9 m at 40°, ~16 m at 22°, ~29 m at 12.4° (d = 1.75 m / (0.278 * VFOV_rad); approximate, ignores obliquity). Longer lines only help with narrow FOV and very good stabilisation; product proposes 5-15 m operating length."
+ },
+ "personas": [
+  {
+   "id": "P1",
+   "name": "Lena - beginner",
+   "profile": "28, second season, green/blue groomed runs, snowplough/early parallel, 3-8 m/s, many stops and falls, 3-4 h/day, 12-18 runs.",
+   "wants": "proof of progress to share; zero fiddling; reassurance it is safe",
+   "fears": "embarrassment, hurting someone, losing an expensive gadget",
+   "stress": "low speed = little apparent wind; frequent stops/falls; slow drifts that look like starts",
+   "successFor": "films >=60 % of her runs without any action; never pulls her off balance (body force) ",
+   "envelopeNote": "may sit below the launch airspeed - product must say so honestly"
+  },
+  {
+   "id": "P2",
+   "name": "Wei - intermediate carver (primary persona)",
+   "profile": "35, groomers and long carving runs, 10-15 m/s, 20-25 runs/day, wants technique video and social clips.",
+   "wants": "same angle every run, full body, smooth footage",
+   "fears": "battery dies by noon, lift hassle",
+   "stress": "sustained speed, turn-induced slack, tail and cross winds",
+   "successFor": "avail >=80 % across the day, endurance covers the day's filmed minutes"
+  },
+  {
+   "id": "P3",
+   "name": "Marco - expert freerider",
+   "profile": "31, off-piste, trees, drops/jumps, 15-20 m/s, deep snow falls, steep faces.",
+   "wants": "high, wide, epic shots; no gear that can catch on trees",
+   "fears": "line snag at speed, flyer in tree wells",
+   "stress": "KE cap at high speed (flyer <=116 g at 16 m/s), trees, air time slack, burial",
+   "successFor": "weak link always saves him; device refuses in trees rather than snagging",
+   "envelopeNote": "tree skiing likely outside envelope - acceptable if refused clearly"
+  },
+  {
+   "id": "P4",
+   "name": "Anna - family / crowded piste",
+   "profile": "42, skis with two kids (7 and 10) on busy blue runs, slow speeds, many short stops, lift queues and magic carpets.",
+   "wants": "footage of the family day without holding a phone",
+   "fears": "the line hitting a child or another skier, resort staff stopping her",
+   "stress": "third parties close behind, frequent stop/start, queues, clothesline, permission",
+   "successFor": "zero unintended launches in queues; never a line below 2 m more than 0.5 m behind her; product politely stays stowed when crowded"
+  },
+  {
+   "id": "P5",
+   "name": "Sven - backcountry tourer",
+   "profile": "45, ski touring, 1-2 h skinning, 5-10 min descents, -15 °C, ridge winds, avalanche pack.",
+   "wants": "landscape shots of descents, light and compact, no extra transition time",
+   "fears": "weight, conflict with airbag, dead battery in cold",
+   "stress": "skinning must never trigger launch; cold endurance; high ridge wind; narrow couloirs",
+   "successFor": "added mass <=0.9 kg; no launch while skinning; launches reliably on open descents"
+  }
+ ],
+ "testScenarios": {
+  "note": "For the user-tester team. 'sim' = can be run now in sim/ with shared rules; 'sim-new' = needs a new scripted scenario (proposal to integrator); 'physical' = NOT_RUN, requires user authorisation, protected fixtures first (SF-03).",
+  "list": [
+   {
+    "id": "T01",
+    "persona": "all",
+    "name": "Standard full run",
+    "steps": "FULLRUN_CASES_R4: ride 38 s, stop 20 s, ride 33 s, stop 10 s; calm + 3/6/9 m/s head/tail/cross + tail 3.5/4.5/5.5, 3 seeds",
+    "pass": "all 13 shared criteria",
+    "mode": "sim"
+   },
+   {
+    "id": "T02",
+    "persona": "P1",
+    "name": "Beginner slow run",
+    "steps": "3-7 m/s snowplough, 6 stops of 5-30 s, 2 falls (sideways at 4 m/s), 10 min",
+    "pass": "no body force >40 N, headClear >=1.0 m, honest refusal below launch speed, missedLaunch excluding refusals <=5 %",
+    "mode": "sim-new"
+   },
+   {
+    "id": "T03",
+    "persona": "P2",
+    "name": "Long carving day",
+    "steps": "20 runs x 2-4 min at 10-15 m/s with lifts between; mixed winds",
+    "pass": "avail >=80 %, endurance >= day filmed minutes at -10 °C, dock success >=98 %",
+    "mode": "sim-new"
+   },
+   {
+    "id": "T04",
+    "persona": "P2",
+    "name": "Tailwind push-off",
+    "steps": "push-off with 3.5-5.5 m/s tailwind (the band that killed kite2/towglider)",
+    "pass": "launch or clear refusal; keMax <=14.9 J; no head contact",
+    "mode": "sim"
+   },
+   {
+    "id": "T05",
+    "persona": "P2/P4",
+    "name": "Short stop (10 s) and go",
+    "steps": "stop 10 s then ski off",
+    "pass": "hold or dock decision safe; setupTime p90 <=30 s",
+    "mode": "sim"
+   },
+   {
+    "id": "T06",
+    "persona": "P2/P3",
+    "name": "Forward fall at 12 m/s",
+    "steps": "sudden stop/tumble with flyer airborne at framing length",
+    "pass": "bodyForce <=40 N (50 ms mean), flyer never within 1.0 m of helmet, line not around limbs",
+    "mode": "sim-new"
+   },
+   {
+    "id": "T07",
+    "persona": "P4",
+    "name": "Third party passes behind",
+    "steps": "another skier crosses 1-3 m behind the rider at 8 m/s",
+    "pass": "thirdPartyExposure = 0 s; if contact, KE <=14.9 J ground frame and line force on third party <=40 N",
+    "mode": "sim-new"
+   },
+   {
+    "id": "T08",
+    "persona": "P3",
+    "name": "Tree snag",
+    "steps": "line hooks a branch 5 m behind at 15 m/s",
+    "pass": "weak link/clutch keeps body force <=40 N; flyer becomes non-flying; beacon active",
+    "mode": "sim-new + physical bench (NOT_RUN)"
+   },
+   {
+    "id": "T09",
+    "persona": "P3",
+    "name": "Jump / drop",
+    "steps": "1.5 s airtime, landing at 14 m/s",
+    "pass": "no slack wrap, framing reacquired <=3 s, no false fall detection",
+    "mode": "sim-new"
+   },
+   {
+    "id": "T10",
+    "persona": "P5",
+    "name": "Skinning + transition + descent",
+    "steps": "45 min skin uphill at 1 m/s, transition, 8 min descent at 8-12 m/s, -15 °C",
+    "pass": "0 launches while skinning; launch on descent; endurance margin",
+    "mode": "sim-new (activity classifier replay)"
+   },
+   {
+    "id": "T11",
+    "persona": "all",
+    "name": "Lift interlock and queue",
+    "steps": "replay chairlift, gondola, T-bar, magic carpet and queue shuffle traces",
+    "pass": "0 launches on lifts; <=0.2 unintended launches/day",
+    "mode": "sim-new (IMU trace replay; recorded traces needed - NOT_RUN)"
+   },
+   {
+    "id": "T12",
+    "persona": "all",
+    "name": "Wind refusal comprehension",
+    "steps": "9 m/s cross wind at top; device refuses",
+    "pass": ">=90 % of testers correctly explain why and what to do",
+    "mode": "physical/usability (NOT_RUN)"
+   },
+   {
+    "id": "T13",
+    "persona": "all",
+    "name": "Board lift with line out (fault)",
+    "steps": "dock failed, user approaches lift",
+    "pass": "alarm + forced reel-in or manual stow <=30 s",
+    "mode": "sim-new + usability"
+   },
+   {
+    "id": "T14",
+    "persona": "all",
+    "name": "Gloves and handedness",
+    "steps": "all manual actions with thick mittens, left/right hand, poles in hand",
+    "pass": "each action <=5 s, no blind insertion behind back",
+    "mode": "physical/usability (NOT_RUN); MODAPTS estimate in sim"
+   },
+   {
+    "id": "T15",
+    "persona": "all",
+    "name": "Auto-dock failure fallback",
+    "steps": "inject dock failure (crosswind 9 m/s)",
+    "pass": "manual stow <=30 s p90; no hand within 0.3 m of a moving line under load",
+    "mode": "sim + usability"
+   },
+   {
+    "id": "T16",
+    "persona": "all",
+    "name": "Out-of-box to first flight",
+    "steps": "unbox, pair, fit pack, first run",
+    "pass": "<=15 min, no manual reading needed for basic use",
+    "mode": "usability (NOT_RUN)"
+   },
+   {
+    "id": "T17",
+    "persona": "P4",
+    "name": "Crowded slope auto-stay-stowed",
+    "steps": "busy piste density (e.g. >1 person per 100 m^2 behind)",
+    "pass": "device stays stowed or shortens line; user informed",
+    "mode": "sim-new (needs crowd model)"
+   },
+   {
+    "id": "T18",
+    "persona": "all",
+    "name": "Footage viewer panel",
+    "steps": "blind comparison vs Insta360 X5 pole shot and HoverAir ski mode clips",
+    "pass": ">=60 % prefer our clip (else no product reason)",
+    "mode": "physical (NOT_RUN); sim renders can only rehearse the protocol"
+   }
+  ]
+ },
+ "recommendationsToTeam": [
+  "Engineers/scientists: treat 'no onboard propulsion' as fixed and 'no onboard powered steering' as a strong preference; report what footage metrics cost if all actuation is in the pack.",
+  "Size the flyer at <=150 g; show the KE vs rider-speed curve explicitly; refuse or shorten line above the speed where KE would exceed 14.9 J.",
+  "Make the line geometry a first-class output: elevation angle distribution and thirdPartyExposure, since clothesline killed kite2 and towglider.",
+  "Build activity recognition (lift/queue/skate/skin/ski/fall) as a separate judged module with recorded-trace replay; false launches are a product killer independent of flight physics.",
+  "Benchmark against HoverAir X1 Pro / DJI Neo 2 / Insta360 X5 in the compare table so the product reason is explicit.",
+  "Do not publish novelty claims before a professional patent search; do not contact resorts or regulators without user authorisation."
+ ],
+ "sources": [
+  "https://amateurphotographer.com/latest/photo-news/dji-neo-2-announced-but-will-you-ever-be-able-to-buy-it-in-the-us/",
+  "https://aol.com/insta360-coming-gopro-x5-8k-130000643.html",
+  "https://ar5iv.arxiv.org/html/1510.01088",
+  "https://awesco.eu/project/esr02/",
+  "https://benlo.com/kap",
+  "https://brevets-patents.ic.gc.ca/opic-cipo/cpd/eng/patent/2037387/summary.html",
+  "https://camerajabber.com/photography-news/dji-neo-2-price-specifications-and-release-date-announced",
+  "https://data.epo.org/gpi/EP2729843A1",
+  "https://data.epo.org/gpi/EP3882143B1",
+  "https://en.wikipedia.org/wiki/Kite_control_systems",
+  "https://eur-lex.europa.eu/eli/reg/2018/1139/oj",
+  "https://eur-lex.europa.eu/eli/reg_del/2019/945/oj",
+  "https://filelist.tudelft.nl/News/2023/06_June/LR/20_LLSKitePowerSystem_JurySummary.pdf",
+  "https://hdi.famnit.upr.si/HDI_2019_paper_3.pdf",
+  "https://hoverair.com/pages/winter-sports",
+  "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10191497",
+  "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10207820",
+  "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10365663",
+  "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11542037",
+  "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4058010",
+  "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/5190256",
+  "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8646719",
+  "https://indiegogo.com/projects/fotokite-phi-aerial-videos-made-easy",
+  "https://knightcenter.jrn.msu.edu/?p=2243",
+  "https://laughingsquid.com/skier-throws-gopro-camera-up-into-air/",
+  "https://lois-laws.justice.gc.ca/eng/regulations/SOR-96-433/section-602.45-20190601.html",
+  "https://makezine.com/projects/capstan-kite-winder/",
+  "https://manual.fotokite.com/operational-guidelines/regulations-per-region",
+  "https://newatlas.com/fotokite-phi-tethered-drone/46692",
+  "https://ntrs.nasa.gov/citations/20120000827",
+  "https://patents.google.com/patent/CN205170075U/en",
+  "https://patents.google.com/patent/US11713118",
+  "https://patents.google.com/patent/US5366182",
+  "https://patents.google.com/patent/US6260803",
+  "https://patents.google.com/patent/US7775483",
+  "https://patents.google.com/patent/US9367067",
+  "https://patents.justia.com/patent/10370122",
+  "https://pennfishing.com/blogs/stories/kite-fishing-w-fathom-quinton-ali",
+  "https://petapixel.com/2014/09/27/nixie-tiny-flying-camera-drone-wear-wrist",
+  "https://pure.tudelft.nl/ws/portalfiles/portal/51772186/1.g003535.pdf",
+  "https://regulatorylibrary.caa.co.uk/2019-945-pdf/PDF.pdf",
+  "https://robohub.org/fotokite-phi-gopro-carrying-quadcopter-friendly-compact-light-and-affordable/",
+  "https://skysails-power.com/technology.html",
+  "https://store.insta360.com/product/x5",
+  "https://tellurideskiresort.com/?p=1098",
+  "https://thekitepower.com/airspace-regulation-to-operate-a-kitepower-system/",
+  "https://uk.hoverair.com/products/hoverair-x1-pro-promax",
+  "https://vault.sierraclub.org/sierra/200911/snowkiting.aspx",
+  "https://www.GrandTarghee.com/sites/default/files/2022-11/GTR%20Drone%20Policy.pdf",
+  "https://www.air-zermatt.ch/en/service/pilots--ppr--drones",
+  "https://www.caa.co.uk/general-aviation/displays-events-and-activities/kites",
+  "https://www.dji.com/gr/media-center/announcements/dji-release-neo-2",
+  "https://www.easa.europa.eu/en/faq/132034",
+  "https://www.faa.gov/uas/recreational_flyers",
+  "https://www.federalregister.gov/documents/2021/01/15/2020-28947/operation-of-small-unmanned-aircraft-systems-over-people",
+  "https://www.gesetze-im-internet.de/luftvo_2015/__20.html",
+  "https://www.gov.cn/zhengce/content/202306/content_6888799.htm",
+  "https://www.govinfo.gov/content/pkg/FR-2016-06-28/html/2016-15079.htm",
+  "https://www.govinfo.gov/content/pkg/USCODE-2018-title49/html/USCODE-2018-title49-subtitleVII-partA-subpartiii-chap448-sec44809.htm",
+  "https://www.grand-hirafu.jp/winter/en/gelande/",
+  "https://www.law.cornell.edu/cfr/text/14/101.1",
+  "https://www.law.cornell.edu/cfr/text/14/101.13",
+  "https://www.law.cornell.edu/cfr/text/14/107.1",
+  "https://www.legislation.gov.uk/eur/2018/1139/annex/I",
+  "https://www.legislation.gov.uk/uksi/2016/765/article/92",
+  "https://www.moneycab.com/dossiers/schweizer-startup-twingtec-schafft-weltweiten-durchbruch-in-der-entwicklung-von-energiedrohnen/amp/",
+  "https://www.niseko.ne.jp/en/?p=2497",
+  "https://www.pbtech.co.nz/product/DROHVAP06H006/HOVERAir-SP06H013-X1-PRO-Combo",
+  "https://www.skiheavenly.com/the-mountain/about-the-mountain/safety/drones/drone-policy",
+  "https://www.skiutah.com/blog/utah-resort-drone-policies",
+  "https://www.stratton.com/the-mountain/drone-policy",
+  "https://www.uib.no/sites/w3.uib.no/files/attachments/kitemill_-_presentation_bergen_2021.pdf"
+ ]
+}

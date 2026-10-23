@@ -1,0 +1,1588 @@
+{
+ "meta": {
+  "round": "2026-10-19 scout",
+  "author": "cross-industry scout agent",
+  "evidence": "magnitude calcs and public sources only; no physical tests (M-070 NOT_RUN, G-MATURE closed); ASSUMED values marked in calc_*.py",
+  "reproduce": "python3 calc_descent_glider.py && python3 calc_kills.py && python3 calc_skyhook_kite.py && python3 calc_sequence.py && python3 build_scout.py"
+ },
+ "concepts": [
+  {
+   "id": "S2-01",
+   "name_en": "Descent Glider: gravity-powered morphing micro-glider follow-cam",
+   "name_zh": "随降滑翔机：靠重力飞行的变形微型滑翔跟拍机",
+   "lens": "scout/cross-industry",
+   "one_liner": "A 95 g folding-wing glider that descends the same vertical drop as the skier, so gravity pays for the flight; it windmills surplus energy into its cell on steep pitches, orbits you at stops and belly-lands in the snow beside you.",
+   "principle": "A follow-cam that descends with the skier receives m*g*V*sin(slope) of free power (3.9 W for 95 g at 12 m/s on 20 deg). A light wing needs only D*V. With bird-style sweep morphing (spread for slow, swept for fast), the glide angle stays below typical piste slopes from 6 to 16 m/s, so the propeller is mostly a generator. Camera power, not flight, dominates the energy budget.",
+   "architecture": {
+    "carrier": "95 g EPP/carbon flying wing, span 0.62 m spread / 0.40 m swept (servo sweep), torsion-spring folding wings (loitering-munition style), folding prop on 1S motor that doubles as generator",
+    "support": "wing lift; energy from descent (gravity) + 4 Wh Si-anode cell (aerogel-wrapped, self-heating)",
+    "energy": "day net 2.6 Wh (advanced) / 2.24 Wh (intermediate) incl. camera; propulsion only 0.99 Wh, regen 0.31 Wh",
+    "sensing": "UWB tag on the skier (DW3000 class, 10 cm / +-5 deg) fused with on-board vision + IMU/GNSS; 8x8 ToF for snow-landing flare",
+    "imaging": "4K60 gyro-logging micro camera (no gimbal); Gyroflow-style stabilisation + subject-locked reframing in post; 55 deg output crop",
+    "use_flow": "draw from shoulder quiver while skiing >=7 m/s and release -> follow 6-10 m behind/3-4 m above -> orbit at stops -> belly-land 3-5 m downhill-side at end -> pick up, slide into quiver"
+   },
+   "viewpoints": [
+    {
+     "azimuth": "rear / rear-quarter (selectable +-45 deg)",
+     "elevation_deg": "15-30",
+     "distance_m": "6-10",
+     "notes": "lags when skier >17.7 m/s (KE cap), catches up when he slows"
+    },
+    {
+     "azimuth": "orbit at stops",
+     "elevation_deg": "~20",
+     "distance_m": 10.2,
+     "notes": "2.4 W orbit, standing-skier establishing shot"
+    }
+   ],
+   "key_numbers": {
+    "mass": {
+     "value": 0.095,
+     "unit": "kg",
+     "source": "calc",
+     "ref": "mass budget in calc_descent_glider.py MASS_BUDGET_G (ASSUMED parts)"
+    },
+    "KE_cap_speed": {
+     "value": 17.7,
+     "unit": "m/s",
+     "source": "calc",
+     "ref": "glider never exceeds 14.9 J ground-frame; EU C0 cap is 19 m/s"
+    },
+    "KE_at_12": {
+     "value": 6.8,
+     "unit": "J",
+     "source": "calc",
+     "ref": ""
+    },
+    "frac_time_lagging_advanced": {
+     "value": 0.059,
+     "unit": "fraction",
+     "source": "calc",
+     "ref": "Monte Carlo, Stepan 2023 advanced speeds"
+    },
+    "max_lag": {
+     "value": 12.2,
+     "unit": "m",
+     "source": "calc",
+     "ref": "extra distance when skier outruns cap"
+    },
+    "stall_spread_swept": {
+     "value": [
+      5.43,
+      8.07
+     ],
+     "unit": "m/s",
+     "source": "calc",
+     "ref": "CLmax 1.0/0.8 ASSUMED"
+    },
+    "glide_angle_12ms": {
+     "value": 10.3,
+     "unit": "deg",
+     "source": "calc",
+     "ref": "swept; CD0 0.055 ASSUMED low-Re"
+    },
+    "glide_angle_16ms": {
+     "value": 16.0,
+     "unit": "deg",
+     "source": "calc",
+     "ref": "piste 16-20 deg (Ettlinger) covers it"
+    },
+    "propulsion_Wh_day_morph_vs_fixed": {
+     "value": [
+      0.99,
+      4.77
+     ],
+     "unit": "Wh",
+     "source": "calc",
+     "ref": "morphing cuts propulsion ~5x for advanced skiers"
+    },
+    "day_net_Wh": {
+     "value": 2.6,
+     "unit": "Wh",
+     "source": "calc",
+     "ref": "18 runs x 150 s filmed + 1 stop orbit 20 s/run"
+    },
+    "endurance_4Wh": {
+     "value": 51.0,
+     "unit": "min",
+     "source": "calc",
+     "ref": "4 Wh cell, cold factor 0.75, 15 % reserve; PASS >=45"
+    },
+    "frac_S_turn": {
+     "value": [
+      0.236,
+      0.498
+     ],
+     "unit": "fraction",
+     "source": "calc",
+     "ref": "skier slower than 1.25*Vstall incl. tailwind; alternative is climbing (height buffer)"
+    },
+    "subject_jitter_raw": {
+     "value": [
+      1.03,
+      2.06,
+      1.35,
+      2.71
+     ],
+     "unit": "deg/s",
+     "source": "calc",
+     "ref": "Dryden gusts, glider rides air; V 10/14 x U20 4/8 m/s; before reframing"
+    },
+    "background_jitter_after_subject_lock": {
+     "value": 0.36,
+     "unit": "deg/s",
+     "source": "calc",
+     "ref": "bg at 60 m"
+    },
+    "subject_px_8m": {
+     "value": 413.0,
+     "unit": "px",
+     "source": "calc",
+     "ref": "4K over 100 deg, 55 deg crop -> 2112 native px"
+    },
+    "max_dist_300px": {
+     "value": 11.1,
+     "unit": "m",
+     "source": "calc",
+     "ref": ""
+    },
+    "touchdown_KE": {
+     "value": 1.71,
+     "unit": "J",
+     "source": "calc",
+     "ref": "belly landing on snow at 6 m/s"
+    },
+    "pack_volume": {
+     "value": 1.24,
+     "unit": "L",
+     "source": "calc",
+     "ref": "58 mm x 0.36 m tube + quiver"
+    },
+    "standstill_per_run": {
+     "value": 9,
+     "unit": "s",
+     "source": "calc",
+     "ref": "calc_sequence.py"
+    },
+    "ops_per_run": {
+     "value": 3,
+     "unit": "-",
+     "source": "calc",
+     "ref": "3 ops/run by the strict definition (launch, pick-up, insert); 2 if pick-and-insert counts as one recovery. S2-03 is the fix (1-2 ops, 0 s standstill)."
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 4,
+     "why": "Real third-person rear/quarter view at 6-10 m (~330-550 px), smooth because the glider follows a low-passed path; S-turn swings when skier is slow; lags above 17.7 m/s."
+    },
+    "interference": {
+     "score": 5,
+     "why": "Nothing on the body but a 1.2 L quiver; no tether, no pull."
+    },
+    "convenience": {
+     "score": 3,
+     "why": "~9 s standstill/run, but 3 ops (launch, pick-up, insert) strict; 51 min/charge."
+    },
+    "safety": {
+     "score": 4,
+     "why": "<=14.9 J by design (6.8 J at 12 m/s), no exposed hover rotors, soft EPP; still a flying object over a piste."
+    },
+    "simplicity": {
+     "score": 3,
+     "why": "One motor, two servos, no gimbal; fixed-wing pursuit guidance and snow landing are the hard software."
+    },
+    "originality": {
+     "score": 5,
+     "why": "No fixed-wing or gravity-powered ski follow-cam found on the market; AER (2016) was a passive thrown glider; round-1 A11 was a 300 g powered wing at 15-25 m with 94 J."
+    },
+    "technical_risk": {
+     "score": 3,
+     "why": "Low-Re polar at 95 g, morph mechanism + folding in one airframe, launch in the skier wake."
+    }
+   },
+   "bold_hypothesis": "On pistes of >=12 deg a <=95 g sweep-morphing glider can follow a skier for a full day on <=1 Wh of propulsion energy, because the descent itself powers the flight.",
+   "falsification_test": "(no experiment run) Measure the swept/spread glide polar of a foam prototype by car-roof tow or slope-soaring logs; replay 10 GNSS-logged real runs through the energy model; if propulsion energy >3 Wh/day or L/D(12 m/s, swept) <4, the hypothesis fails.",
+   "kill_criteria": [
+    "Measured swept-wing L/D at 12 m/s < 4",
+    "Propulsion energy > 3 Wh per 45 filmed min",
+    "Wake/hand launch failure > 5 %",
+    "Snow landing within 5 m of skier < 90 % or damage > 5 %/landing",
+    "Subject in frame < 80 % on a tree-lined run (turn radius ~10 m)",
+    "Target resorts prohibit all UAS including <250 g follow-me"
+   ],
+   "sim_plan": {
+    "what_to_model": "3-DOF glider with two-config polar + morph transition, energy state (battery, regen), pursuit guidance with S-turn/height buffer, orbit at stops, snow belly landing, wake-launch release",
+    "states": [
+     "position/velocity",
+     "bank, sweep",
+     "battery Wh",
+     "skier state (common/skier.js)",
+     "wind (common/env.js)"
+    ],
+    "scenarios": [
+     "nominal carve",
+     "intermediate slow 6-9 m/s",
+     "advanced 18 m/s (KE cap lag)",
+     "9 m/s downslope tailwind",
+     "gusty crosswind",
+     "mid-run stop + restart",
+     "5 deg catwalk",
+     "tree-lined narrow run",
+     "launch in wake",
+     "skier fall under the glider"
+    ],
+    "metrics": [
+     "criteria.js 11 metrics",
+     "propulsion Wh/run",
+     "landing miss distance",
+     "S-turn fraction"
+    ]
+   },
+   "prior_art": [
+    {
+     "name": "AER throwable GoPro glider (Kickstarter 2016)",
+     "url": "https://newatlas.com/aer-throw-gopro/45737/",
+     "relevance": "passive thrown glider, no guidance/follow, no energy concept"
+    },
+    {
+     "name": "Round-1 A11 fixed-wing follow flyer (internal)",
+     "url": "research/concepts_2026_10_18/aerial/concepts.json",
+     "relevance": "300 g powered, 15-25 m, 60-94 J; S2-01 is 3x lighter, gravity-powered, close-range, <=14.9 J"
+    },
+    {
+     "name": "Fixed-wing ground-target tracking research",
+     "url": "https://www.icb.ucsb.edu/publications/2020",
+     "relevance": "flight-tested pursuit of vehicles; no human/ski product"
+    },
+    {
+     "name": "Regenerative soaring research (SAE 2006, DGLR 2022, TU Delft)",
+     "url": "https://publikationen.dglr.de/publikationen/2022/530100.pdf",
+     "relevance": "regen exists for gliders/light aircraft; not used for follow-cams"
+    },
+    {
+     "name": "HoverAir X1 PROMAX ski mode (quad)",
+     "url": "https://us.hoverair.com/pages/best-camera-for-skiing-snowboarding-tracking",
+     "relevance": "market baseline: quadrotor, 16 min spec battery"
+    },
+    {
+     "name": "Web/patent search for gravity/glider skier-follow UAV",
+     "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9785147",
+     "relevance": "only quad image-tracking patents and Amazon ski-tow drone found; no glider follow (search not exhaustive)"
+    }
+   ],
+   "novelty": "Not found on the market or in patents searched. Building blocks exist (micro FPV wings, folding munitions, regen research); the combination and the energy insight (descent pays flight; camera dominates) appear new.",
+   "user_sequence": [
+    {
+     "step": "day start: clip 1.2 L shoulder-strap quiver, glider inside (power-on by removal)",
+     "t": 0,
+     "moving": false,
+     "action": false,
+     "once": true
+    },
+    {
+     "step": "push off; at >=7 m/s draw glider from quiver and release overhead (wings spring out, apparent wind = launch speed)",
+     "t": 2,
+     "moving": true,
+     "action": true
+    },
+    {
+     "step": "ride: autonomous follow 6-10 m behind/above via UWB tag + vision; regen on steep pitches",
+     "t": 0,
+     "moving": true,
+     "action": false
+    },
+    {
+     "step": "mid-run stop: glider orbits r~10 m at 2.4 W (orbit shot), rejoins on restart; no user input",
+     "t": 0,
+     "moving": false,
+     "action": false
+    },
+    {
+     "step": "end of run: glider belly-lands 3-5 m to the downhill side; skier slides to it and picks it up",
+     "t": 6,
+     "moving": false,
+     "action": true
+    },
+    {
+     "step": "insert tail-first in quiver (wings fold on the tube mouth), board lift",
+     "t": 3,
+     "moving": false,
+     "action": true
+    },
+    {
+     "step": "end of day: USB-C charge quiver+glider",
+     "t": 0,
+     "moving": false,
+     "action": false,
+     "once": true
+    }
+   ],
+   "verdict": "TOP-1. Physically sound on magnitude; passes KE, endurance, pack, standstill, hands; strict ops = 3 (fix via S2-03 or treat pick-and-stow as one recovery). Regulation: still a UAS (EU C0 follow-me within 50 m is allowed in A1; resort rules decide)."
+  },
+  {
+   "id": "S2-02",
+   "name_en": "VTOL Descent Glider: tail-sitter that hovers only to launch and land on your shoulder",
+   "name_zh": "垂直起降随降滑翔机：只在起降时悬停的尾座式滑翔跟拍机",
+   "lens": "scout/cross-industry",
+   "one_liner": "The S2-01 wing with two small props: it lifts off vertically from a shoulder cradle at a button press, glides down with you (gravity-powered), and hovers back into the cradle when you stop.",
+   "principle": "Hover is expensive (13 W) but only needed ~22 s per run; the 150 s of filming is wing-borne and gravity-assisted. Si-anode cells make the hover reserve ~19 g instead of ~40 g, keeping mass at 115 g and KE <=14.9 J up to 16.1 m/s.",
+   "architecture": {
+    "carrier": "115 g tail-sitter flying wing, 2x 4-inch folding props, sweep morph",
+    "support": "thrust (launch/land) + wing lift",
+    "energy": "day net 4.57 Wh -> 7.17 Wh nominal, 18.9 g at 380 Wh/kg",
+    "sensing": "as S2-01 + cradle fiducial for docking",
+    "imaging": "as S2-01",
+    "use_flow": "button at standstill -> vertical take-off -> transition -> follow -> on stop: hover-land in shoulder cradle funnel"
+   },
+   "viewpoints": [
+    {
+     "azimuth": "rear/quarter",
+     "elevation_deg": "15-30",
+     "distance_m": "6-10",
+     "notes": "can also hover-hold briefly for a static start shot (13 W)"
+    }
+   ],
+   "key_numbers": {
+    "mass": {
+     "value": 0.115,
+     "unit": "kg",
+     "source": "calc",
+     "ref": ""
+    },
+    "hover_power": {
+     "value": 13.0,
+     "unit": "W",
+     "source": "calc",
+     "ref": "two 4-in props, FoM*eta 0.5 ASSUMED"
+    },
+    "KE_cap_speed": {
+     "value": 16.1,
+     "unit": "m/s",
+     "source": "calc",
+     "ref": "advanced skiers above it ~12 % of time"
+    },
+    "day_net_Wh": {
+     "value": 4.57,
+     "unit": "Wh",
+     "source": "calc",
+     "ref": ""
+    },
+    "battery_mass_SiAnode_vs_conventional": {
+     "value": [
+      18.9,
+      39.8
+     ],
+     "unit": "g",
+     "source": "calc",
+     "ref": "Amprius-class vs 180 Wh/kg"
+    },
+    "standstill_per_run": {
+     "value": 15,
+     "unit": "s",
+     "source": "calc",
+     "ref": ""
+    },
+    "ops_per_run": {
+     "value": 2,
+     "unit": "-",
+     "source": "calc",
+     "ref": ""
+    },
+    "pack_volume": {
+     "value": 1.4,
+     "unit": "L",
+     "source": "estimate",
+     "ref": "cradle + folded props"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 4,
+     "why": "Same as S2-01 plus static hover start shot."
+    },
+    "interference": {
+     "score": 4,
+     "why": "Shoulder cradle ~0.2 kg on the strap."
+    },
+    "convenience": {
+     "score": 4,
+     "why": "Button launch at standstill, auto-landing in cradle; 2 ops, ~15 s standstill."
+    },
+    "safety": {
+     "score": 3,
+     "why": "Props hover near the head during cradle landing (round-1 issue); 115 g lowers KE cap to 16.1 m/s."
+    },
+    "simplicity": {
+     "score": 2,
+     "why": "Tail-sitter transitions in mountain gusts are a known hard control problem (round-1 A06)."
+    },
+    "originality": {
+     "score": 4,
+     "why": "VTOL tail-sitters exist (mapping UAVs); none as a gravity-assisted personal follow-cam."
+    },
+    "technical_risk": {
+     "score": 2,
+     "why": "Transition + docking in 9 m/s gusts near the user."
+    }
+   },
+   "bold_hypothesis": "Hover energy can be confined to <=25 s per run so a 115 g VTOL glider films 45 min/day on <20 g of Si-anode cells.",
+   "falsification_test": "(not run) Sim transition and docking success in common/env.js gusts 0-9 m/s; bench hover power of 4-in folding props at 1.05 kg/m3.",
+   "kill_criteria": [
+    "Docking success < 95 % at 0-9 m/s wind",
+    "Transition altitude loss > 3 m",
+    "Hover > 40 s per run on average",
+    "Prop within 0.5 m of head during docking"
+   ],
+   "sim_plan": {
+    "what_to_model": "S2-01 model + hover/transition dynamics + cradle dock",
+    "states": [
+     "attitude",
+     "thrust",
+     "battery"
+    ],
+    "scenarios": [
+     "dock in gust",
+     "aborted dock",
+     "standing launch"
+    ],
+    "metrics": [
+     "dock success",
+     "hover s/run",
+     "prop-head clearance"
+    ]
+   },
+   "prior_art": [
+    {
+     "name": "Round-1 A06 hybrid kite-drone tail-sitter (tethered)",
+     "url": "research/concepts_2026_10_18/aerial/concepts.json",
+     "relevance": "tethered; S2-02 is free-flying and gravity-assisted"
+    },
+    {
+     "name": "HoverAir palm landing",
+     "url": "https://us.hoverair.com/products/hoverair-x1-pro-promax-combo",
+     "relevance": "quad palm launch/land exists; the glider body does not"
+    }
+   ],
+   "novelty": "Combination not found; ingredients common.",
+   "user_sequence": [
+    {
+     "step": "stopped at top: press shoulder-cradle button; glider climbs vertically to 4 m, transitions to wing-borne",
+     "t": 4,
+     "moving": false,
+     "action": true
+    },
+    {
+     "step": "ride: wing-borne follow; hover only for transitions",
+     "t": 0,
+     "moving": true,
+     "action": false
+    },
+    {
+     "step": "end of run: stop; glider transitions to hover and lands in the shoulder cradle funnel (auto on standstill >3 s)",
+     "t": 10,
+     "moving": false,
+     "action": false
+    },
+    {
+     "step": "cradle latch confirms; board lift",
+     "t": 1,
+     "moving": false,
+     "action": true
+    }
+   ],
+   "verdict": "TOP-2. Best convenience score, but trades S2-01 simplicity and safety for hover; depends on Si-anode cells performing at -10 C."
+  },
+  {
+   "id": "S2-03",
+   "name_en": "Skyhook-on-the-move: glider catches a tag line from your pack while you ski",
+   "name_zh": "滑行中天钩回收：滑翔机在滑行中钩住背包拖出的短绳",
+   "lens": "scout/cross-industry",
+   "one_liner": "Insitu SkyHook made personal: in the last 100 m a 1.5 m tag line streams from a pack whip, the S2-01 glider hooks it at 1-2 m/s closing speed and is reeled into the quiver, so you never stop or bend down.",
+   "principle": "Glider and skier already move together, so capture happens at closing speed, not flight speed: relative KE 0.03-0.3 J. UWB+VIO relative navigation (~10 cm) suits a hook window of +-0.25 m x 1.2 m.",
+   "architecture": {
+    "carrier": "S2-01 glider + wingtip/nose hook",
+    "support": "after capture flies as a mini kite on 1.5 m line",
+    "energy": "as S2-01",
+    "sensing": "UWB anchor pair on the whip (AoA) + glider vision on a high-contrast line marker",
+    "imaging": "as S2-01",
+    "use_flow": "button or geofence -> whip+line deploy -> hook -> 3 s reel to dorsal quiver"
+   },
+   "viewpoints": [
+    {
+     "azimuth": "rear",
+     "elevation_deg": "~20",
+     "distance_m": "closing 8 -> 2",
+     "notes": "final approach is itself a dramatic push-in shot"
+    }
+   ],
+   "key_numbers": {
+    "relative_KE": {
+     "value": {
+      "0.8": 0.03,
+      "1.5": 0.11,
+      "2.5": 0.3
+     },
+     "unit": "J",
+     "source": "calc",
+     "ref": "closing 0.8/1.5/2.5 m/s"
+    },
+    "p_capture_single": {
+     "value": 0.987,
+     "unit": "-",
+     "source": "calc",
+     "ref": "sigma 0.10/0.15 m ASSUMED"
+    },
+    "hook_load": {
+     "value": 1.29,
+     "unit": "N",
+     "source": "calc",
+     "ref": "0.3 m shock cord"
+    },
+    "abort_time": {
+     "value": 0.25,
+     "unit": "s",
+     "source": "calc",
+     "ref": "skier stops abruptly; glider climbs 0.6 m in that time"
+    },
+    "standstill_per_run": {
+     "value": 0,
+     "unit": "s",
+     "source": "calc",
+     "ref": ""
+    },
+    "ops_per_run": {
+     "value": 2,
+     "unit": "-",
+     "source": "calc",
+     "ref": "launch + line deploy (can be automatic -> 1)"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 4,
+     "why": "As S2-01, plus a push-in shot."
+    },
+    "interference": {
+     "score": 4,
+     "why": "1.2 m whip + reel adds ~150 g and a line behind the head for ~10 s."
+    },
+    "convenience": {
+     "score": 5,
+     "why": "0 s standstill, 1-2 ops, no bending in the snow."
+    },
+    "safety": {
+     "score": 3,
+     "why": "Glider maneuvers 2-3 m behind the head; 6.8 J ground-frame if the skier stops dead."
+    },
+    "simplicity": {
+     "score": 2,
+     "why": "Hook, whip, reel and precision relative guidance."
+    },
+    "originality": {
+     "score": 5,
+     "why": "SkyHook is military fixed-pole recovery; no moving-person version found."
+    },
+    "technical_risk": {
+     "score": 2,
+     "why": "Skier wake turbulence and line flutter unknown."
+    }
+   },
+   "bold_hypothesis": "Because both are moving at the same speed, in-motion recovery of a fixed-wing follow-cam is a low-energy docking problem, not a catch problem.",
+   "falsification_test": "(not run) CFD/sim of a skier wake at 10 m/s and glider response; sim capture with UWB noise; kill if p_capture < 0.9 or any approach path within 1 m of the helmet.",
+   "kill_criteria": [
+    "Capture < 90 % per pass",
+    "Approach geometry within 1 m of helmet",
+    "Line flutter > +-0.3 m at 15 m/s",
+    "Added pack mass > 250 g"
+   ],
+   "sim_plan": {
+    "what_to_model": "relative-frame approach guidance + line dynamics (streaming line in apparent wind) + wake model",
+    "states": [
+     "relative pose",
+     "line shape"
+    ],
+    "scenarios": [
+     "nominal",
+     "skier turns during approach",
+     "abrupt stop",
+     "gust"
+    ],
+    "metrics": [
+     "capture rate",
+     "min helmet clearance"
+    ]
+   },
+   "prior_art": [
+    {
+     "name": "Insitu SkyHook",
+     "url": "https://en.wikipedia.org/wiki/Boeing_Insitu_MQ-27_ScanEagle",
+     "relevance": "fixed pole rope capture, DGPS"
+    },
+    {
+     "name": "Round-1 R08 docking drone",
+     "url": "research/concepts_2026_10_18/radical/concepts.json",
+     "relevance": "quad docking in motion killed (8-15 cm error); hook tolerates +-0.25 m"
+    }
+   ],
+   "novelty": "Not found.",
+   "user_sequence": [
+    {
+     "step": "push off; release glider overhead at >=7 m/s",
+     "t": 2,
+     "moving": true,
+     "action": true
+    },
+    {
+     "step": "ride: follow",
+     "t": 0,
+     "moving": true,
+     "action": false
+    },
+    {
+     "step": "last 100 m: tap strap button (or automatic on lift-approach geofence); 1.5 m tag line streams from a 1.2 m pack whip",
+     "t": 1,
+     "moving": true,
+     "action": true
+    },
+    {
+     "step": "glider hooks the line at 1-2 m/s closing speed; reel draws it into the dorsal quiver in ~3 s",
+     "t": 0,
+     "moving": true,
+     "action": false
+    },
+    {
+     "step": "stop at lift: nothing to do",
+     "t": 0,
+     "moving": false,
+     "action": false
+    }
+   ],
+   "verdict": "TOP-3 as an add-on to S2-01 (its ops/standstill fix). High technical risk; simulate before anything else."
+  },
+  {
+   "id": "S2-04",
+   "name_en": "Crosswind kite: airborne-wind-energy figure-8 mode keeps the camera kite aloft at slow speed",
+   "name_zh": "侧风飞行风筝：借鉴高空风能的8字飞行让慢速时风筝不掉",
+   "lens": "scout/cross-industry (input to kite2)",
+   "one_liner": "Give the round-1 camera kite a 15 g autopilot pod: when the skier slows it flies crosswind figure-8s like an AWE power kite, multiplying its airspeed by ~L/D, so it stays up down to ~2.2 m/s and can sit lower in the wind window.",
+   "principle": "Loyd crosswind law: kite airspeed ~ (L/D)*Vw*cos(beta). With L/D 4.4 a 2.2 m/s apparent wind gives the 5.9 m/s the kite needs. When fast, park the kite at the window edge at 35-50 deg elevation instead of 74 deg.",
+   "architecture": {
+    "carrier": "round-1 A04 kite 0.30 kg + steering pod (2 bridle servos, IMU)",
+    "support": "aerodynamic lift on tether",
+    "energy": "skier motion",
+    "sensing": "IMU + tether angle",
+    "imaging": "360 cam, reframed",
+    "use_flow": "as kite2 design"
+   },
+   "viewpoints": [
+    {
+     "azimuth": "rear, sweeping +-30 deg when slow",
+     "elevation_deg": "35-50 (parked) / sweeping",
+     "distance_m": 8,
+     "notes": "periodic orbit in footage when in figure-8 mode"
+    }
+   ],
+   "key_numbers": {
+    "min_skier_speed": {
+     "value": [
+      {
+       "cos_beta": 0.6,
+       "skier_speed_min": 2.24
+      },
+      {
+       "cos_beta": 0.8,
+       "skier_speed_min": 1.68
+      }
+     ],
+     "unit": "m/s",
+     "source": "calc",
+     "ref": "vs 6.2 m/s passive (round-1 A04)"
+    },
+    "airborne_fraction_intermediate": {
+     "value": [
+      0.846,
+      0.993
+     ],
+     "unit": "fraction",
+     "source": "calc",
+     "ref": "passive vs crosswind, moving time only"
+    },
+    "tension_at_min": {
+     "value": 3.8,
+     "unit": "N",
+     "source": "calc",
+     "ref": ""
+    },
+    "figure8_lateral": {
+     "value": 4.0,
+     "unit": "m",
+     "source": "calc",
+     "ref": "8 m tether, 30 deg sweep"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 3,
+     "why": "Lower view than 74 deg; periodic sweep when slow."
+    },
+    "interference": {
+     "score": 3,
+     "why": "Tether pull as round-1 but controllable by parking."
+    },
+    "convenience": {
+     "score": 3,
+     "why": "Still lands at stops."
+    },
+    "safety": {
+     "score": 3,
+     "why": "Tether over piste; kite sweeps +-4 m."
+    },
+    "simplicity": {
+     "score": 3,
+     "why": "Adds an autopilot to a passive kite."
+    },
+    "originality": {
+     "score": 4,
+     "why": "AWE autopilots exist for power kites; not for camera kites on a person."
+    },
+    "technical_risk": {
+     "score": 3,
+     "why": "Figure-8 control on an 8 m line near a turning skier."
+    }
+   },
+   "bold_hypothesis": "Active crosswind flight removes the kite's low-speed dead zone except at standstill.",
+   "falsification_test": "(not run) Add crosswind steering to the kite2 sim; kill if airborne fraction at 3-6 m/s < 80 % or sweep collides with the skier volume.",
+   "kill_criteria": [
+    "Airborne < 80 % at 3-6 m/s",
+    "Tension peaks > 40 N during figure-8",
+    "Sweep enters 2 m skier volume"
+   ],
+   "sim_plan": {
+    "what_to_model": "kite2 model + crosswind guidance",
+    "states": [
+     "kite pose on sphere",
+     "tether"
+    ],
+    "scenarios": [
+     "slow traverse 3 m/s",
+     "turn while in figure-8"
+    ],
+    "metrics": [
+     "airborne fraction",
+     "tension",
+     "elevation histogram"
+    ]
+   },
+   "prior_art": [
+    {
+     "name": "SkySails / Kitemill autopilots",
+     "url": "https://cordis.europa.eu/project/id/101189207/reporting/es",
+     "relevance": "automatic crosswind flight and landing for power kites"
+    }
+   ],
+   "novelty": "AWE control for a personal camera kite not found.",
+   "user_sequence": [
+    {
+     "step": "push off; pack boom releases kite above ~3 m/s skier speed",
+     "t": 0,
+     "moving": true,
+     "action": true
+    },
+    {
+     "step": "ride: parked at 35-50 deg elevation when fast; flies figure-8s when slow (down to ~2.2 m/s)",
+     "t": 0,
+     "moving": true,
+     "action": false
+    },
+    {
+     "step": "stop: kite glides down behind; reel retrieves into boom cradle",
+     "t": 8,
+     "moving": false,
+     "action": true
+    }
+   ],
+   "verdict": "TOP-4; hand the calc to the kite2 developer. Does not solve standstill."
+  },
+  {
+   "id": "S2-05",
+   "name_en": "Kestrel mode: wind-hover in slope lift at stops",
+   "name_zh": "红隼模式：停下时借坡面上升气流悬停",
+   "lens": "scout/cross-industry",
+   "one_liner": "At stops the glider hovers motionless in upslope wind (TU Delft orographic hovering).",
+   "principle": "At stops the glider hovers motionless in upslope wind (TU Delft orographic hovering).",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "V_hover_air": {
+     "value": 6.2,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "sink_ms": {
+     "value": 0.77,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "upslope_wind_needed": {
+     "value": 6.2,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "frac_stops_possible": {
+     "value": 0.054,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "saving_Wh_per_stop": {
+     "value": 0.013,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 4,
+     "why": "magnitude screen"
+    },
+    "safety": {
+     "score": 4,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "TU Delft AOSOAR",
+     "url": "https://arxiv.org/pdf/2510.23084v1",
+     "relevance": "0 % throttle wind-hover"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "MERGE into S2-01 as opportunistic mode: needs >=6.2 m/s upslope wind, available at ~5 % of stops; saves 0.013 Wh/stop."
+  },
+  {
+   "id": "S2-06",
+   "name_en": "Solar-skin glider",
+   "name_zh": "太阳能蒙皮滑翔机",
+   "lens": "scout/cross-industry",
+   "one_liner": "Flexible GaAs/perovskite cells on the S2-01 wing.",
+   "principle": "Flexible GaAs/perovskite cells on the S2-01 wing.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "cell_area_m2": {
+     "value": 0.036,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "eff": {
+     "value": 0.25,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "sun_W_m2": {
+     "value": 1000,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "mean_incidence_factor": {
+     "value": 0.45,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "P_mean_sunny_W": {
+     "value": 4.05,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "P_camera_avionics_W": {
+     "value": 2.2,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "mass_g_at_1W_per_g_module": {
+     "value": 9.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "note": {
+     "value": "5 W/g lab cells (KIST/GIST) would be ~2 g; overcast days give ~10-20 %",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 4,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "Zephyr / flexible GaAs",
+     "url": "https://www.army.mil/article/259542/apntspace_cft_concludes_high_altitude_experimentation",
+     "relevance": "solar HAPS"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "MERGE as option: ~4 W mean in sun > 2.2 W camera+avionics, so sunny-day endurance becomes unlimited; 9 g at 1 W/g modules (2 g with lab cells); useless when overcast."
+  },
+  {
+   "id": "S2-07",
+   "name_en": "Laser power-beamed follow drone",
+   "name_zh": "激光无线供能跟拍无人机",
+   "lens": "scout/cross-industry",
+   "one_liner": "Pack laser beams power to a battery-less micro drone (DARPA POWER transfer).",
+   "principle": "Pack laser beams power to a battery-less micro drone (DARPA POWER transfer).",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "P_optical_W": {
+     "value": 42.5,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "P_from_pack_W": {
+     "value": 106.2,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "pack_Wh_for_45min": {
+     "value": 80.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "beam_irradiance_W_cm2": {
+     "value": 2.16,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "x_MPE": {
+     "value": 433.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "snow_NIR_reflectance": {
+     "value": "~0.6-0.8 diffuse + specular ice glints (ASSUMED)",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "skin_safe_beam_diameter_cm": {
+     "value": 28,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL: beam is ~400x ocular MPE, every pointing miss lands on a crowded snow surface; a 28 cm skin-safe beam needs a receiver bigger than the drone; and the drone is still a drone (no originality gain).",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "safety": {
+     "score": 1,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "DARPA POWER",
+     "url": "https://www.theregister.com/2025/05/19/darpa_energy_beaming_record",
+     "relevance": "800 W at 8.6 km"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL: KILL: beam is ~400x ocular MPE, every pointing miss lands on a crowded snow surface; a 28 cm skin-safe beam needs a receiver bigger than the drone; and the drone is still a drone (no originality gain)."
+  },
+  {
+   "id": "S2-08",
+   "name_en": "Samara spinning camera with global shutter",
+   "name_zh": "翅果式旋转相机（全局快门）",
+   "lens": "scout/cross-industry",
+   "one_liner": "Monocopter carries a spinning global-shutter 360 camera.",
+   "principle": "Monocopter carries a spinning global-shutter 360 camera.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "rotation_hz": {
+     "value": 4.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "blur_deg_global_shutter": {
+     "value": 0.18,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "rolling_shutter_skew_deg": {
+     "value": 11.5,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "facing_frames_per_s_single_lens": {
+     "value": 4.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "translation_speed_ms_assumed": {
+     "value": 5.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "skier_mean_speed": {
+     "value": 9.7,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "frac_time_skier_faster_than_5ms": {
+     "value": 0.89,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL: global shutter fixes blur (0.16 deg) but monocopter translation (~5 m/s ASSUMED) is below the skier 86 % of the time; rolling-shutter 360 cams skew ~12 deg; efficiency gain does not matter if it cannot keep up.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 1,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "SUTD monocopters",
+     "url": "https://www.sutd.edu.sg/technical-release-listing/small-but-mighty-a-biomimetic-idea-takes-flight/",
+     "relevance": "32 g, 26 min hover"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL: global shutter fixes blur (0.16 deg) but monocopter translation (~5 m/s ASSUMED) is below the skier 86 % of the time; rolling-shutter 360 cams skew ~12 deg; efficiency gain does not matter if it cannot keep up."
+  },
+  {
+   "id": "S2-09",
+   "name_en": "Leapfrog snow-perch flyer",
+   "name_zh": "蛙跳式雪面栖停拍摄机",
+   "lens": "scout/cross-industry",
+   "one_liner": "Lands ahead on snow, films the pass-by, overtakes again.",
+   "principle": "Lands ahead on snow, films the pass-by, overtakes again.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "V_overtake": {
+     "value": 18.7,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "mass_max_for_14_9J": {
+     "value": 86.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "KE_150g": {
+     "value": 26.1,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "cycle_s": {
+     "value": 9.3,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "flying_fraction": {
+     "value": 0.64,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL: overtaking a 12 m/s skier needs ~19 m/s (KE 26 J at 150 g, or <=85 g airframe that cannot fly 19 m/s in wind); only static pass-by shots; lands on piste in others' line.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "safety": {
+     "score": 2,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "Stanford SNAG perching",
+     "url": "https://techxplore.com/news/2021-12-stanford-bird-bots-perch.amp",
+     "relevance": "perching"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL: overtaking a 12 m/s skier needs ~19 m/s (KE 26 J at 150 g, or <=85 g airframe that cannot fly 19 m/s in wind); only static pass-by shots; lands on piste in others' line."
+  },
+  {
+   "id": "S2-10",
+   "name_en": "Micro ski-robot follower",
+   "name_zh": "微型滑雪机器人跟拍",
+   "lens": "scout/cross-industry",
+   "one_liner": "200 g steerable sled-robot follows in your track.",
+   "principle": "200 g steerable sled-robot follows in your track.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "KE_at_12": {
+     "value": 14.4,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "KE_at_18": {
+     "value": 32.4,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "camera_height_m": {
+     "value": 0.2,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "mogul_rut_depth_m": {
+     "value": "0.2-0.6 (ASSUMED) > robot size",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "stop_distance_on_20deg_with_claw_mu0p5": {
+     "value": 57.4,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL: 0.2 m camera height sees boots and snow spray; ruts/moguls exceed body size; others ski over it; stopping on 20 deg needs ~50 m even with a claw. Same physics as round-1 BODY-09/10.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 1,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "Ski Robot Challenge 2018",
+     "url": "https://spectrum.ieee.org/ski-robot-challenge",
+     "relevance": "humanoid ski robots fell"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL: 0.2 m camera height sees boots and snow spray; ruts/moguls exceed body size; others ski over it; stopping on 20 deg needs ~50 m even with a claw. Same physics as round-1 BODY-09/10."
+  },
+  {
+   "id": "S2-11",
+   "name_en": "Si-anode + self-heating + aerogel palm drone",
+   "name_zh": "硅负极+自加热+气凝胶的掌上跟拍机",
+   "lens": "scout/cross-industry",
+   "one_liner": "Battery breakthroughs applied to a market follow quad.",
+   "principle": "Battery breakthroughs applied to a market follow quad.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "HoverAir_class_pack_7p4Wh_64g_116Whkg": {
+     "value": {
+      "pack_g": 64,
+      "Wh": 7.4,
+      "endurance_min_cold": 12.1
+     },
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "SiAnode_450Whkg_cell_380Whkg_pack": {
+     "value": {
+      "pack_g": 64,
+      "Wh": 24.3,
+      "endurance_min_cold": 39.7
+     },
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "self_heating": {
+     "value": "-20->0 C in 20 s using 3.8 % capacity (Penn State/EC Power 2016)",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "ENABLER, not a concept: Si-anode roughly triples cold flight time (~12->~40 min at 25 W, if the 450 Wh/kg cells deliver ~1C in the cold, unverified) of a palm follow drone, still < 45 min and still the market product the user rejected. Used inside S2-01/S2-02.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "originality": {
+     "score": 1,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "Amprius SiCore",
+     "url": "https://www.businesswire.com/news/home/20250722309461/en",
+     "relevance": "450 Wh/kg"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "ENABLER, not a concept: Si-anode roughly triples cold flight time (~12->~40 min at 25 W, if the 450 Wh/kg cells deliver ~1C in the cold, unverified) of a palm follow drone, still < 45 min and still the market product the user rejected. Used inside S2-01/S2-02."
+  },
+  {
+   "id": "S2-12",
+   "name_en": "Guided soft parafoil camera",
+   "name_zh": "制导软翼伞相机",
+   "lens": "scout/cross-industry",
+   "one_liner": "Precision-airdrop micro parafoil follows you down.",
+   "principle": "Precision-airdrop micro parafoil follows you down.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "LD": {
+     "value": 3.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "glide_deg": {
+     "value": 18.4,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "airspeed": {
+     "value": 11.3,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "small_parafoil_landing_median_miss_m": {
+     "value": 13,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL as stand-alone: glide 18.4 deg means it sinks into any slope flatter than 18 deg and cannot climb; landing miss ~13 m (Georgia Tech) vs 3 m pickup need. Keep soft-wing idea as a safety skin for S2-01.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 2,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "Georgia Tech small parafoil",
+     "url": "https://www.camm.gatech.edu/images/8/8e/Scheuermann_2015_LateralLongitudinalControl.pdf",
+     "relevance": "13 m median miss"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL as stand-alone: glide 18.4 deg means it sinks into any slope flatter than 18 deg and cannot climb; landing miss ~13 m (Georgia Tech) vs 3 m pickup need. Keep soft-wing idea as a safety skin for S2-01."
+  },
+  {
+   "id": "S2-13",
+   "name_en": "Ground-effect skimming chase glider",
+   "name_zh": "地效贴地追拍滑翔机",
+   "lens": "scout/cross-industry",
+   "one_liner": "Fly at 0.3 m over snow for a dramatic low shot and better L/D.",
+   "principle": "Fly at 0.3 m over snow for a dramatic low shot and better L/D.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "h_m": {
+     "value": 0.3,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "induced_drag_factor": {
+     "value": 0.92,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL: needs h < ~0.3 m above snow (span 0.62 m) in the band where other skiers' skis and legs are; moguls and rollers exceed h. Induced-drag saving is irrelevant because gravity already pays.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "safety": {
+     "score": 1,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL: needs h < ~0.3 m above snow (span 0.62 m) in the band where other skiers' skis and legs are; moguls and rollers exceed h. Induced-drag saving is irrelevant because gravity already pays."
+  },
+  {
+   "id": "S2-14",
+   "name_en": "Tether-climbing camera trolley on the kite line",
+   "name_zh": "沿风筝线爬行的相机小车",
+   "lens": "scout/cross-industry",
+   "one_liner": "Rail-cam idea: camera rides the kite tether to a chosen distance.",
+   "principle": "Rail-cam idea: camera rides the kite tether to a chosen distance.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "kite_elevation_deg": {
+     "value": 74,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "trolley_elevation_deg": {
+     "value": "same 74 (straight line through the skier)",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL: any point on a taut line through the skier sees him from the same elevation; moving the camera inward only shrinks distance, it cannot lower the view angle.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 1,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL: any point on a taut line through the skier sees him from the same elevation; moving the camera inward only shrinks distance, it cannot lower the view angle."
+  },
+  {
+   "id": "S2-15",
+   "name_en": "Micro swarm (drone-show RTK)",
+   "name_zh": "微型蜂群（灯光秀式RTK）",
+   "lens": "scout/cross-industry",
+   "one_liner": "Several <=30 g drones hand off the shot.",
+   "principle": "Several <=30 g drones hand off the shot.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "member_mass_kg": {
+     "value": 0.03,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "KE_at_10": {
+     "value": 1.5,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "black_hornet4_vmax": {
+     "value": 10,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "black_hornet4_mass_g": {
+     "value": 70,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "frac_time_skier_faster_than_10": {
+     "value": 0.47,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL: sub-100 g rotorcraft top out ~10 m/s (Black Hornet 4, 70 g) so they lose the skier ~47 % of the time; swarm multiplies regulatory and recovery burden.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 1,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [
+    {
+     "name": "Black Hornet 4",
+     "url": "https://www.thedefensepost.com/2023/10/11/teledyne-advanced-black-hornet-drone/",
+     "relevance": "70 g, 10 m/s"
+    }
+   ],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL: sub-100 g rotorcraft top out ~10 m/s (Black Hornet 4, 70 g) so they lose the skier ~47 % of the time; swarm multiplies regulatory and recovery burden."
+  },
+  {
+   "id": "S2-16",
+   "name_en": "Camera boomerang",
+   "name_zh": "相机回旋镖",
+   "lens": "scout/cross-industry",
+   "one_liner": "Throwable returning camera.",
+   "principle": "Throwable returning camera.",
+   "architecture": {},
+   "viewpoints": [],
+   "key_numbers": {
+    "return_time_s": {
+     "value": 3,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "skier_travel_m": {
+     "value": 29.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "spin_hz": {
+     "value": 10,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "rs_skew_deg_8ms": {
+     "value": 29.0,
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    },
+    "verdict": {
+     "value": "KILL: returns to the throw point, not to a moving skier (~29 m behind); spin 10 Hz gives 29 deg rolling-shutter skew; catch with gloves unreliable.",
+     "unit": "",
+     "source": "calc",
+     "ref": "results_kills.json / results_descent_glider.json"
+    }
+   },
+   "scores": {
+    "footage": {
+     "score": 1,
+     "why": "magnitude screen"
+    }
+   },
+   "bold_hypothesis": "",
+   "falsification_test": "",
+   "kill_criteria": [],
+   "sim_plan": {},
+   "prior_art": [],
+   "novelty": "",
+   "user_sequence": [],
+   "verdict": "KILL: returns to the throw point, not to a moving skier (~29 m behind); spin 10 Hz gives 29 deg rolling-shutter skew; catch with gloves unreliable."
+  }
+ ]
+}

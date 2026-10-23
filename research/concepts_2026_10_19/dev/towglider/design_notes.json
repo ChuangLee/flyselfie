@@ -1,0 +1,471 @@
+{
+ "conceptId": "towglider",
+ "source": "inventor I-05 'Aerotow camera'; rounds 1–2; audit 2026-10-19; re-audit audit2 2026-10-20 (A2-TG-01..08, A2-X-01..10); ROUND3_BRIEF.md + ITERATE_BRIEF.md",
+ "modelVersion": "towglider@0.5.0",
+ "date": "2026-10-20",
+ "evidence_boundary": "Numerical-uncalibrated simulation (sim/js/concepts/towglider) and an illustrative animation driven by the same physics. No physical test was run. Coefficients ASSUMED unless a source is cited. Masses/powers from common/components.js plus this concept's design.js.",
+ "where_the_28pct_went (round 2, calm_s11, share of riding time)": {
+  "subject < 300 px (90° fisheye at 5–9 m, leaning rider seen from 45–70° azimuth, crop fill rule 0.42 of feet→head angle)": "17.4 %",
+  "launch (drop + winch below 1.5 m)": "9.5 %",
+  "stop deceleration (deep-stall drop)": "1.0 %",
+  "other": "<1 %",
+  "finding": "the KE cap did not bind (glider ground speed p95 13.5 < 14.0 m/s governor); px and launch did"
+ },
+ "redesign_round3": [
+  "Camera: same Thumb 2 class camera (shared cam4kNoGimbal, 27 g) recording 4K 4:3 (3840×2880, 30 fps per retailer spec) through a 66° HFOV M12 rectilinear lens (ASSUMED custom lens swap, like kite2's 60° optic) → 1.47× the native px/rad of the 90° fisheye.",
+  "Mount: the 3 servos (EMAX ES9251 II class, 2.5 g, 0.08 s/60°) now close the loop on world attitude with FC-IMU feed-forward (servo gimbal): body rotation leaks only above f_s = 4 Hz (ASSUMED) + 0.15° deadband noise; the crop keeps a 5° pointing margin inside the sensor window.",
+  "Footage is rendered after the run (Gyroflow-style: gyro EIS 8 % residual + zero-phase 2 Hz subject reframing with 1 % detection noise, bounded by the sensor window); auto-zoom keeps the whole subject incl. skis within 80 % of the half frame.",
+  "Station copies the hip's line (latK 1, 1.2 s centreline, 0.3 s along-track) so the camera distance stays ≈5–8 m; above 13.3 m/s rider speed it blends back to a straighter line (less ground speed under the KE governor).",
+  "Launch: line pays out 4.5 m (park also at 4.5 m); footage counts from 0.8 m; the parked glider films the standing/pushing-off rider from the snow; the KE governor now also caps the winch.",
+  "Stops: zoom-up (≤1 m) and side-step 6 m back / 7 m to the side the stopped rider's back faces, filming until the rider is still; deep-stall drop after; constant 1 N line tension in wind > 4 m/s and slack take-up (≤0.5 N) while parked so a slack line cannot bow towards the head.",
+  "Holster moved from the hip to behind the seat (80 mm hard tube on a belt swivel clamp, 37° below horizontal): leash exit ≥1.1 m from the helmet centre and ≥0.23 m above the snow at a 45° carving lean (thigh position rejected: 0.14 m).",
+  "Packing: each wing panel swings aft AND folds at 55 % chord (rear chord incl. split flap folds under, +3 g hinges, +0.003 cd0), tail boom telescopes; section 56 × 53 mm → 80 mm OD × 0.46 m holster = 2.30 L; total 2.80 L (round-2 fold would need a 110 mm tube, 4.9 L).",
+  "Conductor: 2 × 7/44 AWG Cu litz on a 0.17 mm UHMWPE core + PU jacket: 0.60 mm OD, 0.40 g/m, 1.3 Ω/m per conductor (computed from ASTM B258 strand size + IACS Cu, +5 % lay); drag of the thicker line is in the model.",
+  "Wind gates on the shared windEstimate() (no oracle): no launch at ≥4.5 m/s estimated down-slope wind, re-evaluated at every push-off; airspeed-margin rule (rider speed − estimated tailwind ≥5.8 m/s) delays the winch launch and, in flight, drops the glider to wait on the snow (sled tow) — no slow-rider stall; a parked glider whose relaunch is refused is pulled into the holster."
+ ],
+ "mass_budget_g": {
+  "cam4kNoGimbal + 66° M12 lens": 27,
+  "servos 3 mount + 4 flight": 17.5,
+  "mount bracket": 3,
+  "avionics": 10,
+  "wiring": 5,
+  "release + fold latch": 2,
+  "48→5 V buck": 2,
+  "supercap": 5,
+  "wing 0.075 m² × 220 g/m²": 16.5,
+  "pod + telescoping boom + V-tail": 16,
+  "pivot hinges/springs": 5,
+  "chord-fold hinges (round 3)": 3,
+  "hook + load cell": 3,
+  "sum": 115,
+  "with 15 % margin": 132.3,
+  "power_W": 4.4
+ },
+ "packVol_L": {
+  "chosen_chordFold": {
+   "holsterL": 2.3,
+   "reelL": 0.3,
+   "cellL": 0.12,
+   "boostL": 0.03,
+   "mouthL": 0.05,
+   "other": 0.08,
+   "total": 2.8,
+   "foldedLength": 0.461,
+   "tubeOD_mm": 79.682,
+   "chord_mm": 96.825,
+   "foldedChord_mm": 53.254
+  },
+  "round2_noChordFold": {
+   "holsterL": 4.382,
+   "reelL": 0.3,
+   "cellL": 0.12,
+   "boostL": 0.03,
+   "mouthL": 0.05,
+   "other": 0.08,
+   "total": 4.882,
+   "foldedLength": 0.461,
+   "tubeOD_mm": 109.979,
+   "chord_mm": 96.825,
+   "foldedChord_mm": 96.825
+  },
+  "gimbal": {
+   "holsterL": 3.113,
+   "reelL": 0.3,
+   "cellL": 0.12,
+   "boostL": 0.03,
+   "mouthL": 0.05,
+   "other": 0.08,
+   "total": 3.613,
+   "foldedLength": 0.461,
+   "tubeOD_mm": 92.694,
+   "chord_mm": 96.825,
+   "foldedChord_mm": 53.254
+  }
+ },
+ "ensemble_39 (shared rules)": {
+  "avail": {
+   "mean": 72.1,
+   "p10": 0,
+   "p90": 89.49,
+   "min": 0,
+   "max": 90.79
+  },
+  "avail_launchedOnly": {
+   "mean": 85.2,
+   "p10": 85.4,
+   "p90": 89.5,
+   "min": 40.1
+  },
+  "jitter_shared_fs": {
+   "mean": 1.66,
+   "p10": 1.35,
+   "p90": 1.92,
+   "min": 1.3,
+   "max": 2.02
+  },
+  "jitter_own": {
+   "mean": 1.29,
+   "p10": 1.1,
+   "p90": 1.58,
+   "min": 1.09,
+   "max": 1.69
+  },
+  "pxMed": {
+   "mean": 535.61,
+   "p10": 531.81,
+   "p90": 539.39,
+   "min": 525.55,
+   "max": 542.8
+  },
+  "azRange": {
+   "mean": 63.88,
+   "p10": 55.33,
+   "p90": 70.44,
+   "min": 51.42,
+   "max": 75.19
+  },
+  "setupTime": {
+   "mean": 9.72,
+   "p10": 1,
+   "p90": 12.36,
+   "min": 1,
+   "max": 14.94
+  },
+  "ops": {
+   "mean": 1,
+   "p10": 1,
+   "p90": 1,
+   "min": 1,
+   "max": 1
+  },
+  "bodyForcePeak": {
+   "mean": 2.77,
+   "p10": 0,
+   "p90": 3.88,
+   "min": 0,
+   "max": 4.29
+  },
+  "keMax": {
+   "mean": 10.64,
+   "p10": 0,
+   "p90": 12.77,
+   "min": 0,
+   "max": 14.01
+  },
+  "headClear": {
+   "mean": 1.15,
+   "p10": 1.04,
+   "p90": 1.18,
+   "min": 1.01,
+   "max": 1.18
+  },
+  "lineHeight_1m_behind": {
+   "min": 0.12,
+   "p10_of_case_p10": 0.26
+  },
+  "lineHeight_2m_behind": {
+   "min": 0.0,
+   "p10_of_case_p10": 0.35
+  },
+  "endurance_min": 57.8,
+  "counts": {
+   "cases": 39,
+   "gated": 6,
+   "released": 0,
+   "cut": 0
+  },
+  "byWindSpeed": {
+   "U0": {
+    "avail_mean": 87.7,
+    "avail_p10": 87.0,
+    "avail_p90": 88.4,
+    "jitter_p90": 1.7,
+    "headClear_min": 1.15,
+    "keMax": 12.6
+   },
+   "U3": {
+    "avail_mean": 87.5,
+    "avail_p10": 85.4,
+    "avail_p90": 89.3,
+    "jitter_p90": 1.75,
+    "headClear_min": 1.04,
+    "keMax": 12.6
+   },
+   "U6": {
+    "avail_mean": 66.3,
+    "avail_p10": 0,
+    "avail_p90": 89.4,
+    "jitter_p90": 1.88,
+    "headClear_min": 1.03,
+    "keMax": 14.0
+   },
+   "U9": {
+    "avail_mean": 58.6,
+    "avail_p10": 0,
+    "avail_p90": 89.5,
+    "jitter_p90": 1.98,
+    "headClear_min": 1.01,
+    "keMax": 12.9
+   }
+  },
+  "byDirection": {
+   "calm": 87.7,
+   "head": 89.7,
+   "tail": 28.4,
+   "crossL": 82.3,
+   "crossR": 82.8
+  },
+  "computeMs": {
+   "mean": 2275.641,
+   "max": 11056
+  }
+ },
+ "operating_envelope": {
+  "wind": "calm/head/cross to 9 m/s: launched-run availability 85–91 %; down-slope (tail) wind ≥≈4.5 m/s estimated: no launch (6/39 cases count 0) — a gravity glider cannot hold station above its stall speed; forcing it gives KE 15.6–18.2 J, releases and head passes 0.07–0.78 m (tailwindGateProof). In 9 m/s gusty wind the 1-s-old shared estimate can refuse the first launch (crossL9_s13/crossR9_s13: 40 %, filming resumes after the rest stop).",
+  "rider_speed (15°, follow segments, light wind)": {
+   "6": 99.8,
+   "8": 100,
+   "10": 97.8,
+   "12": 88.9,
+   "13": 83.7,
+   "14": 63.6,
+   "15": 6.0,
+   "16": 5.2
+  },
+  "rider_speed_note": "≥15 m/s the rider's along-track speed exceeds the 13.8 m/s KE governor (KE cap 15.0 m/s at 132 g): the glider lags and releases before the spool end (KE ≤13 J). Whole run at 14 m/s: 64.6 % calm. Raising the cap needs a lighter airframe (not done).",
+  "slow riders": "6–8 m/s in calm/light wind fly (segments 100 %), but the whole-run 6 m/s beginner shows head clearance 0.79 m and jitter 3.4 °/s at stops (outside: riders ≥7–8 m/s); with a 3 m/s tailwind riders <10 m/s get no footage (margin rule, safe: KE ≤9.5 J, head ≥0.98 m).",
+  "terrain": "10–20° groomed; expert 20° at 13 m/s 60.5 %; 24–28° at 14–15 m/s outside; moguls 4.5 m/s 54 % (margin rule, head 0.55 m — outside)"
+ },
+ "honest_limits": [
+  "39-case mean availability 72.1 % FAILS 80 %: every never-launched tailwind run counts 0; launched runs 85.2 % mean (p10 85.4). No design change found that follows ≥4.5 m/s tailwinds within KE ≤14.9 J and stall margin.",
+  "Shared jitter p90 1.92 °/s passes but rests on ASSUMED values: EIS residual 8 % (15 % → 2.99, 25 % → 4.65 °/s), mount bandwidth 4 Hz (2 Hz → 2.92), servo deadband 0.15° (0.5° → 3.57 °/s FAIL). No published gyro-EIS residual ratio was found (Karpenko et al. 2011 is the method reference, not a number).",
+  "headClear ensemble min 1.01 m passes with 1 cm margin (crossL9_s12 rest stop, slack line in a gust); excluding only a ≤2.4 s dock-capture window. Leash 1 m behind the rider is only 0.12–0.3 m above the snow while carving (hip-height exit at 45° lean): trip/entanglement hazard for following skiers; a higher exit fails headClear — inherent trade-off of a body-anchored leash.",
+  "4K 4:3 at 30 fps (retailer spec; '3840x2160 (4:3)' wording is ambiguous) and the 66° M12 lens are ASSUMED; a 60° lens gives +3 pt on the representative case (less near-range margin).",
+  "Post-processing reframing means footage is not live; clip quality also depends on rolling-shutter wobble (not modelled) and motion blur (1 ms).",
+  "Stop/park/capture mechanics (deep-stall entry, snow pull into a holster behind the seat, swivel for the chairlift) are unverified; the shared skier stops abruptly (5–6 m/s → 0), which drives the stop clearances.",
+  "Compute ≈1.8–2.3 s per case (above the 1.5 s guide)."
+ ],
+ "regulation_gate": {
+  "EU": "132 g <250 g: open A1/C0 if marketed so; operator registration; 15 m leash = physical geofence.",
+  "US": "VLOS by a skiing operator not credible — gate.",
+  "resorts": "written permission gate; no contact made."
+ },
+ "files": [
+  "sim/js/concepts/towglider/index.js",
+  "sim/js/concepts/towglider/model.js",
+  "sim/js/concepts/towglider/analysis.js",
+  "sim/js/concepts/towglider/attitude.js",
+  "sim/js/concepts/towglider/design.js",
+  "sim/js/concepts/towglider/ensemble.js",
+  "sim/js/concepts/towglider/gear.js",
+  "sim/tests/concept_towglider.test.mjs",
+  "research/concepts_2026_10_19/dev/towglider/run_all.mjs",
+  "research/concepts_2026_10_19/dev/towglider/results.json",
+  "research/concepts_2026_10_19/dev/towglider/design_notes.json",
+  "research/concepts_2026_10_19/dev/towglider/audit_response.json"
+ ],
+ "sources": [
+  "https://www.diyfpv.com/product/runcam-thumb-2-4k-hd-action-camera-nd-filter-set",
+  "https://www.getfpv.com/action-cameras/runcam-thumb-2-4k-hd-action-camera.html",
+  "https://www.readymaderc.com/products/details/emax-es9251-2-5g-plastic-micro-digital-servo",
+  "https://mwswire.com/wp-content/uploads/2025/08/MWS_LitzWire.pdf",
+  "ASTM B258 (AWG diameters)",
+  "https://graphics.stanford.edu/papers/stabilization/ (gyro EIS method, no residual figure)"
+ ],
+ "round4": {
+  "date": "2026-10-20",
+  "basis": "results.json (towglider@0.5.0), shared round-4 rules (FULLRUN_CASES_R4, bodyPx, ARTEFACT_PX 2, helmetAt, no idealised actuators)",
+  "evidence_boundary": "numerical-uncalibrated simulation; no part built or measured; G-MATURE closed, M-070 not_run",
+  "changes": [
+   {
+    "what": "Line-guide wand: 0.35 m Ø3 mm glass-fibre rod hinged at the holster mouth, ceramic eyelet at the tip; the leash exits ≈0.85 m behind the pelvis",
+    "why": "a leash from a point P can never clear the helmet by more than |P–helmet| (the 0.55 m tail-holster mouth sat 1.19–1.25 m from the helmet, so a steep line in a stop passed 0.99–1.0 m); the eyelet is 1.36–1.43 m from the helmet",
+    "cost": "≈8 g, folds along the holster for the last metre of a stow (declared capture window); trip exposure higher than the round-3 holster (see trip)",
+    "rigidMemberToHelmet_m": "1.36 min (fh2 geometry check over the shared run, all lean/crouch states)"
+   },
+   {
+    "what": "Reel KE governor",
+    "why": "audit3 A3-TG-01: a refused relaunch snow-pulled the glider at 18 m/s (21.8 J) — short line + swinging hip = whip",
+    "how": "when the glider’s own 0.1 s-filtered GNSS/IMU ground speed exceeds 0.95 × the KE-governor speed the drum stops pulling (0.05 N free pay-out) in every snow / winch / drop mode"
+   },
+   {
+    "what": "Pre-emptive rest-stop stow (gateHyst 1 m/s) and fast pull at a refused push-off",
+    "why": "never drag a parked glider in behind a moving rider"
+   },
+   {
+    "what": "Tailwind gate 3.0 m/s (was 4.5) on the shared windEstimate",
+    "why": "with the shared ±1 m/s bias a launch can see gate + 1 m/s true tailwind; forced launches (6 seeds): 2.5–4 m/s true KE ≤13.139 J, headClear min 0.889 m (worst rows: [{\"id\": \"tail3.5_s16\", \"avail\": 82.947, \"keMax\": 12.43, \"headClear\": 0.889, \"ops\": 1}, {\"id\": \"tail4.5_s12\", \"avail\": 68.481, \"keMax\": 12.877, \"headClear\": 0.594, \"ops\": 1}, {\"id\": \"tail4.5_s14\", \"avail\": 75.835, \"keMax\": 13.389, \"headClear\": 0.758, \"ops\": 1}, {\"id\": \"tail5_s11\", \"avail\": 21.74, \"keMax\": 17.027, \"headClear\": 1.301, \"ops\": 3}]); 4.5–6 m/s true: KE up to 18.44 J, headClear down to 0.374 m, releases/cuts; a glider cannot decelerate with a stopping rider in a tailwind"
+   },
+   {
+    "what": "Anti-sag tow floor fades from 0.8 N to 0.15 N with the tailwind estimate",
+    "why": "a 0.8 N forward pull made the glider overrun stopping riders in 3–4 m/s tailwinds (headClear 0.78–0.86 m in the forced sweep)"
+   },
+   {
+    "what": "Deferred launch (≤8 s after push-off, rider <6 m/s) once a refusing estimate clears",
+    "why": "A3-TG-03 false refusals at t≈1 s; launches at higher rider speed passed 0.45 m from the head (crossL9_s13), so the deferral is capped at 6 m/s and the s13 cross cases still lose the first ride"
+   },
+   {
+    "what": "Zoom-assisted in-flight KE governor (surplus traded for ≤2 m height) and the 0.8 N tow floor drops to 0.15 N while it acts",
+    "why": "airbrake authority ∝ q is weak at low airspeed"
+   },
+   {
+    "what": "Reel minimum tension 0.8 N (was 0.15 N)",
+    "why": "a 0.6 mm line at 0.15 N in 12 m/s flow sags 0.4–1.2 m (lay on the snow 2–3 m behind the rider while following)"
+   },
+   {
+    "what": "50° M12 lens (was 66°), body framing (cropFillBody 0.65, skis within 0.93 of the half-frame), crop aimed at the subject box centre (0.25 Hz)",
+    "why": "avail is now judged on bodyPx: at 66° the launched avail fell to 63 % (resolution-limited, ski tail set the zoom)"
+   },
+   {
+    "what": "Physical 3-servo mount + component EIS residual (attitude.js SERVO/EIS)",
+    "why": "A3-TG-04 / A3-X-08: the 8 % EIS ratio and the 0.15° random dead band were assumptions, not models"
+   },
+   {
+    "what": "Lift-ride sleep mode (0.05 W) charged in endurance",
+    "why": "A3-TG-05"
+   },
+   {
+    "what": "Overspeed escape (turn into the wind and stow) and a tailwind turn-away stop variant",
+    "status": "overspeed escape kept as last resort (did not make 5–5.5 m/s safe); the turn-away stop variant was tested and REJECTED (worse head clearance than the zoom drop: 0.38–0.74 m at 3–4.5 m/s)"
+   }
+  ],
+  "ensemble48": {
+   "avail": {
+    "mean": 49.409,
+    "p10": 0,
+    "p50": 81.708,
+    "p90": 84.995,
+    "min": 0,
+    "max": 85.83,
+    "n": 48
+   },
+   "pxMed": {
+    "mean": 467.615,
+    "p10": 459.333,
+    "p50": 468.34,
+    "p90": 476.815,
+    "min": 445.89,
+    "max": 485.45,
+    "n": 31
+   },
+   "fsSubject": {
+    "mean": 2.033,
+    "p10": 1.581,
+    "p50": 2.034,
+    "p90": 2.451,
+    "min": 1.295,
+    "max": 2.744,
+    "n": 31
+   },
+   "azRange": {
+    "mean": 61.56,
+    "p10": 54.103,
+    "p50": 61.646,
+    "p90": 67.406,
+    "min": 51.842,
+    "max": 70.564,
+    "n": 31
+   },
+   "setupTime": {
+    "mean": 7.623,
+    "p10": 1,
+    "p50": 10.38,
+    "p90": 12.26,
+    "min": 1,
+    "max": 14.98,
+    "n": 48
+   },
+   "ops": {
+    "mean": 1,
+    "p10": 1,
+    "p50": 1,
+    "p90": 1,
+    "min": 1,
+    "max": 1,
+    "n": 48
+   },
+   "bodyForcePeak": {
+    "mean": 2.012,
+    "p10": 0,
+    "p50": 2.642,
+    "p90": 3.583,
+    "min": 0,
+    "max": 4.24,
+    "n": 48
+   },
+   "keMax": {
+    "mean": 8.098,
+    "p10": 0,
+    "p50": 12.351,
+    "p90": 12.756,
+    "min": 0,
+    "max": 13.219,
+    "n": 48
+   },
+   "headClear": {
+    "mean": 1.32,
+    "p10": 1.187,
+    "p50": 1.358,
+    "p90": 1.361,
+    "min": 1.061,
+    "max": 1.361,
+    "n": 31
+   },
+   "tripLow": {
+    "mean": 20.299,
+    "p10": 18.428,
+    "p50": 20.19,
+    "p90": 22.358,
+    "min": 17.073,
+    "max": 23.392,
+    "n": 31
+   },
+   "tripH1p10": {
+    "mean": 0.466,
+    "p10": 0.458,
+    "p50": 0.468,
+    "p90": 0.472,
+    "min": 0.456,
+    "max": 0.473,
+    "n": 31
+   },
+   "tripH2p10": {
+    "mean": 0.454,
+    "p10": 0.42,
+    "p50": 0.454,
+    "p90": 0.491,
+    "min": 0.407,
+    "max": 0.51,
+    "n": 31
+   },
+   "tripH3p10": {
+    "mean": 0.77,
+    "p10": 0.716,
+    "p50": 0.777,
+    "p90": 0.814,
+    "min": 0.661,
+    "max": 0.847,
+    "n": 31
+   },
+   "endurance": {
+    "mean": 53.09,
+    "noSleep": 38.259,
+    "note": "usable Wh / (mean full-run hip energy + 8 min lift ride in sleep mode 0.05 W) × mean filming s per run; noSleep = lift ride idling at 0.6 W"
+   }
+  },
+  "availBound": {
+   "launchedMean": 76.504,
+   "nLaunched": 31,
+   "nGated": 17,
+   "ifTailUpTo6Flew": 71.722,
+   "ifAllFlew": 76.504,
+   "note": "avail mean over 48 = Σ case avail / 48; gated (never-launched) cases count 0. Even if every case incl. tail 9 m/s flew at the launched mean the ensemble would only reach the launched mean."
+  },
+  "honest_limits": [
+   "avail FAILS: 49.409 % over 48 (launched runs 76.504 %); every case with ≥3 m/s estimated tailwind is refused because following there is not safe; even if every case flew at the launched mean the 48-case mean would be 76.504 %",
+   "tail 9 m/s is physically closed for this wing loading: the slowest ground speed through a downwind reversal is 9 + 5.4 (flap stall) = 14.4 m/s ≈ 13.7 J, above the 13.8 m/s governor with any margin; ≥4.5 m/s true tail fails head clearance in stops (the glider cannot decelerate with the rider)",
+   "jitter rests on a ≥6 Hz small-signal servo bandwidth with the camera load and ≤5 ms FC latency: 3 Hz → p90 6.297, 50 Hz analog PWM → 3.609, all pessimistic → 7.656 °/s",
+   "beginners (6 m/s), short turns and moguls stay outside the envelope"
+  ]
+ }
+}

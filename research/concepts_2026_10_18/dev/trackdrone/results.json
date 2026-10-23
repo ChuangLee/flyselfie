@@ -1,0 +1,8729 @@
+{
+ "concept": "trackdrone",
+ "modelVersion": "trackdrone@0.4.0",
+ "generated": "2026-10-19",
+ "evidence": "numerical-uncalibrated simulation with harmonised criteria (sim/js/concepts/common/criteria.js); demo is an engineering illustration; nothing physically tested",
+ "params": [
+  {
+   "id": "design",
+   "value": 3,
+   "unit": "-",
+   "src": "ASSUMED",
+   "note": "v2: faired airframe, swappable packs, capture cone; v3: + vision fallback, forward depth sensor (avoid/yield), leapfrog/pan"
+  },
+  {
+   "id": "lightFactor",
+   "value": 1,
+   "unit": "-",
+   "src": "ASSUMED",
+   "note": "1 = good light, ~0.6 flat light/snowfall"
+  },
+  {
+   "id": "sensorRange",
+   "value": 12,
+   "unit": "m",
+   "src": "ASSUMED",
+   "note": "ToF/stereo class 8–15 m"
+  },
+  {
+   "id": "mass",
+   "value": 0.15,
+   "unit": "kg",
+   "src": "ASSUMED",
+   "note": "≤150 g keeps KE ≤14.9 J up to ~14 m/s; airframe scaled from 245 g"
+  },
+  {
+   "id": "CdA",
+   "value": 0.008,
+   "unit": "m²",
+   "src": "ASSUMED",
+   "note": "faired body + duct lips; v1 0.016 + 0.006·sin²θ"
+  },
+  {
+   "id": "packs",
+   "value": 6,
+   "unit": "-",
+   "src": "ASSUMED",
+   "note": "warm inner pocket; swapped on the lift"
+  },
+  {
+   "id": "energy",
+   "value": 1,
+   "unit": "-",
+   "src": "ASSUMED",
+   "note": "tow leash: 20 m Dyneema, braked reel holds the drag tension"
+  },
+  {
+   "id": "twMax",
+   "value": 2.6,
+   "unit": "-",
+   "src": "ASSUMED",
+   "note": "calc_rotor_follow.py"
+  },
+  {
+   "id": "tiltMaxDeg",
+   "value": 65,
+   "unit": "°",
+   "src": "ASSUMED",
+   "note": ""
+  },
+  {
+   "id": "fom",
+   "value": 0.38,
+   "unit": "-",
+   "src": "ASSUMED",
+   "note": "calc_rotor_follow.py; audit brackets 0.38–0.55"
+  },
+  {
+   "id": "tempC",
+   "value": -10,
+   "unit": "°C",
+   "src": "ASSUMED",
+   "note": ""
+  },
+  {
+   "id": "altM",
+   "value": 2000,
+   "unit": "m",
+   "src": "ASSUMED",
+   "note": ""
+  },
+  {
+   "id": "followDist",
+   "value": 6,
+   "unit": "m",
+   "src": "ASSUMED",
+   "note": ""
+  },
+  {
+   "id": "hFollow",
+   "value": 3,
+   "unit": "m",
+   "src": "ASSUMED",
+   "note": "A02: 3 m"
+  },
+  {
+   "id": "speedCap",
+   "value": 22,
+   "unit": "m/s",
+   "src": "ASSUMED",
+   "note": ""
+  },
+  {
+   "id": "guard3D",
+   "value": 3,
+   "unit": "m",
+   "src": "ASSUMED",
+   "note": ""
+  },
+  {
+   "id": "beaconSigma",
+   "value": 0.04,
+   "unit": "m",
+   "src": "ASSUMED",
+   "note": "RTK 0.02–0.05 m, UWB ~0.1 m"
+  },
+  {
+   "id": "beaconLatency",
+   "value": 0.1,
+   "unit": "s",
+   "src": "ASSUMED",
+   "note": ""
+  },
+  {
+   "id": "captureR",
+   "value": 0.1,
+   "unit": "m",
+   "src": "ASSUMED",
+   "note": "R08 calc: ≥6 cm"
+  },
+  {
+   "id": "leash",
+   "value": 0,
+   "unit": "-",
+   "src": "ASSUMED",
+   "note": "A09 0.5 mm Dyneema, spring reel"
+  }
+ ],
+ "designs": {
+  "v1": {
+   "mass": 0.245,
+   "rotorD": 0.076,
+   "fom": 0.38,
+   "twMax": 2.6,
+   "tiltMaxDeg": 65,
+   "CdA": 0.016,
+   "CdAtilt": 0.006,
+   "cLin": 0.03,
+   "tauAtt": 0.07,
+   "tauDob": 0.06,
+   "pAvionics": 3.5,
+   "droneR": 0.13,
+   "altM": 2000,
+   "tempC": -10,
+   "battWh": 13.5,
+   "battR25": 0.045,
+   "podTempC": 5,
+   "reserve": 0.15,
+   "followDist": 6,
+   "lagMin": 0.3,
+   "lagMax": 2,
+   "lookahead": 0.3,
+   "hFollow": 3,
+   "speedCap": 22,
+   "crossLimit": 0.6,
+   "guard3D": 3,
+   "guardAlong": 3.5,
+   "aBrake": 8,
+   "smoothWin": 0.6,
+   "holdDist": 5,
+   "beaconSigma": 0.04,
+   "beaconLatency": 0.1,
+   "beaconRate": 10,
+   "hfovDeg": 85,
+   "maxCrop": 2,
+   "targetFill": 0.45,
+   "gimbalRateDeg": 200,
+   "captureR": 0.06,
+   "abortErr": 0.04,
+   "maxAttempts": 3,
+   "descRate": 0.35,
+   "leash": 0,
+   "leashLen": 20,
+   "energy": 1,
+   "packs": 1,
+   "design": 1,
+   "keCap": 0,
+   "smoothCap": 0.21,
+   "dockMode": 1,
+   "standHeadingIntoWind": 0,
+   "battC": 10,
+   "lightFactor": 1,
+   "sensorRange": 12,
+   "vision": 0,
+   "obsSensor": 0,
+   "personYield": 0,
+   "leap": 0,
+   "packMass": 0.075,
+   "podMass": 0.12,
+   "__expanded": true
+  },
+  "v2": {
+   "mass": 0.15,
+   "rotorD": 0.05946702052913232,
+   "fom": 0.38,
+   "twMax": 2.6,
+   "tiltMaxDeg": 65,
+   "CdA": 0.005768197253965626,
+   "CdAtilt": 0.0036051232837285164,
+   "cLin": 0.0216307397023711,
+   "tauAtt": 0.07,
+   "tauDob": 0.06,
+   "pAvionics": 3.5,
+   "droneR": 0.1017199035366737,
+   "altM": 2000,
+   "tempC": -10,
+   "battWh": 8.26530612244898,
+   "battR25": 0.045,
+   "podTempC": 15,
+   "reserve": 0.15,
+   "followDist": 6,
+   "lagMin": 0.3,
+   "lagMax": 2,
+   "lookahead": 0.3,
+   "hFollow": 3,
+   "speedCap": 22,
+   "crossLimit": 0.6,
+   "guard3D": 3,
+   "guardAlong": 3.5,
+   "aBrake": 8,
+   "smoothWin": 0.8,
+   "holdDist": 5,
+   "beaconSigma": 0.04,
+   "beaconLatency": 0.1,
+   "beaconRate": 10,
+   "hfovDeg": 85,
+   "maxCrop": 2,
+   "targetFill": 0.45,
+   "gimbalRateDeg": 200,
+   "captureR": 0.1,
+   "abortErr": 0.06,
+   "maxAttempts": 3,
+   "descRate": 0.35,
+   "leash": 0,
+   "leashLen": 20,
+   "energy": 1,
+   "packs": 6,
+   "design": 2,
+   "keCap": 14.9,
+   "smoothCap": 0.25,
+   "dockMode": 2,
+   "standHeadingIntoWind": 1,
+   "battC": 10,
+   "lightFactor": 1,
+   "sensorRange": 12,
+   "packMass": 0.04591836734693878,
+   "podMass": 0.08836734693877552,
+   "vision": 0,
+   "obsSensor": 0,
+   "personYield": 0,
+   "leap": 0,
+   "sensorFovDeg": 120,
+   "sensorLatency": 0.1,
+   "__expanded": true
+  },
+  "v3": {
+   "mass": 0.15,
+   "rotorD": 0.05946702052913232,
+   "fom": 0.38,
+   "twMax": 2.6,
+   "tiltMaxDeg": 65,
+   "CdA": 0.005768197253965626,
+   "CdAtilt": 0.0036051232837285164,
+   "cLin": 0.0216307397023711,
+   "tauAtt": 0.07,
+   "tauDob": 0.06,
+   "pAvionics": 3.5,
+   "droneR": 0.1017199035366737,
+   "altM": 2000,
+   "tempC": -10,
+   "battWh": 8.26530612244898,
+   "battR25": 0.045,
+   "podTempC": 15,
+   "reserve": 0.15,
+   "followDist": 6,
+   "lagMin": 0.3,
+   "lagMax": 2,
+   "lookahead": 0.3,
+   "hFollow": 3,
+   "speedCap": 22,
+   "crossLimit": 0.6,
+   "guard3D": 3,
+   "guardAlong": 3.5,
+   "aBrake": 8,
+   "smoothWin": 2,
+   "holdDist": 5,
+   "beaconSigma": 0.04,
+   "beaconLatency": 0.1,
+   "beaconRate": 10,
+   "hfovDeg": 85,
+   "maxCrop": 2,
+   "targetFill": 0.45,
+   "gimbalRateDeg": 200,
+   "captureR": 0.1,
+   "abortErr": 0.06,
+   "maxAttempts": 3,
+   "descRate": 0.35,
+   "leash": 0,
+   "leashLen": 20,
+   "energy": 1,
+   "packs": 6,
+   "design": 3,
+   "keCap": 14.9,
+   "smoothCap": 0.8,
+   "dockMode": 2,
+   "standHeadingIntoWind": 1,
+   "battC": 10,
+   "lightFactor": 1,
+   "sensorRange": 12,
+   "packMass": 0.04591836734693878,
+   "podMass": 0.08836734693877552,
+   "vision": 1,
+   "obsSensor": 1,
+   "personYield": 1,
+   "leap": 1,
+   "sensorFovDeg": 120,
+   "sensorLatency": 0.1,
+   "__expanded": true
+  }
+ },
+ "modelLimits": [
+  "No onboard vision avoidance: only the track corridor; branches above head height and off-corridor obstacles are invisible to it",
+  "Quasi-static momentum-theory rotors; no thrust loss at high advance ratio, vortex ring or ground effect",
+  "Attitude as a first-order thrust-vector lag, no rotational inertia/yaw dynamics; rider wake is a simplified turbulence add-on",
+  "Footage is geometric only (no exposure, snow glare, motion blur, occlusion); noise is assumed",
+  "Pod capture is a geometric criterion (radius + relative speed), no contact mechanics or lid mechanism",
+  "Trees are deterministic cone + branch envelopes; real tree lines are irregular and sway",
+  "Regulation only flagged (VLOS / resort permission); no legal analysis",
+  "v2 airframe scaled by mass (no CFD/wind tunnel); fairing drag area ASSUMED; EPP shroud not credited (ASTM F3389 test pending)",
+  "Pod downwash recirculation is an assumed random lateral force (5 % W); tow leash: geometry and tension only, no tangling/snag dynamics",
+  "Endurance extrapolated from 20–36 s runs; packs start at the pocket/pod temperature",
+  "v3 vision tracker and depth sensor are parametric ASSUMPTIONS (detection vs distance/light, noise, FOV), not fitted to real datasets; trees sensed as cone envelopes, no thin twigs or snow-fog",
+  "Beacon on the torso strap: shared trunk.js trunk rotation not yet applied (beacon point follows the whole-body lean of bodyPoints)"
+ ],
+ "scenarios": [
+  {
+   "id": "nominal",
+   "name": "Nominal (v2): 12 m/s carving, light wind, one side pass",
+   "expect": "Replays the track ~0.5 s behind, 3 m up; one commanded side pass at 17 s. Judged on the harmonised criteria (availability, >1 Hz jitter, day endurance, p90 standstill, KE).",
+   "computeMs": 2339,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 85.276,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 363.003,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.311,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 59.029,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 6.176,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.42 + pick-up 0.00)",
+     "value": 1.421,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 13.948,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 8.8 min)",
+     "value": 52.74,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 8.79,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 9.238,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 6.094,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 1.019,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 47.719,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.981,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.955,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 14.816,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 58.225,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.21,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 5.84,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 9.345,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 12.175,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 14.92,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 24.5,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 26.28,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 28.76,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 6.094,
+     "max": 8.688
+    },
+    "crossErr": {
+     "min": 0.001,
+     "max": 1.019
+    },
+    "tilt": {
+     "min": 5.396,
+     "max": 64.955
+    },
+    "air": {
+     "min": 9.101,
+     "max": 14.816
+    },
+    "gs": {
+     "min": 9.253,
+     "max": 13.637
+    },
+    "power": {
+     "min": 32.014,
+     "max": 81.898
+    },
+    "soc": {
+     "min": 95.164,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 3.981,
+     "max": 4.118
+    },
+    "tb": {
+     "min": 13.019,
+     "max": 15
+    },
+    "ke": {
+     "min": 6.421,
+     "max": 13.948
+    },
+    "subjectPx": {
+     "min": 223.999,
+     "max": 445.496
+    },
+    "crop": {
+     "min": 1.333,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.214
+    },
+    "altAgl": {
+     "min": 2.558,
+     "max": 3.468
+    }
+   }
+  },
+  {
+   "id": "nominal_v2",
+   "name": "Nominal (v2 reference)",
+   "expect": "Same run with the iteration-2 design (no vision fallback, depth sensor or leapfrog).",
+   "computeMs": 1301,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 79.014,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 392.407,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.478,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 57.552,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 6.176,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.42 + pick-up 0.00)",
+     "value": 1.418,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 13.764,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 8.8 min)",
+     "value": 53.06,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 8.843,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 9.323,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 6.155,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 0.991,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 47.432,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.98,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.892,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 14.915,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 58.641,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "avail",
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.05,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 5.72,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 9.125,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 12.015,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 14.865,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 17.495,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 24.5,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 26.265,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 28.705,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 6.155,
+     "max": 8.313
+    },
+    "crossErr": {
+     "min": 0.002,
+     "max": 0.991
+    },
+    "tilt": {
+     "min": 3.339,
+     "max": 64.892
+    },
+    "air": {
+     "min": 10.265,
+     "max": 14.915
+    },
+    "gs": {
+     "min": 10.343,
+     "max": 13.547
+    },
+    "power": {
+     "min": 32.617,
+     "max": 82.859
+    },
+    "soc": {
+     "min": 95.193,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 3.98,
+     "max": 4.121
+    },
+    "tb": {
+     "min": 13.016,
+     "max": 15
+    },
+    "ke": {
+     "min": 8.023,
+     "max": 13.764
+    },
+    "subjectPx": {
+     "min": 194.515,
+     "max": 507.325
+    },
+    "crop": {
+     "min": 1.504,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.215
+    },
+    "altAgl": {
+     "min": 2.547,
+     "max": 3.494
+    }
+   }
+  },
+  {
+   "id": "nominal_v1",
+   "name": "Nominal (v1 reference)",
+   "expect": "Same run with the iteration-1 design (245 g, CdA 0.016, one battery, 6 cm pod mouth).",
+   "computeMs": 2019,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v1 245 g)",
+     "value": 78.215,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 387.884,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 2.295,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 76.539,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 0 spare packs)",
+     "value": 0.395,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 2.518,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 8% dock failures)",
+     "value": 16.33,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.00 + pick-up 0.08)",
+     "value": 1.083,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 34.644,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (1 packs × 6.0 min)",
+     "value": 6.049,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 6.049,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 10.435,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 3.929,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 0.913,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 99.431,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.752,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.998,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 15.569,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 58.708,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "avail",
+    "keMax",
+    "endurance",
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.27,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 5.82,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 9.215,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 12.055,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.61 m > 0.6 m"
+    },
+    {
+     "t": 14.905,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 17.495,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 18.63,
+     "type": "currentLimit",
+     "severity": "warning",
+     "en": "Battery current at the 10C limit: thrust limited"
+    },
+    {
+     "t": 20.5,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 24.495,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 26.26,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 28.87,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 3.929,
+     "max": 9.51
+    },
+    "crossErr": {
+     "min": 0,
+     "max": 0.913
+    },
+    "tilt": {
+     "min": 3.754,
+     "max": 64.998
+    },
+    "air": {
+     "min": 9.145,
+     "max": 15.569
+    },
+    "gs": {
+     "min": 8.621,
+     "max": 16.817
+    },
+    "power": {
+     "min": 60.825,
+     "max": 142.882
+    },
+    "soc": {
+     "min": 92.973,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 3.751,
+     "max": 4.026
+    },
+    "tb": {
+     "min": 4.999,
+     "max": 6.174
+    },
+    "ke": {
+     "min": 9.104,
+     "max": 34.644
+    },
+    "subjectPx": {
+     "min": 193.42,
+     "max": 507.262
+    },
+    "crop": {
+     "min": 1.086,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.215
+    },
+    "altAgl": {
+     "min": 2.464,
+     "max": 3.448
+    }
+   }
+  },
+  {
+   "id": "highspeed",
+   "name": "High speed 18 m/s + 8 m/s headwind",
+   "expect": "Airspeed ~26 m/s; the v2 KE governor (150 g → ≤13.3 m/s) makes it fall behind by design. Fail: availability <80%.",
+   "computeMs": 650,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 1.439,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 33.935,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.106,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 84.078,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 11.087,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.82 + pick-up 0.00)",
+     "value": 1.818,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 13.036,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 4.5 min)",
+     "value": 27.154,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 4.526,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 12.267,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 6.671,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 1.589,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "windLimit",
+     "en": "Crosswind limit while following at 12 m/s (10° tilt margin)",
+     "value": 10.75,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vAirMax",
+     "en": "Tilt-limited max steady airspeed",
+     "value": 23.75,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 91.097,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.919,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.835,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 21.104,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 35.475,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "avail",
+    "pxMed",
+    "endurance",
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 0.23,
+     "type": "currentLimit",
+     "severity": "warning",
+     "en": "Battery current at the 10C limit: thrust limited"
+    },
+    {
+     "t": 0.645,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 2.1,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 3.65,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 6.65,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 7.12,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 9.12,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.16 m > 0.6 m"
+    },
+    {
+     "t": 9.655,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 11.125,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.39 m > 0.6 m"
+    },
+    {
+     "t": 13.13,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.05 m > 0.6 m"
+    },
+    {
+     "t": 14.06,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 15.135,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.99 m > 0.6 m"
+    },
+    {
+     "t": 17.065,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 17.135,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.35 m > 0.6 m"
+    },
+    {
+     "t": 19.14,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.49 m > 0.6 m"
+    },
+    {
+     "t": 20.07,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 23.075,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 6.671,
+     "max": 177.643
+    },
+    "crossErr": {
+     "min": 0.002,
+     "max": 1.589
+    },
+    "tilt": {
+     "min": 3.605,
+     "max": 64.835
+    },
+    "air": {
+     "min": 16.966,
+     "max": 21.104
+    },
+    "gs": {
+     "min": 8.45,
+     "max": 13.184
+    },
+    "power": {
+     "min": 55.42,
+     "max": 108.163
+    },
+    "soc": {
+     "min": 92.173,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 3.919,
+     "max": 4.083
+    },
+    "tb": {
+     "min": 14.216,
+     "max": 15
+    },
+    "ke": {
+     "min": 5.355,
+     "max": 13.036
+    },
+    "subjectPx": {
+     "min": 15.891,
+     "max": 445.713
+    },
+    "crop": {
+     "min": 1.437,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.467
+    },
+    "altAgl": {
+     "min": 2.89,
+     "max": 3.085
+    }
+   }
+  },
+  {
+   "id": "highspeed_leap",
+   "name": "High speed 18 m/s: leapfrog/pan (v3)",
+   "expect": "The drone starts ahead and beside the line, 4 m up (launched at the stop); once the rider exceeds the KE-safe speed they overtake it while the gimbal pans front→side→rear; then it rejoins the corridor at the capped speed. Reports availability of this mode.",
+   "computeMs": 400,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 25.776,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 47.999,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 2.671,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 198.278,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 10.07,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.79 + pick-up 0.00)",
+     "value": 1.787,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 13.21,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 4.7 min)",
+     "value": 28.198,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 4.7,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 11.93,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 5.615,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 1.742,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 87.497,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.894,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.971,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 20.889,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 39.301,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 21.785,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "avail",
+    "pxMed",
+    "endurance",
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 2.17,
+     "type": "currentLimit",
+     "severity": "warning",
+     "en": "Battery current at the 10C limit: thrust limited"
+    },
+    {
+     "t": 3.865,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 6.87,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 9.605,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.34 m > 0.6 m"
+    },
+    {
+     "t": 9.87,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 12.875,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 13.78,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 15.785,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.17 m > 0.6 m"
+    },
+    {
+     "t": 15.88,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 17.79,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.68 m > 0.6 m"
+    },
+    {
+     "t": 18.885,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 21.89,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 24.105,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 24.895,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 26.11,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.18 m > 0.6 m"
+    },
+    {
+     "t": 27.9,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 28.115,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.62 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 5.615,
+     "max": 159.592
+    },
+    "crossErr": {
+     "min": 0,
+     "max": 1.742
+    },
+    "tilt": {
+     "min": 0.192,
+     "max": 64.971
+    },
+    "air": {
+     "min": 6.965,
+     "max": 20.889
+    },
+    "gs": {
+     "min": 0.01,
+     "max": 13.271
+    },
+    "power": {
+     "min": 32.394,
+     "max": 104.565
+    },
+    "soc": {
+     "min": 90.955,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 3.895,
+     "max": 4.124
+    },
+    "tb": {
+     "min": 13.987,
+     "max": 15
+    },
+    "ke": {
+     "min": 0,
+     "max": 13.21
+    },
+    "subjectPx": {
+     "min": 18.951,
+     "max": 411.297
+    },
+    "crop": {
+     "min": 1.122,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0.003,
+     "max": 0.465
+    },
+    "altAgl": {
+     "min": 2.87,
+     "max": 4.089
+    }
+   }
+  },
+  {
+   "id": "short",
+   "name": "Short turns + hockey stop + auto-dock",
+   "expect": "Smooths the short-turn wiggle within 1 m cross-track; no overrun at the stop; auto-docks. Fail: distance <3 m, cross-track >1 m, no dock.",
+   "computeMs": 453,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 81.159,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 370.349,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 4.17,
+     "unit": "°/s",
+     "pass": false,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 68.743,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 36.465,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.34 + pick-up 0.00)",
+     "value": 1.335,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 8.487,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 11.0 min)",
+     "value": 66.225,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 11.037,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 8.311,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 3.538,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 0.563,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "stopClear",
+     "en": "Distance once the rider has stopped",
+     "value": 3.538,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m, no overrun"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 38.205,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 4.005,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.585,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 11.759,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 58.275,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 26.236,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "jitterRms",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 23.47,
+     "type": "riderStop",
+     "severity": "info",
+     "en": "Rider stop detected"
+    },
+    {
+     "t": 23.47,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode follow → hold: rider stopped"
+    },
+    {
+     "t": 25.475,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode hold → dock: auto return to pod"
+    },
+    {
+     "t": 27.88,
+     "type": "dockDescend",
+     "severity": "info",
+     "en": "Docking descent, attempt 1"
+    },
+    {
+     "t": 30.335,
+     "type": "docked",
+     "severity": "info",
+     "en": "Docked: offset 1.6 cm (capture radius 10 cm), attempt 1"
+    },
+    {
+     "t": 30.335,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode dock → docked"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 0.575,
+     "max": 8.01
+    },
+    "crossErr": {
+     "min": 0,
+     "max": 0.563
+    },
+    "tilt": {
+     "min": 0,
+     "max": 64.585
+    },
+    "air": {
+     "min": 0,
+     "max": 11.759
+    },
+    "gs": {
+     "min": 0.017,
+     "max": 10.637
+    },
+    "power": {
+     "min": 0,
+     "max": 74.326
+    },
+    "soc": {
+     "min": 96.106,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 4.005,
+     "max": 4.135
+    },
+    "tb": {
+     "min": 12.852,
+     "max": 15
+    },
+    "ke": {
+     "min": 0,
+     "max": 8.487
+    },
+    "subjectPx": {
+     "min": 250.316,
+     "max": 514.09
+    },
+    "crop": {
+     "min": 1,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0.001,
+     "max": 0.805
+    },
+    "altAgl": {
+     "min": 1.564,
+     "max": 3.297
+    },
+    "dockErr": {
+     "min": 0.363,
+     "max": 481.356
+    }
+   }
+  },
+  {
+   "id": "crosswind",
+   "name": "Gusty crosswind 6→11 m/s",
+   "expect": "6 m/s crosswind (30% turbulence) + 5 m/s gust at 12 s. Holds track and framing. Fail: cross-track >0.6 m, availability <80%, jitter >5 °/s. Also reports the follow wind limit.",
+   "computeMs": 1035,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 85.743,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 362.35,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.184,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 24.179,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 7.333,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.57 + pick-up 0.00)",
+     "value": 1.566,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 13.595,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 6.5 min)",
+     "value": 39.216,
+     "unit": "min",
+     "pass": false,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 6.536,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 12.505,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 6.542,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 1.171,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "windLimit",
+     "en": "Crosswind limit while following at 12 m/s (10° tilt margin)",
+     "value": 10.75,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vAirMax",
+     "en": "Tilt-limited max steady airspeed",
+     "value": 23.75,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 63.464,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.91,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.992,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 21.106,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 58.146,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "azRange",
+    "endurance",
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.125,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 3.86,
+     "type": "currentLimit",
+     "severity": "warning",
+     "en": "Battery current at the 10C limit: thrust limited"
+    },
+    {
+     "t": 5.69,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.61 m > 0.6 m"
+    },
+    {
+     "t": 8.465,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 11.565,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 14.865,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 16.495,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 17.69,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 20.72,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 21.195,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 23.77,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.61 m > 0.6 m"
+    },
+    {
+     "t": 24.2,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 26.605,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 27.7,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 29.71,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 6.542,
+     "max": 9.601
+    },
+    "crossErr": {
+     "min": 0.001,
+     "max": 1.171
+    },
+    "tilt": {
+     "min": 8.709,
+     "max": 64.992
+    },
+    "air": {
+     "min": 9.554,
+     "max": 21.106
+    },
+    "gs": {
+     "min": 9.276,
+     "max": 13.464
+    },
+    "power": {
+     "min": 32.062,
+     "max": 109.85
+    },
+    "soc": {
+     "min": 93.496,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 3.91,
+     "max": 4.123
+    },
+    "tb": {
+     "min": 13.396,
+     "max": 15
+    },
+    "ke": {
+     "min": 6.453,
+     "max": 13.595
+    },
+    "subjectPx": {
+     "min": 237.536,
+     "max": 479.913
+    },
+    "crop": {
+     "min": 1.317,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.264
+    },
+    "altAgl": {
+     "min": 2.844,
+     "max": 3.12
+    }
+   }
+  },
+  {
+   "id": "dropout",
+   "name": "Beacon dropout 2 s",
+   "expect": "On loss: brake, hover and climb; on return (σ 0.15 m until RTK re-fixes) catch up. Fail: collision or >3 s to re-frame.",
+   "computeMs": 450,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 97.002,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 366.163,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.239,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 22.972,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 6.29,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.42 + pick-up 0.00)",
+     "value": 1.42,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 13.738,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 8.8 min)",
+     "value": 52.879,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 8.813,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 7.77,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 6.486,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 0.914,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "reframe",
+     "en": "Time to re-lock framing after beacon returns",
+     "value": 0.02,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤3 s"
+    },
+    {
+     "id": "reacq",
+     "en": "Time back to ≥300 px after beacon returns",
+     "value": 0.02,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤5 s (must close ~20 m)"
+    },
+    {
+     "id": "visionFixes",
+     "en": "Vision-tracker fixes / misses during the loss",
+     "value": "20 / 0",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "lostClimb",
+     "en": "Climb during loss",
+     "value": 0,
+     "unit": "m",
+     "pass": null,
+     "criterion": "not needed with the v3 vision fallback"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 47.626,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 4.022,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.331,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 15.114,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 58.449,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "azRange",
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.145,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 5.89,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 8.98,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 11.43,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 15.03,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 18.06,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 20.555,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 23.465,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 26.31,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 29.25,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 6.486,
+     "max": 8.114
+    },
+    "crossErr": {
+     "min": 0,
+     "max": 0.914
+    },
+    "tilt": {
+     "min": 7.219,
+     "max": 64.331
+    },
+    "air": {
+     "min": 9.474,
+     "max": 15.114
+    },
+    "gs": {
+     "min": 9.238,
+     "max": 13.534
+    },
+    "power": {
+     "min": 35.644,
+     "max": 69.841
+    },
+    "soc": {
+     "min": 95.177,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 4.022,
+     "max": 4.118
+    },
+    "tb": {
+     "min": 13.01,
+     "max": 15
+    },
+    "ke": {
+     "min": 6.4,
+     "max": 13.738
+    },
+    "subjectPx": {
+     "min": 261.713,
+     "max": 462.592
+    },
+    "crop": {
+     "min": 1.289,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.509
+    },
+    "altAgl": {
+     "min": 2.881,
+     "max": 3.153
+    }
+   }
+  },
+  {
+   "id": "fall",
+   "name": "Rider fall (sudden stop)",
+   "expect": "Must stop ≥3 m away, never overrun or hover overhead, and not dock onto a fallen rider. Fail: distance <3 m or overhead.",
+   "computeMs": 306,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 92.5,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 364.619,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.274,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 24.031,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 25.972,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.37 + pick-up 0.00)",
+     "value": 1.373,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 13.521,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 9.9 min)",
+     "value": 59.536,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 9.923,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 8.992,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 4.506,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 1.193,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "stopClear",
+     "en": "Distance once the rider has stopped",
+     "value": 4.506,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m, no overrun"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 42.606,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 4.003,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 63.529,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 14.457,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 58.545,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 30.245,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "azRange",
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.21,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 5.84,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 9.345,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 12.445,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.62 m > 0.6 m"
+    },
+    {
+     "t": 16.46,
+     "type": "riderStop",
+     "severity": "info",
+     "en": "Rider stop detected"
+    },
+    {
+     "t": 16.46,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode follow → hold: rider stopped"
+    },
+    {
+     "t": 16.46,
+     "type": "fallHold",
+     "severity": "info",
+     "en": "Fall detected: hold ≥5 m and keep filming; no docking"
+    },
+    {
+     "t": 16.465,
+     "type": "fallHold",
+     "severity": "info",
+     "en": "Fall detected: hold ≥5 m and keep filming; no docking"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 4.506,
+     "max": 8.104
+    },
+    "crossErr": {
+     "min": 0.001,
+     "max": 1.193
+    },
+    "tilt": {
+     "min": 0.524,
+     "max": 63.529
+    },
+    "air": {
+     "min": 1.347,
+     "max": 14.457
+    },
+    "gs": {
+     "min": 0.012,
+     "max": 13.427
+    },
+    "power": {
+     "min": 26.033,
+     "max": 80.281
+    },
+    "soc": {
+     "min": 96.858,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 4.003,
+     "max": 4.118
+    },
+    "tb": {
+     "min": 13.463,
+     "max": 15
+    },
+    "ke": {
+     "min": 0,
+     "max": 13.521
+    },
+    "subjectPx": {
+     "min": 261.993,
+     "max": 460.861
+    },
+    "crop": {
+     "min": 1,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 3.715
+    },
+    "altAgl": {
+     "min": 2.754,
+     "max": 3.237
+    }
+   }
+  },
+  {
+   "id": "treeline",
+   "name": "Tree line: rider skims trees",
+   "expect": "Rider passes 1.3–3 m from trunks; tests the replay-corridor clearance. Fail: tree clearance <0.3 m or strike.",
+   "computeMs": 667,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 35.443,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 189.955,
+     "unit": "px",
+     "pass": false,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.422,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 38.129,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 6.135,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.45 + pick-up 0.00)",
+     "value": 1.448,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 14.038,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 8.3 min)",
+     "value": 49.54,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 8.257,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 9.183,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 6.675,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 4.092,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "minClrTree",
+     "en": "Min clearance to trees (trunk/canopy/branch)",
+     "value": 0.242,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.3 m"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 50.717,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.989,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.976,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 15.825,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 51.373,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "avail",
+    "pxMed",
+    "azRange",
+    "crossMax",
+    "minClrTree",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.245,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 6.44,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 10.15,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 12.02,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 12.435,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 14.44,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.73 m > 0.6 m"
+    },
+    {
+     "t": 16.44,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 2.79 m > 0.6 m"
+    },
+    {
+     "t": 17.925,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 18.445,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.80 m > 0.6 m"
+    },
+    {
+     "t": 20.45,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 3.32 m > 0.6 m"
+    },
+    {
+     "t": 22.455,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 2.34 m > 0.6 m"
+    },
+    {
+     "t": 24.46,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 2.29 m > 0.6 m"
+    },
+    {
+     "t": 26.465,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.74 m > 0.6 m"
+    },
+    {
+     "t": 28.47,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 1.11 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 6.675,
+     "max": 23.753
+    },
+    "clrTree": {
+     "min": 0.242,
+     "max": 78.234
+    },
+    "crossErr": {
+     "min": 0.002,
+     "max": 4.092
+    },
+    "tilt": {
+     "min": 2.09,
+     "max": 64.976
+    },
+    "air": {
+     "min": 5.234,
+     "max": 15.825
+    },
+    "gs": {
+     "min": 2.22,
+     "max": 13.681
+    },
+    "power": {
+     "min": 31.17,
+     "max": 81.991
+    },
+    "soc": {
+     "min": 94.852,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 3.989,
+     "max": 4.122
+    },
+    "tb": {
+     "min": 13.075,
+     "max": 15
+    },
+    "ke": {
+     "min": 0.37,
+     "max": 14.038
+    },
+    "subjectPx": {
+     "min": 87.235,
+     "max": 445.497
+    },
+    "crop": {
+     "min": 1.408,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.212
+    },
+    "altAgl": {
+     "min": 2.83,
+     "max": 3.309
+    }
+   }
+  },
+  {
+   "id": "overhang",
+   "name": "Overhang: branch above head height",
+   "expect": "Branch at 2.6–3.1 m: the rider passes under, the drone at 3 m does not. Known blind spot of track replay. Expected fail: branch strike.",
+   "computeMs": 591,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 82.212,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 355.636,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.393,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 25.081,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 6.135,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.44 + pick-up 0.00)",
+     "value": 1.438,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 14.038,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 8.4 min)",
+     "value": 50.655,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 8.442,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 10.401,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 6.432,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 1.521,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "minClrTree",
+     "en": "Min clearance to trees (trunk/canopy/branch)",
+     "value": 0.267,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.3 m"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 49.635,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.987,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.796,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 15.987,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 57.367,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "azRange",
+    "crossMax",
+    "minClrTree",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.245,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 6.44,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 8.89,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 11.1,
+     "type": "avoid",
+     "severity": "info",
+     "en": "Forward depth sensor: avoidance height 2.0 m"
+    },
+    {
+     "t": 12.215,
+     "type": "currentLimit",
+     "severity": "warning",
+     "en": "Battery current at the 10C limit: thrust limited"
+    },
+    {
+     "t": 12.66,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 14.705,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 16.73,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.61 m > 0.6 m"
+    },
+    {
+     "t": 18.735,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.68 m > 0.6 m"
+    },
+    {
+     "t": 20.74,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.80 m > 0.6 m"
+    },
+    {
+     "t": 23.515,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 26.245,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 29.07,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 6.432,
+     "max": 10.717
+    },
+    "clrTree": {
+     "min": 0.267,
+     "max": 152.943
+    },
+    "crossErr": {
+     "min": 0.001,
+     "max": 1.521
+    },
+    "tilt": {
+     "min": 2.09,
+     "max": 64.796
+    },
+    "air": {
+     "min": 8.408,
+     "max": 15.987
+    },
+    "gs": {
+     "min": 8.659,
+     "max": 13.681
+    },
+    "power": {
+     "min": 23.309,
+     "max": 92.426
+    },
+    "soc": {
+     "min": 94.965,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 3.988,
+     "max": 4.122
+    },
+    "tb": {
+     "min": 13.056,
+     "max": 15
+    },
+    "ke": {
+     "min": 5.623,
+     "max": 14.038
+    },
+    "subjectPx": {
+     "min": 214.594,
+     "max": 454.451
+    },
+    "crop": {
+     "min": 1.313,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.212
+    },
+    "altAgl": {
+     "min": 1.997,
+     "max": 3.144
+    }
+   }
+  },
+  {
+   "id": "crossing",
+   "name": "Crossing skier",
+   "expect": "Another skier crosses under the drone (no person detection modelled). Reports min distance and KE. Fail: <3 m, or >14.9 J nearby.",
+   "computeMs": 652,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": 88.926,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": 360.088,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": 1.299,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": 24.467,
+     "unit": "°",
+     "pass": false,
+     "criterion": "≥45 °"
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 6.176,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.41 + pick-up 0.00)",
+     "value": 1.407,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 13.605,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 9.1 min)",
+     "value": 54.517,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 9.086,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 9.796,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 6.522,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "crossMax",
+     "en": "Max cross-track error (follow)",
+     "value": 1.019,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.6 m"
+    },
+    {
+     "id": "minDistOther",
+     "en": "Min distance to crossing skier",
+     "value": 3.4,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "keNearOther",
+     "en": "KE at closest approach (ground frame)",
+     "value": 10.308,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 46.369,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 4,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.825,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 14.666,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 58.358,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 0,
+     "unit": "%",
+     "pass": false,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "azRange",
+    "crossMax",
+    "vlos",
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 3.21,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 5.84,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 9.345,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 11.27,
+     "type": "yield",
+     "severity": "info",
+     "en": "Person detected at 11.9 m: climb to yield"
+    },
+    {
+     "t": 12.22,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 12.28,
+     "type": "saturation",
+     "severity": "warning",
+     "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+    },
+    {
+     "t": 14.87,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 17.785,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 20.58,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    },
+    {
+     "t": 23.355,
+     "type": "crossTrack",
+     "severity": "warning",
+     "en": "Cross-track error 0.60 m > 0.6 m"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 6.522,
+     "max": 8.777
+    },
+    "distOther": {
+     "min": 3.4,
+     "max": 56.398
+    },
+    "crossErr": {
+     "min": 0.001,
+     "max": 1.019
+    },
+    "tilt": {
+     "min": 5.396,
+     "max": 64.825
+    },
+    "air": {
+     "min": 9.101,
+     "max": 14.666
+    },
+    "gs": {
+     "min": 9.253,
+     "max": 13.468
+    },
+    "power": {
+     "min": 27.829,
+     "max": 87.428
+    },
+    "soc": {
+     "min": 96.257,
+     "max": 99.999
+    },
+    "vcell": {
+     "min": 4,
+     "max": 4.118
+    },
+    "tb": {
+     "min": 13.377,
+     "max": 15
+    },
+    "ke": {
+     "min": 6.421,
+     "max": 13.605
+    },
+    "subjectPx": {
+     "min": 227.745,
+     "max": 445.496
+    },
+    "crop": {
+     "min": 1.333,
+     "max": 2
+    },
+    "estErr": {
+     "min": 0,
+     "max": 0.214
+    },
+    "altAgl": {
+     "min": 2.88,
+     "max": 5.499
+    }
+   }
+  },
+  {
+   "id": "dock",
+   "name": "At a stop: launch from pack and dock (wind sweep)",
+   "expect": "Launch, hover, dock while standing, two cycles; 5 m/s wind from the front (pod in the body wake). Sweeps dock success over 0–9 m/s. Fail: success within 3 attempts <95%, rotor-to-head <0.3 m.",
+   "computeMs": 538,
+   "validUntil": null,
+   "metrics": [
+    {
+     "id": "avail",
+     "en": "Usable full-body footage (v2 150 g)",
+     "value": "n/a (no skiing)",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "pxMed",
+     "en": "Subject px (median)",
+     "value": "n/a (no skiing)",
+     "unit": "px",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "jitterRms",
+     "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+     "value": "n/a (no skiing)",
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "azRange",
+     "en": "Commandable viewing-azimuth span",
+     "value": "n/a (no skiing)",
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "addedMass",
+     "en": "Added body mass (incl. 5 spare packs)",
+     "value": 0.518,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    {
+     "id": "bodyForcePeak",
+     "en": "Peak device force on body",
+     "value": 0,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    {
+     "id": "handsBusy",
+     "en": "Hand needed while moving (button and swaps only when stopped / on the lift)",
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    {
+     "id": "setupTime",
+     "en": "Standstill per run (deploy + stow) (p90 over 0–9 m/s wind, 0% dock failures)",
+     "value": 12.51,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    {
+     "id": "ops",
+     "en": "User actions per run (launch 1 + swap 0.32 + pick-up 0.00)",
+     "value": 1.318,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    {
+     "id": "keMax",
+     "en": "Max KE that can strike others (ground frame beyond 1.5 m)",
+     "value": 2.165,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    {
+     "id": "endurance",
+     "en": "Cold filming per charge (6 packs × 11.6 min)",
+     "value": 69.895,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    {
+     "id": "perPack",
+     "en": "Cold filming per pack (this profile)",
+     "value": 11.649,
+     "unit": "min",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "peakI",
+     "en": "Peak battery current (C-rate; thrust is limited above the rating)",
+     "value": 9.758,
+     "unit": "C",
+     "pass": null,
+     "criterion": "rated 10C"
+    },
+    {
+     "id": "minDistRider",
+     "en": "Min distance to rider",
+     "value": 4.578,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥3 m"
+    },
+    {
+     "id": "overheadT",
+     "en": "Time within 1.5 m horizontally of the head",
+     "value": 0,
+     "unit": "s",
+     "pass": true,
+     "criterion": "= 0"
+    },
+    {
+     "id": "dock0",
+     "en": "Dock success @0 m/s wind (≤3 tries)",
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥95% (R08)"
+    },
+    {
+     "id": "dock3",
+     "en": "Dock success @3 m/s wind (≤3 tries)",
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥95% (R08)"
+    },
+    {
+     "id": "dock6",
+     "en": "Dock success @6 m/s wind (≤3 tries)",
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥95% (R08)"
+    },
+    {
+     "id": "dock9",
+     "en": "Dock success @9 m/s wind (≤3 tries)",
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥95% (R08)"
+    },
+    {
+     "id": "dock12",
+     "en": "Dock success @12 m/s wind (beyond the sweep; limit search)",
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "dockFirst",
+     "en": "First-attempt success (wind:rate)",
+     "value": "0:100% 3:100% 6:100% 9:100%",
+     "unit": "",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "headClr",
+     "en": "Min rotor-to-helmet gap while docking",
+     "value": 0.363,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m (R08 kill line)"
+    },
+    {
+     "id": "dockErr",
+     "en": "This docking offset",
+     "value": 2.426,
+     "unit": "cm",
+     "pass": true,
+     "criterion": "≤10 cm"
+    },
+    {
+     "id": "pMean",
+     "en": "Mean electrical power",
+     "value": 36.33,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "vCellMin",
+     "en": "Min cell voltage under load",
+     "value": 3.998,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≥3.2 V"
+    },
+    {
+     "id": "tiltMax",
+     "en": "Max tilt",
+     "value": 64.922,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "airMax",
+     "en": "Max airspeed",
+     "value": 11.772,
+     "unit": "m/s",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "noise",
+     "en": "Noise at rider (ASSUMED 75 dBA @ 1 m)",
+     "value": 60.082,
+     "unit": "dBA",
+     "pass": null,
+     "criterion": null
+    },
+    {
+     "id": "ePending",
+     "en": "Crushable EPP shroud (lower transferred energy)",
+     "value": "pending test",
+     "unit": "",
+     "pass": null,
+     "criterion": "needs an ASTM F3389 transfer test; not credited in keMax"
+    },
+    {
+     "id": "vlos",
+     "en": "Time the rider can keep the drone in sight",
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "100% (VLOS; EU follow-me exception to be verified)"
+    },
+    {
+     "id": "regGate",
+     "en": "Regulatory / resort gate",
+     "value": "not met",
+     "unit": "",
+     "pass": false,
+     "criterion": "Most resorts ban or need written permission (Vail bans)"
+    }
+   ],
+   "failed": [
+    "regGate"
+   ],
+   "events": [
+    {
+     "t": 1,
+     "type": "tap",
+     "severity": "info",
+     "en": "Rider taps the strap button"
+    },
+    {
+     "t": 1.2,
+     "type": "launch",
+     "severity": "info",
+     "en": "Pod lid opens, motors spin up"
+    },
+    {
+     "t": 1.295,
+     "type": "riderStop",
+     "severity": "info",
+     "en": "Rider stop detected"
+    },
+    {
+     "t": 2.7,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode docked → launch: vertical climb-out"
+    },
+    {
+     "t": 5.695,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode launch → hold: climbed out and backed off to the guard distance"
+    },
+    {
+     "t": 8.7,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode hold → dock: auto return to pod"
+    },
+    {
+     "t": 11.14,
+     "type": "dockDescend",
+     "severity": "info",
+     "en": "Docking descent, attempt 1"
+    },
+    {
+     "t": 14.755,
+     "type": "docked",
+     "severity": "info",
+     "en": "Docked: offset 0.7 cm (capture radius 10 cm), attempt 1"
+    },
+    {
+     "t": 14.755,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode dock → docked"
+    },
+    {
+     "t": 19,
+     "type": "tap",
+     "severity": "info",
+     "en": "Rider taps the strap button"
+    },
+    {
+     "t": 19.2,
+     "type": "launch",
+     "severity": "info",
+     "en": "Pod lid opens, motors spin up"
+    },
+    {
+     "t": 20.7,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode docked → launch: vertical climb-out"
+    },
+    {
+     "t": 23.69,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode launch → hold: climbed out and backed off to the guard distance"
+    },
+    {
+     "t": 26.695,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode hold → dock: auto return to pod"
+    },
+    {
+     "t": 29.085,
+     "type": "dockDescend",
+     "severity": "info",
+     "en": "Docking descent, attempt 1"
+    },
+    {
+     "t": 32.565,
+     "type": "docked",
+     "severity": "info",
+     "en": "Docked: offset 2.4 cm (capture radius 10 cm), attempt 1"
+    },
+    {
+     "t": 32.565,
+     "type": "mode",
+     "severity": "info",
+     "en": "Mode dock → docked"
+    }
+   ],
+   "extremes": {
+    "distRider": {
+     "min": 0.584,
+     "max": 5.933
+    },
+    "tilt": {
+     "min": 0,
+     "max": 64.922
+    },
+    "air": {
+     "min": 0,
+     "max": 11.772
+    },
+    "gs": {
+     "min": 0.013,
+     "max": 5.372
+    },
+    "power": {
+     "min": 0,
+     "max": 86.803
+    },
+    "soc": {
+     "min": 97.091,
+     "max": 100
+    },
+    "vcell": {
+     "min": 3.999,
+     "max": 4.18
+    },
+    "tb": {
+     "min": 13.274,
+     "max": 15
+    },
+    "ke": {
+     "min": 0,
+     "max": 2.165
+    },
+    "subjectPx": {
+     "min": 361.909,
+     "max": 454.876
+    },
+    "crop": {
+     "min": 1,
+     "max": 1.496
+    },
+    "estErr": {
+     "min": 0.007,
+     "max": 0.142
+    },
+    "altAgl": {
+     "min": 1.459,
+     "max": 3.235
+    },
+    "dockErr": {
+     "min": 0.083,
+     "max": 440.153
+    }
+   }
+  }
+ ],
+ "versions": [
+  {
+   "scenario": "nominal",
+   "v1": {
+    "validUntil": null,
+    "avail": {
+     "value": 78.215,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 387.884,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 2.295,
+     "pass": true
+    },
+    "azRange": {
+     "value": 76.539,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.518,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 34.644,
+     "pass": false
+    },
+    "endurance": {
+     "value": 6.049,
+     "pass": false
+    },
+    "perPack": {
+     "value": 6.049,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.435,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 3.929,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.913,
+     "pass": false
+    },
+    "pMean": {
+     "value": 99.431,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": null,
+    "avail": {
+     "value": 79.014,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 392.407,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.478,
+     "pass": true
+    },
+    "azRange": {
+     "value": 57.552,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.418,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.764,
+     "pass": true
+    },
+    "endurance": {
+     "value": 53.06,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.843,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.323,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.155,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.991,
+     "pass": false
+    },
+    "pMean": {
+     "value": 47.432,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 85.276,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 363.003,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.311,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.029,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.421,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.948,
+     "pass": true
+    },
+    "endurance": {
+     "value": 52.74,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.79,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.238,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.094,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.019,
+     "pass": false
+    },
+    "pMean": {
+     "value": 47.719,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "highspeed",
+   "v1": {
+    "validUntil": null,
+    "avail": {
+     "value": 3.357,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 25.229,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.102,
+     "pass": true
+    },
+    "azRange": {
+     "value": 77.487,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 4.52,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 41.917,
+     "pass": false
+    },
+    "endurance": {
+     "value": 4.085,
+     "pass": false
+    },
+    "perPack": {
+     "value": 4.085,
+     "pass": null
+    },
+    "peakI": {
+     "value": 27.227,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.645,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.444,
+     "pass": true
+    },
+    "pMean": {
+     "value": 144.817,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": null,
+    "avail": {
+     "value": 2.718,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 33.754,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.15,
+     "pass": true
+    },
+    "azRange": {
+     "value": 84.508,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 11.087,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.816,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.036,
+     "pass": true
+    },
+    "endurance": {
+     "value": 27.211,
+     "pass": false
+    },
+    "perPack": {
+     "value": 4.535,
+     "pass": null
+    },
+    "peakI": {
+     "value": 12.264,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.671,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.938,
+     "pass": false
+    },
+    "pMean": {
+     "value": 90.915,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 1.439,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 33.935,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.106,
+     "pass": true
+    },
+    "azRange": {
+     "value": 84.078,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 11.087,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.818,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.036,
+     "pass": true
+    },
+    "endurance": {
+     "value": 27.154,
+     "pass": false
+    },
+    "perPack": {
+     "value": 4.526,
+     "pass": null
+    },
+    "peakI": {
+     "value": 12.267,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.671,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.589,
+     "pass": false
+    },
+    "pMean": {
+     "value": 91.097,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "highspeed_leap",
+   "v1": {
+    "validUntil": null,
+    "avail": {
+     "value": 19.568,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 33.396,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.971,
+     "pass": true
+    },
+    "azRange": {
+     "value": 179.886,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 4.105,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.815,
+     "pass": true
+    },
+    "endurance": {
+     "value": 4.258,
+     "pass": false
+    },
+    "perPack": {
+     "value": 4.258,
+     "pass": null
+    },
+    "peakI": {
+     "value": 12.446,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 3.46,
+     "pass": true
+    },
+    "pMean": {
+     "value": 139.249,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": null,
+    "avail": {
+     "value": 26.248,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 56.002,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.077,
+     "pass": true
+    },
+    "azRange": {
+     "value": 189.705,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 10.07,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.795,
+     "pass": true
+    },
+    "keMax": {
+     "value": 12.988,
+     "pass": true
+    },
+    "endurance": {
+     "value": 27.929,
+     "pass": false
+    },
+    "perPack": {
+     "value": 4.655,
+     "pass": null
+    },
+    "peakI": {
+     "value": 12.234,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 5.601,
+     "pass": true
+    },
+    "pMean": {
+     "value": 88.309,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 25.776,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 47.999,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 2.671,
+     "pass": true
+    },
+    "azRange": {
+     "value": 198.278,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 10.07,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.787,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.21,
+     "pass": true
+    },
+    "endurance": {
+     "value": 28.198,
+     "pass": false
+    },
+    "perPack": {
+     "value": 4.7,
+     "pass": null
+    },
+    "peakI": {
+     "value": 11.93,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 5.615,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.742,
+     "pass": false
+    },
+    "pMean": {
+     "value": 87.497,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "short",
+   "v1": {
+    "validUntil": null,
+    "avail": {
+     "value": 28.533,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 264.406,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 3.513,
+     "pass": false
+    },
+    "azRange": {
+     "value": 68.782,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 14.865,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 17.136,
+     "pass": false
+    },
+    "endurance": {
+     "value": 6.784,
+     "pass": false
+    },
+    "perPack": {
+     "value": 6.784,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.643,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 4.394,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.012,
+     "pass": false
+    },
+    "pMean": {
+     "value": 89.105,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": null,
+    "avail": {
+     "value": 29.891,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 269.071,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 3.735,
+     "pass": false
+    },
+    "azRange": {
+     "value": 68.539,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 36.465,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.479,
+     "pass": true
+    },
+    "keMax": {
+     "value": 11.726,
+     "pass": true
+    },
+    "endurance": {
+     "value": 46.319,
+     "pass": true
+    },
+    "perPack": {
+     "value": 7.72,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.37,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 3.897,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.219,
+     "pass": false
+    },
+    "pMean": {
+     "value": 54.12,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 81.159,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 370.349,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 4.17,
+     "pass": false
+    },
+    "azRange": {
+     "value": 68.743,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 36.465,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.335,
+     "pass": true
+    },
+    "keMax": {
+     "value": 8.487,
+     "pass": true
+    },
+    "endurance": {
+     "value": 66.225,
+     "pass": true
+    },
+    "perPack": {
+     "value": 11.037,
+     "pass": null
+    },
+    "peakI": {
+     "value": 8.311,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 3.538,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.563,
+     "pass": true
+    },
+    "pMean": {
+     "value": 38.205,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "crosswind",
+   "v1": {
+    "validUntil": null,
+    "avail": {
+     "value": 44.437,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 266.277,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.346,
+     "pass": true
+    },
+    "azRange": {
+     "value": 33.363,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.989,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 33.973,
+     "pass": false
+    },
+    "endurance": {
+     "value": 4.979,
+     "pass": false
+    },
+    "perPack": {
+     "value": 4.979,
+     "pass": null
+    },
+    "peakI": {
+     "value": 14.961,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.21,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.291,
+     "pass": false
+    },
+    "pMean": {
+     "value": 119.508,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": null,
+    "avail": {
+     "value": 79.947,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 377.959,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.439,
+     "pass": true
+    },
+    "azRange": {
+     "value": 24.522,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 7.333,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.564,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.893,
+     "pass": true
+    },
+    "endurance": {
+     "value": 39.377,
+     "pass": false
+    },
+    "perPack": {
+     "value": 6.563,
+     "pass": null
+    },
+    "peakI": {
+     "value": 12.247,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.264,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.226,
+     "pass": false
+    },
+    "pMean": {
+     "value": 63.213,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 85.743,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 362.35,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.184,
+     "pass": true
+    },
+    "azRange": {
+     "value": 24.179,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 7.333,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.566,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.595,
+     "pass": true
+    },
+    "endurance": {
+     "value": 39.216,
+     "pass": false
+    },
+    "perPack": {
+     "value": 6.536,
+     "pass": null
+    },
+    "peakI": {
+     "value": 12.505,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.542,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.171,
+     "pass": false
+    },
+    "pMean": {
+     "value": 63.464,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "dropout",
+   "v1": {
+    "validUntil": null,
+    "avail": {
+     "value": 52.298,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 309.776,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 11.725,
+     "pass": false
+    },
+    "azRange": {
+     "value": 33.393,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.564,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 31.103,
+     "pass": false
+    },
+    "endurance": {
+     "value": 5.517,
+     "pass": false
+    },
+    "perPack": {
+     "value": 5.517,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.546,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.235,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.961,
+     "pass": false
+    },
+    "reacq": {
+     "value": 12.22,
+     "pass": false
+    },
+    "pMean": {
+     "value": 108.474,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": null,
+    "avail": {
+     "value": 34.51,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 148.231,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 11.723,
+     "pass": false
+    },
+    "azRange": {
+     "value": 39.497,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.29,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.432,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.737,
+     "pass": true
+    },
+    "endurance": {
+     "value": 51.395,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.566,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.168,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.176,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 2.857,
+     "pass": false
+    },
+    "reacq": {
+     "value": 99,
+     "pass": false
+    },
+    "pMean": {
+     "value": 48.934,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 97.002,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 366.163,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.239,
+     "pass": true
+    },
+    "azRange": {
+     "value": 22.972,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.29,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.42,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.738,
+     "pass": true
+    },
+    "endurance": {
+     "value": 52.879,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.813,
+     "pass": null
+    },
+    "peakI": {
+     "value": 7.77,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.486,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.914,
+     "pass": false
+    },
+    "reacq": {
+     "value": 0.02,
+     "pass": true
+    },
+    "pMean": {
+     "value": 47.626,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "fall",
+   "v1": {
+    "validUntil": null,
+    "avail": {
+     "value": 89.333,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 410.976,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.562,
+     "pass": true
+    },
+    "azRange": {
+     "value": 23.457,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 10.588,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 23.713,
+     "pass": false
+    },
+    "endurance": {
+     "value": 7.648,
+     "pass": false
+    },
+    "perPack": {
+     "value": 7.648,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.641,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 4.432,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.402,
+     "pass": false
+    },
+    "pMean": {
+     "value": 79.695,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": null,
+    "avail": {
+     "value": 87.667,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 410.082,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.602,
+     "pass": true
+    },
+    "azRange": {
+     "value": 24.276,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 25.972,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.379,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.664,
+     "pass": true
+    },
+    "endurance": {
+     "value": 58.507,
+     "pass": true
+    },
+    "perPack": {
+     "value": 9.751,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.375,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 4.408,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.437,
+     "pass": false
+    },
+    "pMean": {
+     "value": 43.319,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 92.5,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 364.619,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.274,
+     "pass": true
+    },
+    "azRange": {
+     "value": 24.031,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 25.972,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.373,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.521,
+     "pass": true
+    },
+    "endurance": {
+     "value": 59.536,
+     "pass": true
+    },
+    "perPack": {
+     "value": 9.923,
+     "pass": null
+    },
+    "peakI": {
+     "value": 8.992,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 4.506,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.193,
+     "pass": false
+    },
+    "pMean": {
+     "value": 42.606,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "treeline",
+   "v1": {
+    "validUntil": 6.3950000000000005,
+    "avail": {
+     "value": 21.319,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 421.981,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.826,
+     "pass": true
+    },
+    "azRange": {
+     "value": 20.041,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.501,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 23.487,
+     "pass": false
+    },
+    "endurance": {
+     "value": 6.675,
+     "pass": false
+    },
+    "perPack": {
+     "value": 6.675,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.055,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.362,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.719,
+     "pass": false
+    },
+    "minClrTree": {
+     "value": 0.124,
+     "pass": false
+    },
+    "pMean": {
+     "value": 90.94,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": 6.3950000000000005,
+    "avail": {
+     "value": 21.319,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 420.991,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.885,
+     "pass": true
+    },
+    "azRange": {
+     "value": 20.761,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.135,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.39,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.768,
+     "pass": true
+    },
+    "endurance": {
+     "value": 56.935,
+     "pass": true
+    },
+    "perPack": {
+     "value": 9.489,
+     "pass": null
+    },
+    "peakI": {
+     "value": 7.025,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.446,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.783,
+     "pass": false
+    },
+    "minClrTree": {
+     "value": 0.148,
+     "pass": false
+    },
+    "pMean": {
+     "value": 44.867,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 35.443,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 189.955,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.422,
+     "pass": true
+    },
+    "azRange": {
+     "value": 38.129,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.135,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.448,
+     "pass": true
+    },
+    "keMax": {
+     "value": 14.038,
+     "pass": true
+    },
+    "endurance": {
+     "value": 49.54,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.257,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.183,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.675,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 4.092,
+     "pass": false
+    },
+    "minClrTree": {
+     "value": 0.242,
+     "pass": false
+    },
+    "pMean": {
+     "value": 50.717,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "overhang",
+   "v1": {
+    "validUntil": 6.3950000000000005,
+    "avail": {
+     "value": 21.319,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 421.981,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.826,
+     "pass": true
+    },
+    "azRange": {
+     "value": 20.041,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.501,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 23.487,
+     "pass": false
+    },
+    "endurance": {
+     "value": 6.675,
+     "pass": false
+    },
+    "perPack": {
+     "value": 6.675,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.055,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.362,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.719,
+     "pass": false
+    },
+    "minClrTree": {
+     "value": 0.124,
+     "pass": false
+    },
+    "pMean": {
+     "value": 90.94,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": 6.3950000000000005,
+    "avail": {
+     "value": 21.319,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 420.991,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.885,
+     "pass": true
+    },
+    "azRange": {
+     "value": 20.761,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.135,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.39,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.768,
+     "pass": true
+    },
+    "endurance": {
+     "value": 56.935,
+     "pass": true
+    },
+    "perPack": {
+     "value": 9.489,
+     "pass": null
+    },
+    "peakI": {
+     "value": 7.025,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.446,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.783,
+     "pass": false
+    },
+    "minClrTree": {
+     "value": 0.148,
+     "pass": false
+    },
+    "pMean": {
+     "value": 44.867,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 82.212,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 355.636,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.393,
+     "pass": true
+    },
+    "azRange": {
+     "value": 25.081,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.135,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.438,
+     "pass": true
+    },
+    "keMax": {
+     "value": 14.038,
+     "pass": true
+    },
+    "endurance": {
+     "value": 50.655,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.442,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.401,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.432,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.521,
+     "pass": false
+    },
+    "minClrTree": {
+     "value": 0.267,
+     "pass": false
+    },
+    "pMean": {
+     "value": 49.635,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "crossing",
+   "v1": {
+    "validUntil": null,
+    "avail": {
+     "value": 83.181,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 389.522,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.399,
+     "pass": true
+    },
+    "azRange": {
+     "value": 24.3,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 2.518,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 23.713,
+     "pass": false
+    },
+    "endurance": {
+     "value": 6.558,
+     "pass": false
+    },
+    "perPack": {
+     "value": 6.558,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.041,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.253,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.913,
+     "pass": false
+    },
+    "minDistOther": {
+     "value": 2.011,
+     "pass": false
+    },
+    "pMean": {
+     "value": 92.337,
+     "pass": null
+    }
+   },
+   "v2": {
+    "validUntil": null,
+    "avail": {
+     "value": 81.432,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 388.388,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.431,
+     "pass": true
+    },
+    "azRange": {
+     "value": 25.088,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.401,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.664,
+     "pass": true
+    },
+    "endurance": {
+     "value": 55.42,
+     "pass": true
+    },
+    "perPack": {
+     "value": 9.237,
+     "pass": null
+    },
+    "peakI": {
+     "value": 7.173,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.169,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 0.991,
+     "pass": false
+    },
+    "minDistOther": {
+     "value": 2.044,
+     "pass": false
+    },
+    "pMean": {
+     "value": 45.633,
+     "pass": null
+    }
+   },
+   "v3": {
+    "validUntil": null,
+    "avail": {
+     "value": 88.926,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 360.088,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.299,
+     "pass": true
+    },
+    "azRange": {
+     "value": 24.467,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.407,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.605,
+     "pass": true
+    },
+    "endurance": {
+     "value": 54.517,
+     "pass": true
+    },
+    "perPack": {
+     "value": 9.086,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.796,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.522,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.019,
+     "pass": false
+    },
+    "minDistOther": {
+     "value": 3.4,
+     "pass": true
+    },
+    "pMean": {
+     "value": 46.369,
+     "pass": null
+    }
+   }
+  }
+ ],
+ "pareto": [
+  {
+   "mass": 0.08,
+   "vKE": 19.3,
+   "vAirMax": 21.25,
+   "maxFollowSpeed": 18.05,
+   "crosswindTolAtThatSpeed": 0,
+   "keAt18": 13
+  },
+  {
+   "mass": 0.1,
+   "vKE": 17.26,
+   "vAirMax": 22.25,
+   "maxFollowSpeed": 16.14,
+   "crosswindTolAtThatSpeed": 3.5,
+   "keAt18": 16.2
+  },
+  {
+   "mass": 0.12,
+   "vKE": 15.76,
+   "vAirMax": 23,
+   "maxFollowSpeed": 14.73,
+   "crosswindTolAtThatSpeed": 6.5,
+   "keAt18": 19.4
+  },
+  {
+   "mass": 0.15,
+   "vKE": 14.09,
+   "vAirMax": 23.75,
+   "maxFollowSpeed": 13.18,
+   "crosswindTolAtThatSpeed": 9.5,
+   "keAt18": 24.3
+  },
+  {
+   "mass": 0.18,
+   "vKE": 12.87,
+   "vAirMax": 24.75,
+   "maxFollowSpeed": 12.03,
+   "crosswindTolAtThatSpeed": 11.5,
+   "keAt18": 29.2
+  },
+  {
+   "mass": 0.21,
+   "vKE": 11.91,
+   "vAirMax": 25.25,
+   "maxFollowSpeed": 11.14,
+   "crosswindTolAtThatSpeed": 13,
+   "keAt18": 34
+  },
+  {
+   "mass": 0.245,
+   "vKE": 11.03,
+   "vAirMax": 26,
+   "maxFollowSpeed": 10.31,
+   "crosswindTolAtThatSpeed": 14.5,
+   "keAt18": 39.7
+  }
+ ],
+ "leapfrog": [
+  {
+   "case": "highspeed (chase, moving start)",
+   "metrics": {
+    "avail": {
+     "value": 1.439,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 33.935,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.106,
+     "pass": true
+    },
+    "azRange": {
+     "value": 84.078,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.036,
+     "pass": true
+    }
+   },
+   "modes": []
+  },
+  {
+   "case": "highspeed_leap (pre-positioned)",
+   "metrics": {
+    "avail": {
+     "value": 25.776,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 47.999,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 2.671,
+     "pass": true
+    },
+    "azRange": {
+     "value": 198.278,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.21,
+     "pass": true
+    }
+   },
+   "modes": [
+    "7.605: Mode leap → follow: rider has passed; rejoin the corridor"
+   ]
+  },
+  {
+   "case": "crosswind (chase)",
+   "metrics": {
+    "avail": {
+     "value": 85.743,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 362.35,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.184,
+     "pass": true
+    },
+    "azRange": {
+     "value": 24.179,
+     "pass": false
+    },
+    "keMax": {
+     "value": 13.595,
+     "pass": true
+    }
+   },
+   "modes": []
+  },
+  {
+   "case": "crosswind_leap (pre-positioned, push start)",
+   "metrics": {
+    "avail": {
+     "value": 86.302,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 370.034,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 3.525,
+     "pass": false
+    },
+    "azRange": {
+     "value": 73.988,
+     "pass": true
+    },
+    "keMax": {
+     "value": 14.087,
+     "pass": true
+    }
+   },
+   "modes": []
+  }
+ ],
+ "v3sensors": [
+  {
+   "scenario": "dropout",
+   "variant": "light 0.6",
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 66.889,
+     "pass": false
+    },
+    "keMax": {
+     "value": 13.603,
+     "pass": true
+    },
+    "reframe": {
+     "value": 0.02,
+     "pass": true
+    },
+    "reacq": {
+     "value": 6.76,
+     "pass": false
+    }
+   }
+  },
+  {
+   "scenario": "dropout",
+   "variant": "light 0.3",
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 36.176,
+     "pass": false
+    },
+    "keMax": {
+     "value": 13.554,
+     "pass": true
+    },
+    "reframe": {
+     "value": 0.2,
+     "pass": true
+    },
+    "reacq": {
+     "value": 99,
+     "pass": false
+    }
+   }
+  },
+  {
+   "scenario": "overhang",
+   "variant": "range 6 m",
+   "validUntil": 12.045,
+   "metrics": {
+    "avail": {
+     "value": 23.384,
+     "pass": false
+    },
+    "keMax": {
+     "value": 13.511,
+     "pass": true
+    },
+    "minClrTree": {
+     "value": 0.031,
+     "pass": false
+    }
+   }
+  },
+  {
+   "scenario": "overhang",
+   "variant": "range 8 m",
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 74.883,
+     "pass": false
+    },
+    "keMax": {
+     "value": 14.243,
+     "pass": true
+    },
+    "minClrTree": {
+     "value": 0.212,
+     "pass": false
+    }
+   }
+  },
+  {
+   "scenario": "overhang",
+   "variant": "h 2.4 m",
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 89.54,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.905,
+     "pass": true
+    },
+    "minClrTree": {
+     "value": 0.239,
+     "pass": false
+    }
+   }
+  },
+  {
+   "scenario": "treeline",
+   "variant": "range 6 m",
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 22.452,
+     "pass": false
+    },
+    "keMax": {
+     "value": 14.123,
+     "pass": true
+    },
+    "minClrTree": {
+     "value": 0.238,
+     "pass": false
+    }
+   }
+  },
+  {
+   "scenario": "crossing",
+   "variant": "range 6 m",
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 87.594,
+     "pass": true
+    },
+    "keMax": {
+     "value": 14.132,
+     "pass": true
+    },
+    "minDistOther": {
+     "value": 2.355,
+     "pass": false
+    }
+   }
+  }
+ ],
+ "massTrade": [
+  {
+   "mass": 0.12,
+   "keGovernor": true,
+   "keSpeedCap": 14.81,
+   "windLimit": 9.75,
+   "vAirMax": 23,
+   "nominal": {
+    "avail": {
+     "value": 90.073,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.438,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.668,
+     "pass": true
+    },
+    "endurance": {
+     "value": 48.385,
+     "pass": true
+    }
+   },
+   "crosswind": {
+    "avail": {
+     "value": 80.746,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.084,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.627,
+     "pass": false
+    }
+   }
+  },
+  {
+   "mass": 0.12,
+   "keGovernor": false,
+   "keSpeedCap": null,
+   "windLimit": 9.75,
+   "vAirMax": 23,
+   "nominal": {
+    "avail": {
+     "value": 91.472,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.438,
+     "pass": true
+    },
+    "keMax": {
+     "value": 18.36,
+     "pass": false
+    },
+    "endurance": {
+     "value": 47.966,
+     "pass": true
+    }
+   },
+   "crosswind": {
+    "avail": {
+     "value": 82.278,
+     "pass": true
+    },
+    "keMax": {
+     "value": 15.336,
+     "pass": false
+    },
+    "crossMax": {
+     "value": 1.16,
+     "pass": false
+    }
+   }
+  },
+  {
+   "mass": 0.15,
+   "keGovernor": true,
+   "keSpeedCap": 13.25,
+   "windLimit": 10.75,
+   "vAirMax": 23.75,
+   "nominal": {
+    "avail": {
+     "value": 85.276,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.948,
+     "pass": true
+    },
+    "endurance": {
+     "value": 52.74,
+     "pass": true
+    }
+   },
+   "crosswind": {
+    "avail": {
+     "value": 85.743,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.595,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.171,
+     "pass": false
+    }
+   }
+  },
+  {
+   "mass": 0.15,
+   "keGovernor": false,
+   "keSpeedCap": null,
+   "windLimit": 10.75,
+   "vAirMax": 23.75,
+   "nominal": {
+    "avail": {
+     "value": 91.206,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "keMax": {
+     "value": 23.043,
+     "pass": false
+    },
+    "endurance": {
+     "value": 50.804,
+     "pass": true
+    }
+   },
+   "crosswind": {
+    "avail": {
+     "value": 91.406,
+     "pass": true
+    },
+    "keMax": {
+     "value": 18.133,
+     "pass": false
+    },
+    "crossMax": {
+     "value": 1.092,
+     "pass": false
+    }
+   }
+  },
+  {
+   "mass": 0.245,
+   "keGovernor": true,
+   "keSpeedCap": 10.37,
+   "windLimit": 12.75,
+   "vAirMax": 26,
+   "nominal": {
+    "avail": {
+     "value": 7.195,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.77,
+     "pass": true
+    },
+    "keMax": {
+     "value": 17.875,
+     "pass": false
+    },
+    "endurance": {
+     "value": 75.054,
+     "pass": true
+    }
+   },
+   "crosswind": {
+    "avail": {
+     "value": 6.262,
+     "pass": false
+    },
+    "keMax": {
+     "value": 16.263,
+     "pass": false
+    },
+    "crossMax": {
+     "value": 3.618,
+     "pass": false
+    }
+   }
+  },
+  {
+   "mass": 0.245,
+   "keGovernor": false,
+   "keSpeedCap": null,
+   "windLimit": 12.75,
+   "vAirMax": 26,
+   "nominal": {
+    "avail": {
+     "value": 90.473,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.77,
+     "pass": true
+    },
+    "keMax": {
+     "value": 37.869,
+     "pass": false
+    },
+    "endurance": {
+     "value": 56.42,
+     "pass": true
+    }
+   },
+   "crosswind": {
+    "avail": {
+     "value": 95.403,
+     "pass": true
+    },
+    "keMax": {
+     "value": 25.489,
+     "pass": false
+    },
+    "crossMax": {
+     "value": 0.904,
+     "pass": false
+    }
+   }
+  }
+ ],
+ "energy": [
+  {
+   "option": "swap6",
+   "change": {
+    "energy": 1,
+    "packs": 6
+   },
+   "nominal": {
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.421,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.948,
+     "pass": true
+    },
+    "endurance": {
+     "value": 52.74,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.79,
+     "pass": null
+    },
+    "pMean": {
+     "value": 47.719,
+     "pass": null
+    }
+   },
+   "crossing": {
+    "minDistOther": {
+     "value": 3.4,
+     "pass": true
+    }
+   }
+  },
+  {
+   "option": "tow1",
+   "change": {
+    "energy": 2,
+    "packs": 1
+   },
+   "nominal": {
+    "addedMass": {
+     "value": 0.308,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 3.759,
+     "pass": true
+    },
+    "ops": {
+     "value": 1,
+     "pass": true
+    },
+    "keMax": {
+     "value": 14.505,
+     "pass": true
+    },
+    "endurance": {
+     "value": 8.42,
+     "pass": false
+    },
+    "perPack": {
+     "value": 8.42,
+     "pass": null
+    },
+    "pMean": {
+     "value": 49.764,
+     "pass": null
+    }
+   },
+   "crossing": {
+    "minDistOther": {
+     "value": 3.299,
+     "pass": true
+    },
+    "lineClr": {
+     "value": 2.886,
+     "pass": true
+    }
+   }
+  },
+  {
+   "option": "tow6",
+   "change": {
+    "energy": 2,
+    "packs": 6
+   },
+   "nominal": {
+    "addedMass": {
+     "value": 0.558,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 7.949,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.439,
+     "pass": true
+    },
+    "keMax": {
+     "value": 14.505,
+     "pass": true
+    },
+    "endurance": {
+     "value": 50.519,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.42,
+     "pass": null
+    },
+    "pMean": {
+     "value": 49.764,
+     "pass": null
+    }
+   },
+   "crossing": {
+    "minDistOther": {
+     "value": 3.299,
+     "pass": true
+    },
+    "lineClr": {
+     "value": 2.886,
+     "pass": true
+    }
+   }
+  },
+  {
+   "option": "single",
+   "change": {
+    "energy": 1,
+    "packs": 1
+   },
+   "nominal": {
+    "addedMass": {
+     "value": 0.268,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 1.987,
+     "pass": true
+    },
+    "ops": {
+     "value": 1,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.948,
+     "pass": true
+    },
+    "endurance": {
+     "value": 8.79,
+     "pass": false
+    },
+    "perPack": {
+     "value": 8.79,
+     "pass": null
+    },
+    "pMean": {
+     "value": 47.719,
+     "pass": null
+    }
+   },
+   "crossing": {
+    "minDistOther": {
+     "value": 3.4,
+     "pass": true
+    }
+   }
+  }
+ ],
+ "dockAblation": [
+  {
+   "variant": "v1",
+   "change": {
+    "design": 1
+   },
+   "successByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 0.667
+   },
+   "firstByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 0.667,
+    "9": 0.333
+   },
+   "standstillP90": 16.33,
+   "pFail": 0.083
+  },
+  {
+   "variant": "v2/v3-all",
+   "change": {},
+   "successByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "firstByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "standstillP90": 12.51,
+   "pFail": 0
+  },
+  {
+   "variant": "v2-cone-only",
+   "change": {
+    "dockMode": 1,
+    "standHeadingIntoWind": 0
+   },
+   "successByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "firstByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 0.667,
+    "9": 1
+   },
+   "standstillP90": 12.8,
+   "pFail": 0
+  },
+  {
+   "variant": "v2-intoWind-only",
+   "change": {
+    "captureR": 0.06,
+    "dockMode": 1
+   },
+   "successByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "firstByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "standstillP90": 12.68,
+   "pFail": 0
+  },
+  {
+   "variant": "v2-commit-only",
+   "change": {
+    "captureR": 0.06,
+    "standHeadingIntoWind": 0
+   },
+   "successByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "firstByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "standstillP90": 13.3,
+   "pFail": 0
+  },
+  {
+   "variant": "v2-noCone",
+   "change": {
+    "captureR": 0.06
+   },
+   "successByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "firstByWind": {
+    "0": 1,
+    "3": 1,
+    "6": 1,
+    "9": 1
+   },
+   "standstillP90": 12.51,
+   "pFail": 0
+  }
+ ],
+ "sensitivity": [
+  {
+   "scenario": "nominal",
+   "variant": "fom0.5",
+   "change": {
+    "fom": 0.5
+   },
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 85.276,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 363.003,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.311,
+     "pass": true
+    },
+    "azRange": {
+     "value": 59.029,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.36,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.948,
+     "pass": true
+    },
+    "endurance": {
+     "value": 61.627,
+     "pass": true
+    },
+    "perPack": {
+     "value": 10.271,
+     "pass": null
+    },
+    "peakI": {
+     "value": 7.333,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.094,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.019,
+     "pass": false
+    },
+    "pMean": {
+     "value": 40.985,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "nominal",
+   "variant": "CdA0.012",
+   "change": {
+    "CdA": 0.012
+   },
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 83.811,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 362.317,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.302,
+     "pass": true
+    },
+    "azRange": {
+     "value": 56.442,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.63,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.505,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.76,
+     "pass": true
+    },
+    "endurance": {
+     "value": 43.923,
+     "pass": false
+    },
+    "perPack": {
+     "value": 7.321,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.661,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.25,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.071,
+     "pass": false
+    },
+    "pMean": {
+     "value": 57.015,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "nominal",
+   "variant": "uwbOnly",
+   "change": {
+    "beaconSigma": 0.12
+   },
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 83.811,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 361.912,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.513,
+     "pass": true
+    },
+    "azRange": {
+     "value": 58.775,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.54,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.427,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.981,
+     "pass": true
+    },
+    "endurance": {
+     "value": 51.997,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.666,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.282,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.216,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.093,
+     "pass": false
+    },
+    "pMean": {
+     "value": 48.378,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "nominal",
+   "variant": "cold-20C",
+   "change": {
+    "tempC": -20
+   },
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 85.143,
+     "pass": true
+    },
+    "pxMed": {
+     "value": 362.745,
+     "pass": true
+    },
+    "jitterRms": {
+     "value": 1.311,
+     "pass": true
+    },
+    "azRange": {
+     "value": 58.854,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.54,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.424,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.93,
+     "pass": true
+    },
+    "endurance": {
+     "value": 52.307,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.718,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.085,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 6.107,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.018,
+     "pass": false
+    },
+    "pMean": {
+     "value": 47.863,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "nominal",
+   "variant": "d10m",
+   "change": {
+    "followDist": 10
+   },
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 43.438,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 285.02,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.189,
+     "pass": true
+    },
+    "azRange": {
+     "value": 51.012,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.413,
+     "pass": true
+    },
+    "keMax": {
+     "value": 13.697,
+     "pass": true
+    },
+    "endurance": {
+     "value": 53.749,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.958,
+     "pass": null
+    },
+    "peakI": {
+     "value": 8.793,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 7.344,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.15,
+     "pass": false
+    },
+    "pMean": {
+     "value": 46.85,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "treeline",
+   "variant": "h4m",
+   "change": {
+    "hFollow": 4
+   },
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 37.175,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 265.168,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 1.532,
+     "pass": true
+    },
+    "azRange": {
+     "value": 34.854,
+     "pass": false
+    },
+    "addedMass": {
+     "value": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 6.135,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 13.54,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.445,
+     "pass": true
+    },
+    "keMax": {
+     "value": 14.252,
+     "pass": true
+    },
+    "endurance": {
+     "value": 49.901,
+     "pass": true
+    },
+    "perPack": {
+     "value": 8.317,
+     "pass": null
+    },
+    "peakI": {
+     "value": 9.315,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 7.152,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 2.704,
+     "pass": false
+    },
+    "minClrTree": {
+     "value": 0.253,
+     "pass": false
+    },
+    "pMean": {
+     "value": 50.362,
+     "pass": null
+    }
+   }
+  },
+  {
+   "scenario": "short",
+   "variant": "v1",
+   "change": {
+    "design": 1
+   },
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 28.533,
+     "pass": false
+    },
+    "pxMed": {
+     "value": 264.406,
+     "pass": false
+    },
+    "jitterRms": {
+     "value": 3.513,
+     "pass": false
+    },
+    "azRange": {
+     "value": 68.782,
+     "pass": true
+    },
+    "addedMass": {
+     "value": 0.395,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "value": 14.865,
+     "pass": true
+    },
+    "handsBusy": {
+     "value": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "value": 16.33,
+     "pass": true
+    },
+    "ops": {
+     "value": 1.083,
+     "pass": true
+    },
+    "keMax": {
+     "value": 17.136,
+     "pass": false
+    },
+    "endurance": {
+     "value": 6.784,
+     "pass": false
+    },
+    "perPack": {
+     "value": 6.784,
+     "pass": null
+    },
+    "peakI": {
+     "value": 10.643,
+     "pass": null
+    },
+    "minDistRider": {
+     "value": 4.394,
+     "pass": true
+    },
+    "crossMax": {
+     "value": 1.012,
+     "pass": false
+    },
+    "pMean": {
+     "value": 89.105,
+     "pass": null
+    }
+   }
+  }
+ ],
+ "trim": [
+  {
+   "V": 0,
+   "v1": {
+    "tiltDeg": 0,
+    "T": 2.40345,
+    "feasible": true,
+    "power": 53.673652922818434
+   },
+   "v2_150": {
+    "tiltDeg": 0,
+    "T": 1.4715,
+    "feasible": true,
+    "power": 34.21856301397047
+   },
+   "v2_245": {
+    "tiltDeg": 0,
+    "T": 2.40345,
+    "feasible": true,
+    "power": 53.673652922818434
+   }
+  },
+  {
+   "V": 8,
+   "v1": {
+    "tiltDeg": 18.387363086375057,
+    "T": 2.5327584456268006,
+    "feasible": true,
+    "power": 56.78565123229187
+   },
+   "v2_150": {
+    "tiltDeg": 14.285802390565536,
+    "T": 1.5184553358959225,
+    "feasible": true,
+    "power": 33.42610335093444
+   },
+   "v2_245": {
+    "tiltDeg": 12.136492748950499,
+    "T": 2.458396316877616,
+    "feasible": true,
+    "power": 51.178674788682564
+   }
+  },
+  {
+   "V": 12,
+   "v1": {
+    "tiltDeg": 35.702137855666265,
+    "T": 2.9596887077753986,
+    "feasible": true,
+    "power": 80.0686375655326
+   },
+   "v2_150": {
+    "tiltDeg": 27.11134860989763,
+    "T": 1.6531431411047224,
+    "feasible": true,
+    "power": 39.862098961578084
+   },
+   "v2_245": {
+    "tiltDeg": 23.08527146580369,
+    "T": 2.61266624735475,
+    "feasible": true,
+    "power": 58.20219204645375
+   }
+  },
+  {
+   "V": 16,
+   "v1": {
+    "tiltDeg": 52.61800713608552,
+    "T": 3.958732542175054,
+    "feasible": true,
+    "power": 140.27773713429158
+   },
+   "v2_150": {
+    "tiltDeg": 42.40655246340751,
+    "T": 1.9928810977595703,
+    "feasible": true,
+    "power": 60.383402337183895
+   },
+   "v2_245": {
+    "tiltDeg": 36.824515202629016,
+    "T": 3.002529774847162,
+    "feasible": true,
+    "power": 83.00921245060529
+   }
+  },
+  {
+   "V": 20,
+   "v1": {
+    "tiltDeg": 64.29538191720046,
+    "T": 5.541328754424276,
+    "feasible": true,
+    "power": 248.33894026000092
+   },
+   "v2_150": {
+    "tiltDeg": 55.80759867681399,
+    "T": 2.6184500132097934,
+    "feasible": true,
+    "power": 101.81361844949572
+   },
+   "v2_245": {
+    "tiltDeg": 50.43941264851923,
+    "T": 3.7737059651429865,
+    "feasible": true,
+    "power": 135.92123295032806
+   }
+  },
+  {
+   "V": 24,
+   "v1": {
+    "tiltDeg": 71.55451390681478,
+    "T": 7.596185326114518,
+    "feasible": false,
+    "power": 411.75600428074756
+   },
+   "v2_150": {
+    "tiltDeg": 65.0717624696859,
+    "T": 3.491245769397214,
+    "feasible": false,
+    "power": 167.01578477956994
+   },
+   "v2_245": {
+    "tiltDeg": 60.793614464811526,
+    "T": 4.9255370562694285,
+    "feasible": true,
+    "power": 222.37109293955132
+   }
+  }
+ ],
+ "demo": {
+  "duration": 58,
+  "stages": [
+   {
+    "key": "carry",
+    "t0": 0,
+    "t1": 4,
+    "pending": true,
+    "en": "The 150 g faired drone sits in the pod on top of the pack. The rider takes a warm pack from the inner pocket and swaps it in (normally done on the lift; illustration). Beacon and button are on the strap."
+   },
+   {
+    "key": "launch",
+    "t0": 4,
+    "t1": 9,
+    "pending": true,
+    "en": "One tap on the strap button: the lid flips up behind the head and the drone climbs vertically to 3 m above the snow, then backs off."
+   },
+   {
+    "key": "leap",
+    "t0": 9,
+    "t1": 17,
+    "pending": true,
+    "en": "Before push-off the drone waits ahead and beside the line, 4 m up; as the rider passes the gimbal pans front → side → rear, then the drone rejoins the corridor behind. Used automatically when the rider exceeds the KE-safe speed."
+   },
+   {
+    "key": "follow",
+    "t0": 17,
+    "t1": 29,
+    "pending": false,
+    "en": "The drone replays the track about 0.5 s behind and 3 m up; at about 21 s the forward depth sensor sees a branch above head height and the drone ducks to 2 m, inside the corridor the rider just passed under."
+   },
+   {
+    "key": "highlight",
+    "t0": 29,
+    "t1": 37,
+    "pending": true,
+    "en": "On a segment flagged as open snow the drone leaves the track for a side tracking pass, then rejoins it. Off-track it loses the verified-corridor guarantee."
+   },
+   {
+    "key": "stop",
+    "t0": 37,
+    "t1": 41,
+    "pending": false,
+    "en": "The rider stops hard: the braking governor halts the drone ≥3 m away, with no overrun and never overhead."
+   },
+   {
+    "key": "orbit",
+    "t0": 41,
+    "t1": 50.5,
+    "pending": false,
+    "en": "At the stop the drone flies one 5 m-radius orbit for an all-round shot."
+   },
+   {
+    "key": "dock",
+    "t0": 50.5,
+    "t1": 58,
+    "pending": true,
+    "en": "The drone moves above the pod, stops at 0.25 m to align on the optical marker, then commits quickly through the recirculating downwash into the 10 cm capture cone; the lid closes to keep it warm."
+   }
+  ],
+  "events": [
+   {
+    "t": 1.295,
+    "type": "riderStop",
+    "en": "Rider stop detected"
+   },
+   {
+    "t": 4.3,
+    "type": "tap",
+    "en": "Rider taps the strap button"
+   },
+   {
+    "t": 4.5,
+    "type": "launch",
+    "en": "Pod lid opens, motors spin up"
+   },
+   {
+    "t": 6,
+    "type": "mode",
+    "en": "Mode docked → launch: vertical climb-out"
+   },
+   {
+    "t": 8.99,
+    "type": "mode",
+    "en": "Mode launch → hold: climbed out and backed off to the guard distance"
+   },
+   {
+    "t": 9.05,
+    "type": "mode",
+    "en": "Mode hold → leap: leapfrog: fly ahead beside the predicted line"
+   },
+   {
+    "t": 9.11,
+    "type": "currentLimit",
+    "en": "Battery current at the 10C limit: thrust limited"
+   },
+   {
+    "t": 9.49,
+    "type": "saturation",
+    "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+   },
+   {
+    "t": 17.66,
+    "type": "mode",
+    "en": "Mode leap → follow: rider has passed; rejoin the corridor"
+   },
+   {
+    "t": 18.445,
+    "type": "saturation",
+    "en": "Thrust/tilt saturated for >0.5 s: at the follow-capability limit"
+   },
+   {
+    "t": 20.645,
+    "type": "crossTrack",
+    "en": "Cross-track error 0.60 m > 0.6 m"
+   },
+   {
+    "t": 21.18,
+    "type": "avoid",
+    "en": "Forward depth sensor: avoidance height 2.0 m"
+   },
+   {
+    "t": 24.38,
+    "type": "crossTrack",
+    "en": "Cross-track error 0.60 m > 0.6 m"
+   },
+   {
+    "t": 26.385,
+    "type": "crossTrack",
+    "en": "Cross-track error 1.07 m > 0.6 m"
+   },
+   {
+    "t": 28.39,
+    "type": "crossTrack",
+    "en": "Cross-track error 0.61 m > 0.6 m"
+   },
+   {
+    "t": 29,
+    "type": "mode",
+    "en": "Mode follow → side: highlight side pass"
+   },
+   {
+    "t": 36.5,
+    "type": "mode",
+    "en": "Mode side → follow: side pass done; back on the track"
+   },
+   {
+    "t": 38.5,
+    "type": "crossTrack",
+    "en": "Cross-track error 0.91 m > 0.6 m"
+   },
+   {
+    "t": 41.2,
+    "type": "mode",
+    "en": "Mode follow → orbit: one orbit at the stop"
+   },
+   {
+    "t": 42.44,
+    "type": "riderStop",
+    "en": "Rider stop detected"
+   },
+   {
+    "t": 50.015,
+    "type": "mode",
+    "en": "Mode orbit → hold: orbit complete"
+   },
+   {
+    "t": 50.615,
+    "type": "mode",
+    "en": "Mode hold → dock: auto return to pod"
+   },
+   {
+    "t": 53.11,
+    "type": "dockDescend",
+    "en": "Docking descent, attempt 1"
+   },
+   {
+    "t": 55.84,
+    "type": "docked",
+    "en": "Docked: offset 1.7 cm (capture radius 10 cm), attempt 1"
+   },
+   {
+    "t": 55.84,
+    "type": "mode",
+    "en": "Mode dock → docked"
+   }
+  ],
+  "metrics": [
+   {
+    "id": "note",
+    "value": "illustration"
+   },
+   {
+    "id": "avail",
+    "value": 68.861
+   }
+  ]
+ }
+}

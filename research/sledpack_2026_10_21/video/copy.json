@@ -1,0 +1,360 @@
+{
+  "_note": "Text copy for the SledPack concept film (SIM-033). Edit wording/numbers here and re-render the overlay only (sim/tools/render_promo.py --overlay-only). Numbers must come from research/sledpack_2026_10_21/dev/promo_facts.json / results.json and stay marked as simulated. Anything that FAILS in simulation must not be claimed.",
+  "tag": {
+    "zh": "概念可视化 · 仿真渲染 · 未经实物验证",
+    "en": "Concept visualisation · simulated render · not physically tested"
+  },
+  "sections": {
+    "hero": {
+      "title": {
+        "zh": "SledPack",
+        "en": "SledPack"
+      },
+      "sub": {
+        "zh": "住在背包里的跟拍风筝 · 概念",
+        "en": "A follow-cam kite that lives in your pack · concept"
+      }
+    },
+    "product": {
+      "title": {
+        "zh": "没有杆子。只是一个背包。",
+        "en": "No pole. Just a pack."
+      },
+      "sub": {
+        "zh": "风筝收在贴着脊柱的套管里，腰下是一个漏斗口",
+        "en": "The kite rides in a sleeve along your spine; a funnel mouth sits at the base"
+      }
+    },
+    "xray": {
+      "title": {
+        "zh": "所有动力都在背包里",
+        "en": "Everything powered stays in the pack"
+      },
+      "callouts": {
+        "reel": {
+          "zh": "双卷轴：主线 + 泄力线",
+          "en": "Two-drum reel: main line + depower line"
+        },
+        "battery": {
+          "zh": "保温电池",
+          "en": "Heated battery"
+        },
+        "folded": {
+          "zh": "折叠软翼风筝 + 相机吊舱",
+          "en": "Folded sled kite + camera pod"
+        },
+        "mouth": {
+          "zh": "腰下套管口",
+          "en": "Sleeve mouth at the base"
+        },
+        "sensor": {
+          "zh": "肩带按键与状态灯",
+          "en": "Strap button + status light"
+        }
+      }
+    },
+    "sense": {
+      "title": {
+        "zh": "设计目标：蹬出去，它就知道",
+        "en": "Designed to know when you push off"
+      },
+      "sub": {
+        "zh": "惯导 + 卫星定位判定滑行；缆车、排队、上坡时锁定（仿真设想，未实测）",
+        "en": "IMU + GNSS to confirm you are skiing; lift, queue and uphill lockouts (simulated concept, not tested)"
+      },
+      "hud": {
+        "speed": {
+          "zh": "速度",
+          "en": "SPEED"
+        },
+        "wind": {
+          "zh": "相对风",
+          "en": "APPARENT WIND"
+        },
+        "line": {
+          "zh": "线长",
+          "en": "LINE"
+        },
+        "modes": {
+          "DOCKED": {
+            "zh": "停靠",
+            "en": "DOCKED"
+          },
+          "ARMED": {
+            "zh": "待命",
+            "en": "ARMED"
+          },
+          "LAUNCH": {
+            "zh": "放飞",
+            "en": "LAUNCH"
+          },
+          "FILMING": {
+            "zh": "跟拍中",
+            "en": "FILMING"
+          },
+          "DEPOWER": {
+            "zh": "泄力",
+            "en": "DEPOWER"
+          },
+          "RETRIEVE": {
+            "zh": "回收",
+            "en": "RETRIEVE"
+          },
+          "DOCKING": {
+            "zh": "入套",
+            "en": "DOCKING"
+          },
+          "DOCKED · CHARGING": {
+            "zh": "停靠 · 充电",
+            "en": "DOCKED · CHARGING"
+          }
+        },
+        "note": {
+          "zh": "示意界面 · 数值为剧本示意",
+          "en": "Illustrative HUD · scripted values"
+        }
+      }
+    },
+    "launch": {
+      "title": {
+        "zh": "设计设想：气流把它拉出来",
+        "en": "Concept: the airflow pulls it out"
+      },
+      "sub": {
+        "zh": "估计相对风 ≥5.5 m/s 才放飞，顺风超过约 6 m/s 不放飞；先泄力低空拖出约 3 m，再张开爬升。出套与张开过程未建模、未实测",
+        "en": "Only above ≈5.5 m/s apparent wind and not in tailwinds above ≈6 m/s; it streams low and depowered to ≈3 m, then opens and climbs. Sleeve extraction and opening are not modelled or tested"
+      }
+    },
+    "fly": {
+      "title": {
+        "zh": "在你身后上方跟拍",
+        "en": "Filming from behind and above"
+      },
+      "sub": {
+        "zh": "无动力软翼风筝，约 6 m 线长，仰角约 55°",
+        "en": "An unpowered soft kite on about 6 m of line, at about 55°"
+      }
+    },
+    "onboard": {
+      "label": {
+        "zh": "机载视角 · 仿真渲染，非实拍",
+        "en": "Onboard view · simulated render, not real footage"
+      },
+      "sub": {
+        "zh": "吊舱相机顺着线看向你",
+        "en": "The pod camera looks down the line at you"
+      }
+    },
+    "how": {
+      "title": {
+        "zh": "背包来放风筝",
+        "en": "The pack flies the kite"
+      },
+      "callouts": {
+        "mainMid": {
+          "zh": "主线：卷轴管线长与松紧",
+          "en": "Main line: the reel manages length and slack"
+        },
+        "depMid": {
+          "zh": "泄力线：调迎角，控制拉力",
+          "en": "Depower line: trims angle of attack to hold the pull"
+        },
+        "kite": {
+          "zh": "风筝上没有电机、没有螺旋桨",
+          "en": "No motor, no propeller on the kite"
+        },
+        "pack": {
+          "zh": "电机与传感器都在背包里",
+          "en": "Motors and sensors live in the pack"
+        }
+      }
+    },
+    "stop": {
+      "title": {
+        "zh": "一停下，先泄力",
+        "en": "Slow down, and it depowers"
+      },
+      "sub": {
+        "zh": "风筝泄力成低垂拖伞，边滑边收线（顶风/侧风时贴雪面回来；顺风停下时仿真中绳曾经过头部 0.4 m 以内，待解决）",
+        "en": "The kite depowers into a low drogue and reels in while you slide (low over the snow in head/cross wind; in tailwind stops the simulated line passed within 0.4 m of the head — unresolved)"
+      }
+    },
+    "dock": {
+      "title": {
+        "zh": "设计目标：自己回到背上（入套成功率为假设模型）",
+        "en": "Designed to dock itself (capture success is an assumed model)"
+      },
+      "sub": {
+        "zh": "吊舱从下方进入套管口，翼杆并拢滑入，触点接通充电",
+        "en": "The pod enters the mouth from below, the spars fold together, contacts mate and it charges"
+      }
+    },
+    "stowed": {
+      "title": {
+        "zh": "缆车、排队、走路：全部收好",
+        "en": "Lift, queue, walk: all stowed"
+      },
+      "sub": {
+        "zh": "没有外露的杆，线全部收回（腰下有一个漏斗口）",
+        "en": "No pole sticking out, line fully reeled in (a funnel mouth sits at the base)"
+      }
+    },
+    "facts": {
+      "title": {
+        "zh": "仿真中达标的项目与设计估算",
+        "en": "Passing in simulation, plus design estimates"
+      },
+      "items": [
+        {
+          "k": "worn",
+          "label": {
+            "zh": "全套背负质量（设计估算）",
+            "en": "Total worn (design estimate)"
+          },
+          "value": "0.61",
+          "unit": "kg",
+          "tag": "est"
+        },
+        {
+          "k": "vol",
+          "label": {
+            "zh": "收纳体积（设计估算）",
+            "en": "Packed volume (design estimate)"
+          },
+          "value": "2.89",
+          "unit": "L",
+          "tag": "est"
+        },
+        {
+          "k": "mass",
+          "label": {
+            "zh": "风筝 + 吊舱（设计估算，含 48 MP 模组）",
+            "en": "Kite + pod (design estimate, incl. 48 MP module)"
+          },
+          "value": "71",
+          "unit": "g",
+          "tag": "est"
+        },
+        {
+          "k": "launch",
+          "label": {
+            "zh": "放飞到开拍（中位）",
+            "en": "Launch to filming (median)"
+          },
+          "value": "2.8",
+          "unit": "s",
+          "tag": "sim"
+        },
+        {
+          "k": "ops",
+          "label": {
+            "zh": "滑行中手动操作",
+            "en": "Hand actions while skiing"
+          },
+          "value": "0",
+          "unit": "",
+          "tag": "sim"
+        },
+        {
+          "k": "force",
+          "label": {
+            "zh": "对身体的最大拉力（限值 40 N）",
+            "en": "Peak pull on the body (limit 40 N)"
+          },
+          "value": "36",
+          "unit": "N",
+          "tag": "sim"
+        },
+        {
+          "k": "endurance",
+          "label": {
+            "zh": "−10 °C 拍摄续航（目标 ≥45 min）",
+            "en": "Filming at −10 °C (target ≥45 min)"
+          },
+          "value": "54",
+          "unit": "min",
+          "tag": "sim"
+        },
+        {
+          "k": "ke",
+          "label": {
+            "zh": "最大撞击动能（限值 14.9 J，余量很小；15–17 m/s 高手速度时超限）",
+            "en": "Peak strike energy (limit 14.9 J; thin margin, fails for 15–17 m/s riders)"
+          },
+          "value": "14.4",
+          "unit": "J",
+          "tag": "sim"
+        }
+      ],
+      "footnote": {
+        "zh": "数值来自未经标定的数值仿真（48 种风况、一种中级滑雪者速度），不是实测；部分子模型为假设。",
+        "en": "Numbers from uncalibrated numerical simulation (48 wind cases, one intermediate rider profile), not measurements; some sub-models are assumed."
+      },
+      "dev": {
+        "title": {
+          "zh": "仍待攻克",
+          "en": "Still open"
+        },
+        "items": [
+          {
+            "zh": "线与风筝到头部的净距：仿真最小 0.40 m（顺风停下时），规则要求 ≥1 m —— 安全问题，未解决",
+            "en": "Line/kite clearance to the head: 0.40 m minimum in simulation (tailwind stops); the rule asks ≥1 m — an unresolved safety issue"
+          },
+          {
+            "zh": "可用画面占比：仿真约 43%，目标 ≥80%；顺风时约 22%，顺风超过约 6 m/s 不放飞",
+            "en": "Usable footage: ≈43% in simulation vs a ≥80% target; ≈22% in tailwinds, no flight above ≈6 m/s tailwind"
+          },
+          {
+            "zh": "画面抖动：仿真约 6.4 °/s，目标 ≤3 °/s",
+            "en": "Jitter: ≈6.4 °/s in simulation vs a ≤3 °/s target"
+          },
+          {
+            "zh": "观察方位不可选：风筝不可转向（可指令跨度 0°，目标 ≥45°）",
+            "en": "Viewing angle cannot be chosen: the kite is not steerable (0° commandable vs a ≥45° target)"
+          },
+          {
+            "zh": "约 45% 的时间绳低悬在骑手身后（对他人有绊倒风险）",
+            "en": "For ≈45% of the time the line runs low behind the rider (trip hazard to others)"
+          },
+          {
+            "zh": "首次入套 97.8%（假设捕获模型），产品目标 ≥98%",
+            "en": "First-try dock 97.8% (assumed capture model) vs a ≥98% product target"
+          },
+          {
+            "zh": "三线（主线、泄力线、尾线）从同一出口有缠绕风险，未仿真",
+            "en": "Main, depower and tail lines share one mouth and can twist — not simulated"
+          },
+          {
+            "zh": "尚未做任何实物与雪场试验",
+            "en": "No physical or on-snow tests yet"
+          }
+        ]
+      },
+      "tags": {
+        "sim": {
+          "zh": "仿真",
+          "en": "SIMULATED"
+        },
+        "est": {
+          "zh": "设计估算",
+          "en": "DESIGN ESTIMATE"
+        }
+      }
+    },
+    "end": {
+      "title": {
+        "zh": "SledPack",
+        "en": "SledPack"
+      },
+      "sub": {
+        "zh": "设计目标：背着走，滑起来就飞，停下就回家",
+        "en": "The goal: wear it, ski, and it flies; stop, and it comes home."
+      },
+      "disclaimer": {
+        "zh": "概念设计。本片全部画面为计算机仿真渲染，不是实拍；性能数字来自未经标定的仿真，尚未进行任何实物试验。13 项判定指标中仿真达标 8 项，尚不是可用设计。",
+        "en": "Concept design. Every frame is a computer-simulated render, not real footage. Performance numbers come from uncalibrated simulation; no physical tests have been run. It meets 8 of 13 criteria in simulation and is not yet a usable design."
+      }
+    }
+  },
+  "_numbers_source": "research/sledpack_2026_10_21/dev/promo_facts.json FINAL I9 (after independent review) + review/report.json copyAudit. Facts block = criteria passing in simulation plus labelled design estimates; failing items, assumed models, no-margin passes and safety issues are under 'Still open'."
+}

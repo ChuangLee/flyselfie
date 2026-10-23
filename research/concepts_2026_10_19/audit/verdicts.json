@@ -1,0 +1,724 @@
+{
+ "generated": "2026-10-19",
+ "round": 2,
+ "evidence": "independent audit of numerical-uncalibrated simulations and literature/web checks; not a physical test",
+ "severityScale": {
+  "fatal": "kills the concept as specified; no credible design change inside the concept keeps it",
+  "major": "a claimed pass or key assumption does not hold; fixable by a design/model change",
+  "minor": "reporting, labelling or robustness issue"
+ },
+ "verdicts": {
+  "kite2": {
+   "crediblePass": [
+    "footageStability (independent, criteria.js): nominal subject 0.21 / background 0.45 °/s; short turns 2.62 / 5.21 °/s; fast 0.13 / 0.14; gust 0.64 / 0.64; tail 0.82 / 1.15; moguls 0.97 / 2.89. These reproduce exactly, conditional on the coefficient envelope",
+    "jitterRms ≤3 °/s in all non-fault scenarios (0.51–2.72 °/s), dt-converged (nominal 0.543/0.544/0.544 at dt 2/1/0.5 ms)",
+    "pxMed 491–549 px. This is conditional on a custom 60° 4K optic, which is ASSUMED",
+    "addedMass 0.505 kg (pod/winch/battery budget plausible)",
+    "packVol 1.98 L (200×110×90 mm pod, plausible for the 30 Wh pack, winch and a 0.35 m² canopy)",
+    "handsBusy 0 %",
+    "setupTime ≤30 s: claimed 7.4 s; audit p90 17 s with a 15 s manual push-in in 26 % of stops; still passes",
+    "keMax at 62–68 g in all scenarios (≤14.1 J); kite-cut / fall KE ≤5.7 J",
+    "endurance 258 min arithmetic reproduced, conditional on dock charging",
+    "Reproducibility: re-running run_all.mjs gives results identical to dev/kite2/results.json (0 differences)"
+   ],
+   "disputed": [
+    {
+     "metric": "bodyForcePeak",
+     "scenario": "gust",
+     "claimed": 14.6,
+     "recomputed": 53.9,
+     "note": "with CRmin 0.4 (lower bound of a credible inflated soft canopy); 89 N at CRmin 0.8"
+    },
+    {
+     "metric": "avail",
+     "scenario": "nominal",
+     "claimed": 92.4,
+     "recomputed": 62.1,
+     "note": "with CRmin 0.6; 83.6 % at CRmin 0.4; 49.8 % at CRmin 0.8"
+    },
+    {
+     "metric": "keMax",
+     "scenario": "fast",
+     "claimed": 12.94,
+     "recomputed": 17.31,
+     "note": "85 g realistic flying mass (14.07 J at the 68 g own itemisation)"
+    },
+    {
+     "metric": "viewElev (concept gate ≤50°)",
+     "scenario": "nominal/fast",
+     "claimed": "40.9 / 44.6",
+     "recomputed": "50.7 / 53.8",
+     "note": "if the minimum stable L/D is 1.0 (sled-like) instead of 0.35"
+    },
+    {
+     "metric": "ops",
+     "scenario": "per run incl. lift",
+     "claimed": 1,
+     "recomputed": "2 (arm + disarm for the lift); 3 when a manual push-in is needed",
+     "note": "armed state survives docking; auto-launch at 5 m/s lift speed"
+    },
+    {
+     "metric": "avail",
+     "scenario": "short turns, 6 m/s quartering tailwind",
+     "claimed": "not run",
+     "recomputed": 4.3,
+     "note": "kite lands; inside the stated envelope"
+    },
+    {
+     "metric": "auto-dock rate",
+     "scenario": "calm stops",
+     "claimed": "48/48",
+     "recomputed": "77–86/96 at σ 0.4–0.7 m/s; 56/96 over 0–4.4 m/s winds from varied directions",
+     "note": "helmet contact in 4/96"
+    },
+    {
+     "metric": "avail",
+     "scenario": "stopstart (realistic run)",
+     "claimed": 76.9,
+     "recomputed": 76.9,
+     "note": "fails ≤80 % (disclosed); nominal has no stops"
+    }
+   ],
+   "overall": "CONDITIONAL / NOT CREDIBLE AS SPECIFIED. This is the most original concept and the one most worth refining. The modelling is careful and fully reproducible, and the controls idea (glide for elevation, roll for azimuth, winch-flown retrieve) is sound. But the headline result depends on an untested coefficient corner (CR 0.2 at L/D ~0.5–0.7). If a 0.35 m² soft canopy cannot fly there, the pull and footage claims fail (gust force 54–89 N, avail 50–84 %). The mass is under-budgeted (realistic 75–113 g, so the fast-mode KE fails at ≥85 g). Lift auto-launch, line-behind-rider hazard and resort kiting bans are major but fixable or scope-limiting. Nothing is fatal yet in physics, but finding K2-01 becomes fatal if a tow test shows CR ≥0.5 at L/D ≤0.8.",
+   "envelope": "Permitted terrain only (no resort kiting ban). Open, low-traffic groomed run with nobody within ~5 m behind, no trees within ~15 m, no lifts overhead. Continuous carving at 8–16 m/s (fast-mode KE marginal at realistic mass). Ambient wind ≤6 m/s with no tailwind component above ~0.3 × rider speed in short turns. Moguls/steep slopes accept a ~50° top-down view. Each stop costs ~2.5 s of footage on restart. Expect a manual push-in at 10–25 % of stops. Disarm before every lift.",
+   "summary": "Reproducible, dt-converged, honest about most limits. The decisive unknown is whether a small soft canopy can be simultaneously depowered (CR 0.2) and parachutal (L/D 0.5) while staying inflated and steerable. Literature suggests low L/D occurs only at high AoA with CR ~0.8–1.1. The next step is a tow-test polar, not more simulation.",
+   "comparabilityInputs": {
+    "aero": {
+     "model": "effective-coefficient point mass (CR 0.2–1.1, L/D 0.35–2.4, ASSUMED); no Reynolds dependence, no stall/collapse dynamics; rho 1.0 kg/m³ fixed",
+     "reynolds": "Re≈0.6–1.4 M at 0.35 m chord × 13–19 m/s (higher than the gliders, not comparable to a glider polar)",
+     "sensitivity_run_by_dev": "mass, camOff, az, el, hfov, Lst; no −30 % coefficient sensitivity (the audit did one: CRmin/Gmin)"
+    },
+    "battery": {
+     "pack": "30 Wh Li-ion 160 g (187 Wh/kg)",
+     "cold": "0.75 capacity at −10 °C × 0.9 reserve",
+     "kiteCell": "1.3 Wh 8 g",
+     "powerW": {
+      "camera": 2.5,
+      "kcu": 0.9,
+      "pack": 0.6,
+      "winchNominal": 0.31
+     }
+    },
+    "massBudget": {
+     "flyingClaim_kg": 0.062,
+     "ownItemisation_kg": 0.068,
+     "auditRange_kg": [
+      0.075,
+      0.113
+     ],
+     "worn_kg": 0.505,
+     "camera": "RunCam Thumb Pro 16 g, 2.5 W max, needs a custom 60° optic"
+    },
+    "keFrame": "ground frame when kite >1.5 m from the rider (always while filming); audit recomputation agrees"
+   }
+  },
+  "towglider": {
+   "crediblePass": [
+    "nominal 12 m/s carve on 15°: avail 88.5 % (audit recompute 88.9 %), pxMed 460, robust over 12 wind seeds (88.4–88.6 %) and at 117 g",
+    "short turns 15°, moguls 24° at 4.5 m/s, 3° cat-track with 3 m/s headwind (leash aerotow), 5 m/s headwind: footage criteria pass",
+    "bodyForcePeak: ≤6.1 N raw and ≤5.2 N as a 50 ms mean in every scenario incl. snag and strike (criterion 40 N); robust",
+    "addedMass 0.355 kg (≈0.38 kg at a realistic glider mass); handsBusy 0.4 %",
+    "launch from standstill: one tap, on station 4.3 s after push-off (model)",
+    "planned in-motion dock 0–9 m/s: standstill 1 s in 52/52 model runs (capture physics unverified, TG-08)",
+    "L/D −30 % sensitivity: passes because the leash tows (tow share 48 %)",
+    "packVol 2.58 L (borderline once a real gimbal is packaged)",
+    "the I-05 original (fixed camera) honestly reported as failing (avail 10 %, jitter 19.6 °/s)"
+   ],
+   "disputed": [
+    {
+     "metric": "setupTime",
+     "scenario": "stop_wind / 0–9 m/s sweep",
+     "claimed": "17.9 s pass",
+     "recomputed": "p90 21 s using the model's own manual-pick-up constant (cutter fires in 8/16 runs at 9 m/s); 120 s if a loose glider is fetched on foot",
+     "note": "TG-01; claimed seed 5 is a favourable one"
+    },
+    {
+     "metric": "setupTime + ops per real run",
+     "scenario": "nominal with rest stops",
+     "claimed": "17.9 s, 2 ops",
+     "recomputed": "1 rest stop: ~18–23 s, 3 ops; 2 rest stops: ~35–44 s (fail), 4 ops",
+     "note": "TG-05, no docked→launch transition"
+    },
+    {
+     "metric": "endurance",
+     "scenario": "all",
+     "claimed": "102 min",
+     "recomputed": "10.944 min glider-only (no charging below 0 °C); 79.102 min with a heated holster and 4.4 W avionics",
+     "note": "TG-03"
+    },
+    {
+     "metric": "mass",
+     "scenario": "-",
+     "claimed": "95 g",
+     "recomputed": "115–125 g (30 g gimbal, wiring, release actuator)",
+     "note": "TG-02"
+    },
+    {
+     "metric": "avail",
+     "scenario": "expert carve 20°, 13 m/s (shared preset, not run by the concept)",
+     "claimed": "n/a",
+     "recomputed": "73.535 % FAIL",
+     "note": "TG-04"
+    },
+    {
+     "metric": "avail / keMax",
+     "scenario": "steep 28°, 15 m/s",
+     "claimed": "n/a",
+     "recomputed": "37.635 % / 15.336 J FAIL",
+     "note": "TG-04"
+    },
+    {
+     "metric": "avail / airMin",
+     "scenario": "slow rider 6 m/s at 117 g, CLmax 0.9",
+     "claimed": "n/a",
+     "recomputed": "33.494 % / 0.086 Vs (stall, snow contact)",
+     "note": "TG-02"
+    },
+    {
+     "metric": "keMax",
+     "scenario": "fast",
+     "claimed": "13.8 J",
+     "recomputed": "17.3 J at t = 0.02 s (initial-condition artefact hidden by the 1 s settle window)",
+     "note": "TG-12"
+    },
+    {
+     "metric": "keMax",
+     "scenario": "dock_wind at 117 g",
+     "claimed": "14.2 J",
+     "recomputed": "16.158 J",
+     "note": "TG-02/12"
+    },
+    {
+     "metric": "avail / airMin",
+     "scenario": "tailwind 5 m/s, 12 seeds",
+     "claimed": "86.3 %, 1.03 Vs",
+     "recomputed": "min 74.1 % (1/12 fail), airMin 0.92 Vs (2/12 below stall)",
+     "note": "TG-04"
+    },
+    {
+     "metric": "footageStability",
+     "scenario": "nominal / stop_wind",
+     "claimed": "subject 0.97 / 2.08 °/s, background 1.12 / 3.41 °/s",
+     "recomputed": "identical (re-run); at 117 g stop_wind subject 3.59 °/s, background 6.76 °/s; ideal gimbal assumed",
+     "note": "TG-09"
+    }
+   ],
+   "overall": "CONDITIONAL. No fatal physics: following a skier by gravity glide, with the leash topping up the drag shortfall, is sound at the operating point, and the follow footage is robust. It fails the harmonised targets as specified on three counts: endurance in the cold unless the holster is heated, standstill and ops in real runs with rest stops or windy unplanned stops, and a 95 g mass that relies on a gimbal that does not exist at 12 g. Regulatory exposure is high: US VLOS, resort bans, and EU registration.",
+   "envelope": "Open, uncrowded 10–18° pistes; rider 8–15 m/s at a realistic 115–125 g (6–16 m/s only if 95 g is reached); carving or short turns; mean wind ≤5–6 m/s for unplanned stops (≤9 m/s only when docking while moving); ≤1 rest stop per run; EU/UK A1 with operator registration and written resort permission; holster heated for charging.",
+   "summary": "Original and physically sensible: the slope pays for flight and a 0.12–1 N leash replaces the battery-heavy hover. The model is careful and mostly honest (fast and I-05 failures reported, L/D −30 % run). The main gaps are a seed-favourable stop_wind result (the cutter fires in half of 9 m/s seeds), the missing per-run stop accounting, cold charging, gimbal mass, and an unverified wake dock.",
+   "comparabilityInputs": {
+    "aero": {
+     "Re": "30k @6 m/s, 60k @12 m/s, 84k @17 m/s (chord 83 mm, ρ 1.0, μ 1.67e-5)",
+     "CLmax": 1.0,
+     "CD0": 0.04,
+     "e": 0.8,
+     "AR": 8,
+     "LDmax": 11.2,
+     "LDat12": 5.5,
+     "mass": 0.095,
+     "wingArea": 0.055,
+     "rho": 1.0,
+     "vStall": 5.82,
+     "airbrakeDeltaCD": 0.2,
+     "ldSensitivity": "−30 % run (passes)"
+    },
+    "battery": {
+     "Wh": "glider 1.2 Wh (8 g) + hip 10 Wh (60 g)",
+     "coldDerate": 0.75,
+     "reserve": 0.9,
+     "powerW": "3.3 avionics (2.9 + 0.4 gimbal) + reel ≈0.8; audit 4.4 W avionics",
+     "chargingInCold": "assumed allowed (not justified)"
+    },
+    "massBudget": {
+     "claimed_g": {
+      "airframe_EPP_carbon": 36,
+      "hinges_springs_latch": 5,
+      "camera_4K_module": 16,
+      "micro_gimbal": 12,
+      "FC_GNSS_UWB_radio": 8,
+      "servos_x4": 7,
+      "cell_1S_1.2Wh": 8,
+      "hook_loadcell": 3,
+      "total": 95
+     },
+     "audit_g": {
+      "airframe": "36–42",
+      "hinges": 5,
+      "camera (RunCam Thumb Pro 4K 16 g, 2.5 W)": 16,
+      "gimbal (Caddx GM2 30 g)": 30,
+      "FC_GNSS_UWB_radio": 8,
+      "wiring_boost_SD": 4,
+      "servos_x4": 7,
+      "release+fold actuators": 2,
+      "cell": 8,
+      "hook_loadcell": 3,
+      "total": "119–125 (audit ran 117 g)"
+     }
+    },
+    "kinetic": {
+     "keGovernor": "ground speed ≤0.97·sqrt(2·14.9/m)",
+     "keCapSpeed_95g": 17.7,
+     "keCapSpeed_117g": 16.0
+    }
+   }
+  },
+  "leapfrog": {
+   "crediblePass": [
+    "keMax (recomputed harmonised: nominal 13.24 J, short 13.32, max 14.08 J in fast; rider frame within 1.5 m only at launch 1.87 J and capture 1.07 J) – but only at the claimed 125 g",
+    "bodyForcePeak 2.7–3.7 N (holster inertia / 4 m/s snatch)",
+    "handsBusy 0.7 %",
+    "setupTime/standstill (audit 14–19 s, still ≤30 s)",
+    "addedMass 0.25 kg claimed / ≈0.30 kg audit (≤1.5 kg)",
+    "packVol 2.58 L (tight but plausible)",
+    "avail and pxMed in nominal at the claimed sensor (94–96 % over 12 wind seeds, 8 skier seeds)",
+    "azRange (≥84°)",
+    "endurance at nominal power (75–117 min) – fails in headwind with realistic camera power",
+    "aero: L/D at operating speed not inflated; gravity pays the cruise on ≥15°"
+   ],
+   "disputed": [
+    {
+     "metric": "ops",
+     "scenario": "all",
+     "claimed": 2,
+     "recomputed": 3,
+     "note": "stow at the lift is a separate action per criteria.js → FAIL"
+    },
+    {
+     "metric": "jitterRms",
+     "scenario": "nominal / short",
+     "claimed": "1.34 / 2.72 °/s (pass)",
+     "recomputed": "footageStability 1.249 / 2.23 °/s = 20.815 / 45.354 % frame/s",
+     "note": "passes the °/s line but ≈2–4× the frame-normalised equivalent of 3 °/s on a chase crop; airframe attitude not modelled"
+    },
+    {
+     "metric": "avail",
+     "scenario": "nominal / short",
+     "claimed": "95.9 / 84.2 %",
+     "recomputed": "binned 3072 rows 67.373 / 62.683 %; 0.7 effective 88.605 / 76.41 %; audit-realistic 75.09 / 79.254 %",
+     "note": "carried by the full-50 MP-readout assumption"
+    },
+    {
+     "metric": "keMax",
+     "scenario": "nominal",
+     "claimed": "13.24 J",
+     "recomputed": "18.718 J at an audit mass of 175 g with the same 15 m/s cap (FAIL); 14.7 J with a 13 m/s cap",
+     "note": "mass budget understated"
+    },
+    {
+     "metric": "avail",
+     "scenario": "crossgust",
+     "claimed": "71.2 % (results.json, stale)",
+     "recomputed": "76.055 % rerun; seeds 36.428–89.827 %",
+     "note": "fails in 5/12 seeds"
+    },
+    {
+     "metric": "perchSF",
+     "scenario": "perchwind",
+     "claimed": 1.121,
+     "recomputed": 1.32,
+     "note": "stale after env.js change; still below 1.5"
+    },
+    {
+     "metric": "endurance",
+     "scenario": "headwind",
+     "claimed": "52.8 min",
+     "recomputed": "40.138 min with a 3.5 W camera/compute and 85 % bank transfer (FAIL)",
+     "note": ""
+    },
+    {
+     "metric": "avail/ops",
+     "scenario": "powder (fault)",
+     "claimed": "not judged",
+     "recomputed": "avail 44.678 % FAIL, ops 3 FAIL",
+     "note": "soft piste edges are an envelope condition, not a fault"
+    },
+    {
+     "metric": "tdKE",
+     "scenario": "nominal",
+     "claimed": "2.22 J",
+     "recomputed": "2.57 J (dt/2), 2.83 J (dt/4); >3 J at 175 g",
+     "note": "not dt-converged; ASSUMED 3 J line"
+    }
+   ],
+   "overall": "NOT FATAL – CONDITIONAL / FRAGILE PASS. Physically sound core (gravity pays a ≤15 m/s lead flight; it is the only concept with a head-on view and keeps VLOS in front of the user). By the shared definitions it fails ops (3 vs ≤2). Its footage and KE passes rest on three optimistic assumptions: a 125 g mass (audit ≈160–175 g), full-resolution 50 MP video readout, and a perfectly stabilised 10 g turret. Load-bearing manoeuvres (perching flare, snow take-off, pole snatch) and resort permission/bystander exposure are unverified. Fixable engineering, not a physics kill; resort acceptance may be the real kill.",
+   "envelope": "Groomed firm (not icy, not soft) piste ≥35 m wide, slope 6–25° (motor-assisted below ~10°), low traffic, mean wind ≤4–6 m/s (crosswind gusts unreliable), rider downhill progress ≈8–11.5 m/s (vTarget ≤13 m/s at a realistic 160–175 g; ≤14 m/s only at the claimed 125 g), only where the resort permits UAS; fallback lead-only mode for faster/slower riders not demonstrated.",
+   "summary": "Original and the most interesting viewpoint of round 2; the metrics claims are reproducible but optimistic in mass, sensor readout and frame-relative jitter, and ops is mis-counted. Recommend: honest BOM, effective-resolution and frame-normalised jitter re-runs, ops=3 or a snatch-to-stow redesign, then a physical perching/take-off test series as the gate.",
+   "comparabilityInputs": {
+    "aero": {
+     "Re": "33–66 k (8–14 m/s, chord 0.079 m, μ 1.67e-5, ρ 1.0)",
+     "CLmax": 1.0,
+     "CD0": 0.04,
+     "e": 0.8,
+     "AR": 8.9,
+     "LDmax": 11.824,
+     "LDat12": 6.992,
+     "mass": 0.125,
+     "massAudit": "0.160–0.175",
+     "wingArea": 0.055,
+     "span": 0.7,
+     "rho": 1.0,
+     "stallSpeed": 6.678,
+     "ldSensitivity": "ldScale 0.7 divides CD (−30 % at every speed)"
+    },
+    "battery": {
+     "Wh": "3.7 on board + 10 holster bank (counted)",
+     "coldDerate": 0.75,
+     "reserve": 0.1,
+     "bankTransferEff": "not modelled (1.0)",
+     "powerW": {
+      "avionics": 0.75,
+      "cameraISP": 1.7,
+      "turret": 0.25,
+      "servos": 0.2,
+      "motorMeanNominal": 1.87,
+      "totalNominal": 4.75
+     }
+    },
+    "massBudget": {
+     "claimed_g": {
+      "airframe": 42,
+      "motorPropESC": 11,
+      "avionics": 9,
+      "servos": 10,
+      "camera": 13,
+      "turretPeriscope": 10,
+      "battery": 20,
+      "hoop": 5,
+      "margin": 5,
+      "total": 125
+     },
+     "audit_g": {
+      "airframe": 48,
+      "motorPropESC": 11,
+      "avionics": 10,
+      "actuators": 16,
+      "cameraAndCompute": "15–20",
+      "turretPeriscope": "20–25",
+      "battery": 24,
+      "hoop": 7,
+      "wiring": 5,
+      "total": "≈160–175"
+     },
+     "worn_g": {
+      "claimed": 248,
+      "audit": "≈300"
+     }
+    },
+    "keCap": "ground speed 15 m/s → 14.06 J at 125 g"
+   }
+  },
+  "descentglider": {
+   "crediblePass": [
+    "footageStability / jitterRms in all scenarios (subject ≤2.2 deg/s)",
+    "keMax ≤14.9 J in all scenarios (recomputed exactly, ground frame)",
+    "bodyForcePeak 0 N, handsBusy 0 % (no line, stationary actions)",
+    "addedMass 0.2 kg (still ≤1.5 kg at a realistic 0.17 kg)",
+    "packVol 2.32 L (plausible)",
+    "pxMed ≥300 when following within the envelope",
+    "aero L/D 7.9 with honest CD0 0.06 and a -30 % sensitivity run",
+    "nominal avail 85-88 % (12 seeds) in steady carving with light wind"
+   ],
+   "disputed": [
+    {
+     "metric": "endurance",
+     "scenario": "nominal",
+     "claimed": 50.5,
+     "recomputed": "26.2 (same 22 g at 200 Wh/kg); 44.5 (2 stops/run); 37.7 (2 stops + FoM*eta 0.35); 45.6 (3.3 W avionics)",
+     "note": "380 Wh/kg pack is unjustified; hover overhead and stops are optimistic"
+    },
+    {
+     "metric": "avail",
+     "scenario": "nominal (realistic 152 g build)",
+     "claimed": 85.4,
+     "recomputed": 64.1,
+     "note": "the KE cap falls to 12.9 m/s, so it cannot keep up with a 12 m/s carver"
+    },
+    {
+     "metric": "avail",
+     "scenario": "cycle (full run)",
+     "claimed": 65.2,
+     "recomputed": "5.4 at 152 g; sweep median 55.7 % over 51 winds",
+     "note": "already fails at the claimed mass"
+    },
+    {
+     "metric": "setupTime",
+     "scenario": "p90 0-9 m/s",
+     "claimed": 17,
+     "recomputed": "34 s (own rule), 109 s incl. recovery",
+     "note": "claimed sweep avoids tailwind directions"
+    },
+    {
+     "metric": "ops",
+     "scenario": "0-9 m/s sweep",
+     "claimed": 2,
+     "recomputed": "3-4 in 33 % of cycles",
+     "note": "tailwind abort / snow strike / tip-over"
+    },
+    {
+     "metric": "pFollow",
+     "scenario": "nominal",
+     "claimed": 4.21,
+     "recomputed": "3.54 at dt 1 ms (conservative); 4.91 with 3.3 W avionics",
+     "note": "camera power under-budgeted"
+    }
+   ],
+   "overall": "NOT YET CREDIBLE as specified; physically sound idea with an honest aero model, but its pass list rests on an unjustified 380 Wh/kg micro pack and a 30 s stop-free nominal. Fixable-major, not fatal: no single law of physics is violated, but the coupled mass-KE-cap-catch-up loop leaves very little margin.",
+   "envelope": "Within the model: groomed slope of about 12-22°, rider steady at 8-13 m/s with no more than about 1 stop per 2-3 min, wind ≤5 m/s with tailwind component <5 m/s (tip-over on perch above about 5-6 m/s off-span), no crowding, and a resort that allows drones. Expect about 60-70 % usable footage per full run (launch and catch-up losses) and about 35-45 min per charge at a realistic 150-165 g. Out of envelope: riders above 13-14 m/s, short turns and moguls (<80 %), tailwind ≥5 m/s, lift-queue landings, US VLOS rules and Vail-type bans.",
+   "summary": "Gravity-paid gliding follow is credible (L/D 7.9 honest, pFollow 3.5-4.2 W in carving), and the perch-at-stops idea is original. The pass list is inflated by the 22 g/8.5 Wh battery (380 Wh/kg), an 18 g/1.6 W 4K pan-tilt camera and a stop-free 30 s nominal. At a realistic mass the KE cap (≤14.9 J gives ~12.9 m/s) stops it catching a 12 m/s rider after a launch or perch (cycle avail 5 %). setupTime p90 is 34 s or more when wind directions are randomised.",
+   "comparabilityInputs": {
+    "aero": {
+     "rho": 1.05,
+     "mass_kg": 0.1244,
+     "S_m2": 0.06,
+     "b_m": 0.62,
+     "AR": 6.41,
+     "CD0": 0.06,
+     "e": 0.75,
+     "CLmax": 1.0,
+     "LDmax": 7.93,
+     "Vstall_ms": 6.22,
+     "swept": {
+      "S": 0.034,
+      "AR": 4.71,
+      "CD0": 0.057,
+      "e": 0.7,
+      "CLmax": 0.8,
+      "LDmax": 6.74,
+      "Vstall": 9.24
+     },
+     "Re_8to15ms": "49-91 k",
+     "dragSensitivity": "x1.43 run",
+     "hover": "2x 4-inch props, FoM*eta 0.5, 14.6 W"
+    },
+    "battery": {
+     "Wh": 8.5,
+     "WhPerKg_pack": 380,
+     "mass_g": 22.4,
+     "coldDerate": 0.75,
+     "reserve": 0.15,
+     "avionicsW": 2.6,
+     "regenPmax_W": 3,
+     "noOnBodyBank": true,
+     "runSecondsPerRun": 150
+    },
+    "massBudget": {
+     "claimed_g": {
+      "airframe_feathers_fins": 40,
+      "servos_3x": 9,
+      "motors_esc_props": 17,
+      "fc_imu_gnss_uwb_radio_tof": 10,
+      "camera_4k_pan_tilt_ball": 18,
+      "battery_8p5Wh": 22.4,
+      "hinges_wiring": 8,
+      "total": 124.4
+     },
+     "auditEstimate_g": {
+      "airframe_feathers_fins": 40,
+      "servos_3x": 9,
+      "motors_1404class_esc_props": 25,
+      "fc_gnss_uwb_radio": 8,
+      "ranging_lidar_plus_vision_soc": 10,
+      "camera_4k_plus_pan_tilt": 24,
+      "battery_8p5Wh_at_200WhKg": 42.5,
+      "hinges_wiring": 8,
+      "total": 166.5
+     }
+    },
+    "keCap": "ground speed ≤0.92*sqrt(2*14.9/m): 14.2 m/s at 124 g, 12.9 at 152 g"
+   }
+  }
+ },
+ "crossConcept": {
+  "table": {
+   "columns": [
+    "kite2",
+    "towglider",
+    "leapfrog",
+    "descentglider"
+   ],
+   "flyingMass_g_claimed": [
+    62,
+    95,
+    125,
+    124.4
+   ],
+   "flyingMass_g_audit": [
+    "75–113",
+    "117–125",
+    "160–175",
+    "152–167"
+   ],
+   "rho_kg_m3": [
+    1.0,
+    1.0,
+    1.0,
+    1.05
+   ],
+   "S_m2": [
+    0.35,
+    0.055,
+    0.055,
+    "0.060 spread / 0.034 swept"
+   ],
+   "AR": [
+    "n/a (effective CR, L/D)",
+    8,
+    8.9,
+    "6.41 / 4.71"
+   ],
+   "CD0": [
+    "n/a",
+    0.04,
+    0.04,
+    "0.060 / 0.057"
+   ],
+   "e": [
+    "n/a",
+    0.8,
+    0.8,
+    "0.75 / 0.70"
+   ],
+   "CLmax": [
+    "CR 0.2–1.1",
+    1.0,
+    1.0,
+    "1.0 / 0.8"
+   ],
+   "LDmax_closedForm": [
+    "0.35–2.4 (assumed range)",
+    11.21,
+    11.82,
+    "7.93 / 6.74"
+   ],
+   "Re_k": [
+    "600–1400",
+    "30–84",
+    "33–66",
+    "49–91"
+   ],
+   "LDminus30_run": [
+    "no (audit ran CRmin/Gmin)",
+    "yes, passes",
+    "yes (ldScale 0.7)",
+    "yes (drag ×1.43)"
+   ],
+   "camera_W": [
+    2.5,
+    "2.5 (+0.4 gimbal) in 2.9 avionics",
+    1.7,
+    1.6
+   ],
+   "camera_plus_stabiliser_g": [
+    "16 (no gimbal; canopy-stabilised + EIS)",
+    "16 + 12 gimbal",
+    "13 + 10 turret",
+    "18 incl. pan-tilt"
+   ],
+   "avionicsTotal_W": [
+    3.4,
+    3.3,
+    2.9,
+    2.6
+   ],
+   "flyingCell": [
+    "1.3 Wh / 8 g",
+    "1.2 Wh / 8 g (150 Wh/kg)",
+    "3.7 Wh / 20 g (185 Wh/kg)",
+    "8.5 Wh / 22.4 g (380 Wh/kg)"
+   ],
+   "wornBank": [
+    "30 Wh / 160 g pack (187 Wh/kg)",
+    "10 Wh hip cell",
+    "10 Wh holster bank",
+    "none"
+   ],
+   "coldDerate": [
+    0.75,
+    0.75,
+    0.75,
+    0.75
+   ],
+   "reserve": [
+    0.1,
+    0.1,
+    0.1,
+    0.15
+   ],
+   "chargesFlyingCellInCold": [
+    "yes (dock charging, not designed)",
+    "yes (~1.9 C on each lift)",
+    "yes (bank → glider on lift)",
+    "regen ≤3 W into self-heated cell"
+   ],
+   "keFrameCheck": [
+    "ground frame, agrees",
+    "ground frame, agrees (1 s settle hides a 17.3 J t=0 artefact)",
+    "ground frame, agrees",
+    "ground frame, agrees"
+   ],
+   "nominalIncludesStops": [
+    false,
+    false,
+    false,
+    false
+   ],
+   "nominalIncludesLaunch": [
+    true,
+    true,
+    true,
+    false
+   ],
+   "setupTime_p90_claimed_s": [
+    7.4,
+    17.9,
+    "14–19",
+    17.08
+   ],
+   "setupTime_p90_audit_s": [
+    "17 (incl. manual push-in, 96 stops 0–4.4 m/s)",
+    "21 (own pick-up rule) / 120 if fetched on foot",
+    "14–19 (pass)",
+    "34 (51 cycles 0–9 m/s) / 109 incl. recovery"
+   ],
+   "ops_claimed": [
+    1,
+    2,
+    2,
+    2
+   ],
+   "ops_audit": [
+    "2 (arm+disarm before lift)",
+    "2; 3 with one rest stop",
+    3,
+    "2; >2 in 33 % of windy cycles"
+   ]
+  },
+  "note": "Glider aero is mutually consistent in form (parabolic low-Re polar, CLmax 1.0, e 0.75–0.8) and none uses L/D better than its CD0/AR justify; all three ran a −30 % L/D sensitivity. Re is 30–90 k, partly below the brief band of 50–150 k; at Re ≈30 k CLmax ≈0.85 is more defensible than 1.0 (stall +0.4–0.5 m/s). The real non-comparabilities are battery specific energy (descent 380 vs 150–185 Wh/kg), cold charging from worn banks (kite, tow, leap), camera power (1.6–2.5 W), reserve (10 vs 15 %), the absence of stops in every nominal, and mass budgets that are uniformly 20–40 % light. kite2 uses effective coefficients with no Re dependence and is not comparable to the glider polars; its key unknown (CR 0.2 at L/D ≈0.5–0.7) is a single tow test.",
+  "rankingAfterAudit": [
+   {
+    "concept": "towglider",
+    "verdict": "conditional: follow footage robust (12 seeds, 117 g); fails cold endurance without a heated holster and standstill/ops with rest or windy stops"
+   },
+   {
+    "concept": "kite2",
+    "verdict": "conditional: most original; everything hinges on one untested canopy regime (CR 0.2 at L/D ≈0.6) and on resort kiting rules"
+   },
+   {
+    "concept": "leapfrog",
+    "verdict": "conditional/fragile: only head-on view and keeps VLOS; ops 3, mass 160–175 g, relies on full-res 50 MP readout"
+   },
+   {
+    "concept": "descentglider",
+    "verdict": "not yet credible: 380 Wh/kg cell, stop-free nominal; realistic full cycles 54–71 % avail, standstill p90 34 s"
+   }
+  ],
+  "npmTest": {
+   "command": "cd sim && npm test",
+   "date": "2026-10-19T20:56-07:00",
+   "tests": 131,
+   "pass": 131,
+   "fail": 0
+  },
+  "process": "Plan registration (project/plan.py start/update) was not performed by the auditor because the task restricted writes to research/concepts_2026_10_19/audit/; the coordinator should record this audit under SIM-031."
+ }
+}

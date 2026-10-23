@@ -1,0 +1,7988 @@
+{
+ "conceptId": "tetherdrone",
+ "modelVersion": "tetherdrone@0.3.0",
+ "evidence": "numerical-uncalibrated simulation (SIM-030); not a physical test",
+ "generated": "2026-10-19",
+ "params": {
+  "design": 3,
+  "exit": 5,
+  "Lst": 6.5,
+  "elev": 50,
+  "az": -35,
+  "Lmax": 12,
+  "Tset": 0.8,
+  "Fslip": 4,
+  "weakLink": 50,
+  "snagMode": 1,
+  "cutDelay": 0.06,
+  "mass": 0.07,
+  "twr": 3.5,
+  "tiltMax": 55,
+  "CdA": 0.0055,
+  "rotorR": 0.028,
+  "fom": 0.34,
+  "dT": 1.6,
+  "muT": 3,
+  "cuArea": 0.15,
+  "Vbus": 56,
+  "geo": 2,
+  "noise": 0.08,
+  "lat": 0.12,
+  "backup": 25,
+  "packWh": 120,
+  "attachOff": 0.3,
+  "camHfov": 60,
+  "landT": 1,
+  "windT": 0,
+  "attachFold": 1,
+  "windFF": 1,
+  "speedSched": 1,
+  "schedMin": 0.8,
+  "stationTau": 0.7,
+  "gimbalBW": 6,
+  "descendOut": 1,
+  "attachSwap": 1,
+  "shotPlan": 1,
+  "mastH": 0.7,
+  "mastBack": 0.5
+ },
+ "scenarios": {
+  "nominal": {
+   "name": "Nominal: 12 m/s carving, light wind (v3)",
+   "expect": "Redesign filming steadily: no ≥1 px tether/boom artefact over the subject; KE ≤14.9 J; body force and endurance within the harmonised criteria.",
+   "computeMs": 1326,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 484.408,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.731,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 69.224,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.429,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 9.523,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 108.316,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 6.072,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 1.177,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.693,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.441,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.879,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.31,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 23.58,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 37.735,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 2.669,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 80.557,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.347
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 6.072
+    },
+    "tensLat": {
+     "min": -0.527,
+     "max": 0.279
+    },
+    "reelL": {
+     "min": 6.171,
+     "max": 10.178
+    },
+    "headDist": {
+     "min": 5.693,
+     "max": 10.165
+    },
+    "handDist": {
+     "min": 6.244,
+     "max": 10.402
+    },
+    "clearBody": {
+     "min": 0.441,
+     "max": 0.49
+    },
+    "clearPole": {
+     "min": 0.879,
+     "max": 1.087
+    },
+    "clearSki": {
+     "min": 1.31,
+     "max": 1.753
+    },
+    "sweep": {
+     "min": -26.866,
+     "max": 34.105
+    },
+    "tilt": {
+     "min": 1.79,
+     "max": 53.353
+    },
+    "droneSpeed": {
+     "min": 11.729,
+     "max": 16.495
+    },
+    "pDrone": {
+     "min": 8.909,
+     "max": 62.535
+    },
+    "pLoss": {
+     "min": 0.044,
+     "max": 3.242
+    },
+    "subjectPx": {
+     "min": 324.146,
+     "max": 533.685
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 0
+    },
+    "keRel": {
+     "min": 0,
+     "max": 1.826
+    },
+    "keSnow": {
+     "min": 4.815,
+     "max": 9.523
+    },
+    "yawM": {
+     "min": -0.68,
+     "max": 1.206
+    }
+   }
+  },
+  "nominal_v1": {
+   "name": "Nominal (v1 original design)",
+   "expect": "v1 baseline: 200 g, 100 V, pack-dome exit — re-scored with the harmonised criteria.",
+   "computeMs": 1527,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 57.744,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 487.287,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.03,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 68.086,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.228,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.662,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.1,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 21.925,
+     "unit": "J",
+     "pass": false,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 72.037,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 100,
+     "unit": "V",
+     "pass": false,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 42.256,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 3.34,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 1.552,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 4.325,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.424,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.913,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.434,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 46.13,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 46.701,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 43.963,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 2.228,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 36.312,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [],
+   "extremes": {
+    "tension": {
+     "min": 0.28,
+     "max": 2.664
+    },
+    "tensionPeak": {
+     "min": 0.454,
+     "max": 3.871
+    },
+    "tensLat": {
+     "min": -1.374,
+     "max": 2.015
+    },
+    "reelL": {
+     "min": 4.456,
+     "max": 6.883
+    },
+    "headDist": {
+     "min": 4.325,
+     "max": 6.938
+    },
+    "handDist": {
+     "min": 4.824,
+     "max": 7.191
+    },
+    "clearBody": {
+     "min": 0.424,
+     "max": 0.488
+    },
+    "clearPole": {
+     "min": 0.913,
+     "max": 1.109
+    },
+    "clearSki": {
+     "min": 1.434,
+     "max": 1.698
+    },
+    "sweep": {
+     "min": -53.846,
+     "max": 43.915
+    },
+    "tilt": {
+     "min": 1.584,
+     "max": 41.989
+    },
+    "droneSpeed": {
+     "min": 11.365,
+     "max": 14.807
+    },
+    "pDrone": {
+     "min": 14.563,
+     "max": 88.633
+    },
+    "pLoss": {
+     "min": 0.101,
+     "max": 3.341
+    },
+    "subjectPx": {
+     "min": 309.542,
+     "max": 626.118
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 57.448
+    },
+    "keRel": {
+     "min": 0,
+     "max": 0.601
+    },
+    "keSnow": {
+     "min": 12.916,
+     "max": 21.925
+    },
+    "yawM": {
+     "min": -0.633,
+     "max": 0.64
+    }
+   }
+  },
+  "nominal_v2": {
+   "name": "Nominal (v2 design)",
+   "expect": "v2 comparison: 120 g, 56 V, 0.8 m hip-boom exit and dock.",
+   "computeMs": 836,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 64.668,
+     "unit": "%",
+     "pass": false,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 513.557,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.017,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 59.513,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 0.888,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 1.496,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 13.192,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 48.535,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.8,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 35.332,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 99.5,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 2.017,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 0.441,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 3.851,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.663,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.871,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 0.596,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 46.746,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 42.087,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 28.116,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 3.746,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 65.697,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [],
+   "extremes": {
+    "tension": {
+     "min": 0.087,
+     "max": 1.496
+    },
+    "tensionPeak": {
+     "min": 0.315,
+     "max": 3.942
+    },
+    "tensLat": {
+     "min": -0.84,
+     "max": 0.473
+    },
+    "reelL": {
+     "min": 4.773,
+     "max": 6.864
+    },
+    "headDist": {
+     "min": 3.851,
+     "max": 6.763
+    },
+    "handDist": {
+     "min": 4.386,
+     "max": 6.966
+    },
+    "clearBody": {
+     "min": 0.663,
+     "max": 0.888
+    },
+    "clearPole": {
+     "min": 0.871,
+     "max": 1.039
+    },
+    "clearSki": {
+     "min": 0.596,
+     "max": 1.175
+    },
+    "sweep": {
+     "min": -31.522,
+     "max": 50.956
+    },
+    "tilt": {
+     "min": 1.883,
+     "max": 45
+    },
+    "droneSpeed": {
+     "min": 11.654,
+     "max": 14.915
+    },
+    "pDrone": {
+     "min": 10.278,
+     "max": 78.91
+    },
+    "pLoss": {
+     "min": 0.09,
+     "max": 4.926
+    },
+    "subjectPx": {
+     "min": 322.049,
+     "max": 684.015
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 29.79
+    },
+    "keRel": {
+     "min": 0,
+     "max": 0.417
+    },
+    "keSnow": {
+     "min": 8.15,
+     "max": 13.347
+    },
+    "yawM": {
+     "min": 0,
+     "max": 0.969
+    }
+   }
+  },
+  "short": {
+   "name": "Short turns (calibrated preset, 1.04 s/turn)",
+   "expect": "Fast edge changes: tether sweep, tension jerks, clearance to poles/skis.",
+   "computeMs": 674,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 83.406,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 461.132,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 2.808,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 73.445,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.406,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 4.291,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 141.926,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 5.387,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 87.489,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 87.489,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 6.014,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 1.015,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.314,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.423,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.888,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.41,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 44.541,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 28.487,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 1.758,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 94.829,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 1.978
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 6.014
+    },
+    "tensLat": {
+     "min": -0.555,
+     "max": 0.571
+    },
+    "reelL": {
+     "min": 5.398,
+     "max": 7.259
+    },
+    "headDist": {
+     "min": 5.133,
+     "max": 7.215
+    },
+    "handDist": {
+     "min": 5.754,
+     "max": 7.693
+    },
+    "clearBody": {
+     "min": 0.423,
+     "max": 0.488
+    },
+    "clearPole": {
+     "min": 0.888,
+     "max": 1.089
+    },
+    "clearSki": {
+     "min": 1.41,
+     "max": 1.753
+    },
+    "sweep": {
+     "min": -52.926,
+     "max": 40.609
+    },
+    "tilt": {
+     "min": 0.893,
+     "max": 41.583
+    },
+    "droneSpeed": {
+     "min": 7.093,
+     "max": 11.073
+    },
+    "pDrone": {
+     "min": 8.819,
+     "max": 54.016
+    },
+    "pLoss": {
+     "min": 0.045,
+     "max": 1.901
+    },
+    "subjectPx": {
+     "min": 0,
+     "max": 621.916
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 37.859
+    },
+    "keRel": {
+     "min": 0,
+     "max": 2.031
+    },
+    "keSnow": {
+     "min": 1.761,
+     "max": 4.291
+    },
+    "yawM": {
+     "min": -0.582,
+     "max": 0.735
+    }
+   }
+  },
+  "fast": {
+   "name": "High speed 18 m/s",
+   "expect": "Envelope stress: can the light drone keep up, and does KE exceed 14.9 J?",
+   "computeMs": 283,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 485.664,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.566,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 70.837,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 1.255,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 14.696,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 49.686,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 1.739,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 0.156,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.767,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.473,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.993,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.486,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 21.822,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 83.652,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 5.455,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 86.725,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [],
+   "extremes": {
+    "tension": {
+     "min": 0.198,
+     "max": 1.949
+    },
+    "tensionPeak": {
+     "min": 0.557,
+     "max": 6.972
+    },
+    "tensLat": {
+     "min": -0.585,
+     "max": 0.309
+    },
+    "reelL": {
+     "min": 5.754,
+     "max": 8.693
+    },
+    "headDist": {
+     "min": 5.401,
+     "max": 8.152
+    },
+    "handDist": {
+     "min": 5.846,
+     "max": 8.396
+    },
+    "clearBody": {
+     "min": 0.458,
+     "max": 0.491
+    },
+    "clearPole": {
+     "min": 0.993,
+     "max": 1.095
+    },
+    "clearSki": {
+     "min": 1.486,
+     "max": 1.753
+    },
+    "sweep": {
+     "min": -22.681,
+     "max": 30.756
+    },
+    "tilt": {
+     "min": 4.82,
+     "max": 55
+    },
+    "droneSpeed": {
+     "min": 18.346,
+     "max": 21.189
+    },
+    "pDrone": {
+     "min": 7.653,
+     "max": 103.829
+    },
+    "pLoss": {
+     "min": 0.032,
+     "max": 7.478
+    },
+    "subjectPx": {
+     "min": 386.81,
+     "max": 503.326
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 0
+    },
+    "keRel": {
+     "min": 0,
+     "max": 0.288
+    },
+    "keSnow": {
+     "min": 11.78,
+     "max": 15.714
+    },
+    "yawM": {
+     "min": -0.246,
+     "max": 0.348
+    }
+   }
+  },
+  "gust": {
+   "name": "Gusty crosswind 6 m/s + 7 m/s gust",
+   "expect": "Gust authority of the 120 g airframe: position error, tilt saturation, usable footage.",
+   "computeMs": 428,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 98.787,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 481.721,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.036,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 69.369,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 1.763,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 9.619,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 67.532,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 98.787,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 98.787,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 4.408,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 1.057,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.594,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.368,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.829,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.147,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 41.617,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 59.451,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 6.691,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 73.962,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.096
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 4.408
+    },
+    "tensLat": {
+     "min": -0.499,
+     "max": 0.673
+    },
+    "reelL": {
+     "min": 6.139,
+     "max": 11.64
+    },
+    "headDist": {
+     "min": 5.594,
+     "max": 11.041
+    },
+    "handDist": {
+     "min": 6.233,
+     "max": 11.35
+    },
+    "clearBody": {
+     "min": 0.368,
+     "max": 0.491
+    },
+    "clearPole": {
+     "min": 0.829,
+     "max": 1.1
+    },
+    "clearSki": {
+     "min": 1.147,
+     "max": 1.753
+    },
+    "sweep": {
+     "min": -47.442,
+     "max": 30.756
+    },
+    "tilt": {
+     "min": 4.82,
+     "max": 55
+    },
+    "droneSpeed": {
+     "min": 10.656,
+     "max": 16.578
+    },
+    "pDrone": {
+     "min": 9.23,
+     "max": 170.388
+    },
+    "pLoss": {
+     "min": 0.047,
+     "max": 34.253
+    },
+    "subjectPx": {
+     "min": 265.298,
+     "max": 540.146
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 0
+    },
+    "keRel": {
+     "min": 0,
+     "max": 4.018
+    },
+    "keSnow": {
+     "min": 3.974,
+     "max": 9.619
+    },
+    "yawM": {
+     "min": -0.605,
+     "max": 0.746
+    }
+   }
+  },
+  "side": {
+   "name": "Side view (azimuth −60°, 5.5 m)",
+   "expect": "Side view on the side opposite the exit: does the line still stay off the silhouette?",
+   "computeMs": 607,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 90.293,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 485.129,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.281,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 104.041,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.603,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 10.575,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 88.378,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 1.57,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 91.577,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 91.577,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 6.508,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 1.073,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 4.206,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.42,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.867,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.246,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 29.391,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 46.005,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 3.461,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 81.953,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.417
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 6.508
+    },
+    "tensLat": {
+     "min": -1.102,
+     "max": 0.652
+    },
+    "reelL": {
+     "min": 4.761,
+     "max": 10.39
+    },
+    "headDist": {
+     "min": 4.206,
+     "max": 10.236
+    },
+    "handDist": {
+     "min": 4.862,
+     "max": 10.307
+    },
+    "clearBody": {
+     "min": 0.411,
+     "max": 0.49
+    },
+    "clearPole": {
+     "min": 0.867,
+     "max": 1.075
+    },
+    "clearSki": {
+     "min": 1.246,
+     "max": 1.754
+    },
+    "sweep": {
+     "min": -29.042,
+     "max": 54.981
+    },
+    "tilt": {
+     "min": 4.817,
+     "max": 54.99
+    },
+    "droneSpeed": {
+     "min": 10.8,
+     "max": 17.383
+    },
+    "pDrone": {
+     "min": 8.948,
+     "max": 83.5
+    },
+    "pLoss": {
+     "min": 0.037,
+     "max": 6.309
+    },
+    "subjectPx": {
+     "min": 0,
+     "max": 560.261
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 12.356
+    },
+    "keRel": {
+     "min": 0,
+     "max": 2.152
+    },
+    "keSnow": {
+     "min": 4.083,
+     "max": 10.575
+    },
+    "yawM": {
+     "min": -0.739,
+     "max": 1.291
+    }
+   }
+  },
+  "side_left": {
+   "name": "Side view (azimuth +60°, left side)",
+   "expect": "Side view on the exit side: tether/boom expected over the subject — reported as a geometric limit.",
+   "computeMs": 273,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 92.719,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 481.23,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 1.215,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 89.181,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.549,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 11.547,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 82.515,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 0.143,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 92.862,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 92.862,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 6.373,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 2.432,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 4.297,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.413,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.862,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.236,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 35.483,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 48.497,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 4.808,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 70.121,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.923
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 6.373
+    },
+    "tensLat": {
+     "min": -0.612,
+     "max": 1.326
+    },
+    "reelL": {
+     "min": 3.95,
+     "max": 12
+    },
+    "headDist": {
+     "min": 3.499,
+     "max": 11.208
+    },
+    "handDist": {
+     "min": 4.166,
+     "max": 11.394
+    },
+    "clearBody": {
+     "min": 0.401,
+     "max": 0.49
+    },
+    "clearPole": {
+     "min": 0.862,
+     "max": 1.082
+    },
+    "clearSki": {
+     "min": 1.236,
+     "max": 1.754
+    },
+    "sweep": {
+     "min": -64.936,
+     "max": 17.692
+    },
+    "tilt": {
+     "min": 4.817,
+     "max": 55
+    },
+    "droneSpeed": {
+     "min": 11.185,
+     "max": 18.164
+    },
+    "pDrone": {
+     "min": 9.318,
+     "max": 103.81
+    },
+    "pLoss": {
+     "min": 0.04,
+     "max": 13.971
+    },
+    "subjectPx": {
+     "min": 0,
+     "max": 563.872
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 46.665
+    },
+    "keRel": {
+     "min": 0,
+     "max": 3.179
+    },
+    "keSnow": {
+     "min": 4.379,
+     "max": 11.547
+    },
+    "yawM": {
+     "min": -1.148,
+     "max": 1.94
+    }
+   }
+  },
+  "fall": {
+   "name": "Rider fall (sudden stop from 12 m/s)",
+   "expect": "Reel protect mode; the drone brakes and does not strike the rider; closest approach and KE.",
+   "computeMs": 386,
+   "validUntil": 12.5,
+   "metrics": {
+    "avail": {
+     "value": 100,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 485.357,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.742,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 71.408,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.335,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 9.239,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 108.272,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 5.465,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 0.916,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.912,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.446,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.9,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.37,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": 0.341,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 57.858,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 38.106,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 2.623,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 80.608,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [
+    {
+     "t": 10.08,
+     "type": "fall",
+     "severity": "warning",
+     "en": "Fall detected (pack IMU decel > 6 m/s²): reel → protect/free-spool, drone brakes and climbs"
+    },
+    {
+     "t": 12.5,
+     "type": "scope",
+     "severity": "invalid",
+     "en": "Beyond this the rider’s tumbling/lying pose is not modelled (body still upright-crouched); tether–body clearance not credible"
+    }
+   ],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.347
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 5.465
+    },
+    "tensLat": {
+     "min": -0.527,
+     "max": 0.362
+    },
+    "reelL": {
+     "min": 6.171,
+     "max": 10.129
+    },
+    "headDist": {
+     "min": 5.912,
+     "max": 10.126
+    },
+    "handDist": {
+     "min": 6.398,
+     "max": 10.366
+    },
+    "clearBody": {
+     "min": 0.341,
+     "max": 0.489
+    },
+    "clearPole": {
+     "min": 0.768,
+     "max": 1.087
+    },
+    "clearSki": {
+     "min": 1.345,
+     "max": 1.753
+    },
+    "sweep": {
+     "min": -79.426,
+     "max": 34.105
+    },
+    "tilt": {
+     "min": 4.82,
+     "max": 50.744
+    },
+    "droneSpeed": {
+     "min": 0.015,
+     "max": 16.248
+    },
+    "pDrone": {
+     "min": 8.909,
+     "max": 60.966
+    },
+    "pLoss": {
+     "min": 0.044,
+     "max": 2.157
+    },
+    "subjectPx": {
+     "min": 386.856,
+     "max": 513.411
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 14.674
+    },
+    "keRel": {
+     "min": 0,
+     "max": 1.66
+    },
+    "keSnow": {
+     "min": 0,
+     "max": 9.239
+    },
+    "yawM": {
+     "min": -0.811,
+     "max": 0.556
+    }
+   }
+  },
+  "snag": {
+   "name": "Tree snag: drone-end cutter + autonomous landing (v2)",
+   "expect": "Snag → drone-end cut → free end slides off, reel retracts; the drone backs off and lands. Report body force and what is left on the obstacle.",
+   "computeMs": 615,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 42.779,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 145.214,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 0.886,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 77.028,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": null,
+     "criterion": "≤1.5 kg (fault scenario: not judged)"
+    },
+    "bodyForcePeak": {
+     "value": 13.518,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤5 % (fault scenario: not judged)"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤30 s (fault scenario: not judged)"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": null,
+     "criterion": "≤2 - (fault scenario: not judged)"
+    },
+    "keMax": {
+     "value": 9.523,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 109.38,
+     "unit": "min",
+     "pass": null,
+     "criterion": "≥45 min (fault scenario: not judged)"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≤0.15 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 42.779,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 42.779,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 28.592,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 17.111,
+     "unit": "N",
+     "pass": null,
+     "criterion": "≤5 N (ASSUMED) (fault scenario: not judged)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.693,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.413,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (fault scenario: not judged)"
+    },
+    "clearPole": {
+     "value": 0.833,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.2 m (fault scenario: not judged)"
+    },
+    "clearSki": {
+     "value": 1.112,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.2 m (fault scenario: not judged)"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 19.145,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 59.219,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 36.952,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 2.477,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 82.702,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "branchMin": {
+     "value": 2.268,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "leftOnObstacle": {
+     "value": "nothing (line retracted; drone landed near the obstacle for pick-up)",
+     "unit": "",
+     "pass": true,
+     "criterion": "nothing"
+    },
+    "backupLeft": {
+     "value": 51.522,
+     "unit": "%",
+     "pass": true,
+     "criterion": ">0 (landed, not dropped)"
+    }
+   },
+   "events": [
+    {
+     "t": 10.28,
+     "type": "snag",
+     "severity": "warning",
+     "en": "Tether caught on a branch 2.6 m above the snow (node 7)"
+    },
+    {
+     "t": 10.34,
+     "type": "cut",
+     "severity": "warning",
+     "en": "Drone-end cutter fires: the drone backs away and lands on its backup cell"
+    },
+    {
+     "t": 10.34,
+     "type": "unhooked",
+     "severity": "info",
+     "en": "Free end slides off the branch: the line follows the rider and the reel retracts"
+    },
+    {
+     "t": 22.44,
+     "type": "landed",
+     "severity": "info",
+     "en": "Drone down on the snow (impact 0.6 m/s)"
+    }
+   ],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 17.111
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 28.592
+    },
+    "tensLat": {
+     "min": -0.527,
+     "max": 3.236
+    },
+    "reelL": {
+     "min": 6.171,
+     "max": 12
+    },
+    "headDist": {
+     "min": 5.693,
+     "max": 159.989
+    },
+    "handDist": {
+     "min": 6.244,
+     "max": 160.304
+    },
+    "clearBody": {
+     "min": 0.413,
+     "max": 0.489
+    },
+    "clearPole": {
+     "min": 0.833,
+     "max": 1.087
+    },
+    "clearSki": {
+     "min": 1.112,
+     "max": 1.753
+    },
+    "sweep": {
+     "min": -15.462,
+     "max": 34.105
+    },
+    "tilt": {
+     "min": 0,
+     "max": 54.953
+    },
+    "droneSpeed": {
+     "min": 0,
+     "max": 16.495
+    },
+    "pDrone": {
+     "min": 6,
+     "max": 62.682
+    },
+    "pLoss": {
+     "min": 0,
+     "max": 2.733
+    },
+    "subjectPx": {
+     "min": 31.428,
+     "max": 522.623
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 0
+    },
+    "keRel": {
+     "min": 0,
+     "max": 8.139
+    },
+    "keSnow": {
+     "min": 0,
+     "max": 9.523
+    },
+    "yawM": {
+     "min": -3.75,
+     "max": 1.853
+    }
+   }
+  },
+  "snag_wl": {
+   "name": "Tree snag: weak link only (comparison)",
+   "expect": "Comparison: outcome for line and drone with only the weak link.",
+   "computeMs": 544,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 41.962,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 124.267,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 5.38,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 76.172,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": null,
+     "criterion": "≤1.5 kg (fault scenario: not judged)"
+    },
+    "bodyForcePeak": {
+     "value": 20.004,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤5 % (fault scenario: not judged)"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤30 s (fault scenario: not judged)"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": null,
+     "criterion": "≤2 - (fault scenario: not judged)"
+    },
+    "keMax": {
+     "value": 9.523,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 101.682,
+     "unit": "min",
+     "pass": null,
+     "criterion": "≥45 min (fault scenario: not judged)"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≤0.15 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 41.962,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 41.962,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 50.01,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 22.212,
+     "unit": "N",
+     "pass": null,
+     "criterion": "≤5 N (ASSUMED) (fault scenario: not judged)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.693,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.446,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (fault scenario: not judged)"
+    },
+    "clearPole": {
+     "value": 0.9,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.2 m (fault scenario: not judged)"
+    },
+    "clearSki": {
+     "value": 1.37,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.2 m (fault scenario: not judged)"
+    },
+    "clearStop": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 22.434,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 59.128,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 37.052,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 2.551,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 81.616,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "branchMin": {
+     "value": 1.09,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "leftOnObstacle": {
+     "value": "the tether (~12 m) hanging in the tree, still tied to the drone",
+     "unit": "",
+     "pass": false,
+     "criterion": "nothing"
+    }
+   },
+   "events": [
+    {
+     "t": 10.28,
+     "type": "snag",
+     "severity": "warning",
+     "en": "Tether caught on a branch 2.6 m above the snow (node 7)"
+    },
+    {
+     "t": 10.7,
+     "type": "backup",
+     "severity": "warning",
+     "en": "Drone on backup cell: controlled descent to land"
+    },
+    {
+     "t": 10.7,
+     "type": "weaklink",
+     "severity": "warning",
+     "en": "Weak link broke at 50.0 N: tether separates from the pack; drone loses tether power"
+    }
+   ],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 22.212
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 50.01
+    },
+    "tensLat": {
+     "min": -0.527,
+     "max": 3.236
+    },
+    "reelL": {
+     "min": 6.171,
+     "max": 12
+    },
+    "headDist": {
+     "min": 5.693,
+     "max": 162.88
+    },
+    "handDist": {
+     "min": 6.244,
+     "max": 163.198
+    },
+    "clearBody": {
+     "min": 0.446,
+     "max": 156.429
+    },
+    "clearPole": {
+     "min": 0.9,
+     "max": 156.483
+    },
+    "clearSki": {
+     "min": 1.37,
+     "max": 156.519
+    },
+    "sweep": {
+     "min": -15.462,
+     "max": 34.105
+    },
+    "tilt": {
+     "min": 1.28,
+     "max": 55
+    },
+    "droneSpeed": {
+     "min": 0.005,
+     "max": 16.495
+    },
+    "pDrone": {
+     "min": 8.909,
+     "max": 62.682
+    },
+    "pLoss": {
+     "min": 0,
+     "max": 3.661
+    },
+    "subjectPx": {
+     "min": 25.63,
+     "max": 522.623
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 0
+    },
+    "keRel": {
+     "min": 0,
+     "max": 10.406
+    },
+    "keSnow": {
+     "min": 0,
+     "max": 9.523
+    },
+    "yawM": {
+     "min": -3.75,
+     "max": 0.556
+    }
+   }
+  },
+  "power": {
+   "name": "Tether power interruption (15 s backup)",
+   "expect": "Descend on the small backup cell while following; the rider stops and the drone lands. Fail: energy runs out first.",
+   "computeMs": 630,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 94.779,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≥80 % (fault scenario: not judged)"
+    },
+    "pxMed": {
+     "value": 483.328,
+     "unit": "px",
+     "pass": null,
+     "criterion": "≥300 px (fault scenario: not judged)"
+    },
+    "jitterRms": {
+     "value": 1.006,
+     "unit": "°/s",
+     "pass": null,
+     "criterion": "≤3 °/s (assumed) (fault scenario: not judged)"
+    },
+    "azRange": {
+     "value": 129.328,
+     "unit": "°",
+     "pass": null,
+     "criterion": "≥45 ° (fault scenario: not judged)"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": null,
+     "criterion": "≤1.5 kg (fault scenario: not judged)"
+    },
+    "bodyForcePeak": {
+     "value": 2.335,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": "≤5 % (fault scenario: not judged)"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": null,
+     "criterion": "≤30 s (fault scenario: not judged)"
+    },
+    "ops": {
+     "value": 3,
+     "unit": "-",
+     "pass": null,
+     "criterion": "≤2 - (fault scenario: not judged)"
+    },
+    "keMax": {
+     "value": 9.523,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 112.913,
+     "unit": "min",
+     "pass": null,
+     "criterion": "≥45 min (fault scenario: not judged)"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≤0.15 m (ASSUMED) (fault scenario: not judged)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 5.221,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 100,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 5.465,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 0.745,
+     "unit": "N",
+     "pass": null,
+     "criterion": "≤5 N (ASSUMED) (fault scenario: not judged)"
+    },
+    "headLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": "n/a",
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 4.216,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.243,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.3 m (fault scenario: not judged)"
+    },
+    "clearPole": {
+     "value": 0.742,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.2 m (fault scenario: not judged)"
+    },
+    "clearSki": {
+     "value": 1.316,
+     "unit": "m",
+     "pass": null,
+     "criterion": "≥0.2 m (fault scenario: not judged)"
+    },
+    "clearStop": {
+     "value": 0.287,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 98.454,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 35.994,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 2.384,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 82.629,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "backupLeft": {
+     "value": 37.904,
+     "unit": "%",
+     "pass": true,
+     "criterion": ">0 (landed, not dropped)"
+    }
+   },
+   "events": [
+    {
+     "t": 10,
+     "type": "powerfault",
+     "severity": "warning",
+     "en": "Tether power lost: drone on its backup cell (~30 s), rider alerted to stop; descend while following"
+    },
+    {
+     "t": 19.7,
+     "type": "landed",
+     "severity": "info",
+     "en": "Drone down on the snow (impact 0.5 m/s)"
+    }
+   ],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.347
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 5.465
+    },
+    "tensLat": {
+     "min": -0.527,
+     "max": 1.216
+    },
+    "reelL": {
+     "min": 4.469,
+     "max": 10.178
+    },
+    "headDist": {
+     "min": 4.216,
+     "max": 10.165
+    },
+    "handDist": {
+     "min": 4.259,
+     "max": 10.402
+    },
+    "clearBody": {
+     "min": 0.243,
+     "max": 0.49
+    },
+    "clearPole": {
+     "min": 0.742,
+     "max": 1.087
+    },
+    "clearSki": {
+     "min": 1.316,
+     "max": 1.776
+    },
+    "sweep": {
+     "min": -105.8,
+     "max": 34.105
+    },
+    "tilt": {
+     "min": 0,
+     "max": 54.843
+    },
+    "droneSpeed": {
+     "min": 0,
+     "max": 16.495
+    },
+    "pDrone": {
+     "min": 6,
+     "max": 60.966
+    },
+    "pLoss": {
+     "min": 0,
+     "max": 2.157
+    },
+    "subjectPx": {
+     "min": 371.226,
+     "max": 635.711
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 55.328
+    },
+    "keRel": {
+     "min": 0,
+     "max": 1.994
+    },
+    "keSnow": {
+     "min": 0,
+     "max": 9.523
+    },
+    "yawM": {
+     "min": -0.46,
+     "max": 0.556
+    }
+   }
+  },
+  "dock": {
+   "name": "Launch & land on the hip boom while stopped (3 m/s gusty)",
+   "expect": "Launch/land from the 0.8 m hip boom: rotor guard ≥0.8 m from the helmet, distance to the glove, alignment and time.",
+   "computeMs": 821,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pxMed": {
+     "value": "n/a",
+     "unit": "px",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "azRange": {
+     "value": 60.412,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 1.847,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 15.3,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 0.184,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 80.572,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 2.584,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 1,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": 0.924,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": 1.576,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.415,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.434,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 1.037,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.777,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": 0.434,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 141.294,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 52.141,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 2.867,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 98.909,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "dockErr": {
+     "value": 5.093,
+     "unit": "cm",
+     "pass": true,
+     "criterion": "≤10 cm (cone cradle capture, ASSUMED)"
+    },
+    "dockRetries": {
+     "value": 0,
+     "unit": "",
+     "pass": true,
+     "criterion": "≤1"
+    }
+   },
+   "events": [
+    {
+     "t": 2,
+     "type": "launch",
+     "severity": "info",
+     "en": "Launch tap: dome opens, motors spin up"
+    },
+    {
+     "t": 3.6,
+     "type": "liftoff",
+     "severity": "info",
+     "en": "Lift-off from the dome"
+    },
+    {
+     "t": 16,
+     "type": "land",
+     "severity": "info",
+     "en": "Land command: return above the pack, reel retracts"
+    },
+    {
+     "t": 24.2,
+     "type": "docked",
+     "severity": "info",
+     "en": "Docked and latched (horizontal error 5.1 cm)"
+    }
+   ],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.126
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 2.584
+    },
+    "tensLat": {
+     "min": -0.68,
+     "max": 0.737
+    },
+    "reelL": {
+     "min": 0.001,
+     "max": 6.904
+    },
+    "headDist": {
+     "min": 0.923,
+     "max": 6.926
+    },
+    "handDist": {
+     "min": 1.564,
+     "max": 7.465
+    },
+    "clearBody": {
+     "min": 0.434,
+     "max": 1.214
+    },
+    "clearPole": {
+     "min": 1.037,
+     "max": 1.91
+    },
+    "clearSki": {
+     "min": 1.777,
+     "max": 2.546
+    },
+    "sweep": {
+     "min": -143.405,
+     "max": -44.04
+    },
+    "tilt": {
+     "min": 0,
+     "max": 31.037
+    },
+    "droneSpeed": {
+     "min": 0,
+     "max": 3.505
+    },
+    "pDrone": {
+     "min": 1,
+     "max": 96.519
+    },
+    "pLoss": {
+     "min": 0,
+     "max": 4.187
+    },
+    "subjectPx": {
+     "min": 0,
+     "max": 801.626
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 54.971
+    },
+    "keRel": {
+     "min": 0,
+     "max": 0.43
+    },
+    "keSnow": {
+     "min": 0,
+     "max": 0.43
+    },
+    "yawM": {
+     "min": -0.518,
+     "max": 0.482
+    }
+   }
+  },
+  "dock_wind": {
+   "name": "Launch & land in 9 m/s gusty wind",
+   "expect": "Harmonised standstill time (90th pct over 0–9 m/s wind) ≤30 s.",
+   "computeMs": 787,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pxMed": {
+     "value": "n/a",
+     "unit": "px",
+     "pass": null,
+     "criterion": null
+    },
+    "jitterRms": {
+     "value": "n/a",
+     "unit": "°/s",
+     "pass": null,
+     "criterion": null
+    },
+    "azRange": {
+     "value": 89.773,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 1.798,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.04,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 0.241,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 76.494,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": "n/a",
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 2.553,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 1,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": 0.858,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": 1.492,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 5.354,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.345,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 1.012,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.774,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": 0.345,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 169.007,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 54.774,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 3.175,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 98.036,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "dockErr": {
+     "value": 5.235,
+     "unit": "cm",
+     "pass": true,
+     "criterion": "≤10 cm (cone cradle capture, ASSUMED)"
+    },
+    "dockRetries": {
+     "value": 1,
+     "unit": "",
+     "pass": true,
+     "criterion": "≤1"
+    }
+   },
+   "events": [
+    {
+     "t": 2,
+     "type": "launch",
+     "severity": "info",
+     "en": "Launch tap: dome opens, motors spin up"
+    },
+    {
+     "t": 3.6,
+     "type": "liftoff",
+     "severity": "info",
+     "en": "Lift-off from the dome"
+    },
+    {
+     "t": 16,
+     "type": "land",
+     "severity": "info",
+     "en": "Land command: return above the pack, reel retracts"
+    },
+    {
+     "t": 24.04,
+     "type": "redock",
+     "severity": "warning",
+     "en": "Misaligned by 25 cm: go-around and retry"
+    },
+    {
+     "t": 26.94,
+     "type": "docked",
+     "severity": "info",
+     "en": "Docked and latched (horizontal error 5.2 cm)"
+    }
+   ],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.069
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 2.553
+    },
+    "tensLat": {
+     "min": -0.842,
+     "max": 0.794
+    },
+    "reelL": {
+     "min": 0.002,
+     "max": 7.027
+    },
+    "headDist": {
+     "min": 0.858,
+     "max": 6.919
+    },
+    "handDist": {
+     "min": 1.492,
+     "max": 7.427
+    },
+    "clearBody": {
+     "min": 0.345,
+     "max": 1.217
+    },
+    "clearPole": {
+     "min": 1.012,
+     "max": 1.924
+    },
+    "clearSki": {
+     "min": 1.774,
+     "max": 2.538
+    },
+    "sweep": {
+     "min": -179.259,
+     "max": -37.773
+    },
+    "tilt": {
+     "min": 0,
+     "max": 46.686
+    },
+    "droneSpeed": {
+     "min": 0,
+     "max": 3.505
+    },
+    "pDrone": {
+     "min": 1,
+     "max": 103.954
+    },
+    "pLoss": {
+     "min": 0,
+     "max": 5.441
+    },
+    "subjectPx": {
+     "min": 0,
+     "max": 884.152
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 139.776
+    },
+    "keRel": {
+     "min": 0,
+     "max": 0.43
+    },
+    "keSnow": {
+     "min": 0,
+     "max": 0.43
+    },
+    "yawM": {
+     "min": -0.562,
+     "max": 0.596
+    }
+   }
+  },
+  "demo": {
+   "name": "Demo",
+   "expect": null,
+   "computeMs": 1104,
+   "validUntil": null,
+   "metrics": {
+    "avail": {
+     "value": 93.438,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≥80 %"
+    },
+    "pxMed": {
+     "value": 487.361,
+     "unit": "px",
+     "pass": true,
+     "criterion": "≥300 px"
+    },
+    "jitterRms": {
+     "value": 0.99,
+     "unit": "°/s",
+     "pass": true,
+     "criterion": "≤3 °/s (assumed)"
+    },
+    "azRange": {
+     "value": 81.049,
+     "unit": "°",
+     "pass": true,
+     "criterion": "≥45 °"
+    },
+    "addedMass": {
+     "value": 1.106,
+     "unit": "kg",
+     "pass": true,
+     "criterion": "≤1.5 kg"
+    },
+    "bodyForcePeak": {
+     "value": 2.442,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤40 N (assumed)"
+    },
+    "handsBusy": {
+     "value": 0,
+     "unit": "%",
+     "pass": true,
+     "criterion": "≤5 %"
+    },
+    "setupTime": {
+     "value": 18.2,
+     "unit": "s",
+     "pass": true,
+     "criterion": "≤30 s"
+    },
+    "ops": {
+     "value": 2,
+     "unit": "-",
+     "pass": true,
+     "criterion": "≤2 -"
+    },
+    "keMax": {
+     "value": 11.257,
+     "unit": "J",
+     "pass": true,
+     "criterion": "≤14.9 J"
+    },
+    "endurance": {
+     "value": 107.028,
+     "unit": "min",
+     "pass": true,
+     "criterion": "≥45 min"
+    },
+    "protrusion": {
+     "value": 0.1,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≤0.15 m (ASSUMED)"
+    },
+    "elecSafe": {
+     "value": 56,
+     "unit": "V",
+     "pass": true,
+     "criterion": "≤60 V DC (IEC 62368-1)"
+    },
+    "artFrames": {
+     "value": 6.338,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availGeom": {
+     "value": 95.569,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "availInpaint": {
+     "value": 95.569,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "bodyForceRaw": {
+     "value": 5.443,
+     "unit": "N",
+     "pass": null,
+     "criterion": null
+    },
+    "jerk": {
+     "value": 1.244,
+     "unit": "N",
+     "pass": true,
+     "criterion": "≤5 N (ASSUMED)"
+    },
+    "headLaunch": {
+     "value": 0.924,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.8 m"
+    },
+    "handLaunch": {
+     "value": 1.568,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.3 m (ASSUMED)"
+    },
+    "headMin": {
+     "value": 3.502,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥1.0 m"
+    },
+    "clearBody": {
+     "value": 0.114,
+     "unit": "m",
+     "pass": false,
+     "criterion": "≥0.3 m"
+    },
+    "clearPole": {
+     "value": 0.469,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearSki": {
+     "value": 1.053,
+     "unit": "m",
+     "pass": true,
+     "criterion": "≥0.2 m"
+    },
+    "clearStop": {
+     "value": -0.056,
+     "unit": "m",
+     "pass": null,
+     "criterion": null
+    },
+    "sweepP95": {
+     "value": 119.4,
+     "unit": "°",
+     "pass": null,
+     "criterion": null
+    },
+    "snowContact": {
+     "value": 0,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "pDrone": {
+     "value": 38.052,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "pHover": {
+     "value": 17.923,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    },
+    "lossPct": {
+     "value": 2.944,
+     "unit": "%",
+     "pass": null,
+     "criterion": null
+    },
+    "p24max": {
+     "value": 86.252,
+     "unit": "W",
+     "pass": null,
+     "criterion": null
+    }
+   },
+   "events": [
+    {
+     "t": 3,
+     "type": "launch",
+     "severity": "info",
+     "en": "Launch tap: dome opens, motors spin up"
+    },
+    {
+     "t": 4.6,
+     "type": "liftoff",
+     "severity": "info",
+     "en": "Lift-off from the dome"
+    },
+    {
+     "t": 46.8,
+     "type": "land",
+     "severity": "info",
+     "en": "Land command: return above the pack, reel retracts"
+    },
+    {
+     "t": 54.8,
+     "type": "docked",
+     "severity": "info",
+     "en": "Docked and latched (horizontal error 4.5 cm)"
+    }
+   ],
+   "extremes": {
+    "tension": {
+     "min": 0,
+     "max": 2.453
+    },
+    "tensionPeak": {
+     "min": 0,
+     "max": 5.443
+    },
+    "tensLat": {
+     "min": -0.698,
+     "max": 1.192
+    },
+    "reelL": {
+     "min": 0.001,
+     "max": 10.865
+    },
+    "headDist": {
+     "min": 0.924,
+     "max": 10.822
+    },
+    "handDist": {
+     "min": 1.568,
+     "max": 10.775
+    },
+    "clearBody": {
+     "min": -0.056,
+     "max": 1.25
+    },
+    "clearPole": {
+     "min": 0.187,
+     "max": 1.948
+    },
+    "clearSki": {
+     "min": 0.999,
+     "max": 2.539
+    },
+    "sweep": {
+     "min": -174.414,
+     "max": 26.268
+    },
+    "tilt": {
+     "min": 0,
+     "max": 55
+    },
+    "droneSpeed": {
+     "min": 0,
+     "max": 17.934
+    },
+    "pDrone": {
+     "min": 1,
+     "max": 87.104
+    },
+    "pLoss": {
+     "min": 0,
+     "max": 8.316
+    },
+    "subjectPx": {
+     "min": 0,
+     "max": 825.22
+    },
+    "tetherArt": {
+     "min": 0,
+     "max": 164.271
+    },
+    "keRel": {
+     "min": 0,
+     "max": 2.298
+    },
+    "keSnow": {
+     "min": 0,
+     "max": 11.257
+    },
+    "yawM": {
+     "min": -0.709,
+     "max": 0.958
+    }
+   }
+  }
+ },
+ "byDesign": {
+  "v1": {
+   "nominal": {
+    "fails": [
+     "avail",
+     "keMax",
+     "elecSafe"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 57.744,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 487.287,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.03,
+      "pass": true
+     },
+     "azRange": {
+      "value": 68.086,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.662,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 21.925,
+      "pass": false
+     },
+     "endurance": {
+      "value": 72.037,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 42.256,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.325,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.424,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 2.228,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 2.487,
+     "backgroundRms": 0.855
+    }
+   },
+   "short": {
+    "fails": [
+     "avail",
+     "jitterRms",
+     "azRange",
+     "elecSafe"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 59.6,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 462.26,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 7.339,
+      "pass": false
+     },
+     "azRange": {
+      "value": 7.46,
+      "pass": false
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.71,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 11.545,
+      "pass": true
+     },
+     "endurance": {
+      "value": 58.618,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 40.4,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.557,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.465,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 2.894,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 3.786,
+     "backgroundRms": 5.477
+    }
+   },
+   "fast": {
+    "fails": [
+     "avail",
+     "azRange",
+     "keMax",
+     "elecSafe"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 53.866,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 567.62,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 0.901,
+      "pass": true
+     },
+     "azRange": {
+      "value": 32.177,
+      "pass": false
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.75,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 38.551,
+      "pass": false
+     },
+     "endurance": {
+      "value": 62.555,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 46.134,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.476,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.476,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 2.669,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 1.94,
+     "backgroundRms": 0.557
+    }
+   },
+   "gust": {
+    "fails": [
+     "avail",
+     "keMax",
+     "elecSafe"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 42.827,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 466.959,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.111,
+      "pass": true
+     },
+     "azRange": {
+      "value": 59.466,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.657,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 21.53,
+      "pass": false
+     },
+     "endurance": {
+      "value": 60.921,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 47.181,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 90.007,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.52,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.394,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 4.081,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 1.83,
+     "backgroundRms": 0.861
+    }
+   },
+   "side": {
+    "fails": [
+     "keMax",
+     "endurance",
+     "elecSafe",
+     "clearBody"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 89.864,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 512.288,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.164,
+      "pass": true
+     },
+     "azRange": {
+      "value": 78.189,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.89,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 22.776,
+      "pass": false
+     },
+     "endurance": {
+      "value": 39.449,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 2.712,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 92.577,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 3.437,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.296,
+      "pass": false
+     },
+     "lossPct": {
+      "value": 3.857,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 4.079,
+     "backgroundRms": 1.119
+    }
+   },
+   "side_left": {
+    "fails": [
+     "avail",
+     "keMax",
+     "endurance",
+     "elecSafe",
+     "clearBody"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 73.162,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 495.412,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.115,
+      "pass": true
+     },
+     "azRange": {
+      "value": 76.743,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 3.146,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 22.177,
+      "pass": false
+     },
+     "endurance": {
+      "value": 42.085,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 24.197,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 93.647,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 3.57,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.241,
+      "pass": false
+     },
+     "lossPct": {
+      "value": 3.682,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 2.179,
+     "backgroundRms": 0.92
+    }
+   },
+   "fall": {
+    "fails": [
+     "avail",
+     "keMax",
+     "elecSafe"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 42.25,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 486.797,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.087,
+      "pass": true
+     },
+     "azRange": {
+      "value": 78.916,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.575,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 20.99,
+      "pass": false
+     },
+     "endurance": {
+      "value": 56.594,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 57.75,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.798,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.444,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 3.324,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 4.41,
+     "backgroundRms": 1.107
+    }
+   },
+   "snag": {
+    "fails": [
+     "keMax",
+     "elecSafe",
+     "branchMin",
+     "leftOnObstacle"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 19.8,
+      "pass": null
+     },
+     "pxMed": {
+      "value": 77.661,
+      "pass": null
+     },
+     "jitterRms": {
+      "value": 8.937,
+      "pass": null
+     },
+     "azRange": {
+      "value": 66.301,
+      "pass": null
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": null
+     },
+     "bodyForcePeak": {
+      "value": 7.745,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": null
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": null
+     },
+     "ops": {
+      "value": 3,
+      "pass": null
+     },
+     "keMax": {
+      "value": 20.99,
+      "pass": false
+     },
+     "endurance": {
+      "value": 69.489,
+      "pass": null
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": null
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 20.981,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 40.781,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.787,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.444,
+      "pass": null
+     },
+     "lossPct": {
+      "value": 2.266,
+      "pass": null
+     },
+     "branchMin": {
+      "value": 0.047,
+      "pass": false
+     },
+     "leftOnObstacle": {
+      "value": "the tether (~5 m) hanging in the tree, still tied to the drone",
+      "pass": false
+     }
+    },
+    "footageStability": {
+     "subjectRms": 6.566,
+     "backgroundRms": 5.063
+    }
+   },
+   "power": {
+    "fails": [
+     "keMax",
+     "elecSafe"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 54.886,
+      "pass": null
+     },
+     "pxMed": {
+      "value": 522.336,
+      "pass": null
+     },
+     "jitterRms": {
+      "value": 2.309,
+      "pass": null
+     },
+     "azRange": {
+      "value": 98.116,
+      "pass": null
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": null
+     },
+     "bodyForcePeak": {
+      "value": 2.575,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": null
+     },
+     "setupTime": {
+      "value": 18.1,
+      "pass": null
+     },
+     "ops": {
+      "value": 3,
+      "pass": null
+     },
+     "keMax": {
+      "value": 21.168,
+      "pass": false
+     },
+     "endurance": {
+      "value": 69.977,
+      "pass": null
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": null
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": 45.114,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 3.383,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.132,
+      "pass": null
+     },
+     "lossPct": {
+      "value": 2.27,
+      "pass": null
+     },
+     "backupLeft": {
+      "value": 65.097,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": 3.502,
+     "backgroundRms": 1.732
+    }
+   },
+   "dock": {
+    "fails": [
+     "endurance",
+     "elecSafe",
+     "headLaunch",
+     "clearBody"
+    ],
+    "metrics": {
+     "avail": {
+      "value": "n/a",
+      "pass": null
+     },
+     "pxMed": {
+      "value": "n/a",
+      "pass": null
+     },
+     "jitterRms": {
+      "value": "n/a",
+      "pass": null
+     },
+     "azRange": {
+      "value": 98.747,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.367,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 15.3,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 0.664,
+      "pass": true
+     },
+     "endurance": {
+      "value": 40.035,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": "n/a",
+      "pass": null
+     },
+     "availInpaint": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headLaunch": {
+      "value": 0.141,
+      "pass": false
+     },
+     "headMin": {
+      "value": 4.168,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.004,
+      "pass": false
+     },
+     "lossPct": {
+      "value": 4.108,
+      "pass": null
+     },
+     "dockErr": {
+      "value": 8.339,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null
+    }
+   },
+   "dock_wind": {
+    "fails": [
+     "endurance",
+     "elecSafe",
+     "headLaunch",
+     "clearBody"
+    ],
+    "metrics": {
+     "avail": {
+      "value": "n/a",
+      "pass": null
+     },
+     "pxMed": {
+      "value": "n/a",
+      "pass": null
+     },
+     "jitterRms": {
+      "value": "n/a",
+      "pass": null
+     },
+     "azRange": {
+      "value": 187.157,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.228,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 3.429,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 23.56,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 0.673,
+      "pass": true
+     },
+     "endurance": {
+      "value": 41.354,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 100,
+      "pass": false
+     },
+     "artFrames": {
+      "value": "n/a",
+      "pass": null
+     },
+     "availInpaint": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headLaunch": {
+      "value": 0.073,
+      "pass": false
+     },
+     "headMin": {
+      "value": 4.004,
+      "pass": true
+     },
+     "clearBody": {
+      "value": -0.042,
+      "pass": false
+     },
+     "lossPct": {
+      "value": 3.993,
+      "pass": null
+     },
+     "dockErr": {
+      "value": 7.411,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null
+    }
+   }
+  },
+  "v2": {
+   "nominal": {
+    "fails": [
+     "avail",
+     "protrusion"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 64.668,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 513.557,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.017,
+      "pass": true
+     },
+     "azRange": {
+      "value": 59.513,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.496,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 13.192,
+      "pass": true
+     },
+     "endurance": {
+      "value": 48.535,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 35.332,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 99.5,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 3.851,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.663,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 3.746,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 3.143,
+     "backgroundRms": 0.83
+    }
+   },
+   "short": {
+    "fails": [
+     "avail",
+     "jitterRms",
+     "azRange",
+     "protrusion"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 70.547,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 497.706,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 7.562,
+      "pass": false
+     },
+     "azRange": {
+      "value": 7.929,
+      "pass": false
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.87,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 6.776,
+      "pass": true
+     },
+     "endurance": {
+      "value": 47.918,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 29.453,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.823,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.701,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 3.816,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 4.267,
+     "backgroundRms": 5.712
+    }
+   },
+   "fast": {
+    "fails": [
+     "azRange",
+     "keMax",
+     "endurance",
+     "protrusion"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 100,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 582.933,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 0.863,
+      "pass": true
+     },
+     "azRange": {
+      "value": 17.077,
+      "pass": false
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 0.972,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 24.13,
+      "pass": false
+     },
+     "endurance": {
+      "value": 27.046,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 0,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.12,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.797,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 7.22,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 2.297,
+     "backgroundRms": 0.515
+    }
+   },
+   "gust": {
+    "fails": [
+     "avail",
+     "azRange",
+     "endurance",
+     "protrusion"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 54.461,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 500.726,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.156,
+      "pass": true
+     },
+     "azRange": {
+      "value": 44.833,
+      "pass": false
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.835,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 12.803,
+      "pass": true
+     },
+     "endurance": {
+      "value": 37.815,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 45.539,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.767,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.788,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 7.043,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 1.917,
+     "backgroundRms": 1.013
+    }
+   },
+   "side": {
+    "fails": [
+     "endurance",
+     "protrusion"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 89.936,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 565.366,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.385,
+      "pass": true
+     },
+     "azRange": {
+      "value": 55.933,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.837,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 12.95,
+      "pass": true
+     },
+     "endurance": {
+      "value": 35.015,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 9.136,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 99.072,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 2.987,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.585,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 4.564,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 4.651,
+     "backgroundRms": 1.192
+    }
+   },
+   "side_left": {
+    "fails": [
+     "avail",
+     "endurance",
+     "protrusion"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 69.165,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 495.365,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.309,
+      "pass": true
+     },
+     "azRange": {
+      "value": 53.162,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.011,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 13.98,
+      "pass": true
+     },
+     "endurance": {
+      "value": 36.39,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 22.984,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 92.148,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 2.939,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.633,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 4.609,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 1.811,
+     "backgroundRms": 1.054
+    }
+   },
+   "fall": {
+    "fails": [
+     "avail",
+     "endurance",
+     "protrusion"
+    ],
+    "metrics": {
+     "avail": {
+      "value": 55.5,
+      "pass": false
+     },
+     "pxMed": {
+      "value": 500.551,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.077,
+      "pass": true
+     },
+     "azRange": {
+      "value": 77.791,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.489,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 12.713,
+      "pass": true
+     },
+     "endurance": {
+      "value": 40.149,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 44.5,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 3.965,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.668,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 5.174,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 5.604,
+     "backgroundRms": 1.061
+    }
+   },
+   "snag": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 26.521,
+      "pass": null
+     },
+     "pxMed": {
+      "value": 346.032,
+      "pass": null
+     },
+     "jitterRms": {
+      "value": 4.554,
+      "pass": null
+     },
+     "azRange": {
+      "value": 69.161,
+      "pass": null
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": null
+     },
+     "bodyForcePeak": {
+      "value": 9.311,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": null
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": null
+     },
+     "ops": {
+      "value": 3,
+      "pass": null
+     },
+     "keMax": {
+      "value": 12.713,
+      "pass": true
+     },
+     "endurance": {
+      "value": 46.194,
+      "pass": null
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": null
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 26.992,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 42.688,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 3.94,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.596,
+      "pass": null
+     },
+     "lossPct": {
+      "value": 3.979,
+      "pass": null
+     },
+     "branchMin": {
+      "value": 0.362,
+      "pass": true
+     },
+     "leftOnObstacle": {
+      "value": "nothing (line retracted; drone landed near the obstacle for pick-up)",
+      "pass": true
+     },
+     "backupLeft": {
+      "value": 39.807,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": 4.858,
+     "backgroundRms": 2.796
+    }
+   },
+   "power": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 57.162,
+      "pass": null
+     },
+     "pxMed": {
+      "value": 525.611,
+      "pass": null
+     },
+     "jitterRms": {
+      "value": 2.499,
+      "pass": null
+     },
+     "azRange": {
+      "value": 89.176,
+      "pass": null
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": null
+     },
+     "bodyForcePeak": {
+      "value": 1.489,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": null
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": null
+     },
+     "ops": {
+      "value": 3,
+      "pass": null
+     },
+     "keMax": {
+      "value": 12.713,
+      "pass": true
+     },
+     "endurance": {
+      "value": 47.363,
+      "pass": null
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": null
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 42.838,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 97.456,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 3.512,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.668,
+      "pass": null
+     },
+     "lossPct": {
+      "value": 3.916,
+      "pass": null
+     },
+     "backupLeft": {
+      "value": 28.914,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": 4.353,
+     "backgroundRms": 1.845
+    }
+   },
+   "dock": {
+    "fails": [
+     "azRange",
+     "endurance",
+     "protrusion"
+    ],
+    "metrics": {
+     "avail": {
+      "value": "n/a",
+      "pass": null
+     },
+     "pxMed": {
+      "value": "n/a",
+      "pass": null
+     },
+     "jitterRms": {
+      "value": "n/a",
+      "pass": null
+     },
+     "azRange": {
+      "value": 31.334,
+      "pass": false
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.59,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 15.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 0.328,
+      "pass": true
+     },
+     "endurance": {
+      "value": 37.261,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": "n/a",
+      "pass": null
+     },
+     "availInpaint": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headLaunch": {
+      "value": 0.885,
+      "pass": true
+     },
+     "headMin": {
+      "value": 4.565,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.672,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 4.676,
+      "pass": null
+     },
+     "dockErr": {
+      "value": 9.296,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null
+    }
+   },
+   "dock_wind": {
+    "fails": [
+     "endurance",
+     "protrusion",
+     "headLaunch"
+    ],
+    "metrics": {
+     "avail": {
+      "value": "n/a",
+      "pass": null
+     },
+     "pxMed": {
+      "value": "n/a",
+      "pass": null
+     },
+     "jitterRms": {
+      "value": "n/a",
+      "pass": null
+     },
+     "azRange": {
+      "value": 50.16,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 0.888,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.563,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 23.88,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 0.375,
+      "pass": true
+     },
+     "endurance": {
+      "value": 36.502,
+      "pass": false
+     },
+     "protrusion": {
+      "value": 0.8,
+      "pass": false
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": "n/a",
+      "pass": null
+     },
+     "availInpaint": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headLaunch": {
+      "value": 0.75,
+      "pass": false
+     },
+     "headMin": {
+      "value": 4.325,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.505,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 4.759,
+      "pass": null
+     },
+     "dockErr": {
+      "value": 0.398,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null
+    }
+   }
+  },
+  "v3": {
+   "nominal": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 100,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 484.408,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 0.731,
+      "pass": true
+     },
+     "azRange": {
+      "value": 69.224,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.429,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 9.523,
+      "pass": true
+     },
+     "endurance": {
+      "value": 108.316,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 0,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.693,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.441,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 2.669,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 1.732,
+     "backgroundRms": 0.675
+    }
+   },
+   "short": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 83.406,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 461.132,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 2.808,
+      "pass": true
+     },
+     "azRange": {
+      "value": 73.445,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.406,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 4.291,
+      "pass": true
+     },
+     "endurance": {
+      "value": 141.926,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 5.387,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 87.489,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.314,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.423,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 1.758,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 1.845,
+     "backgroundRms": 2.836
+    }
+   },
+   "fast": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 100,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 485.664,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 0.566,
+      "pass": true
+     },
+     "azRange": {
+      "value": 70.837,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.255,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 14.696,
+      "pass": true
+     },
+     "endurance": {
+      "value": 49.686,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 0,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.767,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.473,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 5.455,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 2.914,
+     "backgroundRms": 0.472
+    }
+   },
+   "gust": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 98.787,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 481.721,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.036,
+      "pass": true
+     },
+     "azRange": {
+      "value": 69.369,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.763,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 9.619,
+      "pass": true
+     },
+     "endurance": {
+      "value": 67.532,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 0,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 98.787,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.594,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.368,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 6.691,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 1.638,
+     "backgroundRms": 1.03
+    }
+   },
+   "side": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 90.293,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 485.129,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.281,
+      "pass": true
+     },
+     "azRange": {
+      "value": 104.041,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.603,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 10.575,
+      "pass": true
+     },
+     "endurance": {
+      "value": 88.378,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 1.57,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 91.577,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.206,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.42,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 3.461,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 2.553,
+     "backgroundRms": 1.117
+    }
+   },
+   "side_left": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 92.719,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 481.23,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 1.215,
+      "pass": true
+     },
+     "azRange": {
+      "value": 89.181,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.549,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 11.547,
+      "pass": true
+     },
+     "endurance": {
+      "value": 82.515,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 0.143,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 92.862,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.297,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.413,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 4.808,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 1.16,
+     "backgroundRms": 1.149
+    }
+   },
+   "fall": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 100,
+      "pass": true
+     },
+     "pxMed": {
+      "value": 485.357,
+      "pass": true
+     },
+     "jitterRms": {
+      "value": 0.742,
+      "pass": true
+     },
+     "azRange": {
+      "value": 71.408,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 2.335,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 9.239,
+      "pass": true
+     },
+     "endurance": {
+      "value": 108.272,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 0,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.912,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.446,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 2.623,
+      "pass": null
+     }
+    },
+    "footageStability": {
+     "subjectRms": 3.091,
+     "backgroundRms": 0.988
+    }
+   },
+   "snag": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 42.779,
+      "pass": null
+     },
+     "pxMed": {
+      "value": 145.214,
+      "pass": null
+     },
+     "jitterRms": {
+      "value": 0.886,
+      "pass": null
+     },
+     "azRange": {
+      "value": 77.028,
+      "pass": null
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": null
+     },
+     "bodyForcePeak": {
+      "value": 13.518,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": null
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": null
+     },
+     "ops": {
+      "value": 3,
+      "pass": null
+     },
+     "keMax": {
+      "value": 9.523,
+      "pass": true
+     },
+     "endurance": {
+      "value": 109.38,
+      "pass": null
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": null
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 0,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 42.779,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 5.693,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.413,
+      "pass": null
+     },
+     "lossPct": {
+      "value": 2.477,
+      "pass": null
+     },
+     "branchMin": {
+      "value": 2.268,
+      "pass": true
+     },
+     "leftOnObstacle": {
+      "value": "nothing (line retracted; drone landed near the obstacle for pick-up)",
+      "pass": true
+     },
+     "backupLeft": {
+      "value": 51.522,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": 2.018,
+     "backgroundRms": 0.845
+    }
+   },
+   "power": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": 94.779,
+      "pass": null
+     },
+     "pxMed": {
+      "value": 483.328,
+      "pass": null
+     },
+     "jitterRms": {
+      "value": 1.006,
+      "pass": null
+     },
+     "azRange": {
+      "value": 129.328,
+      "pass": null
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": null
+     },
+     "bodyForcePeak": {
+      "value": 2.335,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": null
+     },
+     "setupTime": {
+      "value": 18.2,
+      "pass": null
+     },
+     "ops": {
+      "value": 3,
+      "pass": null
+     },
+     "keMax": {
+      "value": 9.523,
+      "pass": true
+     },
+     "endurance": {
+      "value": 112.913,
+      "pass": null
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": null
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": 5.221,
+      "pass": null
+     },
+     "availInpaint": {
+      "value": 100,
+      "pass": null
+     },
+     "headLaunch": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headMin": {
+      "value": 4.216,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.243,
+      "pass": null
+     },
+     "lossPct": {
+      "value": 2.384,
+      "pass": null
+     },
+     "backupLeft": {
+      "value": 37.904,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": 2.332,
+     "backgroundRms": 1.029
+    }
+   },
+   "dock": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": "n/a",
+      "pass": null
+     },
+     "pxMed": {
+      "value": "n/a",
+      "pass": null
+     },
+     "jitterRms": {
+      "value": "n/a",
+      "pass": null
+     },
+     "azRange": {
+      "value": 60.412,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.847,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 15.3,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 0.184,
+      "pass": true
+     },
+     "endurance": {
+      "value": 80.572,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": "n/a",
+      "pass": null
+     },
+     "availInpaint": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headLaunch": {
+      "value": 0.924,
+      "pass": true
+     },
+     "headMin": {
+      "value": 5.415,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.434,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 2.867,
+      "pass": null
+     },
+     "dockErr": {
+      "value": 5.093,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null
+    }
+   },
+   "dock_wind": {
+    "fails": [],
+    "metrics": {
+     "avail": {
+      "value": "n/a",
+      "pass": null
+     },
+     "pxMed": {
+      "value": "n/a",
+      "pass": null
+     },
+     "jitterRms": {
+      "value": "n/a",
+      "pass": null
+     },
+     "azRange": {
+      "value": 89.773,
+      "pass": true
+     },
+     "addedMass": {
+      "value": 1.106,
+      "pass": true
+     },
+     "bodyForcePeak": {
+      "value": 1.798,
+      "pass": true
+     },
+     "handsBusy": {
+      "value": 0,
+      "pass": true
+     },
+     "setupTime": {
+      "value": 18.04,
+      "pass": true
+     },
+     "ops": {
+      "value": 2,
+      "pass": true
+     },
+     "keMax": {
+      "value": 0.241,
+      "pass": true
+     },
+     "endurance": {
+      "value": 76.494,
+      "pass": true
+     },
+     "protrusion": {
+      "value": 0.1,
+      "pass": true
+     },
+     "elecSafe": {
+      "value": 56,
+      "pass": true
+     },
+     "artFrames": {
+      "value": "n/a",
+      "pass": null
+     },
+     "availInpaint": {
+      "value": "n/a",
+      "pass": null
+     },
+     "headLaunch": {
+      "value": 0.858,
+      "pass": true
+     },
+     "headMin": {
+      "value": 5.354,
+      "pass": true
+     },
+     "clearBody": {
+      "value": 0.345,
+      "pass": true
+     },
+     "lossPct": {
+      "value": 3.175,
+      "pass": null
+     },
+     "dockErr": {
+      "value": 5.235,
+      "pass": true
+     }
+    },
+    "footageStability": {
+     "subjectRms": null,
+     "backgroundRms": null
+    }
+   }
+  }
+ },
+ "airframe": [
+  {
+   "massKg": 0.2,
+   "rotorR": 0.038,
+   "hoverW": 43.963,
+   "KE12": 14.4,
+   "KE14": 19.6,
+   "KE18": 32.4,
+   "vMaxFor14_9J": 12.207
+  },
+  {
+   "massKg": 0.12,
+   "rotorR": 0.032,
+   "hoverW": 28.116,
+   "KE12": 8.64,
+   "KE14": 11.76,
+   "KE18": 19.44,
+   "vMaxFor14_9J": 15.759
+  },
+  {
+   "massKg": 0.075,
+   "rotorR": 0.028,
+   "hoverW": 19.223,
+   "KE12": 5.4,
+   "KE14": 7.35,
+   "KE18": 12.15,
+   "vMaxFor14_9J": 19.933
+  }
+ ],
+ "electrical": [
+  {
+   "V": 24,
+   "cuArea_mm2": 0.05,
+   "lossPct": "infeasible",
+   "PmaxW": 20.93,
+   "massGperM": 1.596,
+   "touchSafe": true
+  },
+  {
+   "V": 24,
+   "cuArea_mm2": 0.09,
+   "lossPct": "infeasible",
+   "PmaxW": 37.674,
+   "massGperM": 2.313,
+   "touchSafe": true
+  },
+  {
+   "V": 24,
+   "cuArea_mm2": 0.15,
+   "lossPct": 30.524,
+   "PmaxW": 62.791,
+   "massGperM": 3.388,
+   "touchSafe": true
+  },
+  {
+   "V": 48,
+   "cuArea_mm2": 0.05,
+   "lossPct": 19.042,
+   "PmaxW": 83.721,
+   "massGperM": 1.596,
+   "touchSafe": true
+  },
+  {
+   "V": 48,
+   "cuArea_mm2": 0.09,
+   "lossPct": 8.844,
+   "PmaxW": 150.698,
+   "massGperM": 2.313,
+   "touchSafe": true
+  },
+  {
+   "V": 48,
+   "cuArea_mm2": 0.15,
+   "lossPct": 4.932,
+   "PmaxW": 251.163,
+   "massGperM": 3.388,
+   "touchSafe": true
+  },
+  {
+   "V": 56,
+   "cuArea_mm2": 0.05,
+   "lossPct": 12.493,
+   "PmaxW": 113.953,
+   "massGperM": 1.596,
+   "touchSafe": true
+  },
+  {
+   "V": 56,
+   "cuArea_mm2": 0.09,
+   "lossPct": 6.184,
+   "PmaxW": 205.116,
+   "massGperM": 2.313,
+   "touchSafe": true
+  },
+  {
+   "V": 56,
+   "cuArea_mm2": 0.15,
+   "lossPct": 3.527,
+   "PmaxW": 341.86,
+   "massGperM": 3.388,
+   "touchSafe": true
+  },
+  {
+   "V": 60,
+   "cuArea_mm2": 0.05,
+   "lossPct": 10.501,
+   "PmaxW": 130.814,
+   "massGperM": 1.596,
+   "touchSafe": true
+  },
+  {
+   "V": 60,
+   "cuArea_mm2": 0.09,
+   "lossPct": 5.297,
+   "PmaxW": 235.465,
+   "massGperM": 2.313,
+   "touchSafe": true
+  },
+  {
+   "V": 60,
+   "cuArea_mm2": 0.15,
+   "lossPct": 3.044,
+   "PmaxW": 392.442,
+   "massGperM": 3.388,
+   "touchSafe": true
+  },
+  {
+   "V": 100,
+   "cuArea_mm2": 0.05,
+   "lossPct": 3.304,
+   "PmaxW": 363.372,
+   "massGperM": 1.596,
+   "touchSafe": false
+  },
+  {
+   "V": 100,
+   "cuArea_mm2": 0.09,
+   "lossPct": 1.782,
+   "PmaxW": 654.07,
+   "massGperM": 2.313,
+   "touchSafe": false
+  },
+  {
+   "V": 100,
+   "cuArea_mm2": 0.15,
+   "lossPct": 1.054,
+   "PmaxW": 1090.116,
+   "massGperM": 3.388,
+   "touchSafe": false
+  }
+ ],
+ "geometry": [
+  {
+   "exit": 0,
+   "attachOff": 0.1,
+   "az": 0,
+   "artFrames": 0.785,
+   "avail": 99.215,
+   "availInpaint": 100
+  },
+  {
+   "exit": 0,
+   "attachOff": 0.1,
+   "az": 30,
+   "artFrames": 0,
+   "avail": 100,
+   "availInpaint": 100
+  },
+  {
+   "exit": 0,
+   "attachOff": 0.1,
+   "az": -30,
+   "artFrames": 0,
+   "avail": 100,
+   "availInpaint": 100
+  },
+  {
+   "exit": 0,
+   "attachOff": 0.3,
+   "az": 0,
+   "artFrames": 0.143,
+   "avail": 99.857,
+   "availInpaint": 100
+  },
+  {
+   "exit": 0,
+   "attachOff": 0.3,
+   "az": 30,
+   "artFrames": 0,
+   "avail": 100,
+   "availInpaint": 100
+  },
+  {
+   "exit": 0,
+   "attachOff": 0.3,
+   "az": -30,
+   "artFrames": 0,
+   "avail": 100,
+   "availInpaint": 100
+  },
+  {
+   "exit": 1,
+   "attachOff": 0.1,
+   "az": 0,
+   "artFrames": 41.613,
+   "avail": 58.387,
+   "availInpaint": 99.929
+  },
+  {
+   "exit": 1,
+   "attachOff": 0.1,
+   "az": 30,
+   "artFrames": 35.046,
+   "avail": 64.954,
+   "availInpaint": 88.58
+  },
+  {
+   "exit": 1,
+   "attachOff": 0.1,
+   "az": -30,
+   "artFrames": 35.332,
+   "avail": 64.668,
+   "availInpaint": 88.223
+  },
+  {
+   "exit": 1,
+   "attachOff": 0.3,
+   "az": 0,
+   "artFrames": 41.47,
+   "avail": 58.53,
+   "availInpaint": 99.929
+  },
+  {
+   "exit": 1,
+   "attachOff": 0.3,
+   "az": 30,
+   "artFrames": 34.904,
+   "avail": 65.096,
+   "availInpaint": 88.58
+  },
+  {
+   "exit": 1,
+   "attachOff": 0.3,
+   "az": -30,
+   "artFrames": 35.403,
+   "avail": 64.597,
+   "availInpaint": 88.294
+  },
+  {
+   "exit": 2,
+   "attachOff": 0.1,
+   "az": 0,
+   "artFrames": 29.265,
+   "avail": 70.735,
+   "availInpaint": 100
+  },
+  {
+   "exit": 2,
+   "attachOff": 0.1,
+   "az": 30,
+   "artFrames": 36.759,
+   "avail": 63.241,
+   "availInpaint": 100
+  },
+  {
+   "exit": 2,
+   "attachOff": 0.1,
+   "az": -30,
+   "artFrames": 28.622,
+   "avail": 71.378,
+   "availInpaint": 93.076
+  },
+  {
+   "exit": 2,
+   "attachOff": 0.3,
+   "az": 0,
+   "artFrames": 29.265,
+   "avail": 70.735,
+   "availInpaint": 100
+  },
+  {
+   "exit": 2,
+   "attachOff": 0.3,
+   "az": 30,
+   "artFrames": 36.688,
+   "avail": 63.312,
+   "availInpaint": 100
+  },
+  {
+   "exit": 2,
+   "attachOff": 0.3,
+   "az": -30,
+   "artFrames": 28.551,
+   "avail": 71.449,
+   "availInpaint": 93.076
+  },
+  {
+   "exit": 3,
+   "attachOff": 0.1,
+   "az": 0,
+   "artFrames": 4.925,
+   "avail": 95.075,
+   "availInpaint": 100
+  },
+  {
+   "exit": 3,
+   "attachOff": 0.1,
+   "az": 30,
+   "artFrames": 2.926,
+   "avail": 97.074,
+   "availInpaint": 100
+  },
+  {
+   "exit": 3,
+   "attachOff": 0.1,
+   "az": -30,
+   "artFrames": 2.213,
+   "avail": 97.787,
+   "availInpaint": 100
+  },
+  {
+   "exit": 3,
+   "attachOff": 0.3,
+   "az": 0,
+   "artFrames": 3.997,
+   "avail": 96.003,
+   "availInpaint": 100
+  },
+  {
+   "exit": 3,
+   "attachOff": 0.3,
+   "az": 30,
+   "artFrames": 4.069,
+   "avail": 95.931,
+   "availInpaint": 100
+  },
+  {
+   "exit": 3,
+   "attachOff": 0.3,
+   "az": -30,
+   "artFrames": 1.856,
+   "avail": 98.144,
+   "availInpaint": 100
+  },
+  {
+   "exit": 4,
+   "attachOff": 0.1,
+   "az": 0,
+   "artFrames": 39.971,
+   "avail": 59.886,
+   "availInpaint": 99.857
+  },
+  {
+   "exit": 4,
+   "attachOff": 0.1,
+   "az": 30,
+   "artFrames": 55.532,
+   "avail": 44.468,
+   "availInpaint": 100
+  },
+  {
+   "exit": 4,
+   "attachOff": 0.1,
+   "az": -30,
+   "artFrames": 33.904,
+   "avail": 65.739,
+   "availInpaint": 92.291
+  },
+  {
+   "exit": 4,
+   "attachOff": 0.3,
+   "az": 0,
+   "artFrames": 40.043,
+   "avail": 59.743,
+   "availInpaint": 99.786
+  },
+  {
+   "exit": 4,
+   "attachOff": 0.3,
+   "az": 30,
+   "artFrames": 55.675,
+   "avail": 44.325,
+   "availInpaint": 100
+  },
+  {
+   "exit": 4,
+   "attachOff": 0.3,
+   "az": -30,
+   "artFrames": 34.19,
+   "avail": 65.525,
+   "availInpaint": 92.148
+  },
+  {
+   "exit": 5,
+   "attachOff": 0.1,
+   "az": 0,
+   "artFrames": 0.785,
+   "avail": 99.215,
+   "availInpaint": 100
+  },
+  {
+   "exit": 5,
+   "attachOff": 0.1,
+   "az": 30,
+   "artFrames": 0,
+   "avail": 100,
+   "availInpaint": 100
+  },
+  {
+   "exit": 5,
+   "attachOff": 0.1,
+   "az": -30,
+   "artFrames": 0,
+   "avail": 100,
+   "availInpaint": 100
+  },
+  {
+   "exit": 5,
+   "attachOff": 0.3,
+   "az": 0,
+   "artFrames": 0.143,
+   "avail": 99.857,
+   "availInpaint": 100
+  },
+  {
+   "exit": 5,
+   "attachOff": 0.3,
+   "az": 30,
+   "artFrames": 0,
+   "avail": 100,
+   "availInpaint": 100
+  },
+  {
+   "exit": 5,
+   "attachOff": 0.3,
+   "az": -30,
+   "artFrames": 0,
+   "avail": 100,
+   "availInpaint": 100
+  }
+ ],
+ "sensitivity": [
+  {
+   "scenario": "fast",
+   "change": {
+    "mass": 0.085
+   },
+   "metrics": {
+    "avail": 100,
+    "bodyForcePeak": 1.254,
+    "setupTime": 18.2,
+    "keMax": 17.801,
+    "endurance": 49.196,
+    "protrusion": 0.1,
+    "artFrames": 0,
+    "availInpaint": 100,
+    "bodyForceRaw": 1.748,
+    "headLaunch": "n/a",
+    "handLaunch": "n/a",
+    "lossPct": 5.476
+   },
+   "warnings": []
+  },
+  {
+   "scenario": "fast",
+   "change": {
+    "speedSched": 0
+   },
+   "metrics": {
+    "avail": 100,
+    "bodyForcePeak": 1.304,
+    "setupTime": 18.2,
+    "keMax": 14.973,
+    "endurance": 47.457,
+    "protrusion": 0.1,
+    "artFrames": 0,
+    "availInpaint": 100,
+    "bodyForceRaw": 1.778,
+    "headLaunch": "n/a",
+    "handLaunch": "n/a",
+    "lossPct": 5.974
+   },
+   "warnings": []
+  },
+  {
+   "scenario": "gust",
+   "change": {
+    "windFF": 0
+   },
+   "metrics": {
+    "avail": 95.503,
+    "bodyForcePeak": 1.862,
+    "setupTime": 18.2,
+    "keMax": 10.565,
+    "endurance": 73.492,
+    "protrusion": 0.1,
+    "artFrames": 0.428,
+    "availInpaint": 95.931,
+    "bodyForceRaw": 4.655,
+    "headLaunch": "n/a",
+    "handLaunch": "n/a",
+    "lossPct": 6.08
+   },
+   "warnings": []
+  },
+  {
+   "scenario": "dock_wind",
+   "change": {
+    "windFF": 0
+   },
+   "metrics": {
+    "avail": "n/a",
+    "bodyForcePeak": 1.779,
+    "setupTime": 24.58,
+    "keMax": 0.23,
+    "endurance": 77.942,
+    "protrusion": 0.1,
+    "artFrames": "n/a",
+    "availInpaint": "n/a",
+    "bodyForceRaw": 3.926,
+    "headLaunch": 0.924,
+    "handLaunch": 1.576,
+    "lossPct": 2.981,
+    "dockErr": 1.51
+   },
+   "warnings": []
+  },
+  {
+   "scenario": "dock_wind",
+   "change": {
+    "attachFold": 0
+   },
+   "metrics": {
+    "avail": "n/a",
+    "bodyForcePeak": 1.746,
+    "setupTime": 18.12,
+    "keMax": 0.242,
+    "endurance": 76.9,
+    "protrusion": 0.1,
+    "artFrames": "n/a",
+    "availInpaint": "n/a",
+    "bodyForceRaw": 4.191,
+    "headLaunch": 1.088,
+    "handLaunch": 1.682,
+    "lossPct": 3.152,
+    "dockErr": 6.728
+   },
+   "warnings": [
+    "24.06 redock"
+   ]
+  },
+  {
+   "scenario": "side_left",
+   "change": {
+    "attachSwap": 0
+   },
+   "metrics": {
+    "avail": 89.008,
+    "bodyForcePeak": 2.054,
+    "setupTime": 18.2,
+    "keMax": 11.434,
+    "endurance": 79.814,
+    "protrusion": 0.1,
+    "artFrames": 4.996,
+    "availInpaint": 94.004,
+    "bodyForceRaw": 5.087,
+    "headLaunch": "n/a",
+    "handLaunch": "n/a",
+    "lossPct": 5.279
+   },
+   "warnings": []
+  },
+  {
+   "scenario": "nominal",
+   "change": {
+    "shotPlan": 0
+   },
+   "metrics": {
+    "avail": 100,
+    "bodyForcePeak": 2.335,
+    "setupTime": 18.2,
+    "keMax": 9.523,
+    "endurance": 100.24,
+    "protrusion": 0.1,
+    "artFrames": 0,
+    "availInpaint": 100,
+    "bodyForceRaw": 5.465,
+    "headLaunch": "n/a",
+    "handLaunch": "n/a",
+    "lossPct": 2.894
+   },
+   "warnings": []
+  },
+  {
+   "scenario": "snag",
+   "change": {
+    "cutDelay": 0.1
+   },
+   "metrics": {
+    "avail": 42.961,
+    "bodyForcePeak": 13.518,
+    "setupTime": 18.2,
+    "keMax": 9.523,
+    "endurance": 108.228,
+    "protrusion": 0.1,
+    "artFrames": 0,
+    "availInpaint": 42.961,
+    "bodyForceRaw": 28.592,
+    "headLaunch": "n/a",
+    "handLaunch": "n/a",
+    "lossPct": 2.479,
+    "branchMin": 1.78,
+    "leftOnObstacle": "nothing (line retracted; drone landed near the obstacle for pick-up)"
+   },
+   "warnings": [
+    "10.28 snag",
+    "10.38 cut"
+   ]
+  },
+  {
+   "scenario": "fast",
+   "change": {
+    "packWh": 60
+   },
+   "metrics": {
+    "avail": 100,
+    "bodyForcePeak": 1.255,
+    "setupTime": 18.2,
+    "keMax": 14.696,
+    "endurance": 24.843,
+    "protrusion": 0.1,
+    "artFrames": 0,
+    "availInpaint": 100,
+    "bodyForceRaw": 1.739,
+    "headLaunch": "n/a",
+    "handLaunch": "n/a",
+    "lossPct": 5.455
+   },
+   "warnings": []
+  },
+  {
+   "scenario": "nominal",
+   "change": {
+    "exit": 0
+   },
+   "metrics": {
+    "avail": 100,
+    "bodyForcePeak": 2.429,
+    "setupTime": 18.2,
+    "keMax": 9.523,
+    "endurance": 108.316,
+    "protrusion": 0.1,
+    "artFrames": 0,
+    "availInpaint": 100,
+    "bodyForceRaw": 6.072,
+    "headLaunch": "n/a",
+    "handLaunch": "n/a",
+    "lossPct": 2.669
+   },
+   "warnings": []
+  }
+ ]
+}

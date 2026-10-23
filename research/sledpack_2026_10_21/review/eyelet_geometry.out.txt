@@ -1,0 +1,34 @@
+crouch 0.2: eyelet height 0.56 m, |eyelet-helmet| 1.236 m
+   az 0 el30:1.23 el45:1.15 el55:1.06 el60:1.00 el65:0.93 el70:0.86 el80:0.69 el90:0.50
+   az 30 el30:1.22 el45:1.13 el55:1.03 el60:0.97 el65:0.91 el70:0.83 el80:0.67 el90:0.50
+   az 60 el30:1.19 el45:1.07 el55:0.96 el60:0.89 el65:0.83 el70:0.76 el80:0.62 el90:0.50
+   az 90 el30:1.10 el45:0.94 el55:0.82 el60:0.75 el65:0.69 el70:0.63 el80:0.54 el90:0.50
+   az 120 el30:0.96 el45:0.76 el55:0.62 el60:0.56 el65:0.50 el70:0.46 el80:0.44 el90:0.50
+crouch 0.4: eyelet height 0.51 m, |eyelet-helmet| 1.244 m
+   az 0 el30:1.24 el45:1.17 el55:1.07 el60:1.02 el65:0.95 el70:0.88 el80:0.71 el90:0.52
+   az 30 el30:1.23 el45:1.15 el55:1.05 el60:0.99 el65:0.92 el70:0.85 el80:0.69 el90:0.52
+   az 60 el30:1.20 el45:1.08 el55:0.97 el60:0.91 el65:0.84 el70:0.78 el80:0.64 el90:0.52
+   az 90 el30:1.11 el45:0.95 el55:0.83 el60:0.77 el65:0.71 el70:0.65 el80:0.56 el90:0.52
+   az 120 el30:0.96 el45:0.76 el55:0.63 el60:0.56 el65:0.51 el70:0.47 el80:0.45 el90:0.52
+crouch 0.6: eyelet height 0.47 m, |eyelet-helmet| 1.252 m
+   az 0 el30:1.25 el45:1.18 el55:1.09 el60:1.03 el65:0.97 el70:0.89 el80:0.73 el90:0.54
+   az 30 el30:1.24 el45:1.16 el55:1.07 el60:1.01 el65:0.94 el70:0.87 el80:0.71 el90:0.54
+   az 60 el30:1.21 el45:1.09 el55:0.99 el60:0.93 el65:0.86 el70:0.79 el80:0.66 el90:0.54
+   az 90 el30:1.12 el45:0.96 el55:0.84 el60:0.78 el65:0.72 el70:0.66 el80:0.57 el90:0.54
+   az 120 el30:0.96 el45:0.77 el55:0.63 el60:0.57 el65:0.52 el70:0.49 el80:0.47 el90:0.54
+crouch 0.75: eyelet height 0.43 m, |eyelet-helmet| 1.259 m
+   az 0 el30:1.26 el45:1.19 el55:1.10 el60:1.05 el65:0.98 el70:0.91 el80:0.74 el90:0.56
+   az 30 el30:1.25 el45:1.17 el55:1.08 el60:1.02 el65:0.95 el70:0.88 el80:0.72 el90:0.56
+   az 60 el30:1.22 el45:1.11 el55:1.00 el60:0.94 el65:0.87 el70:0.81 el80:0.67 el90:0.56
+   az 90 el30:1.13 el45:0.97 el55:0.85 el60:0.79 el65:0.73 el70:0.68 el80:0.59 el90:0.55
+   az 120 el30:0.97 el45:0.77 el55:0.64 el60:0.58 el65:0.53 el70:0.50 el80:0.49 el90:0.55
+straight behind: <1.0 m above elevation 62 deg (body frame)
+el 45: line reaches 2 m above snow at 2.58 m behind the eyelet (horizontal along slope)
+el 55: line reaches 2 m above snow at 1.78 m behind the eyelet (horizontal along slope)
+el 60: line reaches 2 m above snow at 1.49 m behind the eyelet (horizontal along slope)
+crouch 0.2 sail nose/tip lat 0: distance to helmet 0.57 m
+crouch 0.2 sail nose/tip lat 0.295: distance to helmet 0.65 m
+crouch 0.4 sail nose/tip lat 0: distance to helmet 0.57 m
+crouch 0.4 sail nose/tip lat 0.295: distance to helmet 0.65 m
+crouch 0.6 sail nose/tip lat 0: distance to helmet 0.57 m
+crouch 0.6 sail nose/tip lat 0.295: distance to helmet 0.65 m

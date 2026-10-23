@@ -1,0 +1,340 @@
+{
+ "mass_budget_g": {
+  "camera_4k_gyro_module": 18,
+  "battery_SiAnode_1S_4Wh": 10,
+  "motor_esc_folding_prop": 9,
+  "servos_2x": 5,
+  "fc_imu_gnss_uwb": 8,
+  "airframe_epp_carbon_folding_morph": 38,
+  "hinge_spring_misc": 7
+ },
+ "mass_kg": 0.095,
+ "rho": 1.052,
+ "morph_glider_95g": {
+  "extended": {
+   "S": 0.06,
+   "span": 0.62,
+   "wing_loading": 15.5,
+   "vstall": 5.43,
+   "LD_max": 8.3,
+   "Re_at_10": 60989.0
+  },
+  "swept": {
+   "S": 0.034,
+   "span": 0.4,
+   "wing_loading": 27.4,
+   "vstall": 8.07,
+   "LD_max": 7.0,
+   "Re_at_10": 53568.0
+  },
+  "speed_table": [
+   {
+    "V": 6,
+    "extended_glide_deg": 7.0,
+    "swept_glide_deg": null,
+    "Pelec_slope10": -0.05,
+    "Pelec_slope15": -0.19,
+    "Pelec_slope20": -0.33,
+    "Pelec_slope25": -0.47
+   },
+   {
+    "V": 8,
+    "extended_glide_deg": 8.6,
+    "swept_glide_deg": null,
+    "Pelec_slope10": -0.05,
+    "Pelec_slope15": -0.24,
+    "Pelec_slope20": -0.43,
+    "Pelec_slope25": -0.61
+   },
+   {
+    "V": 10,
+    "extended_glide_deg": 11.9,
+    "swept_glide_deg": 8.7,
+    "Pelec_slope10": -0.06,
+    "Pelec_slope15": -0.3,
+    "Pelec_slope20": -0.53,
+    "Pelec_slope25": -0.75
+   },
+   {
+    "V": 12,
+    "extended_glide_deg": 16.4,
+    "swept_glide_deg": 10.3,
+    "Pelec_slope10": 0.14,
+    "Pelec_slope15": -0.27,
+    "Pelec_slope20": -0.55,
+    "Pelec_slope25": -0.82
+   },
+   {
+    "V": 14,
+    "extended_glide_deg": 22.0,
+    "swept_glide_deg": 12.8,
+    "Pelec_slope10": 1.41,
+    "Pelec_slope15": -0.14,
+    "Pelec_slope20": -0.47,
+    "Pelec_slope25": -0.78
+   },
+   {
+    "V": 16,
+    "extended_glide_deg": 29.0,
+    "swept_glide_deg": 16.0,
+    "Pelec_slope10": 3.41,
+    "Pelec_slope15": 0.58,
+    "Pelec_slope20": -0.29,
+    "Pelec_slope25": -0.65
+   },
+   {
+    "V": 18,
+    "extended_glide_deg": 37.6,
+    "swept_glide_deg": 19.9,
+    "Pelec_slope10": 6.22,
+    "Pelec_slope15": 3.05,
+    "Pelec_slope20": -0.01,
+    "Pelec_slope25": -0.41
+   }
+  ],
+  "loiter_orbit": {
+   "P_W": 2.4,
+   "cfg": "extended",
+   "V": 7.6,
+   "radius_m": 10.2
+  },
+  "day_advanced": {
+   "level": "advanced",
+   "runs": 18,
+   "film_min": 45.0,
+   "motor_Wh": 0.99,
+   "regen_Wh": 0.31,
+   "camera_avionics_Wh": 1.91,
+   "net_Wh": 2.6,
+   "frac_S_turn": 0.236,
+   "frac_skier_faster_than_KE_cap": 0.059,
+   "max_lag_m": 12.2,
+   "usable_Wh_4Wh_cell": 2.55,
+   "endurance_min_on_4Wh": 51.0,
+   "film_minutes_per_charge_vs_45": "PASS"
+  },
+  "day_intermediate": {
+   "level": "intermediate",
+   "runs": 18,
+   "film_min": 45.0,
+   "motor_Wh": 0.6,
+   "regen_Wh": 0.27,
+   "camera_avionics_Wh": 1.91,
+   "net_Wh": 2.24,
+   "frac_S_turn": 0.498,
+   "frac_skier_faster_than_KE_cap": 0.001,
+   "max_lag_m": 0.7,
+   "usable_Wh_4Wh_cell": 2.55,
+   "endurance_min_on_4Wh": 59.0,
+   "film_minutes_per_charge_vs_45": "PASS"
+  }
+ },
+ "fixed_wing_95g": {
+  "extended": {
+   "S": 0.06,
+   "span": 0.62,
+   "wing_loading": 15.5,
+   "vstall": 5.43,
+   "LD_max": 8.3,
+   "Re_at_10": 60989.0
+  },
+  "speed_table": [
+   {
+    "V": 6,
+    "extended_glide_deg": 7.0,
+    "Pelec_slope10": -0.05,
+    "Pelec_slope15": -0.19,
+    "Pelec_slope20": -0.33,
+    "Pelec_slope25": -0.47
+   },
+   {
+    "V": 8,
+    "extended_glide_deg": 8.6,
+    "Pelec_slope10": -0.05,
+    "Pelec_slope15": -0.24,
+    "Pelec_slope20": -0.43,
+    "Pelec_slope25": -0.61
+   },
+   {
+    "V": 10,
+    "extended_glide_deg": 11.9,
+    "Pelec_slope10": 0.67,
+    "Pelec_slope15": -0.15,
+    "Pelec_slope20": -0.38,
+    "Pelec_slope25": -0.61
+   },
+   {
+    "V": 12,
+    "extended_glide_deg": 16.4,
+    "Pelec_slope10": 2.69,
+    "Pelec_slope15": 0.57,
+    "Pelec_slope20": -0.2,
+    "Pelec_slope25": -0.47
+   },
+   {
+    "V": 14,
+    "extended_glide_deg": 22.0,
+    "Pelec_slope10": 5.84,
+    "Pelec_slope15": 3.37,
+    "Pelec_slope20": 0.96,
+    "Pelec_slope25": -0.19
+   },
+   {
+    "V": 16,
+    "extended_glide_deg": 29.0,
+    "Pelec_slope10": 10.31,
+    "Pelec_slope15": 7.48,
+    "Pelec_slope20": 4.73,
+    "Pelec_slope25": 2.06
+   },
+   {
+    "V": 18,
+    "extended_glide_deg": 37.6,
+    "Pelec_slope10": 16.26,
+    "Pelec_slope15": 13.08,
+    "Pelec_slope20": 9.98,
+    "Pelec_slope25": 6.98
+   }
+  ],
+  "loiter_orbit": {
+   "P_W": 2.4,
+   "cfg": "extended",
+   "V": 7.6,
+   "radius_m": 10.2
+  },
+  "day_advanced": {
+   "level": "advanced",
+   "runs": 18,
+   "film_min": 45.0,
+   "motor_Wh": 4.77,
+   "regen_Wh": 0.18,
+   "camera_avionics_Wh": 1.91,
+   "net_Wh": 6.5,
+   "frac_S_turn": 0.155,
+   "frac_skier_faster_than_KE_cap": 0.044,
+   "max_lag_m": 9.0
+  },
+  "day_intermediate": {
+   "level": "intermediate",
+   "runs": 18,
+   "film_min": 45.0,
+   "motor_Wh": 1.2,
+   "regen_Wh": 0.21,
+   "camera_avionics_Wh": 1.91,
+   "net_Wh": 2.91,
+   "frac_S_turn": 0.347,
+   "frac_skier_faster_than_KE_cap": 0.002,
+   "max_lag_m": 2.8
+  }
+ },
+ "KE": {
+  "vmax_for_14_9J": 17.7,
+  "KE_at_12": 6.8,
+  "KE_at_17": 13.7,
+  "touchdown_KE_6ms": 1.71,
+  "frac_adv_skier_above_cap": 0.05,
+  "frac_int_skier_above_cap": 0.0008,
+  "EU_C0_speed_cap_19ms": "within (C0 requires <=19 m/s)"
+ },
+ "jitter": [
+  {
+   "V": 10,
+   "U20": 4,
+   "sigma_w": 0.4,
+   "sigma_v": 0.78,
+   "tau_heave_s": 0.095,
+   "translation_rate_rms_gt1Hz": 0.144,
+   "subject_LOS_dps_raw": 1.03,
+   "background_LOS_dps_after_subject_lock": 0.14,
+   "crop_margin_deg_3sigma": 5.4
+  },
+  {
+   "V": 10,
+   "U20": 8,
+   "sigma_w": 0.8,
+   "sigma_v": 1.55,
+   "tau_heave_s": 0.095,
+   "translation_rate_rms_gt1Hz": 0.287,
+   "subject_LOS_dps_raw": 2.06,
+   "background_LOS_dps_after_subject_lock": 0.27,
+   "crop_margin_deg_3sigma": 5.4
+  },
+  {
+   "V": 14,
+   "U20": 4,
+   "sigma_w": 0.4,
+   "sigma_v": 0.78,
+   "tau_heave_s": 0.068,
+   "translation_rate_rms_gt1Hz": 0.189,
+   "subject_LOS_dps_raw": 1.35,
+   "background_LOS_dps_after_subject_lock": 0.18,
+   "crop_margin_deg_3sigma": 5.4
+  },
+  {
+   "V": 14,
+   "U20": 8,
+   "sigma_w": 0.8,
+   "sigma_v": 1.55,
+   "tau_heave_s": 0.068,
+   "translation_rate_rms_gt1Hz": 0.378,
+   "subject_LOS_dps_raw": 2.71,
+   "background_LOS_dps_after_subject_lock": 0.36,
+   "crop_margin_deg_3sigma": 5.4
+  }
+ ],
+ "footage": {
+  "d6m": {
+   "subject_px_1080": 549.0,
+   "native_px_across_crop": 2112.0
+  },
+  "d8m": {
+   "subject_px_1080": 413.0,
+   "native_px_across_crop": 2112.0
+  },
+  "d10m": {
+   "subject_px_1080": 331.0,
+   "native_px_across_crop": 2112.0
+  },
+  "d12m": {
+   "subject_px_1080": 276.0,
+   "native_px_across_crop": 2112.0
+  },
+  "max_distance_for_300px": 11.1
+ },
+ "stow": {
+  "tube_id_mm": 58,
+  "tube_len_m": 0.36,
+  "tube_volume_L": 0.95,
+  "quiver_total_L": 1.24,
+  "deploy": "wings spring out on release (torsion springs), sweep servo sets morph"
+ },
+ "vtol_variant_S2_02": {
+  "mass_kg": 0.115,
+  "disk_loading_N_m2": 70.0,
+  "hover_W": 13.0,
+  "hover_Wh_per_run": 0.079,
+  "vmax_KE": 16.1,
+  "note": "palm/cradle landing at standstill only (moving dock killed in round 1: 8-15 cm error)",
+  "day_net_Wh": 4.57,
+  "battery_needed_Wh_nominal": 7.17,
+  "battery_mass_g_at_380Whkg": 18.9,
+  "battery_mass_g_at_180Whkg_conventional": 39.8
+ },
+ "kestrel_wind_hover_S2_05": {
+  "V_hover_air": 6.2,
+  "sink_ms": 0.77,
+  "upslope_wind_needed": 6.2,
+  "frac_stops_possible": 0.054,
+  "saving_Wh_per_stop": 0.013
+ },
+ "solar_skin_S2_06": {
+  "cell_area_m2": 0.036,
+  "eff": 0.25,
+  "sun_W_m2": 1000,
+  "mean_incidence_factor": 0.45,
+  "P_mean_sunny_W": 4.05,
+  "P_camera_avionics_W": 2.2,
+  "mass_g_at_1W_per_g_module": 9.0,
+  "note": "5 W/g lab cells (KIST/GIST) would be ~2 g; overcast days give ~10-20 %"
+ }
+}

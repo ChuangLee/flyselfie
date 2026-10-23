@@ -1,0 +1,261 @@
+{
+ "conceptId": "leapfrog",
+ "date": "2026-10-20",
+ "modelVersion": "leapfrog@4.0.0",
+ "evidence": "numerical-uncalibrated simulation; not a physical test",
+ "responses": [
+  {
+   "id": "LF-01",
+   "status": "fixed",
+   "whatChanged": "Airframe attitude (2nd-order pitch/yaw/roll driven by the shared gust field incl. spanwise gradient), 1st-order 8 Hz gimbal residual, 10 % EIS residual, post reframing; jitter computed on the output crop in °/s and %/s of crop height; framing fill 0.5 of the turn-apex size.",
+   "newNumbers": "Ensemble jitter 0.71 °/s mean (p90 0.82) = 9.7 %/s of crop height (p90 10.4); concept line ≤12 %/s (ASSUMED = 3 °/s on a 25° crop). Sensitivities: EIS 25 % → 16.795 %/s (fails), gimbal 4 Hz → 10.276, live framing → 61.3 %/s (fails)."
+  },
+  {
+   "id": "LF-02",
+   "status": "fixed",
+   "whatChanged": "50 MP turret dropped. 4K 4:3 recording (3840×2880 rows, ASSUMED module capability) with a 30° lens; native px capped by 2880 rows; 16:9 2160-row sensitivity run.",
+   "newNumbers": "pxMed ensemble 410.0 px (p10 380.0); 300 px range 38.7 m upright / 24.9 m at a 50° turn apex. 2160-row sensitivity: avail 89.008 % vs 89.249 % (6-case subset)."
+  },
+  {
+   "id": "LF-03",
+   "status": "fixed",
+   "whatChanged": "Mass rebuilt from the shared component table + 15 % margin: 146.5 g → 168.5 g; KE cap 13.3 m/s, ground-speed limit 12.6 m/s, limiter also on launch and on the skid take-off run; lead distance and envelope re-derived.",
+   "newNumbers": "keMax ensemble max 14.616 J (pass); real mass with the old 15 m/s cap → 18.459 J (confirms the finding). Rider envelope: avail ≥80 % up to vTarget 12 (≈13 m/s, 11.4 m/s downhill progress); 31 % at vTarget 14."
+  },
+  {
+   "id": "LF-04",
+   "status": "fixed",
+   "whatChanged": "Pole snatch and hoop removed. End of run: lift-station geofence → glider stays on the snow; rider glides up, it folds its wings, rider picks it up and holsters it = one action (recovery is the stow). Launch = toss (one action).",
+   "newNumbers": "ops p90 2, max 3 (one strong-headwind case left far uphill → picked up next run); setupTime p90 14 s (toss 4 + pick-up/holster 10, ASSUMED); retrieval glide p90 11.3 s / 38.3 m (riding, not standstill); handsBusy 0 %."
+  },
+  {
+   "id": "LF-05",
+   "status": "not fixable",
+   "whatChanged": "Poisson exposure estimate added (ASSUMED densities), person detector (NPU) and landing postponement kept, perching now rare for normal riders (3 % of skiing time), resort permission stated as a gate.",
+   "newNumbers": "Per run: perched 3.471 s, flying 70.397 s; medium density ≈2.112 passes within 5 m of the flying glider per run before avoidance (≈0.435 after 80 % ASSUMED detection). Collisions are not modelled; resort ban dominates."
+  },
+  {
+   "id": "LF-06",
+   "status": "partly",
+   "whatChanged": "Powder and ice are now judged envelope scenarios (not faults); soft snow → stranded counted as +1 recovery; launch/landing gates documented.",
+   "newNumbers": "powder: avail 14.7 %, ops 3 (fail); ice: slide 17.0 m after touchdown (fail ≤15 m). Share of resort-days with soft piste edges: no data found (open)."
+  },
+  {
+   "id": "LF-07",
+   "status": "partly",
+   "whatChanged": "Nose tractor replaced by a folding pusher on a 6 cm pylon (no spray ingestion, no prop strike); skid run constrained to the heading with KE-limited thrust; dt default 5 ms; perching flare and skid take-off remain untested.",
+   "newNumbers": "tdKE dt study 2.36/2.51/2.62 J at 10/5/2.5 ms (still drifting ≈5 % per halving); ensemble tdKE p90 3.58 J, max 8.24 J in 3 m/s tailwind. Physical ≥30-landing series still required."
+  },
+  {
+   "id": "LF-08",
+   "status": "fixed (as an envelope)",
+   "whatChanged": "Judged on the 39-case ensemble instead of single seeds; launch gate on the 10 s mean wind; in-flight give-up rule.",
+   "newNumbers": "avail mean 64.625 % (FAIL, p10 0 because of no-fly cases), inside envelope (≤6 m/s, no ≥6 m/s downslope) 88.3 % (p10 82.0). By wind: 0 m/s 87.7, 3 m/s 86.9, 6 m/s 67.8, 9 m/s 33.4 %."
+  },
+  {
+   "id": "LF-09",
+   "status": "fixed",
+   "whatChanged": "results.json regenerated after the shared-model changes (2 passes so the fullrun scenario carries the fresh ensemble).",
+   "newNumbers": "generated 2026-10-20"
+  },
+  {
+   "id": "LF-10",
+   "status": "fixed",
+   "whatChanged": "Shared battery rules: pack 150 Wh/kg, cold 0.75, reserve 15 %, heater 0.6 W charged continuously (conservative), bank→cell 85 %; camera 3 W, gimbal 1 W, NPU 0.6 W.",
+   "newNumbers": "endurance 63.562 min from the mean power of the flown full runs (7.644 W); without the bank 8.376 min."
+  },
+  {
+   "id": "LF-11",
+   "status": "not applicable",
+   "whatChanged": "Pole-basket snatch removed (see LF-04); the human-aim uncertainty no longer carries the concept. Pick-up time 10 s is ASSUMED and listed as a physical test.",
+   "newNumbers": ""
+  },
+  {
+   "id": "LF-12",
+   "status": "kept",
+   "whatChanged": "Scope argument kept in design_notes.scopeArgument; perching is now rarer (stops, slow riders), strengthening the accompanying-device reading; left-behind cases counted as recovery.",
+   "newNumbers": ""
+  },
+  {
+   "id": "LF-13",
+   "status": "fixed",
+   "whatChanged": "48 m separation hard limit in flight (land rather than exceed), lead distance capped at 45 m, give-up landing when trailing.",
+   "newNumbers": "sepMaxFly ensemble p90 42.5 m, max 48.4 m (crossgust scenario 33.6 m). Out-of-envelope fast-rider and perch-wind scenarios exceed 50 m while the glider trails (reported fails)."
+  },
+  {
+   "id": "LF-14",
+   "status": "partly",
+   "whatChanged": "Holster 0.40×0.085×0.08 m = 2.72 L; snatch removed so no slow-run-out constraint; self-folding wings reduce stow to pick-up + insert.",
+   "newNumbers": "Gloved timing and the chairlift-seat interference of a 40 cm hip holster remain untested (back-of-pack sleeve noted as alternative)."
+  },
+  {
+   "id": "LF-15",
+   "status": "fixed",
+   "whatChanged": "Re-dependent cd0 (∝Re^-0.5 below 60 k), span 0.76 m, chord 0.085 m.",
+   "newNumbers": "Re {'8': 40939, '10': 51174, '12': 61408}, cd0 {'8': 0.048, '10': 0.043, '12': 0.04}, L/D {'8': 10.367, '9': 9.922, '10': 9.268, '12': 7.75, '13': 6.832}; L/D −30 % variant avail 81.895 %, endurance 56.06 min."
+  },
+  {
+   "id": "X-01",
+   "status": "fixed",
+   "whatChanged": "Shared battery/atmosphere/component table imported (components.js); deviations listed in BOM with reasons (camera +4 g/+0.5 W, NPU instead of tracking computer).",
+   "newNumbers": ""
+  },
+  {
+   "id": "X-02",
+   "status": "fixed",
+   "whatChanged": "Mass 168.5 g from the table incl. 15 % margin; envelope re-run at that mass.",
+   "newNumbers": ""
+  },
+  {
+   "id": "X-03",
+   "status": "fixed",
+   "whatChanged": "One endurance rule: everything worn, enduranceMin(1.8 + 14×0.85 Wh, mean flown full-run power, heated).",
+   "newNumbers": "63.562 min"
+  },
+  {
+   "id": "X-04",
+   "status": "fixed",
+   "whatChanged": "fullrun scenario (crossR6_s12) and 39-case ensemble with stops; harmonised avail/setupTime/ops/bodyForcePeak/keMax/endurance judged on the ensemble and exposed in the fullrun Result and concept.ensemble.",
+   "newNumbers": "avail 64.625 % FAIL (envelope 88.3 %), setupTime p90 14 s, ops p90 2 (max 3), bodyForcePeak 3.426 N, keMax 14.616 J, endurance 63.562 min; rest stops filmed 93.5 % of the rest time (envelope)."
+  },
+  {
+   "id": "X-05",
+   "status": "fixed",
+   "whatChanged": "See LF-01: attitude + gimbal residual + EIS residual; %/s of crop height reported; footageStability on the output crop.",
+   "newNumbers": "fullrun footageStability subject/background 0.551/0.515 °/s"
+  },
+  {
+   "id": "X-06",
+   "status": "fixed",
+   "whatChanged": "results.json/ensemble.js regenerated against the current common/*.js.",
+   "newNumbers": ""
+  },
+  {
+   "id": "X-07",
+   "status": "not fixable",
+   "whatChanged": "Designed for C0 (<250 g, ≤19 m/s), 48 m follow-me limit, lead position keeps VLOS most plausibly; resort written permission is a hard gate.",
+   "newNumbers": ""
+  }
+ ],
+ "audit2": [
+  {
+   "id": "A2-LF-01",
+   "status": "partly (design change; residual is an envelope limit)",
+   "whatChanged": "Wind gates on the shared estimate with a physics progress gate instead of fixed limits; crossR9 now flown (gate 12.5 m/s + gust interlock); 4×3 prop for headwind lead; 22° lens + height-geometry pointing; shorter dwell, adaptive lane; set-down launch; lift geofence spot.",
+   "newNumbers": "ensemble avail mean 75.2 % (p10 0.0, p90 98.6) FAIL ≥80; by wind 0/3/6/9 m/s: 97.4 / 88.7 / 73.6 / 57.9 %; flown cases 91.7 %; footage from flight 97.2 % / perch 2.8 %. Not reachable honestly: tail 6/9 m/s (6/39 cases) are physically unfilmable for this rider under the KE cap (bypass gives 2–3 % and leaves it behind)."
+  },
+  {
+   "id": "A2-LF-02",
+   "status": "fixed",
+   "whatChanged": "All gates/interlocks use windEstimate(); independent speed protection (crab, GNSS trim, airbrake, altitude hold, land-now, skid-run abort, no lift-off outside radius, gust interlock).",
+   "newNumbers": "ensemble keMax 13.59 J, sepMax 48.6 m; gate bypassed on the 7 refused cases: keMax 13.43 J, sepMax 44.0 m (was 16.4–40.8 J, 72–141 m); mass +10% variant keMax 13.29 J."
+  },
+  {
+   "id": "A2-LF-03",
+   "status": "fixed (with a kill test)",
+   "whatChanged": "Sourced pointing model (UWB ±5°, GNSS 1.5 m, height geometry σ 0.5 m; optional vision on the shared 11 g/2.5 W board).",
+   "newNumbers": "pointing RMS ≈4.7°; subset avail chosen 74.4, UWB-only τ2 72.1, audit-style 5° both axes 43.7, it.2 1.2° 73.0, vision variant 69.3 (mass)."
+  },
+  {
+   "id": "A2-LF-04",
+   "status": "partly",
+   "whatChanged": "Into-wind approach when a downwind landing would over-speed; not used for tail ≤4 m/s (drift beyond follow-me).",
+   "newNumbers": "tdKE p90 3.75 J, max 6.88 J (tail 3 m/s), slide max 7.2 m."
+  },
+  {
+   "id": "A2-LF-05",
+   "status": "fixed",
+   "whatChanged": "Standstill simulated: set-down + wait for 15 m lead (pre-run) + landing wait + kinematic glide/side-step to the glider + 8 s pick-up (ASSUMED).",
+   "newNumbers": "setupTime p90 24.5 s, max 32.1 s."
+  },
+  {
+   "id": "A2-LF-06",
+   "status": "fixed",
+   "whatChanged": "Shared cam4k 16:9 (16 g/2.5 W); 22° lens.",
+   "newNumbers": "pxMed mean 457 px."
+  },
+  {
+   "id": "A2-LF-07",
+   "status": "fixed (shared helper)",
+   "whatChanged": "Shared enduranceMin now charges the heater over the whole day.",
+   "newNumbers": "endurance 54.7 min (mean power 7.77 W of flown cases)."
+  },
+  {
+   "id": "A2-LF-08",
+   "status": "fixed",
+   "whatChanged": "Shared footageStability p90 judged; adaptive lane keeps the rider ≥17 m when the lead is short (no clamped crop).",
+   "newNumbers": "jitter p90 2.22 °/s (max case head9_s12 ≈3.5)."
+  },
+  {
+   "id": "headClear",
+   "status": "fixed",
+   "whatChanged": "Set-down launch replaces the hand toss.",
+   "newNumbers": "headClear min 1.89 m (toss variant 0.05 m)."
+  },
+  {
+   "id": "A2-X-04/06/10",
+   "status": "fixed",
+   "whatChanged": "Simulated setup; no oracle wind; only the full 39-case mean reported as judged (by-wind table for context).",
+   "newNumbers": ""
+  }
+ ],
+ "audit3": [
+  {
+   "id": "A3-LF-01",
+   "status": "fixed on the 48-case ensemble (design change); residual envelope limit stated",
+   "whatChanged": "feathered span-morphing wing (v_stall 8.1 tucked → 5.1 m/s extended) at constant mass; feather air brake; anticipating limiter; robust gate on ≥5 s history; tailwind-safe landings and restarts",
+   "newNumbers": "avail 82.34 % (≥80 PASS, margin 2.3 pp; round 3 75.2 % on 39 cases). By wind 0/3/3.5/4.5/5.5/6/9: 96.6 / 96.8 / 98.3 / 98.3 / 64.9 / 77.0 / 66.1. Tail band 3.5/4.5/5.5: 98.3 / 98.3 / 64.9; tail 6 19.5 %, tail 9 refused (0 %). Fixed-wing comparison at the same mass: subset avail 53.8 vs 94.6."
+  },
+  {
+   "id": "A3-LF-02",
+   "status": "fixed (live tracker modelled; idealised crop only as a labelled sensitivity)",
+   "whatChanged": "output crop from a causal tracker of MEASURED LOS: NPU detections (noise, pose bias, latency, dropouts→UWB/GNSS) + GNSS relative-velocity feed-forward",
+   "newNumbers": "jitter p90 1.64 °/s (PASS). Sensitivities (subset p90): detector noise ×2.7 2.07, GNSS velocity error 0.8 m/s 1.88, no feed-forward 2.97, no detector 5.26 (avail 73.9), sensor centre 4.87; IDEALISED truth crop 1.26 (not judged)."
+  },
+  {
+   "id": "A3-LF-03",
+   "status": "improved",
+   "whatChanged": "sepHard 48→46, lane pulled towards the rider above 30 m, no lift-off >34 m from a moving rider, separation landings not cancelled by go-arounds, tailwind landings cross-wind",
+   "newNumbers": "ensemble max 40.4 m (margin 9.6 m). Not robust in every sensitivity: L/D −30 % 49.9 m, CLmax 1.1 50.4 m, feathers +70 % only 53.7 m, mass +10 % 48.4 m; gate bypass 46.8 m."
+  },
+  {
+   "id": "A3-LF-04",
+   "status": "fixed",
+   "whatChanged": "air-data wind starts at the bias (no true-wind init); pitot noise σ 0.3 m/s on gust peak/σ; gate waits for ≥5 s of estimate history",
+   "newNumbers": "gate history ≥5.0 s in every case; round-3 timing (2 s) as sensitivity: subset avail 83.0, sep 39.3 m."
+  },
+  {
+   "id": "A3-LF-05",
+   "status": "fixed (simulated, not a constant)",
+   "whatChanged": "MODAPTS gloved motion model for set-down and pick-up/snap; self-folding wings; magnetic snap holster",
+   "newNumbers": "setup p90 24.7 s (max 32.3); stow mean 5.2 s; gloves ×2.0 → setup p90 25.7; auditor 13.5 s stow → 33.4 FAIL (stated); round-3 8 s → 27.9."
+  },
+  {
+   "id": "A3-LF-06",
+   "status": "fixed (ASSUMED envelope)",
+   "whatChanged": "folded length 0.30 m (span-morphing panels 0.275 m), holster outer incl. 3 mm walls 0.32×0.091×0.086 m",
+   "newNumbers": "packVol 2.50 L"
+  },
+  {
+   "id": "A3-LF-07",
+   "status": "answered (kept NPU, now doing the subject tracking; shared board as sensitivity)",
+   "whatChanged": "4 g STM32N6-class NPU + 1.5 g VGA preview sensor run live person detection for gimbal and crop",
+   "newNumbers": "shared 11 g board variant: subset avail 85.7 vs 94.6, endurance 46.6 min"
+  },
+  {
+   "id": "A3-LF-08",
+   "status": "reported, not judged",
+   "newNumbers": "{\"low\": {\"skiersPer1000m2\": 0.1, \"perchPassesWithin3m\": 0.015, \"flightPassesWithin5m\": 0.753, \"afterAvoidance\": 0.154}, \"medium\": {\"skiersPer1000m2\": 0.3, \"perchPassesWithin3m\": 0.046, \"flightPassesWithin5m\": 2.259, \"afterAvoidance\": 0.461}, \"high\": {\"skiersPer1000m2\": 1, \"perchPassesWithin3m\": 0.152, \"flightPassesWithin5m\": 7.531, \"afterAvoidance\": 1.537}}"
+  },
+  {
+   "id": "A3-X-01..04",
+   "status": "applied",
+   "newNumbers": "bodyPx for avail/pxMed (pxMed 498), helmetAt headClear 2.01 m (shared recompute 2.01), no artefact parts in shot, 48 cases"
+  },
+  {
+   "id": "A3-X-08",
+   "status": "applied",
+   "newNumbers": "morph servo rate-limited, throttle 0.08 s, brake 0.15 s, gimbal 4 Hz command + 8 Hz stabiliser residual, GNSS speed error, pitot noise, live tracker with noise/latency; servo 2× slower sensitivity: subset avail 94.4"
+  }
+ ]
+}

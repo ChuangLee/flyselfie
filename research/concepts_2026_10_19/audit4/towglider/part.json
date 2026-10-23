@@ -1,0 +1,678 @@
+{
+ "conceptId": "towglider",
+ "modelVersion": "towglider@0.5.0",
+ "auditor": "audit4 (round 4)",
+ "generated": "2026-10-20",
+ "evidence": "numerical uncalibrated simulation re-run on a copy of sim/ (scratchpad) + code reading; not physical verification; M-070 not_run, G-MATURE closed",
+ "scripts": [
+  "audit4/towglider/recheck.mjs (48 cases, 2 shards; off-grid --tailU/--dir; --servoFs; --noise; pre-history run on a second copy with windEstimate t0 = t−lag−10 s, no clamp at 0)",
+  "audit4/towglider/make_part.py"
+ ],
+ "reproduction": {
+  "fullEnsembleRerun": {
+   "matchesClaimed": true,
+   "cases": 48,
+   "maxAbsDiff": 0,
+   "note": "concept.simulate on the copy reproduces dev results.json rows exactly for avail, pxMed, setup, ops, F, KE, headClear, endurance and footageStability subject RMS; auditor metrics computed independently from R.frame()"
+  }
+ },
+ "metrics13": {
+  "avail": {
+   "stat": "ensemble mean (48), availMask riding, own bodyPx ≥300 + in-frame + own artefact projection (leash Ø0.6 mm and wand Ø3 mm, ≥2 px over the body silhouette); never-launched = 0",
+   "claimed": 49.409,
+   "recomputed": 48.033,
+   "verdict": "fail",
+   "note": "17/48 never launch (all tail ≥3.5 and tail3 s11/s13 + tail6/9). Launched mean 74.374 % (dev 76.5). Literal 'subject bounding box' reading of the shared artefact rule (6-point box incl. skis): 42.75 %. No-artefact ceiling 49.351 %. Dev artefact test samples only the leash vertices and ignores the wand (−1.4 pp). With pre-run wind history: 53.1 % (still FAIL)."
+  },
+  "pxMed": {
+   "stat": "mean of case medians of own bodyPx (flown)",
+   "claimed": 467.615,
+   "recomputed": 466.894,
+   "verdict": "pass",
+   "note": "reproduced; crop never narrower than native 1080 rows (vfMin); 50° M12 lens on a 4K 4:3 sensor ASSUMED part"
+  },
+  "jitterRms": {
+   "stat": "p90 footageStability subject RMS over 31 flown cases",
+   "claimed": 2.451,
+   "recomputed": 2.451,
+   "verdict": "conditional",
+   "note": "reproduced exactly (max 2.744). Rests on ASSUMED ≥6 Hz loaded small-signal servo bandwidth: own runs (12 flown cases) fs 4 Hz → p90 4.437 (6/12 >3), 3 Hz → 6.297 (12/12 >3). Reframe detection noise 1 %→3 %: 2.561, 5 %: 2.812. Live mount command uses the true line of sight (no tracker error); post reframe absorbs it inside the 5° crop margin. passTable prints 2.47 vs ensemble 2.451 (cosmetic)."
+  },
+  "azRange": {
+   "stat": "mean of case p5–p95 (dev column, flown)",
+   "claimed": 61.56,
+   "recomputed": 61.56,
+   "verdict": "pass",
+   "note": "dev R.summary reproduced on the copy; not independently re-derived"
+  },
+  "addedMass": {
+   "stat": "design",
+   "claimed": 0.457,
+   "recomputed": 0.465,
+   "verdict": "pass",
+   "note": "the 8 g line-guide wand is not in WORN (reel 85, pack 100, boost 10, holster 60, belt 70 g + glider 132 g); +8 g → 0.465 kg"
+  },
+  "bodyForcePeak": {
+   "stat": "ensemble max 50 ms hip tension",
+   "claimed": 4.24,
+   "recomputed": 4.24,
+   "verdict": "pass",
+   "note": "reproduced"
+  },
+  "handsBusy": {
+   "stat": "design",
+   "claimed": 0,
+   "recomputed": 0,
+   "verdict": "pass",
+   "note": "no action while moving"
+  },
+  "setupTime": {
+   "stat": "ensemble p90 (arm 1 s + rider-still→seated)",
+   "claimed": 12.26,
+   "recomputed": 12.26,
+   "verdict": "pass",
+   "note": "reproduced from events; capture windows per stow ≤2.1 s (two stows per run in crossL6_s11/crossR9_s11, 2.06 s each)"
+  },
+  "ops": {
+   "stat": "p90 (max)",
+   "claimed": 1,
+   "recomputed": 1,
+   "verdict": "pass",
+   "note": "max 1 in 48 and in all off-grid runs (refusals cost no action)"
+  },
+  "keMax": {
+   "stat": "ensemble max, ground frame >1.5 m from body capsules",
+   "claimed": 13.219,
+   "recomputed": 13.219,
+   "verdict": "pass",
+   "note": "reproduced; pre-run wind history (dev request) → 14.198 J (crossR6_s13 first ride now flown); mass +15 % → 14.81 J (dev); off-grid cross/head 7.5 ≤13.708 J; tail 3–6 (0.25 steps, gate on) ≤12.471 J"
+  },
+  "packVol": {
+   "stat": "design estimate",
+   "claimed": 2.8,
+   "recomputed": 2.8,
+   "verdict": "conditional",
+   "note": "arithmetic consistent; folded-tube geometry ASSUMED; Ø3 mm × 0.35 m wand folds along the ≈0.40 m holster (≈0.003 L, not listed)"
+  },
+  "endurance": {
+   "stat": "usable Wh / mean run energy incl. 8 min lift",
+   "claimed": 53.09,
+   "recomputed": 53.09,
+   "verdict": "conditional",
+   "note": "reproduced; rests on a 0.05 W lift sleep (MCU stop + GNSS power-save, boost/reel driver off). Lift floor 0.15 W → 49.59, 0.3 W → 45.14, 0.5 W → 40.31 FAIL, idle 0.6 W → 38.26 FAIL. No cell heater charged (discharge-only pack, consistent with components.js which restricts charging); a 0.6 W holster heater all day → 34.62"
+  },
+  "headClear": {
+   "stat": "ensemble min, helmetAt(simulateRun, t−tGo) to glider segments + leash/free line, capture window excluded",
+   "claimed": 1.061,
+   "recomputed": 1.061,
+   "verdict": "conditional",
+   "note": "reproduced (also 1.061 to the frame body head). Off-grid with gate ON: crossL7.5_s11 0.934 m (deep-stall drop at the final stop, rider standing) — FAIL outside the grid (dev listed it in offGridOther without flagging). Worn wand min distance to the helmet 1.165 m (whole rod incl. hinge; dev's 1.36 m is the eyelet)"
+  }
+ },
+ "claimedVsRecomputed": [
+  {
+   "metric": "avail",
+   "claimed": 49.409,
+   "recomputed": 48.033,
+   "verdict": "fail"
+  },
+  {
+   "metric": "pxMed",
+   "claimed": 467.615,
+   "recomputed": 466.894,
+   "verdict": "pass"
+  },
+  {
+   "metric": "jitterRms",
+   "claimed": 2.451,
+   "recomputed": 2.451,
+   "verdict": "conditional"
+  },
+  {
+   "metric": "azRange",
+   "claimed": 61.56,
+   "recomputed": 61.56,
+   "verdict": "pass"
+  },
+  {
+   "metric": "addedMass",
+   "claimed": 0.457,
+   "recomputed": 0.465,
+   "verdict": "pass"
+  },
+  {
+   "metric": "bodyForcePeak",
+   "claimed": 4.24,
+   "recomputed": 4.24,
+   "verdict": "pass"
+  },
+  {
+   "metric": "handsBusy",
+   "claimed": 0,
+   "recomputed": 0,
+   "verdict": "pass"
+  },
+  {
+   "metric": "setupTime",
+   "claimed": 12.26,
+   "recomputed": 12.26,
+   "verdict": "pass"
+  },
+  {
+   "metric": "ops",
+   "claimed": 1,
+   "recomputed": 1,
+   "verdict": "pass"
+  },
+  {
+   "metric": "keMax",
+   "claimed": 13.219,
+   "recomputed": 13.219,
+   "verdict": "pass"
+  },
+  {
+   "metric": "packVol",
+   "claimed": 2.8,
+   "recomputed": 2.8,
+   "verdict": "conditional"
+  },
+  {
+   "metric": "endurance",
+   "claimed": 53.09,
+   "recomputed": 53.09,
+   "verdict": "conditional"
+  },
+  {
+   "metric": "headClear",
+   "claimed": 1.061,
+   "recomputed": 1.061,
+   "verdict": "conditional"
+  }
+ ],
+ "envelope": {
+  "def": "estimated down-slope tailwind <3 m/s (gate on the shared ±1 m/s estimate), head/cross ≤9 m/s on the grid seeds, rider 8–13 m/s on ≤20° slopes, carving; tail ≥3.5 m/s refused; cross 7.5 m/s not safe in 1/3 seeds",
+  "availOwnByDir": {
+   "calm": 79.82,
+   "crossL": 71.29,
+   "crossR": 71.46,
+   "head": 82.66,
+   "tail": 2.08
+  }
+ },
+ "byWindAvail": {
+  "U0": {
+   "n": 3,
+   "claimed": 83.52,
+   "recomputed": 79.82
+  },
+  "U3": {
+   "n": 9,
+   "claimed": 84.14,
+   "recomputed": 81.39
+  },
+  "U6": {
+   "n": 9,
+   "claimed": 73.57,
+   "recomputed": 71.61
+  },
+  "U9": {
+   "n": 9,
+   "claimed": 73.63,
+   "recomputed": 72.41
+  },
+  "dir_calm": {
+   "n": 3,
+   "claimed": 83.52,
+   "recomputed": 79.82
+  },
+  "dir_crossL": {
+   "n": 9,
+   "claimed": 73.32,
+   "recomputed": 71.29
+  },
+  "dir_crossR": {
+   "n": 9,
+   "claimed": 73.51,
+   "recomputed": 71.46
+  },
+  "dir_head": {
+   "n": 9,
+   "claimed": 84.51,
+   "recomputed": 82.66
+  },
+  "dir_tail": {
+   "n": 18,
+   "claimed": 2.17,
+   "recomputed": 2.08
+  },
+  "tail3": {
+   "n": 3,
+   "claimed": 12.99,
+   "recomputed": 12.49
+  },
+  "tail3.5": {
+   "n": 3,
+   "claimed": 0.0,
+   "recomputed": 0.0
+  },
+  "tail4.5": {
+   "n": 3,
+   "claimed": 0.0,
+   "recomputed": 0.0
+  },
+  "tail5.5": {
+   "n": 3,
+   "claimed": 0.0,
+   "recomputed": 0.0
+  },
+  "tail6": {
+   "n": 3,
+   "claimed": 0.0,
+   "recomputed": 0.0
+  },
+  "tail9": {
+   "n": 3,
+   "claimed": 0.0,
+   "recomputed": 0.0
+  }
+ },
+ "footageStability": {
+  "n": 31,
+  "p50": 2.034,
+  "p90": 2.451,
+  "max": 2.744,
+  "over3": 0,
+  "servo4Hz_p90": 4.437,
+  "servo3Hz_p90": 6.297,
+  "noise3pct_p90": 2.561,
+  "noise5pct_p90": 2.812
+ },
+ "massBudget": {
+  "claimed_kg": 0.457,
+  "recomputed_kg": 0.465,
+  "note": "glider 132.25 g (component budget ×1.15) + reel 85 + 15 Wh pack 100 + boost 10 + holster 60 + belt 70 g; wand ≈8 g missing"
+ },
+ "lineExposure": {
+  "note": "dev columns reproduced: line p10 height 1/2/3 m behind the feet 0.466/0.454/0.77 m; ≥5 cm of line <0.3 m 1–3 m behind in 20.3 % of riding-with-line time (round-3 holster 7.4 %): the wand trades trip exposure for head clearance"
+ },
+ "offGrid": {
+  "tailSweep_gateOn_3to6_step0.25_s11-13": [
+   {
+    "id": "tail3_s12",
+    "launched": true,
+    "avail": 37.473,
+    "keMax": 12.471,
+    "headClear": 1.356
+   },
+   {
+    "id": "tail3.25_s12",
+    "launched": true,
+    "avail": 37.096,
+    "keMax": 12.418,
+    "headClear": 1.356
+   },
+   {
+    "refused": [
+     "tail3_s11",
+     "tail3_s13",
+     "tail3.25_s11",
+     "tail3.25_s13",
+     "tail3.5_s11",
+     "tail3.5_s12",
+     "tail3.5_s13",
+     "tail3.75_s11",
+     "tail3.75_s12",
+     "tail3.75_s13",
+     "tail4_s11",
+     "tail4_s12",
+     "tail4_s13",
+     "tail4.25_s11",
+     "tail4.25_s12",
+     "tail4.25_s13",
+     "tail4.5_s11",
+     "tail4.5_s12",
+     "tail4.5_s13",
+     "tail4.75_s11",
+     "tail4.75_s12",
+     "tail4.75_s13",
+     "tail5_s11",
+     "tail5_s12",
+     "tail5_s13",
+     "tail5.25_s11",
+     "tail5.25_s12",
+     "tail5.25_s13",
+     "tail5.5_s11",
+     "tail5.5_s12",
+     "tail5.5_s13",
+     "tail5.75_s11",
+     "tail5.75_s12",
+     "tail5.75_s13",
+     "tail6_s11",
+     "tail6_s12",
+     "tail6_s13"
+    ]
+   }
+  ],
+  "cross_head_7p5": [
+   {
+    "id": "crossL7.5_s11",
+    "avail": 82.866,
+    "keMax": 13.708,
+    "headClear": 0.934,
+    "where": {
+     "t": 103.44,
+     "mode": "dstall",
+     "L": 10.404,
+     "riderSpeed": 0,
+     "dHelmetAt": 0.934,
+     "dBodyHead": 0.934
+    }
+   },
+   {
+    "id": "crossL7.5_s12",
+    "avail": 78.879,
+    "keMax": 13.073,
+    "headClear": 1.121,
+    "where": {
+     "t": 97.8,
+     "mode": "snowpull",
+     "L": 3.303,
+     "riderSpeed": 0,
+     "dHelmetAt": 1.121,
+     "dBodyHead": 1.12
+    }
+   },
+   {
+    "id": "crossL7.5_s13",
+    "avail": 37.662,
+    "keMax": 13.023,
+    "headClear": 1.181,
+    "where": {
+     "t": 97.52,
+     "mode": "snowpull",
+     "L": 1.441,
+     "riderSpeed": 0,
+     "dHelmetAt": 1.181,
+     "dBodyHead": 1.181
+    }
+   },
+   {
+    "id": "crossR7.5_s11",
+    "avail": 82.031,
+    "keMax": 12.576,
+    "headClear": 1.356,
+    "where": {
+     "t": 61.36,
+     "mode": "drop",
+     "L": 0.2,
+     "riderSpeed": 1.288,
+     "dHelmetAt": 1.356,
+     "dBodyHead": 1.358
+    }
+   },
+   {
+    "id": "crossR7.5_s12",
+    "avail": 79.795,
+    "keMax": 12.925,
+    "headClear": 1.345,
+    "where": {
+     "t": 61.12,
+     "mode": "park",
+     "L": 4.489,
+     "riderSpeed": 0.011,
+     "dHelmetAt": 1.345,
+     "dBodyHead": 1.367
+    }
+   },
+   {
+    "id": "crossR7.5_s13",
+    "avail": 37.284,
+    "keMax": 12.51,
+    "headClear": 1.356,
+    "where": {
+     "t": 61.36,
+     "mode": "drop",
+     "L": 0.2,
+     "riderSpeed": 1.288,
+     "dHelmetAt": 1.356,
+     "dBodyHead": 1.358
+    }
+   },
+   {
+    "id": "head7.5_s11",
+    "avail": 82.435,
+    "keMax": 12.305,
+    "headClear": 1.345,
+    "where": {
+     "t": 61.12,
+     "mode": "park",
+     "L": 4.237,
+     "riderSpeed": 0.011,
+     "dHelmetAt": 1.345,
+     "dBodyHead": 1.367
+    }
+   },
+   {
+    "id": "head7.5_s12",
+    "avail": 81.627,
+    "keMax": 12.498,
+    "headClear": 1.345,
+    "where": {
+     "t": 61.12,
+     "mode": "park",
+     "L": 4.22,
+     "riderSpeed": 0.011,
+     "dHelmetAt": 1.345,
+     "dBodyHead": 1.367
+    }
+   },
+   {
+    "id": "head7.5_s13",
+    "avail": 83.217,
+    "keMax": 12.59,
+    "headClear": 1.345,
+    "where": {
+     "t": 61.12,
+     "mode": "park",
+     "L": 4.261,
+     "riderSpeed": 0.011,
+     "dHelmetAt": 1.345,
+     "dBodyHead": 1.367
+    }
+   }
+  ],
+  "preRunWindHistory": {
+   "availDev": 53.14,
+   "availOwn": 51.695,
+   "gated": 17,
+   "keMax": 14.198,
+   "headClearMin": 1.06,
+   "fsP90": 2.458,
+   "changedCases": [
+    "crossL6_s13",
+    "crossR6_s13",
+    "crossL9_s13",
+    "crossR9_s13 (≈38–40 % → ≈83 %)"
+   ]
+  }
+ },
+ "physics": [
+  {
+   "assumption": "Micro digital servo mount (ES9251 II class) with ≥6 Hz loaded small-signal bandwidth, 0.3° dead band, 0.5° backlash, ≤5 ms FC latency",
+   "devClaim": "jitter p90 2.45 °/s",
+   "evidence": "auditor: 4 Hz → 4.44, 3 Hz → 6.30 (12-case subset); dev: 50 Hz PWM → 3.61, 20 ms latency → 3.58, all pessimistic → 7.66",
+   "verdict": "unverified, load-bearing for jitter",
+   "killTest": "bench: step/sine response of the servo with the 27 g camera at −10 °C; kill if −3 dB bandwidth <5 Hz or dead band >0.5°"
+  },
+  {
+   "assumption": "Lift-ride sleep 0.05 W for the whole hip unit",
+   "devClaim": "endurance 53.1 min",
+   "evidence": "MCU stop + M10 GNSS power-save ≈0.02–0.05 W is plausible, but boost/reel driver quiescent, radio link to the glider/phone and an awake wind estimator for pre-run history push it to 0.15–0.3 W → 49.6–45.1 min; 0.5 W → 40.3 FAIL",
+   "verdict": "plausible but optimistic; margin ≤8 min",
+   "killTest": "measure hip-unit sleep current incl. boost/driver leakage at −10 °C; kill if >0.35 W"
+  },
+  {
+   "assumption": "Tail gate 3.0 m/s on the shared estimate keeps launches ≤4 m/s true tail",
+   "devClaim": "safe in all 48 and off-grid tail 2–6",
+   "evidence": "auditor tail 3–6 m/s (0.25 steps, s11–13): all ≥3.5 refused, launched tail3/3.25 s12 safe (KE 12.5 J, 1.36 m); but crossL7.5_s11 0.934 m",
+   "verdict": "safe in tail by refusing; cross 7.5 off-grid fail",
+   "killTest": "field: deep-stall drop next to a standing rider in 7–8 m/s crosswind with a head-height marker; kill if <1.0 m"
+  },
+  {
+   "assumption": "Deep-stall drop / snow-pull / holster capture",
+   "devClaim": "capture windows ≤2.1 s, no whip with the reel KE governor",
+   "evidence": "own contiguous windows 2.04–2.10 s per stow (two stows per run in 2 cases)",
+   "verdict": "compliant as modelled; post-stall dynamics not modelled",
+   "killTest": "50 holster captures at −10 °C; kill if <95 % first-time capture"
+  },
+  {
+   "assumption": "Conductive 0.6 mm litz leash 1.3 Ω/m after flex",
+   "devClaim": "endurance 53.1 (46.3 at 5.2 Ω/m)",
+   "evidence": "dev sensitivity reproduced in round 3",
+   "verdict": "unverified",
+   "killTest": "flex-life test 10k cycles on a 25 mm drum; kill if >7 Ω/m or break <50 N"
+  }
+ ],
+ "definitionChecks": [
+  {
+   "metric": "avail artefact",
+   "issue": "shared rule text says 'overlaps the subject's bounding box'; dev tests overlap with body capsules at leash vertices only and omits the Ø3 mm wand. Literal 6-point box: 42.75 %; body silhouette (own, densified, wand incl.): 48.03 %; dev 49.41 %",
+   "favours": "towglider (small; verdict unchanged)"
+  },
+  {
+   "metric": "headClear",
+   "issue": "helmetAt reproduced (1.061); worn wand excluded as a rigid member, reported 1.165 m",
+   "favours": "neutral"
+  },
+  {
+   "metric": "jitter",
+   "issue": "servo model is a real per-axis model with limits (A3-X-08 met), but the mount command uses the true LOS and post-reframe detection noise is white 1 %",
+   "favours": "towglider (small)"
+  },
+  {
+   "metric": "endurance",
+   "issue": "own energy accounting with lift sleep; no cell heater (pack is discharge-only, consistent with components.js)",
+   "favours": "towglider (sleep figure)"
+  },
+  {
+   "metric": "gates",
+   "issue": "gate/estimate via shared windEstimate (no oracle); flight guidance uses a noisy relative fix; KE governor reads filtered true ground speed (GNSS-class, small)",
+   "favours": "neutral"
+  }
+ ],
+ "findings": [
+  {
+   "id": "A4-TG-01",
+   "severity": "major",
+   "title": "avail fails structurally: 48.0 % own (49.4 % claimed); 17/48 runs never launch",
+   "detail": "Launched runs 74.374 %; every tail ≥3.5 case and tail3 s11/s13 refused; tail band 3.5–5.5 = 0 %. Pre-run wind history (dev request) only recovers the 4 cross s13 first rides → 53.1 %. Upper bound if everything flew ≈74–76 %: cannot reach 80 % even then.",
+   "evidence": "out_s0/s1.json, out_preHist_s*.json"
+  },
+  {
+   "id": "A4-TG-02",
+   "severity": "major",
+   "title": "Off-grid crosswind 7.5 m/s: headClear 0.934 m with the gate on",
+   "detail": "crossL7.5_s11: deep-stall drop at the final stop passes 0.934 m from helmetAt while the rider stands (KE 13.7 J). Dev reported it in offGridOther but claims \"safe in all 48\"; the safety claim is grid-bound like round 3.",
+   "evidence": "out_crossL75.json; dev results.json offGridOther"
+  },
+  {
+   "id": "A4-TG-03",
+   "severity": "major",
+   "title": "Jitter pass depends on an ASSUMED ≥6 Hz loaded servo bandwidth",
+   "detail": "Servo model is now physical (dead band, backlash, slew, PWM, latency) — A3-TG-04 substantively addressed — but 4 Hz → p90 4.437 °/s, 3 Hz → 6.297. No datasheet bandwidth for a 2.5 g servo with a 27 g camera; mount pointing commanded from the true LOS.",
+   "evidence": "out_servo3.json, out_servo4.json"
+  },
+  {
+   "id": "A4-TG-04",
+   "severity": "minor",
+   "title": "Endurance pass rests on a 0.05 W lift sleep",
+   "detail": "Recomputed 53.09 (exact). 0.15 W → 49.59, 0.3 W → 45.14, 0.5 W → 40.31 (FAIL), idle → 38.26. The dev's own pre-history request needs the wind estimator awake ≥10 s before push-off (geofence wake at the lift top is enough; continuous on-lift sensing is not compatible with 0.05 W). Camera/boost wake latency (≈2–4 s) is not modelled but fits inside the launch sequence.",
+   "evidence": "make_part.py endurance variants"
+  },
+  {
+   "id": "A4-TG-05",
+   "severity": "minor",
+   "title": "Artefact check under-counts: leash tested at vertices only, wand omitted",
+   "detail": "Own densified projection: leash ≥2 px over the body in 1.649 % of riding samples (near-camera segment, z 0.3–0.6 m, 3–13 px, strongly defocused), wand (Ø3 mm, p50 1.45 px, max 2.57 px) 0.395 %; avail −1.4 pp; literal bounding-box reading −6.7 pp.",
+   "evidence": "out_s*.json artLeashSilPct/artWandSilPct"
+  },
+  {
+   "id": "A4-TG-06",
+   "severity": "minor",
+   "title": "Wand missing from mass budget; wand distance overstated",
+   "detail": "WORN omits the 8 g wand (0.457 → 0.465 kg, still pass). Min distance of the worn rod (hinge to eyelet) to helmetAt 1.165 m, not the 1.36 m quoted for the eyelet.",
+   "evidence": "design.js WORN; out_s*.json wandToHelmetMin"
+  },
+  {
+   "id": "A4-TG-07",
+   "severity": "minor",
+   "title": "Pre-run wind history request: small avail gain, KE margin shrinks",
+   "detail": "With a 10 s pre-run window: 4 cross s13 runs fly their first ride (avail 53.1 %); no tail refusal changes; KE max 14.198 J (crossR6_s13, 0.7 J margin).",
+   "evidence": "out_preHist_s*.json"
+  },
+  {
+   "id": "A4-TG-08",
+   "severity": "minor",
+   "title": "Tail 3–6 m/s off-grid (0.25 steps, gate on) is safe because it is refused",
+   "detail": "39 runs: 2 launched (tail3/3.25 s12: KE ≤12.47 J, headClear 1.356 m, avail 37 %), the rest refused; fixes A3-TG-01 for these seeds at the cost of avail.",
+   "evidence": "out_tailSweep_*.json"
+  },
+  {
+   "id": "A4-TG-09",
+   "severity": "minor",
+   "title": "Trip exposure higher with the wand",
+   "detail": "Line p10 ≈0.45 m at 1–2 m behind the feet; ≥5 cm of line below 0.3 m in 20.3 % of riding-with-line time (7.4 % with the round-3 holster). Resort permission gate.",
+   "evidence": "dev ensemble trip columns (reproduced)"
+  }
+ ],
+ "auditResponseCheck": [
+  {
+   "id": "A3-TG-01",
+   "claim": "fixed in the judged 48; off-grid bounded by the gate",
+   "check": "confirmed for tail 3–6 (0.25 steps, s11–13): refused or safe; but crossL7.5_s11 0.934 m shows the grid-dependence persists in crosswind (A4-TG-02)"
+  },
+  {
+   "id": "A3-TG-02",
+   "claim": "headClear 1.061 on helmetAt",
+   "check": "reproduced exactly with own segment geometry; margin 6 cm"
+  },
+  {
+   "id": "A3-TG-03",
+   "claim": "NOT fixed — avail fails",
+   "check": "honest; own 48.0 % (49.4 claimed); pre-history would give 53.1 %"
+  },
+  {
+   "id": "A3-TG-04",
+   "claim": "component servo/EIS model; conditional on bandwidth",
+   "check": "model is real and limited; conditionality confirmed (4 Hz → 4.44)"
+  },
+  {
+   "id": "A3-TG-05",
+   "claim": "sleep mode 0.05 W",
+   "check": "arithmetic reproduced; the figure is optimistic (A4-TG-04)"
+  },
+  {
+   "id": "A3-TG-06",
+   "claim": "trip quantified, partly mitigated",
+   "check": "reproduced; exposure up vs round 3 (A4-TG-09)"
+  },
+  {
+   "id": "A3-TG-07",
+   "claim": "envelope narrower",
+   "check": "agreed"
+  },
+  {
+   "id": "A3-X-01/03/04/08",
+   "claim": "adopted",
+   "check": "helmetAt, bodyPx and ≥2 px adopted; artefact test incomplete (A4-TG-05)"
+  }
+ ],
+ "safetyRegulatory": [
+  "<250 g UAS on a 15 m conductive leash: EU C0/A1 operator registration; US VLOS; resort written permission is a hard gate",
+  "Leash ≈0.45 m above the snow 1–2 m behind the rider: trip/clothesline exposure for crossing skiers",
+  "Off-grid 7.5 m/s crosswind deep-stall drop 0.93 m from a standing rider's helmet",
+  "48 V on a 0.6 mm line: insulation abrasion / snag fault handling unverified"
+ ],
+ "credibleEnvelope": "Simulation-credible only as a light-wind camera: estimated tailwind <3 m/s, head/cross ≤6 m/s (9 m/s on grid seeds only; 7.5 m/s cross showed a 0.93 m head pass), carving rider 8–13 m/s on ≤20°, low-traffic pistes with permission; footage quality conditional on a ≥6 Hz loaded servo mount; endurance on a ≤0.3 W lift sleep.",
+ "verdict": "Reproduces exactly (48/48). Fails avail honestly and structurally (own 48.0 %, claimed 49.4 %; tail ≥3.5 m/s refused by design; even perfect flying of all cases tops out ≈75 %). Safe on the judged grid (KE 13.22 J, headClear 1.061 m) and in the off-grid tail band (by refusal), but not at crosswind 7.5 m/s (0.934 m). Jitter 2.45 °/s rests on an assumed ≥6 Hz servo; endurance 53 min on an optimistic 0.05 W sleep. Not usable as an all-conditions solo follow-cam; a light-wind research concept."
+}

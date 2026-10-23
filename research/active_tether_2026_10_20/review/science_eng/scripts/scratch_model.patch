@@ -1,0 +1,67 @@
+--- sim/js/concepts/activetether/model.js	2026-10-20 21:17:53.171585080 -0700
++++ /tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/review_at1/sim/js/concepts/activetether/model.js	2026-10-20 22:16:24.803404179 -0700
+@@ -64,7 +64,7 @@
+   tailGate: 3.0, lowLiftAbort: 1.15, elev: 50, elevFlyin: 35, elevLow: 33, slopeDeg: 15, Tset: 3, gateK: 1.35, straightAcc: 2.5, straightS: 0.6, vLaunch: 2.0, Llaunch: 6,
+   kHeave: 1.0, devK: 0, vRet: 3.0, vFlyin: 2.0, vCap: 0.3, sideDrop: 1, tailSide: 1.5,
+   massScale: 1, cd0Scale: 1, clmaxScale: 1, V0: REEL.V0, noise: 1, capScale: 1, cutT: 15,
+-  kPhi: 1.2, kPhiD: 5, elevBank0: 25, azShot: 22, azPeriod: 12, hfovFly: 66, hfovLine: 66, cam48: 1, dbgCam: 0, dt: 0.002, ctrlDt: 0.01,
++  kPhi: 1.2, kPhiD: 5, elevBank0: 25, azShot: 22, azPeriod: 12, hfovFly: 66, hfovLine: 66, cam48: 1, dbgCam: 0, dt: 0.002, ctrlDt: 0.01, kFF: 0, leadFF: 0.35, stopPay: 0, sideAll: 0, furlK: 1,
+ };
+ 
+ // ASSUMED capture model (disclosed): first-try success = P0 · f(arrival speed) · f(entry angle). P0 0.958 reproduces
+@@ -248,7 +248,7 @@
+       // a flagged wing lying on the snow (towed in / landed) is sheltered and flat: aero force ×0.3 (ASSUMED; the shared wind
+       // field has no near-snow gradient)
+       const onSnow = pF[2] < -pF[0] * sk.tanS + 0.06 && (mode === MODE.RETRIEVE || mode === MODE.CAPTURE || mode === MODE.LANDED || mode === MODE.MANUAL || mode === MODE.BRAKE);
+-      const kS = onSnow ? 0.3 : 1;
++      const kS = (onSnow ? 0.3 : 1) * ((mode === MODE.RETRIEVE || mode === MODE.CAPTURE || mode === MODE.LANDED || mode === MODE.MANUAL) ? p.furlK : 1);
+       const Fa = add(mul(Lh, q * F.S * cl * kS), mul(u, -q * F.S * cd * kS));
+       bodyNose = unit(add(mul(u, Math.cos(alpha)), mul(Lh, Math.sin(alpha)))); bodyUp = unit(sub(mul(Lh, Math.cos(alpha)), mul(u, Math.sin(alpha))));
+       const mE = m + (lineOn ? 0.5 * LINE.lambda * (podOn && !podDocked ? P0len : Lout) : 0);
+@@ -327,7 +327,7 @@
+     tDel.push(t, len(Fexit) * sErr.tScale + sErr.tBias + gn() * SENS.tension.sigma);
+     Tm += ((tDel.get(t) ?? 0) - Tm) * Math.min(1, dt / 0.02);
+     if (step % 5 === 0) gDel.push(t, add(e.v, [gn() * SENS.gnss.sigmaV, gn() * SENS.gnss.sigmaV, gn() * SENS.gnss.sigmaVz]));
+-    { const vg = gDel.get(t) || [0, 0, 0], vPrev = est.vA; est.vA = add(est.vA, mul(sub(vg, est.vA), Math.min(1, dt / 0.1))); est.aA = add(est.aA, mul(sub(mul(sub(est.vA, vPrev), 1 / dt), est.aA), Math.min(1, dt / 0.3))); }
++    { const vg = gDel.get(t) || [0, 0, 0], vPrev = est.vA; est.vA = add(est.vA, mul(sub(vg, est.vA), Math.min(1, dt / 0.1))); { const aPrev = est.aA; est.aA = add(est.aA, mul(sub(mul(sub(est.vA, vPrev), 1 / dt), est.aA), Math.min(1, dt / 0.3))); est.jA = add(est.jA || [0, 0, 0], mul(sub(mul(sub(est.aA, aPrev), 1 / dt), est.jA || [0, 0, 0]), Math.min(1, dt / 0.3))); } }
+     est.vAm = est.vAm ? add(est.vAm, mul(sub(est.vA, est.vAm), Math.min(1, dt / 2.5))) : [...est.vA]; // mean course (τ 2.5 s)
+     // pack deviation from its mean-course path (turn-by-turn lateral/along swing), leaky integral of GNSS velocity
+     // pack position from integrated GNSS velocity; mean-course point = complementary filter driven by the mean
+@@ -515,6 +515,7 @@
+       vc = govIn(clamp(vc, -3, 6));
+     } else if (mode === MODE.BRAKE) {
+       vc = Tf2 < 0.3 ? govIn(-1.0) : Tf2 > 6 ? 0.5 * (Tf2 - 6) : 0;
++      if (p.stopPay > 0 && !riding && hAbove() > 1.0 && Lm < p.Lfilm + 5) vc = p.stopPay;
+     } else if (mode === MODE.FLYIN) {
+       vc = govIn(Tf2 > 8 ? 0.3 : -p.vFlyin);
+     } else if (mode === MODE.RETRIEVE) {
+@@ -558,7 +559,7 @@
+         // deep stall (max drag, low lift); in the first ~1.2 s of a tailwind stop steer to the window side first
+         const tailW = dot(est.W, unit(est.vAm, [1, 0, 0]));
+         sideT += cdt;
+-        side = p.sideDrop && mode === MODE.BRAKE && tailW > p.tailSide && sideT < 1.2;
++        side = p.sideDrop && mode === MODE.BRAKE && (tailW > p.tailSide || (p.sideAll && !riding)) && sideT < (p.sideAll ? 2.5 : 1.2);
+         aBc = side ? cmd.aB : F.aBmaxDeg * D2R; br = side ? 0.5 : 1;
+         if (mode === MODE.RETRIEVE || mode === MODE.CAPTURE) { // flag the wing (AoA ≈ 0, no brake): minimum drag and lift while it is towed in
+           if (Tm > 0.5 * m * G) est.aBI = clamp(est.aBI + 6 * cdt * (0 - est.alpha), F.aBminDeg * D2R, F.aBmaxDeg * D2R);
+@@ -589,7 +590,8 @@
+         const Lhat = Math.max(0.5, q * F.S * Math.max(0.2, F.CLa * Math.max(0.05, est.alpha)));
+         // bank authority shrinks when the flyer is low in the window (altitude has priority over the lateral station)
+         const pm = (p.phiMax ?? F.phiMaxDeg) * D2R * (side ? 1 : clamp((est.elev - p.elevBank0) / 20, 0.15, 1));
+-        phiC = clamp(Math.asin(clamp(p.kPhi * eLat + (m * Math.max(1, Lr) * p.kPhiD * eRate) / Lhat, -0.95, 0.95)), -pm, pm);
++        const aPred = add(est.aA, mul(est.jA || [0, 0, 0], p.leadFF)), ffS = p.kFF && mode === MODE.FLY ? (p.kFF * m * dot(aPred, sAx)) / Lhat : 0;
++        phiC = clamp(Math.asin(clamp(p.kPhi * eLat + (m * Math.max(1, Lr) * p.kPhiD * eRate) / Lhat + ffS, -0.95, 0.95)), -pm, pm);
+       }
+       cmd = { aB: aBc, phi: phiC, brake: br };
+       radio.push(t, cmd);
+--- sim/js/concepts/activetether/index.js	2026-10-20 21:26:55.246178263 -0700
++++ /tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/review_at1/sim/js/concepts/activetether/index.js	2026-10-20 22:09:47.904355755 -0700
+@@ -91,7 +91,7 @@
+   let sk, wind = sc.wind, detTrace = null, caseSeed = 7;
+   if (sc.rider === 'run') {
+     const c = sc.caseObj || FR(sc.case);
+-    sk = simulateRun({ seed: c.seed, plan: PLAN_R4 }); wind = caseWind(c); caseSeed = c.seed;
++    sk = simulateRun({ seed: c.seed, plan: PLAN_R4, skier: c.skier || {} }); wind = caseWind(c); caseSeed = c.seed;
+   } else if (sc.rider === 'fall') sk = simulateSkier({ duration: sc.dur + 1, seed: 3, fallAt: 12, ...(sc.skier || {}) });
+   else if (sc.rider === 'chair') { const ch = chairRun(sc.dur + 0.5); sk = ch.sk; detTrace = ch.tr; }
+   else sk = simulateSkier({ start: 'push', v0: 0, duration: (sc.dur ?? 31) + 1, seed: 2, ...(sc.skier || {}) });

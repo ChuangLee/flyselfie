@@ -1,0 +1,1438 @@
+{
+ "generated": "2026-10-20",
+ "round": 3,
+ "evidence": "independent audit3 of numerical, uncalibrated simulations (re-run on a copy of sim/) + code reading; NOT physical verification; M-070 not_run, G-MATURE closed",
+ "basis": "shared common/components.js, common/fullrun.js (39 cases: calm + 3/6/9 m/s × head/tail/crossL/crossR × 3 seeds; avail = share of col.riding time, refused runs 0; jitter = p90 of footageStability(R).subjectRms over flown cases; ops judged on p90; setup simulated; gates via windEstimate), common/criteria.js (13 metrics incl. packVol ≤3 L and headClear ≥1.0 m, both ASSUMED).",
+ "previous": "summary/matrix_round2.json",
+ "criteria": {
+  "avail": {
+   "op": ">=",
+   "v": 80,
+   "unit": "%"
+  },
+  "pxMed": {
+   "op": ">=",
+   "v": 300,
+   "unit": "px"
+  },
+  "jitterRms": {
+   "op": "<=",
+   "v": 3,
+   "unit": "°/s"
+  },
+  "azRange": {
+   "op": ">=",
+   "v": 45,
+   "unit": "°"
+  },
+  "addedMass": {
+   "op": "<=",
+   "v": 1.5,
+   "unit": "kg"
+  },
+  "bodyForcePeak": {
+   "op": "<=",
+   "v": 40,
+   "unit": "N"
+  },
+  "handsBusy": {
+   "op": "<=",
+   "v": 5,
+   "unit": "%"
+  },
+  "setupTime": {
+   "op": "<=",
+   "v": 30,
+   "unit": "s"
+  },
+  "ops": {
+   "op": "<=",
+   "v": 2,
+   "unit": "-"
+  },
+  "keMax": {
+   "op": "<=",
+   "v": 14.9,
+   "unit": "J"
+  },
+  "packVol": {
+   "op": "<=",
+   "v": 3,
+   "unit": "L"
+  },
+  "endurance": {
+   "op": ">=",
+   "v": 45,
+   "unit": "min"
+  },
+  "headClear": {
+   "op": ">=",
+   "v": 1.0,
+   "unit": "m"
+  }
+ },
+ "concepts": [
+  {
+   "id": "kite2",
+   "modelVersion": "kite2@3.0.0",
+   "round": 3,
+   "metrics": {
+    "avail": {
+     "stat": "ensemble mean (39), availMask riding time",
+     "claimed": 81.52,
+     "claimedPass": true,
+     "recomputed": 81.52,
+     "verdict": "conditional",
+     "auditNote": "reproduced exactly (p10 76.024); passes by 1.5 pp only under the developer's tolerance art<3 % of subject height. The actively pointed boom is counted as artefact (good) but is a ≈4.5 px stub over the rider in 100 % of filming frames: literal criteria.js text (no ≥1 px artefact over the subject) → 0 %. Also hc 0.5 → 80.04 %, L/D 0.6 → 73.0 %, mass +15 % → 79.4 %: knife-edge."
+    },
+    "pxMed": {
+     "stat": "mean of case medians (own footage() on productCam)",
+     "claimed": 522.6,
+     "claimedPass": true,
+     "recomputed": 522.62,
+     "verdict": "conditional",
+     "auditNote": "needs a custom 55–65° HFOV ≤20 g 4K M12 optic (ASSUMED part)"
+    },
+    "jitterRms": {
+     "stat": "p90 footageStability subject RMS over 39 flown cases",
+     "claimed": 1.66,
+     "claimedPass": true,
+     "recomputed": 1.658,
+     "verdict": "pass",
+     "auditNote": "max 2.506 (tail9); pod pendulum/flutter ASSUMED, no round-canopy oscillation/coning model"
+    },
+    "azRange": {
+     "stat": "mean of case p5–p95 (0.2 Hz LP)",
+     "claimed": 58.14,
+     "claimedPass": true,
+     "recomputed": 58.14,
+     "verdict": "pass",
+     "auditNote": "min 46.2° (13° margin lost vs round 2 at the honest L/D)"
+    },
+    "addedMass": {
+     "stat": "design",
+     "claimed": 0.667,
+     "claimedPass": true,
+     "recomputed": 0.667,
+     "verdict": "pass",
+     "auditNote": "boom 148 g (incl. 2×40 g gimbal motors) and winch 70 g ARE in the budget; actuator sizing (see findings) may add mass but 1.5 kg has large margin"
+    },
+    "bodyForcePeak": {
+     "stat": "max raw 50 ms mean at integration step",
+     "claimed": 28.14,
+     "claimedPass": true,
+     "recomputed": 28.145,
+     "verdict": "pass",
+     "auditNote": "20 ms-grid recompute 28.07 N; instantaneous max 52.557 N; opening-shock factor 1.8 ASSUMED"
+    },
+    "handsBusy": {
+     "stat": "design",
+     "claimed": 0,
+     "claimedPass": true,
+     "recomputed": 0,
+     "verdict": "pass",
+     "auditNote": "no manual actions while moving in any case"
+    },
+    "setupTime": {
+     "stat": "p90 (arm 2 s + simulated wait to stowed at every stop)",
+     "claimed": 4.7,
+     "claimedPass": true,
+     "recomputed": 4.738,
+     "verdict": "pass",
+     "auditNote": "max 10.44 s (tail9_s12); docking before the stop depends on the 45° trumpet capture + 2.5 s snuff/retract (ASSUMED)"
+    },
+    "ops": {
+     "stat": "p90 (max)",
+     "claimed": 1,
+     "claimedPass": true,
+     "recomputed": 1,
+     "verdict": "pass",
+     "auditNote": "max 1; standing stows require facing into the wind (wrong facing → 3 ops, procedural)"
+    },
+    "keMax": {
+     "stat": "ensemble max, ground frame >1.5 m from body capsules",
+     "claimed": 12.92,
+     "claimedPass": true,
+     "recomputed": 12.92,
+     "verdict": "pass",
+     "auditNote": "robust to L/D, reef, mass, hc 0/0.5 (12.9–13.1 J); rests on the KE governor (2 N soft clutch, off → 21.9 J)"
+    },
+    "packVol": {
+     "stat": "design",
+     "claimed": 2.86,
+     "claimedPass": true,
+     "recomputed": 2.86,
+     "verdict": "conditional",
+     "auditNote": "260×110×100 mm ASSUMED layout (boom 5×0.26 m sections, gimbal, 14 m winch, 12 Wh, canopy, KCU+0.2 m arm); arithmetic correct, 0.14 L margin, not a CAD/fold measurement; a geared gimbal (finding A3-K2-03) would not fit unchanged"
+    },
+    "endurance": {
+     "stat": "mean from per-run mean power, heated",
+     "claimed": 56.94,
+     "claimedPass": true,
+     "recomputed": 56.94,
+     "verdict": "pass",
+     "auditNote": "48.46 min without regeneration credit; head-9 cases 40 min; gimbal 1.5 W likely low (A3-K2-03)"
+    },
+    "headClear": {
+     "stat": "ensemble min, own geometry (bodyPoints head; airborne KCU, canopy, line beyond boom tip)",
+     "claimed": 1.1,
+     "claimedPass": true,
+     "recomputed": 1.105,
+     "verdict": "conditional",
+     "auditNote": "reproduced (1.105 m, 10 cm margin). Declared exclusion windows 2.76–2.82 s (≤3 s OK; inside them 0.563 m). The worn, actively driven 1.2 m boom passes 0.423 m from the helmet centre (tip 0.661 m) — outside the 'airborne' definition but a rigid strike hazard. Brief's vertical helmet approximation (pos+1.61 m) gives 0.165 m — not physical in 45° carving lean but shows the margin depends on the lean model."
+    }
+   },
+   "auditFails": [],
+   "auditConditional": [
+    "avail",
+    "pxMed",
+    "packVol",
+    "headClear"
+   ],
+   "reproduction": {
+    "fullEnsembleRerun": {
+     "matchesClaimed": true,
+     "cases": 39,
+     "maxAbsDiff": 0,
+     "diffs": [],
+     "note": "dev evaluateCase on the copy reproduces dev/kite2/ensemble_rows.json; auditor metrics from R.frame/raw columns agree within 0.04 s (setup) and 0.1 N (20 ms-grid force)"
+    }
+   },
+   "envelope": {
+    "def": "rider 7–16 m/s, apparent wind ≥7 m/s to launch, 0–9 m/s head/cross/calm; tailwind ≥6 m/s degrades; low-traffic pistes only",
+    "availRecomputedByDir": {
+     "calm": 85.31,
+     "head": 89.83,
+     "tail": 64.79,
+     "crossL": 85.25,
+     "crossR": 84.94
+    }
+   },
+   "byWindAvail": {
+    "U0": {
+     "claimed": 85.31,
+     "recomputed": 85.31
+    },
+    "U3": {
+     "claimed": 85.22,
+     "recomputed": 85.22
+    },
+    "U6": {
+     "claimed": 84.46,
+     "recomputed": 84.46
+    },
+    "U9": {
+     "claimed": 73.92,
+     "recomputed": 73.92
+    }
+   },
+   "footageStabilityAll": {
+    "n": 39,
+    "p50": 1.074,
+    "p90": 1.658,
+    "max": 2.506,
+    "over3": 0
+   },
+   "massBudget": {
+    "claimed_kg": 0.667,
+    "flyingMass_g": 89.7,
+    "note": "worn items: kite 89.7 g + (tether 4, pod shell 120, winch 70, boom+gimbal 148, radar 10, electronics 25, heater 5, 12 Wh cell 80, mount 40 g) ×1.15 = 0.667 kg; boom/gimbal/winch included; actuator sizing doubtful (A3-K2-03/04)"
+   },
+   "keyAssumptions": [
+    {
+     "assumption": "Slotted 0.40 m² round canopy L/D 0.75 unreefed, 50 % of glide kept when reefed to 0.25 area",
+     "auditVerdict": "unverified, load-bearing for avail",
+     "killTest": "tow test L/D vs slot opening and reef 0.25/0.35/0.5 at 6–15 m/s; kill if L/D <0.7 or retention <0.3"
+    },
+    {
+     "assumption": "Heave-compensating winch with zero-lag exact feed-forward of exit motion (8–9 m/s, 0.4 s)",
+     "auditVerdict": "idealised, plausibly buildable with a different motor; unverified",
+     "killTest": "bench replay of a measured hockey-stop exit motion with a 90 g dummy: kill if lag >30 ms or dummy speed >√(2·14.9/m)"
+    },
+    {
+     "assumption": "Active 2-axis gimbal points the 1.2 m boom end-on at the kite camera (τ 20 ms, ≤0.5°)",
+     "auditVerdict": "undersized; load-bearing for avail",
+     "killTest": "boom pointing bench with carving vibration and KCU seated: ≤0.5° error at 20 Hz, artefact <3 % of subject height in real footage"
+    },
+    {
+     "assumption": "KE governor: kite GNSS/IMU ground speed > vGov → 2 N soft clutch",
+     "auditVerdict": "plausible control, unverified",
+     "killTest": "soft-clutch drogue deceleration within 0.3 s on a 7 m line"
+    },
+    {
+     "assumption": "KCU docks on the boom-tip trumpet (45° residual) and snuff+retract in 2.5 s before the rider stops",
+     "auditVerdict": "unverified mechanism",
+     "killTest": "500 seats wet/iced at 0–9 m/s"
+    }
+   ],
+   "safetyRegulatoryGates": [
+    "Resort written permission (not obtained; gate for every concept)",
+    "G-MATURE closed; nothing physically tested (M-070 not_run)",
+    "Written resort permission is a hard gate: line/boom 0.8–1.0 m above the snow behind the rider (A3-K2-01).",
+    "Rigid actuated boom 0.42 m from the helmet centre and at shoulder height for crossing skiers (≈34 N, 1.7 N·s).",
+    "KE 12.9 J governed (≤14.9 J line) only while the soft clutch works; fault cases separate.",
+    "Kite ≤14 m line: outside drone rules in most jurisdictions but subject to kite/tethered-object rules near lifts."
+   ],
+   "majorFindings": [
+    {
+     "id": "A3-K2-01",
+     "severity": "major",
+     "title": "Clothesline hazard unfixed: boom/line 0.80–1.0 m above the snow 1–2 m behind the rider in every run"
+    },
+    {
+     "id": "A3-K2-02",
+     "severity": "major",
+     "title": "avail pass depends on tolerating a permanent boom artefact (<3 % of subject height) and is knife-edge"
+    },
+    {
+     "id": "A3-K2-03",
+     "severity": "major",
+     "title": "Active boom gimbal is undersized vs its own simulated demand"
+    },
+    {
+     "id": "A3-K2-04",
+     "severity": "major",
+     "title": "Heave-compensating winch is idealised: perfect zero-lag feed-forward, no motor speed/voltage limit"
+    }
+   ],
+   "credibleEnvelope": "Simulation-credible only on empty/low-traffic pistes with written permission, rider 7–16 m/s, head/cross/calm wind 0–9 m/s (tailwind ≥6 m/s → 39–80 %), and only if: canopy L/D ≥≈0.7 with ≥50 % reefed-glide retention, a boom gimbal that holds ≤0.5° pointing under ≈0.4–1 N·m, a heave-comp winch with ≤30 ms lag at 6–8 m/s, a 45° trumpet dock, and a custom 60° 4K optic — and if a permanent few-pixel boom stub over the rider is accepted as footage.",
+   "auditVerdict": "Reproduces exactly (39/39) and passes all 13 judged metrics as modelled with the developer-tolerant artefact rule (avail 81.5 %, jitter p90 1.66, setup 4.7 s, ops 1, F 28.1 N, KE 12.9 J, headClear 1.105 m, endurance 56.9 min). Safety metrics are now robust; footage availability is knife-edge (≤1.5 pp margin, fails at L/D 0.6, mass +15 %, or a strict ≥1 px artefact rule) and rests on two idealised actuators (zero-lag heave winch beyond its own motor model; a gimbal driving a 1.2 m boom with motors too small for its simulated torque). The clothesline hazard is unfixed by design. Verdict: conditional pass as a research concept; not a usable product until tow/bench tests settle polar, gimbal, winch and dock."
+  },
+  {
+   "id": "towglider",
+   "modelVersion": "towglider@0.4.0",
+   "round": 3,
+   "metrics": {
+    "avail": {
+     "stat": "ensemble mean (39), riding mask, never-launched = 0",
+     "claimed": 72.104,
+     "claimedPass": false,
+     "recomputed": 72.013,
+     "verdict": "fail",
+     "auditNote": "own projection of the shared silhouette on the riding mask: 72.013 % (p10 0); launched runs 85.106 %; 6 tail 6/9 runs never launch (gate) and crossL9_s13/crossR9_s13 lose the whole first ride (≈40 %) to a gate false positive at t=0.5 s (windEstimate has no 10 s history at the top: 4.8 m/s estimated down-slope in a pure crosswind). Strict feet→head ≥300 px reading of the criterion: 51.962 % (shared footage() box includes ski tips; cross-concept definition)"
+    },
+    "pxMed": {
+     "stat": "mean of case medians (flown)",
+     "claimed": 535.614,
+     "claimedPass": true,
+     "recomputed": 534.628,
+     "verdict": "pass",
+     "auditNote": "own projection agrees with the dev column in ≥99.735 % of riding frames; strict feet→head median 373.262 px (still ≥300). Needs a custom 66° M12 lens on the Thumb-2-class camera (ASSUMED, mass unchanged) and auto-zoom to the native-resolution limit"
+    },
+    "jitterRms": {
+     "stat": "p90 footageStability subject RMS, flown cases",
+     "claimed": 1.918,
+     "claimedPass": true,
+     "recomputed": 1.918,
+     "verdict": "conditional",
+     "auditNote": "reproduced exactly (n 33, max 2.023, 0 >3 °/s). Rests on ASSUMED residuals: EIS 8 %→15 %: p90 2.99 (3 cases >3); 25 %: 4.65 (all 33 >3); mount deadband 0.15→0.5° RMS: 3.506 (all >3). The pass margin disappears at ≈15 % EIS residual"
+    },
+    "azRange": {
+     "stat": "mean over flown cases",
+     "claimed": 63.885,
+     "claimedPass": true,
+     "recomputed": 63.885,
+     "verdict": "pass",
+     "auditNote": "reproduced via the dev path (not independently re-derived); scripted shot plan"
+    },
+    "addedMass": {
+     "stat": "design",
+     "claimed": 0.457,
+     "claimedPass": true,
+     "recomputed": 0.457,
+     "verdict": "pass",
+     "auditNote": "rebuilt: glider 115 g ×1.15 = 132.3 g (components.js + 43.5 g structure incl. +3 g chord hinges) + reel 85 + 15 Wh pack 100 + boost 10 + holster 60 + belt 70 g"
+    },
+    "bodyForcePeak": {
+     "stat": "ensemble max, 50 ms mean of hip tension (+ capture impact)",
+     "claimed": 4.291,
+     "claimedPass": true,
+     "recomputed": 5.344,
+     "verdict": "pass",
+     "auditNote": "own 50 ms window weighting gives 5.3 N; ≪40 N"
+    },
+    "handsBusy": {
+     "stat": "design",
+     "claimed": 0,
+     "claimedPass": true,
+     "recomputed": 0,
+     "verdict": "pass",
+     "auditNote": "arm tap while standing"
+    },
+    "setupTime": {
+     "stat": "ensemble p90",
+     "claimed": 12.36,
+     "claimedPass": true,
+     "recomputed": 12.36,
+     "verdict": "pass",
+     "auditNote": "recount from events: 1 s arm + rider-still→seated at the lift approach (max 14.94 s); the mid-run relaunch fires 0.26 s after push-off (no wait). Final hold extended to 30 s so the stow completes (declared, riding identical)"
+    },
+    "ops": {
+     "stat": "ensemble p90 (max)",
+     "claimed": 1,
+     "claimedPass": true,
+     "recomputed": 1,
+     "verdict": "pass",
+     "auditNote": "p90 1, max 1 on the grid; off-grid tail 3.5–4 m/s: 3 (refused relaunch → restow counted as not docked)"
+    },
+    "keMax": {
+     "stat": "ensemble max",
+     "claimed": 14.006,
+     "claimedPass": true,
+     "recomputed": 14.006,
+     "verdict": "conditional",
+     "auditNote": "reproduced (crossR6_s13 follow at 14.55 m/s; 0.9 J margin). Off-grid tailwinds BETWEEN the 3 and 6 m/s grid points fail: tail3.5_s11 21.8 J and tail4_s11 21.3 J (parked glider snow-pulled into the holster at 18 m/s ground speed when the gate refuses the relaunch at push-off, 1.6–1.9 m from the body → ground frame)"
+    },
+    "packVol": {
+     "stat": "design estimate",
+     "claimed": 2.8,
+     "claimedPass": true,
+     "recomputed": 2.8,
+     "verdict": "pass",
+     "auditNote": "geometry now self-consistent: 55 % chord fold → folded chord 53 mm, panels on edge beside a 30×31.5 mm pod → 79.7 mm OD × 0.46 m = 2.30 L + reel 0.30 + cell 0.12 + boost/mouth 0.08 L. Unmeasured; hinge behind the spar and V-tail stowage not drawn; 7 % margin"
+    },
+    "endurance": {
+     "stat": "from ensemble mean hip energy",
+     "claimed": 57.79,
+     "claimedPass": true,
+     "recomputed": 57.79,
+     "verdict": "conditional",
+     "auditNote": "reproduced; 1.3 Ω/m litz arithmetic checks (7×0.0508 mm Cu → 1.21 Ω/m). Not charged: hip electronics + reel idle (0.663 W) during the lift (8 min per run, the basis the shared enduranceMin uses for heaters) → 38.985 min FAIL unless the hip unit sleeps on the lift (not modelled). >≈7.5 Ω/m after flex cycling also fails"
+    },
+    "headClear": {
+     "stat": "ensemble min (capture window excluded)",
+     "claimed": 1.011,
+     "claimedPass": true,
+     "recomputed": 1.011,
+     "verdict": "conditional",
+     "auditNote": "reproduced with own segment geometry (wing tip–tip, nose–tail, every leash segment) to the model's bodyPoints head: 1.011 m (crossL9_s12, deep-stall drop at the rest stop, t 40.6 s, rider decelerating at 7.3 m/s). With the brief's upright helmet (pos + 1.61 m): 0.859 m, 9/39 runs <1.0 m. Off-grid tail4_s12: 0.36 m. Capture window ≤2.08 s (declared ≤3 s, honest)"
+    }
+   },
+   "auditFails": [
+    "avail"
+   ],
+   "auditConditional": [
+    "jitterRms",
+    "keMax",
+    "endurance",
+    "headClear"
+   ],
+   "reproduction": {
+    "fullEnsembleRerun": {
+     "matchesClaimed": true,
+     "cases": 39,
+     "maxAbsDiff": 0.0,
+     "diffs": [],
+     "note": "concept simulate(P, fullrunScenario(c)) on the copy reproduces every dev row (avail, pxMed, setup, ops, force, KE, headClear, endurance, azRange) to <0.002; the auditor's own riding-mask/projection avail is 0.0–0.2 pp lower per case (mask sample alignment), ensemble 72.01 vs 72.10"
+    },
+    "independent": {
+     "avail": 72.013,
+     "jitterP90": 1.918,
+     "keMax": 14.006,
+     "headClear": 1.011,
+     "setupP90": 12.36,
+     "opsP90": 1,
+     "endurance": 57.79
+    }
+   },
+   "envelope": {
+    "def": "rider 8–13 m/s carving on ≤≈20° groomed slopes; calm/head/cross wind ≤9 m/s; tail ≤3 m/s only (gate at 4.5 m/s estimated; 3.5–4 m/s true tail is an unsafe gap); not beginners (6 m/s: headClear 0.79 m, line through the body), not moguls (headClear 0.55 m, jitter 5.1), not ≥14 m/s (avail 64 %→6 %, release + walk-up 400–1300 s at ≥15 m/s)",
+    "availLaunched": 85.106,
+    "availByDir": {
+     "calm": 87.5,
+     "head": 89.592,
+     "tail": 28.415,
+     "crossL": 82.187,
+     "crossR": 82.696
+    },
+    "source": "auditor 39-case recompute + dev runEnvelope/envelope (reproduced path)"
+   },
+   "byWindAvail": {
+    "U0": {
+     "claimed": 87.671,
+     "recomputed": 87.5
+    },
+    "U3": {
+     "claimed": 87.518,
+     "recomputed": 87.406
+    },
+    "U6": {
+     "claimed": 66.294,
+     "recomputed": 66.213
+    },
+    "U9": {
+     "claimed": 58.61,
+     "recomputed": 58.549
+    }
+   },
+   "footageStabilityAll": {
+    "n": 33,
+    "p50": 1.694,
+    "p90": 1.918,
+    "max": 2.023,
+    "over3": 0,
+    "sensitivity": {
+     "EIS residual 0.15": {
+      "n": 33,
+      "p50": 2.441,
+      "p90": 2.99,
+      "max": 3.07,
+      "over3": 3
+     },
+     "EIS residual 0.25": {
+      "n": 33,
+      "p50": 3.704,
+      "p90": 4.65,
+      "max": 4.767,
+      "over3": 33
+     },
+     "mount deadband 0.5° RMS": {
+      "n": 33,
+      "p50": 3.393,
+      "p90": 3.506,
+      "max": 3.803,
+      "over3": 33
+     }
+    }
+   },
+   "massBudget": {
+    "claimed_g": 132.25,
+    "rebuilt_g": 132.25,
+    "worn_kg": 0.457,
+    "note": "115 g ×1.15; KE governor cap √(29.8/0.1323) = 15.0 m/s; the 14.0 J max is within 0.9 J"
+   },
+   "keyAssumptions": [
+    {
+     "assumption": "Gyro EIS removes 92 % of the camera rotation rate (STAB.eis.ratio 0.08) and the closed-loop servo mount has 0.15° RMS deadband",
+     "auditVerdict": "load-bearing, unmeasured",
+     "killTest": "fly the camera+mount on a towed/hand-launched glider in gusts, measure residual subject rate after gyroflow-class EIS"
+    },
+    {
+     "assumption": "Tailwind gate on windEstimate at 4.5 m/s separates safe from unsafe",
+     "auditVerdict": "gate real but threshold tuned to the grid; unsafe band 3.5–4.5 m/s",
+     "killTest": "sweep tail 3–6 m/s in 0.25 m/s steps × seeds; field-test belt anemometer bias"
+    },
+    {
+     "assumption": "Deep-stall drop at stops lands the glider behind-beside the rider",
+     "auditVerdict": "unproven, knife-edge",
+     "killTest": "drop tests behind a moving rig with a head-height marker in 0–5 m/s tailwind"
+    },
+    {
+     "assumption": "Snow-pull capture into an 80 mm holster and auto-relaunch from a parked fold",
+     "auditVerdict": "unverified mechanism",
+     "killTest": "snow-pull 50 captures at 0–18 m/s, count jams/damage"
+    },
+    {
+     "assumption": "1.3 Ω/m 2×7/44 AWG litz leash at 0.4 g/m, 70 N, flex life on a 25 mm drum",
+     "auditVerdict": "plausible, conditional",
+     "killTest": "cycle 10 000 reel bends at −10 °C, measure Ω/m and break"
+    }
+   ],
+   "safetyRegulatoryGates": [
+    "Resort written permission (not obtained; gate for every concept)",
+    "G-MATURE closed; nothing physically tested (M-070 not_run)",
+    "Resort written permission (tethered flying object on piste) — not obtained.",
+    "Leash on/near the snow behind the rider during launch and sled tow: trip hazard for following skiers.",
+    "Glider (132 g) at ≤14 J in the 39-case grid but 21–22 J and 0.36 m from the head in 3.5–4 m/s tailwind (off-grid).",
+    "Sub-250 g tethered glider: tethered-aircraft rules vary; EU C0 class weight but follow-me/tether rules unclear."
+   ],
+   "majorFindings": [
+    {
+     "id": "A3-TG-01",
+     "severity": "major",
+     "title": "Unsafe tailwind gap between the ensemble grid points (3.5–4 m/s): KE 21–22 J, head clearance 0.36 m"
+    },
+    {
+     "id": "A3-TG-02",
+     "severity": "major",
+     "title": "headClear passes by 1 cm only on the concept's own head model; <1.0 m in 9/39 runs with the brief's helmet approximation"
+    },
+    {
+     "id": "A3-TG-03",
+     "severity": "major",
+     "title": "avail fails (72.0 %) for a structural reason: the tailwind gate refuses 6/39 runs and its t=0 estimate also refuses whole rides in 9 m/s crosswind"
+    },
+    {
+     "id": "A3-TG-04",
+     "severity": "major",
+     "title": "Jitter pass rests on an 8 % EIS residual and 0.15° mount deadband (both ASSUMED)"
+    }
+   ],
+   "credibleEnvelope": "Simulation-credible only for intermediate carving riders at 8–13 m/s on ≤≈20° groomed, low-traffic pistes, calm/head/cross wind ≤9 m/s and tailwind ≤3 m/s, AND an EIS/mount that keeps ≤≈12 % residual, a holster that captures a snow-pulled folded glider, and a leash surviving reel flexing. Tailwind 3.5–4.5 m/s is unsafe as modelled; ≥4.5 m/s no flight.",
+   "auditVerdict": "Reproduces exactly (39/39). Fails the judged avail (72.0 %; launched runs 85.1 %). Passes the other 12 on the grid, but jitter, keMax, endurance and headClear are conditional: the 1 cm head clearance and 0.9 J KE margin hold only at the grid winds — an off-grid 3.5–4 m/s tailwind gives 21–22 J and a 0.36 m head pass — and jitter rests on an assumed 8 % EIS residual. Lowest user burden of the field (ops 1, setup 12 s, 0.46 kg worn, 2.8 L), but not a usable product until the tailwind band and stop/drop behaviour are made safe."
+  },
+  {
+   "id": "leapfrog",
+   "modelVersion": "leapfrog@3.0.0",
+   "round": 3,
+   "metrics": {
+    "avail": {
+     "stat": "mean of 39 (col.riding, no-fly = 0)",
+     "claimed": 75.218,
+     "claimedPass": false,
+     "recomputed": 75.216,
+     "verdict": "fail",
+     "auditNote": "own frame-geometry usable test; p10 0; flown cases 91.67 %; 7/39 refused (6 progress-gate tail ≥3–4.4 m/s est., 1 wind); 9 m/s headwind 18.6–58.5 %. Without the occlusion/spray/buried loss flags 76.558 %"
+    },
+    "pxMed": {
+     "stat": "mean of case medians",
+     "claimed": 457.374,
+     "claimedPass": true,
+     "recomputed": 457.374,
+     "verdict": "pass",
+     "auditNote": "reproduced via rerun (22° lens on shared 4K; native-row capped)"
+    },
+    "jitterRms": {
+     "stat": "p90 footageStability subjectRms over 32 flown",
+     "claimed": 2.216,
+     "claimedPass": true,
+     "recomputed": 2.216,
+     "verdict": "conditional",
+     "auditNote": "reproduced; max 3.468 (tail3_s12, head9_s12 >3). Rests on post reframing that follows the TRUE subject line of sight (analysis.js losLP: perfect offline tracking): live framing 7.077, UWB-only 4.2, wind-estimate bias ×2 3.326, closer lead 3.468 (12-case subset, dev)"
+    },
+    "azRange": {
+     "stat": "mean",
+     "claimed": 79.113,
+     "claimedPass": true,
+     "recomputed": 79.113,
+     "verdict": "pass",
+     "auditNote": "reproduced via rerun"
+    },
+    "addedMass": {
+     "stat": "design",
+     "claimed": 0.315,
+     "claimedPass": true,
+     "recomputed": 0.315,
+     "verdict": "pass",
+     "auditNote": "164 g glider + 50 g holster + 93 g 14 Wh bank + 8 g tag"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "claimed": 3.426,
+     "claimedPass": true,
+     "recomputed": 3.426,
+     "verdict": "pass",
+     "auditNote": "holster inertia formula; no tether"
+    },
+    "handsBusy": {
+     "stat": "design",
+     "claimed": 0,
+     "claimedPass": true,
+     "recomputed": 0,
+     "verdict": "pass",
+     "auditNote": "set-down and pick-up while stopped"
+    },
+    "setupTime": {
+     "stat": "p90 (simulated)",
+     "claimed": 24.528,
+     "claimedPass": true,
+     "recomputed": 24.528,
+     "verdict": "conditional",
+     "auditNote": "recount identical in all 39 (launch stand from pre-run, landing wait, kinematic glide/side-step); max 32.104. Still contains an 8 s pick-up/fold/holster constant (ASSUMED) and 2.5 s no-fly constant: a gloved fold ≥13.5 s → p90 >30 s"
+    },
+    "ops": {
+     "stat": "p90 (max reported)",
+     "claimed": 2,
+     "claimedPass": true,
+     "recomputed": 2,
+     "verdict": "pass",
+     "auditNote": "max 3 in head9_s12, head9_s13 (glider left uphill → next-run pick-up)"
+    },
+    "keMax": {
+     "stat": "max",
+     "claimed": 13.592,
+     "claimedPass": true,
+     "recomputed": 13.592,
+     "verdict": "pass",
+     "auditNote": "own capsule rule; margin 1.3 J; gate bypassed on the 7 refused cases 13.429 J; mass +10 % 13.289 J (cap re-derived, avail −6 pp)"
+    },
+    "packVol": {
+     "stat": "design",
+     "claimed": 2.72,
+     "claimedPass": true,
+     "recomputed": 2.72,
+     "verdict": "conditional",
+     "auditNote": "holster 400×85×80 mm outer holds a 85 mm-chord folded wing, 2-axis gimbal and 14 Wh bank; chord equals the outer width (zero wall) → with 3 mm walls ≈3.1 L FAIL. Not measured"
+    },
+    "endurance": {
+     "stat": "shared enduranceMin, mean power of flown cases, heater over the whole day",
+     "claimed": 54.661,
+     "claimedPass": true,
+     "recomputed": 54.661,
+     "verdict": "pass",
+     "auditNote": "49.33 min with the shared 11 g/2.5 W vision computer"
+    },
+    "headClear": {
+     "stat": "min over 39 (incl. launch, stops, landings)",
+     "claimed": 1.89,
+     "claimedPass": true,
+     "recomputed": 1.88,
+     "verdict": "pass",
+     "auditNote": "own geometry 1.88 m (incl. perch 1.88); at the set-down skid take-off beside the standing rider; no capture window claimed"
+    }
+   },
+   "auditFails": [
+    "avail"
+   ],
+   "auditConditional": [
+    "jitterRms",
+    "setupTime",
+    "packVol"
+   ],
+   "reproduction": {
+    "fullEnsembleRerun": {
+     "matchesClaimed": true,
+     "cases": 39,
+     "maxAbsDiff": 0,
+     "keys": [
+      "avail",
+      "keMax",
+      "headClear",
+      "setupTime",
+      "ops",
+      "fsSubject",
+      "sepMaxFly",
+      "pMean"
+     ],
+     "diffs": [],
+     "note": "concept.simulate() on a fullrun scenario per case reproduces dev/leapfrog/results.json ensemble rows exactly; auditor metrics recomputed from R.frame + core columns"
+    }
+   },
+   "envelope": {
+    "def": "estimated downslope wind ≲4.4 m/s (progress gate), total ≤12.5 m/s; groomed piste; rider ≈11 m/s downhill progress",
+    "availClaimedFlown": 91.7,
+    "availRecomputedFlown": 91.67,
+    "byDir": {
+     "calm": 97.396,
+     "head": 79.798,
+     "tail": 21.193,
+     "crossL": 96.471,
+     "crossR": 96.01
+    }
+   },
+   "byWindAvail": {
+    "U0": {
+     "claimed": 97.396,
+     "recomputed": 97.396
+    },
+    "U3": {
+     "claimed": 88.667,
+     "recomputed": 88.663
+    },
+    "U6": {
+     "claimed": 73.563,
+     "recomputed": 73.563
+    },
+    "U9": {
+     "claimed": 57.878,
+     "recomputed": 57.878
+    }
+   },
+   "footageStabilityAll": {
+    "n": 32,
+    "p50": 0.981,
+    "p90": 2.216,
+    "max": 3.468,
+    "over3": [
+     "tail3_s12",
+     "head9_s12"
+    ]
+   },
+   "massBudget": {
+    "claimed_g": 163.9,
+    "rebuilt_g": 163.9,
+    "withSharedVision_g": 171.9,
+    "note": "BOM 142.5 g ×1.15 from components.js (47 g structure ASSUMED, 4 g NPU ASSUMED instead of the shared 11 g/2.5 W vision computer). Speed cap is derived from the mass, so KE holds at +10 % mass but avail drops (68.4 %)."
+   },
+   "keyAssumptions": [
+    {
+     "assumption": "Post reframing tracks the subject perfectly in the recorded file (crop follows a low-pass of the true LOS)",
+     "auditVerdict": "unverified, load-bearing",
+     "killTest": "record a skier from a moving 22° camera with UWB pointing; run the actual post tracker; measure subject-rate RMS"
+    },
+    {
+     "assumption": "Fused UWB AoA ±5° + GNSS 1.5 m + height geometry pointing (≈3° RMS) keeps the rider on a 22° sensor",
+     "auditVerdict": "sourced but unmeasured on a moving skier",
+     "killTest": "UWB/GNSS relative-bearing error between a 20–45 m glider and a carving skier"
+    },
+    {
+     "assumption": "Glider L/D (8–10) and 0.76 m span at Re 4–6e4",
+     "auditVerdict": "margin 1.4 m to the EU C0 follow-me limit",
+     "killTest": "glide polar of the folded-wing airframe; geofence give-up behaviour"
+    },
+    {
+     "assumption": "Autonomous skid-run take-off from snow (set-down) and perch/claw hold",
+     "auditVerdict": "unverified",
+     "killTest": "snow take-off success rate from groomed/soft snow with 1.8 Wh cell at −10 °C"
+    },
+    {
+     "assumption": "8 s gloved pick-up, fold and holster",
+     "auditVerdict": "unverified",
+     "killTest": "timed gloved fold/holster trials"
+    }
+   ],
+   "safetyRegulatoryGates": [
+    "Resort written permission (not obtained; gate for every concept)",
+    "G-MATURE closed; nothing physically tested (M-070 not_run)",
+    "Resort written permission (not obtained).",
+    "EU C0 follow-me ≤50 m: 1.4 m margin; L/D shortfall breaches it.",
+    "US: follow-me without VLOS observer needs a waiver.",
+    "Perched glider and low passes near other skiers (unjudged exposure).",
+    "KE 13.6 J vs 14.9 J line holds under gate bypass and +10 % mass (speed cap derived from mass)."
+   ],
+   "majorFindings": [
+    {
+     "id": "A3-LF-01",
+     "severity": "major",
+     "title": "avail fails on the full ensemble (75.2 %); reproduced exactly"
+    },
+    {
+     "id": "A3-LF-02",
+     "severity": "major",
+     "title": "Jitter pass (2.22 °/s) relies on perfect offline subject tracking; rose from 1.0 because pointing is now sourced and the lens narrower"
+    },
+    {
+     "id": "A3-LF-03",
+     "severity": "major",
+     "title": "Follow-me radius margin 1.4 m (48.6 m vs EU C0 50 m)"
+    }
+   ],
+   "credibleEnvelope": "Simulation-credible only for groomed pistes, calm to 3 m/s any direction, cross/head winds to ≈6–9 m/s, estimated downslope wind ≲4 m/s, rider ≈11 m/s; conditional on perfect offline subject tracking in post, ≈3° fused UWB/GNSS pointing, reliable snow take-off and an 8 s gloved fold. Outside: refuses (tail ≥4.5 m/s) or partly films (9 m/s headwind).",
+   "auditVerdict": "Reproduces exactly (39/39). Fails avail on the full ensemble (75.2 %) as an honest envelope limit; all other metrics pass as modelled (jitter p90 2.216, setup p90 24.528 s, ops p90 2/max 3, KE 13.592 J, headClear 1.88 m, endurance 54.7 min). The audit2 oracle-gate and simulated-setup responses are real. Conditional: jitter on perfect post tracking, packVol geometry, 8 s fold, 1.4 m follow-me margin. Best-evidenced light-wind follow-cam; not an all-weather solution."
+  },
+  {
+   "id": "descentglider",
+   "modelVersion": "descentglider@2.0.0",
+   "metrics": {
+    "avail": {
+     "stat": "ensemble mean (39)",
+     "claimed": 29.89,
+     "claimedPass": false,
+     "recomputed": 29.59,
+     "pass": false,
+     "auditNote": "22/39 no-fly (wind interlock)",
+     "conceptAuditNote": "auditor denominator = fullrun col.riding (dev: rider speed >2 m/s); −0.8 pt in flown cases. 22/39 runs are wind-interlock no-fly (all 6 m/s except tail6_s11/s12, all 9 m/s).",
+     "verdict": "fail"
+    },
+    "pxMed": {
+     "stat": "ensemble mean of case medians",
+     "claimed": 401.53,
+     "claimedPass": true,
+     "recomputed": 401.5,
+     "pass": true,
+     "auditNote": "flown cases only",
+     "conceptAuditNote": "not independently recomputed (analysis.js geometry reused); p10 304 px, min 134 px (tail6_s11). Conditional on 80° lens + 3-servo cradle.",
+     "verdict": "pass"
+    },
+    "jitterRms": {
+     "stat": "p90 over flown cases (audit: shared footageStability subject RMS)",
+     "claimed": 1.39,
+     "claimedPass": true,
+     "recomputed": 18.13,
+     "pass": false,
+     "auditNote": "footageStability p90 over 17 flown cases (dev masked 1.39); calm/cross3 1.1–1.4",
+     "conceptAuditNote": "dev jitter masks frames where the crop is clamped (lensOK≠1); the shared footageStability(R) does not and gives 18.1 °/s at p90 (tail3_s12) and 110 °/s (tail6_s11) — rider overtaking a close glider / losing it. Calm & cross-3 cases 1.1–1.4 °/s (pass). Pass only inside the calm/cross ≤3 m/s envelope.",
+     "verdict": "fail"
+    },
+    "azRange": {
+     "stat": "ensemble mean / fullrun case",
+     "claimed": 84.18,
+     "claimedPass": true,
+     "recomputed": 84.2,
+     "pass": true,
+     "auditNote": null,
+     "conceptAuditNote": "not independently recomputed",
+     "verdict": "pass"
+    },
+    "addedMass": {
+     "stat": "design",
+     "claimed": 0.316,
+     "claimedPass": true,
+     "recomputed": 0.316,
+     "pass": true,
+     "auditNote": null,
+     "conceptAuditNote": "glider 124 g + heated sleeve 60 g + tag 12 g + 18.5 Wh bank 120 g",
+     "verdict": "pass"
+    },
+    "bodyForcePeak": {
+     "stat": "ensemble max (50 ms mean)",
+     "claimed": 0,
+     "claimedPass": true,
+     "recomputed": 0,
+     "pass": true,
+     "auditNote": "no tether (hard-coded 0, acceptable)",
+     "conceptAuditNote": "no tether; sleeve/bank are static weight (excluded by definition); hand throw is a user action. Acceptable.",
+     "verdict": "pass"
+    },
+    "handsBusy": {
+     "stat": "design",
+     "claimed": 0,
+     "claimedPass": true,
+     "recomputed": 0,
+     "pass": true,
+     "auditNote": null,
+     "conceptAuditNote": "throw and pick-up only while stopped",
+     "verdict": "pass"
+    },
+    "setupTime": {
+     "stat": "ensemble p90",
+     "claimed": 60.4,
+     "claimedPass": false,
+     "recomputed": 60.4,
+     "pass": false,
+     "auditNote": "fails even in calm (33–35 s)",
+     "conceptAuditNote": "fails even in calm (33.4–35.1 s: draw 3 s + climb to ready cue ≈8 s + landing wait ≈12 s + side-step + 5 s stow). Flown-only p90 48.7 s. No-fly runs are charged ≈50 s (throw, interlock landing, 30 s walk) — a real user would not throw in 6–9 m/s, slightly disfavouring the concept but not changing the verdict.",
+     "verdict": "fail"
+    },
+    "ops": {
+     "stat": "ensemble p90 (max reported)",
+     "claimed": 2,
+     "claimedPass": true,
+     "recomputed": 3,
+     "pass": false,
+     "auditNote": "p90 3 with recovery action counted in non-resting runs (dev 2)",
+     "conceptAuditNote": "auditor adds +1 recovery action in no-fly runs where the glider never came to rest (head9_s11, crossR9_s12: dev already charges the 30 s recovery walk there but no action) → 6/39 runs with 3 actions = 15 % > 10 % → p90 = 3. Borderline: a 1-case change flips it.",
+     "verdict": "fail"
+    },
+    "keMax": {
+     "stat": "ensemble max",
+     "claimed": 18.02,
+     "claimedPass": false,
+     "recomputed": 18.02,
+     "pass": false,
+     "auditNote": "tail6_s11 interlock did not trip; ≤3 m/s max 13.7 J",
+     "conceptAuditNote": "tail6_s11: interlock did not trip (measured wind < 5.5 m/s), follow at 17.0 m/s ground speed → 18.0 J, 13 m from the body. Auditor body-segment distance (feet→head) instead of head distance changes nothing. Inside ≤3 m/s: max 13.7 J (pass, 1.2 J margin).",
+     "verdict": "fail"
+    },
+    "packVol": {
+     "stat": "design",
+     "claimed": 2.775,
+     "claimedPass": true,
+     "recomputed": 2.78,
+     "pass": true,
+     "auditNote": null,
+     "conceptAuditNote": "35×12.5×6 cm folded sleeve (2.63 L) + bank 0.15 L; 66 cm span scissor-fold to 35 cm plausible but unbuilt",
+     "verdict": "pass"
+    },
+    "endurance": {
+     "stat": "from ensemble mean power, components.js rules",
+     "claimed": 79.3,
+     "claimedPass": true,
+     "recomputed": 79.3,
+     "pass": true,
+     "auditNote": "66.5 min with per-run lift-heater accounting",
+     "conceptAuditNote": "per-run accounting (flight energy throw→rest + 0.6 W heater over the whole 6 min lift; only riding minutes count as filming) gives 66.5 min — still ≥45. Flying cell 2 Wh → ≈9 runs at the mean, recharge 1.1–1.6 C on the lift needs a warm (>10 °C) cell, more than the 0.6 W heater budget is shown to deliver (unverified).",
+     "verdict": "pass"
+    },
+    "headClear": {
+     "stat": "ensemble min, auditor geometry from R.frame()",
+     "claimed": null,
+     "claimedPass": null,
+     "recomputed": null,
+     "pass": null,
+     "verdict": null,
+     "auditNote": "frozen negative result, not re-run in round 3; round-2 audit recorded head passes <1.5 m in 3/17 flown runs and landings <2.5 m in 4/17 (no headClear metric existed then)"
+    }
+   },
+   "auditFails": [
+    "avail",
+    "jitterRms",
+    "setupTime",
+    "ops",
+    "keMax"
+   ],
+   "auditConditional": [],
+   "envelope": {
+    "def": "mean wind ≤3 m/s, all directions (dev text: calm–3 m/s, 9–13 m/s riders)",
+    "availClaimed": 76.07,
+    "availRecomputed": 75.3,
+    "availNoTailClaimed": 81.83,
+    "availNoTailRecomputed": 81.0,
+    "setupP90Recomputed": 55.87,
+    "note": "no envelope passes all judged metrics: setupTime fails in every wind bin (calm p90 35 s); 3 m/s tail wind avail 46–61 %; near-miss gates (head <1.5 m or landing <2.5 m) fail in 6/15 runs ≤3 m/s"
+   },
+   "byWindAvail": {
+    "U0": {
+     "claimed": 88.13,
+     "recomputed": 87.28
+    },
+    "U3": {
+     "claimed": 73.05,
+     "recomputed": 72.3
+    },
+    "U6": {
+     "claimed": 2.07,
+     "recomputed": 2.05
+    },
+    "U9": {
+     "claimed": 0,
+     "recomputed": 0.0
+    }
+   },
+   "footageStabilityAll": {
+    "n": 17,
+    "p50": 1.41,
+    "p90": 18.13,
+    "max": 110.62,
+    "over3": null
+   },
+   "massBudget": {
+    "claimed_g": 124.0,
+    "rebuilt_g": 107.8,
+    "withMargin_g": 124.0,
+    "note": "components.js: cam4k 16 + avionics 10 + 5 servos 12.5 + motorProp 11 + wiring 5 = 54.5 g shared items; explicit ASSUMED ToF 5 g, cradle 5 g, airframe 30 g, 2 Wh cell 13.3 g (150 Wh/kg) → 107.8 g ×1.15 = 124.0 g — arithmetic reproduced, <250 g (C0 mass OK). Airframe 30 g for a 0.065 m² folding wing with pod, hinge and spiked skid that must survive belly landings and 6–12 J snow strikes is optimistic; at 40 g airframe → 135.5 g, KE-cap speed 14.8 m/s; dev sensitivity +15 g → light-wind avail 75→65 %."
+   },
+   "keyAssumptions": [
+    {
+     "assumption": "Loiter at 40° bank ≈2.1 W drag power, ≈10.5 W electrical incl. 4.8 W avionics",
+     "auditVerdict": "optimistic",
+     "killTest": "wattmeter log of a 120–135 g, 0.065 m² wing orbiting at 40° bank, 10 m/s, −10 °C: electrical ≤12 W incl. avionics"
+    },
+    {
+     "assumption": "Hand throw at 10 m/s from the shoulder succeeds every time; pusher starts after 0.5 s ≥4.8 m from the helmet",
+     "auditVerdict": "unknown",
+     "killTest": "50 throws by ≥5 gloved skiers standing on skis at 0–5 m/s wind: ≥95 % clean climb-out, 0 prop contacts"
+    },
+    {
+     "assumption": "Catch-up after a mid-run stop from the loiter",
+     "auditVerdict": "credible",
+     "killTest": "n/a (model consequence); flight test: time to station after restart ≤10 s in 3 m/s"
+    },
+    {
+     "assumption": "Terrain-following slope flow w_z = −tanθ·w_x",
+     "auditVerdict": "credible",
+     "killTest": "not needed for the verdict"
+    },
+    {
+     "assumption": "End-of-run belly landing ≈3.5 m beside the stopped rider at the lift approach, μk 0.35 spiked skid",
+     "auditVerdict": "not credible",
+     "killTest": "30 autonomous landings beside a standing dummy in a roped area, 0–5 m/s: 100 % ≥2.5 m from the dummy, ≥90 % at rest within 8 m, 0 airframe damage"
+    },
+    {
+     "assumption": "Wind interlock 5.5 m/s + KE governor keep KE ≤14.9 J and range ≤50 m",
+     "auditVerdict": "not credible",
+     "killTest": "software-in-the-loop: 100 tail-wind runs 4–7 m/s: KE ≤14.9 J and range ≤50 m in all"
+    },
+    {
+     "assumption": "3-servo cradle (τ 0.08 s) + gyro EIS residual 10 %",
+     "auditVerdict": "optimistic",
+     "killTest": "bench: cradle + camera on a rate table at −10 °C, residual after Gyroflow ≤10 % above 0.5 Hz"
+    }
+   ],
+   "safetyRegulatoryGates": [
+    "Resort written permission (not obtained; gate for every concept)",
+    "G-MATURE closed; nothing physically tested (M-070 not_run)",
+    "EU: 124 g (<250 g) can be C0-class; C0 follow-me must stay ≤50 m from the remote pilot (2019/945 Part 1) — breached once (69.8 m) in the ensemble; A1 follow-me height ≤50 m.",
+    "US: Part 107/recreational rules require VLOS by the operator or a visual observer; a skier facing downhill cannot watch a glider behind them — no legal US solo operation without a waiver.",
+    "Resort written permission (gate for every concept); many resorts ban drones outright.",
+    "Landing at the lift approach (the most crowded spot) every run; no bystander detection in the landing logic beyond the rider.",
+    "Pusher prop near the hand at throw; snow strikes at 6–12 J."
+   ],
+   "majorFindings": [
+    {
+     "id": "A2-DG-01",
+     "title": "Near-miss passes and landings next to the rider inside the claimed envelope"
+    },
+    {
+     "id": "A2-DG-02",
+     "title": "KE governor and 50 m geofence both fail in a 6 m/s tail-wind run"
+    },
+    {
+     "id": "A2-DG-03",
+     "title": "Snow strikes in 3/17 flown runs (2 on the end-of-run go-around at 3 m/s headwind)"
+    },
+    {
+     "id": "A2-DG-04",
+     "title": "ops p90 is 3, not 2, with consistent recovery counting"
+    },
+    {
+     "id": "A2-DG-05",
+     "title": "Shared footageStability fails at p90 over flown runs"
+    }
+   ],
+   "credibleEnvelope": "calm to 3 m/s non-tail wind, groomed piste, 9–13 m/s riders: avail ≈81 % (recomputed), KE ≤13.7 J — but setupTime 33–49 s fails everywhere, and near-miss/landing-proximity events occur in that envelope. No envelope passes all judged metrics.",
+   "auditVerdict": "FAIL. Developer's self-assessment (fails; dominated by towglider) is honest and reproduced exactly; the audit adds ops p90 = 3, a footageStability fail and unjudged near-miss/geofence/crash events that make it worse. Not a usable solo follow-cam; keep only as a calm-day, no-line research niche.",
+   "round": 2,
+   "frozen": true,
+   "frozenNote": "Frozen as a documented negative result after audit2; row copied unchanged from summary/matrix_round2.json."
+  }
+ ],
+ "reference_round1": [
+  {
+   "id": "boom360",
+   "name": "S1 boom360: backpack 360 tail boom",
+   "modelVersion": "boom360@0.4.0",
+   "referenceOnly": true,
+   "nominal": {
+    "avail": {
+     "v": 99.167,
+     "pass": true
+    },
+    "pxMed": {
+     "v": 471.063,
+     "pass": true
+    },
+    "jitterRms": {
+     "v": 4.084,
+     "pass": false
+    },
+    "azRange": {
+     "v": 84.13,
+     "pass": true
+    },
+    "addedMass": {
+     "v": 1.425,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "v": 27.102,
+     "pass": true
+    },
+    "handsBusy": {
+     "v": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "v": 5.896,
+     "pass": true
+    },
+    "ops": {
+     "v": 1,
+     "pass": true
+    },
+    "keMax": {
+     "v": 0.273,
+     "pass": true
+    },
+    "endurance": {
+     "v": 72.9,
+     "pass": true
+    }
+   },
+   "failsByScenario": {
+    "nominal": [
+     "jitterRms"
+    ],
+    "nominal_v2": [
+     "avail",
+     "jitterRms",
+     "azRange"
+    ],
+    "nominal_v1": [
+     "avail",
+     "jitterRms",
+     "azRange"
+    ],
+    "short": [
+     "avail",
+     "bodyForcePeak"
+    ],
+    "moguls": [
+     "jitterRms"
+    ],
+    "fast": [
+     "jitterRms"
+    ],
+    "gust": [
+     "jitterRms"
+    ],
+    "fallBack": [
+     "jitterRms",
+     "bodyForcePeak"
+    ],
+    "fallSide": [
+     "jitterRms",
+     "bodyForcePeak"
+    ],
+    "snag": [
+     "avail",
+     "jitterRms"
+    ],
+    "lift": [
+     "jitterRms",
+     "bodyForcePeak",
+     "keMax"
+    ],
+    "damperFail": [
+     "jitterRms"
+    ]
+   },
+   "caveat": "judged per scenario in round 1 (2026-10-18/19), WITHOUT packVol and WITHOUT the 39-case full-run ensemble, one-shot gust fix or oblique gust wavefronts; avail/setup/ops of round-2 concepts include stops, relaunches and wind refusals, round-1 nominal rows do not. Round-1 audit notes: tetherdrone keMax/tether-artefact fragile and 100 V line needs reinforced insulation; trackdrone endurance/keMax/follow envelope fail; boom360 footage stability fails robustly. Re-run them on fullrun + packVol before any head-to-head ranking."
+  },
+  {
+   "id": "trackdrone",
+   "name": "S2 Track-replay drone + backpack dock",
+   "modelVersion": "trackdrone@0.4.0",
+   "referenceOnly": true,
+   "nominal": {
+    "avail": {
+     "v": 85.276,
+     "pass": true
+    },
+    "pxMed": {
+     "v": 363.003,
+     "pass": true
+    },
+    "jitterRms": {
+     "v": 1.311,
+     "pass": true
+    },
+    "azRange": {
+     "v": 59.029,
+     "pass": true
+    },
+    "addedMass": {
+     "v": 0.518,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "v": 6.176,
+     "pass": true
+    },
+    "handsBusy": {
+     "v": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "v": 12.51,
+     "pass": true
+    },
+    "ops": {
+     "v": 1.421,
+     "pass": true
+    },
+    "keMax": {
+     "v": 13.948,
+     "pass": true
+    },
+    "endurance": {
+     "v": 52.74,
+     "pass": true
+    }
+   },
+   "failsByScenario": {
+    "nominal_v2": [
+     "avail"
+    ],
+    "nominal_v1": [
+     "avail",
+     "keMax",
+     "endurance"
+    ],
+    "highspeed": [
+     "avail",
+     "pxMed",
+     "endurance"
+    ],
+    "highspeed_leap": [
+     "avail",
+     "pxMed",
+     "endurance"
+    ],
+    "short": [
+     "jitterRms"
+    ],
+    "crosswind": [
+     "azRange",
+     "endurance"
+    ],
+    "dropout": [
+     "azRange"
+    ],
+    "fall": [
+     "azRange"
+    ],
+    "treeline": [
+     "avail",
+     "pxMed",
+     "azRange"
+    ],
+    "overhang": [
+     "azRange"
+    ],
+    "crossing": [
+     "azRange"
+    ]
+   },
+   "caveat": "judged per scenario in round 1 (2026-10-18/19), WITHOUT packVol and WITHOUT the 39-case full-run ensemble, one-shot gust fix or oblique gust wavefronts; avail/setup/ops of round-2 concepts include stops, relaunches and wind refusals, round-1 nominal rows do not. Round-1 audit notes: tetherdrone keMax/tether-artefact fragile and 100 V line needs reinforced insulation; trackdrone endurance/keMax/follow envelope fail; boom360 footage stability fails robustly. Re-run them on fullrun + packVol before any head-to-head ranking."
+  },
+  {
+   "id": "tetherdrone",
+   "name": "S3 Tether-drone (\"flying boom\") v3",
+   "modelVersion": "tetherdrone@0.3.1",
+   "referenceOnly": true,
+   "nominal": {
+    "avail": {
+     "v": 100,
+     "pass": true
+    },
+    "pxMed": {
+     "v": 484.408,
+     "pass": true
+    },
+    "jitterRms": {
+     "v": 0.731,
+     "pass": true
+    },
+    "azRange": {
+     "v": 69.224,
+     "pass": true
+    },
+    "addedMass": {
+     "v": 1.106,
+     "pass": true
+    },
+    "bodyForcePeak": {
+     "v": 2.429,
+     "pass": true
+    },
+    "handsBusy": {
+     "v": 0,
+     "pass": true
+    },
+    "setupTime": {
+     "v": 18.2,
+     "pass": true
+    },
+    "ops": {
+     "v": 2,
+     "pass": true
+    },
+    "keMax": {
+     "v": 9.523,
+     "pass": true
+    },
+    "endurance": {
+     "v": 108.316,
+     "pass": true
+    }
+   },
+   "failsByScenario": {
+    "nominal_v1": [
+     "avail",
+     "keMax"
+    ],
+    "nominal_v2": [
+     "avail"
+    ]
+   },
+   "caveat": "judged per scenario in round 1 (2026-10-18/19), WITHOUT packVol and WITHOUT the 39-case full-run ensemble, one-shot gust fix or oblique gust wavefronts; avail/setup/ops of round-2 concepts include stops, relaunches and wind refusals, round-1 nominal rows do not. Round-1 audit notes: tetherdrone keMax/tether-artefact fragile and 100 V line needs reinforced insulation; trackdrone endurance/keMax/follow envelope fail; boom360 footage stability fails robustly. Re-run them on fullrun + packVol before any head-to-head ranking."
+  }
+ ],
+ "consistencyChecks": [
+  {
+   "id": "A3-X-01",
+   "metric": "avail artefact tolerance",
+   "finding": "criteria.js says \"no product artefact ≥1 px over the subject\". kite2 tolerates a line/boom artefact up to 3 % of subject height (≈15 px at 520 px; boom stub ≈4.5 px wide over the rider in 100 % of filming frames → literal rule gives avail 0 %); towglider counts a frame bad only when ≥3 px of ≥1 px-wide leash lies over the subject; leapfrog has no tether (airframe occlusion only). The tolerances differ in kind and size.",
+   "favours": "kite2 (avail passes only under its 3 % tolerance); towglider mildly"
+  },
+  {
+   "id": "A3-X-02",
+   "metric": "off-grid tailwind band 3.5–5.5 m/s",
+   "finding": "FULLRUN_CASES has no wind between 3 and 6 m/s, where every tail gate sits. Auditor off-grid runs (same seeds): towglider tail3.5–4 → KE 21–22 J, headClear 0.36 m, ops 3 (audit3/towglider/out_tail_edge*.json); leapfrog launches in 4/15 band runs and is left behind → ops 3, avail 0–72 %, KE ≤14.303 J, headClear ≥1.97 m (safe but fails ops); kite2 robust: avail 72–82 %, KE ≤12.745 J, headClear ≥1.136 m, ops 1.",
+   "favours": "towglider and leapfrog in grid-only tables"
+  },
+  {
+   "id": "A3-X-03",
+   "metric": "headClear helmet definition",
+   "finding": "Brief approximation (skier.pos + 1.75·0.92 m vertical) vs concept body-model head (includes carving lean). kite2 dev 1.105 m (body head) vs 0.17 m with the vertical approximation (boom/line pass near the vertical point when the rider leans 45°); towglider 1.011 (own) vs 0.859 (vertical, 9/39 runs <1.0); leapfrog 1.89 vs 1.88. Also: kite2 excludes the worn 1.2 m boom (passes 0.42 m from the helmet centre) because the definition covers only airborne parts.",
+   "favours": "kite2 and towglider"
+  },
+  {
+   "id": "A3-X-04",
+   "metric": "subjectPx definition",
+   "finding": "env.footage() subjectPx is the full bounding box incl. ski tips, not feet→head as criteria.js words it. Strict feet→head: towglider avail 72 → 52 %, pxMed 535 → 373. Applies to every concept using env.footage (not re-run for kite2/leapfrog).",
+   "favours": "all concepts using env.footage"
+  },
+  {
+   "id": "A3-X-05",
+   "metric": "oracle wind",
+   "finding": "Round-2 oracle gates are removed: all three use windEstimate() for launch/park/no-fly gates. Remaining idealisations: kite2 tip-pitot/in-flight control on noise-free local wind; leapfrog in-flight estimate initialised with true wind and noise-free gust interlock; towglider estimate has no history at t=0.5 s (false refusal in 2 cross9 runs — penalises towglider).",
+   "favours": "small, mixed"
+  },
+  {
+   "id": "A3-X-06",
+   "metric": "endurance",
+   "finding": "All use enduranceMin(..., {heated}) with the heater over the whole day. Idle electronics on the lift are not charged by any concept; towglider most sensitive (57.8 → 39 min if the hip unit stays on). kite2 includes a winch-regeneration credit (48.5 min without).",
+   "favours": "towglider, kite2"
+  },
+  {
+   "id": "A3-X-07",
+   "metric": "constants vs simulated quantities",
+   "finding": "Setup is simulated for all three; residual constants: kite2 2 s arm tap; leapfrog 8 s pick-up/fold and 2.5 s no-fly handling (≥13.5 s fold → p90 >30 s); towglider none found. Mass budgets: leapfrog 4 g NPU instead of the shared 11 g vision computer (172 g → avail 69.3 %, endurance 49.3 on a subset).",
+   "favours": "leapfrog (mildly)"
+  },
+  {
+   "id": "A3-X-08",
+   "metric": "idealised actuators/estimators carrying passes",
+   "finding": "kite2: zero-lag heave-compensating winch beyond its own motor constants (needs 6–8 m/s reel-in, 93–166 W) and a boom gimbal sized for 0.13 N·m vs 0.35–1 N·m simulated load (passive boom → avail 42.9 %); towglider: 8 % EIS residual (15 % → jitter p90 2.99, 25 % → 4.65); leapfrog: perfect offline subject tracking (live framing 7.1, UWB-only pointing 4.2 °/s).",
+   "favours": "each concept in its own table"
+  },
+  {
+   "id": "A3-X-09",
+   "metric": "reproduction",
+   "finding": "All three developer ensembles reproduce exactly from a copy of sim/ (max abs diff 0–0.002 on judged columns); auditor-own recomputations agree (towglider body force 5.3 vs 4.3 N, avail 72.01 vs 72.10 — immaterial).",
+   "favours": "neutral"
+  }
+ ],
+ "killTests": {
+  "kite2": [
+   "tow test L/D vs slot opening and reef 0.25/0.35/0.5 at 6–15 m/s; kill if L/D <0.7 or retention <0.3",
+   "bench replay of a measured hockey-stop exit motion with a 90 g dummy: kill if lag >30 ms or dummy speed >√(2·14.9/m)",
+   "boom pointing bench with carving vibration and KCU seated: ≤0.5° error at 20 Hz, artefact <3 % of subject height in real footage",
+   "soft-clutch drogue deceleration within 0.3 s on a 7 m line",
+   "500 seats wet/iced at 0–9 m/s"
+  ],
+  "towglider": [
+   "fly the camera+mount on a towed/hand-launched glider in gusts, measure residual subject rate after gyroflow-class EIS",
+   "sweep tail 3–6 m/s in 0.25 m/s steps × seeds; field-test belt anemometer bias",
+   "drop tests behind a moving rig with a head-height marker in 0–5 m/s tailwind",
+   "snow-pull 50 captures at 0–18 m/s, count jams/damage",
+   "cycle 10 000 reel bends at −10 °C, measure Ω/m and break"
+  ],
+  "leapfrog": [
+   "record a skier from a moving 22° camera with UWB pointing; run the actual post tracker; measure subject-rate RMS",
+   "UWB/GNSS relative-bearing error between a 20–45 m glider and a carving skier",
+   "glide polar of the folded-wing airframe; geofence give-up behaviour",
+   "snow take-off success rate from groomed/soft snow with 1.8 Wh cell at −10 °C",
+   "timed gloved fold/holster trials"
+  ]
+ },
+ "ranking": {
+  "question": "usable solo follow-cam (self-operated, full run, real winds, minimal set-up)",
+  "noConceptQualifies": true,
+  "summary": "No concept is a usable solo follow-cam as specified. kite2 is the only one passing all 13 metrics as modelled (4 conditional) and is the most robust across winds incl. the off-grid tail band, but its pass rests on idealised actuators and a 3 % artefact tolerance, and the line/boom 0.8 m above snow behind the rider is an unfixed clothesline hazard. leapfrog and towglider fail the judged avail honestly (tail-wind refusals). Ranking is by credible usable envelope × evidence × safety, not by count of passes.",
+  "order": [
+   {
+    "rank": 1,
+    "id": "leapfrog",
+    "label": "most credible light-wind follow-cam; fails all-weather avail",
+    "rationale": "Reproduces exactly; fails only avail (75.2 %; flown 91.7 %, calm/cross 96–97 %) because it honestly refuses tailwinds ≥≈4.5 m/s estimated. KE 13.6 J (gate-bypass 13.4 J), headClear 1.88 m, no tether, ops p90 2. Conditions: perfect offline tracking for jitter (2.22 °/s), 8 s gloved fold, 2.72 L tight holster, 48.6 m vs 50 m C0 follow-me limit, 3.5–4.5 m/s tail band → launched and left behind (ops 3). Conventional technology, no line hazard."
+   },
+   {
+    "rank": 2,
+    "id": "kite2",
+    "label": "only all-13 pass as modelled; highest upside, unproven actuators, unfixed clothesline",
+    "rationale": "All 13 reproduced and pass (avail 81.5, jitter 1.66, setup 4.7 s, ops 1, F 28 N, KE 12.9 J, headClear 1.10, endurance 56.9, packVol 2.86), KE now robust to L/D/mass, robust in the 3.5–5.5 m/s tail band. But avail margin 1.5 pp rests on a 3 % artefact tolerance (literal ≥1 px rule → 0 %), an active 1.2 m boom whose gimbal is undersized for its simulated torque (passive → 42.9 %) and a zero-lag winch beyond its motor model (no heave comp → 79.7 %); L/D 0.6 → 73 %. Line/boom 0.80–0.82 m above snow 1–2 m behind the rider in 39/39 runs: resort permission unlikely. Would move to rank 1 if bench tests confirm boom/winch and a clothesline mitigation exists."
+   },
+   {
+    "rank": 3,
+    "id": "towglider",
+    "label": "lowest burden but unsafe in the off-grid tail band; fails avail",
+    "rationale": "ops 1, setup 12 s, 0.46 kg, 2.8 L (fold now geometrically consistent). Fails avail 72 % (6 tail runs refused, 2 cross9 false refusals). KE 14.0 and headClear 1.01 pass only at the grid winds: tail 3.5–4 m/s → 21–22 J and 0.36 m head pass; vertical-helmet headClear 0.86 m. Jitter rests on an 8 % EIS residual; endurance 39 min if lift idle is charged. Safety is the binding issue."
+   },
+   {
+    "rank": 4,
+    "id": "descentglider",
+    "label": "frozen negative result (round-2 row unchanged)",
+    "rationale": "Round-2 audit: fails avail 29.6 %, setup 60 s, ops p90 3, KE 18 J, harmonised jitter p90 18 °/s. Not re-run in round 3."
+   }
+  ],
+  "nextKillTests": [
+   "kite2: tow test L/D vs slot/reef (kill <0.7 or <30 % reefed glide); boom gimbal bench under 0.4–1 N·m with seated KCU; winch hockey-stop replay (kill lag >30 ms); real-footage artefact <3 % of subject height; clothesline mitigation + resort permission",
+   "leapfrog: UWB/GNSS bearing error to a carving skier at 20–45 m; real post-tracker jitter on moving 22° footage; snow take-off at −10 °C; timed gloved fold; folded-wing glide polar (C0 50 m margin)",
+   "towglider: tail 3–6 m/s in 0.25 m/s steps with the real belt estimate; drop tests with head-height marker; EIS/mount residual in gusts; 50 holster captures at up to 18 m/s; reel flex life and Ω/m",
+   "all: resort written permission; G-MATURE closed; M-070 not_run"
+  ]
+ }
+}

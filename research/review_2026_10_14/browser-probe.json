@@ -1,0 +1,22 @@
+{
+  "renderer": "forced 2D fallback, not GPU performance measurement",
+  "playbackBefore": "0.00 / 30.0 s",
+  "playbackAfter": "0.73 / 30.0 s",
+  "fileConfig": {
+    "id": "review-foreign-config",
+    "baseline": "L1-D1-R1 with operation amendment R2"
+  },
+  "fileModel": {
+    "id": "review-foreign-model",
+    "version": "99.0",
+    "evidence": "numerical-uncalibrated"
+  },
+  "displayConfig": "L1-D1-R1+R2/sim-placeholder (L1: limited D1 (per requirements §2). G-MATURE gate closed.)",
+  "displayModel": "pm-tether@0.1.0 — Point-mass kite on straight spring-damper tether",
+  "importStatus": "完成 — 已载入结果",
+  "pageErrors": [],
+  "scrollWidths": {
+    "768": 768,
+    "360": 360
+  }
+}

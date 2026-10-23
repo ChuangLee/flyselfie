@@ -1,0 +1,496 @@
+{
+ "task": "SIM-033 independent review (physics / safety / product-user-test)",
+ "date": "2026-10-21",
+ "reviewer": "independent review agent (did not write plan.json, did not deploy, did not commit, no purchasing/outreach)",
+ "evidence": "Code reading + numerical-uncalibrated re-runs on a PATCHED SCRATCH COPY of sim/ (repo sim/ untouched). Simulation is not physical verification. No physical test was run; M-070 not_run; G-MATURE stays closed. User panel is SIMULATED personas, not real users.",
+ "method": {
+  "reproduction": "48-case FULLRUN_CASES_R4 ensemble re-run at defaults on a copy: every judged number reproduced exactly (avail 47.368, jitter p90 4.04, azRange 40.075, KE 15.358, headClear 0.075, endurance 45.142) -> review/baseline_repro.json",
+  "variants": "review/variants.jsonl, produced by scripts/run_variants.sh -> scripts/rev_ens.mjs on a copy patched by scripts/patch_copy.py (REV_JSON switches; defaults unchanged when switches are off)",
+  "handCalcs": "scripts/geometry_levers.py -> geometry_levers.out.txt (shared bodyPoints geometry, q range, KE)"
+ },
+ "verdictSummary": {
+  "teamVerdict": "8/13 pass, not a usable design",
+  "reviewVerdict": "7/13 pass after correcting one optimistic bug (48 MP camera power/mass omitted): endurance flips PASS->FAIL (45.1 -> 43.3 min) and KE worsens 15.4 -> 16.3 J. Conclusion 'not a usable design' is CONFIRMED and slightly stronger. No failing criterion flips to pass under a fair correction. KE can be flipped to pass by a design lever (tailwind envelope and/or -8 % kite mass), headClear cannot without a stand-off (pole) or a user rule change, and even a relaxed line rule would still fail on tailwind stops.",
+  "flips": [
+   {
+    "criterion": "endurance",
+    "from": "pass 45.14 min",
+    "to": "FAIL 43.29 min (48 MP +0.5 W/+3 g, activetether basis) / 42.16 min (towglider fix48 basis 3.5 W)",
+    "cause": "bug/optimism"
+   },
+   {
+    "criterion": "keMax",
+    "from": "fail 15.36 J",
+    "to": "PASS 13.65 J with a tailwind launch envelope (no launch / retrieve when est. tailwind > 6 m/s), avail cost -3.7 pt (47.4 -> 43.7 %); PASS 14.03 J with kite mass -8 %; PASS 12.40 J with both",
+    "cause": "design lever (not a model correction)"
+   }
+  ]
+ },
+ "findings": [
+  {
+   "id": "RV-01",
+   "severity": "high",
+   "type": "optimistic modelling bug (verdict flip)",
+   "title": "48 MP camera power (+0.5 W) and mass not counted on the pod",
+   "evidence": "design.js CAMERA.src says '48 MP ... same mass as cam4kNoGimbal +0.5 W', but POD_ITEMS uses cam4kNoGimbal (27 g, 2.7 W) only; analysis uses the 8000x6000 sensor for px. towglider fix48 basis is 30 g / 3.5 W. activetether has the same omission (consistent but wrong).",
+   "numbers": {
+    "endurance_min_base": 45.142,
+    "endurance_min_+0.5W+3g": 43.291,
+    "endurance_min_+0.8W+3g": 42.157,
+    "keMax_+3g": 16.326,
+    "keP90_+3g": 14.44,
+    "kiteMass_g": "67.4 -> 70.9"
+   },
+   "verdict": "endurance PASS -> FAIL; KE fails by more (16.3 J). Fix: count the 48 MP module honestly and add ~+20-25 g of pack battery (team's own note) — re-judge; also apply to activetether for fairness."
+  },
+  {
+   "id": "RV-02",
+   "severity": "high",
+   "type": "safety (confirmed, worse than framed)",
+   "title": "Line passes 7.5 cm from the helmet centre in tailwind stops; a split 'line >= X m' rule would not rescue the design",
+   "evidence": "Worst headClear cases are all RETRIEVE in tailwind: tail4.5_s11 0.075 m (39.6 s), tail4.5_s13 0.149, tail5.5_s13 0.212. 13/48 cases have line-to-helmet < 0.5 m (14/48 with corrected camera). The kite is blown over/ahead of the stopping rider and the line crosses the head/neck. With a ~0.13 m helmet radius this is line-on-helmet/neck contact at up to 38 N (weak link) — a laceration/strangulation-class hazard, not a clearance shortfall.",
+   "numbers": {
+    "headLine_min": 0.075,
+    "headLine_p10": 0.249,
+    "casesLineBelow0.5m": 13,
+    "line9m_variant_min": 0.003,
+    "massMinus8_variant_flyer_min": 0.011
+   },
+   "verdict": "BRIEF option (a) 'flyer >=1.0 m unchanged; line >= X m with weak link' fails for any X >= ~0.1 m unless tailwind stop behaviour is redesigned. Must be stated to the user alongside the rule-change option."
+  },
+  {
+   "id": "RV-03",
+   "severity": "high",
+   "type": "safety/rule interpretation",
+   "title": "Flyer >= 1.0 m also fails in most cases at the launch, not only the line",
+   "evidence": "headFlyer < 1.0 m in 48/48 cases (max 0.956 m). The kite starts at the sacrum mouth, |mouth-helmet| = 0.98 m in the shared body model. The analysis draws the OPEN sail outline (0.59 m span) while the sail is still folded (pessimistic); with a folded 0.46 m bundle while collapsed, flyer < 1.0 m still in 36/48 cases (min 0.43 m, p10 0.88).",
+   "numbers": {
+    "headFlyer_min_open_outline": 0.322,
+    "headFlyer_min_bundle": 0.431,
+    "casesFlyerBelow1m_open": 48,
+    "casesFlyerBelow1m_bundle": 36
+   },
+   "verdict": "Pessimistic outline at launch is a real modelling error (fix: draw a folded bundle while collapsed) but it does not flip anything. The flyer part of headClear fails because launch and non-final capture start inside 1 m; only a launch-window exclusion (rule change, user decision) or a stand-off changes this."
+  },
+  {
+   "id": "RV-04",
+   "severity": "medium",
+   "type": "judge-consistency / fairness across concepts",
+   "title": "Camera attitude-drift model differs from activetether (0.2 Hz low-pass vs raw OU)",
+   "evidence": "analysis.js low-passes the drift; activetether keeps the raw 50 Hz OU. Re-run with the activetether model: jitter p90 4.04 -> 6.43 deg/s (calm worse too).",
+   "numbers": {
+    "jitter_p90_lp": 4.04,
+    "jitter_p90_rawOU": 6.433
+   },
+   "verdict": "Physically the low-pass is the more plausible model (team disclosed it), and the sledpack verdict does not flip. But the cross-concept comparison is no longer like-for-like: either re-judge activetether with the same drift model or report sledpack with both. Integrator decision; do not quote 4.0 vs AT-1's 10.5 as a design gain without this caveat."
+  },
+  {
+   "id": "RV-05",
+   "severity": "medium",
+   "type": "rule definition mismatch",
+   "title": "azRange is natural wander, not a 'commandable' span",
+   "evidence": "Criterion: 'p5-p95 span of viewing azimuth deliverable on command'. sledpack has no steering command (activetether has azShot); its 40 deg median is uncontrolled swing (head ~18-20 deg, tail 100-147 deg because the kite swings round the window).",
+   "verdict": "The honest commandable span is ~0 deg; criterion fails more clearly than reported. Large tail-case values must not be presented as a feature."
+  },
+  {
+   "id": "RV-06",
+   "severity": "medium",
+   "type": "packaging inconsistency",
+   "title": "0.50 m sleeve cannot hold pod + 0.457 m spars + drogue cone + 1.2 m tail line + bridle",
+   "evidence": "pod 45 mm + spar length 457 mm = 0.502 m > 0.50 m sleeve (I8 shortened it from 0.60 m); the 0.25 m drogue cone and 1.2 m tail line and both bridles also have to go in. A 0.65-0.70 m sleeve adds 0.42-0.57 L.",
+   "numbers": {
+    "packVol_L_reported": 2.454,
+    "packVol_L_sleeve0.65": 2.88,
+    "packVol_L_sleeve0.70": 3.02
+   },
+   "verdict": "packVol could become marginal/FAIL (3.0 L limit); a 0.70 m spine sleeve also reaches above the shoulder blades toward the helmet. Needs a stow-length budget."
+  },
+  {
+   "id": "RV-07",
+   "severity": "medium",
+   "type": "robustness",
+   "title": "Passing endurance and failing-by-a-little KE are not robust",
+   "evidence": "team sensitivity.json: endurance fails with CD0 +20 % (43.5), wind-bias -2 (43.1), experts (31-41 min); KE 18.1 J on seeds 14-16 and 18.5 J at wind-bias +2. 'Just above 14.9 J' is a single-seed-set statement.",
+   "verdict": "Treat KE as a clear fail (15-23 J range) and endurance as a fail-at-margin until the battery is resized."
+  },
+  {
+   "id": "RV-08",
+   "severity": "medium",
+   "type": "unmodelled physics (likely optimistic)",
+   "title": "Launch extraction, rider wake, tail/line entanglement not modelled",
+   "evidence": "At launch the kite is placed 0.08 m outside the mouth with no sleeve friction/extraction; the skier's turbulent wake (rider at 12 m/s, bundle at 0.1-3 m behind the sacrum) and snow spray are not modelled; drogue tail and three lines from one mouth can twist; tow-in near skis not modelled. Launch success 95.3 % and dock 96.5 % (ASSUMED capture model) are therefore upper-bound-ish.",
+   "verdict": "Keep these numbers labelled as model outputs with assumed sub-models; kill tests listed in REPORT.md are the right ones."
+  },
+  {
+   "id": "RV-09",
+   "severity": "low",
+   "type": "modelling check (refuted as material)",
+   "title": "Sensor-fit check is vacuous (offAx = 0)",
+   "evidence": "analysis.js sets offAx = 0 so the crop is never checked against the pod's real optical axis. Re-run with the crop required to fit the 66 deg sensor around the low-passed line-direction axis: avail 47.37 -> 47.12 %.",
+   "numbers": {
+    "avail_delta_pt": -0.25
+   },
+   "verdict": "Bug in principle, negligible in effect; fix for honesty."
+  },
+  {
+   "id": "RV-10",
+   "severity": "low",
+   "type": "reporting",
+   "title": "collapses metric undercounts emergency flag-outs; MANUAL release and refusal accounting read truth 'riding'",
+   "evidence": "collapses mean 0 while collapseShare mean 0.49 % (max 20 %) — the >30 N emergency flag-out sets collapsed without counting. model.js MODE.MANUAL uses ridingAt() (truth) to finish a manual stow; manual = 0 in all 48 so no judged effect.",
+   "verdict": "No verdict effect; fix for traceability."
+  },
+  {
+   "id": "RV-11",
+   "severity": "low",
+   "type": "check passed",
+   "title": "Shared rules applied as for other concepts",
+   "evidence": "Gates use the shared windEstimate() + noisy GNSS (no oracle); helmet = shared bodyPoints().head; headClear excludes only the last <=3 s of each capture window; KE rider-frame within 1.5 m of helmet/exit, ground frame beyond; artefact rule = shared artefactCounts (>=2 px); avail over col.riding with refusals = 0; reel/depower drum rate- and force-limited; tension/angle/length sensors have noise, bias, latency; tracker uses vision with dropouts + biased geometry. Mild idealisation: the geometry aim estimate uses the true line direction + a fixed bias instead of the noisy measured cM and ignores sag (fused with vision; low impact).",
+   "verdict": "Confirmed compliant apart from RV-01/RV-04/RV-05."
+  },
+  {
+   "id": "RV-12",
+   "severity": "info",
+   "type": "aero plausibility",
+   "title": "Sled polar plausible; drogue tail is an un-depowerable 12 N at 22 m/s",
+   "evidence": "AR 1.73, CLa 2.34/rad (Helmbold), CLmax 1.0, CD0 0.12, e 0.7 -> L/D max of the sail 2.8; with tail CdA 0.05 on S 0.20 (dCD 0.25) the effective L/D at CL ~0.7 is ~1.4 -> ~55 deg line angle, consistent with sled practice (45-60 deg). Tail drag at 22 m/s = 0.5*1.0*22^2*0.05 = 12.1 N of the 35.9 N body-force peak and cannot be depowered. Zero in-flight collapse events in 48 cases with +/-7 m/s lateral carving is optimistic for a single-skin sled (sleds are known to fold in lulls/side-slip); collapse thresholds are ASSUMED.",
+   "verdict": "Coefficients plausible within ASSUMED status; collapse robustness is the weakest aero assumption."
+  }
+ ],
+ "rootCauseClaims": [
+  {
+   "claim": "Line clearance <= |exit - helmet|",
+   "verdict": "CONFIRMED (geometry), but why_pole.py's 0.52-0.69 m understates the SHARED body model: |sacrum mouth - helmet| = 0.97-0.99 m (crouch 0.2-0.6). At the 55 deg filming elevation the line passes 0.82-0.85 m from the helmet; it reaches ~|d| only for a line ~23-25 deg above horizontal behind (perpendicular to the exit-helmet vector). Kite overhead (90 deg) -> 0.37-0.41 m; kite blown forward over the head (110 deg) -> 0.04-0.08 m, which is the actual binding case. 1.0 m at 55 deg needs the exit >= ~0.45 m behind the sacrum (stand-off = a pole) or 0.3 m lower AND 0.3 m further back.",
+   "numbers": "geometry_levers.out.txt"
+  },
+  {
+   "claim": "Dynamic pressure spans ~30x but a sled varies its force coefficient only 3-4x",
+   "verdict": "CONFIRMED in direction. q = 8 Pa (4 m/s) to 242 Pa (22 m/s) = 30x; above the 5.5 m/s gate 16x. With the 14 deg AoA collapse margin the sail resultant coefficient spans only ~2-3x, and the drogue tail adds a non-depowerable 12 N at 22 m/s. Hence 36 N peak against a 38 N weak link."
+  },
+  {
+   "claim": "Tailwind: carving lateral speed dominates the airflow direction",
+   "verdict": "CONFIRMED. At psi 45 deg and 12 m/s the rider's along-track/lateral components are ~8.5/8.5 m/s; in a 6 m/s tailwind the along-track apparent wind falls to ~2.5 m/s and the apparent-wind direction swings ~+/-70 deg each turn. Tail cases avail 32 %, azRange 100-147 deg, all worst headClear cases are tail."
+  },
+  {
+   "claim": "KE floor: the kite moves at least at rider speed",
+   "verdict": "CONFIRMED but not binding: floor 0.5*0.0674*12^2 = 4.9 J (recreational), 8.6 J at 16 m/s. The fails are whip/tailwind ground speed ~21 m/s (cap for 14.9 J at 67.4 g is 21.0 m/s) — mass and envelope are the levers."
+  },
+  {
+   "claim": "bodyPx falls when carving lean is seen from 55 deg above",
+   "verdict": "PLAUSIBLE (bodyPx median 389 passes; <300 px frames are a share of the avail loss). Line length is NOT a lever: 9 m line -> pxMed 340, avail 38.0 %, KE 18.8 J, headClear 0.003 m, endurance 43.0 (all worse)."
+  }
+ ],
+ "missedLevers": [
+  {
+   "lever": "Tailwind operating envelope (no launch / early retrieve when estimated tailwind along the track > 6 m/s)",
+   "status": "SIMULATED on copy",
+   "effect": {
+    "keMax": "15.36 -> 13.65 J PASS",
+    "avail": "47.4 -> 43.7 %",
+    "headClear": "unchanged 0.075 (binding cases are 4.5-5.5 m/s tail)"
+   },
+   "note": "Honest product behaviour; must be disclosed as 'does not fly in strong tailwind'."
+  },
+  {
+   "lever": "Kite mass -8 % (67.4 -> 62 g), e.g. lighter camera module or less margin",
+   "status": "SIMULATED (massScale 0.92)",
+   "effect": {
+    "keMax": "14.03 J PASS (but seeds 14-16 / expert riders would still fail)",
+    "headClear": "0.011 m (worse in one capture case; chaotic)"
+   },
+   "combined_with_envelope": "KE 12.40 J PASS, avail 43.8 %"
+  },
+  {
+   "lever": "Camera on the line below the kite (KAP/Picavet-style pod 1-2 m down the line) instead of at the bridle apex",
+   "status": "HYPOTHESIS (hand calc)",
+   "effect": "Splits the strike bodies: sail+tail 18 g -> 4.1 J at the worst 21.4 m/s; pod 49 g <= 11.3 J even at kite speed (lower in practice, it sits nearer the rider). KE would pass by a wide margin under the shared per-body rule (activetether already judges flyer and pod separately). Picavet also damps pendulum jitter. Costs: line in the onboard view (0.3 mm line at <0.5 m from the lens can exceed 2 px), pod now nearer the head (worse for headClear), docking two bodies."
+  },
+  {
+   "lever": "Narrower lens (e.g. 50 deg instead of 66 deg) on the 48 MP sensor",
+   "status": "HYPOTHESIS",
+   "effect": "~1.3x native px per degree -> allows a lower elevation (~45 deg, less lean-from-above px loss, line clearance 0.91 vs 0.84 m) at the same bodyPx; costs framing margin in carving swing."
+  },
+  {
+   "lever": "Lower flying angle (~45 deg) via bigger tail/bridle trim",
+   "status": "HYPOTHESIS + partly tested by team (I7 tail x1.6 avail 49 %, tail cases worse)",
+   "effect": "Line-at-55 clearance 0.84 -> 0.91 m (still < 1.0); worse clothesline (line <2 m above snow further behind)."
+  },
+  {
+   "lever": "Sleeve mouth lower/further back",
+   "status": "SIMULATED (exitF -0.30, exitU -0.25)",
+   "effect": {
+    "headClear": "0.075 -> 0.166 m (fail)",
+    "flyerBelow1mCases": "48 -> 19",
+    "avail": "48.6 %"
+   },
+   "note": "A 0.13 m rearward stand-off already behaves like a mini-boom and is a chairlift/fall hazard; 1.0 m needs ~0.45 m."
+  },
+  {
+   "lever": "Tailwind-stop strategy: at a stop with est. tailwind, free-spool and let the depowered kite land downwind and to the side (rider stops across the slope) then tow in low, instead of reeling a kite that is above/ahead past the head",
+   "status": "HYPOTHESIS (not simulated)",
+   "effect": "Targets the binding 0.075-0.21 m RETRIEVE cases; geometry: a line running forward-low from the sacrum stays ~0.9-0.95 m from the helmet (still < 1.0 m by the 0.98 m bound)."
+  },
+  {
+   "lever": "Battery +20-25 g (or a real 18650 energy density instead of the shared 150 Wh/kg)",
+   "status": "hand calc",
+   "effect": "+3 Wh -> endurance ~52 min with the corrected camera power; mass 0.60 kg still far below 1.5 kg."
+  },
+  {
+   "lever": "Different soft kite: two-line (or 3-line) steerable foil / parafoil with pack-side steering",
+   "status": "HYPOTHESIS",
+   "effect": "Only lever that creates a COMMANDABLE azimuth (azRange) and actively holds the kite out of the head zone in tailwind stops; a foil has a wider force-coefficient range via brakes (helps RV-12) but launches/docks worse from a sleeve and collapses more easily. Needs its own model."
+  },
+  {
+   "lever": "User-level rule options (user decision, do NOT change shared criteria)",
+   "status": "option for the user",
+   "effect": "headClear split (flyer >= 1.0 m outside launch+capture windows; line >= X m with weak link) — even with it, current design fails because of tailwind stops (RV-02) and launch (RV-03)."
+  }
+ ],
+ "personaPanel": {
+  "label": "SIMULATED personas reasoning from the simulation numbers and the design description — NOT real users, NOT a user test",
+  "personas": [
+   {
+    "id": "beginner",
+    "profile": "2nd-week skier, 6-9 m/s, frequent snow-plough stops, falls",
+    "loves": [
+     "nothing to hold, no pole",
+     "0 hand actions per run",
+     "light 0.57 kg"
+    ],
+    "hates": [
+     "often too slow for the 5.5 m/s apparent-wind gate -> it just stays docked (moguls 4.5 m/s scenario at the gate)",
+     "a kite launching from the sacrum during falls/backward sits",
+     "line near the neck at stops"
+    ],
+    "dealBreakers": [
+     "falling backward onto the Ø120 mm funnel / tangling the line around a fallen body (fall after 6 s not modelled)"
+    ],
+    "mustFix": [
+     "auto-refuse below a skill/speed threshold with a clear 'not flying' indicator",
+     "fall-safe mouth cover and cutter verified"
+    ]
+   },
+   {
+    "id": "intermediate carver",
+    "profile": "the design rider (12 m/s carving, 15 deg slope)",
+    "loves": [
+     "auto launch ~2.9 s, auto dock ~7.5 s",
+     "behind-and-above framing, 389 px median"
+    ],
+    "hates": [
+     "only ~47 % of the run is usable (32 % in tailwind)",
+     "footage jitter ~4 deg/s",
+     "cannot choose the viewing angle"
+    ],
+    "dealBreakers": [
+     "line crossing the head in tailwind stops (0.075 m)"
+    ],
+    "mustFix": [
+     "tailwind envelope + stop strategy",
+     "jitter <= 3 deg/s (Picavet/line-mounted pod or gimbal)"
+    ]
+   },
+   {
+    "id": "expert",
+    "profile": "15-17 m/s, steeper slopes, short turns",
+    "loves": [
+     "no drone rules (unpowered kite)"
+    ],
+    "hates": [
+     "KE 23 J and avail 28-34 % at 15-17 m/s",
+     "endurance 31-41 min",
+     "pull in short turns"
+    ],
+    "dealBreakers": [
+     "strike energy on a crowded piste at speed",
+     "useless in short turns/moguls"
+    ],
+    "mustFix": [
+     "speed-dependent depower/retrieve",
+     "lighter flyer"
+    ]
+   },
+   {
+    "id": "family on a crowded piste",
+    "profile": "parent filming kids at 6-10 m/s, many people around",
+    "loves": [
+     "no hands, no drone noise"
+    ],
+    "hates": [
+     "a 6 m line low behind the rider: below 2 m above the snow >1 m behind the exit for 42 % of airborne riding (81 % in headwind) — clothesline for following skiers/kids",
+     "third-party exposure ~66 s per run"
+    ],
+    "dealBreakers": [
+     "clothesline risk to children behind; resort permission unlikely"
+    ],
+    "mustFix": [
+     "do not fly when people are within X m behind (no sensing modelled)",
+     "hi-vis line + breakaway at very low force for third parties"
+    ]
+   },
+   {
+    "id": "ski tourer",
+    "profile": "long uphill + 10-20 min descents in variable/backcountry wind, carries a real pack",
+    "loves": [
+     "small, light; uphill lockout"
+    ],
+    "hates": [
+     "spine sleeve conflicts with an avalanche backpack/airbag and back protector",
+     "pod cell 0.6 Wh (~8 min at ~3 W cold) vs a 15 min descent with no lift to recharge"
+    ],
+    "dealBreakers": [
+     "cannot coexist with an airbag pack; line entanglement in an avalanche/fall"
+    ],
+    "mustFix": [
+     "clip-on version for the tourer's own pack",
+     "pod energy sized for the longest run, or pack-powered via the line"
+    ]
+   }
+  ],
+  "crossPersonaMustFix": [
+   "head/neck line exposure in tailwind stops",
+   "sacrum mouth vs chairlift seats and backward falls (open, not simulated)",
+   "usable footage ~47 % is far from the 80 % promise",
+   "honest 'won't fly' states (slow, tailwind, crowds)"
+  ]
+ },
+ "copyAudit": {
+  "overall": "Mostly honest: global tag, onboard label, HUD 'scripted values', end disclaimer and a 'still open' block exist. Problems: (1) 'still open' omits two failing criteria (jitter, azRange) and the endurance that fails after RV-01; (2) the facts block titled 'what already works in simulation' mixes design estimates and an ASSUMED capture model and includes a dock rate that FAILS the team's own >=98 % product target; (3) several section titles state untested behaviour as fact ('It knows', 'It docks itself', 'Ski, and it flies'); (4) the KE line minimises ('just above'); (5) the safety nature of the 0.075 m line clearance is not stated.",
+  "fixes": [
+   {
+    "key": "sections.sense.title",
+    "zh_old": "蹬出去，它就知道",
+    "zh_new": "设计目标：蹬出去，它就知道",
+    "en_old": "Push off. It knows.",
+    "en_new": "Designed to know when you push off",
+    "why": "detector runs on synthetic traces only"
+   },
+   {
+    "key": "sections.sense.sub",
+    "zh_new": "惯导 + 卫星定位判定滑行；缆车、排队、上坡时锁定（仿真设想，未实测）",
+    "en_new": "IMU + GNSS to confirm you are skiing; lift, queue and uphill lockouts (simulated concept, not tested)",
+    "why": "queue/uphill lockouts not in the judged ensemble"
+   },
+   {
+    "key": "sections.launch.title/sub",
+    "zh_new": "设计设想：气流把它拉出来 —— 估计相对风 ≥5.5 m/s 才放飞；出套与张开过程未建模、未实测",
+    "en_new": "Concept: the airflow pulls it out — only above ≈5.5 m/s apparent wind; sleeve extraction and opening are not modelled or tested",
+    "why": "kite placed outside the mouth in the model; wake not modelled; launch gate excludes slow skiing"
+   },
+   {
+    "key": "sections.stop.sub",
+    "zh_new": "风筝泄力成低垂拖伞，边滑边收线（顶风/侧风时贴雪面回来；顺风停下时仿真中绳曾从头部附近经过，待解决）",
+    "en_new": "The kite depowers into a low drogue and reels in while you slide (low over the snow in head/cross wind; in tailwind stops the simulated line passed close to the head — unresolved)",
+    "why": "RV-02"
+   },
+   {
+    "key": "sections.dock.title",
+    "zh_old": "自己回到背上",
+    "zh_new": "设计目标：自己回到背上（入套成功率为假设模型）",
+    "en_old": "It docks itself",
+    "en_new": "Designed to dock itself (capture success is an assumed model)",
+    "why": "captureProb is ASSUMED, not physics"
+   },
+   {
+    "key": "sections.stowed.sub",
+    "zh_old": "没有外露的杆和线",
+    "zh_new": "没有外露的杆，线全部收回（腰下有一个漏斗口）",
+    "en_old": "Nothing sticking out, nothing trailing",
+    "en_new": "No pole sticking out, line fully reeled in (a funnel mouth sits at the base)",
+    "why": "Ø120 mm funnel protrudes at the sacrum"
+   },
+   {
+    "key": "sections.facts.title",
+    "zh_old": "仿真里已经做到的",
+    "zh_new": "仿真中达标的项目与设计估算",
+    "en_old": "What already works in simulation",
+    "en_new": "Passing in simulation, plus design estimates",
+    "why": "mass/volume are estimates, dock is an assumed model"
+   },
+   {
+    "key": "sections.facts.items[mass,worn,vol]",
+    "zh_new": "标签后加“（设计估算）”；风筝+吊舱改为 71 g（计入 48 MP 模组功耗/质量后）或保留 67 g 并注明“未计 48 MP 模组增量”",
+    "en_new": "append '(design estimate)'; kite + pod 71 g once the 48 MP module is counted, or keep 67 g with 'excl. 48 MP module increment'",
+    "why": "RV-01, RV-06"
+   },
+   {
+    "key": "sections.facts.items[dock]",
+    "zh_new": "移出“达标”区，放入“仍待攻克”：首次入套 96%（假设捕获模型），产品目标 ≥98%",
+    "en_new": "move to 'Still open': first-try dock 96 % (assumed capture model) vs a ≥98 % product target",
+    "why": "fails index.js dockFirstTry >=98 criterion"
+   },
+   {
+    "key": "sections.facts.footnote",
+    "zh_new": "数值来自未经标定的数值仿真（48 种风况、一种中级滑雪者速度），不是实测；部分子模型为假设。",
+    "en_new": "Numbers from uncalibrated numerical simulation (48 wind cases, one intermediate rider profile), not measurements; some sub-models are assumed.",
+    "why": "experts degrade sharply"
+   },
+   {
+    "key": "sections.facts.dev.items (add)",
+    "zh_new": [
+     "画面抖动：仿真约 4.0 °/s，目标 ≤3 °/s",
+     "可选观察方位：风筝不可转向，目标 ≥45° 未达到",
+     "续航：计入 48 MP 相机功耗后约 43 分钟，低于 45 分钟目标",
+     "高手速度（15–17 m/s）时可用画面约 28–34%，动能约 23 J"
+    ],
+    "en_new": [
+     "Jitter: ≈4.0 °/s in simulation vs a ≤3 °/s target",
+     "Viewing angle cannot be commanded (kite is not steerable); ≥45° target not met",
+     "Endurance ≈43 min once the 48 MP camera power is counted, below the 45 min target",
+     "At expert speeds (15–17 m/s) usable footage ≈28–34 %, strike energy ≈23 J"
+    ],
+    "why": "promo_facts doNotClaim lists jitter and azRange as failing; copy omits them"
+   },
+   {
+    "key": "sections.facts.dev.items[clearance]",
+    "zh_new": "线与风筝到头部的净距：仿真最小 0.075 m（顺风停下时绳从头部附近经过），规则要求 ≥1 m —— 安全问题，未解决",
+    "en_new": "Line/kite clearance to the head: 0.075 m minimum in simulation (in tailwind stops the line passes by the head); the rule asks ≥1 m — an unresolved safety issue",
+    "why": "RV-02"
+   },
+   {
+    "key": "sections.facts.dev.items[KE]",
+    "zh_old": "最大撞击动能 15.4 J，略高于 14.9 J 上限",
+    "zh_new": "最大撞击动能 15.4–18 J（不同随机种子），高于 14.9 J 上限",
+    "en_old": "Peak strike energy 15.4 J, just above the 14.9 J limit",
+    "en_new": "Peak strike energy 15.4–18 J across seeds, above the 14.9 J limit",
+    "why": "RV-07"
+   },
+   {
+    "key": "sections.end.sub",
+    "zh_old": "背着走，滑起来就飞，停下就回家",
+    "zh_new": "设计目标：背着走，滑起来就飞，停下就回家",
+    "en_old": "Wear it. Ski, and it flies. Stop, and it comes home.",
+    "en_new": "The goal: wear it, ski, and it flies; stop, and it comes home.",
+    "why": "flies ~47 % of riding time in simulation and not when slow"
+   },
+   {
+    "key": "sections.end.disclaimer (append)",
+    "zh_new": "……尚未进行任何实物试验。13 项判定指标中仿真达标 7–8 项，尚不是可用设计。",
+    "en_new": "... no physical tests have been run. It meets 7–8 of 13 criteria in simulation and is not yet a usable design.",
+    "why": "a promo must not imply the concept is ready"
+   }
+  ]
+ },
+ "recommendedDesignChanges": [
+  "1. Fix RV-01 (48 MP power/mass) and add ~20-25 g of pack battery; re-run and re-judge (also activetether).",
+  "2. Tailwind envelope (no launch / early retrieve at est. tailwind > ~6 m/s) + a tailwind-stop strategy that never reels a high/forward kite past the head; disclose 'does not fly in strong tailwind'. Envelope alone flips KE (13.6 J) at -3.7 pt avail.",
+  "3. Evaluate a line-mounted camera pod (KAP/Picavet) below a ~18 g sled: separates strike bodies (KE ~4 J sail / <=11 J pod) and damps jitter — needs a model.",
+  "4. Fix the stow-length budget (sleeve >= 0.65-0.70 m or a shorter/foldable tail) and re-check packVol and the sleeve top vs the helmet.",
+  "5. Report to the user, as options not decisions: headClear cannot pass without a ~0.45 m stand-off; a split rule still fails until RV-02/RV-03 are fixed; azRange is ~0 commandable without a steerable (multi-line) kite.",
+  "6. Make the drift model the same across concepts (RV-04) before any cross-concept comparison is shown to the user."
+ ],
+ "files": {
+  "report": "research/sledpack_2026_10_21/review/report.json",
+  "scripts": [
+   "research/sledpack_2026_10_21/review/scripts/patch_copy.py",
+   "research/sledpack_2026_10_21/review/scripts/rev_ens.mjs",
+   "research/sledpack_2026_10_21/review/scripts/run_variants.sh",
+   "research/sledpack_2026_10_21/review/scripts/geometry_levers.py"
+  ],
+  "data": [
+   "research/sledpack_2026_10_21/review/baseline_repro.json",
+   "research/sledpack_2026_10_21/review/variants.jsonl",
+   "research/sledpack_2026_10_21/review/geometry_levers.out.txt"
+  ]
+ }
+}

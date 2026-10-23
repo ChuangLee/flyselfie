@@ -1,0 +1,690 @@
+{
+ "generated": "2026-10-20T07:46:55.772Z",
+ "simCopy": "/tmp/claude-0/-root-ai-workspace-flySelfie/c2f81e22-e51a-458b-a273-915c6aba65e2/scratchpad/k2copy",
+ "modelVersion": "kite2@2.0.0",
+ "rerun": {
+  "cases": 39,
+  "maxAbsDiff": 0,
+  "diffs": [],
+  "metrics": {
+   "avail": {
+    "mean": 87.98,
+    "p10": 83.47,
+    "p90": 94.88,
+    "min": 53.21,
+    "max": 95.99,
+    "n": 39
+   },
+   "setupTime": {
+    "mean": 14.16,
+    "p10": 6.83,
+    "p90": 23.91,
+    "min": 6.83,
+    "max": 38.81,
+    "n": 39
+   },
+   "ops": {
+    "mean": 1.38,
+    "p10": 1,
+    "p90": 2,
+    "min": 1,
+    "max": 3,
+    "n": 39
+   },
+   "bodyForcePeak": {
+    "mean": 21.38,
+    "p10": 15.29,
+    "p90": 27.3,
+    "min": 14.58,
+    "max": 30.35,
+    "n": 39
+   },
+   "keMax": {
+    "mean": 12.76,
+    "p10": 11.48,
+    "p90": 13.8,
+    "min": 11.18,
+    "max": 14.73,
+    "n": 39
+   },
+   "endurance": {
+    "mean": 85.42,
+    "p10": 75.28,
+    "p90": 96.14,
+    "min": 60.03,
+    "max": 103.38,
+    "n": 39
+   },
+   "pxMed": {
+    "mean": 511.7,
+    "p10": 502.09,
+    "p90": 521.32,
+    "min": 497.71,
+    "max": 526.14,
+    "n": 39
+   },
+   "jitterRms": {
+    "mean": 0.85,
+    "p10": 0.67,
+    "p90": 1.11,
+    "min": 0.63,
+    "max": 1.62,
+    "n": 39
+   },
+   "viewElev": {
+    "mean": 42.63,
+    "p10": 40.16,
+    "p90": 44.91,
+    "min": 37.84,
+    "max": 47.88,
+    "n": 39
+   },
+   "lineH1min": {
+    "mean": 1.25,
+    "p10": 0.95,
+    "p90": 1.47,
+    "min": 0.91,
+    "max": 1.52,
+    "n": 39
+   },
+   "collapses": {
+    "mean": 0.69,
+    "p10": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 7,
+    "n": 39
+   },
+   "manual": {
+    "mean": 0.38,
+    "p10": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 2,
+    "n": 39
+   }
+  }
+ },
+ "spot": [
+  {
+   "id": "calm_s11",
+   "U": 0,
+   "dir": "calm",
+   "recomputed": {
+    "availRiding": 81.439,
+    "availSpeedGt2NoSettle": 82.281,
+    "keMax": 12.543,
+    "keMaxExclStow": 12.543,
+    "bodyForce50ms": 17.942,
+    "tensionRawMax": 66.771,
+    "ops": 1,
+    "setupTime": 6.874,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 44.49,
+      "waitS": 4.89,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 99.074,
+      "waitS": 4.874,
+      "counted": 4.874
+     }
+    ],
+    "manual": 0,
+    "endurance": 95.587,
+    "enduranceNoRegenCredit": 89.832,
+    "pMeanW": 4.682,
+    "packG": 80,
+    "landedEvents": 3,
+    "reliftEvents": 3,
+    "landedWhileRidingS": 2.1,
+    "collapses": 0,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 0.441,
+    "backgroundRms": 0.919,
+    "samples": 3187,
+    "fullrunResultAvail": 84.136
+   },
+   "claimed": {
+    "avail": 84.136,
+    "setupTime": 6.834,
+    "ops": 1,
+    "bodyForcePeak": 26.708,
+    "keMax": 12.543,
+    "endurance": 95.587,
+    "manual": 0,
+    "landed": 3,
+    "collapses": 0
+   }
+  },
+  {
+   "id": "head3_s13",
+   "U": 3,
+   "dir": "head",
+   "recomputed": {
+    "availRiding": 91.083,
+    "availSpeedGt2NoSettle": 92.025,
+    "keMax": 12.308,
+    "keMaxExclStow": 12.308,
+    "bodyForce50ms": 15.294,
+    "tensionRawMax": 15.864,
+    "ops": 1,
+    "setupTime": 8.792,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 45.354,
+      "waitS": 5.754,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 100.992,
+      "waitS": 6.792,
+      "counted": 6.792
+     }
+    ],
+    "manual": 0,
+    "endurance": 84.991,
+    "enduranceNoRegenCredit": 79.505,
+    "pMeanW": 5.341,
+    "packG": 80,
+    "landedEvents": 0,
+    "reliftEvents": 0,
+    "landedWhileRidingS": 0,
+    "collapses": 0,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 0.443,
+    "backgroundRms": 0.796,
+    "samples": 3456,
+    "fullrunResultAvail": 94.1
+   },
+   "claimed": {
+    "avail": 94.1,
+    "setupTime": 8.752,
+    "ops": 1,
+    "bodyForcePeak": 15.295,
+    "keMax": 12.308,
+    "endurance": 84.991,
+    "manual": 0,
+    "landed": 0,
+    "collapses": 0
+   }
+  },
+  {
+   "id": "tail3_s12",
+   "U": 3,
+   "dir": "tail",
+   "recomputed": {
+    "availRiding": 82.813,
+    "availSpeedGt2NoSettle": 83.669,
+    "keMax": 12.901,
+    "keMaxExclStow": 12.901,
+    "bodyForce50ms": 16.489,
+    "tensionRawMax": 37.56,
+    "ops": 3,
+    "setupTime": 38.85,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 51.942,
+      "waitS": 12.342,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 101.05,
+      "waitS": 6.85,
+      "counted": 6.85
+     }
+    ],
+    "manual": 2,
+    "endurance": 87.766,
+    "enduranceNoRegenCredit": 83.49,
+    "pMeanW": 5.153,
+    "packG": 80,
+    "landedEvents": 2,
+    "reliftEvents": 0,
+    "landedWhileRidingS": 0,
+    "collapses": 2,
+    "redock": 3
+   },
+   "footageStability": {
+    "subjectRms": 0.503,
+    "backgroundRms": 1.006,
+    "samples": 3355,
+    "fullrunResultAvail": 85.555
+   },
+   "claimed": {
+    "avail": 85.555,
+    "setupTime": 38.81,
+    "ops": 3,
+    "bodyForcePeak": 16.473,
+    "keMax": 12.901,
+    "endurance": 87.766,
+    "manual": 2,
+    "landed": 2,
+    "collapses": 2
+   }
+  },
+  {
+   "id": "crossL3_s11",
+   "U": 3,
+   "dir": "crossL",
+   "recomputed": {
+    "availRiding": 85.911,
+    "availSpeedGt2NoSettle": 86.799,
+    "keMax": 13.098,
+    "keMaxExclStow": 13.098,
+    "bodyForce50ms": 16.691,
+    "tensionRawMax": 63.683,
+    "ops": 2,
+    "setupTime": 23.828,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 45.208,
+      "waitS": 5.608,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 101.028,
+      "waitS": 6.828,
+      "counted": 6.828
+     }
+    ],
+    "manual": 1,
+    "endurance": 91.614,
+    "enduranceNoRegenCredit": 86.631,
+    "pMeanW": 4.911,
+    "packG": 80,
+    "landedEvents": 2,
+    "reliftEvents": 1,
+    "landedWhileRidingS": 0.72,
+    "collapses": 1,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 0.677,
+    "backgroundRms": 1.185,
+    "samples": 3304,
+    "fullrunResultAvail": 88.756
+   },
+   "claimed": {
+    "avail": 88.756,
+    "setupTime": 23.788,
+    "ops": 2,
+    "bodyForcePeak": 25.473,
+    "keMax": 13.098,
+    "endurance": 91.614,
+    "manual": 1,
+    "landed": 2,
+    "collapses": 1
+   }
+  },
+  {
+   "id": "tail6_s13",
+   "U": 6,
+   "dir": "tail",
+   "recomputed": {
+    "availRiding": 78.179,
+    "availSpeedGt2NoSettle": 78.987,
+    "keMax": 12.135,
+    "keMaxExclStow": 12.135,
+    "bodyForce50ms": 19.124,
+    "tensionRawMax": 68.245,
+    "ops": 3,
+    "setupTime": 38.85,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 46.116,
+      "waitS": 6.516,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 101.05,
+      "waitS": 6.85,
+      "counted": 6.85
+     }
+    ],
+    "manual": 2,
+    "endurance": 102.983,
+    "enduranceNoRegenCredit": 98.635,
+    "pMeanW": 4.303,
+    "packG": 80,
+    "landedEvents": 4,
+    "reliftEvents": 2,
+    "landedWhileRidingS": 1.4,
+    "collapses": 2,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 1.067,
+    "backgroundRms": 1.513,
+    "samples": 2946,
+    "fullrunResultAvail": 80.768
+   },
+   "claimed": {
+    "avail": 80.768,
+    "setupTime": 38.81,
+    "ops": 3,
+    "bodyForcePeak": 27.298,
+    "keMax": 12.135,
+    "endurance": 102.983,
+    "manual": 2,
+    "landed": 4,
+    "collapses": 2
+   }
+  },
+  {
+   "id": "crossR6_s12",
+   "U": 6,
+   "dir": "crossR",
+   "recomputed": {
+    "availRiding": 86.853,
+    "availSpeedGt2NoSettle": 87.752,
+    "keMax": 12.285,
+    "keMaxExclStow": 12.285,
+    "bodyForce50ms": 17.359,
+    "tensionRawMax": 18.83,
+    "ops": 1,
+    "setupTime": 8.97,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 46.618,
+      "waitS": 7.018,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 101.17,
+      "waitS": 6.97,
+      "counted": 6.97
+     }
+    ],
+    "manual": 0,
+    "endurance": 83.34,
+    "enduranceNoRegenCredit": 77.844,
+    "pMeanW": 5.458,
+    "packG": 80,
+    "landedEvents": 0,
+    "reliftEvents": 0,
+    "landedWhileRidingS": 0,
+    "collapses": 0,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 0.558,
+    "backgroundRms": 1.038,
+    "samples": 3442,
+    "fullrunResultAvail": 89.73
+   },
+   "claimed": {
+    "avail": 89.73,
+    "setupTime": 8.93,
+    "ops": 1,
+    "bodyForcePeak": 17.344,
+    "keMax": 12.285,
+    "endurance": 83.34,
+    "manual": 0,
+    "landed": 0,
+    "collapses": 0
+   }
+  },
+  {
+   "id": "head9_s12",
+   "U": 9,
+   "dir": "head",
+   "recomputed": {
+    "availRiding": 92.08,
+    "availSpeedGt2NoSettle": 93.032,
+    "keMax": 11.637,
+    "keMaxExclStow": 11.637,
+    "bodyForce50ms": 30.351,
+    "tensionRawMax": 30.893,
+    "ops": 1,
+    "setupTime": 9.004,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 46.662,
+      "waitS": 7.062,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 101.204,
+      "waitS": 7.004,
+      "counted": 7.004
+     }
+    ],
+    "manual": 0,
+    "endurance": 61.805,
+    "enduranceNoRegenCredit": 55.333,
+    "pMeanW": 7.569,
+    "packG": 80,
+    "landedEvents": 0,
+    "reliftEvents": 0,
+    "landedWhileRidingS": 0,
+    "collapses": 0,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 0.952,
+    "backgroundRms": 1.24,
+    "samples": 3460,
+    "fullrunResultAvail": 95.102
+   },
+   "claimed": {
+    "avail": 95.102,
+    "setupTime": 8.964,
+    "ops": 1,
+    "bodyForcePeak": 30.346,
+    "keMax": 11.637,
+    "endurance": 61.805,
+    "manual": 0,
+    "landed": 0,
+    "collapses": 0
+   }
+  },
+  {
+   "id": "tail9_s12",
+   "U": 9,
+   "dir": "tail",
+   "recomputed": {
+    "availRiding": 51.509,
+    "availSpeedGt2NoSettle": 52.041,
+    "keMax": 14.234,
+    "keMaxExclStow": 14.234,
+    "bodyForce50ms": 18.913,
+    "tensionRawMax": 37.826,
+    "ops": 2,
+    "setupTime": 23.99,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 46.056,
+      "waitS": 6.456,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 101.19,
+      "waitS": 6.99,
+      "counted": 6.99
+     }
+    ],
+    "manual": 1,
+    "endurance": 95.907,
+    "enduranceNoRegenCredit": 91.034,
+    "pMeanW": 4.664,
+    "packG": 80,
+    "landedEvents": 1,
+    "reliftEvents": 0,
+    "landedWhileRidingS": 0,
+    "collapses": 7,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 1.941,
+    "backgroundRms": 1.707,
+    "samples": 1869,
+    "fullrunResultAvail": 53.215
+   },
+   "claimed": {
+    "avail": 53.215,
+    "setupTime": 23.95,
+    "ops": 2,
+    "bodyForcePeak": 15.13,
+    "keMax": 14.234,
+    "endurance": 95.907,
+    "manual": 1,
+    "landed": 1,
+    "collapses": 7
+   }
+  },
+  {
+   "id": "tail9_s13",
+   "U": 9,
+   "dir": "tail",
+   "recomputed": {
+    "availRiding": 71.175,
+    "availSpeedGt2NoSettle": 71.911,
+    "keMax": 11.179,
+    "keMaxExclStow": 11.179,
+    "bodyForce50ms": 29.139,
+    "tensionRawMax": 49.542,
+    "ops": 1,
+    "setupTime": 8.768,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 46.478,
+      "waitS": 6.878,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 100.968,
+      "waitS": 6.768,
+      "counted": 6.768
+     }
+    ],
+    "manual": 0,
+    "endurance": 96.144,
+    "enduranceNoRegenCredit": 92.025,
+    "pMeanW": 4.651,
+    "packG": 80,
+    "landedEvents": 0,
+    "reliftEvents": 0,
+    "landedWhileRidingS": 0,
+    "collapses": 2,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 0.819,
+    "backgroundRms": 1.374,
+    "samples": 2704,
+    "fullrunResultAvail": 73.532
+   },
+   "claimed": {
+    "avail": 73.532,
+    "setupTime": 8.728,
+    "ops": 1,
+    "bodyForcePeak": 27.336,
+    "keMax": 11.179,
+    "endurance": 96.144,
+    "manual": 0,
+    "landed": 0,
+    "collapses": 2
+   }
+  },
+  {
+   "id": "crossL9_s12",
+   "U": 9,
+   "dir": "crossL",
+   "recomputed": {
+    "availRiding": 81.034,
+    "availSpeedGt2NoSettle": 81.873,
+    "keMax": 14.164,
+    "keMaxExclStow": 14.164,
+    "bodyForce50ms": 19.321,
+    "tensionRawMax": 28.446,
+    "ops": 1,
+    "setupTime": 8.958,
+    "stops": [
+     {
+      "t0": 39.6,
+      "t1": 59.6,
+      "stowT": 46.59,
+      "waitS": 6.99,
+      "counted": 0
+     },
+     {
+      "t0": 94.2,
+      "t1": 104.2,
+      "stowT": 101.158,
+      "waitS": 6.958,
+      "counted": 6.958
+     }
+    ],
+    "manual": 0,
+    "endurance": 78.797,
+    "enduranceNoRegenCredit": 69.486,
+    "pMeanW": 5.808,
+    "packG": 80,
+    "landedEvents": 0,
+    "reliftEvents": 0,
+    "landedWhileRidingS": 0,
+    "collapses": 0,
+    "redock": 0
+   },
+   "footageStability": {
+    "subjectRms": 0.839,
+    "backgroundRms": 1.266,
+    "samples": 3379,
+    "fullrunResultAvail": 83.718
+   },
+   "claimed": {
+    "avail": 83.718,
+    "setupTime": 8.918,
+    "ops": 1,
+    "bodyForcePeak": 19.322,
+    "keMax": 14.164,
+    "endurance": 78.797,
+    "manual": 0,
+    "landed": 0,
+    "collapses": 0
+   }
+  }
+ ]
+}

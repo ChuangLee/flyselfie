@@ -1,0 +1,31 @@
+--- /root/ai-workspace/flySelfie/sim/js/concepts/activetether/index.js	2026-10-20 21:26:55.246178263 -0700
++++ js/concepts/activetether/index.js	2026-10-20 22:19:48.619897140 -0700
+@@ -77,6 +77,19 @@
+     expect: { zh: '变体对比（同一标准工况）。', en: 'Variant comparison (same nominal case).' } },
+ ];
+ 
++
++const UT_BEG = { style: 'short', slopeDeg: 10, vTarget: 5, v0: 5, turnPeriod: 3.2, turnAmpDeg: 35, mu: 0.07 };
++const UT_BEG7 = { ...UT_BEG, vTarget: 7, v0: 7, slopeDeg: 12 };
++const UT_FAM = { style: 'carve', slopeDeg: 12, vTarget: 6.5, v0: 6.5, turnPeriod: 3.4, turnAmpDeg: 40 };
++const UT_EXP = { style: 'carve', slopeDeg: 25, vTarget: 15, v0: 15, turnPeriod: 2.9, turnAmpDeg: 50 };
++SCEN.push(
++  { id: 'ut_beg5', zh: 'UT P1 5 m/s', en: 'UT P1 beginner 5 m/s calm', rider: 'run', caseObj: { id: 'c', U: 0, dir: 'calm', mean: [0, 0, 0], seed: 11 }, plan: [{ ride: 25, skier: UT_BEG }, { hold: 15 }, { ride: 20, skier: UT_BEG }, { hold: 5 }, { ride: 30, skier: UT_BEG }, { hold: 30 }], expect: { zh: '', en: '' } },
++  { id: 'ut_beg7', zh: 'UT P1 7 m/s', en: 'UT P1 beginner 7 m/s calm', rider: 'run', caseObj: { id: 'c', U: 0, dir: 'calm', mean: [0, 0, 0], seed: 13 }, plan: [{ ride: 25, skier: UT_BEG7 }, { hold: 15 }, { ride: 20, skier: UT_BEG7 }, { hold: 5 }, { ride: 30, skier: UT_BEG7 }, { hold: 30 }], expect: { zh: '', en: '' } },
++  { id: 'ut_fam', zh: 'UT P4', en: 'UT P4 family 6.5 m/s head 3', rider: 'run', caseObj: { id: 'c', U: 3, dir: 'head', mean: [-3, 0, 0], seed: 13 }, plan: [{ ride: 20, skier: UT_FAM }, { hold: 8 }, { ride: 18, skier: UT_FAM }, { hold: 20 }, { ride: 22, skier: UT_FAM }, { hold: 6 }, { ride: 20, skier: UT_FAM }, { hold: 25 }], expect: { zh: '', en: '' } },
++  { id: 'ut_stop10', zh: 'UT T05', en: 'UT T05 stop 10 s and go (head 3)', rider: 'run', caseObj: { id: 'c', U: 3, dir: 'head', mean: [-3, 0, 0], seed: 12 }, plan: [{ ride: 38, preset: 'recreationalCarve' }, { hold: 10 }, { ride: 33, preset: 'recreationalCarve' }, { hold: 25 }], expect: { zh: '', en: '' } },
++  { id: 'ut_exp15', zh: 'UT P3', en: 'UT P3 expert 15 m/s calm', rider: 'run', caseObj: { id: 'c', U: 0, dir: 'calm', mean: [0, 0, 0], seed: 13 }, plan: [{ ride: 40, skier: UT_EXP }, { hold: 25 }], expect: { zh: '', en: '' } },
++);
++
+ // a downloading chairlift: the pack moves down the fall line at 5 m/s, 6 m above the snow, seated, no chatter
+ function chairRun(dur) {
+   const sampleDt = SDT, n = Math.floor(dur / sampleDt) + 1, tanS = Math.tan((15 * Math.PI) / 180);
+@@ -91,7 +104,7 @@
+   let sk, wind = sc.wind, detTrace = null, caseSeed = 7;
+   if (sc.rider === 'run') {
+     const c = sc.caseObj || FR(sc.case);
+-    sk = simulateRun({ seed: c.seed, plan: PLAN_R4 }); wind = caseWind(c); caseSeed = c.seed;
++    sk = simulateRun({ seed: c.seed, plan: sc.plan || PLAN_R4 }); wind = caseWind(c); caseSeed = c.seed;
+   } else if (sc.rider === 'fall') sk = simulateSkier({ duration: sc.dur + 1, seed: 3, fallAt: 12, ...(sc.skier || {}) });
+   else if (sc.rider === 'chair') { const ch = chairRun(sc.dur + 0.5); sk = ch.sk; detTrace = ch.tr; }
+   else sk = simulateSkier({ start: 'push', v0: 0, duration: (sc.dur ?? 31) + 1, seed: 2, ...(sc.skier || {}) });

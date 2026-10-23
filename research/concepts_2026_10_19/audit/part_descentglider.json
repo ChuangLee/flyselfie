@@ -1,0 +1,244 @@
+{
+ "concept": "descentglider",
+ "generated": "2026-10-19",
+ "evidence": "audit of a numerical-uncalibrated simulation plus desk research; not a physical test",
+ "scripts": [
+  "check_descentglider.mjs",
+  "rerun_descentglider/run_all.mjs"
+ ],
+ "outputs": [
+  "out_descentglider.json",
+  "rerun_descentglider/results.json"
+ ],
+ "filesUnchangedDuringAudit": true,
+ "findings": [
+  {
+   "id": "DG-01",
+   "concept": "descentglider",
+   "severity": "major",
+   "claim": "8.5 Wh battery weighs 22 g (380 Wh/kg at pack level), giving a 124 g flying mass and 50.5 min endurance at -10 C.",
+   "evidence": "380 Wh/kg pack level is better than any small cell shipping today. Amprius SiCore is 370 Wh/kg at cell level (2025) and 500 Wh/kg is announced for Q4 2026 in sUAS pouch formats (https://dronelife.com/2026/09/02/amprius-drone-battery-longer-flights-500-wh-kg/ , https://www.militaryaerospace.com/power/article/55261937/amprius-unveils-high-energy-sicore-battery-cell-for-aviation-and-electric-mobility); neither is a ~1.2 Ah micro pack. Real micro 2S LiPo: 520 mAh = 3.85 Wh at 33 g, about 117 Wh/kg (https://www.fpv24.com/en/boslipo/boslipo-p7-battery-520mah-74v-2s-95c-lipo-battery-with-xt30-plug). Audit runs: the same 22 g at 200 Wh/kg gives 4.5 Wh and nominal endurance 26.2 min (claimed 50.5, fail). Keeping 8.5 Wh at 200 Wh/kg gives a 144.5 g aircraft. Its KE-cap speed drops from 14.24 to 13.21 m/s, so nominal avail falls to 79.9 % and full-cycle avail to 24.0 % (claimed 65). At 150 Wh/kg (158.7 g) nominal avail is 43.7 % and cycle avail 2.9 %.",
+   "recommendedFix": "Use 200-250 Wh/kg (best small Li-ion/Si pouch, ASSUMED) as the base case and keep 380 as an upside variant. Re-close the loop between mass, KE cap and endurance.",
+   "fixable": "yes"
+  },
+  {
+   "id": "DG-02",
+   "concept": "descentglider",
+   "severity": "major",
+   "claim": "A gravity-paid follow with autonomous relaunch from the snow catches up with the rider (2-4 s, or 8-12 s at full speed).",
+   "evidence": "The ground-speed cap 0.92*sqrt(2*14.9/m) is only about 2 m/s above a 12 m/s rider. After a launch from standstill the glider closes the gap at about 1 m/s, so catch-up depends on mass. Cycle (2 m/s wind) avail with extra mass: +0 g 65.2 %, +10 g 51.7 %, +20 g 24.3 %, +28 g 5.5 % (pxMed 359 -> 198 px). With the audit's realistic build (152.5 g, 3.3 W avionics, FoM*eta 0.35) nominal avail is 64.1 %, cycle avail 5.4 %, stop avail 50.4 % and gust avail 56.2 %. The 14.9 J line is a project criterion (FAA Part 107 Cat 2 analogue), not a legal limit for a sub-250 g C0 aircraft.",
+   "recommendedFix": "Choose one of three: (a) a mass budget of 125 g or less that is actually achievable, (b) a justified KE allowance during catch-up only (e.g. ≤25 J when more than 10 m from anyone, with ranging), or (c) accept that the first 10-20 s after each launch or stop is lost and count it. Report avail on the full cycle, not on the 30 s nominal.",
+   "fixable": "yes"
+  },
+  {
+   "id": "DG-03",
+   "concept": "descentglider",
+   "severity": "major",
+   "claim": "Standstill per run is 17 s (90th percentile over 0-9 m/s wind) and ops = 2.",
+   "evidence": "SETUP_SWEEP = 17 comes from three hand-picked cycles: 2 m/s, 5 m/s seed 6, and 9 m/s blowing UP-slope/cross ([-6, 6.7]), which avoids the tailwind abort. The audit swept 51 full cycles (0/3/5/7/9 m/s x tail/cross/head/diagonal-tail x 3 seeds). setupTime p90 under the concept's own rule is 34 s (fail ≤30). With recovery of tipped or off-track gliders counted (+15 s for righting, +60 s for walking to an off-track landing, both ASSUMED) it is 109 s. ops > 2 in 33 % of runs. Every run with a tailwind component of about 5 m/s or more aborts (avail 0-13 %). The full-cycle avail median is 55.7 % and only 8 % of cycles reach 80 %. The palm launch (used above ~6 m/s) passes the props within 0.5 m of the helmet in 6/24 windy cycles, including the claimed cycle_w9 at 0.14 m.",
+   "recommendedFix": "Report setupTime/ops as the p90 over a direction-randomised wind sweep, including recovery. Fix the palm-launch geometry (arm's-length side release or ground plant only). State the tailwind ≤5 m/s envelope as a hard limit.",
+   "fixable": "partly (tailwind window is physics: 1.3 Vs to KE-cap airspeed)"
+  },
+  {
+   "id": "DG-04",
+   "concept": "descentglider",
+   "severity": "major",
+   "claim": "The nominal scenario (12/12 pass) represents the product.",
+   "evidence": "Nominal is 30 s and starts already in follow mode (2 s settle discarded). It has no launch, stop or landing and uses light 2 m/s wind; it is the only scenario family where avail ≥80 is robust (12 seeds: 85.4-88.4 %). Realistic sequences fail avail under the concept's own model: stop 59.9-63.1 % over 12 seeds (0/12 pass), short turns 73-75 %, moguls 66 %, trees 78 %, cycle 65 % / cycle_w5 71 % (12 seeds: 4.9-74.5 %, ops 3 in 3/12) / cycle_w9 54 %, fast (18 m/s) 9 %, steep 26° at 14 m/s 10 %, tailwind 6 m/s 4.7 %. Endurance passes only in light wind: gust 33.7 (12 seeds 26-33.7), headwind 23.5, stop_windy 24.7, cycle_w9 18.6 min.",
+   "recommendedFix": "Make the full cycle (plant, launch, follow with 1-2 stops, land) the headline scenario. Quote the envelope rather than the 12/12 nominal.",
+   "fixable": "yes (reporting)"
+  },
+  {
+   "id": "DG-05",
+   "concept": "descentglider",
+   "severity": "major",
+   "claim": "Endurance 50.5 min at -10 C includes the per-run hover phases.",
+   "evidence": "Formula: Euse = 8.5 Wh*0.75*0.85 = 19.5 kJ over (pFollow*150 s + 334 J). It assumes 150 filmed s and exactly one mid-run perch per run. Perched and landed camera time (0.85*2.6 W) is excluded. Hover uses FoM*eta = 0.5 (14.6 W). Recomputed: two stops per run gives 44.5 min; two stops with FoM*eta 0.35 (20.9 W hover, typical of 4-inch micro props with 1103-class motors) gives 37.7 min. Camera at 3.3 W: nominal 45.6, stop 40.4 min. dt is not converged (pFollow 4.21 -> 3.54 W from dt 4 -> 1 ms). That error is in the conservative direction (+12 % endurance).",
+   "recommendedFix": "Count the stops per run from a realistic run profile (2-4). Use FoM*eta 0.35-0.4. Include camera-on standstill time. Use dt ≤2 ms for the energy ledger.",
+   "fixable": "yes"
+  },
+  {
+   "id": "DG-06",
+   "concept": "descentglider",
+   "severity": "major",
+   "claim": "Mass budget: 4K pan-tilt ball camera 18 g at 1.6 W; FC/IMU/GNSS/UWB/radio/ToF 10 g at 0.7 W; 2x 1103 + ESC + 4-inch folding props 17 g giving 2.6 N static.",
+   "evidence": "RunCam Thumb Pro 4K is 16 g and 2.5 W max (500 mA at 5 V) with no gimbal (https://www.getfpv.com/runcam-thumb-pro-4k-hd-action-camera-wide-fov.html). Thumb 2 is 27 g and 3.5 W max (https://www.getfpv.com/runcam-thumb-2-4k-hd-action-camera.html). A 2-axis pan-tilt adds about 6-10 g. Subject tracking on 4K plus 12 m forward ranging (e.g. a TFmini-class lidar about 5 g) needs a vision SoC that is not in the budget (+5-10 g, +1-2 W). The 1103 is a 2-inch-class motor: Sub250 1103 14000KV gives about 101 g at 70 % on a 1.6-inch tri-blade at 1.74 g/W (https://rcdrone.top/products/sub250-1103-14000kv-motor). 4-inch folding props need a 1404-class motor (about +8 g total). Audit estimate: 155-170 g with an 8.5 Wh pack at 200 Wh/kg. That is still under 250 g (C0), but see DG-01/DG-02.",
+   "recommendedFix": "Rebuild the mass and power budget from datasheet parts, including a vision/ranging compute line item, and rerun at the resulting mass.",
+   "fixable": "yes"
+  },
+  {
+   "id": "DG-07",
+   "concept": "descentglider",
+   "severity": "minor",
+   "claim": "Aero: L/D_max 7.9 (spread) / 6.7 (swept), CLmax 1.0 / 0.8, stall 6.2 / 9.2 m/s.",
+   "evidence": "Recomputed exactly: AR 6.41, e 0.75, CD0 0.060, L/D_max 7.93 at CL 0.95 and 6.4 m/s. Re is 49-91 k (spread) and 43-80 k (swept) at 8-15 m/s (nu = 1.59e-5 at rho 1.05). CD0 0.06 including nacelles, fins and the ball camera is conservative, and the -30 % L/D sensitivity was run (endurance 38.9, fail): credible and honest. CLmax 1.0 is optimistic for a reflexed tailless wing with overlapping feather panels at Re ≈50-70 k. Reflexed sections at this Re reach about 0.8-0.9 and trimmed tailless CLmax is lower (UIUC low-speed airfoil data, https://m-selig.ae.illinois.edu/uiuc_lsat.html; ASSUMED reading). CLmax 0.8 raises spread stall to about 7.0 m/s, which affects short turns, moguls and flat track.",
+   "recommendedFix": "Use CLmax 0.8 (spread) / 0.65 (swept) as the base case for a reflexed feather wing and rerun short/moguls/flat.",
+   "fixable": "yes"
+  },
+  {
+   "id": "DG-08",
+   "concept": "descentglider",
+   "severity": "major",
+   "claim": "Upright tail-down perch in the snow: tip-over wind 11.7 m/s (span aligned) / 8.2 m/s (15° off); 0 W waiting.",
+   "evidence": "The tip-over threshold falls quickly once the wind is off the span axis: 30° 6.7, 45° 5.9, 90° 5.2 m/s at the body, and 4.5-7.0 m/s on ice (anchor moment 0). The perch yaw is frozen at touchdown, so a wind shift of 30-45° during a 14 s stop halves the margin. The snow-spike anchor (0.03 N*m, about 26 % of the restoring moment) is ASSUMED with no test. Slope tilt, soft-snow sinking and the downwash brownout or icing during hover landings on fresh snow are not modelled. The wait is not 0 W: the camera runs at 0.85*2.6 W.",
+   "recommendedFix": "Bench and field tests: perch stability vs wind angle on groomed, powder and ice; snow recirculation in hover landings. Allow re-yaw while perched (a servo) or lay it flat in wind.",
+   "fixable": "yes (test-dependent)"
+  },
+  {
+   "id": "DG-09",
+   "concept": "descentglider",
+   "severity": "major",
+   "claim": "Safety and regulation: C0 under 250 g, Open A1 follow-me; bystander KE ≤14.9 J.",
+   "evidence": "KE recomputed under the criteria rule (ground frame beyond 1.5 m): it matches the claim in every scenario (max 13.4 J fast, 12.4 nominal). The design_notes regulation section is honest. EU 2019/947 lets follow-me waive VLOS only within 50 m of the remote pilot (https://regulatorylibrary.caa.co.uk/2019-947/Content/map/00320_UAS.OPEN.020_UAS_operations_in_subcategory_A1.htm), yet the model lets it trail 66-133 m behind (steep, fast) with no 50 m leash. In the US, 49 USC 44809 has no follow-me exception, so a solo skier is out of VLOS. Vail Resorts bans drones on all its properties and penalises with pass revocation; other resorts require written permission (https://www.vail.com/the-mountain/about-the-mountain/safety/drones.aspx , https://www.skiutah.com/blog/utah-resort-drone-policies). The landing 'beside you at the lift' is in a lift-queue area, plausibly an assembly of people. A perched 0.3 m spiked glider 5.5 m down-slope on the piste is an obstacle for other skiers, and it relaunches with props spinning when 'the rider moves'.",
+   "recommendedFix": "Add a 50 m range fail-safe (perch). Land at a geofenced point off the lift maze. Perch at the piste edge, not on the fall line. Use guarded or ducted props for hops near people. Treat resort permission as a gating item.",
+   "fixable": "partly (resort bans and FAA VLOS are not engineering-fixable)"
+  },
+  {
+   "id": "DG-10",
+   "concept": "descentglider",
+   "severity": "minor",
+   "claim": "Footage stability.",
+   "evidence": "The independent footageStability(R) subject RMS is ≤2.22 deg/s in every scenario (nominal 0.65, short 1.44, moguls 1.76, cycle_w5 2.22), consistent with the claimed jitterRms 0.52-1.17. Background RMS is 4.03 (short) and 3.95 (moguls), above the ideal chase reference of 1.6-3.0 deg/s; it is not a gated criterion. The 0.5 deg/s EIS residual added in quadrature is ASSUMED.",
+   "recommendedFix": "None required. Report backgroundRms next to jitter.",
+   "fixable": "yes"
+  },
+  {
+   "id": "DG-11",
+   "concept": "descentglider",
+   "severity": "minor",
+   "claim": "dt / reproducibility.",
+   "evidence": "rerun_descentglider/results.json is identical to dev results.json, apart from compute times. Tests pass 18/18. At dt 4 -> 2 -> 1 ms: nominal avail 85.4/84.7/84.0, pFollow 4.21/3.67/3.54 W. Stop and gust are converged within 2 % on avail.",
+   "recommendedFix": "Use dt 2 ms for energy metrics.",
+   "fixable": "yes"
+  },
+  {
+   "id": "DG-12",
+   "concept": "descentglider",
+   "severity": "minor",
+   "claim": "Packed volume 2.32 L (flat sleeve 14.5x5x32 cm), 2 gloved actions.",
+   "evidence": "Geometry is plausible: feathers fold along a 0.32 m fuselage and the X fins span 0.14 m. Planting a tail-spiked 124 g carbon glider upright with gloves (4 s) and picking it up (5 s) are ASSUMED durations; both are only illustrated. Hand-launch (windy) puts props near the face. The UWB tag must be worn (12 g).",
+   "recommendedFix": "A gloved handling mock-up test. Fold the feathers automatically on insertion.",
+   "fixable": "yes"
+  }
+ ],
+ "verdict": {
+  "crediblePass": [
+   "footageStability / jitterRms in all scenarios (subject ≤2.2 deg/s)",
+   "keMax ≤14.9 J in all scenarios (recomputed exactly, ground frame)",
+   "bodyForcePeak 0 N, handsBusy 0 % (no line, stationary actions)",
+   "addedMass 0.2 kg (still ≤1.5 kg at a realistic 0.17 kg)",
+   "packVol 2.32 L (plausible)",
+   "pxMed ≥300 when following within the envelope",
+   "aero L/D 7.9 with honest CD0 0.06 and a -30 % sensitivity run",
+   "nominal avail 85-88 % (12 seeds) in steady carving with light wind"
+  ],
+  "disputed": [
+   {
+    "metric": "endurance",
+    "scenario": "nominal",
+    "claimed": 50.5,
+    "recomputed": "26.2 (same 22 g at 200 Wh/kg); 44.5 (2 stops/run); 37.7 (2 stops + FoM*eta 0.35); 45.6 (3.3 W avionics)",
+    "note": "380 Wh/kg pack is unjustified; hover overhead and stops are optimistic"
+   },
+   {
+    "metric": "avail",
+    "scenario": "nominal (realistic 152 g build)",
+    "claimed": 85.4,
+    "recomputed": 64.1,
+    "note": "the KE cap falls to 12.9 m/s, so it cannot keep up with a 12 m/s carver"
+   },
+   {
+    "metric": "avail",
+    "scenario": "cycle (full run)",
+    "claimed": 65.2,
+    "recomputed": "5.4 at 152 g; sweep median 55.7 % over 51 winds",
+    "note": "already fails at the claimed mass"
+   },
+   {
+    "metric": "setupTime",
+    "scenario": "p90 0-9 m/s",
+    "claimed": 17,
+    "recomputed": "34 s (own rule), 109 s incl. recovery",
+    "note": "claimed sweep avoids tailwind directions"
+   },
+   {
+    "metric": "ops",
+    "scenario": "0-9 m/s sweep",
+    "claimed": 2,
+    "recomputed": "3-4 in 33 % of cycles",
+    "note": "tailwind abort / snow strike / tip-over"
+   },
+   {
+    "metric": "pFollow",
+    "scenario": "nominal",
+    "claimed": 4.21,
+    "recomputed": "3.54 at dt 1 ms (conservative); 4.91 with 3.3 W avionics",
+    "note": "camera power under-budgeted"
+   }
+  ],
+  "overall": "NOT YET CREDIBLE as specified; physically sound idea with an honest aero model, but its pass list rests on an unjustified 380 Wh/kg micro pack and a 30 s stop-free nominal. Fixable-major, not fatal: no single law of physics is violated, but the coupled mass-KE-cap-catch-up loop leaves very little margin.",
+  "envelope": "Within the model: groomed slope of about 12-22°, rider steady at 8-13 m/s with no more than about 1 stop per 2-3 min, wind ≤5 m/s with tailwind component <5 m/s (tip-over on perch above about 5-6 m/s off-span), no crowding, and a resort that allows drones. Expect about 60-70 % usable footage per full run (launch and catch-up losses) and about 35-45 min per charge at a realistic 150-165 g. Out of envelope: riders above 13-14 m/s, short turns and moguls (<80 %), tailwind ≥5 m/s, lift-queue landings, US VLOS rules and Vail-type bans.",
+  "summary": "Gravity-paid gliding follow is credible (L/D 7.9 honest, pFollow 3.5-4.2 W in carving), and the perch-at-stops idea is original. The pass list is inflated by the 22 g/8.5 Wh battery (380 Wh/kg), an 18 g/1.6 W 4K pan-tilt camera and a stop-free 30 s nominal. At a realistic mass the KE cap (≤14.9 J gives ~12.9 m/s) stops it catching a 12 m/s rider after a launch or perch (cycle avail 5 %). setupTime p90 is 34 s or more when wind directions are randomised."
+ },
+ "comparability": {
+  "aero": {
+   "rho": 1.05,
+   "mass_kg": 0.1244,
+   "S_m2": 0.06,
+   "b_m": 0.62,
+   "AR": 6.41,
+   "CD0": 0.06,
+   "e": 0.75,
+   "CLmax": 1.0,
+   "LDmax": 7.93,
+   "Vstall_ms": 6.22,
+   "swept": {
+    "S": 0.034,
+    "AR": 4.71,
+    "CD0": 0.057,
+    "e": 0.7,
+    "CLmax": 0.8,
+    "LDmax": 6.74,
+    "Vstall": 9.24
+   },
+   "Re_8to15ms": "49-91 k",
+   "dragSensitivity": "x1.43 run",
+   "hover": "2x 4-inch props, FoM*eta 0.5, 14.6 W"
+  },
+  "battery": {
+   "Wh": 8.5,
+   "WhPerKg_pack": 380,
+   "mass_g": 22.4,
+   "coldDerate": 0.75,
+   "reserve": 0.15,
+   "avionicsW": 2.6,
+   "regenPmax_W": 3,
+   "noOnBodyBank": true,
+   "runSecondsPerRun": 150
+  },
+  "massBudget": {
+   "claimed_g": {
+    "airframe_feathers_fins": 40,
+    "servos_3x": 9,
+    "motors_esc_props": 17,
+    "fc_imu_gnss_uwb_radio_tof": 10,
+    "camera_4k_pan_tilt_ball": 18,
+    "battery_8p5Wh": 22.4,
+    "hinges_wiring": 8,
+    "total": 124.4
+   },
+   "auditEstimate_g": {
+    "airframe_feathers_fins": 40,
+    "servos_3x": 9,
+    "motors_1404class_esc_props": 25,
+    "fc_gnss_uwb_radio": 8,
+    "ranging_lidar_plus_vision_soc": 10,
+    "camera_4k_plus_pan_tilt": 24,
+    "battery_8p5Wh_at_200WhKg": 42.5,
+    "hinges_wiring": 8,
+    "total": 166.5
+   }
+  },
+  "keCap": "ground speed ≤0.92*sqrt(2*14.9/m): 14.2 m/s at 124 g, 12.9 at 152 g"
+ }
+}

@@ -1,0 +1,307 @@
+{
+ "generated": "2026-10-21",
+ "evidence": "numerical shadow-mode estimator test on the uncalibrated point-mass model; NOT physical verification",
+ "variants": {
+  "tetherReal": {
+   "note": "tension (HX711 + bar cell, ±5 % scale, 0.1 N bias), 2-axis exit angle (AS5600, ±0.7° bias), pack AHRS (1.5° tilt, 4° yaw), reel encoder (±3 % length), GNSS velocity, polar known to ±8 %",
+   "samples": 27518,
+   "vaAbsErr": {
+    "p50": 6.825,
+    "p90": 72.716,
+    "p95": 107.235,
+    "within1": 0.176,
+    "bias": 21.392
+   },
+   "windHorizErr": {
+    "p50": 4.429,
+    "p90": 10.088,
+    "p95": 11.777,
+    "within1": 0.07
+   },
+   "flyerPosErr": {
+    "p50": 1.621,
+    "p95": 15.91
+   },
+   "aoaAbsErrDeg": {
+    "p50": 17.868,
+    "p95": 65.587
+   },
+   "liftMarginErr": {
+    "p50": 8.703,
+    "p95": 701.368
+   },
+   "lowLiftDetect": {
+    "tp": 108,
+    "fp": 3147,
+    "fn": 708,
+    "tn": 133508,
+    "recall": 0.132,
+    "precision": 0.033
+   },
+   "byWindDir": {
+    "calm": {
+     "eVaP50": 9.571,
+     "eWP50": 7.213
+    },
+    "head": {
+     "eVaP50": 20.344,
+     "eWP50": 4.423
+    },
+    "tail": {
+     "eVaP50": 1.62,
+     "eWP50": 2.784
+    },
+    "crossL": {
+     "eVaP50": 15.275,
+     "eWP50": 7.126
+    },
+    "crossR": {
+     "eVaP50": 11.668,
+     "eWP50": 5.203
+    }
+   }
+  },
+  "tetherCal": {
+   "note": "as tetherReal but load cell scale/bias and polar perfectly calibrated (best case)",
+   "samples": 27487,
+   "vaAbsErr": {
+    "p50": 5.667,
+    "p90": 64.923,
+    "p95": 97.091,
+    "within1": 0.197,
+    "bias": 18.182
+   },
+   "windHorizErr": {
+    "p50": 3.44,
+    "p90": 7.241,
+    "p95": 8.786,
+    "within1": 0.085
+   },
+   "flyerPosErr": {
+    "p50": 1.458,
+    "p95": 14.572
+   },
+   "aoaAbsErrDeg": {
+    "p50": 17.397,
+    "p95": 63.877
+   },
+   "liftMarginErr": {
+    "p50": 6.535,
+    "p95": 587.917
+   },
+   "lowLiftDetect": {
+    "tp": 127,
+    "fp": 3492,
+    "fn": 660,
+    "tn": 133039,
+    "recall": 0.161,
+    "precision": 0.035
+   },
+   "byWindDir": {
+    "calm": {
+     "eVaP50": 6.793,
+     "eWP50": 3.764
+    },
+    "head": {
+     "eVaP50": 17.91,
+     "eWP50": 3.724
+    },
+    "tail": {
+     "eVaP50": 1.451,
+     "eWP50": 2.926
+    },
+    "crossL": {
+     "eVaP50": 11.767,
+     "eWP50": 4.707
+    },
+    "crossR": {
+     "eVaP50": 8.988,
+     "eWP50": 3.143
+    }
+   }
+  },
+  "tetherCalImu": {
+   "note": "tetherCal + flyer IMU specific force (removes the quasi-static assumption; 3° attitude error)",
+   "samples": 27487,
+   "vaAbsErr": {
+    "p50": 5.87,
+    "p90": 63.65,
+    "p95": 96.015,
+    "within1": 0.208,
+    "bias": 18.11
+   },
+   "windHorizErr": {
+    "p50": 3.044,
+    "p90": 6.915,
+    "p95": 8.205,
+    "within1": 0.127
+   },
+   "flyerPosErr": {
+    "p50": 1.434,
+    "p95": 13.916
+   },
+   "aoaAbsErrDeg": {
+    "p50": 16.693,
+    "p95": 63.027
+   },
+   "liftMarginErr": {
+    "p50": 6.883,
+    "p95": 579.195
+   },
+   "lowLiftDetect": {
+    "tp": 140,
+    "fp": 3058,
+    "fn": 698,
+    "tn": 133424,
+    "recall": 0.167,
+    "precision": 0.044
+   },
+   "byWindDir": {
+    "calm": {
+     "eVaP50": 7.088,
+     "eWP50": 4.355
+    },
+    "head": {
+     "eVaP50": 16.844,
+     "eWP50": 4.133
+    },
+    "tail": {
+     "eVaP50": 1.394,
+     "eWP50": 1.948
+    },
+    "crossL": {
+     "eVaP50": 11.366,
+     "eWP50": 4.319
+    },
+    "crossR": {
+     "eVaP50": 9.404,
+     "eWP50": 3.185
+    }
+   }
+  },
+  "perfectSensors": {
+   "note": "structural floor: all sensor errors zero; remaining error = model/quasi-static/sag/unknown roll disturbance",
+   "samples": 27485,
+   "vaAbsErr": {
+    "p50": 5.614,
+    "p90": 62.24,
+    "p95": 94.598,
+    "within1": 0.195,
+    "bias": 17.228
+   },
+   "windHorizErr": {
+    "p50": 3.415,
+    "p90": 7.179,
+    "p95": 8.511,
+    "within1": 0.077
+   },
+   "flyerPosErr": {
+    "p50": 1.016,
+    "p95": 13.948
+   },
+   "aoaAbsErrDeg": {
+    "p50": 16.88,
+    "p95": 63.202
+   },
+   "liftMarginErr": {
+    "p50": 6.553,
+    "p95": 566.595
+   },
+   "lowLiftDetect": {
+    "tp": 141,
+    "fp": 3698,
+    "fn": 588,
+    "tn": 132887,
+    "recall": 0.193,
+    "precision": 0.037
+   },
+   "byWindDir": {
+    "calm": {
+     "eVaP50": 7.836,
+     "eWP50": 4.666
+    },
+    "head": {
+     "eVaP50": 16.348,
+     "eWP50": 3.652
+    },
+    "tail": {
+     "eVaP50": 1.494,
+     "eWP50": 2.694
+    },
+    "crossL": {
+     "eVaP50": 12.08,
+     "eWP50": 4.335
+    },
+    "crossR": {
+     "eVaP50": 8.47,
+     "eWP50": 3.615
+    }
+   }
+  },
+  "airdata": {
+   "note": "tetherReal + flyer pitot (σ 0.4 m/s) + AoA vane (σ 1.5°) + attitude (3° bias): W = v_flyer − v_air",
+   "samples": 27461,
+   "vaAbsErr": {
+    "p50": 6.849,
+    "p90": 77.154,
+    "p95": 112.505,
+    "within1": 0.172,
+    "bias": 22.919
+   },
+   "windHorizErr": {
+    "p50": 4.19,
+    "p90": 9.755,
+    "p95": 11.489,
+    "within1": 0.053
+   },
+   "windHorizErrAirdata": {
+    "p50": 1.358,
+    "p90": 4.084,
+    "p95": 5.444,
+    "within1": 0.361
+   },
+   "flyerPosErr": {
+    "p50": 1.649,
+    "p95": 16.408
+   },
+   "aoaAbsErrDeg": {
+    "p50": 18.473,
+    "p95": 68.491
+   },
+   "liftMarginErr": {
+    "p50": 9.127,
+    "p95": 761.493
+   },
+   "lowLiftDetect": {
+    "tp": 119,
+    "fp": 2663,
+    "fn": 619,
+    "tn": 133784,
+    "recall": 0.161,
+    "precision": 0.043
+   },
+   "byWindDir": {
+    "calm": {
+     "eVaP50": 10.599,
+     "eWP50": 0.992
+    },
+    "head": {
+     "eVaP50": 23.634,
+     "eWP50": 2.095
+    },
+    "tail": {
+     "eVaP50": 1.688,
+     "eWP50": 1.006
+    },
+    "crossL": {
+     "eVaP50": 17.402,
+     "eWP50": 1.568
+    },
+    "crossR": {
+     "eVaP50": 12.13,
+     "eWP50": 1.379
+    }
+   }
+  }
+ }
+}

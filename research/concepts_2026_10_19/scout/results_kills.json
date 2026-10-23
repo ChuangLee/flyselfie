@@ -1,0 +1,84 @@
+{
+ "S2-07_laser_beamed_drone": {
+  "P_optical_W": 42.5,
+  "P_from_pack_W": 106.2,
+  "pack_Wh_for_45min": 80.0,
+  "beam_irradiance_W_cm2": 2.16,
+  "x_MPE": 433.0,
+  "snow_NIR_reflectance": "~0.6-0.8 diffuse + specular ice glints (ASSUMED)",
+  "skin_safe_beam_diameter_cm": 28,
+  "verdict": "KILL: beam is ~400x ocular MPE, every pointing miss lands on a crowded snow surface; a 28 cm skin-safe beam needs a receiver bigger than the drone; and the drone is still a drone (no originality gain)."
+ },
+ "S2-08_samara_spin_cam": {
+  "rotation_hz": 4.0,
+  "blur_deg_global_shutter": 0.18,
+  "rolling_shutter_skew_deg": 11.5,
+  "facing_frames_per_s_single_lens": 4.0,
+  "translation_speed_ms_assumed": 5.0,
+  "skier_mean_speed": 9.7,
+  "frac_time_skier_faster_than_5ms": 0.89,
+  "verdict": "KILL: global shutter fixes blur (0.16 deg) but monocopter translation (~5 m/s ASSUMED) is below the skier 86 % of the time; rolling-shutter 360 cams skew ~12 deg; efficiency gain does not matter if it cannot keep up."
+ },
+ "S2-09_leapfrog_perch": {
+  "V_overtake": 18.7,
+  "mass_max_for_14_9J": 86.0,
+  "KE_150g": 26.1,
+  "cycle_s": 9.3,
+  "flying_fraction": 0.64,
+  "verdict": "KILL: overtaking a 12 m/s skier needs ~19 m/s (KE 26 J at 150 g, or <=85 g airframe that cannot fly 19 m/s in wind); only static pass-by shots; lands on piste in others' line."
+ },
+ "S2-10_micro_ski_robot": {
+  "KE_at_12": 14.4,
+  "KE_at_18": 32.4,
+  "camera_height_m": 0.2,
+  "mogul_rut_depth_m": "0.2-0.6 (ASSUMED) > robot size",
+  "stop_distance_on_20deg_with_claw_mu0p5": 57.4,
+  "verdict": "KILL: 0.2 m camera height sees boots and snow spray; ruts/moguls exceed body size; others ski over it; stopping on 20 deg needs ~50 m even with a claw. Same physics as round-1 BODY-09/10."
+ },
+ "S2-11_battery_quad": {
+  "HoverAir_class_pack_7p4Wh_64g_116Whkg": {
+   "pack_g": 64,
+   "Wh": 7.4,
+   "endurance_min_cold": 12.1
+  },
+  "SiAnode_450Whkg_cell_380Whkg_pack": {
+   "pack_g": 64,
+   "Wh": 24.3,
+   "endurance_min_cold": 39.7
+  },
+  "self_heating": "-20->0 C in 20 s using 3.8 % capacity (Penn State/EC Power 2016)",
+  "verdict": "ENABLER, not a concept: Si-anode roughly triples cold flight time (~12->~40 min at 25 W, if the 450 Wh/kg cells deliver ~1C in the cold, unverified) of a palm follow drone, still < 45 min and still the market product the user rejected. Used inside S2-01/S2-02."
+ },
+ "S2-12_guided_parafoil": {
+  "LD": 3.0,
+  "glide_deg": 18.4,
+  "airspeed": 11.3,
+  "small_parafoil_landing_median_miss_m": 13,
+  "verdict": "KILL as stand-alone: glide 18.4 deg means it sinks into any slope flatter than 18 deg and cannot climb; landing miss ~13 m (Georgia Tech) vs 3 m pickup need. Keep soft-wing idea as a safety skin for S2-01."
+ },
+ "S2-13_ground_effect_skim": {
+  "h_m": 0.3,
+  "induced_drag_factor": 0.92,
+  "verdict": "KILL: needs h < ~0.3 m above snow (span 0.62 m) in the band where other skiers' skis and legs are; moguls and rollers exceed h. Induced-drag saving is irrelevant because gravity already pays."
+ },
+ "S2-14_tether_trolley": {
+  "kite_elevation_deg": 74,
+  "trolley_elevation_deg": "same 74 (straight line through the skier)",
+  "verdict": "KILL: any point on a taut line through the skier sees him from the same elevation; moving the camera inward only shrinks distance, it cannot lower the view angle."
+ },
+ "S2-15_micro_swarm": {
+  "member_mass_kg": 0.03,
+  "KE_at_10": 1.5,
+  "black_hornet4_vmax": 10,
+  "black_hornet4_mass_g": 70,
+  "frac_time_skier_faster_than_10": 0.47,
+  "verdict": "KILL: sub-100 g rotorcraft top out ~10 m/s (Black Hornet 4, 70 g) so they lose the skier ~47 % of the time; swarm multiplies regulatory and recovery burden."
+ },
+ "S2-16_boomerang_cam": {
+  "return_time_s": 3,
+  "skier_travel_m": 29.0,
+  "spin_hz": 10,
+  "rs_skew_deg_8ms": 29.0,
+  "verdict": "KILL: returns to the throw point, not to a moving skier (~29 m behind); spin 10 Hz gives 29 deg rolling-shutter skew; catch with gloves unreliable."
+ }
+}

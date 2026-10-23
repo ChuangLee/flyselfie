@@ -1,0 +1,3647 @@
+{
+ "id": "SIM-032/review/usertest",
+ "role": "user-tester panel (simulated personas)",
+ "date": "2026-10-20",
+ "evidenceBoundary": "SIMULATED / HEURISTIC USABILITY REVIEW, NOT REAL USER TESTING. No person took part. The five personas from product/report.json were role-played as cognitive-walkthrough evaluators by an AI agent; the \"test rig\" is the uncalibrated numerical simulator (sim/, activetether@0.1.0) run headless and on a scratchpad copy with extra persona scenarios (rider plans and activity traces are user-tester ASSUMPTIONS). Scores are evaluator judgements, not measurements. Real user tests (T12, T14, T16, T18, all wearing/lift/chairlift trials) are physical, NOT_RUN and need user authorisation. M-070 NOT_RUN, G-MATURE closed. This file does not write project/plan.json; sim/ was not modified.",
+ "inputs": [
+  "research/active_tether_2026_10_20/product/report.json (journey J1-J10, PM-M01..M14, product metrics, personas P1-P5, T01-T18)",
+  "research/active_tether_2026_10_20/dev/design_notes.json, dev/results.json (ensemble 48 cases, product, sensitivity, falseLaunch)",
+  "research/active_tether_2026_10_20/engineering/report.json (worn unit, quiver, dock, chairlift)",
+  "sim/js/concepts/activetether/* (model.js mode machine, detect.js, index.js scenarios + demo)"
+ ],
+ "method": {
+  "browserRig": "sim/ copied to the scratchpad, served by tools/serve.mjs, opened headless (Playwright + Chrome, SwiftShader WebGL) at concepts.html?c=activetether&m=demo&lang=en; demo seeked through all 7 stages; all 12 shipped test scenarios run in test mode; 5 persona scenarios added to the scratchpad copy only (patch in scripts/scratch_sim_scenarios.patch).",
+  "scriptedRuns": "scripts/persona_runs.mjs on the scratchpad copy: persona ride plans x {calm, head 3, tail 3 / cross 3 / cross 6} x seeds 11-13 through the shipped buildResult() pipeline; falls via simulateSkier(fallAt); activity traces through the shipped detector (detect.js). Raw output: sim_persona_runs.json.",
+  "scoring": "Each journey step scored 1-5 on effort, confusion, fear/safety, social acceptability on the piste, failure recovery (5 = best / no problem). Heuristic (Nielsen visibility of status, error prevention, recovery) + cognitive walkthrough (\"will the user know what to do / what happened?\").",
+  "uxMetricsAdded": {
+   "quiverOutRideS": "seconds of riding with the quiver deployed (O.quiver > 0.5)",
+   "towedOnSnowWhileRidingS": "seconds of riding in LANDED/RETRIEVE (flyer on a short line, on or near the snow)",
+   "standDeviceBusyS": "seconds standing while the device is not STOWED/DOCKED",
+   "perStop.modeAtRestart": "device mode at the moment the rider pushes off again"
+  }
+ },
+ "whatTheUserSees_demo": {
+  "note": "Demo = 30 s recreational carve + 21 s stop, 1 m/s cross wind, seed 11 (the friendliest case). Screens in screenshots/demo_*.png.",
+  "timeline": [
+   {
+    "t": "0-0.9 s",
+    "shot": "demo_01_stowed.png",
+    "obs": "Quiver rendered diagonally from the right hip up past the shoulder blade - a 0.55 m rigid tube across the back; that is the chairlift/backrest profile."
+   },
+   {
+    "t": "0.9-2.2 s",
+    "shot": "demo_02_detect.png",
+    "obs": "Start detected ~0.8 s after push-off; quiver swings out behind the pelvis. Nothing tells the rider (no light/sound in the design)."
+   },
+   {
+    "t": "2.2-9 s",
+    "shot": "demo_03_launch_short_line.png, demo_04_launch_payout.png",
+    "obs": "Launch on the straight glide; short-line phase visibly swings. The rider must keep a straight line for >=0.6 s - he would naturally start turning."
+   },
+   {
+    "t": "9-30 s",
+    "shot": "demo_05_film_carve.png, demo_06_film_turn.png",
+    "obs": "Line at ~50 deg; PiP shows a usable rear-high full-body shot. Even in this friendly case the run reports avail 16.1 %, pxMed 242 px, KE 19.1 J (fail)."
+   },
+   {
+    "t": "30-34 s",
+    "shot": "demo_07_stop_brake.png",
+    "obs": "Hockey stop; flyer deep-stalls and drops behind."
+   },
+   {
+    "t": "34-41.7 s",
+    "shot": "demo_08_tow_in.png",
+    "obs": "Flyer dragged over the snow toward the rider for ~8 s on a magenta line at ankle height - a trip line for anyone skiing past."
+   },
+   {
+    "t": "41.7-52.6 s",
+    "shot": "demo_09_capture.png, demo_10_docked.png",
+    "obs": "Capture + fold; the rider stood ~12 s before locked. In the shipped ensemble the same step is p50 13.9 s / p90 31.3 s."
+   }
+  ],
+  "simulatorUiObservations": [
+   "The demo shows only the favourable path; failures that dominate persona runs (launch failure, drag-on-snow while riding, lost flyer, refusals with the quiver out) are only visible if one constructs those cases. Recommend demo stages for refusal, failed launch and short-stop-and-go.",
+   "The rider-facing interface (beep/haptic/LED, strap button, app) is not represented at all, so refusal comprehension (PM-M08/T12) and status visibility cannot be walked through in the sim.",
+   "For non-run scenarios the setupTime row shows the 48-case ensemble value (22.19 s) next to single-run numbers - confusing for reviewers.",
+   "setupTime passes (10-22 s) in runs where the next ride is lost because the device was still retrieving: the shared metric does not charge lost footage or towing-while-riding. Proposed product metrics: nextRideFilmedAfterStop, towedWhileRidingS, quiverOutWithoutFlightS."
+  ]
+ },
+ "personaJourneys": {
+  "P1": {
+   "scores": {
+    "J1 car gear-up": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 4,
+     "socialAcceptability": 3,
+     "failureRecovery": 4,
+     "note": "Lumbar unit + 0.55 m quiver over a normal jacket; 0.91 kg is fine. No screen: \"single beep = ready\" is unverified; she will not know if the flyer is charged."
+    },
+    "J2 lift (chair/T-bar/gondola/carpet) with quiver on the back": {
+     "effort": 2,
+     "confusion": 2,
+     "fearSafety": 2,
+     "socialAcceptability": 2,
+     "failureRecovery": 3,
+     "note": "Beginner areas use magic carpets (0/40 detector starts in our traces - good) and T-bars/platters: the bar goes exactly where the lumbar unit and the hinged quiver sit; nobody has checked this. On a chair she cannot sit back fully (65 mm plate ASSUMED acceptable, engineering)."
+    },
+    "J3 top / getting ready": {
+     "effort": 4,
+     "confusion": 2,
+     "fearSafety": 4,
+     "socialAcceptability": 3,
+     "failureRecovery": 4,
+     "note": "Nothing to do (ops 0) - but she gets no prediction whether it will fly at her speed."
+    },
+    "J4 push-off / launch": {
+     "effort": 4,
+     "confusion": 1,
+     "fearSafety": 2,
+     "socialAcceptability": 2,
+     "failureRecovery": 2,
+     "note": "At 5 m/s the gate (1.35 x 4.93 m/s stall = 6.65 m/s apparent) never opens in calm or 3 m/s tail: 0 launches, but the quiver swings out and stays out for 68-72 s of 77 s riding (READY). At 7 m/s (or 5 m/s + 3 m/s headwind) it tries and fails: 2-3 launch attempts/run, 1-2 failures, flyer drops and is dragged on the snow 19-50 s per 79 s of riding."
+    },
+    "J5 ride / film": {
+     "effort": 3,
+     "confusion": 2,
+     "fearSafety": 2,
+     "socialAcceptability": 1,
+     "failureRecovery": 2,
+     "note": "Usable footage 0 % (5 m/s calm/tail), 9-21 % (5 m/s head 3), 0-25 % (7 m/s). KE is low (<=18.6 J max, mostly <7 J) - the one thing that is safe at her speed. Head clearance 0.36-0.67 m in the 7 m/s calm case (fails >=1.0 m)."
+    },
+    "J6 planned stop (and wanting to keep going)": {
+     "effort": 2,
+     "confusion": 2,
+     "fearSafety": 3,
+     "socialAcceptability": 2,
+     "failureRecovery": 3,
+     "note": "Many stops; each flown stop costs 5-17 s standing (up to 42 s). 5 m/s + head 3: the 5.8 s stop was docked by the restart (5.1-5.2 s). 7 m/s: after the 5.2 s stop the device was still CAPTURE/RETRIEVE/BRAKE at restart in 4/6 cases."
+    },
+    "J7 fall": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Sim (4-5 m/s fall): fall detected 0.60-0.64 s after the event (target <=0.5 s), body force <=9.7 N, head clearance >=0.98 m in the 6 s after the fall. Backward sit-down falls onto the rigid lumbar unit/quiver are NOT modelled (engineering top risk: breakaway <=60 N)."
+    },
+    "J8 restart after stop/fall": {
+     "effort": 4,
+     "confusion": 2,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 2,
+     "note": "Max 2 launches per ride; after failed attempts the rest of the run is unfilmed with no explanation. 1 of 9 7 m/s runs ended in MANUAL stow (+20 s, hands behind her back)."
+    },
+    "J9 walk / skate / queue / skin / shuttle bus": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 2,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Queue/walk/chair 0 starts (results.json, synthetic). Slow beginner drifts 2.5-3.5 m/s on a green: 24/40 detector starts -> quiver swings out next to other beginners. Ski bus down to the village: 39/40 bus descents start AND pass the wind gate (results.json) -> launch attempt inside the bus."
+    },
+    "J10 end of day": {
+     "effort": 4,
+     "confusion": 3,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Footage offload (PM-M12) not modelled; little footage to offload."
+    },
+    "J11 charging / drying overnight": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Two cells (32 Wh pack + 1.65 Wh flyer); wet line drying reminder needed; no charger spec."
+    }
+   },
+   "meanScores": {
+    "effort": 3.18,
+    "confusion": 2.36,
+    "fearSafety": 3.0,
+    "socialAcceptability": 2.73,
+    "failureRecovery": 3.09
+   }
+  },
+  "P2": {
+   "scores": {
+    "J1 car gear-up": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Fine: 0.91 kg, 2.28 L, nothing to assemble."
+    },
+    "J2 lift (chair/T-bar/gondola/carpet) with quiver on the back": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Chair downloads: 0 launches (sim scenario chairdown, no on-snow chatter). Uphill lifts 0/640 synthetic rides. Diagonal quiver across the back on a 6-pack chair with the bar down: comfort/neighbour clearance NOT_RUN. Flyer recharges on the lift only if its cell is >5 C."
+    },
+    "J3 top / getting ready": {
+     "effort": 4,
+     "confusion": 3,
+     "fearSafety": 4,
+     "socialAcceptability": 3,
+     "failureRecovery": 4,
+     "note": "Zero actions. But in the 15 of 48 ensemble cases (tail >=3.5 m/s etc.) it never flies all run: refusal rate 31 % > 15 % target."
+    },
+    "J4 push-off / launch": {
+     "effort": 5,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Launch success 90 % mean (p10 50 %), target >=95 %. Launch needs a straight glide - he wants to turn immediately; 0.8-1 s detection + 1.3 s quiver deploy + 2 m/s pay-out => first ~9 s of every run unfilmed (demo: stable flight from 9 s)."
+    },
+    "J5 ride / film": {
+     "effort": 5,
+     "confusion": 3,
+     "fearSafety": 2,
+     "socialAcceptability": 2,
+     "failureRecovery": 3,
+     "note": "Ensemble: avail 16.7 % mean (target 80), pxMed 279 px (300), jitter p90 10.5 deg/s (3), KE max 57 J (p50 21.6 J; cap 14.9), head clearance min 0.25 m. Line below 2 m more than 0.5 m behind him 84.7 s per run (p50). For a technique-video buyer this is ~12 s usable per 71 s run."
+    },
+    "J6 planned stop (and wanting to keep going)": {
+     "effort": 1,
+     "confusion": 2,
+     "fearSafety": 3,
+     "socialAcceptability": 2,
+     "failureRecovery": 2,
+     "note": "Dock p50 13.9 s / p90 31.3 s / max 70.9 s (target p90 <=10 s); first-try dock 80 % (98 %). T05: after a 10 s stop the device was still BRAKE/CAPTURE (not locked) at restart in 6/9 cases; after a 5 s stop in 9/9 cases -> the flyer is towed/flown-in on a short line during the next ride and that ride is NOT filmed (next ride launched in only 3/9 and 0/9 cases). The shared setupTime metric still passes (10-22 s) because it ignores lost footage."
+    },
+    "J7 fall": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "T06 at 12-13 m/s: detection 0.58-0.60 s, post-fall body force <=4.9 N, head clearance >=1.26 m, KE <=6.3 J in the 6 s after the fall. Line wrap around limbs/poles and tumbling not modelled."
+    },
+    "J8 restart after stop/fall": {
+     "effort": 3,
+     "confusion": 2,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 2,
+     "note": "See J6; no audible \"wait 10 s\" cue exists in the design; a user who waits gets 14 s p50 of standing per stop."
+    },
+    "J9 walk / skate / queue / skin / shuttle bus": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 2,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Gentle downhill cat tracks 5-7 m/s: 27/40 starts (deploy; launch if the gate opens). Car/shuttle descent: 40/40 starts in our traces (results.json bus 39/40 also pass the wind gate, 0.975 false launches/day vs <=0.2)."
+    },
+    "J10 end of day": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Pack energy ample (endurance min 73 min, p50 163 min at -10 C). Flyer cell 1.65 Wh / 4.25 W = ~23 min airborne per charge: day of 20 runs relies on dock charging on lifts (blocked <5 C cell)."
+    },
+    "J11 charging / drying overnight": {
+     "effort": 3,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Charge + dry the line (wet UHMWPE frozen in the drum is a J1 risk)."
+    }
+   },
+   "meanScores": {
+    "effort": 3.64,
+    "confusion": 3.27,
+    "fearSafety": 3.27,
+    "socialAcceptability": 3.09,
+    "failureRecovery": 3.18
+   }
+  },
+  "P3": {
+   "scores": {
+    "J1 car gear-up": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 3,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Must fit with avalanche pack; 0.55 m quiver + lumbar unit vs airbag hip belt/leg loop: NOT_RUN."
+    },
+    "J2 lift (chair/T-bar/gondola/carpet) with quiver on the back": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "As P2; tram/gondola with skis in rack: unit must be disarmed by the lift lockout (0/20 gondola-up/down starts)."
+    },
+    "J3 top / getting ready": {
+     "effort": 4,
+     "confusion": 2,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "No way to say \"not here (trees)\" except the single strap control; refusal in trees is not implemented in the model (no tree sensing)."
+    },
+    "J4 push-off / launch": {
+     "effort": 4,
+     "confusion": 2,
+     "fearSafety": 1,
+     "socialAcceptability": 3,
+     "failureRecovery": 1,
+     "note": "Steep (25 deg) 15 m/s: 4/9 launches fail ~0.2-2 s after release; 3 of those 9 runs end with the 38 N weak link breaking and the flyer free (lost) within ~5 s of push-off. A lost 116 g flyer per ~3 runs is a product killer."
+    },
+    "J5 ride / film": {
+     "effort": 5,
+     "confusion": 3,
+     "fearSafety": 1,
+     "socialAcceptability": 2,
+     "failureRecovery": 2,
+     "note": "When it flies: avail 21-24 %, pxMed 187-222 px (subject too small at 15 m/s), KE 30-52 J (cap 14.9 J), head clearance 0.58-1.0 m."
+    },
+    "J6 planned stop (and wanting to keep going)": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Single stop at the bottom: dock 10-17.5 s when flown; 46.6 s after a launch failure."
+    },
+    "J7 fall": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 2,
+     "socialAcceptability": 3,
+     "failureRecovery": 2,
+     "note": "Fall at 17 m/s: detected 0.56-0.60 s; 1/3 seeds had already lost the flyer (weak link) before the fall; deep-snow tumbles, tree wells and the rigid quiver under the rider are not modelled."
+    },
+    "J8 restart after stop/fall": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 3,
+     "failureRecovery": 2,
+     "note": "Flyer may be buried; beacon (PM-M13) not modelled."
+    },
+    "J9 walk / skate / queue / skin / shuttle bus": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 2,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Boot-pack/hike: walk 0/80 starts; snowmobile/sled tow-out 40/40 starts in our traces."
+    },
+    "J10 end of day": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 3,
+     "note": "Line wear count after weak-link events; spare flyers needed."
+    },
+    "J11 charging / drying overnight": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "-"
+    }
+   },
+   "meanScores": {
+    "effort": 3.64,
+    "confusion": 3.09,
+    "fearSafety": 2.64,
+    "socialAcceptability": 3.18,
+    "failureRecovery": 2.73
+   }
+  },
+  "P4": {
+   "scores": {
+    "J1 car gear-up": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 4,
+     "socialAcceptability": 3,
+     "failureRecovery": 4,
+     "note": "Also dressing two kids; any extra step is costly - AT-1 adds none (good)."
+    },
+    "J2 lift (chair/T-bar/gondola/carpet) with quiver on the back": {
+     "effort": 2,
+     "confusion": 3,
+     "fearSafety": 2,
+     "socialAcceptability": 2,
+     "failureRecovery": 3,
+     "note": "Riding a chair next to a 7-year-old: the diagonal quiver takes seat width and sits at the child's head height when loading. Magic carpet 0/40 starts."
+    },
+    "J3 top / getting ready": {
+     "effort": 4,
+     "confusion": 2,
+     "fearSafety": 3,
+     "socialAcceptability": 2,
+     "failureRecovery": 3,
+     "note": "Cannot tell the device \"kids behind me, do not fly\" except by a manual lift-lock; no crowd sensing (T17)."
+    },
+    "J4 push-off / launch": {
+     "effort": 4,
+     "confusion": 1,
+     "fearSafety": 1,
+     "socialAcceptability": 1,
+     "failureRecovery": 2,
+     "note": "6.5 m/s calm: 10/10 launches fail (3 seeds, 3-4 attempts each); 3 m/s head: 1-2 of 3 attempts fail. Each failure = flyer drops and is dragged behind her on 1.5-4 m of line: 33-51 s of 86 s riding in calm."
+    },
+    "J5 ride / film": {
+     "effort": 4,
+     "confusion": 2,
+     "fearSafety": 1,
+     "socialAcceptability": 1,
+     "failureRecovery": 2,
+     "note": "Avail 0 % (calm) / 5-14 % (head 3) / 3-10 % (cross 3). Third-party exposure 72-116 s per ~145 s plan; line within 3 m behind her below 1.8 m during ~100 % of airborne riding (ensemble lowLineShare 99.9 %, first 1.8 m p50). Her kids ski in her tracks 2-5 m behind: that is the exposed zone."
+    },
+    "J6 planned stop (and wanting to keep going)": {
+     "effort": 2,
+     "confusion": 2,
+     "fearSafety": 2,
+     "socialAcceptability": 2,
+     "failureRecovery": 3,
+     "note": "Stops every 20 s: device busy 16-37 s while she stands waiting for kids; at restarts the flyer was often still out (CAPTURE/BRAKE at 6/18 restarts in head/cross cases; 2/9 in calm)."
+    },
+    "J7 fall": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 2,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Her own falls are slow; the risk is a child falling over the line/flyer behind her (not modelled)."
+    },
+    "J8 restart after stop/fall": {
+     "effort": 3,
+     "confusion": 2,
+     "fearSafety": 2,
+     "socialAcceptability": 2,
+     "failureRecovery": 2,
+     "note": "-"
+    },
+    "J9 walk / skate / queue / skin / shuttle bus": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 2,
+     "socialAcceptability": 3,
+     "failureRecovery": 3,
+     "note": "Guiding a child at 1.5-2.5 m/s: 0/40 starts (good). Queue 0/600. Ski bus: see P1."
+    },
+    "J10 end of day": {
+     "effort": 4,
+     "confusion": 3,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "-"
+    },
+    "J11 charging / drying overnight": {
+     "effort": 3,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "-"
+    }
+   },
+   "meanScores": {
+    "effort": 3.18,
+    "confusion": 2.55,
+    "fearSafety": 2.45,
+    "socialAcceptability": 2.45,
+    "failureRecovery": 3.0
+   }
+  },
+  "P5": {
+   "scores": {
+    "J1 car gear-up": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 3,
+     "note": "0.913 kg vs his 0.9 kg budget (marginal fail); airbag compatibility (quiver diagonal across the back, lumbar unit on the hip belt) NOT_RUN."
+    },
+    "J2 lift (chair/T-bar/gondola/carpet) with quiver on the back": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Skinning instead of lifts: 45-min uphill skin traces 0/10 starts (good)."
+    },
+    "J3 top / getting ready": {
+     "effort": 3,
+     "confusion": 2,
+     "fearSafety": 3,
+     "socialAcceptability": 4,
+     "failureRecovery": 3,
+     "note": "Transition: skins off, boots, pack - wants zero extra time; AT-1 adds none. But descending skin traverses/run-outs with skins on (2-3.5 m/s, 8-15 % grade) gave 19/40 starts -> quiver deploys while touring; with a ridge headwind the wind gate could open."
+    },
+    "J4 push-off / launch": {
+     "effort": 4,
+     "confusion": 2,
+     "fearSafety": 1,
+     "socialAcceptability": 4,
+     "failureRecovery": 1,
+     "note": "Simulated 28 deg descent at 10 m/s: 9/9 launches failed within ~2.2 s (1 weak-link loss). May partly be a model limit on steep slopes, but the design has no evidence of launching on touring terrain."
+    },
+    "J5 ride / film": {
+     "effort": 4,
+     "confusion": 2,
+     "fearSafety": 2,
+     "socialAcceptability": 4,
+     "failureRecovery": 1,
+     "note": "Avail 0 % in all 9 descents; flyer dragged/towed up to 57 s; dock 62-79 s after the stop."
+    },
+    "J6 planned stop (and wanting to keep going)": {
+     "effort": 2,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 4,
+     "failureRecovery": 2,
+     "note": "Regroup stops in avalanche terrain: standing 30-70 s for a dock is unacceptable exposure time."
+    },
+    "J7 fall": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 2,
+     "socialAcceptability": 4,
+     "failureRecovery": 2,
+     "note": "Deep-snow fall, burial of the flyer, line around limbs in an avalanche: not modelled; cutter (PM-M05) exists; airbag interaction unknown."
+    },
+    "J8 restart after stop/fall": {
+     "effort": 3,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 4,
+     "failureRecovery": 2,
+     "note": "-"
+    },
+    "J9 walk / skate / queue / skin / shuttle bus": {
+     "effort": 4,
+     "confusion": 3,
+     "fearSafety": 3,
+     "socialAcceptability": 4,
+     "failureRecovery": 3,
+     "note": "Snowmobile/sled tow-out or car down the pass road: 40/40 starts in our traces."
+    },
+    "J10 end of day": {
+     "effort": 4,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Pack energy fine; -15 C not simulated (shared endurance at -10 C)."
+    },
+    "J11 charging / drying overnight": {
+     "effort": 3,
+     "confusion": 4,
+     "fearSafety": 4,
+     "socialAcceptability": 4,
+     "failureRecovery": 4,
+     "note": "Hut nights: needs USB charging of two cells and line drying."
+    }
+   },
+   "meanScores": {
+    "effort": 3.36,
+    "confusion": 3.0,
+    "fearSafety": 3.0,
+    "socialAcceptability": 4.0,
+    "failureRecovery": 2.64
+   }
+  }
+ },
+ "scoreScale": "1 = very bad, 5 = good, for every dimension (confusion 5 = no confusion; fearSafety 5 = no fear/hazard)",
+ "simEvidenceByPersona": {
+  "P1_beginner_5ms": {
+   "plan": "3 rides 25/20/30 s at 5 m/s short-radius on 10 deg, stops 15/5/30 s",
+   "summary": "calm & tail 3: 0 launches, quiver out 71.7-72.2 s of 77.4 s riding, refuseS ~68 s; head 3: 3 launches, 1-2 failures, avail 8.7-21.0 %, KE <=6.4 J, headClear 0.93-1.07 m, towed on snow 13.8-33.2 s, third-party 87-102 s",
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.79,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 0,
+     "quiverOutRideS": 71.74,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.93,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 77.38,
+     "flownRideS": 0,
+     "quiverOutRideS": 71.9,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.82,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.87,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 0,
+     "quiverOutRideS": 71.84,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 10.13,
+     "pxMed": 389.62,
+     "keMax": 6.25,
+     "headClear": 0.96,
+     "bodyForcePeak": 12.56,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 3,
+     "dockTimes": [
+      8.24,
+      13.99,
+      30.2
+     ],
+     "manual": 0,
+     "thirdPartyS": 87.32,
+     "refuseS": 0,
+     "crashes": 3,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 13.88,
+     "quiverOutRideS": 72.56,
+     "towedOnSnowWhileRidingS": 33.16,
+     "standDeviceBusyS": 17.42,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 7.44,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 5.1,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 4.94,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 21.04,
+     "pxMed": 351.01,
+     "keMax": 6.41,
+     "headClear": 0.93,
+     "bodyForcePeak": 10.64,
+     "launches": 3,
+     "launchFails": 1,
+     "rides": 3,
+     "dockTimes": [
+      10.32,
+      19.07,
+      17.76
+     ],
+     "manual": 0,
+     "thirdPartyS": 101.56,
+     "refuseS": 0,
+     "crashes": 2,
+     "broke": false,
+     "rideS": 77.38,
+     "flownRideS": 34.1,
+     "quiverOutRideS": 72.66,
+     "towedOnSnowWhileRidingS": 13.84,
+     "standDeviceBusyS": 31.72,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 9.52,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 5.24,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.82,
+       "lockedAfterS": 17.02,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 8.68,
+     "pxMed": 329.9,
+     "keMax": 4.67,
+     "headClear": 1.07,
+     "bodyForcePeak": 13.01,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 3,
+     "dockTimes": [
+      22.06,
+      16.23,
+      18.2
+     ],
+     "manual": 0,
+     "thirdPartyS": 97.54,
+     "refuseS": 0,
+     "crashes": 3,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 13.76,
+     "quiverOutRideS": 72.78,
+     "towedOnSnowWhileRidingS": 26.44,
+     "standDeviceBusyS": 27.56,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 4.96,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 5.22,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 17.44,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "tail3",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.79,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 0,
+     "quiverOutRideS": 71.74,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "tail3",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.93,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 77.38,
+     "flownRideS": 0,
+     "quiverOutRideS": 71.9,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.82,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "tail3",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 67.87,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 77.4,
+     "flownRideS": 0,
+     "quiverOutRideS": 71.84,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.8,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    }
+   ]
+  },
+  "P1_beginner_7ms": {
+   "summary": "calm: 2-3 launches, 1-2 failed, avail 0-1.3 %, headClear 0.36-0.67 m, towed 19-38 s, 1 MANUAL stow; head 3: avail 5-25 %, dock after a 5 s stop up to 42 s; tail 3: no launch, quiver out 72 s",
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 6.68,
+     "headClear": 0.36,
+     "bodyForcePeak": 15.26,
+     "launches": 2,
+     "launchFails": 2,
+     "rides": 3,
+     "dockTimes": [
+      25.73,
+      19.36
+     ],
+     "manual": 0,
+     "thirdPartyS": 55.1,
+     "refuseS": 0.6,
+     "crashes": 2,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 0,
+     "quiverOutRideS": 48.28,
+     "towedOnSnowWhileRidingS": 28.86,
+     "standDeviceBusyS": 10.2,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 4.98,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 7.48,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 1.34,
+     "pxMed": 272.93,
+     "keMax": 6.75,
+     "headClear": 0.51,
+     "bodyForcePeak": 17.01,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 3,
+     "dockTimes": [
+      21.23,
+      18.06,
+      16
+     ],
+     "manual": 0,
+     "thirdPartyS": 85.46,
+     "refuseS": 0,
+     "crashes": 3,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 3.82,
+     "quiverOutRideS": 74.66,
+     "towedOnSnowWhileRidingS": 38.48,
+     "standDeviceBusyS": 14.1,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 4.2,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 5.12,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 4.84,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 6.21,
+     "headClear": 0.67,
+     "bodyForcePeak": 13.83,
+     "launches": 2,
+     "launchFails": 1,
+     "rides": 3,
+     "dockTimes": [
+      25.99
+     ],
+     "manual": 1,
+     "thirdPartyS": 112.06,
+     "refuseS": 0.24,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 79.24,
+     "flownRideS": 0,
+     "quiverOutRideS": 76.08,
+     "towedOnSnowWhileRidingS": 19.12,
+     "standDeviceBusyS": 37.54,
+     "perStop": [
+      {
+       "stopS": 15.18,
+       "lockedAfterS": 5.04,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 63.94,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 30.18,
+       "lockedAfterS": 27.32,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 7.65,
+     "pxMed": 320.25,
+     "keMax": 12.51,
+     "headClear": 1.12,
+     "bodyForcePeak": 13.8,
+     "launches": 2,
+     "launchFails": 1,
+     "rides": 3,
+     "dockTimes": [
+      25.47,
+      42.7
+     ],
+     "manual": 0,
+     "thirdPartyS": 89.5,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 11.72,
+     "quiverOutRideS": 75.98,
+     "towedOnSnowWhileRidingS": 49.78,
+     "standDeviceBusyS": 14.84,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 4.92,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 41.34,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 4.74,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 25.1,
+     "pxMed": 321.84,
+     "keMax": 6.64,
+     "headClear": 1.02,
+     "bodyForcePeak": 9.44,
+     "launches": 2,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [
+      42.92,
+      22
+     ],
+     "manual": 0,
+     "thirdPartyS": 114.52,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 40.86,
+     "quiverOutRideS": 76.24,
+     "towedOnSnowWhileRidingS": 20.66,
+     "standDeviceBusyS": 40.74,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 41.54,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 4.94,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 20.64,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 5.4,
+     "pxMed": 289.29,
+     "keMax": 18.55,
+     "headClear": 1.04,
+     "bodyForcePeak": 12.3,
+     "launches": 2,
+     "launchFails": 1,
+     "rides": 3,
+     "dockTimes": [
+      25.69,
+      43.04
+     ],
+     "manual": 0,
+     "thirdPartyS": 90.22,
+     "refuseS": 0,
+     "crashes": 3,
+     "broke": false,
+     "rideS": 79.24,
+     "flownRideS": 12.22,
+     "quiverOutRideS": 76.08,
+     "towedOnSnowWhileRidingS": 44.08,
+     "standDeviceBusyS": 15.46,
+     "perStop": [
+      {
+       "stopS": 15.18,
+       "lockedAfterS": 5.26,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 41.64,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 30.18,
+       "lockedAfterS": 5.02,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "tail3",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 68.13,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 0,
+     "quiverOutRideS": 72.08,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "tail3",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 68.15,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 79.2,
+     "flownRideS": 0,
+     "quiverOutRideS": 72.12,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "tail3",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": null,
+     "headClear": null,
+     "bodyForcePeak": 0,
+     "launches": 0,
+     "launchFails": 0,
+     "rides": 3,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 0,
+     "refuseS": 68.19,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 79.24,
+     "flownRideS": 0,
+     "quiverOutRideS": 72.16,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 0,
+     "perStop": [
+      {
+       "stopS": 15.18,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 5.2,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 30.18,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    }
+   ]
+  },
+  "T05_stop10_go": {
+   "summary": "restart found the device not locked (BRAKE/CAPTURE) in 6/9 cases; only 3/9 cases launched for the second ride; dock times up to 57 s",
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 11.1,
+     "pxMed": 259.01,
+     "keMax": 29.85,
+     "headClear": 0.99,
+     "bodyForcePeak": 19.94,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      57.2
+     ],
+     "manual": 0,
+     "thirdPartyS": 92.98,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 30.66,
+     "quiverOutRideS": 72.68,
+     "towedOnSnowWhileRidingS": 34.3,
+     "standDeviceBusyS": 20.96,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 55.6,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 11,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 24.68,
+     "pxMed": 273.37,
+     "keMax": 16.73,
+     "headClear": 1.12,
+     "bodyForcePeak": 12.87,
+     "launches": 2,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      11.12,
+      11.34
+     ],
+     "manual": 0,
+     "thirdPartyS": 88.36,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 56.96,
+     "quiverOutRideS": 71.4,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 19.24,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 9.54,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 9.76,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 18.21,
+     "pxMed": 301.93,
+     "keMax": 22.38,
+     "headClear": 0.58,
+     "bodyForcePeak": 30.14,
+     "launches": 2,
+     "launchFails": 1,
+     "rides": 2,
+     "dockTimes": [
+      11.52,
+      36.4
+     ],
+     "manual": 0,
+     "thirdPartyS": 83.94,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.06,
+     "quiverOutRideS": 71.4,
+     "towedOnSnowWhileRidingS": 1.6,
+     "standDeviceBusyS": 15.18,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 9.9,
+       "modeAtRestart": "DOCKED"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 5.34,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 13.63,
+     "pxMed": 264.4,
+     "keMax": 22.85,
+     "headClear": 0.16,
+     "bodyForcePeak": 12.25,
+     "launches": 2,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      35.02,
+      24.35
+     ],
+     "manual": 0,
+     "thirdPartyS": 98.02,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 29.96,
+     "quiverOutRideS": 71.2,
+     "towedOnSnowWhileRidingS": 29.22,
+     "standDeviceBusyS": 28.14,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 5.42,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 22.78,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 15.89,
+     "pxMed": 270.14,
+     "keMax": 20.87,
+     "headClear": 0.99,
+     "bodyForcePeak": 16.83,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      56.89
+     ],
+     "manual": 0,
+     "thirdPartyS": 92.72,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 32.08,
+     "quiverOutRideS": 72.7,
+     "towedOnSnowWhileRidingS": 33.88,
+     "standDeviceBusyS": 20.68,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 55.32,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.72,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 20.02,
+     "pxMed": 315.87,
+     "keMax": 23.77,
+     "headClear": 0.77,
+     "bodyForcePeak": 33.2,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      51.17
+     ],
+     "manual": 0,
+     "thirdPartyS": 86.94,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.78,
+     "quiverOutRideS": 72.7,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 14.9,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 49.54,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 4.94,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 11,
+     "avail": 10.8,
+     "pxMed": 263,
+     "keMax": 14.7,
+     "headClear": 0.83,
+     "bodyForcePeak": 30.67,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      54.66
+     ],
+     "manual": 0,
+     "thirdPartyS": 90.44,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.32,
+     "quiverOutRideS": 72.68,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 18.42,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 53.06,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 8.46,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 12,
+     "avail": 12.69,
+     "pxMed": 244.5,
+     "keMax": 16.36,
+     "headClear": 0.17,
+     "bodyForcePeak": 31.33,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      56.5
+     ],
+     "manual": 0,
+     "thirdPartyS": 92.32,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 32.24,
+     "quiverOutRideS": 72.7,
+     "towedOnSnowWhileRidingS": 1.06,
+     "standDeviceBusyS": 20.28,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 54.92,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.32,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 13,
+     "avail": 17.08,
+     "pxMed": 277.65,
+     "keMax": 18.97,
+     "headClear": 0.83,
+     "bodyForcePeak": 31.07,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      52.86
+     ],
+     "manual": 0,
+     "thirdPartyS": 88.64,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.94,
+     "quiverOutRideS": 72.7,
+     "towedOnSnowWhileRidingS": 1.6,
+     "standDeviceBusyS": 16.6,
+     "perStop": [
+      {
+       "stopS": 10,
+       "lockedAfterS": 51.24,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 6.64,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    }
+   ]
+  },
+  "T05_stop5_go": {
+   "summary": "9/9 cases: second ride never launched (1 launch per 2 rides); device still RETRIEVE/BRAKE/CAPTURE at restart; 1 MANUAL stow",
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 12.28,
+     "pxMed": 268.08,
+     "keMax": 17.74,
+     "headClear": 1.08,
+     "bodyForcePeak": 12.85,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      14.61
+     ],
+     "manual": 0,
+     "thirdPartyS": 50.32,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 30.46,
+     "quiverOutRideS": 47.42,
+     "towedOnSnowWhileRidingS": 0.18,
+     "standDeviceBusyS": 5,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 13.02,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 10.67,
+     "pxMed": 246.06,
+     "keMax": 19.19,
+     "headClear": 1.1,
+     "bodyForcePeak": 13.29,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      12.88
+     ],
+     "manual": 0,
+     "thirdPartyS": 48.74,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.32,
+     "quiverOutRideS": 45.86,
+     "towedOnSnowWhileRidingS": 0.06,
+     "standDeviceBusyS": 5,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 11.28,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 17.46,
+     "pxMed": 301.73,
+     "keMax": 18.86,
+     "headClear": 1.09,
+     "bodyForcePeak": 14.61,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      13.83
+     ],
+     "manual": 0,
+     "thirdPartyS": 49.54,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 30.78,
+     "quiverOutRideS": 46.64,
+     "towedOnSnowWhileRidingS": 0.12,
+     "standDeviceBusyS": 5,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 12.22,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 13.95,
+     "pxMed": 273.85,
+     "keMax": 23.59,
+     "headClear": 1.06,
+     "bodyForcePeak": 28.16,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      44.13
+     ],
+     "manual": 0,
+     "thirdPartyS": 79.82,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.06,
+     "quiverOutRideS": 72.6,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 7.88,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 42.52,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 2.92,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 13.01,
+     "pxMed": 269.7,
+     "keMax": 22.01,
+     "headClear": 1.1,
+     "bodyForcePeak": 29.39,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      44.89
+     ],
+     "manual": 0,
+     "thirdPartyS": 80.74,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.82,
+     "quiverOutRideS": 72.76,
+     "towedOnSnowWhileRidingS": 0.44,
+     "standDeviceBusyS": 8.64,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 43.28,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 3.68,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 18.7,
+     "pxMed": 307.56,
+     "keMax": 30.32,
+     "headClear": 0.86,
+     "bodyForcePeak": 31.27,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      51.44
+     ],
+     "manual": 0,
+     "thirdPartyS": 87.14,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.36,
+     "quiverOutRideS": 72.62,
+     "towedOnSnowWhileRidingS": 1.58,
+     "standDeviceBusyS": 15.18,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 49.82,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.22,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 11,
+     "avail": 15.71,
+     "pxMed": 269.99,
+     "keMax": 17.29,
+     "headClear": 0.64,
+     "bodyForcePeak": 32,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      51.9
+     ],
+     "manual": 0,
+     "thirdPartyS": 87.6,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.5,
+     "quiverOutRideS": 72.6,
+     "towedOnSnowWhileRidingS": 1.18,
+     "standDeviceBusyS": 15.66,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 50.3,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.7,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 12,
+     "avail": 14.66,
+     "pxMed": 256.64,
+     "keMax": 20.06,
+     "headClear": 0.83,
+     "bodyForcePeak": 31.28,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [
+      49.54
+     ],
+     "manual": 0,
+     "thirdPartyS": 85.4,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.9,
+     "quiverOutRideS": 72.76,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 13.3,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": 47.94,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": 8.34,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 13,
+     "avail": 18.1,
+     "pxMed": 288.49,
+     "keMax": 17.23,
+     "headClear": 0.79,
+     "bodyForcePeak": 31.05,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 2,
+     "dockTimes": [],
+     "manual": 1,
+     "thirdPartyS": 101.94,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 74.24,
+     "flownRideS": 31.74,
+     "quiverOutRideS": 72.62,
+     "towedOnSnowWhileRidingS": 1.58,
+     "standDeviceBusyS": 29.98,
+     "perStop": [
+      {
+       "stopS": 5,
+       "lockedAfterS": null,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "MANUAL"
+      }
+     ]
+    }
+   ]
+  },
+  "P3_expert_15ms": {
+   "summary": "25 deg, 15 m/s: 4/9 launch failures, 3/9 weak-link break (flyer lost); flown runs KE 30-52 J, pxMed 187-222 px, avail 20.5-24.1 %",
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 52.24,
+     "headClear": 0.7,
+     "bodyForcePeak": 28.62,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      46.61
+     ],
+     "manual": 0,
+     "thirdPartyS": 46.76,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 40.18,
+     "towedOnSnowWhileRidingS": 37.42,
+     "standDeviceBusyS": 7.24,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 7.26,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 22.2,
+     "pxMed": 189.23,
+     "keMax": 30.03,
+     "headClear": 0.98,
+     "bodyForcePeak": 23.41,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "dockTimes": [
+      11.18
+     ],
+     "manual": 0,
+     "thirdPartyS": 50.86,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 35.8,
+     "quiverOutRideS": 40.14,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 11.38,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 11.4,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 15.05,
+     "headClear": 0.93,
+     "bodyForcePeak": 24.63,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 3.22,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": true,
+     "rideS": 41.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 40.28,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 25,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "FREE"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 19,
+     "headClear": 1.08,
+     "bodyForcePeak": 27.98,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 2.5,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": true,
+     "rideS": 41.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 40.18,
+     "towedOnSnowWhileRidingS": 0.44,
+     "standDeviceBusyS": 25,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "FREE"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 24.12,
+     "pxMed": 198.21,
+     "keMax": 32.19,
+     "headClear": 1,
+     "bodyForcePeak": 24.07,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "dockTimes": [
+      10.01
+     ],
+     "manual": 0,
+     "thirdPartyS": 49.68,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 36.38,
+     "quiverOutRideS": 40.14,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 10.2,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.22,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 13.24,
+     "headClear": 1.04,
+     "bodyForcePeak": 27.51,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 3.22,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": true,
+     "rideS": 41.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 40.28,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 25,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "FREE"
+      }
+     ]
+    },
+    {
+     "wind": "crossL6",
+     "seed": 11,
+     "avail": 23.74,
+     "pxMed": 222.99,
+     "keMax": 29.89,
+     "headClear": 0.58,
+     "bodyForcePeak": 17.8,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "dockTimes": [
+      11.13
+     ],
+     "manual": 0,
+     "thirdPartyS": 50.84,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 35.9,
+     "quiverOutRideS": 40.18,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 11.32,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 11.34,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL6",
+     "seed": 12,
+     "avail": 22.35,
+     "pxMed": 188.15,
+     "keMax": 31.89,
+     "headClear": 0.92,
+     "bodyForcePeak": 16.53,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "dockTimes": [
+      10.81
+     ],
+     "manual": 0,
+     "thirdPartyS": 50.48,
+     "refuseS": 0,
+     "crashes": 0,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 36.2,
+     "quiverOutRideS": 40.14,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 11,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 11.02,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL6",
+     "seed": 13,
+     "avail": 20.52,
+     "pxMed": 186.99,
+     "keMax": 34.16,
+     "headClear": 0.77,
+     "bodyForcePeak": 23.66,
+     "launches": 1,
+     "launchFails": 0,
+     "rides": 1,
+     "dockTimes": [
+      17.52
+     ],
+     "manual": 0,
+     "thirdPartyS": 55.54,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 41.62,
+     "flownRideS": 34.98,
+     "quiverOutRideS": 40.28,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 15.92,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 15.94,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    }
+   ]
+  },
+  "P4_family_6_5ms": {
+   "summary": "4 rides x ~20 s at 6.5 m/s, stops 8/20/6/25 s: calm 10/10 launches failed (avail 0 %, towed 33-51 s of 86 s riding, headClear 0.41-0.86 m); head 3 avail 5-14 %; third-party 72-116 s per plan",
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 7.33,
+     "headClear": 0.86,
+     "bodyForcePeak": 15.91,
+     "launches": 4,
+     "launchFails": 4,
+     "rides": 4,
+     "dockTimes": [
+      20.37,
+      17.5,
+      14.54,
+      19.9
+     ],
+     "manual": 0,
+     "thirdPartyS": 84.74,
+     "refuseS": 10.41,
+     "crashes": 4,
+     "broke": false,
+     "rideS": 85.6,
+     "flownRideS": 0,
+     "quiverOutRideS": 79.3,
+     "towedOnSnowWhileRidingS": 51.28,
+     "standDeviceBusyS": 18.5,
+     "perStop": [
+      {
+       "stopS": 8.18,
+       "lockedAfterS": 5.22,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.22,
+       "lockedAfterS": 4.06,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 4.04,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.2,
+       "lockedAfterS": 5.3,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 7.41,
+     "headClear": 0.41,
+     "bodyForcePeak": 20.12,
+     "launches": 3,
+     "launchFails": 3,
+     "rides": 4,
+     "dockTimes": [
+      20.82,
+      17.64,
+      34.05
+     ],
+     "manual": 0,
+     "thirdPartyS": 82.78,
+     "refuseS": 0,
+     "crashes": 2,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 0,
+     "quiverOutRideS": 70.32,
+     "towedOnSnowWhileRidingS": 46.52,
+     "standDeviceBusyS": 15.9,
+     "perStop": [
+      {
+       "stopS": 8.2,
+       "lockedAfterS": 4.88,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.26,
+       "lockedAfterS": 4.8,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.22,
+       "lockedAfterS": 15.94,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 10.08,
+     "headClear": 0.44,
+     "bodyForcePeak": 17.67,
+     "launches": 3,
+     "launchFails": 3,
+     "rides": 4,
+     "dockTimes": [
+      32,
+      21.94,
+      21.34
+     ],
+     "manual": 0,
+     "thirdPartyS": 86.36,
+     "refuseS": 0.23,
+     "crashes": 3,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 0,
+     "quiverOutRideS": 71.62,
+     "towedOnSnowWhileRidingS": 32.7,
+     "standDeviceBusyS": 18.42,
+     "perStop": [
+      {
+       "stopS": 8.24,
+       "lockedAfterS": 16.86,
+       "modeAtRestart": "RETRIEVE"
+      },
+      {
+       "stopS": 20.24,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 4.64,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 5.62,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 13.74,
+     "pxMed": 330.47,
+     "keMax": 11.67,
+     "headClear": 0.84,
+     "bodyForcePeak": 21.57,
+     "launches": 3,
+     "launchFails": 1,
+     "rides": 4,
+     "dockTimes": [
+      10.08,
+      21.17,
+      30.15
+     ],
+     "manual": 0,
+     "thirdPartyS": 102.52,
+     "refuseS": 0.62,
+     "crashes": 3,
+     "broke": false,
+     "rideS": 85.6,
+     "flownRideS": 23.86,
+     "quiverOutRideS": 81.12,
+     "towedOnSnowWhileRidingS": 10.5,
+     "standDeviceBusyS": 25.44,
+     "perStop": [
+      {
+       "stopS": 8.18,
+       "lockedAfterS": 8.68,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 20.22,
+       "lockedAfterS": 9.86,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 28.84,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 25.2,
+       "lockedAfterS": 1.24,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 13.28,
+     "pxMed": 362.4,
+     "keMax": 14.68,
+     "headClear": 1.07,
+     "bodyForcePeak": 19.38,
+     "launches": 3,
+     "launchFails": 0,
+     "rides": 4,
+     "dockTimes": [
+      11.42,
+      49.55,
+      16.98
+     ],
+     "manual": 0,
+     "thirdPartyS": 114.16,
+     "refuseS": 0,
+     "crashes": 6,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 20.98,
+     "quiverOutRideS": 80.62,
+     "towedOnSnowWhileRidingS": 17.42,
+     "standDeviceBusyS": 35.52,
+     "perStop": [
+      {
+       "stopS": 8.2,
+       "lockedAfterS": 4.8,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.26,
+       "lockedAfterS": 48.24,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 6.22,
+       "lockedAfterS": 4.6,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 5.94,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 5.38,
+     "pxMed": 417.29,
+     "keMax": 8.23,
+     "headClear": 0.7,
+     "bodyForcePeak": 10.64,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 4,
+     "dockTimes": [
+      21.59,
+      20.26,
+      50.9
+     ],
+     "manual": 0,
+     "thirdPartyS": 115.64,
+     "refuseS": 0,
+     "crashes": 2,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 9.82,
+     "quiverOutRideS": 80.94,
+     "towedOnSnowWhileRidingS": 41.36,
+     "standDeviceBusyS": 36.76,
+     "perStop": [
+      {
+       "stopS": 8.24,
+       "lockedAfterS": 5.98,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.24,
+       "lockedAfterS": 18.92,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 33.34,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 5.72,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 11,
+     "avail": 10.07,
+     "pxMed": 528.18,
+     "keMax": 8.37,
+     "headClear": 1.07,
+     "bodyForcePeak": 16.21,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 4,
+     "dockTimes": [
+      14.97,
+      17.37,
+      13.67
+     ],
+     "manual": 0,
+     "thirdPartyS": 71.92,
+     "refuseS": 10.51,
+     "crashes": 2,
+     "broke": false,
+     "rideS": 85.6,
+     "flownRideS": 10.84,
+     "quiverOutRideS": 68.28,
+     "towedOnSnowWhileRidingS": 21.1,
+     "standDeviceBusyS": 17.6,
+     "perStop": [
+      {
+       "stopS": 8.18,
+       "lockedAfterS": 13.56,
+       "modeAtRestart": "CAPTURE"
+      },
+      {
+       "stopS": 20.22,
+       "lockedAfterS": 0,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 4.66,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.2,
+       "lockedAfterS": 4.84,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 12,
+     "avail": 7.18,
+     "pxMed": 419.77,
+     "keMax": 9.24,
+     "headClear": 0.86,
+     "bodyForcePeak": 17.5,
+     "launches": 3,
+     "launchFails": 2,
+     "rides": 4,
+     "dockTimes": [
+      43.9,
+      18.82,
+      21.45
+     ],
+     "manual": 0,
+     "thirdPartyS": 112.22,
+     "refuseS": 0,
+     "crashes": 3,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 10.52,
+     "quiverOutRideS": 80.92,
+     "towedOnSnowWhileRidingS": 44.84,
+     "standDeviceBusyS": 33.7,
+     "perStop": [
+      {
+       "stopS": 8.2,
+       "lockedAfterS": 42.52,
+       "modeAtRestart": "BRAKE"
+      },
+      {
+       "stopS": 20.26,
+       "lockedAfterS": 14.98,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.22,
+       "lockedAfterS": 5.24,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 5.38,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL3",
+     "seed": 13,
+     "avail": 2.74,
+     "pxMed": 297.45,
+     "keMax": 10.16,
+     "headClear": 0.73,
+     "bodyForcePeak": 15.21,
+     "launches": 4,
+     "launchFails": 3,
+     "rides": 4,
+     "dockTimes": [
+      14.22,
+      24.82,
+      20.56,
+      15.85
+     ],
+     "manual": 0,
+     "thirdPartyS": 104.58,
+     "refuseS": 5.34,
+     "crashes": 3,
+     "broke": false,
+     "rideS": 85.54,
+     "flownRideS": 6.46,
+     "quiverOutRideS": 79.34,
+     "towedOnSnowWhileRidingS": 37.14,
+     "standDeviceBusyS": 33.22,
+     "perStop": [
+      {
+       "stopS": 8.24,
+       "lockedAfterS": 4.5,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 20.24,
+       "lockedAfterS": 10.04,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 6.2,
+       "lockedAfterS": 4.3,
+       "modeAtRestart": "STOWED"
+      },
+      {
+       "stopS": 25.18,
+       "lockedAfterS": 14.5,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    }
+   ]
+  },
+  "P5_tour_descent": {
+   "summary": "28 deg, 10 m/s, 60 s descent: 9/9 launch failures at ~2.2 s, 1 weak-link loss, avail 0 %, dock 62-79 s after the stop",
+   "rows": [
+    {
+     "wind": "calm",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 24.67,
+     "headClear": 0.17,
+     "bodyForcePeak": 20.17,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      71.13
+     ],
+     "manual": 0,
+     "thirdPartyS": 71.4,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.22,
+     "towedOnSnowWhileRidingS": 57.36,
+     "standDeviceBusyS": 11.84,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 11.86,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 17.44,
+     "headClear": 0.77,
+     "bodyForcePeak": 29.89,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      62.27
+     ],
+     "manual": 0,
+     "thirdPartyS": 62.68,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.16,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 3.18,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 3.2,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "calm",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 17.27,
+     "headClear": 0.81,
+     "bodyForcePeak": 25.28,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      61.88
+     ],
+     "manual": 0,
+     "thirdPartyS": 62.24,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.2,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 2.7,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 2.72,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL6",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 19.27,
+     "headClear": 0.1,
+     "bodyForcePeak": 31.39,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      66.92
+     ],
+     "manual": 0,
+     "thirdPartyS": 67.06,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.22,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 7.5,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 7.52,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "crossL6",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 11.48,
+     "headClear": 1.08,
+     "bodyForcePeak": 23.46,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [],
+     "manual": 0,
+     "thirdPartyS": 3.2,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": true,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.16,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 25,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": null,
+       "modeAtRestart": "FREE"
+      }
+     ]
+    },
+    {
+     "wind": "crossL6",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 16.57,
+     "headClear": 0.59,
+     "bodyForcePeak": 34.28,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      67.02
+     ],
+     "manual": 0,
+     "thirdPartyS": 67.14,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.2,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 7.6,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 7.62,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 11,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 39.44,
+     "headClear": 0.72,
+     "bodyForcePeak": 24.88,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      64.96
+     ],
+     "manual": 0,
+     "thirdPartyS": 65.12,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.22,
+     "towedOnSnowWhileRidingS": 57.4,
+     "standDeviceBusyS": 5.56,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 5.58,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 12,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 18.08,
+     "headClear": 1.15,
+     "bodyForcePeak": 29.94,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      78.87
+     ],
+     "manual": 0,
+     "thirdPartyS": 79.14,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.16,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 19.64,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 19.66,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    },
+    {
+     "wind": "head3",
+     "seed": 13,
+     "avail": 0,
+     "pxMed": null,
+     "keMax": 17.55,
+     "headClear": 1.14,
+     "bodyForcePeak": 31.04,
+     "launches": 1,
+     "launchFails": 1,
+     "rides": 1,
+     "dockTimes": [
+      70.22
+     ],
+     "manual": 0,
+     "thirdPartyS": 70.48,
+     "refuseS": 0,
+     "crashes": 1,
+     "broke": false,
+     "rideS": 61.62,
+     "flownRideS": 0,
+     "quiverOutRideS": 60.2,
+     "towedOnSnowWhileRidingS": 0,
+     "standDeviceBusyS": 10.94,
+     "perStop": [
+      {
+       "stopS": 25,
+       "lockedAfterS": 10.96,
+       "modeAtRestart": "STOWED"
+      }
+     ]
+    }
+   ]
+  },
+  "falls": {
+   "T02_fall_beginner_5ms": [
+    {
+     "seed": 3,
+     "speedAtFall": 5.68,
+     "fallDetectedAt": 14.6,
+     "detectLatencyS": 0.6,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 0.98,
+      "maxBodyForce": 7.17,
+      "maxKE": 1.53
+     },
+     "run": {
+      "keMax": 2.74,
+      "headClear": 0.98,
+      "bodyForcePeak": 8.53,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "4.8:launchFail",
+      "5.7:landed",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 5,
+     "speedAtFall": 5.7,
+     "fallDetectedAt": 14.620000000000001,
+     "detectLatencyS": 0.62,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.04,
+      "maxBodyForce": 4.97,
+      "maxKE": 1.31
+     },
+     "run": {
+      "keMax": 2.77,
+      "headClear": 1.04,
+      "bodyForcePeak": 9.7,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "5.2:launchFail",
+      "7.1:landed",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 8,
+     "speedAtFall": 5.7,
+     "fallDetectedAt": 14.64,
+     "detectLatencyS": 0.64,
+     "launched": 0,
+     "postFall6s": {
+      "minHeadClear": null,
+      "maxBodyForce": 0,
+      "maxKE": 0
+     },
+     "run": {
+      "keMax": null,
+      "headClear": null,
+      "bodyForcePeak": 0,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "1.0:deploy"
+     ]
+    }
+   ],
+   "T06_fall_12ms": [
+    {
+     "seed": 3,
+     "speedAtFall": 13.1,
+     "fallDetectedAt": 14.6,
+     "detectLatencyS": 0.6,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.27,
+      "maxBodyForce": 4.89,
+      "maxKE": 6.3
+     },
+     "run": {
+      "keMax": 13.27,
+      "headClear": 1.17,
+      "bodyForcePeak": 10.53,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "1.0:deploy",
+      "2.3:launch",
+      "14.4:stop",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 5,
+     "speedAtFall": 13.14,
+     "fallDetectedAt": 14.6,
+     "detectLatencyS": 0.6,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.27,
+      "maxBodyForce": 2.99,
+      "maxKE": 5.54
+     },
+     "run": {
+      "keMax": 12.2,
+      "headClear": 1.18,
+      "bodyForcePeak": 10.45,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "14.4:stop",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 8,
+     "speedAtFall": 13.16,
+     "fallDetectedAt": 14.58,
+     "detectLatencyS": 0.58,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.26,
+      "maxBodyForce": 3.46,
+      "maxKE": 5.69
+     },
+     "run": {
+      "keMax": 12.08,
+      "headClear": 1.15,
+      "bodyForcePeak": 10.74,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "14.4:stop",
+      "14.6:abort"
+     ]
+    }
+   ],
+   "P3_fall_15ms": [
+    {
+     "seed": 3,
+     "speedAtFall": 16.99,
+     "fallDetectedAt": 14.6,
+     "detectLatencyS": 0.6,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 1.25,
+      "maxBodyForce": 8.06,
+      "maxKE": 11.83
+     },
+     "run": {
+      "keMax": 22.69,
+      "headClear": 1.03,
+      "bodyForcePeak": 18.37,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "14.4:stop",
+      "14.6:abort"
+     ]
+    },
+    {
+     "seed": 5,
+     "speedAtFall": 17.08,
+     "fallDetectedAt": 14.56,
+     "detectLatencyS": 0.56,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": 99,
+      "maxBodyForce": 0,
+      "maxKE": 0
+     },
+     "run": {
+      "keMax": 15.42,
+      "headClear": 0.91,
+      "bodyForcePeak": 25.4,
+      "cut": false,
+      "broke": true
+     },
+     "events": [
+      "0.8:deploy",
+      "2.1:launch",
+      "2.2:launchFail",
+      "5.3:weaklink"
+     ]
+    },
+    {
+     "seed": 8,
+     "speedAtFall": 17.11,
+     "fallDetectedAt": 14.58,
+     "detectLatencyS": 0.58,
+     "launched": 1,
+     "postFall6s": {
+      "minHeadClear": null,
+      "maxBodyForce": 0,
+      "maxKE": 0
+     },
+     "run": {
+      "keMax": 37.55,
+      "headClear": 0.95,
+      "bodyForcePeak": 32.14,
+      "cut": false,
+      "broke": false
+     },
+     "events": [
+      "0.9:deploy",
+      "2.2:launch",
+      "2.3:launchFail",
+      "14.4:docked"
+     ]
+    }
+   ]
+  },
+  "activityDetector": {
+   "note": "shipped detector (sim/js/concepts/activetether/detect.js) on user-tester synthetic activity traces (ASSUMED kinematics); a detector start deploys the quiver; launch then needs the apparent-wind and straight-glide gates",
+   "skinUp": {
+    "traces": 10,
+    "detectorStarts": 0,
+    "tracesWithStart": 0
+   },
+   "skinDownTraverse": {
+    "traces": 40,
+    "detectorStarts": 19,
+    "tracesWithStart": 19
+   },
+   "magicCarpet": {
+    "traces": 40,
+    "detectorStarts": 0,
+    "tracesWithStart": 0
+   },
+   "beginnerDrift": {
+    "traces": 40,
+    "detectorStarts": 24,
+    "tracesWithStart": 24
+   },
+   "childGuide": {
+    "traces": 40,
+    "detectorStarts": 0,
+    "tracesWithStart": 0
+   },
+   "catTrackDown": {
+    "traces": 40,
+    "detectorStarts": 27,
+    "tracesWithStart": 27
+   },
+   "carDown": {
+    "traces": 40,
+    "detectorStarts": 40,
+    "tracesWithStart": 40
+   },
+   "sledTowDown": {
+    "traces": 40,
+    "detectorStarts": 40,
+    "tracesWithStart": 40
+   }
+  },
+  "fromResultsJson": {
+   "ensemble48": {
+    "avail_mean": 16.748,
+    "pxMed_p50": 279.103,
+    "jitter_p90": 10.519,
+    "keMax_max": 57.079,
+    "keMax_p50": 21.647,
+    "headClear_min": 0.25,
+    "headClear_p10": 0.448,
+    "bodyForcePeak_max": 32.852,
+    "setupTime_p90": 22.19,
+    "endurance_min": 73.374,
+    "casesNeverFlown": 15,
+    "broke": 2
+   },
+   "product": {
+    "launchSuccess_mean": 90,
+    "dockFirstTry_mean": 80,
+    "dockTime": {
+     "p50": 13.87,
+     "p90": 31.25,
+     "max": 70.86
+    },
+    "thirdPartyS_p50": 84.74,
+    "thirdPartyS_p90": 100.92,
+    "lowLineShare_mean": 99.898,
+    "lowLenP90_p50_m": 1.795,
+    "refuseS_p90": 66.612
+   },
+   "falseLaunch": {
+    "days": 40,
+    "perDay": 0.975,
+    "busDown": "39/40 starts, 39 pass the wind gate",
+    "chairlift": "0/438",
+    "surfaceLift": "0/162",
+    "queue": "0/600",
+    "gondolaDown": "0/20"
+   },
+   "liftGeofenceScenario_browser": {
+    "setupTime_s": 5.69,
+    "dockFirstTry_pct": 50,
+    "Tmax_N": 150.99,
+    "bodyForcePeak_N": 31.91,
+    "note": "pre-dock while riding shortens standstill but shows a 151 N instantaneous exit-tension spike (50 ms body force 31.9 N)"
+   }
+  }
+ },
+ "testScenarios": [
+  {
+   "id": "T01",
+   "status": "SIM_RUN (dev ensemble + browser fullrun)",
+   "result": "FAIL 5/13 shared criteria: avail 16.7 %, pxMed 279 px, jitter 10.5 deg/s, keMax 57.1 J, headClear 0.25 m. Pass: azRange, mass 0.913 kg, body force 32.9 N, handsBusy 0, setupTime 22.2 s, ops 0, packVol 2.28 L, endurance 73 min."
+  },
+  {
+   "id": "T02",
+   "status": "SIM_APPROX (persona plan P1 5 & 7 m/s + beginner fall)",
+   "result": "Body force <=17 N PASS. headClear 0.36-0.67 m at 7 m/s calm FAIL. Honest refusal at 5 m/s: the device does refuse, but silently with the quiver out for ~68 s per run - honesty requires an audible reason (PM-M08) and folding back. missedLaunch excluding refusals: at 7 m/s calm the device attempted launches but avail was 0-1.3 %, i.e. essentially all 9 rides unfilmed FAIL (target <=5 %). Fall detection 0.60-0.64 s (PM-M09 <=0.5 s) FAIL marginal."
+  },
+  {
+   "id": "T03",
+   "status": "SIM_APPROX (energy arithmetic + ensemble)",
+   "result": "Pack endurance PASS (min 73 min, p50 163 min at -10 C vs ~60 filmed min/day). Flyer cell 1.65 Wh at 4.25 W = ~23 min airborne/charge -> depends on dock charging on lifts (cell must be >5 C) - unverified. avail 16.7 % FAIL, dock first-try 80 % FAIL. Over 20 runs with 2 stops each: ~9 min (p50) to ~21 min (p90) of standing for docks per day."
+  },
+  {
+   "id": "T04",
+   "status": "SIM_RUN (ensemble tail band + browser tail45/tail6)",
+   "result": "Clear refusal for tail >=3.5 m/s in sim (no launch, refuseS ~67 s), but quiver stays out (t04_tail45_refusal_quiver_out.png) and no user-facing reason exists. Tail 3 launches fail 3/6 attempts; KE 18.7-21.7 J > 14.9 J FAIL; headClear 0.58-0.79 m FAIL."
+  },
+  {
+   "id": "T05",
+   "status": "SIM_RUN (scripted 10 s and 5 s stop-and-go)",
+   "result": "FAIL. 10 s stop: device not locked at restart in 6/9; next ride launched in 3/9. 5 s stop: next ride filmed 0/9; 1 manual stow. Flyer towed on a short line behind a 12 m/s rider for most of the second ride (t05_second_ride_towed.png)."
+  },
+  {
+   "id": "T06",
+   "status": "SIM_RUN (fall at 12-13 m/s, 3 seeds; valid 6 s after the fall)",
+   "result": "Body force <=10.7 N, head clearance >=1.15 m, KE <=13.3 J PASS within model scope. Fall detection 0.58-0.60 s (>0.5 s target). Line around limbs NOT modelled -> physical dummy test NOT_RUN."
+  },
+  {
+   "id": "T07",
+   "status": "SIM_APPROX (no crowd model; thirdPartyS proxy)",
+   "result": "FAIL: line below 2 m more than 0.5 m behind the rider p50 84.7 s / p90 100.9 s per run (target 0). A skier crossing 1-3 m behind meets the line ~100 % of airborne riding time. Needs a crowd/third-party agent model (sim-new) and contact/load model."
+  },
+  {
+   "id": "T08",
+   "status": "NOT_RUN",
+   "result": "Tree snag not modelled. Needs: line-snag model + physical bench with 38 N weak link / 35 N clutch / cutter at 15 m/s, locator beacon test. Indirect signal: at 15 m/s on 25 deg 3/9 runs already broke the weak link without any tree."
+  },
+  {
+   "id": "T09",
+   "status": "NOT_RUN",
+   "result": "Skier model has no airtime. Needs a jump/drop trajectory (1.5 s airtime, 14 m/s landing) in sim-new; physical rig later."
+  },
+  {
+   "id": "T10",
+   "status": "SIM_APPROX (detector on skin traces + descent plan)",
+   "result": "Skinning uphill 0/10 x 45 min starts PASS. Descending skin traverse 19/40 starts (deploys while touring) FAIL-risk. 28 deg descent 9/9 launch failures FAIL (check model on steep slopes). -15 C endurance NOT simulated (shared -10 C rule). Airbag compatibility NOT_RUN."
+  },
+  {
+   "id": "T11",
+   "status": "SIM_APPROX (synthetic traces: results.json + user-tester traces)",
+   "result": "Lifts 0 launches PASS (synthetic). Unintended per day 0.975 (bus) FAIL vs <=0.2; car/shuttle 40/40 and snowmobile/sled tow 40/40 starts in our traces; gentle downhill cat tracks 27/40; beginner drifts 24/40. Recorded IMU traces (>=500 lift rides, >=50 ski days) NOT_RUN."
+  },
+  {
+   "id": "T12",
+   "status": "NOT_RUN (physical usability)",
+   "result": "Heuristic: FAIL by design inspection - no spoken/beep vocabulary is specified; in sim a refusal looks identical to \"about to launch\" (quiver out). Needs: prototype audio prompts, >=10 testers per persona, 9 m/s cross wind at the top, comprehension interview."
+  },
+  {
+   "id": "T13",
+   "status": "SIM_APPROX (lift geofence scenario) / usability NOT_RUN",
+   "result": "Pre-dock geofence 6 s before the lift stop: setupTime 5.7 s, but first-try dock 50 % and a 151 N instantaneous exit tension. No alarm or forced reel-in logic for \"approaching lift with line out\" exists in model.js. Needs lift-approach geofence + alarm state + manual-stow timing test with gloves."
+  },
+  {
+   "id": "T14",
+   "status": "NOT_RUN (physical); MODAPTS-style estimate",
+   "result": "The single strap control is reachable, but manual stow after 3 failed captures means pulling the flyer nose into a quiver mouth 0.66 m behind the pelvis - a blind reach behind the back (violates \"no blind insertion behind back\"). Model assumes 20 s. Estimate with mittens 25-45 s."
+  },
+  {
+   "id": "T15",
+   "status": "SIM_RUN (sensitivity capture x0.8, sensors x2) / usability NOT_RUN",
+   "result": "Dock first-try falls to 71 % (capture x0.8) / 69 % (sensors x2); setupTime p90 55 s in 6 sensitivity sets. Manual stows observed: 1 of 48 ensemble, 2 of our persona runs. Hand-near-loaded-line rule not modelled."
+  },
+  {
+   "id": "T16",
+   "status": "NOT_RUN",
+   "result": "Out-of-box: pairing, fit, first flight - needs a physical prototype and app."
+  },
+  {
+   "id": "T17",
+   "status": "NOT_RUN in sim (no crowd model); design inspection FAIL",
+   "result": "No crowd sensing in model.js; device launches regardless of people behind. Needs crowd model + rear sensor concept."
+  },
+  {
+   "id": "T18",
+   "status": "NOT_RUN (physical viewer panel)",
+   "result": "Sim PiP renders can rehearse the protocol only; with pxMed 279 px and 16.7 % availability we would not expect >=60 % preference vs Insta360 X5 / HoverAir - prediction, not evidence."
+  }
+ ],
+ "topProblems": [
+  {
+   "rank": 1,
+   "severity": "critical (safety)",
+   "problem": "Line low behind the rider = clothesline/trip line for third parties, worst for families and crowded pistes.",
+   "evidence": "thirdPartyS p50 84.7 s / p90 100.9 s per run; lowLineShare 99.9 % of airborne riding; first ~1.8 m behind the quiver below 1.8 m; drag-on-snow phases (towedOnSnowWhileRidingS up to 51 s per P4 plan).",
+   "designChange": "Raise the exit above head height (shoulder-mast or helmet-height exit) or accept that AT-1 is a no-crowd product: rear-facing presence sensor (radar/camera) that blocks launch and forces fly-in when anyone is within ~10 m behind; hi-vis line + flag on the first 3 m; rear LED showing \"line out\"; never tow the flyer on snow while riding."
+  },
+  {
+   "rank": 2,
+   "severity": "critical (safety)",
+   "problem": "Flyer kinetic energy far above the 14.9 J cap at normal and expert speeds.",
+   "evidence": "Ensemble KE max 57.1 J, p50 21.6 J; P3 15 m/s 30-52 J; mass x0.5 still 40.5 J.",
+   "designChange": "Hard speed governor: refuse/land above the speed where KE would exceed 14.9 J (~12 m/s for 116 g incl. swing); <=60 g flyer study; padding/frangible nose. This is architectural - not a UX patch."
+  },
+  {
+   "rank": 3,
+   "severity": "critical (safety)",
+   "problem": "False launches in vehicles and tows (bus, car, snowmobile/sled).",
+   "evidence": "results.json bus 39/40 starts pass the wind gate (0.975/day vs <=0.2); our car/sled traces 40/40 starts.",
+   "designChange": "Require snow-chatter spectral signature + ski-specific turn rhythm; disarm above 20 m/s or after >60 s without snow signature; \"transport lock\" that engages automatically when the pack is taken off/buckle opened and must be released with one deliberate action at the top; hard mechanical quiver lock independent of software."
+  },
+  {
+   "rank": 4,
+   "severity": "high (usability, core JTBD-3)",
+   "problem": "Short stop then go: dock p90 31 s means the next ride is not filmed and the flyer is towed behind.",
+   "evidence": "T05: 10 s stop -> not locked at restart 6/9, next ride launched 3/9; 5 s stop -> next ride launched 0/9. Ensemble dock p50 13.9 / p90 31.3 / max 70.9 s; first try 80 %.",
+   "designChange": "\"Keep going\" path: on a stop <15 s hold at short line (fly-in/hover-kite) instead of land-and-tow; if the rider restarts during retrieve, re-launch from the tow instead of locking out the ride; allow capture while riding slowly (slowdock) so the device is ready; audible \"docking - 10 s\" and \"ready\" cues; make nextRideFilmedAfterStop a judged metric."
+  },
+  {
+   "rank": 5,
+   "severity": "high (safety)",
+   "problem": "Head clearance during stops/tow-in/fly-in in tail/cross wind.",
+   "evidence": "headClear min 0.25 m, p10 0.45 m (ensemble), 0.36 m beginner 7 m/s calm, 0.17 m P5 calm descent.",
+   "designChange": "Side-drop always, never fly-in from the windward side; stop reel-in when the flyer is <1.5 m from the helmet estimate (UWB) and let it land; flyer padding."
+  },
+  {
+   "rank": 6,
+   "severity": "high (usability/expectation)",
+   "problem": "Speed envelope excludes beginners and families, and the 6-8 m/s band is worse than not flying.",
+   "evidence": "P1 5 m/s: 0 launches; P1 7 m/s and P4 6.5 m/s calm: 1-4 failed launches per plan, flyer dragged 19-51 s per plan, avail ~0 %.",
+   "designChange": "Do not attempt below a speed+wind margin that predicts >=95 % success (e.g. gate on predicted sustained apparent wind >=1.6 Vs over the next 5 s); market AT-1 for >=10 m/s riders; state the envelope on the box/app (\"films from ~10 m/s; slower = stays stowed\")."
+  },
+  {
+   "rank": 7,
+   "severity": "high (usability/social)",
+   "problem": "Quiver deploys and stays out when the device refuses or for false starts.",
+   "evidence": "quiverOutRideS 68-72 s per 77 s run at P1 5 m/s; tail45 screenshot; beginner drift starts 24/40, skin traverse 19/40, cat track 27/40.",
+   "designChange": "Evaluate the launch gate BEFORE deploying the quiver (deploy only when a launch is predicted within 2 s); fold back after 3 s of refusal; one short audio reason (\"too slow\", \"tailwind\", \"crowd\")."
+  },
+  {
+   "rank": 8,
+   "severity": "high (loss/cost)",
+   "problem": "Weak-link breaks and lost flyers at expert speeds / steep terrain; launch failures on steep slopes.",
+   "evidence": "P3 25 deg 15 m/s: 3/9 weak-link losses, 4/9 launch failures; P5 28 deg 10 m/s: 9/9 launch failures, 1 loss; ensemble broke 2/48.",
+   "designChange": "Check steep-slope launch geometry (rail pitch vs slope, release height); retain the flyer on a secondary leash after a weak-link event (weak link releases tension, not the flyer); beacon + app \"find flyer\"; refuse launch above slope/speed limits."
+  },
+  {
+   "rank": 9,
+   "severity": "medium-high (comfort/safety)",
+   "problem": "Rigid 0.55 m quiver on chairlifts, T-bars, in backward falls and next to children.",
+   "evidence": "Demo shows it stowed diagonally across the back; engineering: 65 mm backrest plate ASSUMED acceptable, breakaway <=60 N, top risk #2. T-bar/platter interaction not analysed at all.",
+   "designChange": "Stow the quiver flat along the spine inside the pack outline; T-bar/platter fit test and a \"surface-lift\" mode; breakaway hinge verified by drop dummy; consider a telescopic/collapsible quiver."
+  },
+  {
+   "rank": 10,
+   "severity": "medium (usability)",
+   "problem": "No status/feedback channel designed; refusal comprehension and manual fallback undefined.",
+   "evidence": "PM-M08 and T12 have no implementation; manual stow requires blind insertion behind the back after 3 failed captures.",
+   "designChange": "Define an audio/haptic vocabulary (6 messages max) and a front-visible strap LED; manual fallback = reel brings the flyer to the hand in front (shoulder guide), then one-handed push into a front-loading sleeve; app shows flyer battery and dock-charging state."
+  },
+  {
+   "rank": 11,
+   "severity": "medium",
+   "problem": "Footage quality below the product reason.",
+   "evidence": "avail 16.7 %, pxMed 279 px, jitter p90 10.5 deg/s; first ~9 s of every ride unfilmed; P3 pxMed 187-222 px.",
+   "designChange": "Narrower lens / zoom crop at 10 m line; reduce launch latency (pre-deploy quiver at the top on user arm); stabilisation."
+  },
+  {
+   "rank": 12,
+   "severity": "medium (touring)",
+   "problem": "Touring fit: 0.913 kg vs 0.9 kg target, airbag compatibility unknown, flyer cell cannot charge below 5 C.",
+   "evidence": "design BOM 0.913 kg; engineering battery note; no -15 C model.",
+   "designChange": "Touring \"descent arm\" button (one action acceptable to P5), body-heated flyer cell bay, airbag-compatible mount study."
+  }
+ ],
+ "personaVerdicts": {
+  "P1": {
+   "verdict": "would not buy, would not use",
+   "why": "At her 3-7 m/s the product either never flies (quiver out all run) or fails launches and drags the flyer behind her; she fears hurting someone and being embarrassed - both triggered. KE is low at her speed but head clearance is not."
+  },
+  "P2": {
+   "verdict": "would not buy v1 (would try a demo unit)",
+   "why": "~17 % usable footage at 279 px and 10.5 deg/s jitter does not meet \"same angle every run, full body, smooth\"; 14-31 s standing per stop and losing the next run after a short stop break JTBD-3. At USD 399-599 he picks an Insta360 X5 or HoverAir. Would reconsider if avail >=60 %, dock <=10 s, KE within cap."
+  },
+  "P3": {
+   "verdict": "would not buy, would not use",
+   "why": "KE 30-52 J at his speeds, 3/9 lost flyers at 15 m/s on 25 deg, no tree handling, rigid quiver in tree wells. The weak link \"saves him\" from body force, but at the cost of the flyer."
+  },
+  "P4": {
+   "verdict": "would not use (and expects resort staff to stop her)",
+   "why": "The child skiing in her tracks is exactly the third-party zone (72-116 s exposure per plan); at 6.5 m/s calm every launch failed and the flyer was dragged 33-51 s; no crowd sensing; resort permission unresolved."
+  },
+  "P5": {
+   "verdict": "would not buy v1; would use a touring-specific v2",
+   "why": "Likes 0 starts while skinning uphill and ample pack energy, but 9/9 simulated steep-descent launches failed, 0.913 kg > 0.9 kg, airbag compatibility unknown, skin-traverse deploys (19/40), cold flyer-cell charging. A single deliberate \"descent arm\" action would be acceptable to him."
+  }
+ },
+ "mustFixV2": [
+  "MF-1 Third-party/clothesline: raised exit or crowd-blocking + never drag the flyer while riding; target thirdPartyS 0 s (currently p50 84.7 s).",
+  "MF-2 KE <=14.9 J at all speeds via speed governor/lighter flyer (currently max 57 J, p50 21.6 J).",
+  "MF-3 Vehicle/tow false-launch prevention + automatic transport lock (currently 0.975/day from bus alone).",
+  "MF-4 Short-stop-and-go: next ride filmed after a 5-10 s stop in >=90 % (currently launched 0/9 and 3/9); dock p90 <=10 s, first try >=98 % (currently 31.3 s, 80 %).",
+  "MF-5 Head clearance >=1.0 m in all stop/tow/fly-in phases (currently min 0.25 m).",
+  "MF-6 Gate before deploy: quiver stays stowed when a launch is not predicted; fold back after 3 s refusal (currently out ~68 s/run on refusals).",
+  "MF-7 Launch reliability >=95 % incl. 6-8 m/s band and steep (25-30 deg) slopes, or a declared envelope that refuses those cases outright (currently 90 % mean; 0 % P4 calm; 0/9 P5).",
+  "MF-8 Flyer retention after weak-link events + beacon (currently 3/9 losses at P3 15 m/s).",
+  "MF-9 Audio/haptic status vocabulary and front-visible LED; refusal reasons (PM-M08) - prerequisite for T12.",
+  "MF-10 Manual fallback without blind reach behind the back, <=30 s with mittens (T14/T15).",
+  "MF-11 Quiver stowed profile compatible with chairlift backrest, T-bar/platter and backward falls (physical fit + drop tests).",
+  "MF-12 Fall detection <=0.5 s (currently 0.56-0.64 s)."
+ ],
+ "physicalTestsNeeded_NOT_RUN": [
+  "T08 snag bench",
+  "T09 jump rig",
+  "T11 recorded lift/vehicle IMU logs",
+  "T12 refusal comprehension",
+  "T13 lift approach with line out",
+  "T14 gloves/handedness",
+  "T15 manual stow usability",
+  "T16 out-of-box",
+  "T17 crowd",
+  "T18 viewer panel",
+  "chairlift/T-bar/gondola fit with the quiver",
+  "airbag compatibility",
+  "backward-fall drop dummy",
+  "-15 C endurance"
+ ],
+ "screenshots": [
+  "demo_01_stowed.png",
+  "demo_02_detect.png",
+  "demo_03_launch_short_line.png",
+  "demo_04_launch_payout.png",
+  "demo_05_film_carve.png",
+  "demo_06_film_turn.png",
+  "demo_07_stop_brake.png",
+  "demo_08_tow_in.png",
+  "demo_09_capture.png",
+  "demo_10_docked.png",
+  "p1_beg5_quiver_out_no_launch.png",
+  "p1_beg7_flyer_dragged_while_riding.png",
+  "p1_beg7_manual_stow.png",
+  "p3_exp15_launch_fail.png",
+  "p3_exp15_weaklink_flyer_lost.png",
+  "p4_family_filming.png",
+  "p4_family_towed_behind.png",
+  "t04_tail45_refusal_quiver_out.png",
+  "t05_second_ride_towed.png",
+  "t05_stop10_standing.png",
+  "t11_chair_download_stowed.png",
+  "test_01.png",
+  "test_02.png",
+  "test_03.png",
+  "test_04.png",
+  "test_05.png",
+  "test_06.png",
+  "test_07.png",
+  "test_08.png",
+  "test_09.png",
+  "test_10.png",
+  "test_11.png",
+  "test_12.png"
+ ],
+ "screenshotNotes": {
+  "demo_01..10": "AT-1 demo mode, each stage (see whatTheUserSees_demo)",
+  "test_01..12": "the 12 shipped AT-1 test scenarios in order (nominal, fullrun, tail45, tailstop6, liftapproach, fall, gust, shortturns, moguls, chairdown, v_delta_fly, v_kite_line), full page at t = 14 s with metrics; log in screenshots/shots_log.json",
+  "p1_beg5_quiver_out_no_launch": "P1 5 m/s calm: riding with the quiver deployed, no launch (t = 12 s)",
+  "p1_beg7_flyer_dragged_while_riding": "P1 7 m/s calm: failed launch, flyer towed on the snow while she rides (t = 15 s)",
+  "p1_beg7_manual_stow": "P1 7 m/s calm seed 13: three missed captures -> MANUAL stow (t = 112 s)",
+  "p4_family_towed_behind": "P4 6.5 m/s head 3: flyer dragged ~4 m behind on the snow (t = 12 s)",
+  "p4_family_filming": "P4: one of the few filmed windows (t = 42 s)",
+  "t05_stop10_standing": "T05: during the 10 s stop the flyer is still braking/landed (t = 45 s)",
+  "t05_second_ride_towed": "T05: second ride, flyer towed on a short line at 12 m/s, not filming (t = 66 s)",
+  "p3_exp15_launch_fail": "P3 15 m/s 25 deg: launch failure ~0.2 s after release (t = 3 s)",
+  "p3_exp15_weaklink_flyer_lost": "P3: weak link broke at 5.2 s, flyer FREE (t = 8 s)",
+  "t04_tail45_refusal_quiver_out": "T04 tail 4.5 m/s: refusal, quiver out, nothing tells the rider why (t = 20 s)",
+  "t11_chair_download_stowed": "Downloading chairlift: stays stowed (t = 10 s)"
+ },
+ "files": {
+  "report": "review/usertest/report.json",
+  "rawSim": "review/usertest/sim_persona_runs.json",
+  "scripts": "review/usertest/scripts/ (persona_runs.mjs, shots.py, shots2.py, modes.mjs; scratch_sim_scenarios.patch = persona scenarios added to the scratchpad copy only)",
+  "screenshots": "review/usertest/screenshots/"
+ },
+ "limitations": [
+  "Personas are role-played by an AI; scores are heuristic judgements.",
+  "All numbers are from an uncalibrated simulation with ASSUMED polars, capture model and synthetic activity traces.",
+  "Persona rider plans (speeds, slopes, stops) are user-tester assumptions, 3 seeds each - small samples.",
+  "Steep-slope launch failures (P3/P5) may partly reflect model limits; flagged for the dev team, not concluded as physics.",
+  "Falls are valid only 6 s after the event; tumbling, wraps, snags, trees, airtime, crowds and the rider-facing UI are not modelled."
+ ]
+}

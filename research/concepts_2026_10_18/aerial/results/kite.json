@@ -1,0 +1,153 @@
+{
+  "A04": {
+    "v_min_airspeed_m_s_margin1.3": 6.2,
+    "V6": {
+      "L_N": 3.6,
+      "D_N": 0.81,
+      "W_N": 2.94,
+      "tension_N": 1.04,
+      "tether_elev_deg": 39.0,
+      "tether_azim_from_downwind_deg": 0.0
+    },
+    "V8": {
+      "L_N": 6.4,
+      "D_N": 1.44,
+      "W_N": 2.94,
+      "tension_N": 3.74,
+      "tether_elev_deg": 67.4,
+      "tether_azim_from_downwind_deg": 0.0
+    },
+    "V12": {
+      "L_N": 14.4,
+      "D_N": 3.24,
+      "W_N": 2.94,
+      "tension_N": 11.91,
+      "tether_elev_deg": 74.2,
+      "tether_azim_from_downwind_deg": 0.0
+    },
+    "V16": {
+      "L_N": 25.6,
+      "D_N": 5.76,
+      "W_N": 2.94,
+      "tension_N": 23.38,
+      "tether_elev_deg": 75.7,
+      "tether_azim_from_downwind_deg": 0.0
+    },
+    "V20": {
+      "L_N": 40.0,
+      "D_N": 9.0,
+      "W_N": 2.94,
+      "tension_N": 38.13,
+      "tether_elev_deg": 76.3,
+      "tether_azim_from_downwind_deg": 0.0
+    },
+    "riding_time_fraction_below_vmin_calm": 0.08,
+    "tension_swing_pct_for_3m_s_gust_at_12": 56.0,
+    "camera_height_above_anchor_m_L8_V12": 7.7,
+    "camera_behind_m_L8_V12": 2.2,
+    "slant_distance_to_skier_m": 8.4,
+    "subject_angular_size_deg": 11.9,
+    "subject_px_5.7K_360_equirect": 191.0,
+    "KE_J_at_15": 33.8
+  },
+  "A05": {
+    "V8": {
+      "L_N": 6.4,
+      "D_N": 1.44,
+      "W_N": 2.94,
+      "tension_N": 5.64,
+      "tether_elev_deg": 4.5,
+      "tether_azim_from_downwind_deg": 75.2,
+      "lift_dir_from_horizontal_deg": 31.9,
+      "lateral_offset_m_L8": 7.7,
+      "behind_m_L8": 2.0,
+      "lateral_pull_on_skier_N": 5.4
+    },
+    "V12": {
+      "L_N": 14.4,
+      "D_N": 3.24,
+      "W_N": 2.94,
+      "tension_N": 14.37,
+      "tether_elev_deg": 1.8,
+      "tether_azim_from_downwind_deg": 77.0,
+      "lift_dir_from_horizontal_deg": 13.6,
+      "lateral_offset_m_L8": 7.8,
+      "behind_m_L8": 1.8,
+      "lateral_pull_on_skier_N": 14.0
+    },
+    "V16": {
+      "L_N": 25.6,
+      "D_N": 5.76,
+      "W_N": 2.94,
+      "tension_N": 26.02,
+      "tether_elev_deg": 1.0,
+      "tether_azim_from_downwind_deg": 77.2,
+      "lift_dir_from_horizontal_deg": 7.6,
+      "lateral_offset_m_L8": 7.8,
+      "behind_m_L8": 1.8,
+      "lateral_pull_on_skier_N": 25.4
+    },
+    "roll_moment_Nm_at_V12": 15.4,
+    "equiv_CoM_shift_cm_at_V12": 2.0,
+    "tether_height_above_snow_at_mid_m": "~1.4-2.0 (clothesline across neighbouring track)"
+  },
+  "A06": {
+    "hover_power_W": 63.2,
+    "v_wingborne_m_s": 7.3,
+    "power_W_by_airspeed": {
+      "0": 66.2,
+      "4": 40.3,
+      "6": 15.1,
+      "8": 3.0,
+      "10": 3.0,
+      "12": 3.0,
+      "16": 3.0
+    },
+    "avg_power_W_riding": 5.6,
+    "avg_power_W_incl_15pct_stopped_hover": 14.7,
+    "onboard_endurance_min_60g_pack": 29.7,
+    "equal_mass_quad_power_at_12_W_ref": "~65 W (calc_rotor_follow A02 class)",
+    "tether_tension_N_V12_wingborne": 5.47,
+    "tether_tension_N_V20": 20.9,
+    "KE_J_at_15": 37.1
+  },
+  "A07": {
+    "disc_area_m2": 0.283,
+    "V6": {
+      "lift_N": 4.3,
+      "drag_N": 1.4,
+      "tension_N": 1.7
+    },
+    "V8": {
+      "lift_N": 7.7,
+      "drag_N": 2.6,
+      "tension_N": 5.0
+    },
+    "V12": {
+      "lift_N": 17.4,
+      "drag_N": 5.8,
+      "tension_N": 15.1
+    },
+    "V16": {
+      "lift_N": 30.9,
+      "drag_N": 10.3,
+      "tension_N": 29.3
+    },
+    "v_min_m_s_margin1.3": 6.1,
+    "tip_speed_m_s_at_V12_assumed": 30.0,
+    "rotor_freq_Hz_at_V12": 15.9,
+    "descent_rate_on_wind_loss_m_s": 4.5,
+    "A04_kite_descent_on_wind_loss_m_s_(parachute-like flat plate CD 1.2 on 0.25 m2)": 4.4
+  },
+  "A12": {
+    "V8_tip_lift_N": 3.1,
+    "V8_net_vertical_tip_N": 0.6,
+    "V12_tip_lift_N": 6.9,
+    "V12_net_vertical_tip_N": 4.5,
+    "V16_tip_lift_N": 12.3,
+    "V16_net_vertical_tip_N": 9.8,
+    "gust_lift_swing_N_12to15": 3.9,
+    "gust_root_moment_swing_Nm_1.6m": 6.2,
+    "static_root_moment_Nm_tip_weight": 3.9
+  }
+}

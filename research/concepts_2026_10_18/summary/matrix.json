@@ -1,0 +1,2877 @@
+{
+ "generated": "2026-10-19T06:41:43.815Z",
+ "evidence": "numerical-uncalibrated simulation; not physical tests",
+ "criteria": {
+  "avail": {
+   "op": ">=",
+   "v": 80,
+   "unit": "%",
+   "zh": "可用全身画面比例",
+   "en": "Usable full-body footage",
+   "def": {
+    "zh": "滑行时间中，输出画面含完整主体、≥300 px，且主体上无≥1 px 的产品伪影（杆/绳）",
+    "en": "share of skiing time with the full subject in the output frame, ≥300 px, and no product artefact ≥1 px over the subject (stick/tether)"
+   }
+  },
+  "pxMed": {
+   "op": ">=",
+   "v": 300,
+   "unit": "px",
+   "zh": "主体像素（中位）",
+   "en": "Subject px (median)",
+   "def": {
+    "zh": "1080p 等效输出中主体（脚→头）中位像素高，受原生分辨率限制",
+    "en": "median feet→head height in a 1080p-equivalent output, native-resolution limited"
+   }
+  },
+  "jitterRms": {
+   "op": "<=",
+   "v": 3,
+   "unit": "°/s",
+   "assumed": true,
+   "zh": "画面抖动（>1 Hz 视线角速度 RMS）",
+   "en": "Jitter (>1 Hz line-of-sight rate RMS)",
+   "def": {
+    "zh": "产品真实稳像/重构图之后，主体视线相对相机的角速度经 1 Hz 高通后的 RMS（ASSUMED 可观看上限）",
+    "en": "RMS of the >1 Hz line-of-sight angular rate relative to the camera after the stabilisation/reframing the product really has (ASSUMED watchability limit; no video-jitter literature found — nearest: VR cybersickness onset ≈24 °/s; viewer test needed)"
+   }
+  },
+  "azRange": {
+   "op": ">=",
+   "v": 45,
+   "unit": "°",
+   "zh": "可指令观察方位跨度",
+   "en": "Commandable viewing-azimuth span",
+   "def": {
+    "zh": "一趟内可按指令获得的相对滑行方向的观察方位 p5–p95 跨度（0.2 Hz 低通）",
+    "en": "p5–p95 span of viewing azimuth relative to heading deliverable on command within a run (0.2 Hz low-pass)"
+   }
+  },
+  "addedMass": {
+   "op": "<=",
+   "v": 1.5,
+   "unit": "kg",
+   "zh": "身上附加质量",
+   "en": "Added body mass",
+   "def": {
+    "zh": "滑行时身上全部附加质量，含停靠的飞行器、所依赖的电池/充电宝、卷轴与支架",
+    "en": "everything worn while skiing incl. docked aircraft, batteries/power banks relied on, reels and frames"
+   }
+  },
+  "bodyForcePeak": {
+   "op": "<=",
+   "v": 40,
+   "unit": "N",
+   "zh": "装置对身体峰值力",
+   "en": "Peak device force on body",
+   "assumed": true,
+   "def": {
+    "zh": "直立滑行各工况（含挂枝）装置对身体力的 50 ms 滑动平均峰值，扣除静重",
+    "en": "peak 50 ms moving mean of device force on the body minus static weight, all upright scenarios incl. snags (ASSUMED target: no wearer force-tolerance literature found, calibration 2026-10-18)"
+   }
+  },
+  "handsBusy": {
+   "op": "<=",
+   "v": 5,
+   "unit": "%",
+   "zh": "滑行中需要手的时间",
+   "en": "Hand needed while moving",
+   "def": {
+    "zh": "滑行中每次操作计 1 s；停稳时的操作不计",
+    "en": "1 s per action while moving; actions while stopped do not count"
+   }
+  },
+  "setupTime": {
+   "op": "<=",
+   "v": 30,
+   "unit": "s",
+   "zh": "每趟停留时间（展开+收纳）",
+   "en": "Standstill per run (deploy + stow)",
+   "def": {
+    "zh": "0–9 m/s 风中 90 百分位，含停靠失败重试",
+    "en": "90th percentile over 0–9 m/s wind, incl. dock retries"
+   }
+  },
+  "ops": {
+   "op": "<=",
+   "v": 2,
+   "unit": "-",
+   "zh": "每趟操作次数",
+   "en": "User actions per run",
+   "def": {
+    "zh": "展开/起飞、收纳/降落、换电、找回",
+    "en": "deploy/launch, stow/land, battery swap, recovery"
+   }
+  },
+  "keMax": {
+   "op": "<=",
+   "v": 14.9,
+   "unit": "J",
+   "zh": "可撞他人的最大动能",
+   "en": "Max KE that can strike others",
+   "def": {
+    "zh": "离骑手 >1.5 m 时按雪面系，≤1.5 m 按骑手系；14.9 J 参照 FAA Part 107 第 2 类，80 J 为硬否决线",
+    "en": "ground frame beyond 1.5 m of the rider, rider frame within; 14.9 J per FAA Part 107 Cat 2, 80 J hard kill line"
+   }
+  },
+  "endurance": {
+   "op": ">=",
+   "v": 45,
+   "unit": "min",
+   "zh": "低温累计拍摄时长",
+   "en": "Cold filming per charge",
+   "def": {
+    "zh": "−10 °C、保留储备、按标准工况平均功率，一次充电（含全部随身电池）的累计拍摄分钟",
+    "en": "cumulative filming minutes per charge of everything worn at −10 °C, nominal mean power, keeping reserve"
+   }
+  }
+ },
+ "concepts": [
+  {
+   "id": "boom360",
+   "name": {
+    "zh": "S1 背负 360 尾杆",
+    "en": "S1 boom360: backpack 360 tail boom"
+   },
+   "modelVersion": "boom360@0.4.0",
+   "rows": [
+    {
+     "scenario": "nominal",
+     "zh": "标准：12 m/s 大弯，微风",
+     "en": "Nominal: 12 m/s carving, light wind",
+     "ms": 883,
+     "metrics": {
+      "avail": {
+       "v": 99.16736053288926,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 471.06346311274757,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 4.084452344403949,
+       "pass": false
+      },
+      "azRange": {
+       "v": 84.12988295373182,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 27.102315257226575,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.2731588606863507,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 3.8843597350818433,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 0.9524910590995529,
+       "pass": true
+      }
+     },
+     "fails": [
+      "jitterRms"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "nominal_v2",
+     "zh": "标准（v2 对照）",
+     "en": "Nominal, design v2 (comparison)",
+     "ms": 848,
+     "metrics": {
+      "avail": {
+       "v": 70.94088259783514,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 376.449304337115,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 10.110701931628567,
+       "pass": false
+      },
+      "azRange": {
+       "v": 0,
+       "pass": false
+      },
+      "addedMass": {
+       "v": 1.4574306472502885,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 26.72952954806639,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 6.348000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.7841071572873619,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 8.439057132350387,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 1.7931374273960374,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "jitterRms",
+      "azRange"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "nominal_v1",
+     "zh": "标准（初版 v1 对照）",
+     "en": "Nominal, design v1 (comparison)",
+     "ms": 606,
+     "metrics": {
+      "avail": {
+       "v": 61.86511240632806,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 381.2205456790772,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 16.92205640730474,
+       "pass": false
+      },
+      "azRange": {
+       "v": 0,
+       "pass": false
+      },
+      "addedMass": {
+       "v": 1.1624306472502888,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 22.303564979607028,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 6.348000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.2505846291463812,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 14.247596537782075,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 2.58328269508627,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "jitterRms",
+      "azRange"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "short",
+     "zh": "短弯（shortTurns 预设，1.04 s/弯）",
+     "en": "Short turns (shortTurns preset, 1.04 s per turn)",
+     "ms": 478,
+     "metrics": {
+      "avail": {
+       "v": 6.293706293706293,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 430.372307797279,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": "—",
+       "pass": null
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 50.193046658323986,
+       "pass": false
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 5.418620759467904,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": null,
+       "pass": null
+      },
+      "xBackground": {
+       "v": null,
+       "pass": null
+      }
+     },
+     "fails": [
+      "avail",
+      "bodyForcePeak"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "moguls",
+     "zh": "猫跳（moguls 预设 + trunk.js 猫跳地形）",
+     "en": "Moguls (moguls preset + trunk.js moguls terrain)",
+     "ms": 656,
+     "metrics": {
+      "avail": {
+       "v": 96.1038961038961,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 514.7277166819089,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 14.3351044472911,
+       "pass": false
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 36.86709571288143,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 3.2753484183517005,
+       "pass": true
+      },
+      "endurance": {
+       "v": 64.10343965395586,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 15.21902807738287,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 5.595400873555744,
+       "pass": false
+      }
+     },
+     "fails": [
+      "jitterRms"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "fast",
+     "zh": "高速 18 m/s",
+     "en": "High speed 18 m/s",
+     "ms": 255,
+     "metrics": {
+      "avail": {
+       "v": 99.6003996003996,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 487.567591602515,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 5.042410570785399,
+       "pass": false
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 19.41251433940398,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.29831807007948724,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 5.561535325806792,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 1.0056612502861173,
+       "pass": true
+      }
+     },
+     "fails": [
+      "jitterRms"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "gust",
+     "zh": "阵风侧风 7 + 8 m/s",
+     "en": "Gusty crosswind 7 + 8 m/s",
+     "ms": 300,
+     "metrics": {
+      "avail": {
+       "v": 98.80119880119881,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 464.4491457786871,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 3.9180491870194327,
+       "pass": false
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 38.92643621374606,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.21711373000557302,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 3.741999045925321,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 0.9029583032599588,
+       "pass": true
+      }
+     },
+     "fails": [
+      "jitterRms"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "fallBack",
+     "zh": "后仰摔倒（折叠保险）",
+     "en": "Backward fall (fold fuse)",
+     "ms": 737,
+     "metrics": {
+      "avail": {
+       "v": 99.71428571428571,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 453.3353228984587,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 4.485931982094987,
+       "pass": false
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 80.35894624806824,
+       "pass": false
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.070418948227564,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 4.259431375179371,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 1.1123262343099831,
+       "pass": true
+      }
+     },
+     "fails": [
+      "jitterRms",
+      "bodyForcePeak"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "fallSide",
+     "zh": "侧向摔倒",
+     "en": "Sideways fall",
+     "ms": 485,
+     "metrics": {
+      "avail": {
+       "v": 99.71428571428571,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 461.52885038043496,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 4.176473260634878,
+       "pass": false
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 75.83676244898791,
+       "pass": false
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 12.393927299813678,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 3.7706106916971054,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 1.0499039883213037,
+       "pass": true
+      }
+     },
+     "fails": [
+      "jitterRms",
+      "bodyForcePeak"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "snag",
+     "zh": "杆端勾挂树枝",
+     "en": "Branch snag at the tip",
+     "ms": 313,
+     "metrics": {
+      "avail": {
+       "v": 42.93865905848787,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 511.8511270111469,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 3.4157910660793944,
+       "pass": false
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 30.03614850324587,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.11113804380994059,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 3.08446703399375,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 0.7993294351631005,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "jitterRms"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "lift",
+     "zh": "停下排队 → 自动收回 → 上缆车",
+     "en": "Stop → auto-retract → chairlift",
+     "ms": 552,
+     "metrics": {
+      "avail": {
+       "v": 85.10998307952623,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 545.0893259553374,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 3.9630434969615864,
+       "pass": false
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 139.04090158476998,
+       "pass": false
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 15.553162068642926,
+       "pass": false
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 3.6680839469527666,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 0.8734518726767789,
+       "pass": true
+      }
+     },
+     "fails": [
+      "jitterRms",
+      "bodyForcePeak",
+      "keMax"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "cycle",
+     "zh": "原地展开/收回循环",
+     "en": "Deploy / retract cycle (standing)",
+     "ms": 511,
+     "metrics": {
+      "avail": {
+       "v": "—",
+       "pass": null
+      },
+      "pxMed": {
+       "v": 610.0957759332309,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": "—",
+       "pass": null
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 3.1855250470986505,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.08477056907203416,
+       "pass": true
+      },
+      "endurance": {
+       "v": 72.9,
+       "pass": true
+      },
+      "xSubject": {
+       "v": null,
+       "pass": null
+      },
+      "xBackground": {
+       "v": null,
+       "pass": null
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "damperFail",
+     "zh": "故障：根部阻尼失效（猫跳）",
+     "en": "Failure: root damper lost (moguls)",
+     "ms": 420,
+     "metrics": {
+      "avail": {
+       "v": 84.01598401598402,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 516.1727952494772,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 40.09101381231067,
+       "pass": false
+      },
+      "azRange": {
+       "v": 90,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.4246268163440026,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 35.940650100169584,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 5.896000000000001,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "keMax": {
+       "v": 4.799257370884596,
+       "pass": true
+      },
+      "endurance": {
+       "v": 59.46583604686515,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 35.96959185099896,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 10.343989686218638,
+       "pass": false
+      }
+     },
+     "fails": [
+      "jitterRms"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    }
+   ]
+  },
+  {
+   "id": "trackdrone",
+   "name": {
+    "zh": "S2 轨迹复现跟拍无人机 + 背包仓",
+    "en": "S2 Track-replay drone + backpack dock"
+   },
+   "modelVersion": "trackdrone@0.4.0",
+   "rows": [
+    {
+     "scenario": "nominal",
+     "zh": "标准（v2）：12 m/s 大弯，微风，含一次侧拍",
+     "en": "Nominal (v2): 12 m/s carving, light wind, one side pass",
+     "ms": 892,
+     "metrics": {
+      "avail": {
+       "v": 85.27648234510326,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 363.00294165911816,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.311338530343175,
+       "pass": true
+      },
+      "azRange": {
+       "v": 59.029285886485795,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 6.176470774101162,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.4209350777098892,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.948060264954753,
+       "pass": true
+      },
+      "endurance": {
+       "v": 52.73972442681616,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.2251222616753896,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.3783093084667493,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "nominal_v2",
+     "zh": "标准（v2 对照）",
+     "en": "Nominal (v2 reference)",
+     "ms": 778,
+     "metrics": {
+      "avail": {
+       "v": 79.01399067288474,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 392.4071604923501,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.4782785991846226,
+       "pass": true
+      },
+      "azRange": {
+       "v": 57.55160823354901,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 6.176470774101162,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.418391767271227,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.764106779218269,
+       "pass": true
+      },
+      "endurance": {
+       "v": 53.060317474193056,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.3499109392334308,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.4331901915951786,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "nominal_v1",
+     "zh": "标准（v1 对照）",
+     "en": "Nominal (v1 reference)",
+     "ms": 772,
+     "metrics": {
+      "avail": {
+       "v": 78.2145236508994,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 387.8842766741367,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 2.295385890643651,
+       "pass": true
+      },
+      "azRange": {
+       "v": 76.53929497341572,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 0.395,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 2.517862461987995,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 16.330000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.0833333333333333,
+       "pass": true
+      },
+      "keMax": {
+       "v": 34.644302694442175,
+       "pass": false
+      },
+      "endurance": {
+       "v": 6.0488038092630045,
+       "pass": false
+      },
+      "xSubject": {
+       "v": 2.282909533657587,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 2.400023142417741,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "keMax",
+      "endurance"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "highspeed",
+     "zh": "高速 18 m/s + 8 m/s 逆风",
+     "en": "High speed 18 m/s + 8 m/s headwind",
+     "ms": 441,
+     "metrics": {
+      "avail": {
+       "v": 1.4388489208633093,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 33.93529075171474,
+       "pass": false
+      },
+      "jitterRms": {
+       "v": 1.1061421616225309,
+       "pass": true
+      },
+      "azRange": {
+       "v": 84.0782332834977,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 11.086718950573102,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.817571141394668,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.036057939529238,
+       "pass": true
+      },
+      "endurance": {
+       "v": 27.15360031193095,
+       "pass": false
+      },
+      "xSubject": {
+       "v": 1.0261460418932078,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.046879048235701,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "pxMed",
+      "endurance"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "highspeed_leap",
+     "zh": "高速 18 m/s：前置等待/摇摄（v3）",
+     "en": "High speed 18 m/s: leapfrog/pan (v3)",
+     "ms": 405,
+     "metrics": {
+      "avail": {
+       "v": 25.775978407557353,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 47.99890078627208,
+       "pass": false
+      },
+      "jitterRms": {
+       "v": 2.6705022512643364,
+       "pass": true
+      },
+      "azRange": {
+       "v": 198.27843953752745,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 10.070008985575681,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.7872794570421338,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.209827707270358,
+       "pass": true
+      },
+      "endurance": {
+       "v": 28.198373273204687,
+       "pass": false
+      },
+      "xSubject": {
+       "v": 2.6300173660355846,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 2.637928192929933,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "pxMed",
+      "endurance"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "short",
+     "zh": "短弯 + 急停 + 自动回仓",
+     "en": "Short turns + hockey stop + auto-dock",
+     "ms": 368,
+     "metrics": {
+      "avail": {
+       "v": 81.15942028985508,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 370.3487859487384,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 4.1700254167970705,
+       "pass": false
+      },
+      "azRange": {
+       "v": 68.74323810812366,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 36.46496492744054,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.3352212149166633,
+       "pass": true
+      },
+      "keMax": {
+       "v": 8.486600086657072,
+       "pass": true
+      },
+      "endurance": {
+       "v": 66.22492554810104,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 4.235041813455021,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 4.237402221744786,
+       "pass": false
+      }
+     },
+     "fails": [
+      "jitterRms"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "crosswind",
+     "zh": "阵风侧风 6→11 m/s",
+     "en": "Gusty crosswind 6→11 m/s",
+     "ms": 447,
+     "metrics": {
+      "avail": {
+       "v": 85.74283810792805,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 362.34991525042676,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.1840706199104667,
+       "pass": true
+      },
+      "azRange": {
+       "v": 24.178563280734522,
+       "pass": false
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 7.332506537860674,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.566094166069809,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.59525957722443,
+       "pass": true
+      },
+      "endurance": {
+       "v": 39.21609041500415,
+       "pass": false
+      },
+      "xSubject": {
+       "v": 1.0706255944455159,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.2019531085046176,
+       "pass": true
+      }
+     },
+     "fails": [
+      "azRange",
+      "endurance"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "dropout",
+     "zh": "信标丢失 2 s",
+     "en": "Beacon dropout 2 s",
+     "ms": 229,
+     "metrics": {
+      "avail": {
+       "v": 97.00199866755496,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 366.16333172542244,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.2386557893892693,
+       "pass": true
+      },
+      "azRange": {
+       "v": 22.9719666723774,
+       "pass": false
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 6.290490079493861,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.4198247811116431,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.738009467829732,
+       "pass": true
+      },
+      "endurance": {
+       "v": 52.87920341723802,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.1185497371435968,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.2245345130530971,
+       "pass": true
+      }
+     },
+     "fails": [
+      "azRange"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "fall",
+     "zh": "滑行者摔倒急停",
+     "en": "Rider fall (sudden stop)",
+     "ms": 312,
+     "metrics": {
+      "avail": {
+       "v": 92.5,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 364.6194351950078,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.2738304038589685,
+       "pass": true
+      },
+      "azRange": {
+       "v": 24.03094283321341,
+       "pass": false
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 25.972136139767162,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.372885975262379,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.521283446806686,
+       "pass": true
+      },
+      "endurance": {
+       "v": 59.535626096902945,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.136371175307911,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.3181687357026972,
+       "pass": true
+      }
+     },
+     "fails": [
+      "azRange"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "treeline",
+     "zh": "林边：贴树滑过",
+     "en": "Tree line: rider skims trees",
+     "ms": 554,
+     "metrics": {
+      "avail": {
+       "v": 35.44303797468354,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 189.95496892000781,
+       "pass": false
+      },
+      "jitterRms": {
+       "v": 1.42195375992462,
+       "pass": true
+      },
+      "azRange": {
+       "v": 38.12857152502569,
+       "pass": false
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 6.135435054289446,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.4481264788339234,
+       "pass": true
+      },
+      "keMax": {
+       "v": 14.03847078707225,
+       "pass": true
+      },
+      "endurance": {
+       "v": 49.53958547097452,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.1057042706236184,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.2075654346080238,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "pxMed",
+      "azRange"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "overhang",
+     "zh": "横枝：头顶上方的树枝",
+     "en": "Overhang: branch above head height",
+     "ms": 471,
+     "metrics": {
+      "avail": {
+       "v": 82.21185876082612,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 355.63614754885754,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.3931525143263455,
+       "pass": true
+      },
+      "azRange": {
+       "v": 25.08067729875465,
+       "pass": false
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 6.135435054289446,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.4382614655964487,
+       "pass": true
+      },
+      "keMax": {
+       "v": 14.03847078707225,
+       "pass": true
+      },
+      "endurance": {
+       "v": 50.654693014789856,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.1368569774498891,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.28345236359004,
+       "pass": true
+      }
+     },
+     "fails": [
+      "azRange"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "crossing",
+     "zh": "他人横穿轨迹",
+     "en": "Crossing skier",
+     "ms": 356,
+     "metrics": {
+      "avail": {
+       "v": 88.92589508742715,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 360.0878798922577,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.2990239872643115,
+       "pass": true
+      },
+      "azRange": {
+       "v": 24.46672632705198,
+       "pass": false
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 6.176470774101162,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.4072155686986008,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.604756509381804,
+       "pass": true
+      },
+      "endurance": {
+       "v": 54.51657968517224,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.1881179984515113,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.3628271610519926,
+       "pass": true
+      }
+     },
+     "fails": [
+      "azRange"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "dock",
+     "zh": "停下：背包起飞与回仓（风扫描）",
+     "en": "At a stop: launch from pack and dock (wind sweep)",
+     "ms": 404,
+     "metrics": {
+      "avail": {
+       "v": "n/a (no skiing)",
+       "pass": null
+      },
+      "pxMed": {
+       "v": "n/a (no skiing)",
+       "pass": null
+      },
+      "jitterRms": {
+       "v": "n/a (no skiing)",
+       "pass": null
+      },
+      "azRange": {
+       "v": "n/a (no skiing)",
+       "pass": null
+      },
+      "addedMass": {
+       "v": 0.5179591836734694,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 0,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 12.510000000000002,
+       "pass": true
+      },
+      "ops": {
+       "v": 1.3176194328597282,
+       "pass": true
+      },
+      "keMax": {
+       "v": 2.1646365041117175,
+       "pass": true
+      },
+      "endurance": {
+       "v": 69.8949676980385,
+       "pass": true
+      },
+      "xSubject": {
+       "v": null,
+       "pass": null
+      },
+      "xBackground": {
+       "v": null,
+       "pass": null
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    }
+   ]
+  },
+  {
+   "id": "tetherdrone",
+   "name": {
+    "zh": "S3 系留无人机（飞行自拍杆）v3",
+    "en": "S3 Tether-drone (\"flying boom\") v3"
+   },
+   "modelVersion": "tetherdrone@0.3.1",
+   "rows": [
+    {
+     "scenario": "nominal",
+     "zh": "标准：12 m/s 大弯，微风（v3）",
+     "en": "Nominal: 12 m/s carving, light wind (v3)",
+     "ms": 773,
+     "metrics": {
+      "avail": {
+       "v": 100,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 484.4077648255715,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 0.7312541001897372,
+       "pass": true
+      },
+      "azRange": {
+       "v": 69.22403374020297,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 2.428724557456743,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 9.523213012864481,
+       "pass": true
+      },
+      "endurance": {
+       "v": 108.3162128080271,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.7317818211011424,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 0.6747060101759006,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "nominal_v1",
+     "zh": "标准工况（v1 原方案）",
+     "en": "Nominal (v1 original design)",
+     "ms": 970,
+     "metrics": {
+      "avail": {
+       "v": 57.74446823697359,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 487.28696327577234,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.0302281425819835,
+       "pass": true
+      },
+      "azRange": {
+       "v": 68.08576948344628,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.2280000000000002,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 2.661931769143297,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.1,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 21.92525385994699,
+       "pass": false
+      },
+      "endurance": {
+       "v": 72.0371137980962,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 2.486831031743537,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 0.8545088361466939,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "keMax"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "nominal_v2",
+     "zh": "标准工况（v2 方案）",
+     "en": "Nominal (v2 design)",
+     "ms": 617,
+     "metrics": {
+      "avail": {
+       "v": 64.66809421841542,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 513.5572903494759,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.016829399237695,
+       "pass": true
+      },
+      "azRange": {
+       "v": 59.51277981843051,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 0.8880000000000001,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 1.496126942576143,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 13.192484176097485,
+       "pass": true
+      },
+      "endurance": {
+       "v": 48.534896709577794,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 3.14259263239026,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 0.8299807680072708,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "short",
+     "zh": "短弯（校准预设 1.04 s/弯）",
+     "en": "Short turns (calibrated preset, 1.04 s/turn)",
+     "ms": 493,
+     "metrics": {
+      "avail": {
+       "v": 83.40573414422241,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 461.1315697914428,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 2.8080382869724527,
+       "pass": true
+      },
+      "azRange": {
+       "v": 73.44540533718524,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 2.4057526763863546,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 4.291496491343607,
+       "pass": true
+      },
+      "endurance": {
+       "v": 141.92642132889736,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.8445949489120799,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 2.836482668663439,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "fast",
+     "zh": "高速 18 m/s",
+     "en": "High speed 18 m/s",
+     "ms": 196,
+     "metrics": {
+      "avail": {
+       "v": 100,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 485.6639331546612,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 0.5655764277653368,
+       "pass": true
+      },
+      "azRange": {
+       "v": 70.83677629502944,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 1.2554911660142913,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 14.695515097073615,
+       "pass": true
+      },
+      "endurance": {
+       "v": 49.68623209185144,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 2.9137462298436487,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 0.4715713347710502,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "gust",
+     "zh": "阵风侧风 6 m/s + 7 m/s 阵风",
+     "en": "Gusty crosswind 6 m/s + 7 m/s gust",
+     "ms": 351,
+     "metrics": {
+      "avail": {
+       "v": 98.78658101356173,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 481.72071216138346,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.0359942931838395,
+       "pass": true
+      },
+      "azRange": {
+       "v": 69.36892591742219,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 1.7630485354499101,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 9.618713862026562,
+       "pass": true
+      },
+      "endurance": {
+       "v": 67.53169883816865,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.6383465749034958,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.029509494942462,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "side",
+     "zh": "侧面机位（方位 −60°，5.5 m）",
+     "en": "Side view (azimuth −60°, 5.5 m)",
+     "ms": 464,
+     "metrics": {
+      "avail": {
+       "v": 90.29264810849394,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 485.1293597177946,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.2811274412106668,
+       "pass": true
+      },
+      "azRange": {
+       "v": 104.04127263317041,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 2.603324935034114,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 10.57537914675643,
+       "pass": true
+      },
+      "endurance": {
+       "v": 88.37787419639973,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 2.552519514927281,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.1172630905648886,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "side_left",
+     "zh": "侧面机位（方位 +60°，左侧）",
+     "en": "Side view (azimuth +60°, left side)",
+     "ms": 315,
+     "metrics": {
+      "avail": {
+       "v": 92.71948608137045,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 481.2296857593698,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 1.2152559420756162,
+       "pass": true
+      },
+      "azRange": {
+       "v": 89.1806493201606,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 2.549030035480113,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 11.546950264518136,
+       "pass": true
+      },
+      "endurance": {
+       "v": 82.51491006981942,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 1.159905103562578,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.1489033416131103,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "fall",
+     "zh": "摔倒（12 m/s 急停）",
+     "en": "Rider fall (sudden stop from 12 m/s)",
+     "ms": 413,
+     "metrics": {
+      "avail": {
+       "v": 100,
+       "pass": true
+      },
+      "pxMed": {
+       "v": 485.35712977780554,
+       "pass": true
+      },
+      "jitterRms": {
+       "v": 0.7423186836984481,
+       "pass": true
+      },
+      "azRange": {
+       "v": 71.40766714609649,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 2.3351181630712596,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 9.239451297838729,
+       "pass": true
+      },
+      "endurance": {
+       "v": 108.27156069392171,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 3.0906838830006405,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 0.9880415021048244,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 1,
+     "validUntil": 12.5
+    },
+    {
+     "scenario": "snag",
+     "zh": "树枝挂绳：机端切绳+自主降落（v2）",
+     "en": "Tree snag: drone-end cutter + autonomous landing (v2)",
+     "ms": 1295,
+     "metrics": {
+      "avail": {
+       "v": 42.77929155313351,
+       "pass": null
+      },
+      "pxMed": {
+       "v": 145.21448046835877,
+       "pass": null
+      },
+      "jitterRms": {
+       "v": 0.8863784161159276,
+       "pass": null
+      },
+      "azRange": {
+       "v": 77.02822868775695,
+       "pass": null
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": null
+      },
+      "bodyForcePeak": {
+       "v": 13.517991472049214,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": null
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": null
+      },
+      "ops": {
+       "v": 3,
+       "pass": null
+      },
+      "keMax": {
+       "v": 9.523213012864481,
+       "pass": true
+      },
+      "endurance": {
+       "v": 109.37960404361039,
+       "pass": null
+      },
+      "xSubject": {
+       "v": 2.018469744211371,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 0.8452064743003591,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "snag_wl",
+     "zh": "树枝挂绳：仅弱连接（对照）",
+     "en": "Tree snag: weak link only (comparison)",
+     "ms": 1046,
+     "metrics": {
+      "avail": {
+       "v": 41.96185286103542,
+       "pass": null
+      },
+      "pxMed": {
+       "v": 124.2667010845847,
+       "pass": null
+      },
+      "jitterRms": {
+       "v": 5.380437666341859,
+       "pass": null
+      },
+      "azRange": {
+       "v": 76.1723398951735,
+       "pass": null
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": null
+      },
+      "bodyForcePeak": {
+       "v": 20.00388881975884,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": null
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": null
+      },
+      "ops": {
+       "v": 3,
+       "pass": null
+      },
+      "keMax": {
+       "v": 9.523213012864481,
+       "pass": true
+      },
+      "endurance": {
+       "v": 101.68186403754558,
+       "pass": null
+      },
+      "xSubject": {
+       "v": 2.5563739363405933,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 4.815665480126537,
+       "pass": false
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "power",
+     "zh": "系留供电中断（备用电池 15 s）",
+     "en": "Tether power interruption (15 s backup)",
+     "ms": 591,
+     "metrics": {
+      "avail": {
+       "v": 94.77911646586345,
+       "pass": null
+      },
+      "pxMed": {
+       "v": 483.3280719717263,
+       "pass": null
+      },
+      "jitterRms": {
+       "v": 1.0064411075647133,
+       "pass": null
+      },
+      "azRange": {
+       "v": 129.32810810380383,
+       "pass": null
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": null
+      },
+      "bodyForcePeak": {
+       "v": 2.3351181630712596,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": null
+      },
+      "setupTime": {
+       "v": 18.2,
+       "pass": null
+      },
+      "ops": {
+       "v": 3,
+       "pass": null
+      },
+      "keMax": {
+       "v": 9.523213012864481,
+       "pass": true
+      },
+      "endurance": {
+       "v": 112.91326458955231,
+       "pass": null
+      },
+      "xSubject": {
+       "v": 2.3322042239574503,
+       "pass": true
+      },
+      "xBackground": {
+       "v": 1.0286349059841935,
+       "pass": true
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "dock",
+     "zh": "静止时髋部后伸臂起降（阵风 3 m/s）",
+     "en": "Launch & land on the hip boom while stopped (3 m/s gusty)",
+     "ms": 753,
+     "metrics": {
+      "avail": {
+       "v": "n/a",
+       "pass": null
+      },
+      "pxMed": {
+       "v": "n/a",
+       "pass": null
+      },
+      "jitterRms": {
+       "v": "n/a",
+       "pass": null
+      },
+      "azRange": {
+       "v": 60.41237995988464,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 1.8472048364359133,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 15.299999999999999,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.1842757833859021,
+       "pass": true
+      },
+      "endurance": {
+       "v": 80.57236256441492,
+       "pass": true
+      },
+      "xSubject": {
+       "v": null,
+       "pass": null
+      },
+      "xBackground": {
+       "v": null,
+       "pass": null
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "dock_wind",
+     "zh": "起降：9 m/s 阵风",
+     "en": "Launch & land in 9 m/s gusty wind",
+     "ms": 841,
+     "metrics": {
+      "avail": {
+       "v": "n/a",
+       "pass": null
+      },
+      "pxMed": {
+       "v": "n/a",
+       "pass": null
+      },
+      "jitterRms": {
+       "v": "n/a",
+       "pass": null
+      },
+      "azRange": {
+       "v": 89.77301537829221,
+       "pass": true
+      },
+      "addedMass": {
+       "v": 1.106,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 1.7984203724313672,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 18.04,
+       "pass": true
+      },
+      "ops": {
+       "v": 2,
+       "pass": true
+      },
+      "keMax": {
+       "v": 0.240694962420302,
+       "pass": true
+      },
+      "endurance": {
+       "v": 76.49363524216172,
+       "pass": true
+      },
+      "xSubject": {
+       "v": null,
+       "pass": null
+      },
+      "xBackground": {
+       "v": null,
+       "pass": null
+      }
+     },
+     "fails": [],
+     "invalidEvents": 0,
+     "validUntil": null
+    }
+   ]
+  },
+  {
+   "id": "baseline",
+   "name": {
+    "zh": "B0 头盔运动相机（基线）",
+    "en": "B0 Helmet action cam (baseline)"
+   },
+   "modelVersion": "baseline@0.1.0",
+   "rows": [
+    {
+     "scenario": "cruise",
+     "zh": "中速大弯",
+     "en": "Medium-speed carving",
+     "ms": 20,
+     "metrics": {
+      "avail": {
+       "v": 0,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 0,
+       "pass": false
+      },
+      "azRange": {
+       "v": 0,
+       "pass": null
+      },
+      "addedMass": {
+       "v": 0.15,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 0,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 10,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "endurance": {
+       "v": 90,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 6.2976764171761435,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 0.92808902098623,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "pxMed"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    },
+    {
+     "scenario": "short",
+     "zh": "短弯",
+     "en": "Short turns",
+     "ms": 19,
+     "metrics": {
+      "avail": {
+       "v": 0,
+       "pass": false
+      },
+      "pxMed": {
+       "v": 0,
+       "pass": false
+      },
+      "azRange": {
+       "v": 0,
+       "pass": null
+      },
+      "addedMass": {
+       "v": 0.15,
+       "pass": true
+      },
+      "bodyForcePeak": {
+       "v": 0,
+       "pass": true
+      },
+      "handsBusy": {
+       "v": 0,
+       "pass": true
+      },
+      "setupTime": {
+       "v": 10,
+       "pass": true
+      },
+      "ops": {
+       "v": 1,
+       "pass": true
+      },
+      "endurance": {
+       "v": 90,
+       "pass": true
+      },
+      "xSubject": {
+       "v": 58.86809406556403,
+       "pass": false
+      },
+      "xBackground": {
+       "v": 2.4302609528973607,
+       "pass": true
+      }
+     },
+     "fails": [
+      "avail",
+      "pxMed"
+     ],
+     "invalidEvents": 0,
+     "validUntil": null
+    }
+   ]
+  }
+ ]
+}

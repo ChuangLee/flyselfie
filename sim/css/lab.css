@@ -1,0 +1,37 @@
+/* Concept lab additions on top of app.css */
+.lab .tools { display: flex; gap: 10px; align-items: center; }
+.navlink { color: var(--accent); font-size: 13px; text-decoration: none; }
+.navlink:hover { text-decoration: underline; }
+.lab-banner .note { flex-basis: 100%; }
+.lab-main { grid-template-columns: 290px minmax(0, 1fr) 320px; }
+.concept-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.concept-list button { width: 100%; text-align: left; display: grid; gap: 2px; padding: 7px 9px; }
+.concept-list button b { font-size: 13px; }
+.concept-list button span { font-size: 11.5px; color: var(--muted); }
+.concept-list button[aria-current="true"] { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.fam { justify-self: start; font-size: 10.5px; padding: 0 5px; border-radius: 3px; border: 1px solid currentColor; color: var(--c3); }
+.row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.gl-wrap { padding: 6px; }
+.stage-text { font-size: 13px; color: var(--fg); min-height: 1.4em; margin: 0 0 8px; }
+.plots { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 8px; }
+.plots canvas { width: 100%; height: 150px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; display: block; cursor: pointer; }
+table.metrics { width: 100%; }
+table.metrics td { vertical-align: top; padding: 3px 4px; border-bottom: 1px solid var(--line); }
+table.metrics td.v { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+.pass { color: var(--good); font-weight: 600; }
+.fail { color: var(--bad); font-weight: 600; }
+.na { color: var(--muted); }
+.events { padding-left: 18px; font-size: 12px; margin: 0; }
+.events li { margin: 2px 0; cursor: pointer; }
+.events .warning { color: var(--warn); }
+.events .invalid { color: var(--bad); }
+#conceptAbout { font-size: 12.5px; white-space: pre-line; }
+.compare table { border-collapse: collapse; font-size: 12.5px; width: 100%; }
+.compare th, .compare td { border: 1px solid var(--line); padding: 4px 6px; text-align: left; vertical-align: top; }
+.compare th { background: var(--snow); }
+.table-wrap { overflow-x: auto; }
+body.m-compare .gl-wrap, body.m-compare .timeline, body.m-compare .plots, body.m-compare .stage-text { display: none; }
+@media (max-width: 1100px) {
+  .lab-main { grid-template-columns: minmax(0, 1fr); }
+  .side, .right { max-height: none; border: 0; }
+}

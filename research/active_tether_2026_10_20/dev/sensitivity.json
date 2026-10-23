@@ -1,0 +1,3774 @@
+{
+ "generated": "2026-10-21",
+ "evidence": "numerical-uncalibrated simulation (sim/js/concepts/activetether); NOT a physical test; parameters ASSUMED unless cited (design.js)",
+ "sensitivity": {
+  "polar_cd0_x1_3": {
+   "over": {
+    "cd0Scale": 1.3
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 17.46,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 278.445,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.274,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 31.24,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.947,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.018,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 81.935,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 87.143,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 14.48,
+    "p90": 28.27,
+    "max": 57.57,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.313,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 4,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "polar_clmax_x0_8": {
+   "over": {
+    "clmaxScale": 0.8
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 15.012,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 272.335,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 70.633,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.048,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 65.767,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.071,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 79.097,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 78.125,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 32
+   },
+   "dockTime": {
+    "p50": 13.03,
+    "p90": 38.13,
+    "max": 66.02,
+    "n": 53
+   },
+   "crashes": {
+    "mean": 1.063,
+    "p10": 0,
+    "p50": 0,
+    "p90": 3,
+    "min": 0,
+    "max": 9,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 5
+  },
+  "mass_x0_7": {
+   "over": {
+    "massScale": 0.7
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.3,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 277.892,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.412,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 33.731,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 21.2,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 33.881,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.054,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 69.049,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 72.059,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 34
+   },
+   "dockTime": {
+    "p50": 16.4,
+    "p90": 33.77,
+    "max": 62.13,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.313,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 25,
+   "cutOrBroke": 1
+  },
+  "mass_x1_3": {
+   "over": {
+    "massScale": 1.3
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 12.648,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 282.424,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 70.344,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 34.184,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 98.478,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.107,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 66.825,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 84.286,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 74.138,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 29
+   },
+   "dockTime": {
+    "p50": 12.39,
+    "p90": 31.08,
+    "max": 61.8,
+    "n": 44
+   },
+   "crashes": {
+    "mean": 0.833,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 4,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 10
+  },
+  "mass_x0_5": {
+   "over": {
+    "massScale": 0.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 14.138,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 263.406,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.572,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.29,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 18.92,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 40.458,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.09,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 80.697,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 72.857,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 15.79,
+    "p90": 34.56,
+    "max": 42.11,
+    "n": 57
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 4,
+    "n": 48
+   },
+   "keOver14_9": 9,
+   "cutOrBroke": 0
+  },
+  "capture_x0_8": {
+   "over": {
+    "capScale": 0.8
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.47,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 279.103,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.71,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 71.429,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 17.98,
+    "p90": 31.25,
+    "max": 70.86,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "sensors_x2": {
+   "over": {
+    "noise": 2
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 13.598,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 274.613,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 11.813,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 70.758,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.308,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 53.876,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.039,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 52.851,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 81.429,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 69.355,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 31
+   },
+   "dockTime": {
+    "p50": 14.28,
+    "p90": 33.01,
+    "max": 62.65,
+    "n": 54
+   },
+   "crashes": {
+    "mean": 0.667,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 4,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 5
+  },
+  "sensors_x0": {
+   "over": {
+    "noise": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 17.778,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 282.018,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 9.31,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 65.635,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 33.7,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 20.92,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 41.34,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.103,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 65.366,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 84.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.37,
+    "p90": 28.38,
+    "max": 60.73,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.354,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 1
+  },
+  "motor_coldbus_11V": {
+   "over": {
+    "V0": 11
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.898,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 280.631,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 14.15,
+    "p90": 31.41,
+    "max": 70.86,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "motor_coldbus_9V5": {
+   "over": {
+    "V0": 9.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.896,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 280.631,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.87,
+    "p90": 31.41,
+    "max": 70.86,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "launch_payout_4": {
+   "over": {
+    "vLaunch": 4
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.515,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 271.508,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 67.13,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.69,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 24.62,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.077,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.01,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 71.735,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 94.286,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 50,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.55,
+    "p90": 29.38,
+    "max": 64.73,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.5,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 1
+  },
+  "elev_40": {
+   "over": {
+    "elev": 40
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 18.573,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 306.852,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 67.219,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.595,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 53.369,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.113,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.241,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 91.429,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 83.333,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 33
+   },
+   "dockTime": {
+    "p50": 14.9,
+    "p90": 32.4,
+    "max": 39.79,
+    "n": 52
+   },
+   "crashes": {
+    "mean": 1.25,
+    "p10": 0,
+    "p50": 1,
+    "p90": 3,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 7
+  },
+  "elev_60": {
+   "over": {
+    "elev": 60
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 9.09,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 230.4,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 68.685,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 28.836,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 19.02,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 59.828,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.012,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 71.464,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 91.429,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 77.143,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 15.69,
+    "p90": 28.16,
+    "max": 42.49,
+    "n": 59
+   },
+   "crashes": {
+    "mean": 0.292,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 0
+  },
+  "line_7_5": {
+   "over": {
+    "LfilmFly": 7.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 15.604,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 289.995,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 67.544,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.888,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.875,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.073,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 62.762,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 88.571,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 70.588,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 34
+   },
+   "dockTime": {
+    "p50": 13.6,
+    "p90": 34.49,
+    "max": 61.26,
+    "n": 56
+   },
+   "crashes": {
+    "mean": 1.625,
+    "p10": 0,
+    "p50": 0,
+    "p90": 5,
+    "min": 0,
+    "max": 11,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 5
+  },
+  "line_13": {
+   "over": {
+    "LfilmFly": 13
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 14.403,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 262.492,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 69.404,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 36.24,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 20.32,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 37.782,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.125,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 59.607,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 91.429,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 67.143,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 14.28,
+    "p90": 62.5,
+    "max": 66.42,
+    "n": 52
+   },
+   "crashes": {
+    "mean": 0.333,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 1
+  },
+  "station_meancourse_0_5": {
+   "over": {
+    "devK": 0.5
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 12.37,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 220.117,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 86.053,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 33.489,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.62,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 37.005,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.027,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 74.312,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 16.46,
+    "p90": 31.72,
+    "max": 65.11,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.229,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 2,
+    "n": 48
+   },
+   "keOver14_9": 32,
+   "cutOrBroke": 0
+  },
+  "camera_4K": {
+   "over": {
+    "cam48": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 9.146,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 221.728,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 10.519,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 90,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 80,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.87,
+    "p90": 31.25,
+    "max": 70.86,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "straightGate_6": {
+   "over": {
+    "straightAcc": 6
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 17.416,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 279.103,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 65.778,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.696,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 100.404,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 93.243,
+    "p10": 100,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 37
+   },
+   "dockFirstTry": {
+    "mean": 80.556,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 36
+   },
+   "dockTime": {
+    "p50": 13.83,
+    "p90": 29.31,
+    "max": 70.86,
+    "n": 61
+   },
+   "crashes": {
+    "mean": 0.396,
+    "p10": 0,
+    "p50": 0,
+    "p90": 1,
+    "min": 0,
+    "max": 3,
+    "n": 48
+   },
+   "keOver14_9": 37,
+   "cutOrBroke": 3
+  },
+  "gate_1_2": {
+   "over": {
+    "gateK": 1.2
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.51,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 279.83,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 33.193,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.71,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 65.464,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 88.571,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 78.571,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockTime": {
+    "p50": 13.87,
+    "p90": 31.41,
+    "max": 70.86,
+    "n": 60
+   },
+   "crashes": {
+    "mean": 0.521,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 6,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "noSideDrop": {
+   "over": {
+    "sideDrop": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.545,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 277.494,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.71,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 71.866,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "launchSuccess": {
+    "mean": 91.429,
+    "p10": 50,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 35
+   },
+   "dockFirstTry": {
+    "mean": 82.353,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 34
+   },
+   "dockTime": {
+    "p50": 13.33,
+    "p90": 31.41,
+    "max": 70.86,
+    "n": 58
+   },
+   "crashes": {
+    "mean": 0.542,
+    "p10": 0,
+    "p50": 0,
+    "p90": 2,
+    "min": 0,
+    "max": 5,
+    "n": 48
+   },
+   "keOver14_9": 35,
+   "cutOrBroke": 2
+  },
+  "predock_geofence_6s": {
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 12.732,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 275.11,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": null,
+     "pass": null,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.636,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 35.142,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 48.631,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.056,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "dockFirstTry": {
+    "mean": 69.355,
+    "p10": 0,
+    "p50": 100,
+    "p90": 100,
+    "min": 0,
+    "max": 100,
+    "n": 31
+   },
+   "dockTime": {
+    "p50": 18.28,
+    "p90": 31.25,
+    "max": 67.69,
+    "n": 51
+   },
+   "capVrel": {
+    "p50": 0.5,
+    "p90": 0.73,
+    "n": 75
+   }
+  }
+ },
+ "robustness": {
+  "seeds11to16": {
+   "n": 78,
+   "keMax": {
+    "mean": 27.885,
+    "p10": 18.769,
+    "p50": 23.594,
+    "p90": 48.631,
+    "min": 16.284,
+    "max": 78.181,
+    "n": 66
+   },
+   "headClear": {
+    "mean": 0.795,
+    "p10": 0.315,
+    "p50": 0.94,
+    "p90": 1.102,
+    "min": 0.014,
+    "max": 1.164,
+    "n": 66
+   },
+   "bodyForcePeak": {
+    "mean": 16.259,
+    "p10": 0,
+    "p50": 16.187,
+    "p90": 29.397,
+    "min": 0,
+    "max": 34.161,
+    "n": 78
+   },
+   "avail": {
+    "mean": 18.293,
+    "p10": 0,
+    "p50": 18.831,
+    "p90": 31.816,
+    "min": 0,
+    "max": 39.143,
+    "n": 78
+   },
+   "keOver14_9": 66,
+   "headUnder1": 57,
+   "forceOver40": 0,
+   "cutOrBroke": 4
+  },
+  "offGrid": {
+   "n": 39,
+   "keMax": {
+    "mean": 22.962,
+    "p10": 17.779,
+    "p50": 22.382,
+    "p90": 26.411,
+    "min": 12.707,
+    "max": 41.631,
+    "n": 18
+   },
+   "headClear": {
+    "mean": 0.698,
+    "p10": 0.419,
+    "p50": 0.763,
+    "p90": 0.928,
+    "min": 0.213,
+    "max": 1.038,
+    "n": 18
+   },
+   "bodyForcePeak": {
+    "mean": 6.38,
+    "p10": 0,
+    "p50": 0,
+    "p90": 15.267,
+    "min": 0,
+    "max": 20.175,
+    "n": 39
+   },
+   "avail": {
+    "mean": 8.317,
+    "p10": 0,
+    "p50": 0,
+    "p90": 23.707,
+    "min": 0,
+    "max": 36.773,
+    "n": 39
+   },
+   "keOver14_9": 17,
+   "headUnder1": 38,
+   "forceOver40": 0,
+   "cutOrBroke": 0
+  }
+ },
+ "variants": {
+  "delta_fly": {
+   "over": {
+    "flyer": 0,
+    "camPos": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 16.748,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 279.103,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 10.519,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 66.152,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.913,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 32.852,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 22.19,
+     "pass": true,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 57.079,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.278,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.014,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 73.374,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "product": {
+    "launchSuccess": {
+     "mean": 90,
+     "p10": 50,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockFirstTry": {
+     "mean": 80,
+     "p10": 0,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockTime": {
+     "p50": 13.87,
+     "p90": 31.25,
+     "max": 70.86,
+     "n": 60
+    },
+    "capVrel": {
+     "p50": 0.46,
+     "p90": 0.73,
+     "n": 79
+    },
+    "lowLineShare": {
+     "mean": 99.898,
+     "p10": 99.661,
+     "p50": 100,
+     "p90": 100,
+     "min": 98.592,
+     "max": 100,
+     "n": 35
+    },
+    "lowLenP90": {
+     "mean": 1.796,
+     "p10": 1.398,
+     "p50": 1.795,
+     "p90": 2.075,
+     "min": 1.332,
+     "max": 2.165,
+     "n": 35
+    },
+    "thirdPartyS": {
+     "mean": 62.159,
+     "p10": 0,
+     "p50": 84.74,
+     "p90": 100.92,
+     "min": 0,
+     "max": 113.26,
+     "n": 48
+    },
+    "lineH1p10": {
+     "mean": 0.138,
+     "p10": 0.023,
+     "p50": 0.195,
+     "p90": 0.244,
+     "min": -0.267,
+     "max": 0.252,
+     "n": 35
+    },
+    "lineH3p10": {
+     "mean": 1.108,
+     "p10": 0.17,
+     "p50": 1.479,
+     "p90": 1.873,
+     "min": -0.611,
+     "max": 2.02,
+     "n": 35
+    },
+    "crashes": {
+     "mean": 0.521,
+     "p10": 0,
+     "p50": 0,
+     "p90": 2,
+     "min": 0,
+     "max": 5,
+     "n": 48
+    },
+    "Tmax": {
+     "mean": 19.062,
+     "p10": 0,
+     "p50": 15.185,
+     "p90": 41.526,
+     "min": 0,
+     "max": 114.524,
+     "n": 48
+    },
+    "reelPeakW": {
+     "mean": 32.274,
+     "p10": 0,
+     "p50": 27.873,
+     "p90": 67.633,
+     "min": 0,
+     "max": 229.502,
+     "n": 48
+    },
+    "meanW": {
+     "mean": 6.481,
+     "p10": 4.9,
+     "p50": 6.127,
+     "p90": 7.302,
+     "min": 4.9,
+     "max": 15.854,
+     "n": 48
+    },
+    "keFlyer": {
+     "mean": 25.323,
+     "p10": 18.734,
+     "p50": 21.647,
+     "p90": 47.858,
+     "min": 16.284,
+     "max": 57.079,
+     "n": 35
+    },
+    "kePod": {
+     "mean": 0,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 0,
+     "n": 35
+    },
+    "headFlyer": {
+     "mean": 0.926,
+     "p10": 0.448,
+     "p50": 1.086,
+     "p90": 1.235,
+     "min": 0.025,
+     "max": 1.298,
+     "n": 35
+    },
+    "headLine": {
+     "mean": 0.81,
+     "p10": 0.448,
+     "p50": 0.94,
+     "p90": 1.089,
+     "min": 0.014,
+     "max": 1.142,
+     "n": 35
+    },
+    "artShare": {
+     "mean": 6.784,
+     "p10": 1.758,
+     "p50": 5.342,
+     "p90": 15.235,
+     "min": 0.289,
+     "max": 22.756,
+     "n": 33
+    },
+    "filmShare": {
+     "mean": 44.037,
+     "p10": 0,
+     "p50": 43.804,
+     "p90": 80.738,
+     "min": 0,
+     "max": 81.573,
+     "n": 48
+    },
+    "elevMed": {
+     "mean": 48.445,
+     "p10": 46.206,
+     "p50": 48.957,
+     "p90": 50.222,
+     "min": 44.339,
+     "max": 50.556,
+     "n": 33
+    },
+    "tensionMed": {
+     "mean": 7.085,
+     "p10": 5.574,
+     "p50": 7.214,
+     "p90": 8.717,
+     "min": 3.006,
+     "max": 9.301,
+     "n": 33
+    },
+    "refuseS": {
+     "mean": 20.679,
+     "p10": 0,
+     "p50": 0.196,
+     "p90": 66.612,
+     "min": 0,
+     "max": 66.672,
+     "n": 48
+    },
+    "manual": {
+     "mean": 0,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 0,
+     "n": 48
+    }
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 33,
+    "cut": 0,
+    "broke": 2
+   }
+  },
+  "delta_line": {
+   "over": {
+    "flyer": 0,
+    "camPos": 1
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 5.305,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 312.44,
+     "pass": true,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 24.165,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 59.744,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.96,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 41.632,
+     "pass": false,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 55.355,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.475,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.048,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 82.464,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "product": {
+    "launchSuccess": {
+     "mean": 92.857,
+     "p10": 50,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockFirstTry": {
+     "mean": 76.923,
+     "p10": 0,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 26
+    },
+    "dockTime": {
+     "p50": 23.75,
+     "p90": 33.78,
+     "max": 89.9,
+     "n": 41
+    },
+    "capVrel": {
+     "p50": 0.43,
+     "p90": 0.67,
+     "n": 57
+    },
+    "lowLineShare": {
+     "mean": 99.878,
+     "p10": 99.042,
+     "p50": 100,
+     "p90": 100,
+     "min": 98.836,
+     "max": 100,
+     "n": 35
+    },
+    "lowLenP90": {
+     "mean": 2.181,
+     "p10": 2.155,
+     "p50": 2.184,
+     "p90": 2.203,
+     "min": 2.115,
+     "max": 2.213,
+     "n": 35
+    },
+    "thirdPartyS": {
+     "mean": 47.61,
+     "p10": 0,
+     "p50": 59.98,
+     "p90": 90.38,
+     "min": 0,
+     "max": 111.34,
+     "n": 48
+    },
+    "lineH1p10": {
+     "mean": 0.186,
+     "p10": 0.081,
+     "p50": 0.201,
+     "p90": 0.224,
+     "min": 0.007,
+     "max": 0.266,
+     "n": 35
+    },
+    "lineH3p10": {
+     "mean": 0.167,
+     "p10": 0.061,
+     "p50": 0.144,
+     "p90": 0.269,
+     "min": -0.057,
+     "max": 0.658,
+     "n": 35
+    },
+    "crashes": {
+     "mean": 0.958,
+     "p10": 0,
+     "p50": 1,
+     "p90": 2,
+     "min": 0,
+     "max": 5,
+     "n": 48
+    },
+    "Tmax": {
+     "mean": 32.585,
+     "p10": 0,
+     "p50": 38.084,
+     "p90": 55.781,
+     "min": 0,
+     "max": 106.19,
+     "n": 48
+    },
+    "reelPeakW": {
+     "mean": 83.895,
+     "p10": 0,
+     "p50": 89.678,
+     "p90": 159.235,
+     "min": 0,
+     "max": 230.871,
+     "n": 48
+    },
+    "meanW": {
+     "mean": 6.913,
+     "p10": 5.95,
+     "p50": 6.555,
+     "p90": 7.76,
+     "min": 5.95,
+     "max": 14.393,
+     "n": 48
+    },
+    "keFlyer": {
+     "mean": 31.398,
+     "p10": 19.227,
+     "p50": 30.795,
+     "p90": 45.047,
+     "min": 14.665,
+     "max": 55.355,
+     "n": 35
+    },
+    "kePod": {
+     "mean": 18.725,
+     "p10": 12.345,
+     "p50": 19.041,
+     "p90": 25.698,
+     "min": 0,
+     "max": 28.248,
+     "n": 35
+    },
+    "headFlyer": {
+     "mean": 0.746,
+     "p10": 0.345,
+     "p50": 0.791,
+     "p90": 1.095,
+     "min": 0.072,
+     "max": 1.128,
+     "n": 35
+    },
+    "headLine": {
+     "mean": 0.687,
+     "p10": 0.179,
+     "p50": 0.755,
+     "p90": 1.093,
+     "min": 0.048,
+     "max": 1.109,
+     "n": 35
+    },
+    "artShare": {
+     "mean": 6.02,
+     "p10": 2.201,
+     "p50": 5.867,
+     "p90": 10,
+     "min": 0.825,
+     "max": 16.23,
+     "n": 33
+    },
+    "filmShare": {
+     "mean": 22.634,
+     "p10": 0,
+     "p50": 20.124,
+     "p90": 55.577,
+     "min": 0,
+     "max": 79.203,
+     "n": 48
+    },
+    "elevMed": {
+     "mean": 40.96,
+     "p10": 35.624,
+     "p50": 40.64,
+     "p90": 45.788,
+     "min": 30.157,
+     "max": 51.065,
+     "n": 33
+    },
+    "tensionMed": {
+     "mean": 3.896,
+     "p10": 0.645,
+     "p50": 4.201,
+     "p90": 5.699,
+     "min": 0.025,
+     "max": 6.638,
+     "n": 33
+    },
+    "refuseS": {
+     "mean": 20.895,
+     "p10": 0,
+     "p50": 0,
+     "p90": 66.612,
+     "min": 0,
+     "max": 66.672,
+     "n": 48
+    },
+    "manual": {
+     "mean": 0.083,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 2,
+     "n": 48
+    }
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 34,
+    "cut": 0,
+    "broke": 14
+   }
+  },
+  "kite_fly": {
+   "over": {
+    "flyer": 1,
+    "camPos": 0
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 11.822,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 238.217,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 14.118,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 73.399,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 0.966,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 36.537,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 70.74,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 2.889,
+     "pass": true,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.033,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 90.668,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "product": {
+    "launchSuccess": {
+     "mean": 91.429,
+     "p10": 50,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockFirstTry": {
+     "mean": 75.862,
+     "p10": 0,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 29
+    },
+    "dockTime": {
+     "p50": 13.67,
+     "p90": 31.86,
+     "max": 61.65,
+     "n": 47
+    },
+    "capVrel": {
+     "p50": 0.44,
+     "p90": 0.65,
+     "n": 62
+    },
+    "lowLineShare": {
+     "mean": 99.763,
+     "p10": 98.477,
+     "p50": 100,
+     "p90": 100,
+     "min": 98.256,
+     "max": 100,
+     "n": 35
+    },
+    "lowLenP90": {
+     "mean": 1.916,
+     "p10": 1.607,
+     "p50": 1.94,
+     "p90": 2.191,
+     "min": 1.47,
+     "max": 2.204,
+     "n": 35
+    },
+    "thirdPartyS": {
+     "mean": 51.971,
+     "p10": 0,
+     "p50": 64.66,
+     "p90": 96.56,
+     "min": 0,
+     "max": 106.86,
+     "n": 48
+    },
+    "lineH1p10": {
+     "mean": 0.196,
+     "p10": 0.059,
+     "p50": 0.221,
+     "p90": 0.248,
+     "min": 0.02,
+     "max": 0.335,
+     "n": 35
+    },
+    "lineH3p10": {
+     "mean": 0.943,
+     "p10": 0.171,
+     "p50": 0.896,
+     "p90": 1.713,
+     "min": 0.114,
+     "max": 1.965,
+     "n": 35
+    },
+    "crashes": {
+     "mean": 1.25,
+     "p10": 0,
+     "p50": 1,
+     "p90": 3,
+     "min": 0,
+     "max": 7,
+     "n": 48
+    },
+    "Tmax": {
+     "mean": 25.247,
+     "p10": 0,
+     "p50": 28.021,
+     "p90": 38.876,
+     "min": 0,
+     "max": 126.678,
+     "n": 48
+    },
+    "reelPeakW": {
+     "mean": 35.361,
+     "p10": 0,
+     "p50": 35.919,
+     "p90": 68.628,
+     "min": 0,
+     "max": 185.297,
+     "n": 48
+    },
+    "meanW": {
+     "mean": 6.763,
+     "p10": 4.9,
+     "p50": 6.653,
+     "p90": 8.904,
+     "min": 4.9,
+     "max": 12.483,
+     "n": 48
+    },
+    "keFlyer": {
+     "mean": 37.951,
+     "p10": 24.409,
+     "p50": 36.519,
+     "p90": 59.725,
+     "min": 9.973,
+     "max": 70.74,
+     "n": 35
+    },
+    "kePod": {
+     "mean": 0,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 0,
+     "n": 35
+    },
+    "headFlyer": {
+     "mean": 0.943,
+     "p10": 0.273,
+     "p50": 1.039,
+     "p90": 1.561,
+     "min": 0.108,
+     "max": 1.576,
+     "n": 35
+    },
+    "headLine": {
+     "mean": 0.84,
+     "p10": 0.451,
+     "p50": 0.876,
+     "p90": 1.136,
+     "min": 0.033,
+     "max": 1.242,
+     "n": 35
+    },
+    "artShare": {
+     "mean": 1.653,
+     "p10": 0,
+     "p50": 1.64,
+     "p90": 3.566,
+     "min": 0,
+     "max": 4.704,
+     "n": 33
+    },
+    "filmShare": {
+     "mean": 39.368,
+     "p10": 0,
+     "p50": 43.885,
+     "p90": 81.6,
+     "min": 0,
+     "max": 81.708,
+     "n": 48
+    },
+    "elevMed": {
+     "mean": 46.711,
+     "p10": 42.77,
+     "p50": 48.42,
+     "p90": 50.936,
+     "min": 23.036,
+     "max": 52.112,
+     "n": 33
+    },
+    "tensionMed": {
+     "mean": 10.169,
+     "p10": 7.778,
+     "p50": 9.089,
+     "p90": 15.173,
+     "min": 7.289,
+     "max": 20.042,
+     "n": 33
+    },
+    "refuseS": {
+     "mean": 20.668,
+     "p10": 0,
+     "p50": 0,
+     "p90": 66.612,
+     "min": 0,
+     "max": 66.672,
+     "n": 48
+    },
+    "manual": {
+     "mean": 0,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 0,
+     "n": 48
+    }
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 33,
+    "cut": 0,
+    "broke": 7
+   }
+  },
+  "kite_line": {
+   "over": {
+    "flyer": 1,
+    "camPos": 1
+   },
+   "judged": {
+    "avail": {
+     "stat": "mean",
+     "value": 4.569,
+     "pass": false,
+     "criterion": ">=80"
+    },
+    "pxMed": {
+     "stat": "p50",
+     "value": 269.777,
+     "pass": false,
+     "criterion": ">=300"
+    },
+    "jitterRms": {
+     "stat": "p90",
+     "value": 26.69,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "azRange": {
+     "stat": "p50",
+     "value": 67.85,
+     "pass": true,
+     "criterion": ">=45"
+    },
+    "addedMass": {
+     "stat": "max",
+     "value": 1.012,
+     "pass": true,
+     "criterion": "<=1.5"
+    },
+    "bodyForcePeak": {
+     "stat": "max",
+     "value": 38.152,
+     "pass": true,
+     "criterion": "<=40"
+    },
+    "handsBusy": {
+     "stat": "max",
+     "value": 0,
+     "pass": true,
+     "criterion": "<=5"
+    },
+    "setupTime": {
+     "stat": "p90",
+     "value": 55,
+     "pass": false,
+     "criterion": "<=30"
+    },
+    "ops": {
+     "stat": "p90",
+     "value": 1,
+     "pass": true,
+     "criterion": "<=2"
+    },
+    "keMax": {
+     "stat": "max",
+     "value": 47.57,
+     "pass": false,
+     "criterion": "<=14.9"
+    },
+    "packVol": {
+     "stat": "max",
+     "value": 3.147,
+     "pass": false,
+     "criterion": "<=3"
+    },
+    "headClear": {
+     "stat": "min",
+     "value": 0.05,
+     "pass": false,
+     "criterion": ">=1"
+    },
+    "endurance": {
+     "stat": "min",
+     "value": 88.335,
+     "pass": true,
+     "criterion": ">=45"
+    }
+   },
+   "product": {
+    "launchSuccess": {
+     "mean": 88.571,
+     "p10": 50,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 35
+    },
+    "dockFirstTry": {
+     "mean": 68.182,
+     "p10": 0,
+     "p50": 100,
+     "p90": 100,
+     "min": 0,
+     "max": 100,
+     "n": 22
+    },
+    "dockTime": {
+     "p50": 15.1,
+     "p90": 34.85,
+     "max": 40.7,
+     "n": 34
+    },
+    "capVrel": {
+     "p50": 0.4,
+     "p90": 0.55,
+     "n": 53
+    },
+    "lowLineShare": {
+     "mean": 99.823,
+     "p10": 99.202,
+     "p50": 100,
+     "p90": 100,
+     "min": 98.152,
+     "max": 100,
+     "n": 35
+    },
+    "lowLenP90": {
+     "mean": 2.139,
+     "p10": 2.094,
+     "p50": 2.153,
+     "p90": 2.196,
+     "min": 1.669,
+     "max": 2.229,
+     "n": 35
+    },
+    "thirdPartyS": {
+     "mean": 41.788,
+     "p10": 0,
+     "p50": 35.46,
+     "p90": 92.92,
+     "min": 0,
+     "max": 117.04,
+     "n": 48
+    },
+    "lineH1p10": {
+     "mean": 0.199,
+     "p10": 0.07,
+     "p50": 0.221,
+     "p90": 0.272,
+     "min": 0.063,
+     "max": 0.285,
+     "n": 35
+    },
+    "lineH3p10": {
+     "mean": 0.453,
+     "p10": 0.137,
+     "p50": 0.354,
+     "p90": 0.911,
+     "min": -0.089,
+     "max": 1.372,
+     "n": 35
+    },
+    "crashes": {
+     "mean": 0.833,
+     "p10": 0,
+     "p50": 1,
+     "p90": 2,
+     "min": 0,
+     "max": 6,
+     "n": 48
+    },
+    "Tmax": {
+     "mean": 33.153,
+     "p10": 0,
+     "p50": 39.397,
+     "p90": 51.373,
+     "min": 0,
+     "max": 93.205,
+     "n": 48
+    },
+    "reelPeakW": {
+     "mean": 57.779,
+     "p10": 0,
+     "p50": 48.4,
+     "p90": 106.469,
+     "min": 0,
+     "max": 222.573,
+     "n": 48
+    },
+    "meanW": {
+     "mean": 7.396,
+     "p10": 5.95,
+     "p50": 7.067,
+     "p90": 9.154,
+     "min": 5.95,
+     "max": 13.316,
+     "n": 48
+    },
+    "keFlyer": {
+     "mean": 30.979,
+     "p10": 13.476,
+     "p50": 33.032,
+     "p90": 40.936,
+     "min": 7.889,
+     "max": 47.57,
+     "n": 35
+    },
+    "kePod": {
+     "mean": 14.547,
+     "p10": 5.263,
+     "p50": 15.552,
+     "p90": 21.654,
+     "min": 0,
+     "max": 25.193,
+     "n": 35
+    },
+    "headFlyer": {
+     "mean": 0.841,
+     "p10": 0.144,
+     "p50": 0.905,
+     "p90": 1.213,
+     "min": 0.056,
+     "max": 1.572,
+     "n": 35
+    },
+    "headLine": {
+     "mean": 0.785,
+     "p10": 0.169,
+     "p50": 0.892,
+     "p90": 1.144,
+     "min": 0.05,
+     "max": 1.242,
+     "n": 35
+    },
+    "artShare": {
+     "mean": 12.768,
+     "p10": 4.839,
+     "p50": 12.179,
+     "p90": 22.405,
+     "min": 2.156,
+     "max": 28.261,
+     "n": 32
+    },
+    "filmShare": {
+     "mean": 26.793,
+     "p10": 0,
+     "p50": 21.336,
+     "p90": 72.144,
+     "min": 0,
+     "max": 79.957,
+     "n": 48
+    },
+    "elevMed": {
+     "mean": 44.94,
+     "p10": 30.652,
+     "p50": 48.061,
+     "p90": 51.499,
+     "min": 20.697,
+     "max": 53.799,
+     "n": 32
+    },
+    "tensionMed": {
+     "mean": 9.153,
+     "p10": 5.555,
+     "p50": 7.949,
+     "p90": 14.753,
+     "min": 4.482,
+     "max": 17.142,
+     "n": 32
+    },
+    "refuseS": {
+     "mean": 20.622,
+     "p10": 0,
+     "p50": 0,
+     "p90": 66.612,
+     "min": 0,
+     "max": 66.672,
+     "n": 48
+    },
+    "manual": {
+     "mean": 0.083,
+     "p10": 0,
+     "p50": 0,
+     "p90": 0,
+     "min": 0,
+     "max": 2,
+     "n": 48
+    }
+   },
+   "counts": {
+    "cases": 48,
+    "flown": 32,
+    "cut": 0,
+    "broke": 15
+   }
+  }
+ }
+}

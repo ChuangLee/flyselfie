@@ -1,0 +1,140 @@
+{
+ "generated": "2026-10-20",
+ "evidence": "independent re-audit of numerical-uncalibrated simulations; not a physical test",
+ "reproduction": {
+  "kite2": {
+   "matchesClaimed": true,
+   "cases": 39,
+   "maxAbsDiff": 0,
+   "diffs": [],
+   "note": "evaluateCase on the copy reproduces dev/kite2/ensemble_rows.json to <0.001 in every judged column"
+  },
+  "towglider": {
+   "matchesClaimed": true,
+   "diffs": {
+    "avail": 0,
+    "setupTime": 0,
+    "ops": 0,
+    "bodyForcePeak": 0,
+    "keMax": 0,
+    "pxMed": 0,
+    "jitterRms": 0,
+    "azRange": 0,
+    "E": 0,
+    "filmS": 0
+   },
+   "recomputed": {
+    "availMean": 61.367,
+    "availP10": 0,
+    "setupP90": 10.9,
+    "setupMax": 571.496,
+    "opsP90": 1,
+    "opsMax": 3,
+    "bodyForceMax": 10.605,
+    "keMax": 12.914,
+    "endurance": 54.974,
+    "jitterP90": 2.284,
+    "jitterMax": 6.519,
+    "pxMedMean": 445.97,
+    "azRangeMean": 85.491,
+    "counts": {
+     "cases": 39,
+     "gated": 6,
+     "released": 1,
+     "cut": 0
+    }
+   },
+   "byWind": {
+    "U0": 71.92,
+    "U3": 72.893,
+    "U6": 55.217,
+    "U9": 53.355
+   },
+   "byWindNotGated": {
+    "U0": 71.92,
+    "U3": 72.893,
+    "U6": 73.622,
+    "U9": 71.14
+   },
+   "releasedCases": [
+    {
+     "id": "crossR9_s12",
+     "setupTime": 571.496,
+     "ops": 3,
+     "pickUp": 570.496
+    }
+   ]
+  },
+  "leapfrog": {
+   "matchesClaimed": true,
+   "diffs": 0,
+   "note": "dev run_all.mjs re-run on a copy: all 39 rows identical to dev/leapfrog/results.json (0 differing fields excluding compute ms); judged stats recomputed independently from the rows"
+  },
+  "descentglider": {
+   "matchesClaimed": true,
+   "diffs": "run_all.mjs re-run in a copy: all 39 ensemble rows, summary, byWind, sensitivities and dt table identical to dev/descentglider/results.json. Only difference: results.json scenarios.* show STALE ensemble constants (e.g. fullrun avail 29.25, jitterRms 24.0 FAIL, keMax 18.93, ensRange max 99.1) from an older ensemble.js; the regenerated ensemble.js (repo) gives 29.89 / 1.39 / 18.02 / 69.8. Reporting inconsistency only."
+  }
+ },
+ "checks": [
+  {
+   "id": "A2-X-01",
+   "metric": "avail denominator",
+   "finding": "criteria.js: share of skiing time. Developers use different masks: kite2 excludes t<2 s and v≤2 m/s (+2.8 pp), towglider v>2 m/s (+0.7), descentglider v>2 m/s (+0.3/+0.8 flown), leapfrog speed>2 (+0.2). The matrix uses the auditor riding-mask (fullrun col.riding) value for all. Refused-launch/no-fly runs count 0 for all four (consistent).",
+   "favours": "kite2 most (still passes)"
+  },
+  {
+   "id": "A2-X-02",
+   "metric": "jitterRms",
+   "finding": "ITERATE_BRIEF does not fix the ensemble statistic for jitter; developers report p90 of their own jitter metric with different masks (descentglider drops lens-edge frames; towglider own metric vs integrator). The matrix uses p90 of the shared footageStability(R) subject RMS over all flown cases for every concept (kite2 39, towglider 33, leapfrog 30, descentglider 17). This flips towglider (2.28 → 3.40) and descentglider (1.39 → 18.1) to FAIL; kite2 1.01 and leapfrog 1.01 pass.",
+   "favours": "descentglider and towglider in the dev tables"
+  },
+  {
+   "id": "A2-X-03",
+   "metric": "ops",
+   "finding": "Brief says ops p90 AND max are reported; criteria judge ≤2 on p90. All four concepts have max 3 (kite2 7.7 %, towglider 1 run, leapfrog 1 run, descentglider 15 % → p90 3). If max were judged, all four fail equally. descentglider did not count the recovery action in non-resting runs (fixed by audit → p90 3).",
+   "favours": "descentglider (dev table)"
+  },
+  {
+   "id": "A2-X-04",
+   "metric": "setupTime",
+   "finding": "kite2, towglider, descentglider simulate the standstill (dock/park/landing/walk); leapfrog uses an assumed constant 4 s + 10 s and does not charge the 30–40 m end retrieval ride (25.3 s with it; still passes). towglider extends the final hold to 30 s (declared; neutral — identical with the shared 10 s hold).",
+   "favours": "leapfrog (mildly)"
+  },
+  {
+   "id": "A2-X-05",
+   "metric": "endurance",
+   "finding": "Bases differ: leapfrog uses flown cases only (conservative; 80.0 with all), descentglider includes no-fly cases, kite2 includes a winch-regeneration credit (79.5 without). The shared enduranceMin() adds the 0.6 W heater only to the filming load, not to time charging on the lift (leapfrog 51.2, descentglider 66.5 min if charged). All still pass ≥45 min; towglider (hip-pack power over the leash, no in-flight charging) is the only one whose margin depends on a conductor resistance (≥≈7 Ω/m → fail).",
+   "favours": "small, mixed; fix enduranceMin to charge heater over charging time"
+  },
+  {
+   "id": "A2-X-06",
+   "metric": "keMax",
+   "finding": "All judged on ensemble max in the ground frame beyond 1.5 m; consistent. towglider and leapfrog wind gates read the TRUE case mean wind (oracle); descentglider uses a measured wind and its interlock failed to trip in tail6_s11 (18 J) — the more realistic gate is penalised. With gate bypass leapfrog 16.4–40.8 J, towglider 14.6–19.2 J.",
+   "favours": "towglider and leapfrog vs descentglider"
+  },
+  {
+   "id": "A2-X-07",
+   "metric": "safety gates outside the 12 metrics",
+   "finding": "Proximity/line hazards are computed but not judged: kite2 line 0.9–1.5 m above snow 1 m behind the rider in every run (own gate ≥2.0 m) and canopy dragged on snow in 10/39 runs; towglider 0.78–0.90 m from the helmet (own limit 1.0 m) in calm and slow-rider tailwind; descentglider head pass <1.5 m in 3 and landing <2.5 m in 4 of 17 flown runs plus one 69.8 m geofence breach; leapfrog geofence breach only on gate bypass, landing ahead of the rider at every stop. The 12-metric table alone flatters kite2 most.",
+   "favours": "kite2 most, then descentglider, towglider"
+  },
+  {
+   "id": "A2-X-08",
+   "metric": "packVol",
+   "finding": "Design estimates only, none measured. towglider 2.91 L is geometrically inconsistent (97 mm chord in an 80 mm tube) → ≈4.2 L FAIL. Others plausible but unverified.",
+   "favours": "towglider (dev table)"
+  },
+  {
+   "id": "A2-X-09",
+   "metric": "mass budgets",
+   "finding": "All four reproduce arithmetically from components.js +15 % (kite2 86.3 g, towglider 128.8 g, leapfrog 168.5 g, descentglider 124 g; all <250 g C0). Deviations: leapfrog 20 g/3 W camera and 4 g NPU instead of the 11 g vision computer (176.5 g with the shared part → KE cap 13.0 m/s); kite2 omits ≈3 g of slot/reef/douse hardware (89.7 g → KE fail); descentglider 30 g airframe optimistic. Masses are knife-edge for kite2 and leapfrog KE.",
+   "favours": "kite2, leapfrog"
+  },
+  {
+   "id": "A2-X-10",
+   "metric": "envelope",
+   "finding": "Envelope avail is self-defined per concept (leapfrog: drops exactly the gate-refused cases; towglider: launched runs; descentglider: ≤3 m/s; kite2: none needed). Only the full 39-case mean is comparable; envelope figures are reported for context only.",
+   "favours": "leapfrog in envelope-only comparisons"
+  }
+ ]
+}

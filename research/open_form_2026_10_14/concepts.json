@@ -1,0 +1,198 @@
+[
+  {
+    "id": "O01",
+    "name": "可收拢摄影尾臂",
+    "hypothesis": "从腰背侧展开轻臂到后侧视点；360或鱼眼自动裁切；支架基础已有[9]",
+    "first_falsification": "动作晃动、衣物/人体遮挡、突出物和收拢负担是否大于画面收益",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O02",
+    "name": "卷尺式摄影臂",
+    "hypothesis": "卷曲复合材料展开成承载截面，减少关节；借鉴展开结构[23]",
+    "first_falsification": "临界屈曲、反复循环、边缘和展开能量是否可控制",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O03",
+    "name": "充气或可变刚度摄影臂",
+    "hypothesis": "使用时形成支撑，不用时软折叠",
+    "first_falsification": "重量/泵/密封是否抵消便利；低温、侧风与振动能否接受",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O04",
+    "name": "可调方位的背负摄影弧",
+    "hypothesis": "在少数预定侧后位置切换，改变真实机位",
+    "first_falsification": "转动范围是否碰人、碰杆或侵入他人通行空间；不默认滑行中自由环绕",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O05",
+    "name": "双雪杖轻镜头",
+    "hypothesis": "两个真实低位/侧位视点，自动选素材；单杖支架基础已有[10][11]",
+    "first_falsification": "头部/全身画面是否足够，雪杖动作与手腕负担是否受影响",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O06",
+    "name": "分体镜头摄影臂",
+    "hypothesis": "将较重供电/记录移近身体，减少端部惯性",
+    "first_falsification": "完整重量、线缆、接头与低温画质是否仍优于普通相机",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O07",
+    "name": "潜望式遥置光学入口",
+    "hypothesis": "用光学路径而非完整电子相机移动入射视点",
+    "first_falsification": "可实现视场、口径、光损失、校准和成本；优先光学桌面实验",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O08",
+    "name": "轻量气动随行相机",
+    "hypothesis": "风筝/滑翔翼承载轻镜头，机械收放",
+    "first_falsification": "可用视点是否受风向支配，失风/回收是否比机械臂麻烦",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O09",
+    "name": "翼面卸载摄影臂",
+    "hypothesis": "杆限定位置，翼面只分担部分载荷",
+    "first_falsification": "是否引发颤振或更大根部载荷，整套是否真正减重",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O10",
+    "name": "自转旋翼随行相机",
+    "hypothesis": "来流驱动转子，探索不同收纳与升力形式",
+    "first_falsification": "启动风速、噪振、旋转防护及绳缠绕是否劣于普通翼",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O11",
+    "name": "浮力辅助相机",
+    "hypothesis": "气囊降低低速承重需求，翼/尾面约束运动",
+    "first_falsification": "囊体体积、迎风面积和充装是否使背负目标失效",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O12",
+    "name": "环境适应型便携跟拍机",
+    "hypothesis": "以防雪粉、可找回和手套交互为主轴；飞行基础已有[1][2][5]",
+    "first_falsification": "环境防护新增质量是否牺牲有效画质/续航，失跟恢复是否方便",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O13",
+    "name": "机会镜头飞行相机盒",
+    "hypothesis": "日常收纳，只为高价值短片起飞，身体相机持续记录",
+    "first_falsification": "频繁启停是否比持续飞行更费事；初期只研究停稳交接",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O14",
+    "name": "全景飞行相机",
+    "hypothesis": "飞行位置与后期朝向解耦，减少拍摄时瞄准",
+    "first_falsification": "飞行器遮挡、拼接和裁切细节是否抵消视角自由",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O15",
+    "name": "供电系留旋翼相机",
+    "hypothesis": "将部分电源放在身体附近，以有界空间换持续供能",
+    "first_falsification": "电缆质量、压降、风阻、人体附近旋翼和绳路后果",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O16",
+    "name": "两机轮换拍摄",
+    "hypothesis": "一机休息/回收，一机提供镜头，避免单机承担全部任务",
+    "first_falsification": "第二台及调度的负担是否远大于额外可用影像；不优先做第一代",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O17",
+    "name": "瞬时弹射/抛投镜头",
+    "hypothesis": "用短时弹道获取一个高位特写，省持续承重",
+    "first_falsification": "接收和失败后果；它只提供瞬时镜头，不满足连续跟拍主任务",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O18",
+    "name": "牵引摄影小滑橇",
+    "hypothesis": "雪面承重，轻杆提供外部视点",
+    "first_falsification": "弯道内切、追尾、绳路、障碍及低速回收是否可接受",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O19",
+    "name": "主动雪面摄影机器人",
+    "hypothesis": "履带/滑板或混合推进，主动选择后侧视点",
+    "first_falsification": "粉雪阻力、制动、转弯与坡度；不是把室内跟随车换轮子即可",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O20",
+    "name": "精选机位摄影雪道",
+    "hypothesis": "固定侧位/前侧/高位机位串联，用户直接取成片；基础已有[14]",
+    "first_falsification": "机位覆盖、身份关联、遮挡与交付体验；需要场地服务边界",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O21",
+    "name": "会认人的索道摄影机",
+    "hypothesis": "索限定运动，传感与轨迹规划控制构图；线缆摄影基础已有[12][13]",
+    "first_falsification": "同速目标跟踪、索垂度、阻尼、端部制动；不把自动往返当识人",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O22",
+    "name": "可搬摄影接力包",
+    "hypothesis": "教练/训练营沿动作区预放少量相机，自动关联剪辑",
+    "first_falsification": "布置和回收时间能否被多次/多人使用摊薄",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O23",
+    "name": "停栖式机动机位",
+    "hypothesis": "飞行换位，停在专用结构上停桨拍摄；停栖机构可借鉴[22]",
+    "first_falsification": "自动接近、固定、解除与场地管理是否成立；不宣称任意树枝自治",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O24",
+    "name": "同伴互拍网络",
+    "hypothesis": "同伴身上的相机提供真实外部视点，系统识人、同步、挑片",
+    "first_falsification": "是否需要刻意保持队形；用户独行时无法满足该路线前提",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O25",
+    "name": "环境机位＋随身识别件",
+    "hypothesis": "轻量标识/定位补充视觉身份，给固定/移动镜头找目标",
+    "first_falsification": "身份误关联、雪道交汇、遮挡后恢复；定位件不直接等于画面质量",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O26",
+    "name": "自动镜头导演",
+    "hypothesis": "从真实多机位中选择时机、构图、镜头顺序，可先离线",
+    "first_falsification": "是否胜过简单固定裁切/固定机位，是否让用户多做准备",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O27",
+    "name": "有限可信新视点",
+    "hypothesis": "同步多机观测支撑局部插值，原片和重建分别保存[19][20]",
+    "first_falsification": "对未参与重建的第三视点能否保真；无观测支撑时应退回原片",
+    "status": "research hypothesis, not validated"
+  },
+  {
+    "id": "O28",
+    "name": "身体常驻相机＋外部高光机位",
+    "hypothesis": "常驻相机保连续，外部杆/飞行/场地补少数精彩镜头",
+    "first_falsification": "整套携带、充电、同步是否值得；连续记录不等于连续外部跟拍",
+    "status": "research hypothesis, not validated"
+  }
+]

@@ -1,0 +1,154 @@
+{
+  "task": "RES-030",
+  "actor": "physical-research",
+  "accessed_local_date": "2026-10-14",
+  "accessed_timezone": "America/Los_Angeles",
+  "method": "firecrawl CLI not found by command -v; fallback to web search and opened official HTML pages. Videos, physical products and original camera footage were not independently tested.",
+  "sources": [
+    {
+      "id": "P01",
+      "source_url": "https://store.insta360.com/GB/product/third_person_backpack_mount",
+      "title": "Third-Person Backpack Mount — Insta360 Store",
+      "access_depth": "Official product HTML opened; relevant text read; no footage testing",
+      "source_type": "manufacturer_product_page",
+      "claim": "已有背包绑带、腰带和碳纤杆构成的第三人称拍摄架；厂商宣称360相机可免手持拍摄。",
+      "evidence_quote": "Capture every angle hands-free with your 360 camera.",
+      "locator": "Product introduction, lines 27–32 of opened page",
+      "limits": "免手持是厂商使用描述，不代表无人体载荷、无晃动、无摔倒风险或无遮挡；页面不提供雪地长时间盲测或摔倒试验。安装/调节仍需人手。"
+    },
+    {
+      "id": "P02",
+      "source_url": "https://onlinemanual.insta360.com/skipolemount/en-us/faq",
+      "title": "Ski Pole Mount FAQ — Insta360 Online Manual",
+      "access_depth": "Official FAQ HTML read in full",
+      "source_type": "manufacturer_manual",
+      "claim": "雪杖夹具约120g，适配14–22mm杆径；FAQ推荐1m Action杆，也列70cm、114cm杆兼容性。",
+      "evidence_quote": "Weight: approximately 120g",
+      "locator": "Q1, Q3 and Q4; lines 10–26",
+      "limits": "120g只指夹具，不含相机与自拍杆。不能从兼容性推出滑雪支撑功能不受影响；夹持、点杖、弯曲和摔倒仍须验证。"
+    },
+    {
+      "id": "P03",
+      "source_url": "https://store.insta360.com/ca/product/ski-pole-mount",
+      "title": "Ski Pole Mount — Insta360 Store",
+      "access_depth": "Official product HTML opened; main feature list read",
+      "source_type": "manufacturer_product_page",
+      "claim": "现成商品将自拍杆装在雪杖上，提供第三人称视角，厂商称无需另握自拍杆。",
+      "evidence_quote": "Attach your selfie stick to your ski pole to unlock amazing third-person skiing perspectives.",
+      "locator": "Product feature list, lines 30–32",
+      "limits": "对本项目的解释：手仍握着雪杖，所谓hands-free不等于手部负荷和动作约束归零。相机位置随雪杖运动，不是独立自由视点；本轮未查看安装视频或测试素材。"
+    },
+    {
+      "id": "P04",
+      "source_url": "https://eu.wiralcam.com/products/wiral-lite",
+      "title": "Wiral LITE — Wiralcam",
+      "access_depth": "Official product HTML opened; technical specifications and package read",
+      "source_type": "manufacturer_product_page",
+      "claim": "线缆摄影产品提供50m绳盘；主机590g、绳盘370g、遥控器70g；厂商标称最高9.5m/s、相机载荷至1.5kg。30度倾斜标称注明约200g运动相机条件。",
+      "evidence_quote": "Up to 30 degrees inclination*",
+      "locator": "What's in the kit; Technical Specifications lines 217–482; inclination footnote line 332",
+      "limits": "主机590g不可写成整套重量。标称3分钟布置和最高3小时电池寿命不是本项目验证；速度/载荷/坡度上限不保证可同时达到。网页显示Out of Stock，不能据此认定可即时采购。必须预布线并限定拍摄走廊，不能自由跟随任意路线。"
+    },
+    {
+      "id": "P05",
+      "source_url": "https://eu.wiralcam.com/blogs/tutorials/what-you-need-to-know-to-start-creating-content-with-wiral-lite",
+      "title": "Here’s All You Need to Know To Start Creating Content With Wiral LITE",
+      "access_depth": "Official tutorial HTML read; linked videos not inspected",
+      "source_type": "manufacturer_tutorial",
+      "claim": "Wiral将自动Ping Pong Motion明确列为Normal Mode功能；Normal速度0–1.2m/s，Sport人工速度控制可至9.5m/s。",
+      "evidence_quote": "A bonus feature in Normal Mode is the Ping Pong Motion setting",
+      "locator": "How fast does Wiral LITE move?, lines 52–58; published Apr 08, 2020",
+      "limits": "自动往返不是识别人后自动跟随；不能把Normal自动功能与Sport最高速度拼接为高速自主跟拍。2020教程只支持其描述，不证明当前全部固件能力。"
+    },
+    {
+      "id": "P06",
+      "source_url": "https://help.skiline.cc/en/support/solutions/articles/29000034667-skimovie",
+      "title": "Skimovie — Skiline Help Center",
+      "access_depth": "Official help HTML read in full",
+      "source_type": "service_provider_documentation",
+      "claim": "Skimovie已有固定赛道自动拍摄服务：用户到安装点、起点扫描雪票、滑行后在App取片。",
+      "evidence_quote": "Scan your ski pass at the start and start skiing",
+      "locator": "This is how it works, steps 1–3, lines 8–13",
+      "limits": "限定于已安装设施和赛道；没有证据证明任意雪道连续拍摄、多人交叉身份跟踪成功率或每段都是电影镜头。页面的professional是厂商描述，不是独立画质评价。"
+    },
+    {
+      "id": "P07",
+      "source_url": "https://support.veo.com/hc/en-us/articles/30159089390865-Veo-capabilities-by-sport-features-and-differences-explained",
+      "title": "Veo capabilities by sport: features and differences explained",
+      "access_depth": "Official support HTML read, including supported-sport table and limitations",
+      "source_type": "manufacturer_support_documentation",
+      "claim": "Veo为多种球类运动提供自动Follow Cam；其功能按运动区别，Other Sports列为仅Interactive Player。",
+      "evidence_quote": "For the following sports, you get Interactive Player only:",
+      "locator": "What different sports get; lines 11–16, 65–87; updated August 24, 2026",
+      "limits": "滑雪未在自动跟踪支持表内，不能借球场能力宣称已支持滑雪。只有Interactive Player时整场录像不能直接下载，但Directed Clips可下载。球场摄像可启发固定机位裁切，不证明雪地多人身份跟踪与高质量变焦可行。"
+    },
+    {
+      "id": "P08",
+      "source_url": "https://support.veo.com/hc/en-us/articles/17937774506001-Overview-of-your-Veo-journey-From-setup-to-post-match-insights",
+      "title": "Overview of your Veo journey: From setup to post-match insights",
+      "access_depth": "Official support HTML read, setup and after-game workflow",
+      "source_type": "manufacturer_support_documentation",
+      "claim": "Veo流程要求相机、三脚架、App手机、预先架设和启动，结束后上传；官方称足球AI分析最长8小时、其他运动最长24小时。",
+      "evidence_quote": "Arrive early with your Veo Cam, tripod, and app-ready phone",
+      "locator": "Game day checklist and After the game, lines 29–42; updated September 01, 2026",
+      "limits": "无需摄像师不等于无需布置/回收/账户/上传等待。固定机位覆盖范围受几何限制；不适合直接拿来作随身全雪道产品。"
+    }
+  ],
+  "synthesis": {
+    "status": "以下为本次推理，不是来源已证明的设计结论",
+    "first_principles": [
+      "跟拍的最终交付是从合适视点获得主体动作和环境的连续可用影像；不必要求物理相机始终跟着人移动。",
+      "把拍摄设备载荷转给人体、地面固定支架、预布线或场地方，可避开自由飞行持续悬停；代价分别是人体耦合、固定覆盖和布置成本。",
+      "应把便利拆为用户携带质量、启停操作时间、运动中手部占用、现场布置者和成片等待；不能只用免手持一个词。",
+      "全景后裁切只改变观察方向，不增加相机真实位置；背包杆的视差和遮挡不能靠普通后期裁切凭空消除。"
+    ],
+    "leading_insight": "若目标允许一趟滑行留下少量精品镜头，固定摄影站网络可能同时给出最小随身负担与大基线视点；若要求任意线路全程覆盖，人体支架是最重要的现实基准。"
+  },
+  "concepts": [
+    {
+      "id": "PH-C1",
+      "name": "可收拢的摄影尾臂：背包即摄影师",
+      "hypothesis": "低质量镜头端、背包侧处理/电源、可折叠杆与有限行程隔振，可以在不额外占手的前提下产生稳定的后上方全身视点。",
+      "basis": ["P01"],
+      "innovation_boundary": "现有背包架已经证明商品类别存在；镜头分体、自动伸缩、可控过载折叠是未验证的新设计。",
+      "use_flow": "停下展开/检查，运动中无需持续握持；进人群和乘缆车前收拢。先研究手动收拢，避免把自动收拢当成成熟安全功能。",
+      "falsification": "同长度现成碳杆做基准，比较相机位置误差、成片盲评、根部力矩和收拢时间；若隔振/机构增重抵消画质收益，或允许的接触力与正常动作载荷没有分离窗口，则放弃该机构。"
+    },
+    {
+      "id": "PH-C2",
+      "name": "雪杖即摄影机：两根现有装备生成互补镜头",
+      "hypothesis": "把两个轻镜头分别配置在双雪杖，软件按点杖节奏、遮挡与画面质量择优，可能比单根长杆更不干扰滑行，并获得左右前后交替视点。",
+      "basis": ["P02", "P03"],
+      "innovation_boundary": "单雪杖夹具已商品化；双镜头择优剪辑是本次构想，不能消除镜头真实位置和手腕载荷限制。",
+      "use_flow": "开机配对后照常握双杖；停下收折镜头支架。运动中的手已经被雪杖占用，便利目标是减少额外动作而非零手部负担。",
+      "falsification": "先用录像分析自然点杖轨迹，看可用全身镜头时间占比；如果只有刻意举杆才能构图，或点杖动作/平衡变化明显，则不能称方便自动跟拍。"
+    },
+    {
+      "id": "PH-C3",
+      "name": "摄影雪道：把相机留在最好看的位置",
+      "hypothesis": "在少数转弯、跃台、景观位置布置高低互补镜头，以雪票或可选信标关联片段并自动剪辑，能用零随身大件换取优于随身设备的真实远景/正面/侧面视角。",
+      "basis": ["P06", "P07"],
+      "innovation_boundary": "Skimovie已经提供固定赛道服务；跨机位身份匹配、多种电影镜头组合和非竞速通用雪道部署为待研究扩展。",
+      "use_flow": "场地运营方部署维护；用户登记或扫描雪票后滑行取片。只覆盖设施区，不能宣传全雪道连续跟随。",
+      "falsification": "用多个固定真实机位样片验证主体身份误配、遮挡丢失、远端人物有效像素和片段盲评；若用户只接受任意路线全程记录，或安装密度/单用户成本不可接受，则该服务不满足目标。"
+    },
+    {
+      "id": "PH-C4",
+      "name": "训练营摄影接力包：摄影站可搬但不随人滑",
+      "hypothesis": "教练或小团体一次布置2–3个可折叠固定摄影节点，反复滑同一训练段时，自动选片可将布置成本摊薄，优于每人背一个跟拍载体。",
+      "basis": ["P07", "P08"],
+      "innovation_boundary": "固定球场全景记录提供相邻模式；雪地训练段追踪、主体识别和成片速度均未验证。",
+      "use_flow": "教练停下架设和标定；多人轮流通过；训练后回收。个人单趟使用可能不便利，重复训练才是适配场景。",
+      "falsification": "计入运输、架设、校准、充电、等待与回收的全流程人分钟，除以合格片段数；若无法显著优于同伴手机拍摄或现成三脚架相机，淘汰。"
+    },
+    {
+      "id": "PH-C5",
+      "name": "会认人的线缆摄影机器人",
+      "hypothesis": "将轨迹约束在线缆上，用视觉或信标只解决沿线位置与取景，可把三维飞行控制问题压缩为沿线追随，供训练道和动作区使用。",
+      "basis": ["P04", "P05"],
+      "innovation_boundary": "已有轻量线缆机和自动往返；自动识人、高速同步与安全停靠仍需独立开发验证。不得拼接现有模式声称9.5m/s自主跟随已存在。",
+      "use_flow": "运营方预布专用走廊，用户触发后通过；线缆、锚点、张力、清场和回收均有成本。不能为个人在公共雪道临时架线提供现实承诺。",
+      "falsification": "用实际轨迹回放检查最大加速度、端部制动距离、遮挡跟踪和相机摆动；如果轨迹投影速度超过机构能力，或可接受线缆净空与画面距离冲突，则缩小场景或淘汰。"
+    }
+  ]
+}

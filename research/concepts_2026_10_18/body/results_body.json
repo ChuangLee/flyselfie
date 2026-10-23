@@ -1,0 +1,199 @@
+{
+ "rows": [
+  {
+   "case": "tube OD20x1.0 Emid telescoping+damper L=1.5",
+   "system_mass_kg": 0.71,
+   "com_shift_mm": 4.8,
+   "yaw_I_added_pct": [
+    43,
+    21
+   ],
+   "roll_I_added_pct": [
+    9.2,
+    6.1
+   ],
+   "root_moment_quasistatic_turn_Nm": 6.43,
+   "root_moment_operating_peak_Nm": 12.9,
+   "breakaway_fuse_setting_Nm": 19.3,
+   "boom_failure_moment_Nm": 162.1,
+   "fuse_to_failure_ratio": 8.4,
+   "snag_force_at_tip_with_fuse_N": 12.9,
+   "snag_force_at_tip_no_fuse_N": 108.1,
+   "boom_drag_pct_of_skier": [
+    3.0,
+    2.0
+   ],
+   "KE_tip_hardware_15ms_J": 40.5,
+   "tip_sweep_radius_yaw_m": 1.3,
+   "protrusion_behind_hip_m": 1.3
+  },
+  {
+   "case": "tube OD20x1.0 Emid telescoping+damper L=2.0",
+   "system_mass_kg": 0.76,
+   "com_shift_mm": 7.0,
+   "yaw_I_added_pct": [
+    81,
+    41
+   ],
+   "roll_I_added_pct": [
+    13.0,
+    8.6
+   ],
+   "root_moment_quasistatic_turn_Nm": 9.39,
+   "root_moment_operating_peak_Nm": 18.8,
+   "breakaway_fuse_setting_Nm": 28.2,
+   "boom_failure_moment_Nm": 162.1,
+   "fuse_to_failure_ratio": 5.8,
+   "snag_force_at_tip_with_fuse_N": 14.1,
+   "snag_force_at_tip_no_fuse_N": 81.0,
+   "boom_drag_pct_of_skier": [
+    3.7,
+    2.5
+   ],
+   "KE_tip_hardware_15ms_J": 46.5,
+   "tip_sweep_radius_yaw_m": 1.73,
+   "protrusion_behind_hip_m": 1.73
+  },
+  {
+   "case": "tube OD25x1.2 Emid telescoping+damper L=2.0",
+   "system_mass_kg": 0.87,
+   "com_shift_mm": 8.2,
+   "yaw_I_added_pct": [
+    92,
+    46
+   ],
+   "roll_I_added_pct": [
+    15.5,
+    10.3
+   ],
+   "root_moment_quasistatic_turn_Nm": 11.03,
+   "root_moment_operating_peak_Nm": 22.1,
+   "breakaway_fuse_setting_Nm": 33.1,
+   "boom_failure_moment_Nm": 305.7,
+   "fuse_to_failure_ratio": 9.2,
+   "snag_force_at_tip_with_fuse_N": 16.5,
+   "snag_force_at_tip_no_fuse_N": 152.8,
+   "boom_drag_pct_of_skier": [
+    4.5,
+    3.0
+   ],
+   "KE_tip_hardware_15ms_J": 58.5,
+   "tip_sweep_radius_yaw_m": 1.73,
+   "protrusion_behind_hip_m": 1.73
+  },
+  {
+   "case": "tube OD25x1.2 Emid telescoping+damper L=2.5",
+   "system_mass_kg": 0.95,
+   "com_shift_mm": 11.4,
+   "yaw_I_added_pct": [
+    156,
+    78
+   ],
+   "roll_I_added_pct": [
+    21.2,
+    14.1
+   ],
+   "root_moment_quasistatic_turn_Nm": 15.31,
+   "root_moment_operating_peak_Nm": 30.6,
+   "breakaway_fuse_setting_Nm": 45.9,
+   "boom_failure_moment_Nm": 305.7,
+   "fuse_to_failure_ratio": 6.7,
+   "snag_force_at_tip_with_fuse_N": 18.4,
+   "snag_force_at_tip_no_fuse_N": 122.3,
+   "boom_drag_pct_of_skier": [
+    5.4,
+    3.6
+   ],
+   "KE_tip_hardware_15ms_J": 67.5,
+   "tip_sweep_radius_yaw_m": 2.17,
+   "protrusion_behind_hip_m": 2.17
+  },
+  {
+   "case": "CTM 50x16x0.3 strong-axis(sagittal) L=2.0",
+   "system_mass_kg": 0.65,
+   "com_shift_mm": 5.8,
+   "yaw_I_added_pct": [
+    70,
+    35
+   ],
+   "roll_I_added_pct": [
+    10.4,
+    6.9
+   ],
+   "root_moment_quasistatic_turn_Nm": 7.7,
+   "root_moment_operating_peak_Nm": 15.4,
+   "breakaway_fuse_setting_Nm": 23.1,
+   "boom_failure_moment_Nm": 173.2,
+   "fuse_to_failure_ratio": 7.5,
+   "snag_force_at_tip_with_fuse_N": 11.6,
+   "snag_force_at_tip_no_fuse_N": 86.6,
+   "boom_drag_pct_of_skier": [
+    8.2,
+    5.5
+   ],
+   "KE_tip_hardware_15ms_J": 34.1,
+   "tip_sweep_radius_yaw_m": 1.73,
+   "protrusion_behind_hip_m": 1.73
+  },
+  {
+   "case": "CTM 50x16x0.3 strong-axis(sagittal) L=2.5",
+   "system_mass_kg": 0.68,
+   "com_shift_mm": 7.6,
+   "yaw_I_added_pct": [
+    114,
+    57
+   ],
+   "roll_I_added_pct": [
+    13.7,
+    9.1
+   ],
+   "root_moment_quasistatic_turn_Nm": 10.12,
+   "root_moment_operating_peak_Nm": 20.2,
+   "breakaway_fuse_setting_Nm": 30.4,
+   "boom_failure_moment_Nm": 173.2,
+   "fuse_to_failure_ratio": 5.7,
+   "snag_force_at_tip_with_fuse_N": 12.1,
+   "snag_force_at_tip_no_fuse_N": 69.3,
+   "boom_drag_pct_of_skier": [
+    10.1,
+    6.8
+   ],
+   "KE_tip_hardware_15ms_J": 37.0,
+   "tip_sweep_radius_yaw_m": 2.17,
+   "protrusion_behind_hip_m": 2.17
+  }
+ ],
+ "falls": [
+  {
+   "L_m": 1.5,
+   "alpha_deg": 30,
+   "lean_back_deg_at_tip_contact": 54,
+   "note": "tip contacts snow before buttocks if beta < ~45-60 deg: boom becomes a lever into the lumbar belt; needs fold-down fuse"
+  },
+  {
+   "L_m": 2.0,
+   "alpha_deg": 30,
+   "lean_back_deg_at_tip_contact": 50,
+   "note": "tip contacts snow before buttocks if beta < ~45-60 deg: boom becomes a lever into the lumbar belt; needs fold-down fuse"
+  },
+  {
+   "L_m": 2.5,
+   "alpha_deg": 35,
+   "lean_back_deg_at_tip_contact": 50,
+   "note": "tip contacts snow before buttocks if beta < ~45-60 deg: boom becomes a lever into the lumbar belt; needs fold-down fuse"
+  }
+ ],
+ "chairlift": {
+  "seat_back_clearance_m": 0.1,
+  "max_stowed_protrusion_m": 0.1,
+  "note": "any boom protruding > ~0.1 m behind the back hits the seat back / other riders; stowing is mandatory (assumed geometry)"
+ },
+ "assumptions": {
+  "M_SKIER": 75.0,
+  "DYN_FACTOR": 2.0,
+  "SKIER_CDA": [
+   0.4,
+   0.6
+  ]
+ }
+}
