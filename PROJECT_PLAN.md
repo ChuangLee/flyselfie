@@ -3,7 +3,7 @@
 > 生成视图，请勿手工编辑。数据源：`project/plan.json`；更新：`python3 project/plan.py`。
 > Generated view. Do not edit by hand. Source of truth: `project/plan.json`.
 
-Updated: 2026-10-21T23:31:25-07:00
+Updated: 2026-10-23T09:54:17-07:00
 
 | ID | Title | Owner | Status | Depends | Next |
 |---|---|---|---|---|---|
@@ -27,8 +27,8 @@ Updated: 2026-10-21T23:31:25-07:00
 | SIM-031 | 四方案并行深度开发（含风筝）：物理仿真+动画演示 | frontend | `in_progress` | RES-041, SIM-030 |  |
 | SIM-032 | 主动收放线系留风筝/滑翔跟拍（自动放线-泵升-回收停靠）：科学假设、仿真与多角色评审 | frontend | `done` | SIM-031 |  |
 | SIM-033 | 无杆背包软翼风筝（自动起飞/回收停靠）：可行性、设计迭代与中英文概念宣传视频 | frontend | `done` | SIM-032 |  |
-| SIM-034 | SledPack v2：按用户决定（无杆、不收纳可展开背负、线可短暂近头、速度/风大时飞高飞远、顺风降级、可选自动牵线微调视角）迭代与宣传片更新 | frontend | `in_progress` | SIM-033 |  |
-| REL-001 | 整理项目并发布到 GitHub 公开仓库（中英文文档、贡献指南、宣传片 Release） | project-manager | `in_progress` | SIM-034 |  |
+| SIM-034 | SledPack v2：按用户决定（无杆、不收纳可展开背负、线可短暂近头、速度/风大时飞高飞远、顺风降级、可选自动牵线微调视角）迭代与宣传片更新 | frontend | `done` | SIM-033 |  |
+| REL-001 | 整理项目并发布到 GitHub 公开仓库（中英文文档、贡献指南、宣传片 Release） | project-manager | `done` | SIM-034 |  |
 
 ## Evidence and recent log
 
@@ -190,8 +190,12 @@ Evidence: `research/sledpack_2026_10_21/dev/results.json`, `docs/20-concept-sele
 - 2026-10-21T20:56:43-07:00 [frontend] start: 记录用户决定，委派设计迭代 I10（背负展开停靠、线长随视风调度、顺风降级飞行、差动转向评估）
 - 2026-10-21T22:19:04-07:00 [frontend] update: I10（sledpack@0.2.0）：展开背负、腰带后环出线、线长随视风5–12 m、镜头上仰8°。共享判据8/13；用户修订判据：无接触（最小0.49 m）通过，'短暂'未过（单次最长3.1 s、最多21%骑行时间在1 m内，顺风/强侧风）；停下多为停在雪上再起飞，回背停靠约1/10。v2宣传片渲染与I10独立复核进行中。
 - 2026-10-21T23:31:25-07:00 [frontend] update: I11（sledpack@0.2.1）：线长上限9 m、顺风限5 m/s、背上剥离0.8 s建模、防摆收线。共享8/13；用户修订：不接触与单次≤2 s通过（依赖尾流/脱离模型），累计≤5%未过（26/48）。I10独立复核已完成并处理。docs/20 §11 已写。v2宣传片（含“不止滑雪”片段）渲染中。
+- 2026-10-23T09:54:17-07:00 [frontend] update->done: v2 宣传片（I11，含“不止滑雪”片段，中英文各93 s）完成并部署 https://blind.pub/flyski/media/，已附于 GitHub Release v0.1.0-concept。G-MATURE 仍关闭。
 
 ### REL-001 — 整理项目并发布到 GitHub 公开仓库（中英文文档、贡献指南、宣传片 Release）
 
+Evidence: `LICENSE`
+
 - 2026-10-21T22:26:09-07:00 [project-manager] add: 用户2026-10-21要求：整理项目，上传到用户 GitHub 新公开仓库，中英文文档，README 带宣传性质并鼓励贡献；宣传片增加驾车/摩托/跑步等其他用途片段（未评估，需标注）。
 - 2026-10-21T22:26:10-07:00 [project-manager] start: 清理（排除第三方手册/临时文件/大视频）、双语 README/CONTRIBUTING/索引、MIT 许可；视频作为 Release 附件
+- 2026-10-23T09:54:17-07:00 [project-manager] update->done: 公开仓库 https://github.com/ChuangLee/flyselfie（main，首个提交 ab57a12），Release v0.1.0-concept 附两部宣传片；双语 README/CONTRIBUTING/索引/概览，MIT（代码）+ CC BY 4.0（媒体）；第三方手册、临时文件、大视频已排除；提交使用 GitHub noreply 邮箱。

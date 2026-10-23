@@ -1,7 +1,7 @@
 {
   "meta": {
     "project": "FlySkiSelfie",
-    "updated": "2026-10-21T23:31:25-07:00",
+    "updated": "2026-10-23T09:54:17-07:00",
     "note": "Bootstrapped 2026-10-14 from AGENTS.md and docs/16-project-requirements-en.md. Earlier repository artifacts referenced by the requirements (L1 release, dynamics model, prior plan history, zh requirements) were not present at bootstrap; their status below is copied from the requirements text, not from readable evidence in this repo."
   },
   "tasks": [
@@ -863,7 +863,7 @@
       "id": "SIM-034",
       "title": "SledPack v2：按用户决定（无杆、不收纳可展开背负、线可短暂近头、速度/风大时飞高飞远、顺风降级、可选自动牵线微调视角）迭代与宣传片更新",
       "owner": "frontend",
-      "status": "in_progress",
+      "status": "done",
       "depends": [
         "SIM-033"
       ],
@@ -896,6 +896,12 @@
           "actor": "frontend",
           "action": "update",
           "note": "I11（sledpack@0.2.1）：线长上限9 m、顺风限5 m/s、背上剥离0.8 s建模、防摆收线。共享8/13；用户修订：不接触与单次≤2 s通过（依赖尾流/脱离模型），累计≤5%未过（26/48）。I10独立复核已完成并处理。docs/20 §11 已写。v2宣传片（含“不止滑雪”片段）渲染中。"
+        },
+        {
+          "ts": "2026-10-23T09:54:17-07:00",
+          "actor": "frontend",
+          "action": "update->done",
+          "note": "v2 宣传片（I11，含“不止滑雪”片段，中英文各93 s）完成并部署 https://blind.pub/flyski/media/，已附于 GitHub Release v0.1.0-concept。G-MATURE 仍关闭。"
         }
       ]
     },
@@ -903,11 +909,13 @@
       "id": "REL-001",
       "title": "整理项目并发布到 GitHub 公开仓库（中英文文档、贡献指南、宣传片 Release）",
       "owner": "project-manager",
-      "status": "in_progress",
+      "status": "done",
       "depends": [
         "SIM-034"
       ],
-      "evidence": [],
+      "evidence": [
+        "LICENSE"
+      ],
       "next": "",
       "log": [
         {
@@ -921,6 +929,12 @@
           "actor": "project-manager",
           "action": "start",
           "note": "清理（排除第三方手册/临时文件/大视频）、双语 README/CONTRIBUTING/索引、MIT 许可；视频作为 Release 附件"
+        },
+        {
+          "ts": "2026-10-23T09:54:17-07:00",
+          "actor": "project-manager",
+          "action": "update->done",
+          "note": "公开仓库 https://github.com/ChuangLee/flyselfie（main，首个提交 ab57a12），Release v0.1.0-concept 附两部宣传片；双语 README/CONTRIBUTING/索引/概览，MIT（代码）+ CC BY 4.0（媒体）；第三方手册、临时文件、大视频已排除；提交使用 GitHub noreply 邮箱。"
         }
       ]
     }
